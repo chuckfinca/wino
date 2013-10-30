@@ -8,6 +8,7 @@
 
 #import "InitialTabBarController.h"
 #import "DocumentHandler.h"
+#import "JSONParser.h"
 
 @interface InitialTabBarController ()
 
@@ -57,7 +58,27 @@
     NSLog(@"refresh...");
     
     // this is where the app should check the server for any initial updates
+    [self prepareJSON];
     
 }
+
+-(void)prepareJSON
+{
+    NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"wines" withExtension:@"json"];
+    
+    JSONParser *parser = [[JSONParser alloc] init];
+    [parser prepareJSONatURL:dataURL];
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @end

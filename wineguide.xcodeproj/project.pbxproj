@@ -34,6 +34,8 @@
 		C9061E54181F3CD3003D8A55 /* star_full.png in Resources */ = {isa = PBXBuildFile; fileRef = C9061E51181F3CD3003D8A55 /* star_full.png */; };
 		C9061E55181F3CD3003D8A55 /* star_half.png in Resources */ = {isa = PBXBuildFile; fileRef = C9061E52181F3CD3003D8A55 /* star_half.png */; };
 		C9061E58181F3D2F003D8A55 /* WineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E57181F3D2F003D8A55 /* WineHeaderView.m */; };
+		C98DEFAD1820C8730038216C /* wines.json in Resources */ = {isa = PBXBuildFile; fileRef = C98DEFAC1820C8730038216C /* wines.json */; };
+		C98DEFB018217BE70038216C /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFAF18217BE70038216C /* JSONParser.m */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
 		C9DDD08918201F0C000A6FD7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DDD08818201F0C000A6FD7 /* CoreData.framework */; };
 		C9DDD08C1820307D000A6FD7 /* InitialTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08B1820307D000A6FD7 /* InitialTabBarController.m */; };
@@ -97,6 +99,9 @@
 		C9061E52181F3CD3003D8A55 /* star_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_half.png; path = images/star_half.png; sourceTree = "<group>"; };
 		C9061E56181F3D2F003D8A55 /* WineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineHeaderView.h; path = views/WineHeaderView.h; sourceTree = "<group>"; };
 		C9061E57181F3D2F003D8A55 /* WineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineHeaderView.m; path = views/WineHeaderView.m; sourceTree = "<group>"; };
+		C98DEFAC1820C8730038216C /* wines.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = wines.json; path = "../../../Documents/Wine App/data/wines/wines.json"; sourceTree = "<group>"; };
+		C98DEFAE18217BE70038216C /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONParser.h; path = model/JSONParser.h; sourceTree = "<group>"; };
+		C98DEFAF18217BE70038216C /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONParser.m; path = model/JSONParser.m; sourceTree = "<group>"; };
 		C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentHandler.h; path = model/DocumentHandler.h; sourceTree = "<group>"; };
 		C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentHandler.m; path = model/DocumentHandler.m; sourceTree = "<group>"; };
 		C9DDD08818201F0C000A6FD7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -178,12 +183,12 @@
 		C9061DF4181F07CE003D8A55 /* wineguide */ = {
 			isa = PBXGroup;
 			children = (
-				C9DDD08418201EBF000A6FD7 /* model */,
-				C9061E31181F1E13003D8A55 /* views */,
 				C9061E00181F07CE003D8A55 /* iPhone.storyboard */,
 				C9061E03181F07CE003D8A55 /* iPad.storyboard */,
-				C9061E29181F0A14003D8A55 /* controllers */,
 				C9061E3D181F276D003D8A55 /* xibs */,
+				C9061E29181F0A14003D8A55 /* controllers */,
+				C9061E31181F1E13003D8A55 /* views */,
+				C9DDD08418201EBF000A6FD7 /* model */,
 				C9061DF5181F07CE003D8A55 /* Supporting Files */,
 				C9061E09181F07CE003D8A55 /* Images.xcassets */,
 			);
@@ -278,6 +283,7 @@
 		C9DDD08418201EBF000A6FD7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C98DEFAC1820C8730038216C /* wines.json */,
 				C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */,
 				C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */,
 				C9DDD08D182036D5000A6FD7 /* Model.xcdatamodeld */,
@@ -293,6 +299,8 @@
 				C9DDD0A318208B9B000A6FD7 /* Wine.m */,
 				C9DDD09F1820885C000A6FD7 /* Restaurant+Create.h */,
 				C9DDD0A01820885C000A6FD7 /* Restaurant+Create.m */,
+				C98DEFAE18217BE70038216C /* JSONParser.h */,
+				C98DEFAF18217BE70038216C /* JSONParser.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -375,6 +383,7 @@
 			files = (
 				C9061E05181F07CE003D8A55 /* iPad.storyboard in Resources */,
 				C9061E53181F3CD3003D8A55 /* star_empty.png in Resources */,
+				C98DEFAD1820C8730038216C /* wines.json in Resources */,
 				C9061E55181F3CD3003D8A55 /* star_half.png in Resources */,
 				C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */,
 				C9061E0A181F07CE003D8A55 /* Images.xcassets in Resources */,
@@ -414,6 +423,7 @@
 				C9061E58181F3D2F003D8A55 /* WineHeaderView.m in Sources */,
 				C9DDD0B018208B9C000A6FD7 /* TastingNote.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,
+				C98DEFB018217BE70038216C /* JSONParser.m in Sources */,
 				C9061E40181F27F1003D8A55 /* RestaurantHeaderView.m in Sources */,
 				C9DDD0AA18208B9C000A6FD7 /* Restaurant.m in Sources */,
 				C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */,
