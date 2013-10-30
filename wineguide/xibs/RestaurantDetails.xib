@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantVC">
+            <connections>
+                <outlet property="cityAndStateTV" destination="Tth-1L-f2b" id="AWE-um-vUb"/>
+                <outlet property="restaurantNameTV" destination="AMh-ir-cDL" id="N2Q-Vl-X3R"/>
+                <outlet property="streetAddressTV" destination="T8a-K0-8me" id="jb8-FQ-aN2"/>
+                <outlet property="view" destination="1" id="DBb-2J-Vxe"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1" customClass="RestaurantHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Restaurant name" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMh-ir-cDL" customClass="VariableHeightTV">
+                    <rect key="frame" x="20" y="20" width="280" height="33"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="iZ3-xk-1BP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Street" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8a-K0-8me" customClass="VariableHeightTV">
+                    <rect key="frame" x="20" y="43" width="280" height="33"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Oxw-Gu-eV5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="City, State" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tth-1L-f2b" customClass="VariableHeightTV">
+                    <rect key="frame" x="20" y="66" width="280" height="33"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="WCf-kB-kDQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="T8a-K0-8me" firstAttribute="trailing" secondItem="AMh-ir-cDL" secondAttribute="trailing" id="10q-lN-uym"/>
+                <constraint firstItem="AMh-ir-cDL" firstAttribute="leading" secondItem="T8a-K0-8me" secondAttribute="leading" id="8cV-Ea-Z7X"/>
+                <constraint firstItem="T8a-K0-8me" firstAttribute="trailing" secondItem="Tth-1L-f2b" secondAttribute="trailing" id="BqH-am-gwa"/>
+                <constraint firstItem="AMh-ir-cDL" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="GfJ-is-pub"/>
+                <constraint firstAttribute="trailing" secondItem="AMh-ir-cDL" secondAttribute="trailing" constant="20" symbolic="YES" id="JAb-Lm-nFw"/>
+                <constraint firstItem="Tth-1L-f2b" firstAttribute="top" secondItem="T8a-K0-8me" secondAttribute="bottom" constant="-10" id="O0L-8m-y3I"/>
+                <constraint firstItem="AMh-ir-cDL" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="OgW-4S-567"/>
+                <constraint firstItem="Tth-1L-f2b" firstAttribute="leading" secondItem="T8a-K0-8me" secondAttribute="leading" id="U6F-fD-nrE"/>
+                <constraint firstItem="T8a-K0-8me" firstAttribute="top" secondItem="AMh-ir-cDL" secondAttribute="bottom" constant="-10" id="jnD-3J-w9X"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>
