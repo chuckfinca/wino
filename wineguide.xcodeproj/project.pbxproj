@@ -36,6 +36,7 @@
 		C9061E58181F3D2F003D8A55 /* WineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E57181F3D2F003D8A55 /* WineHeaderView.m */; };
 		C98DEFAD1820C8730038216C /* wines.json in Resources */ = {isa = PBXBuildFile; fileRef = C98DEFAC1820C8730038216C /* wines.json */; };
 		C98DEFB018217BE70038216C /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFAF18217BE70038216C /* JSONParser.m */; };
+		C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFB21821C7E30038216C /* LocationHelper.m */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
 		C9DDD08918201F0C000A6FD7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DDD08818201F0C000A6FD7 /* CoreData.framework */; };
 		C9DDD08C1820307D000A6FD7 /* InitialTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08B1820307D000A6FD7 /* InitialTabBarController.m */; };
@@ -102,6 +103,8 @@
 		C98DEFAC1820C8730038216C /* wines.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = wines.json; path = "../../../Documents/Wine App/data/wines/wines.json"; sourceTree = "<group>"; };
 		C98DEFAE18217BE70038216C /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONParser.h; path = model/JSONParser.h; sourceTree = "<group>"; };
 		C98DEFAF18217BE70038216C /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONParser.m; path = model/JSONParser.m; sourceTree = "<group>"; };
+		C98DEFB11821C7E30038216C /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationHelper.h; path = model/LocationHelper.h; sourceTree = "<group>"; };
+		C98DEFB21821C7E30038216C /* LocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationHelper.m; path = model/LocationHelper.m; sourceTree = "<group>"; };
 		C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentHandler.h; path = model/DocumentHandler.h; sourceTree = "<group>"; };
 		C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentHandler.m; path = model/DocumentHandler.m; sourceTree = "<group>"; };
 		C9DDD08818201F0C000A6FD7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -301,6 +304,8 @@
 				C9DDD0A01820885C000A6FD7 /* Restaurant+Create.m */,
 				C98DEFAE18217BE70038216C /* JSONParser.h */,
 				C98DEFAF18217BE70038216C /* JSONParser.m */,
+				C98DEFB11821C7E30038216C /* LocationHelper.h */,
+				C98DEFB21821C7E30038216C /* LocationHelper.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				C9061E40181F27F1003D8A55 /* RestaurantHeaderView.m in Sources */,
 				C9DDD0AA18208B9C000A6FD7 /* Restaurant.m in Sources */,
 				C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */,
+				C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */,
 				C9DDD0AD18208B9C000A6FD7 /* Varietal.m in Sources */,
 				C9061DFB181F07CE003D8A55 /* main.m in Sources */,
 				C9061E49181F3480003D8A55 /* HomeVC.m in Sources */,
