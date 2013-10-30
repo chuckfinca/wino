@@ -12,7 +12,8 @@
 
 @interface InitialTabBarController ()
 
-@property (nonatomic, readwrite) UIManagedDocument *document;
+@property (nonatomic, strong) UIManagedDocument *document;
+@property (nonatomic, readwrite) NSManagedObjectContext *context;
 
 @end
 
@@ -40,6 +41,7 @@
     if(!self.document){
         [[DocumentHandler sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document){
             self.document = document;
+            self.context = document.managedObjectContext;
             
             // Do any additional work now that the document is ready
             [self refresh];
@@ -60,16 +62,35 @@
     // this is where the app should check the server for any initial updates
     [self prepareJSON];
     
+    // if location services have not been enabled yet
+    // user enables location
+    
+    // at start of app OR after location services have been enabled
+    // get users location
+    // compare location with stored location
+    // if no stored location OR stored location is different than user's location then ask server for restaurants in the users area/city
+    // once downloaded store the restaurant data in db
+    // use local restaurant info to get/display the restaurants near the user
+    
+    // when on the list page we should download the wine menus for the closest 3? restaurants
+    
+    [self checkUserLocation];
+    
 }
 
 -(void)prepareJSON
 {
+
     NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"wines" withExtension:@"json"];
     
     JSONParser *parser = [[JSONParser alloc] init];
     [parser prepareJSONatURL:dataURL];
 }
 
+-(void)checkUserLocation
+{
+    
+}
 
 
 

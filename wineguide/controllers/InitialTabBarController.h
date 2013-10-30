@@ -10,6 +10,6 @@
 
 @interface InitialTabBarController : UITabBarController
 
-@property (nonatomic, readonly) UIManagedDocument *document;
+@property (nonatomic, readonly) NSManagedObjectContext *context;
 
 @end
