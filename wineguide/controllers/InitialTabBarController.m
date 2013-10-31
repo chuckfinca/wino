@@ -34,6 +34,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.view.tintColor = [UIColor colorWithRed:0.666667f green:0.470588f blue:0.650980f alpha:1.0F];
 }
 
 -(void)viewWillAppear:(BOOL)animated
