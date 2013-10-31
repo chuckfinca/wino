@@ -2,7 +2,7 @@
 //  TastingNote.h
 //  wineguide
 //
-//  Created by Charles Feinn on 10/29/13.
+//  Created by Charles Feinn on 10/30/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 
 @interface TastingNote : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * markForDeletion;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSSet *wines;
 @end

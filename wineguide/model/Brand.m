@@ -2,7 +2,7 @@
 //  Brand.m
 //  wineguide
 //
-//  Created by Charles Feinn on 10/29/13.
+//  Created by Charles Feinn on 10/30/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -14,12 +14,12 @@
 
 @implementation Brand
 
-@dynamic name;
-@dynamic markForDeletion;
-@dynamic version;
 @dynamic identifier;
+@dynamic markForDeletion;
+@dynamic name;
+@dynamic version;
 @dynamic restaurants;
-@dynamic wines;
 @dynamic varietals;
+@dynamic wines;
 
 @end

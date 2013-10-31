@@ -2,7 +2,7 @@
 //  Restaurant.m
 //  wineguide
 //
-//  Created by Charles Feinn on 10/29/13.
+//  Created by Charles Feinn on 10/30/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -14,16 +14,16 @@
 
 @implementation Restaurant
 
+@dynamic city;
+@dynamic identifier;
+@dynamic latitude;
+@dynamic longitude;
 @dynamic markForDeletion;
 @dynamic name;
-@dynamic longitude;
-@dynamic latitude;
-@dynamic city;
-@dynamic street;
+@dynamic address;
 @dynamic version;
-@dynamic identifier;
-@dynamic wines;
 @dynamic brands;
 @dynamic varietals;
+@dynamic wines;
 
 @end
