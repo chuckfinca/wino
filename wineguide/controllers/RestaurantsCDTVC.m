@@ -83,13 +83,6 @@
                                                                                        managedObjectContext:self.context
                                                                                          sectionNameKeyPath:nil
                                                                                                   cacheName:nil];
-    for(NSManagedObject *o in self.fetchedResultsController.fetchedObjects){
-        if([o isKindOfClass:[Restaurant class]]){
-            
-            Restaurant *r = (Restaurant *)o;
-            NSLog(@"name = %@",r.name);
-        }
-    }
 }
 
 
@@ -117,7 +110,7 @@
     // Configure the cell...
     
     Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = restaurant.name;
+    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:restaurant.name attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
     
     return cell;
 }
@@ -125,7 +118,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"prepareForSegue...");
-    // Get the new view controller using [segue destinationViewController].
     if([sender isKindOfClass:[UITableViewCell class]]){
         
         UITableViewCell *tvc = (UITableViewCell *)sender;
@@ -134,17 +126,15 @@
         if(indexPath){
             if([segue.destinationViewController isKindOfClass:[RestaurantCDTVC class]]){
                 
-                NSLog(@"RestaurantCDTVC");
-                
+                // Get the new view controller using [segue destinationViewController].
                 RestaurantCDTVC *restaurantCDTVC = (RestaurantCDTVC *)segue.destinationViewController;
                 
+                // Pass the selected object to the new view controller.
                 Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
-                
                 [restaurantCDTVC setupWithRestaurant:restaurant];
             }
         }
     }
-    // Pass the selected object to the new view controller.
 }
 
 

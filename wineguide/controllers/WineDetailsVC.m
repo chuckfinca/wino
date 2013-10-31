@@ -37,6 +37,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self setupTextViews];
+    [self setupReviewsLabel];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,11 +50,41 @@
 
 -(void)setupTextViews
 {
-    [self.wineNameTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:@"vineyard"] andMinimumHeight:V_HEIGHT];
-    [self.yearTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:@"year"] andMinimumHeight:V_HEIGHT];
-    [self.varietalTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:@"varietal"] andMinimumHeight:V_HEIGHT];
-    [self.regionTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:@"region"] andMinimumHeight:V_HEIGHT];
-    [self.alcoholPercentageTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:@"additional info"] andMinimumHeight:V_HEIGHT];
+    NSString *vineyard = @"vineyard";
+    NSAttributedString *vineyardAS = [[NSAttributedString alloc] initWithString:vineyard attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    [self.wineNameTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:vineyard] andMinimumHeight:V_HEIGHT];
+    self.wineNameTV.attributedText = vineyardAS;
+    
+    
+    NSString *year = @"year";
+    NSAttributedString *yearAS = [[NSAttributedString alloc] initWithString:year attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    [self.yearTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:year] andMinimumHeight:V_HEIGHT];
+    self.yearTV.attributedText = yearAS;
+    
+    
+    NSString *varietal = @"varietal";
+    NSAttributedString *varietalAS = [[NSAttributedString alloc] initWithString:varietal attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    [self.varietalTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:varietal] andMinimumHeight:V_HEIGHT];
+    self.varietalTV.attributedText = varietalAS;
+    
+    
+    NSString *region = @"region";
+    NSAttributedString *regionAS = [[NSAttributedString alloc] initWithString:region attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    [self.regionTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:region] andMinimumHeight:V_HEIGHT];
+    self.regionTV.attributedText = regionAS;
+    
+    
+    NSString *additionalInfo = @"additional info";
+    NSAttributedString *additionalInfoAS = [[NSAttributedString alloc] initWithString:additionalInfo attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    [self.alcoholPercentageTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:additionalInfo] andMinimumHeight:V_HEIGHT];
+    self.alcoholPercentageTV.attributedText = additionalInfoAS;
+}
+
+-(void)setupReviewsLabel
+{
+    NSString *reviewsText = @"11 reviews";
+    NSAttributedString *reviewsAS = [[NSAttributedString alloc] initWithString:reviewsText attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1]}];
+    self.numReviewsLabel.attributedText = reviewsAS;
 }
 
 @end

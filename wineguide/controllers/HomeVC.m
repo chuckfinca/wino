@@ -10,6 +10,9 @@
 
 @interface HomeVC () <UIAlertViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *findWinesButton;
+@property (weak, nonatomic) IBOutlet UITextView *appDescriptionTV;
+
 @property (nonatomic) BOOL hasAgreedToLocationServices;
 
 @end
@@ -29,6 +32,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self setupText];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,6 +41,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - Setup
+
+-(void)setupText
+{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    
+    NSString *buttonText = @"Find restaurants near me";
+    NSAttributedString *buttonTitle = [[NSAttributedString alloc] initWithString:buttonText attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline], NSParagraphStyleAttributeName : paragraphStyle, NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [self.findWinesButton setAttributedTitle:buttonTitle forState:UIControlStateNormal];
+    
+    NSString *appDescriptionText = @"The quick and easy way to find a perfect wine off that menu.";
+    self.appDescriptionTV.attributedText = [[NSAttributedString alloc] initWithString:appDescriptionText attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSParagraphStyleAttributeName : paragraphStyle}];
+}
 
 
 #pragma mark - Segues

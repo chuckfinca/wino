@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) UIManagedDocument *document;
 @property (nonatomic, readwrite) NSManagedObjectContext *context;
+@property (nonatomic) BOOL locationServicesEnabled;
 
 @end
 
@@ -60,8 +61,11 @@
 {
     NSLog(@"refresh...");
     
-    // this is where the app should check the server for any initial updates
-    [self updateRestaurants];
+    [self checkUserLocation];
+    
+    if(self.locationServicesEnabled){
+        [self updateRestaurants];
+    }
     
     // if location services have not been enabled yet
     // user enables location
@@ -75,15 +79,11 @@
     
     // when on the list page we should download the wine menus for the closest 3? restaurants
     
-    [self checkUserLocation];
     
 }
 
 -(void)updateRestaurants
 {
-
-    // check to make sure that we can use the users location
-    
     // this will be replaced with a server url when available
     NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
     
@@ -95,6 +95,7 @@
 {
     if([LocationHelper locationServicesEnabled]){
         NSLog(@"locationServicesEnabled");
+        self.locationServicesEnabled = YES;
     }
 }
 

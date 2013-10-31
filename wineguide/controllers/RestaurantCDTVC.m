@@ -78,7 +78,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = @"wine";
+    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"wine" attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
     
     return cell;
 }

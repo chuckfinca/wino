@@ -45,14 +45,14 @@
 
 -(void)setupWithRestaurant:(Restaurant *)restaurant
 {
-    self.restaurantNameTV.text = restaurant.name;
+    self.restaurantNameTV.attributedText = [[NSAttributedString alloc] initWithString:restaurant.name attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]}];
     [self.restaurantNameTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:restaurant.name] andMinimumHeight:V_HEIGHT];
     
-    self.streetAddressTV.text = restaurant.address;
+    self.streetAddressTV.attributedText = [[NSAttributedString alloc] initWithString:restaurant.address attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
     [self.streetAddressTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:restaurant.address] andMinimumHeight:V_HEIGHT];
     
     NSString *cityState = [NSString stringWithFormat:@"%@, %@",restaurant.city, restaurant.state];
-    self.cityAndStateTV.text = cityState;
+    self.cityAndStateTV.attributedText = [[NSAttributedString alloc] initWithString:cityState attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
     [self.cityAndStateTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:cityState] andMinimumHeight:V_HEIGHT];
 }
 
