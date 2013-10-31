@@ -2,7 +2,7 @@
 //  Wine.m
 //  wineguide
 //
-//  Created by Charles Feinn on 10/30/13.
+//  Created by Charles Feinn on 10/31/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -26,6 +26,7 @@
 @dynamic version;
 @dynamic vintage;
 @dynamic lastAccessed;
+@dynamic name;
 @dynamic brand;
 @dynamic restaurants;
 @dynamic tastingNotes;

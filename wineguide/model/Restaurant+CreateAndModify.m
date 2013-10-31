@@ -29,11 +29,10 @@
 {
     Restaurant *restaurant = nil;
     
-    restaurant = (Restaurant *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:@"Restaurant" inContext:context usingDictionary:dictionary];
+    restaurant = (Restaurant *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:ENTITY_NAME inContext:context usingDictionary:dictionary];
     
     if(restaurant){
         if([restaurant.version intValue] == 0 || restaurant.version < dictionary[VERSION]){
-            NSLog(@"success! = %@", [restaurant class]);
             
             restaurant.markForDeletion = dictionary[MARK_FOR_DELETION] ? dictionary[MARK_FOR_DELETION] : @NO;
             restaurant.name = dictionary[NAME];

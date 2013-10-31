@@ -2,7 +2,7 @@
 //  Wine.h
 //  wineguide
 //
-//  Created by Charles Feinn on 10/30/13.
+//  Created by Charles Feinn on 10/31/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSNumber * vintage;
 @property (nonatomic, retain) NSDate * lastAccessed;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) Brand *brand;
 @property (nonatomic, retain) NSSet *restaurants;
 @property (nonatomic, retain) NSSet *tastingNotes;
