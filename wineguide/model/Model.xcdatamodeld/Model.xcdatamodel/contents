@@ -2,24 +2,22 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Brand" representedClassName="Brand" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastAccessed" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="markForDeletion" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="restaurants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="brands" inverseEntity="Restaurant" syncable="YES"/>
-        <relationship name="varietals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Varietal" inverseName="brands" inverseEntity="Varietal" syncable="YES"/>
         <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine" inverseName="brand" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <entity name="Restaurant" representedClassName="Restaurant" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastAccessed" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="markForDeletion" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="brands" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Brand" inverseName="restaurants" inverseEntity="Brand" syncable="YES"/>
-        <relationship name="varietals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Varietal" inverseName="restaurants" inverseEntity="Varietal" syncable="YES"/>
         <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine" inverseName="restaurants" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <entity name="TastingNote" representedClassName="TastingNote" syncable="YES">
@@ -32,14 +30,13 @@
         <attribute name="markForDeletion" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="brands" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Brand" inverseName="varietals" inverseEntity="Brand" syncable="YES"/>
-        <relationship name="restaurants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="varietals" inverseEntity="Restaurant" syncable="YES"/>
         <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine" inverseName="varietals" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <entity name="Wine" representedClassName="Wine" syncable="YES">
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastAccessed" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="markForDeletion" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
@@ -53,10 +50,10 @@
         <relationship name="varietals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Varietal" inverseName="wines" inverseEntity="Varietal" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Brand" positionX="36" positionY="72" width="128" height="148"/>
-        <element name="Restaurant" positionX="-198" positionY="153" width="128" height="208"/>
-        <element name="TastingNote" positionX="268" positionY="503" width="128" height="103"/>
-        <element name="Varietal" positionX="18" positionY="434" width="128" height="133"/>
-        <element name="Wine" positionX="252" positionY="149" width="128" height="253"/>
+        <element name="Brand" positionX="45" positionY="71" width="128" height="133"/>
+        <element name="Restaurant" positionX="-198" positionY="153" width="128" height="193"/>
+        <element name="TastingNote" positionX="439" positionY="423" width="128" height="103"/>
+        <element name="Varietal" positionX="18" positionY="434" width="128" height="103"/>
+        <element name="Wine" positionX="252" positionY="149" width="128" height="268"/>
     </elements>
 </model>
