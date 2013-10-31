@@ -50,7 +50,7 @@
 		C9DDD08918201F0C000A6FD7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DDD08818201F0C000A6FD7 /* CoreData.framework */; };
 		C9DDD08C1820307D000A6FD7 /* InitialTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08B1820307D000A6FD7 /* InitialTabBarController.m */; };
 		C9DDD08F182036D5000A6FD7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08D182036D5000A6FD7 /* Model.xcdatamodeld */; };
-		C9DDD0A11820885C000A6FD7 /* Restaurant+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD0A01820885C000A6FD7 /* Restaurant+Create.m */; };
+		C9DDD0A11820885C000A6FD7 /* Restaurant+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD0A01820885C000A6FD7 /* Restaurant+CreateAndModify.m */; };
 		C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F47975181F4D940026A383 /* WineDetailsVC.m */; };
 /* End PBXBuildFile section */
 
@@ -133,8 +133,8 @@
 		C9DDD08A1820307D000A6FD7 /* InitialTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialTabBarController.h; path = controllers/InitialTabBarController.h; sourceTree = "<group>"; };
 		C9DDD08B1820307D000A6FD7 /* InitialTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitialTabBarController.m; path = controllers/InitialTabBarController.m; sourceTree = "<group>"; };
 		C9DDD08E182036D5000A6FD7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		C9DDD09F1820885C000A6FD7 /* Restaurant+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+Create.h"; path = "model/Restaurant+Create.h"; sourceTree = "<group>"; };
-		C9DDD0A01820885C000A6FD7 /* Restaurant+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+Create.m"; path = "model/Restaurant+Create.m"; sourceTree = "<group>"; };
+		C9DDD09F1820885C000A6FD7 /* Restaurant+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CreateAndModify.h"; path = "model/Restaurant+CreateAndModify.h"; sourceTree = "<group>"; };
+		C9DDD0A01820885C000A6FD7 /* Restaurant+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CreateAndModify.m"; path = "model/Restaurant+CreateAndModify.m"; sourceTree = "<group>"; };
 		C9F47974181F4D940026A383 /* WineDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineDetailsVC.h; path = controllers/WineDetailsVC.h; sourceTree = "<group>"; };
 		C9F47975181F4D940026A383 /* WineDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineDetailsVC.m; path = controllers/WineDetailsVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,8 +313,8 @@
 				C98DEFD21822279D0038216C /* Varietal.m */,
 				C98DEFD41822279D0038216C /* Wine.h */,
 				C98DEFD51822279D0038216C /* Wine.m */,
-				C9DDD09F1820885C000A6FD7 /* Restaurant+Create.h */,
-				C9DDD0A01820885C000A6FD7 /* Restaurant+Create.m */,
+				C9DDD09F1820885C000A6FD7 /* Restaurant+CreateAndModify.h */,
+				C9DDD0A01820885C000A6FD7 /* Restaurant+CreateAndModify.m */,
 				C98DEFAE18217BE70038216C /* RestaurantDataHelper.h */,
 				C98DEFAF18217BE70038216C /* RestaurantDataHelper.m */,
 				C98DEFB11821C7E30038216C /* LocationHelper.h */,
@@ -439,7 +439,7 @@
 				C9DDD08C1820307D000A6FD7 /* InitialTabBarController.m in Sources */,
 				C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */,
 				C9061E30181F1C9C003D8A55 /* RestaurantsCDTVC.m in Sources */,
-				C9DDD0A11820885C000A6FD7 /* Restaurant+Create.m in Sources */,
+				C9DDD0A11820885C000A6FD7 /* Restaurant+CreateAndModify.m in Sources */,
 				C98DEFCD1822279D0038216C /* Restaurant.m in Sources */,
 				C98DEFD91822D7740038216C /* JSONTOCoreDataHelper.m in Sources */,
 				C98DEFDC1822DADC0038216C /* WineDataHelper.m in Sources */,

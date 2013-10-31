@@ -7,7 +7,7 @@
 //
 
 #import "RestaurantDataHelper.h"
-#import "Restaurant+Create.h"
+#import "Restaurant+CreateAndModify.h"
 
 @implementation RestaurantDataHelper
 

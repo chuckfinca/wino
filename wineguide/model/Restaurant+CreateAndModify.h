@@ -8,7 +8,7 @@
 
 #import "Restaurant.h"
 
-@interface Restaurant (Create)
+@interface Restaurant (CreateAndModify)
 
 +(Restaurant *)restaurantWithInfo:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context;
 -(void)modifyBasicInfoWithDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context;

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "Restaurant+Create.h"
+#import "Restaurant+CreateAndModify.h"
 
 #define ENTITY_NAME @"Restaurant"
 #define DELETE_BOOL @"delete"
@@ -23,7 +23,7 @@
 #define BRANDS @"brands"
 #define VARIETALS @"varietals"
 
-@implementation Restaurant (Create)
+@implementation Restaurant (CreateAndModify)
 
 +(Restaurant *)restaurantWithInfo:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
 {
