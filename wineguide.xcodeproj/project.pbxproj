@@ -21,8 +21,8 @@
 		C9061E13181F07CE003D8A55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9061DF2181F07CE003D8A55 /* UIKit.framework */; };
 		C9061E1B181F07CE003D8A55 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9061E19181F07CE003D8A55 /* InfoPlist.strings */; };
 		C9061E1D181F07CE003D8A55 /* wineguideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E1C181F07CE003D8A55 /* wineguideTests.m */; };
-		C9061E30181F1C9C003D8A55 /* RestaurantsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E2F181F1C9C003D8A55 /* RestaurantsTVC.m */; };
-		C9061E3A181F216C003D8A55 /* RestaurantTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E39181F216C003D8A55 /* RestaurantTVC.m */; };
+		C9061E30181F1C9C003D8A55 /* RestaurantsCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E2F181F1C9C003D8A55 /* RestaurantsCDTVC.m */; };
+		C9061E3A181F216C003D8A55 /* RestaurantCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E39181F216C003D8A55 /* RestaurantCDTVC.m */; };
 		C9061E3C181F2767003D8A55 /* RestaurantDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9061E3B181F2767003D8A55 /* RestaurantDetails.xib */; };
 		C9061E40181F27F1003D8A55 /* RestaurantHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E3F181F27F1003D8A55 /* RestaurantHeaderView.m */; };
 		C9061E43181F2865003D8A55 /* VariableHeightTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E41181F2865003D8A55 /* VariableHeightTV.m */; };
@@ -80,10 +80,10 @@
 		C9061E18181F07CE003D8A55 /* wineguideTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "wineguideTests-Info.plist"; sourceTree = "<group>"; };
 		C9061E1A181F07CE003D8A55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9061E1C181F07CE003D8A55 /* wineguideTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wineguideTests.m; sourceTree = "<group>"; };
-		C9061E2E181F1C9C003D8A55 /* RestaurantsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantsTVC.h; path = controllers/RestaurantsTVC.h; sourceTree = "<group>"; };
-		C9061E2F181F1C9C003D8A55 /* RestaurantsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantsTVC.m; path = controllers/RestaurantsTVC.m; sourceTree = "<group>"; };
-		C9061E38181F216C003D8A55 /* RestaurantTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantTVC.h; path = controllers/RestaurantTVC.h; sourceTree = "<group>"; };
-		C9061E39181F216C003D8A55 /* RestaurantTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantTVC.m; path = controllers/RestaurantTVC.m; sourceTree = "<group>"; };
+		C9061E2E181F1C9C003D8A55 /* RestaurantsCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantsCDTVC.h; path = controllers/RestaurantsCDTVC.h; sourceTree = "<group>"; };
+		C9061E2F181F1C9C003D8A55 /* RestaurantsCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantsCDTVC.m; path = controllers/RestaurantsCDTVC.m; sourceTree = "<group>"; };
+		C9061E38181F216C003D8A55 /* RestaurantCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantCDTVC.h; path = controllers/RestaurantCDTVC.h; sourceTree = "<group>"; };
+		C9061E39181F216C003D8A55 /* RestaurantCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantCDTVC.m; path = controllers/RestaurantCDTVC.m; sourceTree = "<group>"; };
 		C9061E3B181F2767003D8A55 /* RestaurantDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RestaurantDetails.xib; path = xibs/RestaurantDetails.xib; sourceTree = "<group>"; };
 		C9061E3E181F27F1003D8A55 /* RestaurantHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantHeaderView.h; path = views/RestaurantHeaderView.h; sourceTree = "<group>"; };
 		C9061E3F181F27F1003D8A55 /* RestaurantHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantHeaderView.m; path = views/RestaurantHeaderView.m; sourceTree = "<group>"; };
@@ -240,10 +240,10 @@
 				C9DDD08B1820307D000A6FD7 /* InitialTabBarController.m */,
 				C9061E47181F3480003D8A55 /* HomeVC.h */,
 				C9061E48181F3480003D8A55 /* HomeVC.m */,
-				C9061E2E181F1C9C003D8A55 /* RestaurantsTVC.h */,
-				C9061E2F181F1C9C003D8A55 /* RestaurantsTVC.m */,
-				C9061E38181F216C003D8A55 /* RestaurantTVC.h */,
-				C9061E39181F216C003D8A55 /* RestaurantTVC.m */,
+				C9061E2E181F1C9C003D8A55 /* RestaurantsCDTVC.h */,
+				C9061E2F181F1C9C003D8A55 /* RestaurantsCDTVC.m */,
+				C9061E38181F216C003D8A55 /* RestaurantCDTVC.h */,
+				C9061E39181F216C003D8A55 /* RestaurantCDTVC.m */,
 				C9061E44181F2BF2003D8A55 /* RestaurantDetailsVC.h */,
 				C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */,
 				C9061E4A181F3658003D8A55 /* WineTVC.h */,
@@ -422,7 +422,7 @@
 				C9061E4C181F3658003D8A55 /* WineTVC.m in Sources */,
 				C9DDD08C1820307D000A6FD7 /* InitialTabBarController.m in Sources */,
 				C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */,
-				C9061E30181F1C9C003D8A55 /* RestaurantsTVC.m in Sources */,
+				C9061E30181F1C9C003D8A55 /* RestaurantsCDTVC.m in Sources */,
 				C9DDD0A11820885C000A6FD7 /* Restaurant+Create.m in Sources */,
 				C98DEFBE1821D1EC0038216C /* Brand.m in Sources */,
 				C98DEFB81821D1EB0038216C /* TastingNote.m in Sources */,
@@ -430,7 +430,7 @@
 				C9061DFF181F07CE003D8A55 /* AppDelegate.m in Sources */,
 				C98DEFC41821D1EC0038216C /* Restaurant.m in Sources */,
 				C9061E43181F2865003D8A55 /* VariableHeightTV.m in Sources */,
-				C9061E3A181F216C003D8A55 /* RestaurantTVC.m in Sources */,
+				C9061E3A181F216C003D8A55 /* RestaurantCDTVC.m in Sources */,
 				C98DEFBB1821D1EC0038216C /* Varietal.m in Sources */,
 				C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */,
 				C9061E58181F3D2F003D8A55 /* WineHeaderView.m in Sources */,

@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "RestaurantsTVC.h"
+#import "RestaurantsCDTVC.h"
 
-@interface RestaurantsTVC ()
+@interface RestaurantsCDTVC ()
 
 @end
 
-@implementation RestaurantsTVC
+@implementation RestaurantsCDTVC
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

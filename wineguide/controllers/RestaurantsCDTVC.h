@@ -1,5 +1,5 @@
 //
-//  RestaurantTVC.h
+//  RestaurantsTVC.h
 //  wineguide
 //
 //  Created by Charles Feinn on 10/28/13.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataTableViewController.h"
 
-@interface RestaurantTVC : UITableViewController
+@interface RestaurantsCDTVC : CoreDataTableViewController
 
 @end

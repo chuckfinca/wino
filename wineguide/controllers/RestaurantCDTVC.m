@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "RestaurantTVC.h"
+#import "RestaurantCDTVC.h"
 #import "RestaurantDetailsVC.h"
 
-@interface RestaurantTVC () <UITableViewDelegate, UITableViewDataSource>
+@interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
 
 @end
 
-@implementation RestaurantTVC
+@implementation RestaurantCDTVC
 
 -(id)initWithStyle:(UITableViewStyle)style
 {
