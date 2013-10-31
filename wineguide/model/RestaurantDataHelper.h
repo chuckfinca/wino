@@ -7,11 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSONTOCoreDataHelper.h"
 
-@interface RestaurantDataHelper : NSObject
-
--(id)initWithContext:(NSManagedObjectContext *)context; // designated initializer
-
--(void)updatedRestaurantsWithJSONDataFromURL:(NSURL *)url;
+@interface RestaurantDataHelper : JSONTOCoreDataHelper
 
 @end

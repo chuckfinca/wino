@@ -89,7 +89,7 @@
     NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
     
     RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context];
-    [rdh updatedRestaurantsWithJSONDataFromURL:dataURL];
+    [rdh updateCoreDataWithJSONDataFromURL:dataURL];
 }
 
 -(void)checkUserLocation

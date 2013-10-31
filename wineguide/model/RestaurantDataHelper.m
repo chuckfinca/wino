@@ -9,55 +9,13 @@
 #import "RestaurantDataHelper.h"
 #import "Restaurant+Create.h"
 
-@interface RestaurantDataHelper ()
-
-@property (nonatomic, weak) NSManagedObjectContext *context;
-
-@end
-
-
 @implementation RestaurantDataHelper
 
--(id)initWithContext:(NSManagedObjectContext *)context
+-(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
 {
-    self = [super init];
-    _context = context;
-    return self;
+    NSLog(@"dictionary = %@",dictionary);
+    [Restaurant restaurantWithInfo:dictionary inContext:context];
 }
-
--(void)updatedRestaurantsWithJSONDataFromURL:(NSURL *)url
-{
-    NSLog(@"prepareJSON...");
-    dispatch_queue_t jsonQueue = dispatch_queue_create("JSON_Queue", NULL);
-    dispatch_async(jsonQueue, ^{
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        
-        NSError *error;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
-                                                             options:NSJSONReadingAllowFragments
-                                                               error:&error];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self updateRestaurantsFromJSONDictionary:json];
-        });
-    });
-}
-
-
-
--(void)updateRestaurantsFromJSONDictionary:(NSDictionary *)dictionary
-{
-    if(self.context){
-        for(NSDictionary *restaurantInfo in dictionary){
-            [Restaurant restaurantWithInfo:restaurantInfo inContext:self.context];
-        }
-    } else {
-        NSLog(@"RestaurantDataHelper context = nil");
-    }
-}
-
-
-
-
 
 
 

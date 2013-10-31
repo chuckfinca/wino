@@ -28,7 +28,7 @@
 +(Restaurant *)restaurantWithInfo:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
 {
     Restaurant *restaurant = nil;
-    
+    NSLog(@"dictionary[IDENTIFIER] = %@",dictionary[IDENTIFIER]);
     NSString *restaurantIdentifier = dictionary[IDENTIFIER];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:ENTITY_NAME];

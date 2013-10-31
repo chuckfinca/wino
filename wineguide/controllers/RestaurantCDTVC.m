@@ -47,6 +47,9 @@
 
 -(void)setupWithRestaurant:(Restaurant *)restaurant
 {
+    // get the winelist for that restaurant
+    
+    
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
 }
 
