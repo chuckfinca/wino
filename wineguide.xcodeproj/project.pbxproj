@@ -236,8 +236,6 @@
 		C9061E29181F0A14003D8A55 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C98DEFC51821DA790038216C /* CoreDataTableViewController.h */,
-				C98DEFC61821DA790038216C /* CoreDataTableViewController.m */,
 				C9DDD08A1820307D000A6FD7 /* InitialTabBarController.h */,
 				C9DDD08B1820307D000A6FD7 /* InitialTabBarController.m */,
 				C9061E47181F3480003D8A55 /* HomeVC.h */,
@@ -252,6 +250,8 @@
 				C9061E4B181F3658003D8A55 /* WineTVC.m */,
 				C9F47974181F4D940026A383 /* WineDetailsVC.h */,
 				C9F47975181F4D940026A383 /* WineDetailsVC.m */,
+				C98DEFC51821DA790038216C /* CoreDataTableViewController.h */,
+				C98DEFC61821DA790038216C /* CoreDataTableViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";

@@ -61,7 +61,7 @@
     NSLog(@"refresh...");
     
     // this is where the app should check the server for any initial updates
-    [self prepareJSON];
+    [self updateRestaurants];
     
     // if location services have not been enabled yet
     // user enables location
@@ -79,13 +79,16 @@
     
 }
 
--(void)prepareJSON
+-(void)updateRestaurants
 {
 
+    // check to make sure that we can use the users location
+    
+    // this will be replaced with a server url when available
     NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
     
-    RestaurantDataHelper *parser = [[RestaurantDataHelper alloc] initWithContext:self.context];
-    [parser prepareJSONatURL:dataURL];
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context];
+    [rdh updatedRestaurantsWithJSONDataFromURL:dataURL];
 }
 
 -(void)checkUserLocation

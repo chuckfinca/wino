@@ -12,6 +12,6 @@
 
 -(id)initWithContext:(NSManagedObjectContext *)context; // designated initializer
 
--(void)prepareJSONatURL:(NSURL *)url;
+-(void)updatedRestaurantsWithJSONDataFromURL:(NSURL *)url;
 
 @end

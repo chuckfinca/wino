@@ -25,7 +25,7 @@
     return self;
 }
 
--(void)prepareJSONatURL:(NSURL *)url
+-(void)updatedRestaurantsWithJSONDataFromURL:(NSURL *)url
 {
     NSLog(@"prepareJSON...");
     dispatch_queue_t jsonQueue = dispatch_queue_create("JSON_Queue", NULL);
@@ -48,11 +48,10 @@
 {
     if(self.context){
         for(NSDictionary *restaurantInfo in dictionary){
-            NSLog(@"resaurantInfo = %@",restaurantInfo);
             [Restaurant restaurantWithInfo:restaurantInfo inContext:self.context];
         }
     } else {
-        NSLog(@"context = nil");
+        NSLog(@"RestaurantDataHelper context = nil");
     }
 }
 
