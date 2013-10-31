@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JSONParser : NSObject
+@interface RestaurantDataHelper : NSObject
+
+-(id)initWithContext:(NSManagedObjectContext *)context; // designated initializer
 
 -(void)prepareJSONatURL:(NSURL *)url;
 

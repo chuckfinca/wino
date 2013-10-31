@@ -6,9 +6,24 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "JSONParser.h"
+#import "RestaurantDataHelper.h"
+#import "Restaurant+Create.h"
 
-@implementation JSONParser
+@interface RestaurantDataHelper ()
+
+@property (nonatomic, weak) NSManagedObjectContext *context;
+
+@end
+
+
+@implementation RestaurantDataHelper
+
+-(id)initWithContext:(NSManagedObjectContext *)context
+{
+    self = [super init];
+    _context = context;
+    return self;
+}
 
 -(void)prepareJSONatURL:(NSURL *)url
 {
@@ -16,27 +31,29 @@
     dispatch_queue_t jsonQueue = dispatch_queue_create("JSON_Queue", NULL);
     dispatch_async(jsonQueue, ^{
         NSData *data = [NSData dataWithContentsOfURL:url];
+        
+        NSError *error;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:NSJSONReadingAllowFragments
+                                                               error:&error];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self performSelector:@selector(dictionaryFromJSONData:) withObject:data];
+            [self updateRestaurantsFromJSONDictionary:json];
         });
     });
 }
 
--(void)dictionaryFromJSONData:(NSData *)data
-{
-    NSLog(@"parseJsonData...");
-    
-    NSError *error;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
-                                                         options:NSJSONReadingAllowFragments
-                                                           error:&error];
-    NSLog(@"json = %@",json);
-    NSLog(@"data = %i",data.length);
-}
 
--(void)updateRestaurantsInCoreDataWithDictionary:(NSDictionary *)dictionary
+
+-(void)updateRestaurantsFromJSONDictionary:(NSDictionary *)dictionary
 {
-    
+    if(self.context){
+        for(NSDictionary *restaurantInfo in dictionary){
+            NSLog(@"resaurantInfo = %@",restaurantInfo);
+            [Restaurant restaurantWithInfo:restaurantInfo inContext:self.context];
+        }
+    } else {
+        NSLog(@"context = nil");
+    }
 }
 
 

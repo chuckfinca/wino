@@ -8,7 +8,8 @@
 
 #import "InitialTabBarController.h"
 #import "DocumentHandler.h"
-#import "JSONParser.h"
+#import "LocationHelper.h"
+#import "RestaurantDataHelper.h"
 
 @interface InitialTabBarController ()
 
@@ -81,15 +82,17 @@
 -(void)prepareJSON
 {
 
-    NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"wines" withExtension:@"json"];
+    NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
     
-    JSONParser *parser = [[JSONParser alloc] init];
+    RestaurantDataHelper *parser = [[RestaurantDataHelper alloc] initWithContext:self.context];
     [parser prepareJSONatURL:dataURL];
 }
 
 -(void)checkUserLocation
 {
-    
+    if([LocationHelper locationServicesEnabled]){
+        NSLog(@"locationServicesEnabled");
+    }
 }
 
 

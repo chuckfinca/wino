@@ -15,7 +15,7 @@
 #define LONGITUDE @"longitude"
 #define LATITUDE @"latitude"
 #define CITY @"city"
-#define STREET @"street"
+#define ADDRESS @"address"
 #define VERSION @"version"
 #define IDENTIFIER @"identifier"
 #define WINES @"wines"
@@ -26,12 +26,15 @@
 
 +(Restaurant *)restaurantWithInfo:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
 {
+    
+    NSLog(@"dictionary = %@",dictionary);
     Restaurant *restaurant = nil;
     
     NSString *restaurantIdentifier = dictionary[IDENTIFIER];
+    NSLog(@"restaurantIdentifier = %@",restaurantIdentifier);
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:ENTITY_NAME];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:restaurantIdentifier ascending:YES]];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:IDENTIFIER ascending:YES]];
     request.predicate = [NSPredicate predicateWithFormat:@"identifier = %@",restaurantIdentifier];
     
     NSError *error = nil;
@@ -49,7 +52,7 @@
     } else if ([matches count] == 1){
         // Restaurant already exists
         restaurant = [matches lastObject];
-        if([dictionary[MARK_FOR_DELETION] boolValue] == NO){
+        if([dictionary[MARK_FOR_DELETION] boolValue] == NO && restaurant.version < dictionary[VERSION]){
             [restaurant modifyBasicInfoWithDictionary:dictionary inContext:context];
         }
     } else {
@@ -62,17 +65,17 @@
 
 -(void)modifyBasicInfoWithDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
 {
-    if(!self.version  || self.version < dictionary[VERSION]){
-        NSLog(@"modifing restaurant...");
-        self.markForDeletion = dictionary[MARK_FOR_DELETION];
-        self.name = dictionary[NAME];
-        self.longitude = dictionary[LONGITUDE];
-        self.latitude = dictionary[LATITUDE];
-        self.city = dictionary[CITY];
-        self.street = dictionary[STREET];
-        self.version = dictionary[VERSION];
-        self.identifier = dictionary[IDENTIFIER];
-    }
+    NSLog(@"self.version = %@",self.version);
+    NSLog(@"self.version exists? = %@",self.version ? @"y" : @"n");
+    NSLog(@"modifing restaurant...");
+    self.markForDeletion = dictionary[MARK_FOR_DELETION] ? dictionary[MARK_FOR_DELETION] : @NO;
+    self.name = dictionary[NAME];
+    self.longitude = dictionary[LONGITUDE];
+    self.latitude = dictionary[LATITUDE];
+    self.city = dictionary[CITY];
+    self.address = dictionary[ADDRESS];
+    self.version = dictionary[VERSION];
+    self.identifier = dictionary[IDENTIFIER];
 }
 
 -(void)modifyWinesWithDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
