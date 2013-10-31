@@ -9,29 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Brand, Restaurant, Wine;
+@class Wine;
 
 @interface Varietal : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * markForDeletion;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * version;
-@property (nonatomic, retain) NSSet *brands;
-@property (nonatomic, retain) NSSet *restaurants;
 @property (nonatomic, retain) NSSet *wines;
 @end
 
 @interface Varietal (CoreDataGeneratedAccessors)
-
-- (void)addBrandsObject:(Brand *)value;
-- (void)removeBrandsObject:(Brand *)value;
-- (void)addBrands:(NSSet *)values;
-- (void)removeBrands:(NSSet *)values;
-
-- (void)addRestaurantsObject:(Restaurant *)value;
-- (void)removeRestaurantsObject:(Restaurant *)value;
-- (void)addRestaurants:(NSSet *)values;
-- (void)removeRestaurants:(NSSet *)values;
 
 - (void)addWinesObject:(Wine *)value;
 - (void)removeWinesObject:(Wine *)value;

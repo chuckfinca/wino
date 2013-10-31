@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSNumber * vintage;
+@property (nonatomic, retain) NSDate * lastAccessed;
 @property (nonatomic, retain) Brand *brand;
 @property (nonatomic, retain) NSSet *restaurants;
 @property (nonatomic, retain) NSSet *tastingNotes;

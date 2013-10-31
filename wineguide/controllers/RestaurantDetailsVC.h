@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Restaurant.h"
 
 @interface RestaurantDetailsVC : UIViewController
+
+-(void)setupWithRestaurant:(Restaurant *)restaurant;
 
 @end

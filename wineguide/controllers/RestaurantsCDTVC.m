@@ -42,7 +42,9 @@
     if (self.context){
         [self setupFetchedResultsController];
     }
-    
+    if(self.fetchedResultsController.fetchedObjects > 0){
+        self.title = nil;
+    }
  
 }
 

@@ -7,8 +7,6 @@
 //
 
 #import "Varietal.h"
-#import "Brand.h"
-#import "Restaurant.h"
 #import "Wine.h"
 
 
@@ -17,8 +15,6 @@
 @dynamic markForDeletion;
 @dynamic name;
 @dynamic version;
-@dynamic brands;
-@dynamic restaurants;
 @dynamic wines;
 
 @end

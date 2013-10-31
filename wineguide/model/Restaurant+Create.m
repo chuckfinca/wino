@@ -14,8 +14,9 @@
 #define NAME @"name"
 #define LONGITUDE @"longitude"
 #define LATITUDE @"latitude"
-#define CITY @"city"
 #define ADDRESS @"address"
+#define CITY @"city"
+#define STATE @"state"
 #define VERSION @"version"
 #define IDENTIFIER @"identifier"
 #define WINES @"wines"
@@ -66,8 +67,9 @@
     self.name = dictionary[NAME];
     self.longitude = dictionary[LONGITUDE];
     self.latitude = dictionary[LATITUDE];
-    self.city = dictionary[CITY];
     self.address = dictionary[ADDRESS];
+    self.city = dictionary[CITY];
+    self.state = dictionary[STATE];
     self.version = dictionary[VERSION];
     self.identifier = dictionary[IDENTIFIER];
 }

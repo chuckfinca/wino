@@ -33,7 +33,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self setupTextViews];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,11 +43,17 @@
 
 #define V_HEIGHT 20
 
--(void)setupTextViews
+-(void)setupWithRestaurant:(Restaurant *)restaurant
 {
-    [self.restaurantNameTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:@"restaurant"] andMinimumHeight:V_HEIGHT];
-    [self.streetAddressTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:@"street address"] andMinimumHeight:V_HEIGHT];
-    [self.cityAndStateTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:@"city, state"] andMinimumHeight:V_HEIGHT];
+    self.restaurantNameTV.text = restaurant.name;
+    [self.restaurantNameTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:restaurant.name] andMinimumHeight:V_HEIGHT];
+    
+    self.streetAddressTV.text = restaurant.address;
+    [self.streetAddressTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:restaurant.address] andMinimumHeight:V_HEIGHT];
+    
+    NSString *cityState = [NSString stringWithFormat:@"%@, %@",restaurant.city, restaurant.state];
+    self.cityAndStateTV.text = cityState;
+    [self.cityAndStateTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:cityState] andMinimumHeight:V_HEIGHT];
 }
 
 @end

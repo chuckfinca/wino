@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Brand, Varietal, Wine;
+@class Wine;
 
 @interface Restaurant : NSManagedObject
 
@@ -21,22 +21,12 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSNumber * version;
-@property (nonatomic, retain) NSSet *brands;
-@property (nonatomic, retain) NSSet *varietals;
+@property (nonatomic, retain) NSDate * lastAccessed;
+@property (nonatomic, retain) NSString * state;
 @property (nonatomic, retain) NSSet *wines;
 @end
 
 @interface Restaurant (CoreDataGeneratedAccessors)
-
-- (void)addBrandsObject:(Brand *)value;
-- (void)removeBrandsObject:(Brand *)value;
-- (void)addBrands:(NSSet *)values;
-- (void)removeBrands:(NSSet *)values;
-
-- (void)addVarietalsObject:(Varietal *)value;
-- (void)removeVarietalsObject:(Varietal *)value;
-- (void)addVarietals:(NSSet *)values;
-- (void)removeVarietals:(NSSet *)values;
 
 - (void)addWinesObject:(Wine *)value;
 - (void)removeWinesObject:(Wine *)value;

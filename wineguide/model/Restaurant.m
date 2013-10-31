@@ -7,8 +7,6 @@
 //
 
 #import "Restaurant.h"
-#import "Brand.h"
-#import "Varietal.h"
 #import "Wine.h"
 
 
@@ -22,8 +20,8 @@
 @dynamic name;
 @dynamic address;
 @dynamic version;
-@dynamic brands;
-@dynamic varietals;
+@dynamic lastAccessed;
+@dynamic state;
 @dynamic wines;
 
 @end

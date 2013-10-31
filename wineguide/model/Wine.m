@@ -25,6 +25,7 @@
 @dynamic type;
 @dynamic version;
 @dynamic vintage;
+@dynamic lastAccessed;
 @dynamic brand;
 @dynamic restaurants;
 @dynamic tastingNotes;

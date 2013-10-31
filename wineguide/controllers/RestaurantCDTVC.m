@@ -47,7 +47,7 @@
 
 -(void)setupWithRestaurant:(Restaurant *)restaurant
 {
-    self.title = restaurant.name;
+    [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
 }
 
 #pragma mark - Getters & Setters
