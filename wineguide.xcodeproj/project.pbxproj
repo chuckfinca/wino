@@ -45,7 +45,8 @@
 		C98DEFD61822279D0038216C /* Wine.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFD51822279D0038216C /* Wine.m */; };
 		C98DEFD91822D7740038216C /* JSONTOCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFD81822D7740038216C /* JSONTOCoreDataHelper.m */; };
 		C98DEFDC1822DADC0038216C /* WineDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFDB1822DADC0038216C /* WineDataHelper.m */; };
-		C98DEFDF1822FFA40038216C /* Wine+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFDE1822FFA40038216C /* Wine+CreateAndModify.m */; };
+		C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFE4182310060038216C /* Wine+CreateAndModify.m */; };
+		C98DEFE8182312130038216C /* ManagedObjectHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFE7182312130038216C /* ManagedObjectHandler.m */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
 		C9DDD08918201F0C000A6FD7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DDD08818201F0C000A6FD7 /* CoreData.framework */; };
 		C9DDD08C1820307D000A6FD7 /* InitialTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08B1820307D000A6FD7 /* InitialTabBarController.m */; };
@@ -125,8 +126,10 @@
 		C98DEFD81822D7740038216C /* JSONTOCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONTOCoreDataHelper.m; path = model/JSONTOCoreDataHelper.m; sourceTree = "<group>"; };
 		C98DEFDA1822DADC0038216C /* WineDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineDataHelper.h; path = model/WineDataHelper.h; sourceTree = "<group>"; };
 		C98DEFDB1822DADC0038216C /* WineDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineDataHelper.m; path = model/WineDataHelper.m; sourceTree = "<group>"; };
-		C98DEFDD1822FFA40038216C /* Wine+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Wine+CreateAndModify.h"; sourceTree = "<group>"; };
-		C98DEFDE1822FFA40038216C /* Wine+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Wine+CreateAndModify.m"; sourceTree = "<group>"; };
+		C98DEFE3182310060038216C /* Wine+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Wine+CreateAndModify.h"; path = "model/Wine+CreateAndModify.h"; sourceTree = "<group>"; };
+		C98DEFE4182310060038216C /* Wine+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Wine+CreateAndModify.m"; path = "model/Wine+CreateAndModify.m"; sourceTree = "<group>"; };
+		C98DEFE6182312130038216C /* ManagedObjectHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagedObjectHandler.h; path = model/ManagedObjectHandler.h; sourceTree = "<group>"; };
+		C98DEFE7182312130038216C /* ManagedObjectHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagedObjectHandler.m; path = model/ManagedObjectHandler.m; sourceTree = "<group>"; };
 		C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentHandler.h; path = model/DocumentHandler.h; sourceTree = "<group>"; };
 		C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentHandler.m; path = model/DocumentHandler.m; sourceTree = "<group>"; };
 		C9DDD08818201F0C000A6FD7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -324,8 +327,10 @@
 				C98DEFD81822D7740038216C /* JSONTOCoreDataHelper.m */,
 				C98DEFDA1822DADC0038216C /* WineDataHelper.h */,
 				C98DEFDB1822DADC0038216C /* WineDataHelper.m */,
-				C98DEFDD1822FFA40038216C /* Wine+CreateAndModify.h */,
-				C98DEFDE1822FFA40038216C /* Wine+CreateAndModify.m */,
+				C98DEFE3182310060038216C /* Wine+CreateAndModify.h */,
+				C98DEFE4182310060038216C /* Wine+CreateAndModify.m */,
+				C98DEFE6182312130038216C /* ManagedObjectHandler.h */,
+				C98DEFE7182312130038216C /* ManagedObjectHandler.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */,
 				C98DEFD31822279D0038216C /* Varietal.m in Sources */,
 				C9061E4C181F3658003D8A55 /* WineTVC.m in Sources */,
 				C9DDD08C1820307D000A6FD7 /* InitialTabBarController.m in Sources */,
@@ -444,7 +450,6 @@
 				C98DEFD91822D7740038216C /* JSONTOCoreDataHelper.m in Sources */,
 				C98DEFDC1822DADC0038216C /* WineDataHelper.m in Sources */,
 				C98DEFCA1822279D0038216C /* TastingNote.m in Sources */,
-				C98DEFDF1822FFA40038216C /* Wine+CreateAndModify.m in Sources */,
 				C9DDD08F182036D5000A6FD7 /* Model.xcdatamodeld in Sources */,
 				C9061DFF181F07CE003D8A55 /* AppDelegate.m in Sources */,
 				C98DEFD01822279D0038216C /* Brand.m in Sources */,
@@ -457,6 +462,7 @@
 				C98DEFB018217BE70038216C /* RestaurantDataHelper.m in Sources */,
 				C9061E40181F27F1003D8A55 /* RestaurantHeaderView.m in Sources */,
 				C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */,
+				C98DEFE8182312130038216C /* ManagedObjectHandler.m in Sources */,
 				C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */,
 				C9061DFB181F07CE003D8A55 /* main.m in Sources */,
 				C9061E49181F3480003D8A55 /* HomeVC.m in Sources */,
