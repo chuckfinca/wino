@@ -7,8 +7,13 @@
 //
 
 #import "RestaurantsCDTVC.h"
+#import "RestaurantCDTVC.h"
+#import "Restaurant.h"
+#import "InitialTabBarController.h"
 
 @interface RestaurantsCDTVC ()
+
+@property (nonatomic, weak) NSManagedObjectContext *context;
 
 @end
 
@@ -29,15 +34,60 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    
+    if([self.tabBarController isKindOfClass:[InitialTabBarController class]]){
+        InitialTabBarController *itbc = (InitialTabBarController *)self.tabBarController;
+        self.context = itbc.context;
+    }
+    if (self.context){
+        [self setupFetchedResultsController];
+    }
+    
  
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Setup
+
+#define ENTITY_NAME @"Restaurant"
+#define DELETE_BOOL @"delete"
+#define MARK_FOR_DELETION @"markForDeletion"
+#define NAME @"name"
+#define LONGITUDE @"longitude"
+#define LATITUDE @"latitude"
+#define CITY @"city"
+#define ADDRESS @"address"
+#define VERSION @"version"
+#define IDENTIFIER @"identifier"
+#define WINES @"wines"
+#define BRANDS @"brands"
+#define VARIETALS @"varietals"
+
+-(void)setupFetchedResultsController
+{
+    NSLog(@"setupFetchedResultsController...");
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Restaurant"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                              ascending:YES
+                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
+    request.predicate = nil;
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                                       managedObjectContext:self.context
+                                                                                         sectionNameKeyPath:nil
+                                                                                                  cacheName:nil];
+    for(NSManagedObject *o in self.fetchedResultsController.fetchedObjects){
+        if([o isKindOfClass:[Restaurant class]]){
+            
+            Restaurant *r = (Restaurant *)o;
+            NSLog(@"name = %@",r.name);
+        }
+    }
 }
 
 
@@ -54,7 +104,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [self.fetchedResultsController.fetchedObjects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,60 +113,37 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = @"restaurant";
+    
+    Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = restaurant.name;
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"prepareForSegue...");
     // Get the new view controller using [segue destinationViewController].
+    if([sender isKindOfClass:[UITableViewCell class]]){
+        
+        UITableViewCell *tvc = (UITableViewCell *)sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tvc];
+        
+        if(indexPath){
+            if([segue.destinationViewController isKindOfClass:[RestaurantCDTVC class]]){
+                
+                NSLog(@"RestaurantCDTVC");
+                
+                RestaurantCDTVC *restaurantCDTVC = (RestaurantCDTVC *)segue.destinationViewController;
+                
+                Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
+                
+                [restaurantCDTVC setupWithRestaurant:restaurant];
+            }
+        }
+    }
     // Pass the selected object to the new view controller.
 }
 
- */
 
 @end

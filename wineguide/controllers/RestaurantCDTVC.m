@@ -43,6 +43,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Setup
+
+-(void)setupWithRestaurant:(Restaurant *)restaurant
+{
+    self.title = restaurant.name;
+}
+
 #pragma mark - Getters & Setters
 
 -(RestaurantDetailsVC *)restaurantDetailsViewController
@@ -97,5 +104,6 @@
 }
 
  */
+
 
 @end
