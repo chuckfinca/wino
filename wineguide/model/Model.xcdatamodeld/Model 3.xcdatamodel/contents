@@ -30,6 +30,7 @@
     <entity name="TastingNote" representedClassName="TastingNote" syncable="YES">
         <attribute name="markForDeletion" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine" inverseName="tastingNotes" inverseEntity="Wine" syncable="YES"/>
     </entity>
@@ -49,10 +50,11 @@
         <attribute name="lastAccessed" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="markForDeletion" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
         <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sparkling" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="vineyard" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="vintage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="brand" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Brand" inverseName="wines" inverseEntity="Brand" syncable="YES"/>
         <relationship name="recommendedAs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recommendation" inverseName="wines" inverseEntity="Recommendation" syncable="YES"/>
@@ -64,8 +66,8 @@
         <element name="Brand" positionX="45" positionY="71" width="128" height="133"/>
         <element name="Recommendation" positionX="432" positionY="176" width="128" height="103"/>
         <element name="Restaurant" positionX="-198" positionY="153" width="128" height="208"/>
-        <element name="TastingNote" positionX="439" positionY="423" width="128" height="103"/>
-        <element name="Varietal" positionX="18" positionY="434" width="128" height="103"/>
-        <element name="Wine" positionX="243" positionY="134" width="128" height="328"/>
+        <element name="TastingNote" positionX="439" positionY="423" width="128" height="118"/>
+        <element name="Varietal" positionX="18" positionY="468" width="128" height="103"/>
+        <element name="Wine" positionX="243" positionY="134" width="128" height="343"/>
     </elements>
 </model>

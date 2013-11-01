@@ -35,7 +35,9 @@
                                                              options:NSJSONReadingAllowFragments
                                                                error:&error];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self updateCoreDataWithObjectsFromDictionary:json];
+            if(json){
+                [self updateCoreDataWithObjectsFromDictionary:json];
+            }
         });
     });
 }

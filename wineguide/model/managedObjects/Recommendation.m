@@ -12,9 +12,9 @@
 
 @implementation Recommendation
 
-@dynamic markForDeletion;
 @dynamic name;
 @dynamic version;
+@dynamic markForDeletion;
 @dynamic wines;
 
 @end

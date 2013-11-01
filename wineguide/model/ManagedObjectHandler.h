@@ -13,4 +13,6 @@
 
 +(NSManagedObject *)createOrReturnManagedObjectWithEntityName:(NSString *)entityName inContext:(NSManagedObjectContext *)context usingDictionary:(NSDictionary *)dictionary;
 
++(NSManagedObject *)createOrReturnManagedObjectWithEntityName:(NSString *)entityName andNameAttribute:(NSString *)name inContext:(NSManagedObjectContext *)context;  // this method can only be used for Entities that do have unique names!!
+
 @end

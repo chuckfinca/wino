@@ -27,6 +27,7 @@
 @property (nonatomic, retain) NSNumber * sparkling;
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSNumber * vintage;
+@property (nonatomic, retain) NSString * vineyard;
 @property (nonatomic, retain) Brand *brand;
 @property (nonatomic, retain) NSSet *recommendedAs;
 @property (nonatomic, retain) NSSet *restaurants;

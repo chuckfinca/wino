@@ -10,7 +10,7 @@
 #import "ManagedObjectHandler.h"
 
 #define ENTITY_NAME @"Restaurant"
-#define MARK_FOR_DELETION @"markForDeletion"
+#define DELETE_ENTITY @"markForDeletion"
 #define NAME @"name"
 #define LONGITUDE @"longitude"
 #define LATITUDE @"latitude"
@@ -34,7 +34,7 @@
     if(restaurant){
         if([restaurant.version intValue] == 0 || restaurant.version < dictionary[VERSION]){
             
-            restaurant.markForDeletion = dictionary[MARK_FOR_DELETION] ? dictionary[MARK_FOR_DELETION] : @NO;
+            restaurant.markForDeletion = dictionary[DELETE_ENTITY] ? dictionary[DELETE_ENTITY] : @NO;
             restaurant.name = dictionary[NAME];
             restaurant.longitude = dictionary[LONGITUDE];
             restaurant.latitude = dictionary[LATITUDE];

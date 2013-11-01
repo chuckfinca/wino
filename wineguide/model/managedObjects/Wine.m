@@ -30,6 +30,7 @@
 @dynamic sparkling;
 @dynamic version;
 @dynamic vintage;
+@dynamic vineyard;
 @dynamic brand;
 @dynamic recommendedAs;
 @dynamic restaurants;
