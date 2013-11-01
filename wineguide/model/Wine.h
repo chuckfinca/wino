@@ -20,11 +20,12 @@
 @property (nonatomic, retain) NSNumber * price;
 @property (nonatomic, retain) NSString * region;
 @property (nonatomic, retain) NSNumber * sparkling;
-@property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSString * color;
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSNumber * vintage;
 @property (nonatomic, retain) NSDate * lastAccessed;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * dessert;
 @property (nonatomic, retain) Brand *brand;
 @property (nonatomic, retain) NSSet *restaurants;
 @property (nonatomic, retain) NSSet *tastingNotes;

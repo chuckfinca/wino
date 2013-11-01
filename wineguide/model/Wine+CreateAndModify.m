@@ -15,8 +15,9 @@
 #define NAME @"name"
 #define REGION @"region"
 #define COUNTRY @"country"
-#define TYPE @"type"
+#define COLOR @"color"
 #define SPARKLING @"sparkling"
+#define DESSERT @"dessert"
 #define VARIETALS @"varietals"
 #define PRICE @"price"
 #define TASTING_NOTES @"tastingNotes"
@@ -35,19 +36,20 @@
     if(wine){
         if([wine.version intValue] == 0 || wine.version < dictionary[VERSION]){
             
-            wine.brand = dictionary[BRAND];
             wine.name = dictionary[NAME];
-            wine.type = dictionary[TYPE];
-            wine.varietals = dictionary[VARIETALS];
-            wine.sparkling = dictionary[SPARKLING];
+            wine.color = dictionary[COLOR];
+            wine.sparkling = [NSNumber numberWithDouble:[dictionary[VERSION] doubleValue]];
+            wine.dessert = [NSNumber numberWithDouble:[dictionary[VERSION] doubleValue]];
             wine.region = dictionary[REGION];
             wine.country = dictionary[COUNTRY];
             wine.price = dictionary[PRICE];
-            wine.tastingNotes = dictionary[TASTING_NOTES];
             wine.markForDeletion = dictionary[MARK_FOR_DELETION] ? dictionary[MARK_FOR_DELETION] : @NO;
             wine.identifier = dictionary[IDENTIFIER];
-            wine.version = dictionary[VERSION];
+            wine.version = [NSNumber numberWithDouble:[dictionary[VERSION] doubleValue]];
             
+            //wine.varietals = dictionary[VARIETALS];
+            //wine.tastingNotes = dictionary[TASTING_NOTES];
+            //wine.brand = dictionary[BRAND];
         }
     }
     

@@ -22,11 +22,12 @@
 @dynamic price;
 @dynamic region;
 @dynamic sparkling;
-@dynamic type;
+@dynamic color;
 @dynamic version;
 @dynamic vintage;
 @dynamic lastAccessed;
 @dynamic name;
+@dynamic dessert;
 @dynamic brand;
 @dynamic restaurants;
 @dynamic tastingNotes;

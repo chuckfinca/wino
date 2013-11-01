@@ -7,12 +7,15 @@
 //
 
 #import "WineDataHelper.h"
+#import "Wine+CreateAndModify.h"
 
 @implementation WineDataHelper
 
 -(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
 {
-    // abstract
+    NSLog(@"WineDataHelper");
+    NSLog(@"dictionary = %@",dictionary);
+    [Wine wineWithInfo:dictionary inContext:context];
 }
 
 @end

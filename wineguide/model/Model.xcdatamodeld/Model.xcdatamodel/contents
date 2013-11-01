@@ -34,7 +34,9 @@
         <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine" inverseName="varietals" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <entity name="Wine" representedClassName="Wine" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dessert" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastAccessed" optional="YES" attributeType="Date" syncable="YES"/>
@@ -43,7 +45,6 @@
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sparkling" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="vintage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="brand" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Brand" inverseName="wines" inverseEntity="Brand" syncable="YES"/>
@@ -56,6 +57,6 @@
         <element name="Restaurant" positionX="-198" positionY="153" width="128" height="208"/>
         <element name="TastingNote" positionX="439" positionY="423" width="128" height="103"/>
         <element name="Varietal" positionX="18" positionY="434" width="128" height="103"/>
-        <element name="Wine" positionX="252" positionY="149" width="128" height="283"/>
+        <element name="Wine" positionX="252" positionY="149" width="128" height="298"/>
     </elements>
 </model>

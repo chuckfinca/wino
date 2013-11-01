@@ -8,10 +8,14 @@
 
 #import "RestaurantCDTVC.h"
 #import "RestaurantDetailsVC.h"
+#import "Wine+CreateAndModify.h"
+#import "WineDataHelper.h"
 
 @interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
+@property (nonatomic, strong) Restaurant *restaurant;
+@property (nonatomic) BOOL restaurantWineListCached;
 
 @end
 
@@ -35,6 +39,7 @@
     
     self.tableView.tableHeaderView = self.restaurantDetailsViewController.view;
     
+    
 }
 
 -(void)didReceiveMemoryWarning
@@ -48,9 +53,33 @@
 -(void)setupWithRestaurant:(Restaurant *)restaurant
 {
     // get the winelist for that restaurant
-    
-    
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
+    self.restaurant = restaurant;
+    [self refreshWineList];
+}
+
+-(void)refreshWineList
+{
+    // if we have cached data about the restaurant's wine list then display that, if not get it from the server
+    
+    
+    if(self.restaurantWineListCached == NO){
+        [self getWineList];
+    }
+}
+
+-(void)getWineList
+{
+    NSString *restaurantName = self.restaurant.name;
+    
+    NSString *nameWithoutSpaces = [restaurantName stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSLog(@"nameWithoutSpaces = %@",nameWithoutSpaces);
+    // this will be replaced with a server url when available
+    NSURL *dataURL = [[NSBundle mainBundle] URLForResource:nameWithoutSpaces withExtension:@"json"];
+    
+    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:self.restaurant.managedObjectContext];
+    [wdh updateCoreDataWithJSONDataFromURL:dataURL];
 }
 
 #pragma mark - Getters & Setters
