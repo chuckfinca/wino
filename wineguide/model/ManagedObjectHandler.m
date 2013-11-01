@@ -26,7 +26,7 @@
     
     if(!matches || [matches count] > 1){
         // Error
-        NSLog(@"Error %@ - matches exists? %@; [matches count] = %i",error,matches ? @"yes" : @"no",[matches count]);
+        NSLog(@"Error %@ - matches exists? %@; [matches count] = %lu",error,matches ? @"yes" : @"no",(unsigned long)[matches count]);
     } else if ([matches count] == 0 && [dictionary[MARK_FOR_DELETION] boolValue] == NO) {
         // Create new managed object
         managedObject = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
