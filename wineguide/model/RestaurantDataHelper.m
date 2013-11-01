@@ -13,7 +13,6 @@
 
 -(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
 {
-    NSLog(@"dictionary = %@",dictionary);
     [Restaurant restaurantWithInfo:dictionary inContext:context];
 }
 

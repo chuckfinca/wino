@@ -52,7 +52,6 @@
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sparkling" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="tester" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="vintage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="brand" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Brand" inverseName="wines" inverseEntity="Brand" syncable="YES"/>
@@ -67,6 +66,6 @@
         <element name="Restaurant" positionX="-198" positionY="153" width="128" height="208"/>
         <element name="TastingNote" positionX="439" positionY="423" width="128" height="103"/>
         <element name="Varietal" positionX="18" positionY="434" width="128" height="103"/>
-        <element name="Wine" positionX="243" positionY="134" width="128" height="343"/>
+        <element name="Wine" positionX="243" positionY="134" width="128" height="328"/>
     </elements>
 </model>

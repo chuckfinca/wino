@@ -12,5 +12,4 @@
 
 +(Restaurant *)restaurantWithInfo:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context;
 
-
 @end

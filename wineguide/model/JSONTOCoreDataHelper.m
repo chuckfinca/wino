@@ -26,7 +26,6 @@
 
 -(void)updateCoreDataWithJSONDataFromURL:(NSURL *)url
 {
-    NSLog(@"prepareJSON...");
     dispatch_queue_t jsonQueue = dispatch_queue_create("JSON_Queue", NULL);
     dispatch_async(jsonQueue, ^{
         NSData *data = [NSData dataWithContentsOfURL:url];

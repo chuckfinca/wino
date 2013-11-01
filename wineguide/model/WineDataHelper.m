@@ -13,8 +13,6 @@
 
 -(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
 {
-    NSLog(@"WineDataHelper");
-    NSLog(@"dictionary = %@",dictionary);
     [Wine wineWithInfo:dictionary inContext:context];
 }
 
