@@ -399,6 +399,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = AppSimple;
 				TargetAttributes = {
+					C9061DEA181F07CE003D8A55 = {
+						DevelopmentTeam = 3E5665FPU5;
+					};
 					C9061E0E181F07CE003D8A55 = {
 						TestTargetID = C9061DEA181F07CE003D8A55;
 					};
@@ -622,11 +625,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wineguide/wineguide-Prefix.pch";
 				INFOPLIST_FILE = "wineguide/wineguide-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "54AE369F-63C8-49C4-88F6-157978A0F33D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -636,11 +641,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wineguide/wineguide-Prefix.pch";
 				INFOPLIST_FILE = "wineguide/wineguide-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "54AE369F-63C8-49C4-88F6-157978A0F33D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

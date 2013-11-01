@@ -59,7 +59,7 @@ static DocumentHandler *sharedInstance;
     } else if (self.document.documentState == UIDocumentStateNormal){
         onDocumentDidLoad(YES);
     } else {
-        NSLog(@"ERROR: UIManagedDocument state = %lu",self.document.documentState);
+        NSLog(@"ERROR: UIManagedDocument state = %u",self.document.documentState);
     }
 }
 
