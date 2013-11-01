@@ -30,8 +30,10 @@ static DocumentHandler *sharedInstance;
         url = [url URLByAppendingPathComponent:@"DocumentHandler.document"];
         _document = [[UIManagedDocument alloc] initWithFileURL:url];
         NSDictionary *options = @{
-                                  NSMigratePersistentStoresAutomaticallyOption : @YES, NSInferMappingModelAutomaticallyOption : @YES
+                                  NSMigratePersistentStoresAutomaticallyOption : @YES,
+                                  NSInferMappingModelAutomaticallyOption : @YES
                                   };
+        
         _document.persistentStoreOptions = options;
     }
     return self;

@@ -1,22 +1,20 @@
 //
-//  Brand.m
+//  Varietal.m
 //  wineguide
 //
-//  Created by Charles Feinn on 10/30/13.
+//  Created by Charles Feinn on 11/1/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "Brand.h"
+#import "Varietal.h"
 #import "Wine.h"
 
 
-@implementation Brand
+@implementation Varietal
 
-@dynamic identifier;
 @dynamic markForDeletion;
 @dynamic name;
 @dynamic version;
-@dynamic lastAccessed;
 @dynamic wines;
 
 @end

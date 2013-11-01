@@ -2,7 +2,7 @@
 //  TastingNote.h
 //  wineguide
 //
-//  Created by Charles Feinn on 10/30/13.
+//  Created by Charles Feinn on 11/1/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
