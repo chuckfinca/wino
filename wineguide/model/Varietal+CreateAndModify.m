@@ -24,6 +24,7 @@
     
     if(varietal){
         varietal.name = name;
+        NSLog(@"varietal.name = %@",name);
         varietal.markForDeletion = @NO;
         varietal.version = 0;
     }

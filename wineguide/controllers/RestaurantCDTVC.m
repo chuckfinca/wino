@@ -11,6 +11,7 @@
 #import "Wine+CreateAndModify.h"
 #import "WineDataHelper.h"
 #import "Brand.h"
+#import "WineCDTVC.h"
 
 @interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -140,17 +141,28 @@
     return view;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // NSLog(@"prepareForSegue...");
+    if([sender isKindOfClass:[UITableViewCell class]]){
+        
+        UITableViewCell *tvc = (UITableViewCell *)sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tvc];
+        
+        if(indexPath){
+            if([segue.destinationViewController isKindOfClass:[WineCDTVC class]]){
+                
+                // Get the new view controller using [segue destinationViewController].
+                WineCDTVC *wineCDTVC = (WineCDTVC *)segue.destinationViewController;
+                
+                // Pass the selected object to the new view controller.
+                Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+                [wineCDTVC setupWithWine:wine];
+            }
+        }
+    }
 }
 
- */
 
 
 @end

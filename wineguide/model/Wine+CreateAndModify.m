@@ -32,6 +32,7 @@
 #define VERSION @"version"
 #define IDENTIFIER @"identifier"
 #define RESTAURANT @"restaurant"
+#define VINTAGE @"vintage"
 
 @implementation Wine (CreateAndModify)
 
@@ -55,6 +56,7 @@
             wine.markForDeletion = [[dictionary objectForKeyNotNull:DELETE_ENTITY] boolValue] == YES ? @1 : @0;
             wine.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
             wine.version = [NSNumber numberWithDouble:[[dictionary objectForKeyNotNull:VERSION] doubleValue]];
+            wine.vintage = [dictionary objectForKeyNotNull:VINTAGE];
             
             NSArray *varietals = [dictionary separateNonNullStringLocatedAtKey:VARIETALS];
             NSMutableSet *varietalsSet = [[NSMutableSet alloc] init];
@@ -63,6 +65,9 @@
                 [varietalsSet addObject:varietal];
             }
             wine.varietals = varietalsSet;
+            for(Varietal *v in wine.varietals){
+                NSLog(@"v.name = %@",v.name);
+            }
             
             NSArray *tastingNotes = [dictionary separateNonNullStringLocatedAtKey:TASTING_NOTES];
             NSMutableSet *tastingNotesSet = [[NSMutableSet alloc] init];

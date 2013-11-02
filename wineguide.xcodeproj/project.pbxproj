@@ -28,7 +28,6 @@
 		C9061E43181F2865003D8A55 /* VariableHeightTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E41181F2865003D8A55 /* VariableHeightTV.m */; };
 		C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */; };
 		C9061E49181F3480003D8A55 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E48181F3480003D8A55 /* HomeVC.m */; };
-		C9061E4C181F3658003D8A55 /* WineTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E4B181F3658003D8A55 /* WineTVC.m */; };
 		C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9061E4D181F36BE003D8A55 /* WineDetails.xib */; };
 		C9061E53181F3CD3003D8A55 /* star_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = C9061E50181F3CD3003D8A55 /* star_empty.png */; };
 		C9061E54181F3CD3003D8A55 /* star_full.png in Resources */ = {isa = PBXBuildFile; fileRef = C9061E51181F3CD3003D8A55 /* star_full.png */; };
@@ -44,6 +43,7 @@
 		C92DF03D182479B0009DCB2C /* TastingNote.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF03C182479B0009DCB2C /* TastingNote.m */; };
 		C92DF040182479B0009DCB2C /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF03F182479B0009DCB2C /* Restaurant.m */; };
 		C92DF04318247AB3009DCB2C /* Brand+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF04218247AB3009DCB2C /* Brand+CreateAndModify.m */; };
+		C92DF0471825B227009DCB2C /* WineCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF0461825B227009DCB2C /* WineCDTVC.m */; };
 		C98DEFB018217BE70038216C /* RestaurantDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFAF18217BE70038216C /* RestaurantDataHelper.m */; };
 		C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFB21821C7E30038216C /* LocationHelper.m */; };
 		C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFC61821DA790038216C /* CoreDataTableViewController.m */; };
@@ -105,8 +105,6 @@
 		C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantDetailsVC.m; path = controllers/RestaurantDetailsVC.m; sourceTree = "<group>"; };
 		C9061E47181F3480003D8A55 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeVC.h; path = controllers/HomeVC.h; sourceTree = "<group>"; };
 		C9061E48181F3480003D8A55 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeVC.m; path = controllers/HomeVC.m; sourceTree = "<group>"; };
-		C9061E4A181F3658003D8A55 /* WineTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineTVC.h; path = controllers/WineTVC.h; sourceTree = "<group>"; };
-		C9061E4B181F3658003D8A55 /* WineTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineTVC.m; path = controllers/WineTVC.m; sourceTree = "<group>"; };
 		C9061E4D181F36BE003D8A55 /* WineDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineDetails.xib; path = xibs/WineDetails.xib; sourceTree = "<group>"; };
 		C9061E50181F3CD3003D8A55 /* star_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_empty.png; path = images/star_empty.png; sourceTree = "<group>"; };
 		C9061E51181F3CD3003D8A55 /* star_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_full.png; path = images/star_full.png; sourceTree = "<group>"; };
@@ -135,6 +133,8 @@
 		C92DF03F182479B0009DCB2C /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Restaurant.m; path = model/managedObjects/Restaurant.m; sourceTree = "<group>"; };
 		C92DF04118247AB3009DCB2C /* Brand+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Brand+CreateAndModify.h"; path = "model/Brand+CreateAndModify.h"; sourceTree = "<group>"; };
 		C92DF04218247AB3009DCB2C /* Brand+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Brand+CreateAndModify.m"; path = "model/Brand+CreateAndModify.m"; sourceTree = "<group>"; };
+		C92DF0451825B227009DCB2C /* WineCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineCDTVC.h; path = controllers/WineCDTVC.h; sourceTree = "<group>"; };
+		C92DF0461825B227009DCB2C /* WineCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineCDTVC.m; path = controllers/WineCDTVC.m; sourceTree = "<group>"; };
 		C98DEFAE18217BE70038216C /* RestaurantDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantDataHelper.h; path = model/RestaurantDataHelper.h; sourceTree = "<group>"; };
 		C98DEFAF18217BE70038216C /* RestaurantDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantDataHelper.m; path = model/RestaurantDataHelper.m; sourceTree = "<group>"; };
 		C98DEFB11821C7E30038216C /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationHelper.h; path = model/LocationHelper.h; sourceTree = "<group>"; };
@@ -283,8 +283,8 @@
 				C9061E39181F216C003D8A55 /* RestaurantCDTVC.m */,
 				C9061E44181F2BF2003D8A55 /* RestaurantDetailsVC.h */,
 				C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */,
-				C9061E4A181F3658003D8A55 /* WineTVC.h */,
-				C9061E4B181F3658003D8A55 /* WineTVC.m */,
+				C92DF0451825B227009DCB2C /* WineCDTVC.h */,
+				C92DF0461825B227009DCB2C /* WineCDTVC.m */,
 				C9F47974181F4D940026A383 /* WineDetailsVC.h */,
 				C9F47975181F4D940026A383 /* WineDetailsVC.m */,
 				C98DEFC51821DA790038216C /* CoreDataTableViewController.h */,
@@ -507,7 +507,6 @@
 			files = (
 				C92DF034182479B0009DCB2C /* Brand.m in Sources */,
 				C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */,
-				C9061E4C181F3658003D8A55 /* WineTVC.m in Sources */,
 				C9DDD08C1820307D000A6FD7 /* InitialTabBarController.m in Sources */,
 				C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */,
 				C9061E30181F1C9C003D8A55 /* RestaurantsCDTVC.m in Sources */,
@@ -520,6 +519,7 @@
 				C9061DFF181F07CE003D8A55 /* AppDelegate.m in Sources */,
 				C92DF03D182479B0009DCB2C /* TastingNote.m in Sources */,
 				C92DF037182479B0009DCB2C /* Wine.m in Sources */,
+				C92DF0471825B227009DCB2C /* WineCDTVC.m in Sources */,
 				C9061E43181F2865003D8A55 /* VariableHeightTV.m in Sources */,
 				C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */,
 				C9061E3A181F216C003D8A55 /* RestaurantCDTVC.m in Sources */,

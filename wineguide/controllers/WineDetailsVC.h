@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Wine.h"
 
 @interface WineDetailsVC : UIViewController
+
+-(void)setupWithWine:(Wine *)wine;
 
 @end
