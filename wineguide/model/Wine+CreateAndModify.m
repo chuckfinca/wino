@@ -61,9 +61,6 @@
                 [varietalsSet addObject:varietal];
             }
             wine.varietals = varietalsSet;
-            for(Varietal *v in wine.varietals){
-                NSLog(@"%@ - v.name = %@",wine.identifier,v.name);
-            }
             
             NSArray *tastingNotes = [dictionary separateNonNullStringLocatedAtKey:TASTING_NOTES];
             NSMutableSet *tastingNotesSet = [[NSMutableSet alloc] init];

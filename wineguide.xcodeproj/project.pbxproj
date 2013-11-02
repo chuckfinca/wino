@@ -328,6 +328,7 @@
 		C90B6F9818241A5B0012FE5F /* managedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				C92DF044182483E0009DCB2C /* managedObjectHelpers */,
 				C92DF03E182479B0009DCB2C /* Restaurant.h */,
 				C92DF03F182479B0009DCB2C /* Restaurant.m */,
 				C92DF03B182479B0009DCB2C /* TastingNote.h */,
@@ -344,25 +345,9 @@
 			name = managedObjects;
 			sourceTree = "<group>";
 		};
-		C98DEFF8182329C30038216C /* json */ = {
+		C92DF044182483E0009DCB2C /* managedObjectHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				C98DEFF9182329D30038216C /* leszygomates.json */,
-				C98DEFFA182329D30038216C /* restaurants.json */,
-				C98DEFFB182329D30038216C /* strega-waterfront.json */,
-				C98DEFFC182329D30038216C /* tico.json */,
-			);
-			name = json;
-			sourceTree = "<group>";
-		};
-		C9DDD08418201EBF000A6FD7 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				C90B6F9818241A5B0012FE5F /* managedObjects */,
-				C98DEFF8182329C30038216C /* json */,
-				C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */,
-				C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */,
-				C9DDD08D182036D5000A6FD7 /* Model.xcdatamodeld */,
 				C98DEFD71822D7740038216C /* JSONTOCoreDataHelper.h */,
 				C98DEFD81822D7740038216C /* JSONTOCoreDataHelper.m */,
 				C98DEFAE18217BE70038216C /* RestaurantDataHelper.h */,
@@ -377,12 +362,35 @@
 				C98DEFE4182310060038216C /* Wine+CreateAndModify.m */,
 				C92DEFF018242D16009DCB2C /* Varietal+CreateAndModify.h */,
 				C92DEFF118242D16009DCB2C /* Varietal+CreateAndModify.m */,
-				C98DEFB11821C7E30038216C /* LocationHelper.h */,
-				C98DEFB21821C7E30038216C /* LocationHelper.m */,
 				C92DF008182476EF009DCB2C /* TastingNote+CreateAndModify.h */,
 				C92DF009182476EF009DCB2C /* TastingNote+CreateAndModify.m */,
 				C92DF04118247AB3009DCB2C /* Brand+CreateAndModify.h */,
 				C92DF04218247AB3009DCB2C /* Brand+CreateAndModify.m */,
+			);
+			name = managedObjectHelpers;
+			sourceTree = "<group>";
+		};
+		C98DEFF8182329C30038216C /* json */ = {
+			isa = PBXGroup;
+			children = (
+				C98DEFF9182329D30038216C /* leszygomates.json */,
+				C98DEFFA182329D30038216C /* restaurants.json */,
+				C98DEFFB182329D30038216C /* strega-waterfront.json */,
+				C98DEFFC182329D30038216C /* tico.json */,
+			);
+			name = json;
+			sourceTree = "<group>";
+		};
+		C9DDD08418201EBF000A6FD7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C9DDD08D182036D5000A6FD7 /* Model.xcdatamodeld */,
+				C90B6F9818241A5B0012FE5F /* managedObjects */,
+				C98DEFF8182329C30038216C /* json */,
+				C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */,
+				C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */,
+				C98DEFB11821C7E30038216C /* LocationHelper.h */,
+				C98DEFB21821C7E30038216C /* LocationHelper.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
