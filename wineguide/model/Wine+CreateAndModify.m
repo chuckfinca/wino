@@ -7,9 +7,12 @@
 //
 
 #import "Wine+CreateAndModify.h"
+#import "TastingNote+CreateAndModify.h"
 #import "ManagedObjectHandler.h"
 #import "Varietal+CreateAndModify.h"
 #import "NSDictionary+Helper.h"
+#import "Brand+CreateAndModify.h"
+
 
 
 #define ENTITY_NAME @"Wine"
@@ -51,12 +54,10 @@
             wine.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
             wine.version = [NSNumber numberWithDouble:[[dictionary objectForKeyNotNull:VERSION] doubleValue]];
             
-            NSString *varietalsString = [dictionary objectForKeyNotNull:VARIETALS];
-            NSArray *varietals = [varietalsString componentsSeparatedByString:@"/"];
-            
+            NSArray *varietals = [dictionary separateNonNullStringLocatedAtKey:VARIETALS];
             NSMutableSet *varietalsSet = [[NSMutableSet alloc] init];
-            for(NSString *name in varietals){
-                Varietal *varietal = [Varietal varietalWithName:name inContext:context];
+            for(NSString *varietalName in varietals){
+                Varietal *varietal = [Varietal varietalWithName:varietalName inContext:context];
                 [varietalsSet addObject:varietal];
             }
             wine.varietals = varietalsSet;
@@ -64,18 +65,21 @@
                 NSLog(@"%@ - v.name = %@",wine.identifier,v.name);
             }
             
+            NSArray *tastingNotes = [dictionary separateNonNullStringLocatedAtKey:TASTING_NOTES];
+            NSMutableSet *tastingNotesSet = [[NSMutableSet alloc] init];
+            for(NSString *tastingNoteName in tastingNotes){
+                TastingNote *tn = [TastingNote tastingNoteWithName:tastingNoteName inContext:context];
+                [tastingNotesSet addObject:tn];
+            }
+            wine.tastingNotes = tastingNotesSet;
             
-            //wine.tastingNotes = dictionary[TASTING_NOTES];
-            //wine.brand = dictionary[BRAND];
+            Brand *brand = [Brand brandWithName:dictionary[BRAND] inContext:context];
+            wine.brand = brand;
+            
         }
     }
     
     return wine;
-}
-
--(id)resultOfNSNullCheckForObject:(id)obj
-{
-    return obj != [NSNull null] ? nil : obj;
 }
 
 @end

@@ -15,6 +15,7 @@
 @dynamic markForDeletion;
 @dynamic name;
 @dynamic version;
+@dynamic type;
 @dynamic wines;
 
 @end

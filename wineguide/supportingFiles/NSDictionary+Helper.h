@@ -10,6 +10,8 @@
 
 @interface NSDictionary (Helper)
 
-- (id)objectForKeyNotNull:(id)key;
+-(id)objectForKeyNotNull:(id)key;
+
+-(NSArray *)separateNonNullStringLocatedAtKey:(NSString *)key;
 
 @end

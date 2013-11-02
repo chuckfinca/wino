@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSNumber * markForDeletion;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * version;
+@property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSSet *wines;
 @end
 
