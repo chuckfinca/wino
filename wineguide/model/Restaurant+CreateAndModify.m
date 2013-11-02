@@ -8,6 +8,7 @@
 
 #import "Restaurant+CreateAndModify.h"
 #import "ManagedObjectHandler.h"
+#import "NSDictionary+Helper.h"
 
 #define ENTITY_NAME @"Restaurant"
 #define DELETE_ENTITY @"markForDeletion"
@@ -34,15 +35,15 @@
     if(restaurant){
         if([restaurant.version intValue] == 0 || restaurant.version < dictionary[VERSION]){
             
-            restaurant.markForDeletion = dictionary[DELETE_ENTITY] ? dictionary[DELETE_ENTITY] : @NO;
-            restaurant.name = dictionary[NAME];
-            restaurant.longitude = dictionary[LONGITUDE];
-            restaurant.latitude = dictionary[LATITUDE];
-            restaurant.address = dictionary[ADDRESS];
-            restaurant.city = dictionary[CITY];
-            restaurant.state = dictionary[STATE];
-            restaurant.version = dictionary[VERSION];
-            restaurant.identifier = dictionary[IDENTIFIER];
+            restaurant.markForDeletion = [[dictionary objectForKeyNotNull:DELETE_ENTITY] boolValue] == YES ? @1 : @0;
+            restaurant.name = [dictionary objectForKeyNotNull:NAME];
+            restaurant.longitude = [dictionary objectForKeyNotNull:LONGITUDE];
+            restaurant.latitude = [dictionary objectForKeyNotNull:LATITUDE];
+            restaurant.address = [dictionary objectForKeyNotNull:ADDRESS];
+            restaurant.city = [dictionary objectForKeyNotNull:CITY];
+            restaurant.state = [dictionary objectForKeyNotNull:STATE];
+            restaurant.version = [dictionary objectForKeyNotNull:VERSION];
+            restaurant.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
         }
     }
     
