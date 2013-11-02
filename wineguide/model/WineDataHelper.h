@@ -7,7 +7,10 @@
 //
 
 #import "JSONTOCoreDataHelper.h"
+#import "Restaurant.h"
 
 @interface WineDataHelper : JSONTOCoreDataHelper
+
+@property (nonatomic, strong) Restaurant *restaurant;
 
 @end

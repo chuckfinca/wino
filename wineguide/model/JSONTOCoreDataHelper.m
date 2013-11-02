@@ -24,7 +24,7 @@
     return self;
 }
 
--(void)updateCoreDataWithJSONDataFromURL:(NSURL *)url
+-(void)updateCoreDataWithJSONFromURL:(NSURL *)url
 {
     dispatch_queue_t jsonQueue = dispatch_queue_create("JSON_Queue", NULL);
     dispatch_async(jsonQueue, ^{
@@ -36,7 +36,9 @@
                                                                error:&error];
         dispatch_async(dispatch_get_main_queue(), ^{
             if(json){
-                [self updateCoreDataWithObjectsFromDictionary:json];
+                [self updateCoreDataWithDictionaryObjectsInDictionary:json];
+            } else {
+                NSLog(@"json does not exist!");
             }
         });
     });
@@ -44,7 +46,7 @@
 
 
 
--(void)updateCoreDataWithObjectsFromDictionary:(NSDictionary *)dictionary
+-(void)updateCoreDataWithDictionaryObjectsInDictionary:(NSDictionary *)dictionary
 {
     if(self.context){
         for(NSDictionary *restaurantInfo in dictionary){

@@ -10,6 +10,6 @@
 
 @interface Wine (CreateAndModify)
 
-+(Wine *)wineWithInfo:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context;
++(Wine *)wineFromRestaurant:(Restaurant *)restaurant withInfo:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context;
 
 @end

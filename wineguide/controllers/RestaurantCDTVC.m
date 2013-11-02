@@ -10,11 +10,13 @@
 #import "RestaurantDetailsVC.h"
 #import "Wine+CreateAndModify.h"
 #import "WineDataHelper.h"
+#import "Brand.h"
 
 @interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
 @property (nonatomic, strong) Restaurant *restaurant;
+@property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic) BOOL restaurantWineListCached;
 
 @end
@@ -55,6 +57,7 @@
     // get the winelist for that restaurant
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
     self.restaurant = restaurant;
+    self.context = restaurant.managedObjectContext;
     [self refreshWineList];
 }
 
@@ -71,15 +74,34 @@
 -(void)getWineList
 {
     NSString *restaurantName = self.restaurant.name;
-    
     NSString *nameWithoutSpaces = [restaurantName stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    NSLog(@"nameWithoutSpaces = %@",nameWithoutSpaces);
     // this will be replaced with a server url when available
-    NSURL *dataURL = [[NSBundle mainBundle] URLForResource:nameWithoutSpaces withExtension:@"json"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:nameWithoutSpaces withExtension:@"json"];
     
-    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:self.restaurant.managedObjectContext];
-    [wdh updateCoreDataWithJSONDataFromURL:dataURL];
+    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:self.context];
+    wdh.restaurant = self.restaurant;
+    
+    [wdh updateCoreDataWithJSONFromURL:url];
+    [self setupFetchedResultsController];
+}
+
+-(void)setupFetchedResultsController
+{
+    // NSLog(@"setupFetchedResultsController...");
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Wine"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"color"
+                                                              ascending:YES
+                                                               selector:@selector(localizedCaseInsensitiveCompare:)],
+                                [NSSortDescriptor sortDescriptorWithKey:@"identifier"
+                                                              ascending:YES
+                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
+    request.predicate = [NSPredicate predicateWithFormat:@"restaurants CONTAINS %@",self.restaurant];
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.context
+                                                                          sectionNameKeyPath:@"color"
+                                                                                   cacheName:nil];
 }
 
 #pragma mark - Getters & Setters
@@ -94,15 +116,7 @@
 
 #pragma mark - UITableViewDataSource
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 4;
-}
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 5;
-}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -110,8 +124,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"wine" attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
     
+    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:wine.brand.name attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
     return cell;
 }
 

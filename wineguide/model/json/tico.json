@@ -14,7 +14,7 @@
     "price":8,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"",
     "tastingnotes":"butter/melon/apple/pineapple/vanilla/oak"
@@ -34,7 +34,7 @@
     "price":9,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"sophisticated/regional/seasonal",
     "tastingnotes":"citrus fruits/peach/honey/petrol"
@@ -54,7 +54,7 @@
     "price":9,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"",
     "tastingnotes":"gooseberry/lime/asparagus/cut grass/bell pepper/capsicum/grapefruit/passionfruit/guava"
@@ -74,7 +74,7 @@
     "price":9,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"",
     "tastingnotes":"honey/orange/lime"
@@ -94,7 +94,7 @@
     "price":8,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"regional",
     "tastingnotes":"lime/herbs"
@@ -114,7 +114,7 @@
     "price":9,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"",
     "tastingnotes":"apple/minerals/citrus"
@@ -134,7 +134,7 @@
     "price":7,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"",
     "tastingnotes":"pear/cream/green fruits"
@@ -154,7 +154,7 @@
     "price":9,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"",
     "tastingnotes":"peach/pear/nutmeg/apricot"
@@ -174,7 +174,7 @@
     "price":8,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"",
     "tastingnotes":"thyme/clove/cinnamon/black pepper/violet/blackberry"
@@ -194,7 +194,7 @@
     "price":9,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"",
     "tastingnotes":"leather/tar/stewed prunes/chocolate/liquorice/roses"
@@ -214,7 +214,7 @@
     "price":7,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"seasonal",
     "tastingnotes":"red fruit/elderberries"
@@ -234,7 +234,7 @@
     "price":9,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"",
     "tastingnotes":"earthy/black pepper/dark fruits"
@@ -254,7 +254,7 @@
     "price":8,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"",
     "tastingnotes":"violets/pencil shavings"
@@ -274,7 +274,7 @@
     "price":10,
     "version":"0",
     "markfordeletion":"0",
-    "restaurants":"tico",
+    "restaurant":"tico222berkeleystreet",
     "alcoholpercentage":"",
     "recommendedas":"sophisticated/adventurous",
     "tastingnotes":"raspberry/cherry/violets/farmyard/truffles"
@@ -294,7 +294,7 @@
     "price":null,
     "version":"",
     "markfordeletion":"",
-    "restaurants":"",
+    "restaurant":"",
     "alcoholpercentage":"",
     "recommendedas":"",
     "tastingnotes":""

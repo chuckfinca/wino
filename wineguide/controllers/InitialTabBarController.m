@@ -86,10 +86,10 @@
 -(void)updateRestaurants
 {
     // this will be replaced with a server url when available
-    NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
     
     RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context];
-    [rdh updateCoreDataWithJSONDataFromURL:dataURL];
+    [rdh updateCoreDataWithJSONFromURL:url];
 }
 
 -(void)checkUserLocation

@@ -12,6 +12,7 @@
 #import "Varietal+CreateAndModify.h"
 #import "NSDictionary+Helper.h"
 #import "Brand+CreateAndModify.h"
+#import "Restaurant.h"
 
 
 
@@ -30,10 +31,11 @@
 #define DELETE_ENTITY @"markForDeletion"
 #define VERSION @"version"
 #define IDENTIFIER @"identifier"
+#define RESTAURANT @"restaurant"
 
 @implementation Wine (CreateAndModify)
 
-+(Wine *)wineWithInfo:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
++(Wine *)wineFromRestaurant:(Restaurant *)restaurant withInfo:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
 {
     Wine *wine = nil;
     
@@ -73,6 +75,11 @@
             Brand *brand = [Brand brandWithName:dictionary[BRAND] inContext:context];
             wine.brand = brand;
             
+            NSMutableSet *restaurants = [wine.restaurants mutableCopy];
+            if(!restaurants) restaurants = [[NSMutableSet alloc] init];
+            Restaurant *r = (Restaurant *)[ManagedObjectHandler getManagedObjectWithEntityName:@"Restaurant" andIdentifier:restaurant.identifier inContext:context];
+            [restaurants addObject:r];
+            wine.restaurants = restaurants;
         }
     }
     

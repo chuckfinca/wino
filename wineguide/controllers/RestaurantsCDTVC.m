@@ -43,7 +43,7 @@
         [self setupFetchedResultsController];
     }
     if(self.fetchedResultsController.fetchedObjects > 0){
-        self.title = nil;
+        self.title = @"Nearby";
     }
  
 }
@@ -56,23 +56,9 @@
 
 #pragma mark - Setup
 
-#define ENTITY_NAME @"Restaurant"
-#define DELETE_BOOL @"delete"
-#define MARK_FOR_DELETION @"markForDeletion"
-#define NAME @"name"
-#define LONGITUDE @"longitude"
-#define LATITUDE @"latitude"
-#define CITY @"city"
-#define ADDRESS @"address"
-#define VERSION @"version"
-#define IDENTIFIER @"identifier"
-#define WINES @"wines"
-#define BRANDS @"brands"
-#define VARIETALS @"varietals"
-
 -(void)setupFetchedResultsController
 {
-    NSLog(@"setupFetchedResultsController...");
+    // NSLog(@"setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Restaurant"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES
@@ -108,7 +94,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    
     Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:restaurant.name attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
     
@@ -117,7 +102,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"prepareForSegue...");
+    // NSLog(@"prepareForSegue...");
     if([sender isKindOfClass:[UITableViewCell class]]){
         
         UITableViewCell *tvc = (UITableViewCell *)sender;

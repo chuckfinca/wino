@@ -13,7 +13,7 @@
 
 -(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
 {
-    [Wine wineWithInfo:dictionary inContext:context];
+    [Wine wineFromRestaurant:self.restaurant withInfo:dictionary inContext:context];
 }
 
 @end

@@ -11,7 +11,7 @@
 @interface JSONTOCoreDataHelper : NSObject
 
 -(id)initWithContext:(NSManagedObjectContext *)context; // designated initializer
--(void)updateCoreDataWithJSONDataFromURL:(NSURL *)url;
+-(void)updateCoreDataWithJSONFromURL:(NSURL *)url;
 
 -(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context; // abstract
 
