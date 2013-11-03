@@ -44,6 +44,7 @@
 		C92DF040182479B0009DCB2C /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF03F182479B0009DCB2C /* Restaurant.m */; };
 		C92DF04318247AB3009DCB2C /* Brand+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF04218247AB3009DCB2C /* Brand+CreateAndModify.m */; };
 		C92DF0471825B227009DCB2C /* WineCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF0461825B227009DCB2C /* WineCDTVC.m */; };
+		C92DF04A1826F1D0009DCB2C /* Recommendation+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF0491826F1D0009DCB2C /* Recommendation+CreateAndModify.m */; };
 		C98DEFB018217BE70038216C /* RestaurantDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFAF18217BE70038216C /* RestaurantDataHelper.m */; };
 		C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFB21821C7E30038216C /* LocationHelper.m */; };
 		C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFC61821DA790038216C /* CoreDataTableViewController.m */; };
@@ -135,6 +136,9 @@
 		C92DF04218247AB3009DCB2C /* Brand+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Brand+CreateAndModify.m"; path = "model/Brand+CreateAndModify.m"; sourceTree = "<group>"; };
 		C92DF0451825B227009DCB2C /* WineCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineCDTVC.h; path = controllers/WineCDTVC.h; sourceTree = "<group>"; };
 		C92DF0461825B227009DCB2C /* WineCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineCDTVC.m; path = controllers/WineCDTVC.m; sourceTree = "<group>"; };
+		C92DF0481826F1D0009DCB2C /* Recommendation+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Recommendation+CreateAndModify.h"; path = "model/Recommendation+CreateAndModify.h"; sourceTree = "<group>"; };
+		C92DF0491826F1D0009DCB2C /* Recommendation+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Recommendation+CreateAndModify.m"; path = "model/Recommendation+CreateAndModify.m"; sourceTree = "<group>"; };
+		C92DF04B18270553009DCB2C /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
 		C98DEFAE18217BE70038216C /* RestaurantDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantDataHelper.h; path = model/RestaurantDataHelper.h; sourceTree = "<group>"; };
 		C98DEFAF18217BE70038216C /* RestaurantDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantDataHelper.m; path = model/RestaurantDataHelper.m; sourceTree = "<group>"; };
 		C98DEFB11821C7E30038216C /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationHelper.h; path = model/LocationHelper.h; sourceTree = "<group>"; };
@@ -366,6 +370,8 @@
 				C92DF009182476EF009DCB2C /* TastingNote+CreateAndModify.m */,
 				C92DF04118247AB3009DCB2C /* Brand+CreateAndModify.h */,
 				C92DF04218247AB3009DCB2C /* Brand+CreateAndModify.m */,
+				C92DF0481826F1D0009DCB2C /* Recommendation+CreateAndModify.h */,
+				C92DF0491826F1D0009DCB2C /* Recommendation+CreateAndModify.m */,
 			);
 			name = managedObjectHelpers;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 				C92DF037182479B0009DCB2C /* Wine.m in Sources */,
 				C92DF0471825B227009DCB2C /* WineCDTVC.m in Sources */,
 				C9061E43181F2865003D8A55 /* VariableHeightTV.m in Sources */,
+				C92DF04A1826F1D0009DCB2C /* Recommendation+CreateAndModify.m in Sources */,
 				C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */,
 				C9061E3A181F216C003D8A55 /* RestaurantCDTVC.m in Sources */,
 				C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */,
@@ -779,6 +786,7 @@
 		C9DDD08D182036D5000A6FD7 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				C92DF04B18270553009DCB2C /* Model 4.xcdatamodel */,
 				C90B6FCF18241F080012FE5F /* Model 3.xcdatamodel */,
 				C90B6F85182415AD0012FE5F /* Model 2.xcdatamodel */,
 				C9DDD08E182036D5000A6FD7 /* Model.xcdatamodel */,

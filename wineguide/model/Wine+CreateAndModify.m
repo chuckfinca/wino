@@ -13,6 +13,7 @@
 #import "NSDictionary+Helper.h"
 #import "Brand+CreateAndModify.h"
 #import "Restaurant.h"
+#import "Recommendation+CreateAndModify.h"
 
 
 
@@ -33,6 +34,7 @@
 #define IDENTIFIER @"identifier"
 #define RESTAURANT @"restaurant"
 #define VINTAGE @"vintage"
+#define RECOMMENDATIONS @"recommendedas"
 
 @implementation Wine (CreateAndModify)
 
@@ -61,21 +63,22 @@
             NSArray *varietals = [dictionary separateNonNullStringLocatedAtKey:VARIETALS];
             NSMutableSet *varietalsSet = [[NSMutableSet alloc] init];
             for(NSString *varietalName in varietals){
-                Varietal *varietal = [Varietal varietalWithName:varietalName inContext:context];
-                [varietalsSet addObject:varietal];
+                Varietal *v = [Varietal varietalWithName:varietalName inContext:context];
+                [varietalsSet addObject:v];
             }
-            wine.varietals = varietalsSet;
-            for(Varietal *v in wine.varietals){
-                NSLog(@"v.name = %@",v.name);
+            
+            NSArray *recommendations = [dictionary separateNonNullStringLocatedAtKey:RECOMMENDATIONS];
+            NSMutableSet *recommendationSet = [[NSMutableSet alloc] init];
+            for(NSString *recommendationName in recommendations){
+                Recommendation *r = [Recommendation recommendationWithName:recommendationName inContext:context];
+                [recommendationSet addObject:r];
             }
             
             NSArray *tastingNotes = [dictionary separateNonNullStringLocatedAtKey:TASTING_NOTES];
-            NSLog(@"tastingNotes = %@",tastingNotes);
             NSMutableSet *tastingNotesSet = [[NSMutableSet alloc] init];
             for(NSString *tastingNoteName in tastingNotes){
                 TastingNote *tn = [TastingNote tastingNoteWithName:tastingNoteName inContext:context];
                 [tastingNotesSet addObject:tn];
-                NSLog(@"tn.name = %@",tn.name);
             }
             wine.tastingNotes = tastingNotesSet;
             
