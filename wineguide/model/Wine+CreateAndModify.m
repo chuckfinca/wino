@@ -27,7 +27,7 @@
 #define DESSERT @"dessert"
 #define VARIETALS @"varietals"
 #define PRICE @"price"
-#define TASTING_NOTES @"tastingNotes"
+#define TASTING_NOTES @"tastingnotes"
 #define DELETE_ENTITY @"markForDeletion"
 #define VERSION @"version"
 #define IDENTIFIER @"identifier"
@@ -70,10 +70,12 @@
             }
             
             NSArray *tastingNotes = [dictionary separateNonNullStringLocatedAtKey:TASTING_NOTES];
+            NSLog(@"tastingNotes = %@",tastingNotes);
             NSMutableSet *tastingNotesSet = [[NSMutableSet alloc] init];
             for(NSString *tastingNoteName in tastingNotes){
                 TastingNote *tn = [TastingNote tastingNoteWithName:tastingNoteName inContext:context];
                 [tastingNotesSet addObject:tn];
+                NSLog(@"tn.name = %@",tn.name);
             }
             wine.tastingNotes = tastingNotesSet;
             

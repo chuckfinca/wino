@@ -60,6 +60,7 @@
     self.restaurant = restaurant;
     self.context = restaurant.managedObjectContext;
     [self refreshWineList];
+    self.title = nil;
 }
 
 -(void)refreshWineList
