@@ -61,7 +61,11 @@
     dispatch_queue_t jsonQueue = dispatch_queue_create("JSON_Queue", NULL);
     dispatch_async(jsonQueue, ^{
         NSData *data = [NSData dataWithContentsOfURL:url];
-        [self prepareSerializedData:data];
+        if(data){
+            [self prepareSerializedData:data];
+        } else {
+            NSLog(@"data from JSON does not exist");
+        }
     });
 }
 
