@@ -27,6 +27,33 @@
     return self;
 }
 
+
+#pragma mark - Getters & Setters
+
+
+#pragma mark - Predicates
+
+-(NSString *)predicateString
+{
+    if(!_predicateString) _predicateString = [NSString stringWithFormat:@"identifier = $IDENTIFIER"];
+    return _predicateString;
+}
+
+-(NSPredicate *)predicate
+{
+    if(!_predicate) _predicate = [NSPredicate predicateWithFormat:self.predicateString];
+    return _predicate;
+}
+
+-(NSPredicate *)predicateForDicitonary:(NSDictionary *)dictionary
+{
+    NSLog(@"dictionary = %@",dictionary);
+    NSDictionary *variables = @{@"IDENTIFIER" : dictionary[IDENTIFIER]};
+    return [self.predicate predicateWithSubstitutionVariables:variables];
+}
+
+
+
 #pragma mark - Server interaction
 
 -(void)updateCoreDataWithJSONFromURL:(NSURL *)url
@@ -89,43 +116,43 @@
         NSLog(@"id managedObjectInfo is class %@ - %@",[managedObjectInfo class], managedObjectInfo);
         NSLog(@"The above should be a string list of managedObject.identifiers separated by /");
         
-        // save this list for use once we have imported the necessary data.
-        
-        // [self.parentManagedObject class] + self.parentManagedObject.identifier + key + string of managedObject.identifiers will give us everything we need.
-        // in other words we need to know:
-        // the TYPE OF managedObject that is the parent
-        // the IDENTIFER of the parent in that type of entity
-        // the KEY, which identifies the relationship and can be used to figure out what type of managedObject the children are
-        // the STRING that is a / separated list of the identifers which the parent is related to
-        
-        // @{ CLASS_OF_PARENT : [NSString stringWithFormat:@"%@",[Parent class]], IDENTIFIER_OF_PARENT : [NSString stringWithFormat:@"%@",parent.identifier], RELATIONSHIP : KEY, LIST_OF_CHILD_IDENTIFIERS : STRING }
-        
-        // dictionary with keys that are managedObject.identifier's
+        if([managedObjectInfo isKindOfClass:[NSString class]]){
+            NSString *relationshipIdentifiersString = (NSString *)managedObjectInfo;
+            
+            [self setRelationIdentifiersAttribute:relationshipIdentifiersString];
+            // save this list for use once we have imported the necessary data.
+            
+            // [self.parentManagedObject class] + self.parentManagedObject.identifier + key + string of managedObject.identifiers will give us everything we need.
+            // in other words we need to know:
+            // the TYPE OF managedObject that is the parent
+            // the IDENTIFER of the parent in that type of entity
+            // the KEY, which identifies the relationship and can be used to figure out what type of managedObject the children are
+            // the STRING that is a / separated list of the identifers which the parent is related to
+            
+            // @{ CLASS_OF_PARENT : [NSString stringWithFormat:@"%@",[Parent class]], IDENTIFIER_OF_PARENT : [NSString stringWithFormat:@"%@",parent.identifier], RELATIONSHIP : KEY, LIST_OF_CHILD_IDENTIFIERS : STRING }
+            
+            // each time a child is created it should ask itself if it should connect itself to a parent (which has already been created, since the list of these relationships should only be created after the parent has been otherwise created).
+            
+            // dictionary with keys that are managedObject.identifier's
+        }
     }
 }
 
 
-
-#pragma mark - Predicates
-
--(NSString *)predicateString
+-(void)setRelationIdentifiersAttribute:(NSString *)string
 {
-    if(!_predicateString) _predicateString = [NSString stringWithFormat:@"identifier = $IDENTIFIER"];
-    return _predicateString;
+    // abstract
 }
 
--(NSPredicate *)predicate
-{
-    if(!_predicate) _predicate = [NSPredicate predicateWithFormat:self.predicateString];
-    return _predicate;
-}
 
--(NSPredicate *)predicateForDicitonary:(NSDictionary *)dictionary
-{
-    NSLog(@"dictionary = %@",dictionary);
-    NSDictionary *variables = @{@"IDENTIFIER" : dictionary[IDENTIFIER]};
-    return [self.predicate predicateWithSubstitutionVariables:variables];
-}
+
+
+
+
+
+
+
+
 
 
 

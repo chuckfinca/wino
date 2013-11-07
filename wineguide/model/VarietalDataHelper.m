@@ -17,5 +17,12 @@
     [Varietal varietalForWine:(Wine *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
+-(void)setRelationIdentifiersAttribute:(NSString *)string
+{
+    Wine *wine = (Wine *)self.parentManagedObject;
+    
+    // need to finish
+}
+
 
 @end

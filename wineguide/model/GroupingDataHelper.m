@@ -17,4 +17,11 @@
     [Grouping groupFromRestaurant:(Restaurant *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
+-(void)setRelationIdentifiersAttribute:(NSString *)string
+{
+    Restaurant *restaurant = (Restaurant *)self.parentManagedObject;
+    restaurant.groupIdentifiers = string;
+    NSLog(@"restaurant.groupIdentifiers = %@",restaurant.groupIdentifiers);
+}
+
 @end

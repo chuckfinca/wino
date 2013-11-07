@@ -57,4 +57,18 @@
     
     return wineUnit;
 }
+
+
+-(NSString *)description
+{
+    return self.identifier;
+}
+
+
+
+
+
+
+
+
 @end

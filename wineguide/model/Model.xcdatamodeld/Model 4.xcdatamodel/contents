@@ -33,6 +33,8 @@
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flightIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="groupIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastAccessed" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -42,6 +44,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="wineUnitIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="restaurant" inverseEntity="Flight" syncable="YES"/>
         <relationship name="groupings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Grouping" inverseName="restaurant" inverseEntity="Grouping" syncable="YES"/>
@@ -102,7 +105,7 @@
         <element name="Brand" positionX="243" positionY="92" width="128" height="133"/>
         <element name="Flight" positionX="-126" positionY="90" width="128" height="178"/>
         <element name="Grouping" positionX="-135" positionY="279" width="128" height="163"/>
-        <element name="Restaurant" positionX="-317" positionY="162" width="128" height="283"/>
+        <element name="Restaurant" positionX="-317" positionY="117" width="128" height="328"/>
         <element name="TastingNote" positionX="268" positionY="270" width="128" height="163"/>
         <element name="Varietal" positionX="252" positionY="450" width="128" height="133"/>
         <element name="Wine" positionX="54" positionY="117" width="128" height="358"/>

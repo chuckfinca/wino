@@ -47,4 +47,14 @@
     return varietal;
 }
 
+-(NSString *)description
+{
+    return self.identifier;
+}
+
+
+
+
+
+
 @end

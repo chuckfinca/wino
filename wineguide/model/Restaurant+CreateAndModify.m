@@ -62,7 +62,7 @@
             
             
             // RELATIONSHIPS
-            // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
+            // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON, if not then update the appropriate relationshipIdentifiers attribute
             
             // Flights
             FlightDataHelper *fdh = [[FlightDataHelper alloc] init];
@@ -83,7 +83,10 @@
     return restaurant;
 }
 
-
+-(NSString *)description
+{
+    return self.identifier;
+}
 
 
 

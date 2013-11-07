@@ -50,4 +50,14 @@
     return tastingNote;
 }
 
+-(NSString *)description
+{
+    return self.identifier;
+}
+
+
+
+
+
+
 @end

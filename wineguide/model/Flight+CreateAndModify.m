@@ -60,4 +60,9 @@
     return flight;
 }
 
+-(NSString *)description
+{
+    return self.identifier;
+}
+
 @end

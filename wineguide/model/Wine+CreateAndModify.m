@@ -103,4 +103,16 @@
     return wine;
 }
 
+
+-(NSString *)description
+{
+    return self.identifier;
+}
+
+
+
+
+
+
+
 @end

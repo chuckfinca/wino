@@ -45,4 +45,9 @@
     return brand;
 }
 
+-(NSString *)description
+{
+    return self.identifier;
+}
+
 @end

@@ -58,4 +58,9 @@
     return grouping;
 }
 
+-(NSString *)description
+{
+    return self.identifier;
+}
+
 @end
