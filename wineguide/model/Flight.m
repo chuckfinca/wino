@@ -14,11 +14,12 @@
 @implementation Flight
 
 @dynamic identifier;
+@dynamic lastAccessed;
 @dynamic markForDeletion;
 @dynamic name;
 @dynamic price;
 @dynamic version;
-@dynamic lastAccessed;
+@dynamic about;
 @dynamic restaurant;
 @dynamic wines;
 

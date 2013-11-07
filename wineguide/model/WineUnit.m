@@ -14,11 +14,11 @@
 @implementation WineUnit
 
 @dynamic identifier;
+@dynamic lastAccessed;
 @dynamic markForDeletion;
 @dynamic price;
 @dynamic quantity;
 @dynamic version;
-@dynamic lastAccessed;
 @dynamic restaurant;
 @dynamic wine;
 

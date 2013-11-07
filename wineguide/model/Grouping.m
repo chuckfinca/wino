@@ -15,10 +15,10 @@
 
 @dynamic about;
 @dynamic identifier;
+@dynamic lastAccessed;
 @dynamic markForDeletion;
 @dynamic name;
 @dynamic version;
-@dynamic lastAccessed;
 @dynamic restaurant;
 @dynamic wines;
 

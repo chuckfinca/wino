@@ -13,10 +13,10 @@
 @implementation Varietal
 
 @dynamic identifier;
+@dynamic lastAccessed;
 @dynamic markForDeletion;
 @dynamic name;
 @dynamic version;
-@dynamic lastAccessed;
 @dynamic wines;
 
 @end

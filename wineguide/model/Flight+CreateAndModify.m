@@ -13,6 +13,7 @@
 
 #define FLIGHT_ENTITY @"Flight"
 
+#define ABOUT @"about"
 #define IDENTIFIER @"identifier"
 #define MARK_FOR_DELETION @"markForDeletion"
 #define NAME @"name"
@@ -33,6 +34,7 @@
         
         // ATTRIBUTES
         
+        flight.about = [dictionary objectForKeyNotNull:ABOUT];
         flight.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
         // flight.lastAccessed
         flight.markForDeletion = [dictionary objectForKeyNotNull:MARK_FOR_DELETION];

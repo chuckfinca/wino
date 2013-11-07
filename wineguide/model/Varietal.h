@@ -14,10 +14,10 @@
 @interface Varietal : NSManagedObject
 
 @property (nonatomic, retain) NSString * identifier;
+@property (nonatomic, retain) NSDate * lastAccessed;
 @property (nonatomic, retain) NSNumber * markForDeletion;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * version;
-@property (nonatomic, retain) NSDate * lastAccessed;
 @property (nonatomic, retain) NSSet *wines;
 @end
 

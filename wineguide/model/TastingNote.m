@@ -14,11 +14,11 @@
 
 @dynamic about;
 @dynamic identifier;
+@dynamic lastAccessed;
 @dynamic markForDeletion;
 @dynamic name;
 @dynamic tastingStage;
 @dynamic version;
-@dynamic lastAccessed;
 @dynamic wines;
 
 @end
