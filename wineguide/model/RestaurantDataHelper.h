@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONTOCoreDataHelper.h"
+#import "JSONToCoreDataHelper.h"
 
-@interface RestaurantDataHelper : JSONTOCoreDataHelper
+@interface RestaurantDataHelper : JSONToCoreDataHelper
 
 @end

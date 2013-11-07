@@ -7,9 +7,10 @@
 //
 
 #import "Wine.h"
+#import "Restaurant.h"
 
 @interface Wine (CreateAndModify)
 
-+(Wine *)wineFromRestaurant:(Restaurant *)restaurant withInfo:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context;
++(Wine *)wineFromRestaurant:(Restaurant *)restaurant foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary;
 
 @end

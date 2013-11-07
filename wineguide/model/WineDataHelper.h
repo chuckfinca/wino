@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "JSONTOCoreDataHelper.h"
+#import "JSONToCoreDataHelper.h"
 #import "Restaurant.h"
 
-@interface WineDataHelper : JSONTOCoreDataHelper
+@interface WineDataHelper : JSONToCoreDataHelper
 
 @property (nonatomic, strong) Restaurant *restaurant;
 

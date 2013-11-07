@@ -8,10 +8,15 @@
 
 #import "RestaurantCDTVC.h"
 #import "RestaurantDetailsVC.h"
-#import "Wine+CreateAndModify.h"
-#import "WineDataHelper.h"
-#import "Brand.h"
 #import "WineCDTVC.h"
+#import "RestaurantDataHelper.h"
+#import "Grouping.h"
+#import "GroupingDataHelper.h"
+#import "Wine.h"
+#import "Brand.h"
+
+#define JSON @"json"
+#define WINE_ENTITY @"Wine"
 
 @interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -75,30 +80,34 @@
 
 -(void)getWineList
 {
-    NSString *restaurantName = self.restaurant.name;
-    NSString *nameWithoutSpaces = [restaurantName stringByReplacingOccurrencesOfString:@" " withString:@""];
+    // ask for a restaurant's groupings, flights, and wineUnits
     
-    // this will be replaced with a server url when available
-    NSURL *url = [[NSBundle mainBundle] URLForResource:nameWithoutSpaces withExtension:@"json"];
+    NSURL *restaurantUrl = [[NSBundle mainBundle] URLForResource:self.restaurant.identifier withExtension:JSON];
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] init];
+    [rdh updateCoreDataWithJSONFromURL:restaurantUrl];
     
-    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:self.context];
-    wdh.restaurant = self.restaurant;
+    // grouping.identifiers should be restaurant.identifies with the amended group name, that way I can assume I know the all group identifier to make the appropriate call.
     
-    [wdh updateCoreDataWithJSONFromURL:url];
+    // call the server and ask for the all group, including all nested wines, containing nested brands, but only tastingNote and varietal identifiers
+    
+    NSURL *allGroupUrl = [[NSBundle mainBundle] URLForResource:[NSString stringWithFormat:@"%@.all",self.restaurant.identifier] withExtension:JSON];
+    GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:self.context];
+    [gdh updateCoreDataWithJSONFromURL:allGroupUrl];
+    
     [self setupFetchedResultsController];
 }
 
 -(void)setupFetchedResultsController
 {
     // NSLog(@"setupFetchedResultsController...");
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Wine"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"color"
                                                               ascending:YES
                                                                selector:@selector(localizedCaseInsensitiveCompare:)],
                                 [NSSortDescriptor sortDescriptorWithKey:@"identifier"
                                                               ascending:YES
                                                                selector:@selector(localizedCaseInsensitiveCompare:)]];
-    request.predicate = [NSPredicate predicateWithFormat:@"restaurants CONTAINS %@",self.restaurant];
+    request.predicate = [NSPredicate predicateWithFormat:@"wineUnits.restaurant CONTAINS %@",self.restaurant];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context

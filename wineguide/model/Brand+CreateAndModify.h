@@ -7,9 +7,10 @@
 //
 
 #import "Brand.h"
+#import "Wine.h"
 
 @interface Brand (CreateAndModify)
 
-+(Brand *)brandWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
++(Brand *)brandForWine:(Wine *)wine foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary;
 
 @end

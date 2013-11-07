@@ -11,7 +11,6 @@
 #import "Varietal.h"
 #import "Brand.h"
 #import "TastingNote.h"
-#import "Recommendation.h"
 #import "Restaurant.h"
 
 @interface WineDetailsVC ()
@@ -113,7 +112,6 @@
     NSLog(@"identifier = %@",wine.identifier);
     NSLog(@"lastAccessed = %@",wine.lastAccessed);
     NSLog(@"markForDeletion = %@",wine.markForDeletion);
-    NSLog(@"price = %@",wine.price);
     NSLog(@"region = %@",wine.region);
     NSLog(@"sparkling = %@",wine.sparkling);
     NSLog(@"version = %@",wine.version);
@@ -125,9 +123,6 @@
     }
     for(TastingNote *t in wine.tastingNotes){
         NSLog(@"TastingNote = %@",t.name);
-    }
-    for(Restaurant *r in wine.restaurants){
-        NSLog(@"Restaurant = %@",r.identifier);
     }
 }
 

@@ -1,22 +1,25 @@
 //
-//  Brand.m
+//  Flight.m
 //  wineguide
 //
-//  Created by Charles Feinn on 11/1/13.
+//  Created by Charles Feinn on 11/6/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "Brand.h"
+#import "Flight.h"
+#import "Restaurant.h"
 #import "Wine.h"
 
 
-@implementation Brand
+@implementation Flight
 
 @dynamic identifier;
-@dynamic lastAccessed;
 @dynamic markForDeletion;
 @dynamic name;
+@dynamic price;
 @dynamic version;
+@dynamic lastAccessed;
+@dynamic restaurant;
 @dynamic wines;
 
 @end

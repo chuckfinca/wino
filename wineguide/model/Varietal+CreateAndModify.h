@@ -7,9 +7,10 @@
 //
 
 #import "Varietal.h"
+#import "Wine.h"
 
 @interface Varietal (CreateAndModify)
 
-+(Varietal *)varietalWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
++(Varietal *)varietalForWine:(Wine *)wine foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary;
 
 @end

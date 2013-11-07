@@ -7,9 +7,10 @@
 //
 
 #import "TastingNote.h"
+#import "Wine.h"
 
 @interface TastingNote (CreateAndModify)
 
-+(TastingNote *)tastingNoteWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
++(TastingNote *)tastingNoteForWine:(Wine *)wine foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary;
 
 @end

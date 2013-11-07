@@ -8,12 +8,14 @@
 
 #import "WineDataHelper.h"
 #import "Wine+CreateAndModify.h"
+#import "Restaurant.h"
 
 @implementation WineDataHelper
 
--(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
+-(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    [Wine wineFromRestaurant:self.restaurant withInfo:dictionary inContext:context];
+    [Wine wineFromRestaurant:self.restaurant foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
+
 
 @end

@@ -33,22 +33,32 @@
 		C9061E54181F3CD3003D8A55 /* star_full.png in Resources */ = {isa = PBXBuildFile; fileRef = C9061E51181F3CD3003D8A55 /* star_full.png */; };
 		C9061E55181F3CD3003D8A55 /* star_half.png in Resources */ = {isa = PBXBuildFile; fileRef = C9061E52181F3CD3003D8A55 /* star_half.png */; };
 		C9061E58181F3D2F003D8A55 /* WineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E57181F3D2F003D8A55 /* WineHeaderView.m */; };
+		C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92932B6182AD5F90035C93C /* JSONToCoreDataHelper.m */; };
+		C92932D2182AD8E80035C93C /* GroupingDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92932D1182AD8E80035C93C /* GroupingDataHelper.m */; };
+		C92932D5182AD9040035C93C /* WineUnitDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92932D4182AD9040035C93C /* WineUnitDataHelper.m */; };
+		C92932D8182B00D50035C93C /* BrandDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92932D7182B00D50035C93C /* BrandDataHelper.m */; };
+		C92932DB182B02200035C93C /* VarietalDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92932DA182B02200035C93C /* VarietalDataHelper.m */; };
+		C9293326182B08770035C93C /* Varietal.m in Sources */ = {isa = PBXBuildFile; fileRef = C9293325182B08770035C93C /* Varietal.m */; };
+		C9293329182B08780035C93C /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = C9293328182B08780035C93C /* Brand.m */; };
+		C929332C182B08780035C93C /* Grouping.m in Sources */ = {isa = PBXBuildFile; fileRef = C929332B182B08780035C93C /* Grouping.m */; };
+		C929332F182B08780035C93C /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = C929332E182B08780035C93C /* Restaurant.m */; };
+		C9293332182B08780035C93C /* TastingNote.m in Sources */ = {isa = PBXBuildFile; fileRef = C9293331182B08780035C93C /* TastingNote.m */; };
+		C9293335182B08780035C93C /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = C9293334182B08780035C93C /* Flight.m */; };
+		C9293338182B08780035C93C /* Wine.m in Sources */ = {isa = PBXBuildFile; fileRef = C9293337182B08780035C93C /* Wine.m */; };
+		C929333B182B08780035C93C /* WineUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = C929333A182B08780035C93C /* WineUnit.m */; };
 		C92DEFF218242D16009DCB2C /* Varietal+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DEFF118242D16009DCB2C /* Varietal+CreateAndModify.m */; };
 		C92DF00718247082009DCB2C /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF00618247082009DCB2C /* NSDictionary+Helper.m */; };
 		C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF009182476EF009DCB2C /* TastingNote+CreateAndModify.m */; };
-		C92DF031182479AF009DCB2C /* Varietal.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF030182479AF009DCB2C /* Varietal.m */; };
-		C92DF034182479B0009DCB2C /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF033182479B0009DCB2C /* Brand.m */; };
-		C92DF037182479B0009DCB2C /* Wine.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF036182479B0009DCB2C /* Wine.m */; };
-		C92DF03A182479B0009DCB2C /* Recommendation.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF039182479B0009DCB2C /* Recommendation.m */; };
-		C92DF03D182479B0009DCB2C /* TastingNote.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF03C182479B0009DCB2C /* TastingNote.m */; };
-		C92DF040182479B0009DCB2C /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF03F182479B0009DCB2C /* Restaurant.m */; };
 		C92DF04318247AB3009DCB2C /* Brand+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF04218247AB3009DCB2C /* Brand+CreateAndModify.m */; };
 		C92DF0471825B227009DCB2C /* WineCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF0461825B227009DCB2C /* WineCDTVC.m */; };
-		C92DF04A1826F1D0009DCB2C /* Recommendation+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF0491826F1D0009DCB2C /* Recommendation+CreateAndModify.m */; };
+		C92DF09618286942009DCB2C /* Flight+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF09518286942009DCB2C /* Flight+CreateAndModify.m */; };
+		C92DF14D1828D352009DCB2C /* Grouping+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF14C1828D352009DCB2C /* Grouping+CreateAndModify.m */; };
+		C92DF1D018297A76009DCB2C /* WineUnit+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF1CF18297A76009DCB2C /* WineUnit+CreateAndModify.m */; };
+		C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF232182AD063009DCB2C /* FlightDataHelper.m */; };
+		C92DF236182AD376009DCB2C /* TastingNoteDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF235182AD376009DCB2C /* TastingNoteDataHelper.m */; };
 		C98DEFB018217BE70038216C /* RestaurantDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFAF18217BE70038216C /* RestaurantDataHelper.m */; };
 		C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFB21821C7E30038216C /* LocationHelper.m */; };
 		C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFC61821DA790038216C /* CoreDataTableViewController.m */; };
-		C98DEFD91822D7740038216C /* JSONTOCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFD81822D7740038216C /* JSONTOCoreDataHelper.m */; };
 		C98DEFDC1822DADC0038216C /* WineDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFDB1822DADC0038216C /* WineDataHelper.m */; };
 		C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFE4182310060038216C /* Wine+CreateAndModify.m */; };
 		C98DEFE8182312130038216C /* ManagedObjectHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFE7182312130038216C /* ManagedObjectHandler.m */; };
@@ -114,39 +124,59 @@
 		C9061E57181F3D2F003D8A55 /* WineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineHeaderView.m; path = views/WineHeaderView.m; sourceTree = "<group>"; };
 		C90B6F85182415AD0012FE5F /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		C90B6FCF18241F080012FE5F /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
+		C92932B5182AD5F90035C93C /* JSONToCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToCoreDataHelper.h; path = model/JSONToCoreDataHelper.h; sourceTree = "<group>"; };
+		C92932B6182AD5F90035C93C /* JSONToCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToCoreDataHelper.m; path = model/JSONToCoreDataHelper.m; sourceTree = "<group>"; };
+		C92932D0182AD8E80035C93C /* GroupingDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupingDataHelper.h; path = model/GroupingDataHelper.h; sourceTree = "<group>"; };
+		C92932D1182AD8E80035C93C /* GroupingDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupingDataHelper.m; path = model/GroupingDataHelper.m; sourceTree = "<group>"; };
+		C92932D3182AD9040035C93C /* WineUnitDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineUnitDataHelper.h; path = model/WineUnitDataHelper.h; sourceTree = "<group>"; };
+		C92932D4182AD9040035C93C /* WineUnitDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineUnitDataHelper.m; path = model/WineUnitDataHelper.m; sourceTree = "<group>"; };
+		C92932D6182B00D50035C93C /* BrandDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrandDataHelper.h; path = model/BrandDataHelper.h; sourceTree = "<group>"; };
+		C92932D7182B00D50035C93C /* BrandDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrandDataHelper.m; path = model/BrandDataHelper.m; sourceTree = "<group>"; };
+		C92932D9182B02200035C93C /* VarietalDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VarietalDataHelper.h; path = model/VarietalDataHelper.h; sourceTree = "<group>"; };
+		C92932DA182B02200035C93C /* VarietalDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VarietalDataHelper.m; path = model/VarietalDataHelper.m; sourceTree = "<group>"; };
+		C9293324182B08770035C93C /* Varietal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Varietal.h; path = model/Varietal.h; sourceTree = "<group>"; };
+		C9293325182B08770035C93C /* Varietal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Varietal.m; path = model/Varietal.m; sourceTree = "<group>"; };
+		C9293327182B08780035C93C /* Brand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Brand.h; path = model/Brand.h; sourceTree = "<group>"; };
+		C9293328182B08780035C93C /* Brand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Brand.m; path = model/Brand.m; sourceTree = "<group>"; };
+		C929332A182B08780035C93C /* Grouping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Grouping.h; path = model/Grouping.h; sourceTree = "<group>"; };
+		C929332B182B08780035C93C /* Grouping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Grouping.m; path = model/Grouping.m; sourceTree = "<group>"; };
+		C929332D182B08780035C93C /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Restaurant.h; path = model/Restaurant.h; sourceTree = "<group>"; };
+		C929332E182B08780035C93C /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Restaurant.m; path = model/Restaurant.m; sourceTree = "<group>"; };
+		C9293330182B08780035C93C /* TastingNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingNote.h; path = model/TastingNote.h; sourceTree = "<group>"; };
+		C9293331182B08780035C93C /* TastingNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingNote.m; path = model/TastingNote.m; sourceTree = "<group>"; };
+		C9293333182B08780035C93C /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flight.h; path = model/Flight.h; sourceTree = "<group>"; };
+		C9293334182B08780035C93C /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Flight.m; path = model/Flight.m; sourceTree = "<group>"; };
+		C9293336182B08780035C93C /* Wine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wine.h; path = model/Wine.h; sourceTree = "<group>"; };
+		C9293337182B08780035C93C /* Wine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wine.m; path = model/Wine.m; sourceTree = "<group>"; };
+		C9293339182B08780035C93C /* WineUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineUnit.h; path = model/WineUnit.h; sourceTree = "<group>"; };
+		C929333A182B08780035C93C /* WineUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineUnit.m; path = model/WineUnit.m; sourceTree = "<group>"; };
 		C92DEFF018242D16009DCB2C /* Varietal+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Varietal+CreateAndModify.h"; path = "model/Varietal+CreateAndModify.h"; sourceTree = "<group>"; };
 		C92DEFF118242D16009DCB2C /* Varietal+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Varietal+CreateAndModify.m"; path = "model/Varietal+CreateAndModify.m"; sourceTree = "<group>"; };
 		C92DF00518247082009DCB2C /* NSDictionary+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Helper.h"; path = "supportingFiles/NSDictionary+Helper.h"; sourceTree = "<group>"; };
 		C92DF00618247082009DCB2C /* NSDictionary+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Helper.m"; path = "supportingFiles/NSDictionary+Helper.m"; sourceTree = "<group>"; };
 		C92DF008182476EF009DCB2C /* TastingNote+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TastingNote+CreateAndModify.h"; path = "model/TastingNote+CreateAndModify.h"; sourceTree = "<group>"; };
 		C92DF009182476EF009DCB2C /* TastingNote+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TastingNote+CreateAndModify.m"; path = "model/TastingNote+CreateAndModify.m"; sourceTree = "<group>"; };
-		C92DF02F182479AF009DCB2C /* Varietal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Varietal.h; path = model/managedObjects/Varietal.h; sourceTree = "<group>"; };
-		C92DF030182479AF009DCB2C /* Varietal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Varietal.m; path = model/managedObjects/Varietal.m; sourceTree = "<group>"; };
-		C92DF032182479B0009DCB2C /* Brand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Brand.h; path = model/managedObjects/Brand.h; sourceTree = "<group>"; };
-		C92DF033182479B0009DCB2C /* Brand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Brand.m; path = model/managedObjects/Brand.m; sourceTree = "<group>"; };
-		C92DF035182479B0009DCB2C /* Wine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wine.h; path = model/managedObjects/Wine.h; sourceTree = "<group>"; };
-		C92DF036182479B0009DCB2C /* Wine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wine.m; path = model/managedObjects/Wine.m; sourceTree = "<group>"; };
-		C92DF038182479B0009DCB2C /* Recommendation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recommendation.h; path = model/managedObjects/Recommendation.h; sourceTree = "<group>"; };
-		C92DF039182479B0009DCB2C /* Recommendation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recommendation.m; path = model/managedObjects/Recommendation.m; sourceTree = "<group>"; };
-		C92DF03B182479B0009DCB2C /* TastingNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingNote.h; path = model/managedObjects/TastingNote.h; sourceTree = "<group>"; };
-		C92DF03C182479B0009DCB2C /* TastingNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingNote.m; path = model/managedObjects/TastingNote.m; sourceTree = "<group>"; };
-		C92DF03E182479B0009DCB2C /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Restaurant.h; path = model/managedObjects/Restaurant.h; sourceTree = "<group>"; };
-		C92DF03F182479B0009DCB2C /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Restaurant.m; path = model/managedObjects/Restaurant.m; sourceTree = "<group>"; };
 		C92DF04118247AB3009DCB2C /* Brand+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Brand+CreateAndModify.h"; path = "model/Brand+CreateAndModify.h"; sourceTree = "<group>"; };
 		C92DF04218247AB3009DCB2C /* Brand+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Brand+CreateAndModify.m"; path = "model/Brand+CreateAndModify.m"; sourceTree = "<group>"; };
 		C92DF0451825B227009DCB2C /* WineCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineCDTVC.h; path = controllers/WineCDTVC.h; sourceTree = "<group>"; };
 		C92DF0461825B227009DCB2C /* WineCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineCDTVC.m; path = controllers/WineCDTVC.m; sourceTree = "<group>"; };
-		C92DF0481826F1D0009DCB2C /* Recommendation+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Recommendation+CreateAndModify.h"; path = "model/Recommendation+CreateAndModify.h"; sourceTree = "<group>"; };
-		C92DF0491826F1D0009DCB2C /* Recommendation+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Recommendation+CreateAndModify.m"; path = "model/Recommendation+CreateAndModify.m"; sourceTree = "<group>"; };
-		C92DF04B18270553009DCB2C /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
+		C92DF04B18270553009DCB2C /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
+		C92DF09418286942009DCB2C /* Flight+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Flight+CreateAndModify.h"; path = "model/Flight+CreateAndModify.h"; sourceTree = "<group>"; };
+		C92DF09518286942009DCB2C /* Flight+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Flight+CreateAndModify.m"; path = "model/Flight+CreateAndModify.m"; sourceTree = "<group>"; };
+		C92DF14B1828D352009DCB2C /* Grouping+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Grouping+CreateAndModify.h"; path = "model/Grouping+CreateAndModify.h"; sourceTree = "<group>"; };
+		C92DF14C1828D352009DCB2C /* Grouping+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Grouping+CreateAndModify.m"; path = "model/Grouping+CreateAndModify.m"; sourceTree = "<group>"; };
+		C92DF1CE18297A76009DCB2C /* WineUnit+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WineUnit+CreateAndModify.h"; path = "model/WineUnit+CreateAndModify.h"; sourceTree = "<group>"; };
+		C92DF1CF18297A76009DCB2C /* WineUnit+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "WineUnit+CreateAndModify.m"; path = "model/WineUnit+CreateAndModify.m"; sourceTree = "<group>"; };
+		C92DF231182AD063009DCB2C /* FlightDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightDataHelper.h; path = model/FlightDataHelper.h; sourceTree = "<group>"; };
+		C92DF232182AD063009DCB2C /* FlightDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightDataHelper.m; path = model/FlightDataHelper.m; sourceTree = "<group>"; };
+		C92DF234182AD376009DCB2C /* TastingNoteDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingNoteDataHelper.h; path = model/TastingNoteDataHelper.h; sourceTree = "<group>"; };
+		C92DF235182AD376009DCB2C /* TastingNoteDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingNoteDataHelper.m; path = model/TastingNoteDataHelper.m; sourceTree = "<group>"; };
 		C98DEFAE18217BE70038216C /* RestaurantDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantDataHelper.h; path = model/RestaurantDataHelper.h; sourceTree = "<group>"; };
 		C98DEFAF18217BE70038216C /* RestaurantDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantDataHelper.m; path = model/RestaurantDataHelper.m; sourceTree = "<group>"; };
 		C98DEFB11821C7E30038216C /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationHelper.h; path = model/LocationHelper.h; sourceTree = "<group>"; };
 		C98DEFB21821C7E30038216C /* LocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationHelper.m; path = model/LocationHelper.m; sourceTree = "<group>"; };
 		C98DEFC51821DA790038216C /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataTableViewController.h; path = controllers/CoreDataTableViewController.h; sourceTree = "<group>"; };
 		C98DEFC61821DA790038216C /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataTableViewController.m; path = controllers/CoreDataTableViewController.m; sourceTree = "<group>"; };
-		C98DEFD71822D7740038216C /* JSONTOCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONTOCoreDataHelper.h; path = model/JSONTOCoreDataHelper.h; sourceTree = "<group>"; };
-		C98DEFD81822D7740038216C /* JSONTOCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONTOCoreDataHelper.m; path = model/JSONTOCoreDataHelper.m; sourceTree = "<group>"; };
 		C98DEFDA1822DADC0038216C /* WineDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineDataHelper.h; path = model/WineDataHelper.h; sourceTree = "<group>"; };
 		C98DEFDB1822DADC0038216C /* WineDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineDataHelper.m; path = model/WineDataHelper.m; sourceTree = "<group>"; };
 		C98DEFE3182310060038216C /* Wine+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Wine+CreateAndModify.h"; path = "model/Wine+CreateAndModify.h"; sourceTree = "<group>"; };
@@ -332,19 +362,22 @@
 		C90B6F9818241A5B0012FE5F /* managedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				C92DF044182483E0009DCB2C /* managedObjectHelpers */,
-				C92DF03E182479B0009DCB2C /* Restaurant.h */,
-				C92DF03F182479B0009DCB2C /* Restaurant.m */,
-				C92DF03B182479B0009DCB2C /* TastingNote.h */,
-				C92DF03C182479B0009DCB2C /* TastingNote.m */,
-				C92DF038182479B0009DCB2C /* Recommendation.h */,
-				C92DF039182479B0009DCB2C /* Recommendation.m */,
-				C92DF035182479B0009DCB2C /* Wine.h */,
-				C92DF036182479B0009DCB2C /* Wine.m */,
-				C92DF032182479B0009DCB2C /* Brand.h */,
-				C92DF033182479B0009DCB2C /* Brand.m */,
-				C92DF02F182479AF009DCB2C /* Varietal.h */,
-				C92DF030182479AF009DCB2C /* Varietal.m */,
+				C9293339182B08780035C93C /* WineUnit.h */,
+				C929333A182B08780035C93C /* WineUnit.m */,
+				C9293336182B08780035C93C /* Wine.h */,
+				C9293337182B08780035C93C /* Wine.m */,
+				C9293333182B08780035C93C /* Flight.h */,
+				C9293334182B08780035C93C /* Flight.m */,
+				C9293330182B08780035C93C /* TastingNote.h */,
+				C9293331182B08780035C93C /* TastingNote.m */,
+				C929332D182B08780035C93C /* Restaurant.h */,
+				C929332E182B08780035C93C /* Restaurant.m */,
+				C929332A182B08780035C93C /* Grouping.h */,
+				C929332B182B08780035C93C /* Grouping.m */,
+				C9293327182B08780035C93C /* Brand.h */,
+				C9293328182B08780035C93C /* Brand.m */,
+				C9293324182B08770035C93C /* Varietal.h */,
+				C9293325182B08770035C93C /* Varietal.m */,
 			);
 			name = managedObjects;
 			sourceTree = "<group>";
@@ -352,28 +385,51 @@
 		C92DF044182483E0009DCB2C /* managedObjectHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				C98DEFD71822D7740038216C /* JSONTOCoreDataHelper.h */,
-				C98DEFD81822D7740038216C /* JSONTOCoreDataHelper.m */,
+				C98DEFE6182312130038216C /* ManagedObjectHandler.h */,
+				C98DEFE7182312130038216C /* ManagedObjectHandler.m */,
+				C92932B5182AD5F90035C93C /* JSONToCoreDataHelper.h */,
+				C92932B6182AD5F90035C93C /* JSONToCoreDataHelper.m */,
 				C98DEFAE18217BE70038216C /* RestaurantDataHelper.h */,
 				C98DEFAF18217BE70038216C /* RestaurantDataHelper.m */,
 				C98DEFDA1822DADC0038216C /* WineDataHelper.h */,
 				C98DEFDB1822DADC0038216C /* WineDataHelper.m */,
-				C98DEFE6182312130038216C /* ManagedObjectHandler.h */,
-				C98DEFE7182312130038216C /* ManagedObjectHandler.m */,
-				C9DDD09F1820885C000A6FD7 /* Restaurant+CreateAndModify.h */,
-				C9DDD0A01820885C000A6FD7 /* Restaurant+CreateAndModify.m */,
-				C98DEFE3182310060038216C /* Wine+CreateAndModify.h */,
-				C98DEFE4182310060038216C /* Wine+CreateAndModify.m */,
-				C92DEFF018242D16009DCB2C /* Varietal+CreateAndModify.h */,
-				C92DEFF118242D16009DCB2C /* Varietal+CreateAndModify.m */,
-				C92DF008182476EF009DCB2C /* TastingNote+CreateAndModify.h */,
-				C92DF009182476EF009DCB2C /* TastingNote+CreateAndModify.m */,
-				C92DF04118247AB3009DCB2C /* Brand+CreateAndModify.h */,
-				C92DF04218247AB3009DCB2C /* Brand+CreateAndModify.m */,
-				C92DF0481826F1D0009DCB2C /* Recommendation+CreateAndModify.h */,
-				C92DF0491826F1D0009DCB2C /* Recommendation+CreateAndModify.m */,
+				C92DF231182AD063009DCB2C /* FlightDataHelper.h */,
+				C92DF232182AD063009DCB2C /* FlightDataHelper.m */,
+				C92DF234182AD376009DCB2C /* TastingNoteDataHelper.h */,
+				C92DF235182AD376009DCB2C /* TastingNoteDataHelper.m */,
+				C92932D0182AD8E80035C93C /* GroupingDataHelper.h */,
+				C92932D1182AD8E80035C93C /* GroupingDataHelper.m */,
+				C92932D3182AD9040035C93C /* WineUnitDataHelper.h */,
+				C92932D4182AD9040035C93C /* WineUnitDataHelper.m */,
+				C92932D6182B00D50035C93C /* BrandDataHelper.h */,
+				C92932D7182B00D50035C93C /* BrandDataHelper.m */,
+				C92932D9182B02200035C93C /* VarietalDataHelper.h */,
+				C92932DA182B02200035C93C /* VarietalDataHelper.m */,
 			);
 			name = managedObjectHelpers;
+			sourceTree = "<group>";
+		};
+		C92DF1C9182977B0009DCB2C /* managedObjectCategories */ = {
+			isa = PBXGroup;
+			children = (
+				C92DF04118247AB3009DCB2C /* Brand+CreateAndModify.h */,
+				C92DF04218247AB3009DCB2C /* Brand+CreateAndModify.m */,
+				C92DF09418286942009DCB2C /* Flight+CreateAndModify.h */,
+				C92DF09518286942009DCB2C /* Flight+CreateAndModify.m */,
+				C92DF14B1828D352009DCB2C /* Grouping+CreateAndModify.h */,
+				C92DF14C1828D352009DCB2C /* Grouping+CreateAndModify.m */,
+				C9DDD09F1820885C000A6FD7 /* Restaurant+CreateAndModify.h */,
+				C9DDD0A01820885C000A6FD7 /* Restaurant+CreateAndModify.m */,
+				C92DF008182476EF009DCB2C /* TastingNote+CreateAndModify.h */,
+				C92DF009182476EF009DCB2C /* TastingNote+CreateAndModify.m */,
+				C92DEFF018242D16009DCB2C /* Varietal+CreateAndModify.h */,
+				C92DEFF118242D16009DCB2C /* Varietal+CreateAndModify.m */,
+				C98DEFE3182310060038216C /* Wine+CreateAndModify.h */,
+				C98DEFE4182310060038216C /* Wine+CreateAndModify.m */,
+				C92DF1CE18297A76009DCB2C /* WineUnit+CreateAndModify.h */,
+				C92DF1CF18297A76009DCB2C /* WineUnit+CreateAndModify.m */,
+			);
+			name = managedObjectCategories;
 			sourceTree = "<group>";
 		};
 		C98DEFF8182329C30038216C /* json */ = {
@@ -392,6 +448,8 @@
 			children = (
 				C9DDD08D182036D5000A6FD7 /* Model.xcdatamodeld */,
 				C90B6F9818241A5B0012FE5F /* managedObjects */,
+				C92DF1C9182977B0009DCB2C /* managedObjectCategories */,
+				C92DF044182483E0009DCB2C /* managedObjectHelpers */,
 				C98DEFF8182329C30038216C /* json */,
 				C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */,
 				C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */,
@@ -511,39 +569,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C92DF034182479B0009DCB2C /* Brand.m in Sources */,
+				C9293335182B08780035C93C /* Flight.m in Sources */,
 				C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */,
+				C9293326182B08770035C93C /* Varietal.m in Sources */,
 				C9DDD08C1820307D000A6FD7 /* InitialTabBarController.m in Sources */,
 				C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */,
+				C929332F182B08780035C93C /* Restaurant.m in Sources */,
 				C9061E30181F1C9C003D8A55 /* RestaurantsCDTVC.m in Sources */,
+				C92DF09618286942009DCB2C /* Flight+CreateAndModify.m in Sources */,
 				C9DDD0A11820885C000A6FD7 /* Restaurant+CreateAndModify.m in Sources */,
-				C98DEFD91822D7740038216C /* JSONTOCoreDataHelper.m in Sources */,
+				C92DF236182AD376009DCB2C /* TastingNoteDataHelper.m in Sources */,
 				C98DEFDC1822DADC0038216C /* WineDataHelper.m in Sources */,
 				C9DDD08F182036D5000A6FD7 /* Model.xcdatamodeld in Sources */,
-				C92DF040182479B0009DCB2C /* Restaurant.m in Sources */,
+				C9293338182B08780035C93C /* Wine.m in Sources */,
+				C92DF14D1828D352009DCB2C /* Grouping+CreateAndModify.m in Sources */,
+				C92932DB182B02200035C93C /* VarietalDataHelper.m in Sources */,
 				C92DEFF218242D16009DCB2C /* Varietal+CreateAndModify.m in Sources */,
 				C9061DFF181F07CE003D8A55 /* AppDelegate.m in Sources */,
-				C92DF03D182479B0009DCB2C /* TastingNote.m in Sources */,
-				C92DF037182479B0009DCB2C /* Wine.m in Sources */,
 				C92DF0471825B227009DCB2C /* WineCDTVC.m in Sources */,
 				C9061E43181F2865003D8A55 /* VariableHeightTV.m in Sources */,
-				C92DF04A1826F1D0009DCB2C /* Recommendation+CreateAndModify.m in Sources */,
 				C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */,
 				C9061E3A181F216C003D8A55 /* RestaurantCDTVC.m in Sources */,
 				C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */,
 				C92DF04318247AB3009DCB2C /* Brand+CreateAndModify.m in Sources */,
 				C9061E58181F3D2F003D8A55 /* WineHeaderView.m in Sources */,
 				C92DF00718247082009DCB2C /* NSDictionary+Helper.m in Sources */,
+				C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */,
+				C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,
+				C929333B182B08780035C93C /* WineUnit.m in Sources */,
 				C98DEFB018217BE70038216C /* RestaurantDataHelper.m in Sources */,
 				C9061E40181F27F1003D8A55 /* RestaurantHeaderView.m in Sources */,
 				C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */,
 				C98DEFE8182312130038216C /* ManagedObjectHandler.m in Sources */,
+				C92DF1D018297A76009DCB2C /* WineUnit+CreateAndModify.m in Sources */,
+				C9293329182B08780035C93C /* Brand.m in Sources */,
+				C9293332182B08780035C93C /* TastingNote.m in Sources */,
+				C92932D8182B00D50035C93C /* BrandDataHelper.m in Sources */,
 				C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */,
+				C92932D2182AD8E80035C93C /* GroupingDataHelper.m in Sources */,
+				C929332C182B08780035C93C /* Grouping.m in Sources */,
 				C9061DFB181F07CE003D8A55 /* main.m in Sources */,
 				C9061E49181F3480003D8A55 /* HomeVC.m in Sources */,
-				C92DF031182479AF009DCB2C /* Varietal.m in Sources */,
-				C92DF03A182479B0009DCB2C /* Recommendation.m in Sources */,
+				C92932D5182AD9040035C93C /* WineUnitDataHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,7 +859,7 @@
 				C90B6F85182415AD0012FE5F /* Model 2.xcdatamodel */,
 				C9DDD08E182036D5000A6FD7 /* Model.xcdatamodel */,
 			);
-			currentVersion = C90B6FCF18241F080012FE5F /* Model 3.xcdatamodel */;
+			currentVersion = C92DF04B18270553009DCB2C /* Model 4.xcdatamodel */;
 			name = Model.xcdatamodeld;
 			path = model/Model.xcdatamodeld;
 			sourceTree = "<group>";

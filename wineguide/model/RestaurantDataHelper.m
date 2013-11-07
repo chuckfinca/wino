@@ -11,11 +11,9 @@
 
 @implementation RestaurantDataHelper
 
--(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
+-(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    [Restaurant restaurantWithInfo:dictionary inContext:context];
+    [Restaurant restaurantFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
-
-
 
 @end

@@ -2,14 +2,14 @@
 //  Wine.h
 //  wineguide
 //
-//  Created by Charles Feinn on 11/1/13.
+//  Created by Charles Feinn on 11/6/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Brand, Recommendation, Restaurant, TastingNote, Varietal;
+@class Brand, Flight, Grouping, TastingNote, Varietal, WineUnit;
 
 @interface Wine : NSManagedObject
 
@@ -22,30 +22,31 @@
 @property (nonatomic, retain) NSDate * lastAccessed;
 @property (nonatomic, retain) NSNumber * markForDeletion;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * price;
 @property (nonatomic, retain) NSString * region;
 @property (nonatomic, retain) NSNumber * sparkling;
+@property (nonatomic, retain) NSString * state;
 @property (nonatomic, retain) NSNumber * version;
-@property (nonatomic, retain) NSNumber * vintage;
 @property (nonatomic, retain) NSString * vineyard;
+@property (nonatomic, retain) NSNumber * vintage;
 @property (nonatomic, retain) Brand *brand;
-@property (nonatomic, retain) NSSet *recommendedAs;
-@property (nonatomic, retain) NSSet *restaurants;
+@property (nonatomic, retain) NSSet *flights;
+@property (nonatomic, retain) NSSet *groupings;
 @property (nonatomic, retain) NSSet *tastingNotes;
 @property (nonatomic, retain) NSSet *varietals;
+@property (nonatomic, retain) NSSet *wineUnits;
 @end
 
 @interface Wine (CoreDataGeneratedAccessors)
 
-- (void)addRecommendedAsObject:(Recommendation *)value;
-- (void)removeRecommendedAsObject:(Recommendation *)value;
-- (void)addRecommendedAs:(NSSet *)values;
-- (void)removeRecommendedAs:(NSSet *)values;
+- (void)addFlightsObject:(Flight *)value;
+- (void)removeFlightsObject:(Flight *)value;
+- (void)addFlights:(NSSet *)values;
+- (void)removeFlights:(NSSet *)values;
 
-- (void)addRestaurantsObject:(Restaurant *)value;
-- (void)removeRestaurantsObject:(Restaurant *)value;
-- (void)addRestaurants:(NSSet *)values;
-- (void)removeRestaurants:(NSSet *)values;
+- (void)addGroupingsObject:(Grouping *)value;
+- (void)removeGroupingsObject:(Grouping *)value;
+- (void)addGroupings:(NSSet *)values;
+- (void)removeGroupings:(NSSet *)values;
 
 - (void)addTastingNotesObject:(TastingNote *)value;
 - (void)removeTastingNotesObject:(TastingNote *)value;
@@ -56,5 +57,10 @@
 - (void)removeVarietalsObject:(Varietal *)value;
 - (void)addVarietals:(NSSet *)values;
 - (void)removeVarietals:(NSSet *)values;
+
+- (void)addWineUnitsObject:(WineUnit *)value;
+- (void)removeWineUnitsObject:(WineUnit *)value;
+- (void)addWineUnits:(NSSet *)values;
+- (void)removeWineUnits:(NSSet *)values;
 
 @end

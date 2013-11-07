@@ -7,92 +7,99 @@
 //
 
 #import "Wine+CreateAndModify.h"
-#import "TastingNote+CreateAndModify.h"
 #import "ManagedObjectHandler.h"
-#import "Varietal+CreateAndModify.h"
 #import "NSDictionary+Helper.h"
-#import "Brand+CreateAndModify.h"
-#import "Restaurant.h"
-#import "Recommendation+CreateAndModify.h"
 
+#import "BrandDataHelper.h"
+#import "TastingNoteDataHelper.h"
+#import "VarietalDataHelper.h"
 
+#import "Flight.h"
+#import "Grouping.h"
+#import "WineUnit.h"
 
-#define ENTITY_NAME @"Wine"
-#define BRAND @"brand"
-#define NAME @"name"
-#define VINEYARD @"vineyard"
-#define REGION @"region"
-#define COUNTRY @"country"
+#define WINE_ENTITY @"Wine"
+#define RESTAURANT_ENTITY @"Restaurant"
+
+#define ALCOHOL @"alcoholPercentage"
 #define COLOR @"color"
-#define SPARKLING @"sparkling"
+#define COUNTRY @"country"
 #define DESSERT @"dessert"
-#define VARIETALS @"varietals"
-#define PRICE @"price"
-#define TASTING_NOTES @"tastingnotes"
-#define DELETE_ENTITY @"markForDeletion"
-#define VERSION @"version"
+#define FAVORITE @"favorite"
 #define IDENTIFIER @"identifier"
-#define RESTAURANT @"restaurant"
+#define LAST_ACCESSED @"lastAccessed"
+#define DELETE_ENTITY @"markForDeletion"
+#define NAME @"name"
+#define REGION @"region"
+#define SPARKLING @"sparkling"
+#define STATE_GEO @"state"
+#define VARIETALS @"varietals"
+#define VERSION @"version"
+#define VINEYARD @"vineyard"
 #define VINTAGE @"vintage"
-#define RECOMMENDATIONS @"recommendedas"
+#define BRAND @"brand"
+#define GROUPINGS @"groupings"
+#define TASTING_NOTES @"tastingnotes"
+#define FLIGHTS @"flights"
+
+#define DIVIDER @"/"
+
 
 @implementation Wine (CreateAndModify)
 
-+(Wine *)wineFromRestaurant:(Restaurant *)restaurant withInfo:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context
++(Wine *)wineFromRestaurant:(Restaurant *)restaurant foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
 {
     Wine *wine = nil;
     
-    wine = (Wine *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:ENTITY_NAME inContext:context usingDictionary:dictionary];
+    wine = (Wine *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:WINE_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
     
     if(wine){
         if([wine.version intValue] == 0 || wine.version < dictionary[VERSION]){
             
-            wine.name = [dictionary objectForKeyNotNull:NAME];
-            wine.vineyard = [dictionary objectForKeyNotNull:VINEYARD];
+            // ATTRIBUTES
+            
+            wine.alcoholPercentage = [dictionary objectForKeyNotNull:ALCOHOL];
             wine.color = [dictionary objectForKeyNotNull:COLOR];
-            wine.sparkling = [[dictionary objectForKeyNotNull:SPARKLING] boolValue] == YES ? @1 : @0;
-            wine.dessert = [[dictionary objectForKeyNotNull:DESSERT] boolValue] == YES ? @1 : @0;
-            wine.region = [dictionary objectForKeyNotNull:REGION];
             wine.country = [dictionary objectForKeyNotNull:COUNTRY];
-            wine.price = [dictionary objectForKeyNotNull:PRICE];
-            wine.markForDeletion = [[dictionary objectForKeyNotNull:DELETE_ENTITY] boolValue] == YES ? @1 : @0;
+            wine.dessert = [dictionary objectForKeyNotNull:DESSERT];
+            // wine.favorite
             wine.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
-            wine.version = [NSNumber numberWithDouble:[[dictionary objectForKeyNotNull:VERSION] doubleValue]];
+            // wine.lastAccessed
+            wine.markForDeletion = [dictionary objectForKeyNotNull:DELETE_ENTITY];
+            wine.name = [dictionary objectForKeyNotNull:NAME];
+            wine.region = [dictionary objectForKeyNotNull:REGION];
+            wine.sparkling = [dictionary objectForKeyNotNull:SPARKLING];
+            wine.state = [dictionary objectForKeyNotNull:STATE_GEO];
+            wine.version = [dictionary objectForKeyNotNull:VERSION];
+            wine.vineyard = [dictionary objectForKeyNotNull:VINEYARD];
             wine.vintage = [dictionary objectForKeyNotNull:VINTAGE];
             
-            NSArray *varietals = [dictionary separateNonNullStringLocatedAtKey:VARIETALS];
-            NSMutableSet *varietalsSet = [[NSMutableSet alloc] init];
-            for(NSString *varietalName in varietals){
-                Varietal *v = [Varietal varietalWithName:varietalName inContext:context];
-                [varietalsSet addObject:v];
-            }
             
-            NSArray *recommendations = [dictionary separateNonNullStringLocatedAtKey:RECOMMENDATIONS];
-            NSMutableSet *recommendationSet = [[NSMutableSet alloc] init];
-            for(NSString *recommendationName in recommendations){
-                Recommendation *r = [Recommendation recommendationWithName:recommendationName inContext:context];
-                [recommendationSet addObject:r];
-            }
+            // RELATIONSHIPS
+            // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
             
-            NSArray *tastingNotes = [dictionary separateNonNullStringLocatedAtKey:TASTING_NOTES];
-            NSMutableSet *tastingNotesSet = [[NSMutableSet alloc] init];
-            for(NSString *tastingNoteName in tastingNotes){
-                TastingNote *tn = [TastingNote tastingNoteWithName:tastingNoteName inContext:context];
-                [tastingNotesSet addObject:tn];
-            }
-            wine.tastingNotes = tastingNotesSet;
+            // Brand
+            BrandDataHelper *bdh = [[BrandDataHelper alloc] initWithContext:context];
+            bdh.parentManagedObject = wine;
+            [bdh updateNestedManagedObjectsLocatedAtKey:BRAND inDictionary:dictionary];
+        
+            // Tasting Notes
+            TastingNoteDataHelper *tndh = [[TastingNoteDataHelper alloc] initWithContext:context];
+            tndh.parentManagedObject = wine;
+            [tndh updateNestedManagedObjectsLocatedAtKey:TASTING_NOTES inDictionary:dictionary];
             
-            Brand *brand = [Brand brandWithName:dictionary[BRAND] inContext:context];
-            wine.brand = brand;
+            // Varietals
+            VarietalDataHelper *vdh = [[VarietalDataHelper alloc] init];
+            vdh.parentManagedObject = wine;
+            [vdh updateNestedManagedObjectsLocatedAtKey:VARIETALS inDictionary:dictionary];
             
-            NSMutableSet *restaurants = [wine.restaurants mutableCopy];
-            if(!restaurants) restaurants = [[NSMutableSet alloc] init];
-            Restaurant *r = (Restaurant *)[ManagedObjectHandler getManagedObjectWithEntityName:@"Restaurant" andIdentifier:restaurant.identifier inContext:context];
-            [restaurants addObject:r];
-            wine.restaurants = restaurants;
+            // Groupings
+            
+            // Flights
+            
+            // WineUnits
         }
     }
-    
     return wine;
 }
 

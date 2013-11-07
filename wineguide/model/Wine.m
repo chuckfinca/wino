@@ -2,16 +2,17 @@
 //  Wine.m
 //  wineguide
 //
-//  Created by Charles Feinn on 11/1/13.
+//  Created by Charles Feinn on 11/6/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
 #import "Wine.h"
 #import "Brand.h"
-#import "Recommendation.h"
-#import "Restaurant.h"
+#import "Flight.h"
+#import "Grouping.h"
 #import "TastingNote.h"
 #import "Varietal.h"
+#import "WineUnit.h"
 
 
 @implementation Wine
@@ -25,16 +26,17 @@
 @dynamic lastAccessed;
 @dynamic markForDeletion;
 @dynamic name;
-@dynamic price;
 @dynamic region;
 @dynamic sparkling;
+@dynamic state;
 @dynamic version;
-@dynamic vintage;
 @dynamic vineyard;
+@dynamic vintage;
 @dynamic brand;
-@dynamic recommendedAs;
-@dynamic restaurants;
+@dynamic flights;
+@dynamic groupings;
 @dynamic tastingNotes;
 @dynamic varietals;
+@dynamic wineUnits;
 
 @end
