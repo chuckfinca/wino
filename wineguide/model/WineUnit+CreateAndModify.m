@@ -18,6 +18,7 @@
 #define PRICE @"price"
 #define QUANTITY @"quantity"
 #define VERSION @"version"
+#define WINE_IDENTIFIER @"wineIdentifier"
 
 #define WINES @"wines"
 
@@ -40,6 +41,8 @@
         wineUnit.quantity = [dictionary objectForKeyNotNull:QUANTITY];
         wineUnit.version = [dictionary objectForKeyNotNull:VERSION];
         
+        wineUnit.wineIdentifier = [dictionary objectForKey:WINE_IDENTIFIER];
+        
         
         // RELATIONSHIPS
         
@@ -49,11 +52,13 @@
         // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
         
         // Wines
-        WineDataHelper *wdh = [[WineDataHelper alloc] init];
+        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
         wdh.restaurant = restaurant;
         wdh.parentManagedObject = wineUnit;
         [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
+    
+    [wineUnit logDetails];
     
     return wineUnit;
 }
@@ -62,6 +67,23 @@
 -(NSString *)description
 {
     return self.identifier;
+}
+
+-(void)logDetails
+{
+    NSLog(@"----------------------------------------");
+    NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"lastAccessed = %@",self.lastAccessed);
+    NSLog(@"markForDeletion = %@",self.markForDeletion);
+    NSLog(@"price = %@",self.price);
+    NSLog(@"quantity = %@",self.quantity);
+    NSLog(@"version = %@",self.version);
+    NSLog(@"wineIdentifier = %@",self.wineIdentifier);
+    
+    NSLog(@"restaurant = %@",self.restaurant.description);
+    
+    NSLog(@"wine = %@",self.wine);
+    NSLog(@"\n\n\n");
 }
 
 

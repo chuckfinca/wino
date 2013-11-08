@@ -17,11 +17,4 @@
     [WineUnit wineUnitFromRestaurant:(Restaurant *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)setRelationIdentifiersAttribute:(NSString *)string
-{
-    Restaurant *restaurant = (Restaurant *)self.parentManagedObject;
-    restaurant.wineUnitIdentifiers = string;
-    NSLog(@"restaurant.wineUnitIdentifiers = %@",restaurant.wineUnitIdentifiers);
-}
-
 @end

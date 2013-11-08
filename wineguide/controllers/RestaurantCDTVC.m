@@ -82,8 +82,13 @@
 {
     // ask for a restaurant's groupings, flights, and wineUnits
     
+    NSLog(@"self.restaurant.identifier = %@",self.restaurant.identifier);
     NSURL *restaurantUrl = [[NSBundle mainBundle] URLForResource:self.restaurant.identifier withExtension:JSON];
-    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] init];
+    NSLog(@"---------------------------------------------------------------------------------------------------------");
+    NSLog(@"self.context = %@",self.context);
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context];
+    NSLog(@"restaurantUrl = %@",restaurantUrl);
+    NSLog(@"rdh.context = %@",rdh.context);
     [rdh updateCoreDataWithJSONFromURL:restaurantUrl];
     
     // grouping.identifiers should be restaurant.identifies with the amended group name, that way I can assume I know the all group identifier to make the appropriate call.

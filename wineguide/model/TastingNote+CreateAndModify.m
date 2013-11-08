@@ -47,12 +47,32 @@
         tastingNote.wines = wines;
     }
     
+    [tastingNote logDetails];
+    
     return tastingNote;
 }
 
 -(NSString *)description
 {
     return self.identifier;
+}
+
+-(void)logDetails
+{
+    NSLog(@"----------------------------------------");
+    NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"about = %@",self.about);
+    NSLog(@"lastAccessed = %@",self.lastAccessed);
+    NSLog(@"markForDeletion = %@",self.markForDeletion);
+    NSLog(@"name = %@",self.name);
+    NSLog(@"tastingStage = %@",self.tastingStage);
+    NSLog(@"version = %@",self.version);
+    
+    NSLog(@"wines count = %i",[self.wines count]);
+    for(NSObject *obj in self.wines){
+        NSLog(@" = %@",obj.description);
+    }
+    NSLog(@"\n\n\n");
 }
 
 

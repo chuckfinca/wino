@@ -17,11 +17,4 @@
     [Flight flightFromRestaurant:(Restaurant *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)setRelationIdentifiersAttribute:(NSString *)string
-{
-    Restaurant *restaurant = (Restaurant *)self.parentManagedObject;
-    restaurant.flightIdentifiers = string;
-    NSLog(@"restaurant.flightIdentifiers = %@",restaurant.flightIdentifiers);
-}
-
 @end

@@ -47,7 +47,6 @@
 
 -(NSPredicate *)predicateForDicitonary:(NSDictionary *)dictionary
 {
-    NSLog(@"dictionary = %@",dictionary);
     NSDictionary *variables = @{@"IDENTIFIER" : dictionary[IDENTIFIER]};
     return [self.predicate predicateWithSubstitutionVariables:variables];
 }
@@ -60,6 +59,7 @@
 {
     dispatch_queue_t jsonQueue = dispatch_queue_create("JSON_Queue", NULL);
     dispatch_async(jsonQueue, ^{
+        NSLog(@"url = %@",url);
         NSData *data = [NSData dataWithContentsOfURL:url];
         if(data){
             [self prepareSerializedData:data];
@@ -107,6 +107,7 @@
 -(void)updateNestedManagedObjectsLocatedAtKey:(NSString *)key inDictionary:(NSDictionary *)dictionary
 {
     id managedObjectInfo = [dictionary objectForKeyNotNull:key];
+    NSLog(@"managedObjectInfo = %@",managedObjectInfo);
     // The JSON may or may not have returned a nested JSON for this relationship. If it did then update these items with the nested JSON
     if([managedObjectInfo isKindOfClass:[NSDictionary class]]){
         NSDictionary *entitiesDictionary = [dictionary objectForKeyNotNull:key];
@@ -117,13 +118,26 @@
             }
         }
     } else {
-        NSLog(@"id managedObjectInfo is class %@ - %@",[managedObjectInfo class], managedObjectInfo);
-        NSLog(@"The above should be a string list of managedObject.identifiers separated by /");
+        //NSLog(@"id managedObjectInfo is class %@ - %@",[managedObjectInfo class], managedObjectInfo);
         
-        if([managedObjectInfo isKindOfClass:[NSString class]]){
-            NSString *relationshipIdentifiersString = (NSString *)managedObjectInfo;
+        if([managedObjectInfo isKindOfClass:[NSArray class]]){
+            NSLog(@"yippee!!!");
+            NSLog(@"self.parentManagedObject.description = %@",self.parentManagedObject.description);
+            NSArray *arrayOfManagedObjectDictionaries = (NSArray *)managedObjectInfo;
+            NSLog(@"array count = %i",[arrayOfManagedObjectDictionaries count]);
             
-            [self setRelationIdentifiersAttribute:relationshipIdentifiersString];
+            for(id obj in arrayOfManagedObjectDictionaries){
+                if([obj isKindOfClass:[NSDictionary class]]){
+                    NSDictionary *managedObjectDictionary = (NSDictionary *)obj;
+                    NSLog(@"managedObjectDictionary identifier = %@",[managedObjectDictionary objectForKey:@"identifier"]);
+                    NSLog(@"[self predicateForDicitonary:managedObjectDictionary] = %@",[self predicateForDicitonary:managedObjectDictionary]);
+                    NSLog(@"self.context = %@",self.context);
+                    [self updateManagedObjectWithDictionary:managedObjectDictionary];
+                } else {
+                    NSLog(@"obj class = %@",[obj class]);
+                }
+            }
+        }
             // save this list for use once we have imported the necessary data.
             
             // [self.parentManagedObject class] + self.parentManagedObject.identifier + key + string of managedObject.identifiers will give us everything we need.
@@ -138,18 +152,8 @@
             // each time a child is created it should ask itself if it should connect itself to a parent (which has already been created, since the list of these relationships should only be created after the parent has been otherwise created).
             
             // dictionary with keys that are managedObject.identifier's
-        }
     }
 }
-
-
--(void)setRelationIdentifiersAttribute:(NSString *)string
-{
-    // abstract
-}
-
-
-
 
 
 

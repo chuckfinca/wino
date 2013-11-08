@@ -12,10 +12,11 @@
 
 #define VARIETAL_ENTITY @"Varietal"
 
+#define ABOUT @"about"
+#define IDENTIFIER @"identifier"
 #define MARK_FOR_DELETION @"markForDeletion"
 #define VERSION @"version"
 #define NAME @"name"
-#define IDENTIFIER @"identifier"
 
 @implementation Varietal (CreateAndModify)
 
@@ -30,6 +31,7 @@
         
         // ATTRIBUTES
         
+        varietal.about = [dictionary objectForKeyNotNull:ABOUT];
         varietal.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
         // varietal.lastAccessed
         varietal.markForDeletion = [dictionary objectForKeyNotNull:MARK_FOR_DELETION];
@@ -44,12 +46,31 @@
         varietal.wines = wines;
     }
     
+    [varietal logDetails];
+    
     return varietal;
 }
 
 -(NSString *)description
 {
     return self.identifier;
+}
+
+-(void)logDetails
+{
+    NSLog(@"----------------------------------------");
+    NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"about = %@",self.about);
+    NSLog(@"lastAccessed = %@",self.lastAccessed);
+    NSLog(@"markForDeletion = %@",self.markForDeletion);
+    NSLog(@"name = %@",self.name);
+    NSLog(@"version = %@",self.version);
+    
+    NSLog(@"wines count = %i",[self.wines count]);
+    for(NSObject *obj in self.wines){
+        NSLog(@" = %@",obj.description);
+    }
+    NSLog(@"\n\n\n");
 }
 
 

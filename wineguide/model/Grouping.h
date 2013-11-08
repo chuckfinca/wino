@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSNumber * markForDeletion;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * version;
+@property (nonatomic, retain) NSString * wineIdentifiers;
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) NSSet *wines;
 @end

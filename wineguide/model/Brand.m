@@ -17,6 +17,8 @@
 @dynamic markForDeletion;
 @dynamic name;
 @dynamic version;
+@dynamic about;
+@dynamic website;
 @dynamic wines;
 
 @end

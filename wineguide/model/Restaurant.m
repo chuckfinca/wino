@@ -17,6 +17,8 @@
 @dynamic address;
 @dynamic city;
 @dynamic country;
+@dynamic flightIdentifiers;
+@dynamic groupIdentifiers;
 @dynamic identifier;
 @dynamic lastAccessed;
 @dynamic latitude;
@@ -26,10 +28,8 @@
 @dynamic name;
 @dynamic state;
 @dynamic version;
-@dynamic zip;
-@dynamic flightIdentifiers;
-@dynamic groupIdentifiers;
 @dynamic wineUnitIdentifiers;
+@dynamic zip;
 @dynamic flights;
 @dynamic groupings;
 @dynamic wineUnits;

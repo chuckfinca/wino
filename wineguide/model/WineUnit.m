@@ -19,6 +19,7 @@
 @dynamic price;
 @dynamic quantity;
 @dynamic version;
+@dynamic wineIdentifier;
 @dynamic restaurant;
 @dynamic wine;
 

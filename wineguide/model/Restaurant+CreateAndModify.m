@@ -29,9 +29,13 @@
 #define VERSION @"version"
 #define ZIP @"zip"
 
+#define FLIGHT_IDENTIFIERS @"flightidentifiers"
+#define GROUP_IDENTIFIERS @"groupidentifiers"
+#define WINE_UNIT_IDENTIFIERS @"wineunitidentifiers"
+
 #define FLIGHTS @"flights"
 #define GROUPINGS @"groupings"
-#define WINE_UINTS @"wineUnits"
+#define WINE_UINTS @"wineunits"
 
 @implementation Restaurant (CreateAndModify)
 
@@ -60,28 +64,39 @@
             restaurant.version = [dictionary objectForKeyNotNull:VERSION];
             restaurant.zip = [dictionary objectForKeyNotNull:ZIP];
             
+            restaurant.flightIdentifiers = [dictionary objectForKeyNotNull:FLIGHT_IDENTIFIERS];
+            restaurant.groupIdentifiers = [dictionary objectForKeyNotNull:GROUP_IDENTIFIERS];
+            restaurant.wineUnitIdentifiers = [dictionary objectForKeyNotNull:WINE_UNIT_IDENTIFIERS];
+            
             
             // RELATIONSHIPS
             // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON, if not then update the appropriate relationshipIdentifiers attribute
             
             // Flights
-            FlightDataHelper *fdh = [[FlightDataHelper alloc] init];
+            FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context];
             fdh.parentManagedObject = restaurant;
             [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
+            NSLog(@"-");
             
             // Groupings
-            GroupingDataHelper *gdh = [[GroupingDataHelper alloc] init];
+            GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:context];
             gdh.parentManagedObject = restaurant;
             [gdh updateNestedManagedObjectsLocatedAtKey:GROUPINGS inDictionary:dictionary];
             
+            NSLog(@"--");
             // Wine Units
-            WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] init];
+            WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
             wudh.parentManagedObject = restaurant;
             [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UINTS inDictionary:dictionary];
+            NSLog(@"---");
         }
     }
+    
+    [restaurant logDetails];
+    
     return restaurant;
 }
+
 
 -(NSString *)description
 {
@@ -89,7 +104,43 @@
 }
 
 
-
+-(void)logDetails
+{
+    NSLog(@"----------------------------------------");
+    NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"address = %@",self.address);
+    NSLog(@"city = %@",self.city);
+    NSLog(@"country = %@",self.country);
+    NSLog(@"lastAccessed = %@",self.lastAccessed);
+    NSLog(@"latitude = %@",self.latitude);
+    NSLog(@"longitude = %@",self.longitude);
+    NSLog(@"markForDeletion = %@",self.markForDeletion);
+    NSLog(@"menuNeedsUpdating = %@",self.menuNeedsUpdating);
+    NSLog(@"name = %@",self.name);
+    NSLog(@"state = %@",self.state);
+    NSLog(@"version = %@",self.version);
+    NSLog(@"zip = %@",self.zip);
+    NSLog(@"flightIdentifiers = %@",self.flightIdentifiers);
+    NSLog(@"groupIdentifiers = %@",self.groupIdentifiers);
+    NSLog(@"wineUnitIdentifiers = %@",self.wineUnitIdentifiers);
+    
+    NSLog(@"flights count = %i",[self.flights count]);
+    for(NSObject *obj in self.flights){
+        NSLog(@" = %@",obj.description);
+    }
+    
+    NSLog(@"groupings count = %i",[self.groupings count]);
+    for(NSObject *obj in self.groupings){
+        NSLog(@" = %@",obj.description);
+    }
+    
+    NSLog(@"wineUnits count = %i",[self.wineUnits count]);
+    for(NSObject *obj in self.wineUnits){
+        NSLog(@" = %@",obj.description);
+    }
+    
+    NSLog(@"\n\n\n");
+}
 
 
 

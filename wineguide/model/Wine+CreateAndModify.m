@@ -17,6 +17,7 @@
 #import "Flight.h"
 #import "Grouping.h"
 #import "WineUnit.h"
+#import "Brand.h"
 
 #define WINE_ENTITY @"Wine"
 #define RESTAURANT_ENTITY @"Restaurant"
@@ -89,7 +90,7 @@
             [tndh updateNestedManagedObjectsLocatedAtKey:TASTING_NOTES inDictionary:dictionary];
             
             // Varietals
-            VarietalDataHelper *vdh = [[VarietalDataHelper alloc] init];
+            VarietalDataHelper *vdh = [[VarietalDataHelper alloc] initWithContext:context];
             vdh.parentManagedObject = wine;
             [vdh updateNestedManagedObjectsLocatedAtKey:VARIETALS inDictionary:dictionary];
             
@@ -100,6 +101,9 @@
             // WineUnits
         }
     }
+    
+    [wine logDetails];
+    
     return wine;
 }
 
@@ -107,6 +111,54 @@
 -(NSString *)description
 {
     return self.identifier;
+}
+
+-(void)logDetails
+{
+    NSLog(@"----------------------------------------");
+    NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"alcoholPercentage = %@",self.alcoholPercentage);
+    NSLog(@"color = %@",self.color);
+    NSLog(@"country = %@",self.country);
+    NSLog(@"dessert = %@",self.dessert);
+    NSLog(@"favorite = %@",self.favorite);
+    NSLog(@"lastAccessed = %@",self.lastAccessed);
+    NSLog(@"markForDeletion = %@",self.markForDeletion);
+    NSLog(@"name = %@",self.name);
+    NSLog(@"region = %@",self.region);
+    NSLog(@"sparkling = %@",self.sparkling);
+    NSLog(@"state = %@",self.state);
+    NSLog(@"version = %@",self.version);
+    NSLog(@"vineyard = %@",self.vineyard);
+    NSLog(@"vintage = %@",self.vintage);
+    
+    NSLog(@"brand = %@",self.brand.description);
+    
+    NSLog(@"tastingNotes count = %i",[self.tastingNotes count]);
+    for(NSObject *obj in self.tastingNotes){
+        NSLog(@" = %@",obj.description);
+    }
+    
+    NSLog(@"varietals count = %i",[self.varietals count]);
+    for(NSObject *obj in self.varietals){
+        NSLog(@" = %@",obj.description);
+    }
+    
+    NSLog(@"groupings count = %i",[self.groupings count]);
+    for(NSObject *obj in self.groupings){
+        NSLog(@" = %@",obj.description);
+    }
+    
+    NSLog(@"groupings flights = %i",[self.flights count]);
+    for(NSObject *obj in self.flights){
+        NSLog(@" = %@",obj.description);
+    }
+    
+    NSLog(@"wineUnits flights = %i",[self.wineUnits count]);
+    for(NSObject *obj in self.wineUnits){
+        NSLog(@" = %@",obj.description);
+    }
+    NSLog(@"\n\n\n");
 }
 
 
