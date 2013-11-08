@@ -34,12 +34,12 @@
         
         // ATTRIBUTES
         
-        wineUnit.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
+        wineUnit.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // wineUnit.lastAccessed
-        wineUnit.markForDeletion = [dictionary objectForKeyNotNull:MARK_FOR_DELETION];
-        wineUnit.price = [dictionary objectForKeyNotNull:PRICE];
-        wineUnit.quantity = [dictionary objectForKeyNotNull:QUANTITY];
-        wineUnit.version = [dictionary objectForKeyNotNull:VERSION];
+        wineUnit.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
+        wineUnit.price = [dictionary sanitizedValueForKey:PRICE];
+        wineUnit.quantity = [dictionary sanitizedValueForKey:QUANTITY];
+        wineUnit.version = [dictionary sanitizedValueForKey:VERSION];
         
         wineUnit.wineIdentifier = [dictionary objectForKey:WINE_IDENTIFIER];
         

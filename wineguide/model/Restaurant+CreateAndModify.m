@@ -50,23 +50,23 @@
             
             // ATTRIBUTES
             
-            restaurant.address = [dictionary objectForKeyNotNull:ADDRESS];
-            restaurant.city = [dictionary objectForKeyNotNull:CITY];
-            restaurant.country = [dictionary objectForKeyNotNull:COUNTRY];
-            restaurant.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
+            restaurant.address = [dictionary sanitizedValueForKey:ADDRESS];
+            restaurant.city = [dictionary sanitizedValueForKey:CITY];
+            restaurant.country = [dictionary sanitizedValueForKey:COUNTRY];
+            restaurant.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             // restaurant.lastAccessed
-            restaurant.latitude = [dictionary objectForKeyNotNull:LATITUDE];
-            restaurant.longitude = [dictionary objectForKeyNotNull:LONGITUDE];
-            restaurant.markForDeletion = [dictionary objectForKeyNotNull:DELETE_ENTITY];
+            restaurant.latitude = [dictionary sanitizedValueForKey:LATITUDE];
+            restaurant.longitude = [dictionary sanitizedValueForKey:LONGITUDE];
+            restaurant.markForDeletion = [dictionary sanitizedValueForKey:DELETE_ENTITY];
             // restaurant.menuNeedsUpdating - used to notify server that we need to update a specific restaurant's menu.
-            restaurant.name = [dictionary objectForKeyNotNull:NAME];
-            restaurant.state = [dictionary objectForKeyNotNull:STATE];
-            restaurant.version = [dictionary objectForKeyNotNull:VERSION];
-            restaurant.zip = [dictionary objectForKeyNotNull:ZIP];
+            restaurant.name = [dictionary sanitizedValueForKey:NAME];
+            restaurant.state = [dictionary sanitizedValueForKey:STATE];
+            restaurant.version = [dictionary sanitizedValueForKey:VERSION];
+            restaurant.zip = [dictionary sanitizedValueForKey:ZIP];
             
-            restaurant.flightIdentifiers = [dictionary objectForKeyNotNull:FLIGHT_IDENTIFIERS];
-            restaurant.groupIdentifiers = [dictionary objectForKeyNotNull:GROUP_IDENTIFIERS];
-            restaurant.wineUnitIdentifiers = [dictionary objectForKeyNotNull:WINE_UNIT_IDENTIFIERS];
+            restaurant.flightIdentifiers = [dictionary sanitizedValueForKey:FLIGHT_IDENTIFIERS];
+            restaurant.groupIdentifiers = [dictionary sanitizedValueForKey:GROUP_IDENTIFIERS];
+            restaurant.wineUnitIdentifiers = [dictionary sanitizedValueForKey:WINE_UNIT_IDENTIFIERS];
             
             
             // RELATIONSHIPS

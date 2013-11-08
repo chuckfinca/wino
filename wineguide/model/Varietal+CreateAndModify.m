@@ -31,12 +31,12 @@
         
         // ATTRIBUTES
         
-        varietal.about = [dictionary objectForKeyNotNull:ABOUT];
-        varietal.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
+        varietal.about = [dictionary sanitizedValueForKey:ABOUT];
+        varietal.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // varietal.lastAccessed
-        varietal.markForDeletion = [dictionary objectForKeyNotNull:MARK_FOR_DELETION];
-        varietal.name = [dictionary objectForKeyNotNull:NAME];
-        varietal.version = [dictionary objectForKeyNotNull:VERSION];
+        varietal.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
+        varietal.name = [dictionary sanitizedValueForKey:NAME];
+        varietal.version = [dictionary sanitizedValueForKey:VERSION];
         
         
         // RELATIONSHIPS

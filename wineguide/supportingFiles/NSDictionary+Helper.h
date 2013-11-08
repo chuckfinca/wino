@@ -10,7 +10,7 @@
 
 @interface NSDictionary (Helper)
 
--(id)objectForKeyNotNull:(id)key;
+-(id)sanitizedValueForKey:(id)key;
 
 -(NSArray *)separateNonNullStringLocatedAtKey:(NSString *)key;
 

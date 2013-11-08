@@ -59,21 +59,21 @@
             
             // ATTRIBUTES
             
-            wine.alcoholPercentage = [dictionary objectForKeyNotNull:ALCOHOL];
-            wine.color = [dictionary objectForKeyNotNull:COLOR];
-            wine.country = [dictionary objectForKeyNotNull:COUNTRY];
-            wine.dessert = [dictionary objectForKeyNotNull:DESSERT];
+            wine.alcoholPercentage = [dictionary sanitizedValueForKey:ALCOHOL];
+            wine.color = [dictionary sanitizedValueForKey:COLOR];
+            wine.country = [dictionary sanitizedValueForKey:COUNTRY];
+            wine.dessert = [dictionary sanitizedValueForKey:DESSERT];
             // wine.favorite
-            wine.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
+            wine.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             // wine.lastAccessed
-            wine.markForDeletion = [dictionary objectForKeyNotNull:DELETE_ENTITY];
-            wine.name = [dictionary objectForKeyNotNull:NAME];
-            wine.region = [dictionary objectForKeyNotNull:REGION];
-            wine.sparkling = [dictionary objectForKeyNotNull:SPARKLING];
-            wine.state = [dictionary objectForKeyNotNull:STATE_GEO];
-            wine.version = [dictionary objectForKeyNotNull:VERSION];
-            wine.vineyard = [dictionary objectForKeyNotNull:VINEYARD];
-            wine.vintage = [dictionary objectForKeyNotNull:VINTAGE];
+            wine.markForDeletion = [dictionary sanitizedValueForKey:DELETE_ENTITY];
+            wine.name = [dictionary sanitizedValueForKey:NAME];
+            wine.region = [dictionary sanitizedValueForKey:REGION];
+            wine.sparkling = [dictionary sanitizedValueForKey:SPARKLING];
+            wine.state = [dictionary sanitizedValueForKey:STATE_GEO];
+            wine.version = [dictionary sanitizedValueForKey:VERSION];
+            wine.vineyard = [dictionary sanitizedValueForKey:VINEYARD];
+            wine.vintage = [dictionary sanitizedValueForKey:VINTAGE];
             
             
             // RELATIONSHIPS

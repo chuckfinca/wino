@@ -34,14 +34,14 @@
         
         // ATTRIBUTES
         
-        grouping.about = [dictionary objectForKeyNotNull:ABOUT];
-        grouping.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
+        grouping.about = [dictionary sanitizedValueForKey:ABOUT];
+        grouping.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // grouping.lastAccessed
-        grouping.markForDeletion = [dictionary objectForKeyNotNull:MARK_FOR_DELETION];
-        grouping.name = [dictionary objectForKeyNotNull:NAME];
-        grouping.version = [dictionary objectForKeyNotNull:VERSION];
+        grouping.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
+        grouping.name = [dictionary sanitizedValueForKey:NAME];
+        grouping.version = [dictionary sanitizedValueForKey:VERSION];
         
-        grouping.wineIdentifiers = [dictionary objectForKeyNotNull:WINE_IDENTIFIERS];
+        grouping.wineIdentifiers = [dictionary sanitizedValueForKey:WINE_IDENTIFIERS];
         
         
         // RELATIONSHIPS

@@ -106,11 +106,11 @@
 
 -(void)updateNestedManagedObjectsLocatedAtKey:(NSString *)key inDictionary:(NSDictionary *)dictionary
 {
-    id managedObjectInfo = [dictionary objectForKeyNotNull:key];
+    id managedObjectInfo = [dictionary sanitizedValueForKey:key];
     NSLog(@"managedObjectInfo = %@",managedObjectInfo);
     // The JSON may or may not have returned a nested JSON for this relationship. If it did then update these items with the nested JSON
     if([managedObjectInfo isKindOfClass:[NSDictionary class]]){
-        NSDictionary *entitiesDictionary = [dictionary objectForKeyNotNull:key];
+        NSDictionary *entitiesDictionary = [dictionary sanitizedValueForKey:key];
         
         if(entitiesDictionary){
             for(NSDictionary *entityDictionary in entitiesDictionary){

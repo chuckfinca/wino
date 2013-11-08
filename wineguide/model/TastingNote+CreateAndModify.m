@@ -31,13 +31,13 @@
         
         // ATTRIBUTES
         
-        tastingNote.about = [dictionary objectForKeyNotNull:ABOUT];
-        tastingNote.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
+        tastingNote.about = [dictionary sanitizedValueForKey:ABOUT];
+        tastingNote.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // tastingNote.lastAccessed
-        tastingNote.markForDeletion = [dictionary objectForKeyNotNull:MARK_FOR_DELETION];
-        tastingNote.name = [dictionary objectForKeyNotNull:NAME];
-        tastingNote.tastingStage = [dictionary objectForKeyNotNull:TASTING_STAGE]; // appearance, in glass, in mouth, finish
-        tastingNote.version = [dictionary objectForKeyNotNull:VERSION];
+        tastingNote.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
+        tastingNote.name = [dictionary sanitizedValueForKey:NAME];
+        tastingNote.tastingStage = [dictionary sanitizedValueForKey:TASTING_STAGE]; // appearance, in glass, in mouth, finish
+        tastingNote.version = [dictionary sanitizedValueForKey:VERSION];
         
         
         // RELATIONSHIPS

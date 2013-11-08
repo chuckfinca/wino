@@ -31,13 +31,13 @@
         
         // ATTRIBUTES
         
-        brand.about = [dictionary objectForKeyNotNull:ABOUT];
-        brand.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
+        brand.about = [dictionary sanitizedValueForKey:ABOUT];
+        brand.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // brand.lastAccessed
-        brand.markForDeletion = [dictionary objectForKeyNotNull:MARK_FOR_DELETION];
-        brand.name = [dictionary objectForKeyNotNull:NAME];
-        brand.version = [dictionary objectForKeyNotNull:VERSION];
-        brand.website = [dictionary objectForKeyNotNull:WEBSITE];
+        brand.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
+        brand.name = [dictionary sanitizedValueForKey:NAME];
+        brand.version = [dictionary sanitizedValueForKey:VERSION];
+        brand.website = [dictionary sanitizedValueForKey:WEBSITE];
         
         
         // RELATIONSHIPS

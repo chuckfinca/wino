@@ -35,15 +35,15 @@
         
         // ATTRIBUTES
         
-        flight.about = [dictionary objectForKeyNotNull:ABOUT];
-        flight.identifier = [dictionary objectForKeyNotNull:IDENTIFIER];
+        flight.about = [dictionary sanitizedValueForKey:ABOUT];
+        flight.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // flight.lastAccessed
-        flight.markForDeletion = [dictionary objectForKeyNotNull:MARK_FOR_DELETION];
-        flight.name = [dictionary objectForKeyNotNull:NAME];
-        flight.price = [dictionary objectForKeyNotNull:PRICE];
-        flight.version = [dictionary objectForKeyNotNull:VERSION];
+        flight.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
+        flight.name = [dictionary sanitizedValueForKey:NAME];
+        flight.price = [dictionary sanitizedValueForKey:PRICE];
+        flight.version = [dictionary sanitizedValueForKey:VERSION];
         
-        flight.wineIdentifiers = [dictionary objectForKeyNotNull:WINE_IDENTIFIERS];
+        flight.wineIdentifiers = [dictionary sanitizedValueForKey:WINE_IDENTIFIERS];
         
         
         // RELATIONSHIPS

@@ -13,7 +13,7 @@
 @implementation NSDictionary (Helper)
 
 // in case of [NSNull null] values a nil is returned ...
--(id)objectForKeyNotNull:(id)key
+-(id)sanitizedValueForKey:(id)key
 {
     id object = [self objectForKey:key];
     if (object == [NSNull null] || [object  isEqual: @""]){
@@ -28,7 +28,7 @@
 // used to separate multiple entries resulting from a given JSON dictionary key
 -(NSArray *)separateNonNullStringLocatedAtKey:(NSString *)key
 {
-    NSString *string = [self objectForKeyNotNull:key];
+    NSString *string = [self sanitizedValueForKey:key];
     return [string componentsSeparatedByString:DIVIDER];
 }
 
