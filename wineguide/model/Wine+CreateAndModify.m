@@ -136,27 +136,27 @@
     
     NSLog(@"tastingNotes count = %i",[self.tastingNotes count]);
     for(NSObject *obj in self.tastingNotes){
-        NSLog(@" = %@",obj.description);
+        NSLog(@"  %@",obj.description);
     }
     
     NSLog(@"varietals count = %i",[self.varietals count]);
     for(NSObject *obj in self.varietals){
-        NSLog(@" = %@",obj.description);
+        NSLog(@"  %@",obj.description);
     }
     
     NSLog(@"groupings count = %i",[self.groupings count]);
     for(NSObject *obj in self.groupings){
-        NSLog(@" = %@",obj.description);
+        NSLog(@"  %@",obj.description);
     }
     
     NSLog(@"groupings flights = %i",[self.flights count]);
     for(NSObject *obj in self.flights){
-        NSLog(@" = %@",obj.description);
+        NSLog(@"  %@",obj.description);
     }
     
     NSLog(@"wineUnits flights = %i",[self.wineUnits count]);
     for(NSObject *obj in self.wineUnits){
-        NSLog(@" = %@",obj.description);
+        NSLog(@"  %@",obj.description);
     }
     NSLog(@"\n\n\n");
 }

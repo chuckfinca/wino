@@ -126,17 +126,17 @@
     
     NSLog(@"flights count = %i",[self.flights count]);
     for(NSObject *obj in self.flights){
-        NSLog(@" = %@",obj.description);
+        NSLog(@"  %@",obj.description);
     }
     
     NSLog(@"groupings count = %i",[self.groupings count]);
     for(NSObject *obj in self.groupings){
-        NSLog(@" = %@",obj.description);
+        NSLog(@"  %@",obj.description);
     }
     
     NSLog(@"wineUnits count = %i",[self.wineUnits count]);
     for(NSObject *obj in self.wineUnits){
-        NSLog(@" = %@",obj.description);
+        NSLog(@"  %@",obj.description);
     }
     
     NSLog(@"\n\n\n");

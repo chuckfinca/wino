@@ -18,6 +18,8 @@
     id object = [self objectForKey:key];
     if (object == [NSNull null] || [object  isEqual: @""]){
         return nil;
+    } if ([object isEqual:@"0"]){
+        return @0;
     }
     
     return object;

@@ -86,7 +86,7 @@
     
     NSLog(@"wines count = %i",[self.wines count]);
     for(NSObject *obj in self.wines){
-        NSLog(@" = %@",obj.description);
+        NSLog(@"  %@",obj.description);
     }
     NSLog(@"\n\n\n");
 }
