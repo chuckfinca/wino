@@ -2,7 +2,7 @@
 //  Wine.h
 //  wineguide
 //
-//  Created by Charles Feinn on 11/7/13.
+//  Created by Charles Feinn on 11/8/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -28,6 +28,12 @@
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSString * vineyard;
 @property (nonatomic, retain) NSNumber * vintage;
+@property (nonatomic, retain) NSString * brandIdentifier;
+@property (nonatomic, retain) NSString * flightIdentifiers;
+@property (nonatomic, retain) NSString * groupIdentifiers;
+@property (nonatomic, retain) NSString * tastingNoteIdentifers;
+@property (nonatomic, retain) NSString * varietalIdentifiers;
+@property (nonatomic, retain) NSString * wineUnitIdentifiers;
 @property (nonatomic, retain) Brand *brand;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groupings;

@@ -30,6 +30,16 @@
 ],
     "groupings":[
   {
+    "about":"",
+    "identifier":"grouping.leszygomates129southstreet.all",
+    "markfordeletion":"0",
+    "name":"all",
+    "version":"0",
+    "restaurant":"leszygomates129southstreet",
+    "wineidentifiers":"wine.domainechevalier.aligote.2009/wine.marcoscolaris.pinotgrigio.2011/wine.stoneburn.sauvignonblanc.2012/wine.domainedesgrandesperrieres.sauvignonblanc.2011/wine.domainedel'oriel.pinotblanc.2010/wine.nxnw.dryriesling.2011/wine.KesselerRKabinett.riesling.2009/wine.ElkCove.riesling.2012/wine.domainedesyolais.muscadet.2010/wine.domainechevalier.chardonnay.2007/wine.stuhlmullervineyards.chardonnay.2011/wine.chinon.cabernetfranc.2012/wine.domainechevalier.pinotnoirgamaynoirajusblanc.2008/wine.nevermore.pinotnoir.2010/wine.domainechevalier.pinotnoir.2010/wine.fincadecero.malbec.2010/wine.chateauarmandiere.malbec.2008/wine.domainepaulautard.grenachesyrahcounoise.2011/wine.perrinl'oustalet.grenachesyrahcounoise.2011/wine.domainelaroque.cabernetfranc.2012/wine.fitchmountaincellars.cabernetsauvignon.2009/wine.prologue.cabernetsauvignon.2009/wine.chateauhautneville.merlot.2006/wine.chateaumoulindelillie.merlotcabernetfranc.2011/wine.chateaumonregardlacroix.merlotcabernetfranc.2009/wine.chateaujoinin.merlotcabernetcabernetfranc.2010/wine.campdurouss.barbera.2008/wine.riojavega.tempranillo.2009/wine.fincadecero.petitverdot.2009/wine.ravenswood.zinfandel.2010",
+    "wines":""
+  },
+  {
     "about":"Excellent wines at an excellent price",
     "identifier":"grouping.leszygomates129southstreet.bestvalue",
     "markfordeletion":"0",

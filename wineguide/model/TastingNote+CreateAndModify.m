@@ -20,6 +20,7 @@
 #define NAME @"name"
 #define TASTING_STAGE @"tastingStage"
 #define VERSION @"version"
+#define WINE_IDENTIFIERS @"wineIdentifiers"
 
 +(TastingNote *)tastingNoteForWine:(Wine *)wine foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
 {
@@ -39,6 +40,7 @@
         tastingNote.tastingStage = [dictionary sanitizedValueForKey:TASTING_STAGE]; // appearance, in glass, in mouth, finish
         tastingNote.version = [dictionary sanitizedValueForKey:VERSION];
         
+        tastingNote.wineIdentifiers = [dictionary sanitizedValueForKey:WINE_IDENTIFIERS];
         
         // RELATIONSHIPS
         
@@ -67,6 +69,7 @@
     NSLog(@"name = %@",self.name);
     NSLog(@"tastingStage = %@",self.tastingStage);
     NSLog(@"version = %@",self.version);
+    NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
     
     NSLog(@"wines count = %i",[self.wines count]);
     for(NSObject *obj in self.wines){

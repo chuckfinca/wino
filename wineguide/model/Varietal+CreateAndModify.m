@@ -17,6 +17,7 @@
 #define MARK_FOR_DELETION @"markForDeletion"
 #define VERSION @"version"
 #define NAME @"name"
+#define WINE_IDENTIFIERS @"wineIdentifiers"
 
 @implementation Varietal (CreateAndModify)
 
@@ -38,6 +39,7 @@
         varietal.name = [dictionary sanitizedValueForKey:NAME];
         varietal.version = [dictionary sanitizedValueForKey:VERSION];
         
+        varietal.wineIdentifiers = [dictionary sanitizedValueForKey:WINE_IDENTIFIERS];
         
         // RELATIONSHIPS
         
@@ -65,6 +67,7 @@
     NSLog(@"markForDeletion = %@",self.markForDeletion);
     NSLog(@"name = %@",self.name);
     NSLog(@"version = %@",self.version);
+    NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
     
     NSLog(@"wines count = %i",[self.wines count]);
     for(NSObject *obj in self.wines){

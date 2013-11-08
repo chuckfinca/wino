@@ -79,7 +79,7 @@
         if(json){
             [self updateCoreDataWithDictionaryObjectsInDictionary:json];
         } else {
-            NSLog(@"json does not exist!");
+            NSLog(@"json dictionary does not exist!");
         }
     });
 }
@@ -90,6 +90,7 @@
         for(NSDictionary *managedObjectDataDictionary in dictionary){
             [self updateManagedObjectWithDictionary:managedObjectDataDictionary];
         }
+        [self updateRelationships];
     } else {
         NSLog(@"DataHelper context = nil");
     }
@@ -106,56 +107,28 @@
 
 -(void)updateNestedManagedObjectsLocatedAtKey:(NSString *)key inDictionary:(NSDictionary *)dictionary
 {
-    id managedObjectInfo = [dictionary sanitizedValueForKey:key];
-    NSLog(@"managedObjectInfo = %@",managedObjectInfo);
-    // The JSON may or may not have returned a nested JSON for this relationship. If it did then update these items with the nested JSON
-    if([managedObjectInfo isKindOfClass:[NSDictionary class]]){
-        NSDictionary *entitiesDictionary = [dictionary sanitizedValueForKey:key];
+    id obj = [dictionary sanitizedValueForKey:key];
+    // The JSON may or may not have returned a nested JSON for this relationship.
+    
+    if([obj isKindOfClass:[NSArray class]]){
+        NSArray *arrayOfManagedObjectDictionaries = (NSArray *)obj;
         
-        if(entitiesDictionary){
-            for(NSDictionary *entityDictionary in entitiesDictionary){
-                [self updateManagedObjectWithDictionary:entityDictionary];
+        for(id dictionaryObj in arrayOfManagedObjectDictionaries){
+            if([dictionaryObj isKindOfClass:[NSDictionary class]]){
+                NSDictionary *managedObjectDictionary = (NSDictionary *)dictionaryObj;
+                [self updateManagedObjectWithDictionary:managedObjectDictionary];
+            } else {
+                NSLog(@"nested object from JSON is not a dictionary, it is class = %@",[obj class]);
             }
         }
-    } else {
-        //NSLog(@"id managedObjectInfo is class %@ - %@",[managedObjectInfo class], managedObjectInfo);
-        
-        if([managedObjectInfo isKindOfClass:[NSArray class]]){
-            NSLog(@"yippee!!!");
-            NSLog(@"self.parentManagedObject.description = %@",self.parentManagedObject.description);
-            NSArray *arrayOfManagedObjectDictionaries = (NSArray *)managedObjectInfo;
-            NSLog(@"array count = %i",[arrayOfManagedObjectDictionaries count]);
-            
-            for(id obj in arrayOfManagedObjectDictionaries){
-                if([obj isKindOfClass:[NSDictionary class]]){
-                    NSDictionary *managedObjectDictionary = (NSDictionary *)obj;
-                    NSLog(@"managedObjectDictionary identifier = %@",[managedObjectDictionary objectForKey:@"identifier"]);
-                    NSLog(@"[self predicateForDicitonary:managedObjectDictionary] = %@",[self predicateForDicitonary:managedObjectDictionary]);
-                    NSLog(@"self.context = %@",self.context);
-                    [self updateManagedObjectWithDictionary:managedObjectDictionary];
-                } else {
-                    NSLog(@"obj class = %@",[obj class]);
-                }
-            }
-        }
-            // save this list for use once we have imported the necessary data.
-            
-            // [self.parentManagedObject class] + self.parentManagedObject.identifier + key + string of managedObject.identifiers will give us everything we need.
-            // in other words we need to know:
-            // the TYPE OF managedObject that is the parent
-            // the IDENTIFER of the parent in that type of entity
-            // the KEY, which identifies the relationship and can be used to figure out what type of managedObject the children are
-            // the STRING that is a / separated list of the identifers which the parent is related to
-            
-            // @{ CLASS_OF_PARENT : [NSString stringWithFormat:@"%@",[Parent class]], IDENTIFIER_OF_PARENT : [NSString stringWithFormat:@"%@",parent.identifier], RELATIONSHIP : KEY, LIST_OF_CHILD_IDENTIFIERS : STRING }
-            
-            // each time a child is created it should ask itself if it should connect itself to a parent (which has already been created, since the list of these relationships should only be created after the parent has been otherwise created).
-            
-            // dictionary with keys that are managedObject.identifier's
+        [self updateRelationships];
     }
 }
 
-
+-(void)updateRelationships
+{
+    asdfg // abstract
+}
 
 
 

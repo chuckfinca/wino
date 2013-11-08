@@ -13,7 +13,7 @@
     "version":"",
     "zip":"",
     "flightidentifiers":"flight.tico222berkeleystreet.exploresouthamerica",
-    "groupidentifiers":"grouping.tico222berkeleystreet.bestvalue/grouping.tico222berkeleystreet.mostpopular/grouping.tico222berkeleystreet.highestrated/grouping.tico222berkeleystreet.recommended/grouping.tico222berkeleystreet.rarefinds/grouping.tico222berkeleystreet.excellentvintages",
+    "groupidentifiers":"grouping.tico222berkeleystreet.all/grouping.tico222berkeleystreet.bestvalue/grouping.tico222berkeleystreet.mostpopular/grouping.tico222berkeleystreet.highestrated/grouping.tico222berkeleystreet.recommended/grouping.tico222berkeleystreet.rarefinds/grouping.tico222berkeleystreet.excellentvintages",
     "wineunitidentifiers":"wineunit.tico222berkeleystreet.poemabrutcava.glass/wineunit.tico222berkeleystreet.fillaboaalbarino2009.glass/wineunit.tico222berkeleystreet.cousinomaculsauvignonblanc/pinotgris2009.glass/wineunit.tico222berkeleystreet.pulentaestatepinotgris2009.glass/wineunit.tico222berkeleystreet.graffignacentenariopinotgrigio2009.glass/wineunit.tico222berkeleystreet.localindatorrontes2010.glass/wineunit.tico222berkeleystreet.masdonisrose2010.glass/wineunit.tico222berkeleystreet.santacarolinareservepinotnoir2010.glass/wineunit.tico222berkeleystreet.hayman&hillchardonnay2008.glass/wineunit.tico222berkeleystreet.masitupungatopassodoblemalbec2009.glass/wineunit.tico222berkeleystreet.elcastrodevaltuillejovenmencia2007.glass/wineunit.tico222berkeleystreet.veramonteprimuscabernet/carmenere2006.glass/wineunit.tico222berkeleystreet.elcotocrianzatempranillo2007.glass/wineunit.tico222berkeleystreet.catenacabernetsauvignon2007.glass",
     "flights":[
   {
@@ -29,6 +29,16 @@
   }
 ],
     "groupings":[
+  {
+    "about":"",
+    "identifier":"grouping.tico222berkeleystreet.all",
+    "markfordeletion":"0",
+    "name":"all",
+    "version":"0",
+    "restaurant":"tico222berkeleystreet",
+    "wineidentifiers":"wine.poemabrut.cava./wine.fillaboa.albarino.2009/wine.cousinomacul.sauvignonblancpinotgris.2009/wine.pulentaestate.pinotgris.2009/wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.masdonis.rose.2010/wine.hayman&hill.chardonnay.2008/wine.santacarolinareserve.pinotnoir.2010/wine.masitupungatopassodoble.malbec.2009/wine.elcastrodevaltuillejoven.mencia.2007/wine.veramonteprimus.cabernetcarmenere.2006/wine.elcotocrianza.tempranillo.2007/wine.catena.cabernetsauvignon.2007",
+    "wines":""
+  },
   {
     "about":"Excellent wines at an excellent price",
     "identifier":"grouping.tico222berkeleystreet.bestvalue",

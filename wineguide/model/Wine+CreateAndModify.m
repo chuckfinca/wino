@@ -13,6 +13,9 @@
 #import "BrandDataHelper.h"
 #import "TastingNoteDataHelper.h"
 #import "VarietalDataHelper.h"
+#import "GroupingDataHelper.h"
+#import "FlightDataHelper.h"
+#import "WineUnitDataHelper.h"
 
 #import "Flight.h"
 #import "Grouping.h"
@@ -42,6 +45,14 @@
 #define GROUPINGS @"groupings"
 #define TASTING_NOTES @"tastingnotes"
 #define FLIGHTS @"flights"
+#define WINE_UNITS @"wineUnits"
+
+#define BRAND_IDENTIFIER @"brandIdentifier"
+#define FLIGHT_IDENTIFIERS @"flightIdentifiers"
+#define GROUP_IDENTIFIERS @"groupIdentifiers"
+#define WINE_UNIT_IDENTIFIERS @"wineUnitIdentifiers"
+#define VARIETAL_IDENTIFIERS @"varietalIdentifiers"
+#define TASTING_NOTE_IDENTIFIERS @"tastingNoteIdentifiers"
 
 #define DIVIDER @"/"
 
@@ -75,6 +86,13 @@
             wine.vineyard = [dictionary sanitizedValueForKey:VINEYARD];
             wine.vintage = [dictionary sanitizedValueForKey:VINTAGE];
             
+            wine.brandIdentifier = [dictionary sanitizedValueForKey:BRAND_IDENTIFIER];
+            wine.flightIdentifiers = [dictionary sanitizedValueForKey:FLIGHT_IDENTIFIERS];
+            wine.groupIdentifiers = [dictionary sanitizedValueForKey:GROUP_IDENTIFIERS];
+            wine.wineUnitIdentifiers = [dictionary sanitizedValueForKey:WINE_UNIT_IDENTIFIERS];
+            wine.tastingNoteIdentifers = [dictionary sanitizedValueForKey:TASTING_NOTE_IDENTIFIERS];
+            wine.varietalIdentifiers = [dictionary sanitizedValueForKey:VARIETAL_IDENTIFIERS];
+            
             
             // RELATIONSHIPS
             // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
@@ -95,10 +113,19 @@
             [vdh updateNestedManagedObjectsLocatedAtKey:VARIETALS inDictionary:dictionary];
             
             // Groupings
+            GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:context];
+            gdh.parentManagedObject = wine;
+            [gdh updateNestedManagedObjectsLocatedAtKey:GROUPINGS inDictionary:dictionary];
             
             // Flights
+            FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context];
+            fdh.parentManagedObject = wine;
+            [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
             
             // WineUnits
+            WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
+            wudh.parentManagedObject = wine;
+            [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
         }
     }
     
@@ -131,6 +158,13 @@
     NSLog(@"version = %@",self.version);
     NSLog(@"vineyard = %@",self.vineyard);
     NSLog(@"vintage = %@",self.vintage);
+    
+    NSLog(@"vintage = %@",self.brandIdentifier);
+    NSLog(@"vintage = %@",self.flightIdentifiers);
+    NSLog(@"vintage = %@",self.groupIdentifiers);
+    NSLog(@"vintage = %@",self.wineUnitIdentifiers);
+    NSLog(@"vintage = %@",self.tastingNoteIdentifers);
+    NSLog(@"vintage = %@",self.varietalIdentifiers);
     
     NSLog(@"brand = %@",self.brand.description);
     

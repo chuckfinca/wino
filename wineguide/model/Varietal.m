@@ -2,7 +2,7 @@
 //  Varietal.m
 //  wineguide
 //
-//  Created by Charles Feinn on 11/7/13.
+//  Created by Charles Feinn on 11/8/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @dynamic name;
 @dynamic version;
 @dynamic about;
+@dynamic wineIdentifiers;
 @dynamic wines;
 
 @end

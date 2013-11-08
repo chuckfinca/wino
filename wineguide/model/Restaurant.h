@@ -2,7 +2,7 @@
 //  Restaurant.h
 //  wineguide
 //
-//  Created by Charles Feinn on 11/7/13.
+//  Created by Charles Feinn on 11/8/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 

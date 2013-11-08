@@ -17,4 +17,9 @@
     [TastingNote tastingNoteForWine:(Wine *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
+-(void)updateRelationships
+{
+    
+}
+
 @end

@@ -20,6 +20,7 @@
 #define NAME @"name"
 #define VERSION @"version"
 #define WEBSITE @"website"
+#define WINE_IDENTIFIERS @"wineIdentifiers"
 
 +(Brand *)brandForWine:(Wine *)wine foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
 {
@@ -39,6 +40,7 @@
         brand.version = [dictionary sanitizedValueForKey:VERSION];
         brand.website = [dictionary sanitizedValueForKey:WEBSITE];
         
+        brand.wineIdentifiers = [dictionary sanitizedValueForKey:WINE_IDENTIFIERS];
         
         // RELATIONSHIPS
         
@@ -67,6 +69,7 @@
     NSLog(@"name = %@",self.name);
     NSLog(@"version = %@",self.version);
     NSLog(@"website = %@",self.website);
+    NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
     
     NSLog(@"wines count = %i",[self.wines count]);
     for(NSObject *obj in self.wines){

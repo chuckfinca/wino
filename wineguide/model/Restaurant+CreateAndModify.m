@@ -76,19 +76,16 @@
             FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context];
             fdh.parentManagedObject = restaurant;
             [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
-            NSLog(@"-");
             
             // Groupings
             GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:context];
             gdh.parentManagedObject = restaurant;
             [gdh updateNestedManagedObjectsLocatedAtKey:GROUPINGS inDictionary:dictionary];
             
-            NSLog(@"--");
             // Wine Units
             WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
             wudh.parentManagedObject = restaurant;
             [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UINTS inDictionary:dictionary];
-            NSLog(@"---");
         }
     }
     
