@@ -95,7 +95,9 @@
     
     // call the server and ask for the all group, including all nested wines, containing nested brands, but only tastingNote and varietal identifiers
     
-    NSURL *allGroupUrl = [[NSBundle mainBundle] URLForResource:[NSString stringWithFormat:@"%@.all",self.restaurant.identifier] withExtension:JSON];
+    NSString *urlString = [NSString stringWithFormat:@"grouping.%@.all",self.restaurant.identifier];
+    NSLog(@"urlString = %@", urlString);
+    NSURL *allGroupUrl = [[NSBundle mainBundle] URLForResource:urlString withExtension:JSON];
     GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:self.context];
     [gdh updateCoreDataWithJSONFromURL:allGroupUrl];
     

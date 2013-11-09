@@ -12,14 +12,16 @@
 
 @implementation TastingNoteDataHelper
 
--(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
+-(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    [TastingNote tastingNoteForWine:(Wine *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    return [TastingNote tastingNoteForWine:(Wine *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)updateRelationships
+-(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
-    
+    for(TastingNote *tastingNote in managedObjectSet){
+        tastingNote.wines = [self updateManagedObject:tastingNote relationshipSet:tastingNote.wines withIdentifiersString:tastingNote.wineIdentifiers];
+    }
 }
 
 @end

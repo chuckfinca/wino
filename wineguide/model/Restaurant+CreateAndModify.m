@@ -9,6 +9,7 @@
 #import "Restaurant+CreateAndModify.h"
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
+#import "NSManagedObject+Helper.h"
 #import "FlightDataHelper.h"
 #import "GroupingDataHelper.h"
 #import "WineUnitDataHelper.h"
@@ -29,9 +30,9 @@
 #define VERSION @"version"
 #define ZIP @"zip"
 
-#define FLIGHT_IDENTIFIERS @"flightidentifiers"
-#define GROUP_IDENTIFIERS @"groupidentifiers"
-#define WINE_UNIT_IDENTIFIERS @"wineunitidentifiers"
+#define FLIGHT_IDENTIFIERS @"flightIdentifiers"
+#define GROUP_IDENTIFIERS @"groupIdentifiers"
+#define WINE_UNIT_IDENTIFIERS @"wineUnitIdentifiers"
 
 #define FLIGHTS @"flights"
 #define GROUPINGS @"groupings"
@@ -52,25 +53,30 @@
             
             // ATTRIBUTES
             
-            restaurant.address = [dictionary sanitizedValueForKey:ADDRESS];
-            restaurant.city = [dictionary sanitizedValueForKey:CITY];
-            restaurant.country = [dictionary sanitizedValueForKey:COUNTRY];
+            restaurant.address = [dictionary sanatizedStringForKey:ADDRESS];
+            restaurant.city = [dictionary sanatizedStringForKey:CITY];
+            restaurant.country = [dictionary sanatizedStringForKey:COUNTRY];
             restaurant.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             // restaurant.lastAccessed
             restaurant.latitude = [dictionary sanitizedValueForKey:LATITUDE];
             restaurant.longitude = [dictionary sanitizedValueForKey:LONGITUDE];
             restaurant.markForDeletion = [dictionary sanitizedValueForKey:DELETE_ENTITY];
             // restaurant.menuNeedsUpdating - used to notify server that we need to update a specific restaurant's menu.
-            restaurant.name = [dictionary sanitizedValueForKey:NAME];
-            restaurant.state = [dictionary sanitizedValueForKey:STATE];
+            restaurant.name = [dictionary sanatizedStringForKey:NAME];
+            restaurant.state = [dictionary sanatizedStringForKey:STATE];
             restaurant.version = [dictionary sanitizedValueForKey:VERSION];
             restaurant.zip = [dictionary sanitizedValueForKey:ZIP];
             
             // store any information about relationships provided
             
-            [restaurant addIdentifiers:[dictionary sanitizedValueForKey:FLIGHT_IDENTIFIERS] toCurrentIdentifiers:restaurant.flightIdentifiers];
-            [restaurant addIdentifiers:[dictionary sanitizedValueForKey:GROUP_IDENTIFIERS] toCurrentIdentifiers:restaurant.groupIdentifiers];
-            [restaurant addIdentifiers:[dictionary sanitizedValueForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:restaurant.wineUnitIdentifiers];
+            NSString *flightIdentifiers = [dictionary sanatizedStringForKey:FLIGHT_IDENTIFIERS];
+            restaurant.flightIdentifiers = [restaurant addIdentifiers:flightIdentifiers toCurrentIdentifiers:restaurant.flightIdentifiers];
+            
+            NSString *groupIdentifiers = [dictionary sanatizedStringForKey:GROUP_IDENTIFIERS];
+            restaurant.groupIdentifiers = [restaurant addIdentifiers:groupIdentifiers toCurrentIdentifiers:restaurant.groupIdentifiers];
+            
+            NSString *wineUnitIdentifiers = [dictionary sanatizedStringForKey:WINE_UNIT_IDENTIFIERS];
+            restaurant.wineUnitIdentifiers = [restaurant addIdentifiers:wineUnitIdentifiers toCurrentIdentifiers:restaurant.wineUnitIdentifiers];
             
             
             // RELATIONSHIPS
@@ -96,21 +102,6 @@
     [restaurant logDetails];
     
     return restaurant;
-}
-
--(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
-{
-    if(!currentIdentifiers){
-        currentIdentifiers = newIdentifiers;
-    } else {
-        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
-    }
-}
-
-
--(NSString *)description
-{
-    return self.identifier;
 }
 
 

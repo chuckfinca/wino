@@ -59,6 +59,10 @@
 		C9487D7F182DB368007F7E19 /* Grouping.m in Sources */ = {isa = PBXBuildFile; fileRef = C9487D7E182DB368007F7E19 /* Grouping.m */; };
 		C9487D82182DB369007F7E19 /* WineUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = C9487D81182DB369007F7E19 /* WineUnit.m */; };
 		C9487D85182DB369007F7E19 /* Wine.m in Sources */ = {isa = PBXBuildFile; fileRef = C9487D84182DB369007F7E19 /* Wine.m */; };
+		C9487D95182EE6FD007F7E19 /* grouping.restaurant.leszygomates.129southstreet.all.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D92182EE6FD007F7E19 /* grouping.restaurant.leszygomates.129southstreet.all.json */; };
+		C9487D96182EE6FD007F7E19 /* grouping.restaurant.strega-waterfront.1marinaparkdrive.all.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D93182EE6FD007F7E19 /* grouping.restaurant.strega-waterfront.1marinaparkdrive.all.json */; };
+		C9487D97182EE6FD007F7E19 /* grouping.restaurant.tico.222berkeleystreet.all.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D94182EE6FD007F7E19 /* grouping.restaurant.tico.222berkeleystreet.all.json */; };
+		C9487D9A182EF119007F7E19 /* NSManagedObject+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9487D99182EF119007F7E19 /* NSManagedObject+Helper.m */; };
 		C98DEFB018217BE70038216C /* RestaurantDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFAF18217BE70038216C /* RestaurantDataHelper.m */; };
 		C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFB21821C7E30038216C /* LocationHelper.m */; };
 		C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFC61821DA790038216C /* CoreDataTableViewController.m */; };
@@ -174,6 +178,11 @@
 		C9487D81182DB369007F7E19 /* WineUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineUnit.m; path = model/WineUnit.m; sourceTree = "<group>"; };
 		C9487D83182DB369007F7E19 /* Wine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wine.h; path = model/Wine.h; sourceTree = "<group>"; };
 		C9487D84182DB369007F7E19 /* Wine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wine.m; path = model/Wine.m; sourceTree = "<group>"; };
+		C9487D92182EE6FD007F7E19 /* grouping.restaurant.leszygomates.129southstreet.all.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = grouping.restaurant.leszygomates.129southstreet.all.json; path = model/json/grouping.restaurant.leszygomates.129southstreet.all.json; sourceTree = "<group>"; };
+		C9487D93182EE6FD007F7E19 /* grouping.restaurant.strega-waterfront.1marinaparkdrive.all.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "grouping.restaurant.strega-waterfront.1marinaparkdrive.all.json"; path = "model/json/grouping.restaurant.strega-waterfront.1marinaparkdrive.all.json"; sourceTree = "<group>"; };
+		C9487D94182EE6FD007F7E19 /* grouping.restaurant.tico.222berkeleystreet.all.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = grouping.restaurant.tico.222berkeleystreet.all.json; path = model/json/grouping.restaurant.tico.222berkeleystreet.all.json; sourceTree = "<group>"; };
+		C9487D98182EF119007F7E19 /* NSManagedObject+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+Helper.h"; path = "model/NSManagedObject+Helper.h"; sourceTree = "<group>"; };
+		C9487D99182EF119007F7E19 /* NSManagedObject+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+Helper.m"; path = "model/NSManagedObject+Helper.m"; sourceTree = "<group>"; };
 		C98DEFAE18217BE70038216C /* RestaurantDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantDataHelper.h; path = model/RestaurantDataHelper.h; sourceTree = "<group>"; };
 		C98DEFAF18217BE70038216C /* RestaurantDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantDataHelper.m; path = model/RestaurantDataHelper.m; sourceTree = "<group>"; };
 		C98DEFB11821C7E30038216C /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationHelper.h; path = model/LocationHelper.h; sourceTree = "<group>"; };
@@ -385,6 +394,8 @@
 		C92DF044182483E0009DCB2C /* managedObjectHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				C9487D98182EF119007F7E19 /* NSManagedObject+Helper.h */,
+				C9487D99182EF119007F7E19 /* NSManagedObject+Helper.m */,
 				C98DEFE6182312130038216C /* ManagedObjectHandler.h */,
 				C98DEFE7182312130038216C /* ManagedObjectHandler.m */,
 				C92932B5182AD5F90035C93C /* JSONToCoreDataHelper.h */,
@@ -435,6 +446,9 @@
 		C98DEFF8182329C30038216C /* json */ = {
 			isa = PBXGroup;
 			children = (
+				C9487D92182EE6FD007F7E19 /* grouping.restaurant.leszygomates.129southstreet.all.json */,
+				C9487D93182EE6FD007F7E19 /* grouping.restaurant.strega-waterfront.1marinaparkdrive.all.json */,
+				C9487D94182EE6FD007F7E19 /* grouping.restaurant.tico.222berkeleystreet.all.json */,
 				C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */,
 				C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */,
 				C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */,
@@ -546,11 +560,14 @@
 				C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */,
 				C9061E0A181F07CE003D8A55 /* Images.xcassets in Resources */,
 				C9061E54181F3CD3003D8A55 /* star_full.png in Resources */,
+				C9487D96182EE6FD007F7E19 /* grouping.restaurant.strega-waterfront.1marinaparkdrive.all.json in Resources */,
 				C9487D0C182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json in Resources */,
 				C98DEFFE182329D30038216C /* restaurants.json in Resources */,
+				C9487D95182EE6FD007F7E19 /* grouping.restaurant.leszygomates.129southstreet.all.json in Resources */,
 				C9061E02181F07CE003D8A55 /* iPhone.storyboard in Resources */,
 				C9061DF9181F07CE003D8A55 /* InfoPlist.strings in Resources */,
 				C9061E3C181F2767003D8A55 /* RestaurantDetails.xib in Resources */,
+				C9487D97182EE6FD007F7E19 /* grouping.restaurant.tico.222berkeleystreet.all.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +597,7 @@
 				C9DDD0A11820885C000A6FD7 /* Restaurant+CreateAndModify.m in Sources */,
 				C92DF236182AD376009DCB2C /* TastingNoteDataHelper.m in Sources */,
 				C98DEFDC1822DADC0038216C /* WineDataHelper.m in Sources */,
+				C9487D9A182EF119007F7E19 /* NSManagedObject+Helper.m in Sources */,
 				C9DDD08F182036D5000A6FD7 /* Model.xcdatamodeld in Sources */,
 				C92DF14D1828D352009DCB2C /* Grouping+CreateAndModify.m in Sources */,
 				C92932DB182B02200035C93C /* VarietalDataHelper.m in Sources */,

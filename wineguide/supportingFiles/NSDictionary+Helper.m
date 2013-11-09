@@ -25,6 +25,13 @@
     return object;
 }
 
+-(id)sanatizedStringForKey:(id)key
+{
+    id object = [self objectForKey:key];
+    if(![object isKindOfClass:[NSString class]]) return nil;
+    return object;
+}
+
 // used to separate multiple entries resulting from a given JSON dictionary key
 -(NSArray *)separateNonNullStringLocatedAtKey:(NSString *)key
 {

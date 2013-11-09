@@ -3,28 +3,29 @@
     "address":"222 berkeley street",
     "city":"boston",
     "country":"united states of america",
+    "flightIdentifiers":"flight.tico222berkeleystreet.exploresouthamerica",
+    "groupIdentifiers":"grouping.tico222berkeleystreet.all/grouping.tico222berkeleystreet.bestvalue/grouping.tico222berkeleystreet.mostpopular/grouping.tico222berkeleystreet.highestrated/grouping.tico222berkeleystreet.recommended/grouping.tico222berkeleystreet.rarefinds/grouping.tico222berkeleystreet.excellentvintages",
     "identifier":"restaurant.tico.222berkeleystreet",
     "latitude":42.350589,
     "longitude":-71.073058,
-    "markedfordeletion":"0",
-    "menuneedsupdating":"0",
+    "markedForDeletion":"0",
+    "menuNeedsUpdating":"0",
     "name":"tico",
     "state":"massachusetts",
     "version":"",
+    "wineUnitIdentifiers":"wineunit.tico222berkeleystreet.poemabrutcava.glass/wineunit.tico222berkeleystreet.fillaboaalbarino2009.glass/wineunit.tico222berkeleystreet.cousinomaculsauvignonblanc/pinotgris2009.glass/wineunit.tico222berkeleystreet.pulentaestatepinotgris2009.glass/wineunit.tico222berkeleystreet.graffignacentenariopinotgrigio2009.glass/wineunit.tico222berkeleystreet.localindatorrontes2010.glass/wineunit.tico222berkeleystreet.masdonisrose2010.glass/wineunit.tico222berkeleystreet.santacarolinareservepinotnoir2010.glass/wineunit.tico222berkeleystreet.hayman&hillchardonnay2008.glass/wineunit.tico222berkeleystreet.masitupungatopassodoblemalbec2009.glass/wineunit.tico222berkeleystreet.elcastrodevaltuillejovenmencia2007.glass/wineunit.tico222berkeleystreet.veramonteprimuscabernet/carmenere2006.glass/wineunit.tico222berkeleystreet.elcotocrianzatempranillo2007.glass/wineunit.tico222berkeleystreet.catenacabernetsauvignon2007.glass",
     "zip":"",
-    "flightidentifiers":"flight.tico222berkeleystreet.exploresouthamerica",
-    "groupidentifiers":"grouping.tico222berkeleystreet.all/grouping.tico222berkeleystreet.bestvalue/grouping.tico222berkeleystreet.mostpopular/grouping.tico222berkeleystreet.highestrated/grouping.tico222berkeleystreet.recommended/grouping.tico222berkeleystreet.rarefinds/grouping.tico222berkeleystreet.excellentvintages",
-    "wineunitidentifiers":"wineunit.tico222berkeleystreet.poemabrutcava.glass/wineunit.tico222berkeleystreet.fillaboaalbarino2009.glass/wineunit.tico222berkeleystreet.cousinomaculsauvignonblanc/pinotgris2009.glass/wineunit.tico222berkeleystreet.pulentaestatepinotgris2009.glass/wineunit.tico222berkeleystreet.graffignacentenariopinotgrigio2009.glass/wineunit.tico222berkeleystreet.localindatorrontes2010.glass/wineunit.tico222berkeleystreet.masdonisrose2010.glass/wineunit.tico222berkeleystreet.santacarolinareservepinotnoir2010.glass/wineunit.tico222berkeleystreet.hayman&hillchardonnay2008.glass/wineunit.tico222berkeleystreet.masitupungatopassodoblemalbec2009.glass/wineunit.tico222berkeleystreet.elcastrodevaltuillejovenmencia2007.glass/wineunit.tico222berkeleystreet.veramonteprimuscabernet/carmenere2006.glass/wineunit.tico222berkeleystreet.elcotocrianzatempranillo2007.glass/wineunit.tico222berkeleystreet.catenacabernetsauvignon2007.glass",
     "flights":[
   {
     "about":"Experience the sophisticated flavors of South Americas diverse varietals",
     "identifier":"flight.tico222berkeleystreet.exploresouthamerica",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "name":"explore south america",
-    "price":"",
+    "price":"0",
     "version":"0",
-    "restaurant":"tico222berkeleystreet",
-    "wineidentifiers":"wine.santacarolinareserve.pinotnoir.2010/wine.masitupungatopassodoble.malbec.2009/wine.veramonteprimus.cabernet/carmenere.2006",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wineIdentifiers":"wine.santacarolinareserve.pinotnoir.2010/wine.masitupungatopassodoble.malbec.2009/wine.veramonteprimus.cabernet/carmenere.2006",
     "wines":"0"
   }
 ],
@@ -32,208 +33,235 @@
   {
     "about":"",
     "identifier":"grouping.tico222berkeleystreet.all",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "name":"all",
     "version":"0",
-    "restaurant":"tico222berkeleystreet",
-    "wineidentifiers":"wine.poemabrut.cava./wine.fillaboa.albarino.2009/wine.cousinomacul.sauvignonblancpinotgris.2009/wine.pulentaestate.pinotgris.2009/wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.masdonis.rose.2010/wine.hayman&hill.chardonnay.2008/wine.santacarolinareserve.pinotnoir.2010/wine.masitupungatopassodoble.malbec.2009/wine.elcastrodevaltuillejoven.mencia.2007/wine.veramonteprimus.cabernetcarmenere.2006/wine.elcotocrianza.tempranillo.2007/wine.catena.cabernetsauvignon.2007",
-    "wines":""
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wineIdentifiers":"wine.poemabrut.cava./wine.fillaboa.albarino.2009/wine.cousinomacul.sauvignonblancpinotgris.2009/wine.pulentaestate.pinotgris.2009/wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.masdonis.rose.2010/wine.hayman&hill.chardonnay.2008/wine.santacarolinareserve.pinotnoir.2010/wine.masitupungatopassodoble.malbec.2009/wine.elcastrodevaltuillejoven.mencia.2007/wine.veramonteprimus.cabernetcarmenere.2006/wine.elcotocrianza.tempranillo.2007/wine.catena.cabernetsauvignon.2007",
+    "wines":"0"
   },
   {
     "about":"Excellent wines at an excellent price",
     "identifier":"grouping.tico222berkeleystreet.bestvalue",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "name":"best value",
     "version":"0",
-    "restaurant":"tico222berkeleystreet",
-    "wines":"wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.elcastrodevaltuillejoven.mencia.2007"
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wineIdentifiers":"wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.elcastrodevaltuillejoven.mencia.2007",
+    "wines":"0"
   },
   {
     "about":"User favorites",
     "identifier":"grouping.tico222berkeleystreet.mostpopular",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "name":"most popular",
     "version":"0",
-    "restaurant":"tico222berkeleystreet",
-    "wines":"wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.elcastrodevaltuillejoven.mencia.2008"
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wineIdentifiers":"wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.elcastrodevaltuillejoven.mencia.2008",
+    "wines":"0"
   },
   {
     "about":"Highest rated",
     "identifier":"grouping.tico222berkeleystreet.highestrated",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "name":"highest rated",
     "version":"0",
-    "restaurant":"tico222berkeleystreet",
-    "wines":"wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.elcastrodevaltuillejoven.mencia.2009"
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wineIdentifiers":"wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.elcastrodevaltuillejoven.mencia.2009",
+    "wines":"0"
   },
   {
     "about":"Most recommended by users",
     "identifier":"grouping.tico222berkeleystreet.recommended",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "name":"recommended",
     "version":"0",
-    "restaurant":"tico222berkeleystreet",
-    "wines":"wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.elcastrodevaltuillejoven.mencia.2010"
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wineIdentifiers":"wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.elcastrodevaltuillejoven.mencia.2010",
+    "wines":"0"
   },
   {
     "about":"You will have trouble finding these elsewhere",
     "identifier":"grouping.tico222berkeleystreet.rarefinds",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "name":"rare finds",
     "version":"0",
-    "restaurant":"tico222berkeleystreet",
-    "wines":"wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.elcastrodevaltuillejoven.mencia.2011"
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wineIdentifiers":"wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.elcastrodevaltuillejoven.mencia.2011",
+    "wines":"0"
   },
   {
     "about":"Weather & location were just right to create superb wines",
     "identifier":"grouping.tico222berkeleystreet.excellentvintages",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "name":"excellent vintages",
     "version":"0",
-    "restaurant":"tico222berkeleystreet",
-    "wines":"wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.elcastrodevaltuillejoven.mencia.2012"
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wineIdentifiers":"wine.graffignacentenario.pinotgrigio.2009/wine.localinda.torrontes.2010/wine.elcastrodevaltuillejoven.mencia.2012",
+    "wines":"0"
   }
 ],
     "wineunits":[
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.poemabrut.cava..glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":8,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.poemabrut.cava.",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.poemabrut.cava.",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.fillaboa.albarino.2009.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":9,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.fillaboa.albarino.2009",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.fillaboa.albarino.2009",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.cousinomacul.sauvignonblancpinotgris.2009.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":9,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.cousinomacul.sauvignonblancpinotgris.2009",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.cousinomacul.sauvignonblancpinotgris.2009",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.pulentaestate.pinotgris.2009.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":9,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.pulentaestate.pinotgris.2009",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.pulentaestate.pinotgris.2009",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.graffignacentenario.pinotgrigio.2009.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":8,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.graffignacentenario.pinotgrigio.2009",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.graffignacentenario.pinotgrigio.2009",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.localinda.torrontes.2010.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":9,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.localinda.torrontes.2010",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.localinda.torrontes.2010",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.masdonis.rose.2010.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":7,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.masdonis.rose.2010",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.masdonis.rose.2010",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.hayman&hill.chardonnay.2008.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":9,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.hayman&hill.chardonnay.2008",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.hayman&hill.chardonnay.2008",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.santacarolinareserve.pinotnoir.2010.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":8,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.santacarolinareserve.pinotnoir.2010",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.santacarolinareserve.pinotnoir.2010",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.masitupungatopassodoble.malbec.2009.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":9,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.masitupungatopassodoble.malbec.2009",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.masitupungatopassodoble.malbec.2009",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.elcastrodevaltuillejoven.mencia.2007.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":7,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.elcastrodevaltuillejoven.mencia.2007",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.elcastrodevaltuillejoven.mencia.2007",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.veramonteprimus.cabernetcarmenere.2006.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":9,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.veramonteprimus.cabernetcarmenere.2006",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.veramonteprimus.cabernetcarmenere.2006",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.elcotocrianza.tempranillo.2007.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":8,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.elcotocrianza.tempranillo.2007",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.elcotocrianza.tempranillo.2007",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   },
   {
     "identifier":"wineunit.tico222berkeleystreet.wine.catena.cabernetsauvignon.2007.glass",
-    "markfordeletion":"0",
+    "markForDeletion":"0",
     "price":10,
     "quantity":"glass",
     "version":"0",
-    "wineidentifier":"wine.catena.cabernetsauvignon.2007",
-    "restaurant":"tico222berkeleystreet",
-    "wine":""
+    "wineIdentifier":"wine.catena.cabernetsauvignon.2007",
+    "restaurantIdentifier":"tico222berkeleystreet",
+    "restaurant":"0",
+    "wine":"0"
   }
 ]
   }

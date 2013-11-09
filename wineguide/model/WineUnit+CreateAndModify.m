@@ -9,6 +9,7 @@
 #import "WineUnit+CreateAndModify.h"
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
+#import "NSManagedObject+Helper.h"
 #import "WineDataHelper.h"
 #import "RestaurantDataHelper.h"
 
@@ -42,13 +43,13 @@
         // wineUnit.lastAccessed
         wineUnit.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
         wineUnit.price = [dictionary sanitizedValueForKey:PRICE];
-        wineUnit.quantity = [dictionary sanitizedValueForKey:QUANTITY];
+        wineUnit.quantity = [dictionary sanatizedStringForKey:QUANTITY];
         wineUnit.version = [dictionary sanitizedValueForKey:VERSION];
         
         // store any information about relationships provided
         
-        wineUnit.restaurantIdentifier = [dictionary sanitizedValueForKey:RESTAURANT_IDENTIFIER];
-        wineUnit.wineIdentifier = [dictionary objectForKey:WINE_IDENTIFIER];
+        wineUnit.restaurantIdentifier = [dictionary sanatizedStringForKey:RESTAURANT_IDENTIFIER];
+        wineUnit.wineIdentifier = [dictionary sanatizedStringForKey:WINE_IDENTIFIER];
         
         
         // RELATIONSHIPS
@@ -65,24 +66,9 @@
         [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
     
-    [wineUnit logDetails];
+    // [wineUnit logDetails];
     
     return wineUnit;
-}
-
-
--(NSString *)description
-{
-    return self.identifier;
-}
-
--(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
-{
-    if(!currentIdentifiers){
-        currentIdentifiers = newIdentifiers;
-    } else {
-        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
-    }
 }
 
 -(void)logDetails

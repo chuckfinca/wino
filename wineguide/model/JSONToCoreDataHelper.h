@@ -11,16 +11,21 @@
 
 @interface JSONToCoreDataHelper : NSObject
 
+-(id)initWithContext:(NSManagedObjectContext *)context; // designated initializer
+
 @property (nonatomic, strong) NSPredicate *predicate;
 @property (nonatomic, weak) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSManagedObject *parentManagedObject;
 
--(id)initWithContext:(NSManagedObjectContext *)context; // designated initializer
 -(void)updateCoreDataWithJSONFromURL:(NSURL *)url;
 
--(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary; // abstract
+-(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary; // abstract
 -(NSPredicate *)predicateForDicitonary:(NSDictionary *)dictionary;
 
 -(void)updateNestedManagedObjectsLocatedAtKey:(NSString *)key inDictionary:(NSDictionary *)dictionary;
+
+
+-(NSArray *)managedObjectWithEntityName:(NSString *)entityName usingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context;
+-(NSSet *)updateManagedObject:(NSManagedObject *)managedObject relationshipSet:(NSSet *)relationshipSet withIdentifiersString:(NSString *)identifiers;
 
 @end

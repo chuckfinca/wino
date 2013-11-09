@@ -9,6 +9,7 @@
 #import "Grouping+CreateAndModify.h"
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
+#import "NSManagedObject+Helper.h"
 #import "WineDataHelper.h"
 #import "RestaurantDataHelper.h"
 
@@ -38,17 +39,17 @@
         
         // ATTRIBUTES
         
-        grouping.about = [dictionary sanitizedValueForKey:ABOUT];
+        grouping.about = [dictionary sanatizedStringForKey:ABOUT];
         grouping.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // grouping.lastAccessed
         grouping.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        grouping.name = [dictionary sanitizedValueForKey:NAME];
+        grouping.name = [dictionary sanatizedStringForKey:NAME];
         grouping.version = [dictionary sanitizedValueForKey:VERSION];
         
         // store any information about relationships provided
         
-        grouping.restaurantIdentifier = [dictionary sanitizedValueForKey:RESTAURANT_IDENTIFIER];
-        [grouping addIdentifiers:[dictionary sanitizedValueForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:grouping.wineIdentifiers];
+        grouping.restaurantIdentifier = [dictionary sanatizedStringForKey:RESTAURANT_IDENTIFIER];
+        grouping.wineIdentifiers = [grouping addIdentifiers:[dictionary sanatizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:grouping.wineIdentifiers];
         
         
         // RELATIONSHIPS
@@ -65,23 +66,9 @@
         [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
     
-    [grouping logDetails];
+    // [grouping logDetails];
     
     return grouping;
-}
-
--(NSString *)description
-{
-    return self.identifier;
-}
-
--(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
-{
-    if(!currentIdentifiers){
-        currentIdentifiers = newIdentifiers;
-    } else {
-        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
-    }
 }
 
 -(void)logDetails

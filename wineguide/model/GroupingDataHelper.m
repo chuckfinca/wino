@@ -12,14 +12,16 @@
 
 @implementation GroupingDataHelper
 
--(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
+-(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    [Grouping groupFromRestaurant:(Restaurant *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    return [Grouping groupFromRestaurant:(Restaurant *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)updateRelationships
+-(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
-    
+    for(Grouping *grouping in managedObjectSet){
+        grouping.wines = [self updateManagedObject:grouping relationshipSet:grouping.wines withIdentifiersString:grouping.wineIdentifiers];
+    }
 }
 
 @end

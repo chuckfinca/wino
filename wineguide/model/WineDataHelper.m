@@ -8,18 +8,23 @@
 
 #import "WineDataHelper.h"
 #import "Wine+CreateAndModify.h"
-#import "Restaurant.h"
 
 @implementation WineDataHelper
 
--(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
+-(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    [Wine wineFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    return [Wine wineFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)updateRelationships
+-(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
-    
+    for(Wine *wine in managedObjectSet){
+        wine.groupings = [self updateManagedObject:wine relationshipSet:wine.groupings withIdentifiersString:wine.groupIdentifiers];
+        wine.flights = [self updateManagedObject:wine relationshipSet:wine.flights withIdentifiersString:wine.flightIdentifiers];
+        wine.wineUnits = [self updateManagedObject:wine relationshipSet:wine.wineUnits withIdentifiersString:wine.wineUnitIdentifiers];
+        wine.tastingNotes = [self updateManagedObject:wine relationshipSet:wine.tastingNotes withIdentifiersString:wine.tastingNoteIdentifers];
+        wine.varietals   = [self updateManagedObject:wine relationshipSet:wine.varietals withIdentifiersString:wine.varietalIdentifiers];
+    }
 }
 
 @end

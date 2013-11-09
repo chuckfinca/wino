@@ -12,14 +12,16 @@
 
 @implementation VarietalDataHelper
 
--(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
+-(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    [Varietal varietalForWine:(Wine *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    return [Varietal varietalForWine:(Wine *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)updateRelationships
+-(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
-    
+    for(Varietal *varietal in managedObjectSet){
+        varietal.wines = [self updateManagedObject:varietal relationshipSet:varietal.wines withIdentifiersString:varietal.wineIdentifiers];
+    }
 }
 
 

@@ -12,14 +12,9 @@
 
 @implementation WineUnitDataHelper
 
--(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
+-(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    [WineUnit wineUnitFromRestaurant:(Restaurant *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
-}
-
--(void)updateRelationships
-{
-    
+    return [WineUnit wineUnitFromRestaurant:(Restaurant *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
 @end

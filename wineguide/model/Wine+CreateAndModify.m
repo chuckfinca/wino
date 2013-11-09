@@ -9,6 +9,7 @@
 #import "Wine+CreateAndModify.h"
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
+#import "NSManagedObject+Helper.h"
 
 #import "BrandDataHelper.h"
 #import "TastingNoteDataHelper.h"
@@ -71,29 +72,29 @@
             // ATTRIBUTES
             
             wine.alcoholPercentage = [dictionary sanitizedValueForKey:ALCOHOL];
-            wine.color = [dictionary sanitizedValueForKey:COLOR];
-            wine.country = [dictionary sanitizedValueForKey:COUNTRY];
+            wine.color = [dictionary sanatizedStringForKey:COLOR];
+            wine.country = [dictionary sanatizedStringForKey:COUNTRY];
             wine.dessert = [dictionary sanitizedValueForKey:DESSERT];
             // wine.favorite
             wine.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             // wine.lastAccessed
             wine.markForDeletion = [dictionary sanitizedValueForKey:DELETE_ENTITY];
-            wine.name = [dictionary sanitizedValueForKey:NAME];
-            wine.region = [dictionary sanitizedValueForKey:REGION];
+            wine.name = [dictionary sanatizedStringForKey:NAME];
+            wine.region = [dictionary sanatizedStringForKey:REGION];
             wine.sparkling = [dictionary sanitizedValueForKey:SPARKLING];
-            wine.state = [dictionary sanitizedValueForKey:STATE_GEO];
+            wine.state = [dictionary sanatizedStringForKey:STATE_GEO];
             wine.version = [dictionary sanitizedValueForKey:VERSION];
-            wine.vineyard = [dictionary sanitizedValueForKey:VINEYARD];
-            wine.vintage = [dictionary sanitizedValueForKey:VINTAGE];
+            wine.vineyard = [dictionary sanatizedStringForKey:VINEYARD];
+            wine.vintage = [dictionary sanatizedStringForKey:VINTAGE];
             
             // store any information about relationships provided
             
-            wine.brandIdentifier = [dictionary sanitizedValueForKey:BRAND_IDENTIFIER];
-            [wine addIdentifiers:[dictionary sanitizedValueForKey:FLIGHT_IDENTIFIERS] toCurrentIdentifiers:wine.flightIdentifiers];
-            [wine addIdentifiers:[dictionary sanitizedValueForKey:GROUP_IDENTIFIERS] toCurrentIdentifiers:wine.groupIdentifiers];
-            [wine addIdentifiers:[dictionary sanitizedValueForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:wine.wineUnitIdentifiers];
-            [wine addIdentifiers:[dictionary sanitizedValueForKey:TASTING_NOTE_IDENTIFIERS] toCurrentIdentifiers:wine.tastingNoteIdentifers];
-            [wine addIdentifiers:[dictionary sanitizedValueForKey:VARIETAL_IDENTIFIERS] toCurrentIdentifiers:wine.varietalIdentifiers];
+            wine.brandIdentifier = [dictionary sanatizedStringForKey:BRAND_IDENTIFIER];
+            wine.flightIdentifiers = [wine addIdentifiers:[dictionary sanatizedStringForKey:FLIGHT_IDENTIFIERS] toCurrentIdentifiers:wine.flightIdentifiers];
+            wine.groupIdentifiers = [wine addIdentifiers:[dictionary sanatizedStringForKey:GROUP_IDENTIFIERS] toCurrentIdentifiers:wine.groupIdentifiers];
+            wine.wineUnitIdentifiers = [wine addIdentifiers:[dictionary sanatizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:wine.wineUnitIdentifiers];
+            wine.tastingNoteIdentifers = [wine addIdentifiers:[dictionary sanatizedStringForKey:TASTING_NOTE_IDENTIFIERS] toCurrentIdentifiers:wine.tastingNoteIdentifers];
+            wine.varietalIdentifiers = [wine addIdentifiers:[dictionary sanatizedStringForKey:VARIETAL_IDENTIFIERS] toCurrentIdentifiers:wine.varietalIdentifiers];
             
             
             // RELATIONSHIPS
@@ -134,21 +135,6 @@
     [wine logDetails];
     
     return wine;
-}
-
--(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
-{
-    if(!currentIdentifiers){
-        currentIdentifiers = newIdentifiers;
-    } else {
-        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
-    }
-}
-
-
--(NSString *)description
-{
-    return self.identifier;
 }
 
 -(void)logDetails

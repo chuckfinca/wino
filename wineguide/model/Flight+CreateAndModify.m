@@ -9,6 +9,7 @@
 #import "Flight+CreateAndModify.h"
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
+#import "NSManagedObject+Helper.h"
 #import "WineDataHelper.h"
 #import "RestaurantDataHelper.h"
 
@@ -39,18 +40,18 @@
         
         // ATTRIBUTES
         
-        flight.about = [dictionary sanitizedValueForKey:ABOUT];
+        flight.about = [dictionary sanatizedStringForKey:ABOUT];
         flight.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // flight.lastAccessed
         flight.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        flight.name = [dictionary sanitizedValueForKey:NAME];
+        flight.name = [dictionary sanatizedStringForKey:NAME];
         flight.price = [dictionary sanitizedValueForKey:PRICE];
         flight.version = [dictionary sanitizedValueForKey:VERSION];
         
         // store any information about relationships provided
         
-        flight.restaurantIdentifier = [dictionary sanitizedValueForKey:RESTAURANT_IDENTIFIER];
-        [flight addIdentifiers:[dictionary sanitizedValueForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:restaurant.wineUnitIdentifiers];
+        flight.restaurantIdentifier = [dictionary sanatizedStringForKey:RESTAURANT_IDENTIFIER];
+        flight.wineIdentifiers = [flight addIdentifiers:[dictionary sanatizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:flight.wineIdentifiers];
         
         
         // RELATIONSHIPS
@@ -68,23 +69,9 @@
         [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
     
-    [flight logDetails];
+    // [flight logDetails];
     
     return flight;
-}
-
--(NSString *)description
-{
-    return self.identifier;
-}
-
--(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
-{
-    if(!currentIdentifiers){
-        currentIdentifiers = newIdentifiers;
-    } else {
-        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
-    }
 }
 
 -(void)logDetails

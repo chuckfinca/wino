@@ -9,6 +9,7 @@
 #import "Varietal+CreateAndModify.h"
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
+#import "NSManagedObject+Helper.h"
 #import "WineDataHelper.h"
 
 #define VARIETAL_ENTITY @"Varietal"
@@ -36,16 +37,16 @@
         
         // ATTRIBUTES
         
-        varietal.about = [dictionary sanitizedValueForKey:ABOUT];
+        varietal.about = [dictionary sanatizedStringForKey:ABOUT];
         varietal.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // varietal.lastAccessed
         varietal.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        varietal.name = [dictionary sanitizedValueForKey:NAME];
+        varietal.name = [dictionary sanatizedStringForKey:NAME];
         varietal.version = [dictionary sanitizedValueForKey:VERSION];
         
         // store any information about relationships provided
         
-        [varietal addIdentifiers:[dictionary sanitizedValueForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:varietal.wineIdentifiers];
+        varietal.wineIdentifiers = [varietal addIdentifiers:[dictionary sanatizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:varietal.wineIdentifiers];
         
         
         // RELATIONSHIPS
@@ -57,24 +58,11 @@
         [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
     
-    [varietal logDetails];
+    // [varietal logDetails];
     
     return varietal;
 }
 
--(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
-{
-    if(!currentIdentifiers){
-        currentIdentifiers = newIdentifiers;
-    } else {
-        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
-    }
-}
-
--(NSString *)description
-{
-    return self.identifier;
-}
 
 -(void)logDetails
 {

@@ -12,14 +12,16 @@
 
 @implementation BrandDataHelper
 
--(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
+-(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    [Brand brandForWine:(Wine *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    return [Brand brandForWine:(Wine *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)updateRelationships
+-(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
-    
+    for(Brand *brand in managedObjectSet){
+        brand.wines = [self updateManagedObject:brand relationshipSet:brand.wines withIdentifiersString:brand.wineIdentifiers];
+    }
 }
 
 @end

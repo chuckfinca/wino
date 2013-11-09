@@ -9,6 +9,7 @@
 #import "Brand+CreateAndModify.h"
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
+#import "NSManagedObject+Helper.h"
 #import "WineDataHelper.h"
 
 @implementation Brand (CreateAndModify)
@@ -36,17 +37,17 @@
         
         // ATTRIBUTES
         
-        brand.about = [dictionary sanitizedValueForKey:ABOUT];
+        brand.about = [dictionary sanatizedStringForKey:ABOUT];
         brand.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // brand.lastAccessed
         brand.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        brand.name = [dictionary sanitizedValueForKey:NAME];
+        brand.name = [dictionary sanatizedStringForKey:NAME];
         brand.version = [dictionary sanitizedValueForKey:VERSION];
-        brand.website = [dictionary sanitizedValueForKey:WEBSITE];
+        brand.website = [dictionary sanatizedStringForKey:WEBSITE];
         
         // store any information about relationships provided
         
-        [brand addIdentifiers:[dictionary sanitizedValueForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:brand.wineIdentifiers];
+        brand.wineIdentifiers = [brand addIdentifiers:[dictionary sanatizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:brand.wineIdentifiers];
         
         
         // RELATIONSHIPS
@@ -58,23 +59,9 @@
         [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
     
-    [brand logDetails];
+    // [brand logDetails];
     
     return brand;
-}
-
--(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
-{
-    if(!currentIdentifiers){
-        currentIdentifiers = newIdentifiers;
-    } else {
-        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
-    }
-}
-
--(NSString *)description
-{
-    return self.identifier;
 }
 
 -(void)logDetails

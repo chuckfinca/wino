@@ -9,6 +9,7 @@
 #import "TastingNote+CreateAndModify.h"
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
+#import "NSManagedObject+Helper.h"
 #import "WineDataHelper.h"
 
 @implementation TastingNote (CreateAndModify)
@@ -36,17 +37,17 @@
         
         // ATTRIBUTES
         
-        tastingNote.about = [dictionary sanitizedValueForKey:ABOUT];
+        tastingNote.about = [dictionary sanatizedStringForKey:ABOUT];
         tastingNote.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // tastingNote.lastAccessed
         tastingNote.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        tastingNote.name = [dictionary sanitizedValueForKey:NAME];
-        tastingNote.tastingStage = [dictionary sanitizedValueForKey:TASTING_STAGE]; // appearance, in glass, in mouth, finish
+        tastingNote.name = [dictionary sanatizedStringForKey:NAME];
+        tastingNote.tastingStage = [dictionary sanatizedStringForKey:TASTING_STAGE]; // appearance, in glass, in mouth, finish
         tastingNote.version = [dictionary sanitizedValueForKey:VERSION];
         
         // store any information about relationships provided
         
-        [tastingNote addIdentifiers:[dictionary sanitizedValueForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:tastingNote.wineIdentifiers];
+        tastingNote.wineIdentifiers = [tastingNote addIdentifiers:[dictionary sanatizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:tastingNote.wineIdentifiers];
         
         
         // RELATIONSHIPS
@@ -58,23 +59,9 @@
         [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
     
-    [tastingNote logDetails];
+    // [tastingNote logDetails];
     
     return tastingNote;
-}
-
--(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
-{
-    if(!currentIdentifiers){
-        currentIdentifiers = newIdentifiers;
-    } else {
-        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
-    }
-}
-
--(NSString *)description
-{
-    return self.identifier;
 }
 
 -(void)logDetails
