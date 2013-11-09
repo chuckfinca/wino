@@ -128,6 +128,14 @@
 -(void)updateRelationships
 {
     // abstract
+    
+    // i just created/edited a bunch of a specific type of entities so:
+    
+    // find all those entities
+    
+    // find all those entities related entities
+    
+    // match
 }
 
 

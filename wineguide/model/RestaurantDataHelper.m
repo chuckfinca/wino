@@ -16,4 +16,9 @@
     [Restaurant restaurantFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
+-(void)updateRelationships
+{
+    // 
+}
+
 @end
