@@ -9,6 +9,7 @@
 #import "Varietal+CreateAndModify.h"
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
+#import "WineDataHelper.h"
 
 #define VARIETAL_ENTITY @"Varietal"
 
@@ -18,6 +19,9 @@
 #define VERSION @"version"
 #define NAME @"name"
 #define WINE_IDENTIFIERS @"wineIdentifiers"
+#define WINES @"wines"
+
+#define DIVIDER @"/"
 
 @implementation Varietal (CreateAndModify)
 
@@ -39,18 +43,32 @@
         varietal.name = [dictionary sanitizedValueForKey:NAME];
         varietal.version = [dictionary sanitizedValueForKey:VERSION];
         
-        varietal.wineIdentifiers = [dictionary sanitizedValueForKey:WINE_IDENTIFIERS];
+        // store any information about relationships provided
+        
+        [varietal addIdentifiers:[dictionary sanitizedValueForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:varietal.wineIdentifiers];
+        
         
         // RELATIONSHIPS
+        // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
         
-        NSMutableSet *wines = [varietal.wines mutableCopy];
-        if(![wines containsObject:wine]) [wines addObject:wine];
-        varietal.wines = wines;
+        // Wines
+        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
+        wdh.parentManagedObject = varietal;
+        [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
     
     [varietal logDetails];
     
     return varietal;
+}
+
+-(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
+{
+    if(!currentIdentifiers){
+        currentIdentifiers = newIdentifiers;
+    } else {
+        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
+    }
 }
 
 -(NSString *)description

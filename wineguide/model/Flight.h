@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSNumber * price;
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSString * wineIdentifiers;
+@property (nonatomic, retain) NSString * restaurantIdentifier;
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) NSSet *wines;
 @end

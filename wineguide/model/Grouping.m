@@ -20,6 +20,7 @@
 @dynamic name;
 @dynamic version;
 @dynamic wineIdentifiers;
+@dynamic restaurantIdentifier;
 @dynamic restaurant;
 @dynamic wines;
 

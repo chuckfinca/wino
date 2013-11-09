@@ -37,6 +37,8 @@
 #define GROUPINGS @"groupings"
 #define WINE_UINTS @"wineunits"
 
+#define DIVIDER @"/"
+
 @implementation Restaurant (CreateAndModify)
 
 +(Restaurant *)restaurantFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
@@ -64,9 +66,11 @@
             restaurant.version = [dictionary sanitizedValueForKey:VERSION];
             restaurant.zip = [dictionary sanitizedValueForKey:ZIP];
             
-            restaurant.flightIdentifiers = [dictionary sanitizedValueForKey:FLIGHT_IDENTIFIERS];
-            restaurant.groupIdentifiers = [dictionary sanitizedValueForKey:GROUP_IDENTIFIERS];
-            restaurant.wineUnitIdentifiers = [dictionary sanitizedValueForKey:WINE_UNIT_IDENTIFIERS];
+            // store any information about relationships provided
+            
+            [restaurant addIdentifiers:[dictionary sanitizedValueForKey:FLIGHT_IDENTIFIERS] toCurrentIdentifiers:restaurant.flightIdentifiers];
+            [restaurant addIdentifiers:[dictionary sanitizedValueForKey:GROUP_IDENTIFIERS] toCurrentIdentifiers:restaurant.groupIdentifiers];
+            [restaurant addIdentifiers:[dictionary sanitizedValueForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:restaurant.wineUnitIdentifiers];
             
             
             // RELATIONSHIPS
@@ -92,6 +96,15 @@
     [restaurant logDetails];
     
     return restaurant;
+}
+
+-(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
+{
+    if(!currentIdentifiers){
+        currentIdentifiers = newIdentifiers;
+    } else {
+        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
+    }
 }
 
 

@@ -59,7 +59,7 @@
 
 @implementation Wine (CreateAndModify)
 
-+(Wine *)wineFromRestaurant:(Restaurant *)restaurant foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
++(Wine *)wineFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
 {
     Wine *wine = nil;
     
@@ -86,12 +86,14 @@
             wine.vineyard = [dictionary sanitizedValueForKey:VINEYARD];
             wine.vintage = [dictionary sanitizedValueForKey:VINTAGE];
             
+            // store any information about relationships provided
+            
             wine.brandIdentifier = [dictionary sanitizedValueForKey:BRAND_IDENTIFIER];
-            wine.flightIdentifiers = [dictionary sanitizedValueForKey:FLIGHT_IDENTIFIERS];
-            wine.groupIdentifiers = [dictionary sanitizedValueForKey:GROUP_IDENTIFIERS];
-            wine.wineUnitIdentifiers = [dictionary sanitizedValueForKey:WINE_UNIT_IDENTIFIERS];
-            wine.tastingNoteIdentifers = [dictionary sanitizedValueForKey:TASTING_NOTE_IDENTIFIERS];
-            wine.varietalIdentifiers = [dictionary sanitizedValueForKey:VARIETAL_IDENTIFIERS];
+            [wine addIdentifiers:[dictionary sanitizedValueForKey:FLIGHT_IDENTIFIERS] toCurrentIdentifiers:wine.flightIdentifiers];
+            [wine addIdentifiers:[dictionary sanitizedValueForKey:GROUP_IDENTIFIERS] toCurrentIdentifiers:wine.groupIdentifiers];
+            [wine addIdentifiers:[dictionary sanitizedValueForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:wine.wineUnitIdentifiers];
+            [wine addIdentifiers:[dictionary sanitizedValueForKey:TASTING_NOTE_IDENTIFIERS] toCurrentIdentifiers:wine.tastingNoteIdentifers];
+            [wine addIdentifiers:[dictionary sanitizedValueForKey:VARIETAL_IDENTIFIERS] toCurrentIdentifiers:wine.varietalIdentifiers];
             
             
             // RELATIONSHIPS
@@ -132,6 +134,15 @@
     [wine logDetails];
     
     return wine;
+}
+
+-(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
+{
+    if(!currentIdentifiers){
+        currentIdentifiers = newIdentifiers;
+    } else {
+        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
+    }
 }
 
 

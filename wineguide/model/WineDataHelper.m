@@ -14,7 +14,7 @@
 
 -(void)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    [Wine wineFromRestaurant:self.restaurant foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    [Wine wineFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
 -(void)updateRelationships

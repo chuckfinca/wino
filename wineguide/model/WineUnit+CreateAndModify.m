@@ -10,6 +10,7 @@
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
 #import "WineDataHelper.h"
+#import "RestaurantDataHelper.h"
 
 #define WINE_UNIT_ENTITY @"WineUnit"
 
@@ -19,8 +20,11 @@
 #define QUANTITY @"quantity"
 #define VERSION @"version"
 #define WINE_IDENTIFIER @"wineIdentifier"
+#define RESTAURANT_IDENTIFIER @"restaurantIdentifier"
 
 #define WINES @"wines"
+
+#define DIVIDER @"/"
 
 @implementation WineUnit (CreateAndModify)
 
@@ -41,19 +45,22 @@
         wineUnit.quantity = [dictionary sanitizedValueForKey:QUANTITY];
         wineUnit.version = [dictionary sanitizedValueForKey:VERSION];
         
+        // store any information about relationships provided
+        
+        wineUnit.restaurantIdentifier = [dictionary sanitizedValueForKey:RESTAURANT_IDENTIFIER];
         wineUnit.wineIdentifier = [dictionary objectForKey:WINE_IDENTIFIER];
         
         
         // RELATIONSHIPS
-        
-        // Restaurant
-        wineUnit.restaurant = restaurant;
-        
         // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
+        
+        // Restaurants
+        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context];
+        rdh.parentManagedObject = restaurant;
+        [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
         
         // Wines
         WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
-        wdh.restaurant = restaurant;
         wdh.parentManagedObject = wineUnit;
         [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
@@ -67,6 +74,15 @@
 -(NSString *)description
 {
     return self.identifier;
+}
+
+-(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
+{
+    if(!currentIdentifiers){
+        currentIdentifiers = newIdentifiers;
+    } else {
+        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
+    }
 }
 
 -(void)logDetails

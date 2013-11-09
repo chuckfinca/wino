@@ -20,6 +20,7 @@
 @dynamic quantity;
 @dynamic version;
 @dynamic wineIdentifier;
+@dynamic restaurantIdentifier;
 @dynamic restaurant;
 @dynamic wine;
 

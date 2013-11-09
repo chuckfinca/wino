@@ -10,6 +10,7 @@
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
 #import "WineDataHelper.h"
+#import "RestaurantDataHelper.h"
 
 #define FLIGHT_ENTITY @"Flight"
 
@@ -20,8 +21,11 @@
 #define PRICE @"price"
 #define VERSION @"version"
 #define WINE_IDENTIFIERS @"wineIdentifiers"
+#define RESTAURANT_IDENTIFIER @"restaurantIdentifier"
 
 #define WINES @"wines"
+
+#define DIVIDER @"/"
 
 @implementation Flight (CreateAndModify)
 
@@ -43,19 +47,23 @@
         flight.price = [dictionary sanitizedValueForKey:PRICE];
         flight.version = [dictionary sanitizedValueForKey:VERSION];
         
-        flight.wineIdentifiers = [dictionary sanitizedValueForKey:WINE_IDENTIFIERS];
+        // store any information about relationships provided
+        
+        flight.restaurantIdentifier = [dictionary sanitizedValueForKey:RESTAURANT_IDENTIFIER];
+        [flight addIdentifiers:[dictionary sanitizedValueForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:restaurant.wineUnitIdentifiers];
         
         
         // RELATIONSHIPS
         
-        // Restaurants
-        flight.restaurant = restaurant;
-        
         // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
+        
+        // Restaurants
+        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context];
+        rdh.parentManagedObject = restaurant;
+        [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
 
         // Wines
         WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
-        wdh.restaurant = restaurant;
         wdh.parentManagedObject = flight;
         [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
@@ -68,6 +76,15 @@
 -(NSString *)description
 {
     return self.identifier;
+}
+
+-(void)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers
+{
+    if(!currentIdentifiers){
+        currentIdentifiers = newIdentifiers;
+    } else {
+        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
+    }
 }
 
 -(void)logDetails

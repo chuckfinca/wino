@@ -11,6 +11,4 @@
 
 @interface WineDataHelper : JSONToCoreDataHelper
 
-@property (nonatomic, strong) Restaurant *restaurant;
-
 @end
