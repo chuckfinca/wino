@@ -143,6 +143,7 @@
     NSLog(@"managedObject = %@",managedObject);
     NSLog(@"relationshipSet = %@",relationshipSet);
     NSLog(@"identifiers = %@",identifiers);
+    NSLog(@"identifiersArray = %@",identifiersArray);
     NSMutableArray *compoundPredicateArray = [[NSMutableArray alloc] init];
     for (NSString *identifier in identifiersArray){
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",identifier];

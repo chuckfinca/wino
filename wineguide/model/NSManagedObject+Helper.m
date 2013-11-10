@@ -20,7 +20,16 @@
     if(!currentIdentifiers){
         currentIdentifiers = newIdentifiers;
     } else {
-        currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,newIdentifiers]];
+        NSSet *currentIdentifierSet = [[NSSet alloc] initWithArray:[currentIdentifiers componentsSeparatedByString:DIVIDER]];
+        NSArray *identifiersFromServer = [newIdentifiers componentsSeparatedByString:DIVIDER];
+        
+        NSString *identifiersToAdd = @"";
+        for(NSString *i in identifiersFromServer){
+            if(![currentIdentifierSet containsObject:i]){
+                identifiersToAdd = [identifiersToAdd stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,i]];
+            }
+        }
+        if(![identifiersToAdd  isEqual: @""]) currentIdentifiers = [currentIdentifiers stringByAppendingString:[NSString stringWithFormat:@"%@%@",DIVIDER,identifiersToAdd]];
     }
     
     return currentIdentifiers;
