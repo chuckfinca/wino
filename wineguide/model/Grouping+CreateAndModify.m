@@ -10,8 +10,9 @@
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
 #import "NSManagedObject+Helper.h"
-#import "WineDataHelper.h"
+#import "WineUnitDataHelper.h"
 #import "RestaurantDataHelper.h"
+#import "Restaurant.h"
 
 #define GROUPING_ENTITY @"Grouping"
 
@@ -20,16 +21,16 @@
 #define MARK_FOR_DELETION @"markForDeletion"
 #define NAME @"name"
 #define VERSION @"version"
-#define WINE_IDENTIFIERS @"wineIdentifiers"
+#define WINE_UNIT_IDENTIFIERS @"wineUnitIdentifiers"
 #define RESTAURANT_IDENTIFIER @"restaurantIdentifier"
 
-#define WINES @"wines"
+#define WINE_UNITS @"wineUnits"
 
 #define DIVIDER @"/"
 
 @implementation Grouping (CreateAndModify)
 
-+(Grouping *)groupFromRestaurant:(Restaurant *)restaurant foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
++(Grouping *)groupFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
 {
     Grouping *grouping = nil;
     
@@ -49,7 +50,7 @@
         // store any information about relationships provided
         
         grouping.restaurantIdentifier = [dictionary sanatizedStringForKey:RESTAURANT_IDENTIFIER];
-        grouping.wineIdentifiers = [grouping addIdentifiers:[dictionary sanatizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:grouping.wineIdentifiers];
+        grouping.wineUnitIdentifiers = [grouping addIdentifiers:[dictionary sanatizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:grouping.wineUnitIdentifiers];
         
         
         // RELATIONSHIPS
@@ -57,13 +58,11 @@
         
         // Restaurants
         RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context];
-        rdh.parentManagedObject = restaurant;
         [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
         
-        // Wines
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
-        wdh.parentManagedObject = grouping;
-        [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
+        // WineUnits
+        WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
+        [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
     }
     
     // [grouping logDetails];
@@ -80,12 +79,12 @@
     NSLog(@"markForDeletion = %@",self.markForDeletion);
     NSLog(@"name = %@",self.name);
     NSLog(@"version = %@",self.version);
-    NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
+    NSLog(@"wineUnitIdentifiers = %@",self.wineUnitIdentifiers);
     
     NSLog(@"restaurant = %@",self.restaurant.description);
     
-    NSLog(@"wines count = %i",[self.wines count]);
-    for(NSObject *obj in self.wines){
+    NSLog(@"wineUnits count = %i",[self.wineUnits count]);
+    for(NSObject *obj in self.wineUnits){
         NSLog(@"  %@",obj.description);
     }
     NSLog(@"\n\n\n");

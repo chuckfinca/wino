@@ -8,19 +8,20 @@
 
 #import "VarietalDataHelper.h"
 #import "Varietal+CreateAndModify.h"
-#import "Wine.h"
+
+#define WINE @"Wine"
 
 @implementation VarietalDataHelper
 
 -(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    return [Varietal varietalForWine:(Wine *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    return [Varietal varietalFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
     for(Varietal *varietal in managedObjectSet){
-        varietal.wines = [self updateManagedObject:varietal relationshipSet:varietal.wines withIdentifiersString:varietal.wineIdentifiers];
+        varietal.wines = [self updateRelationshipSet:varietal.wines ofEntitiesNamed:WINE withIdentifiersString:varietal.wineIdentifiers];
     }
 }
 

@@ -2,17 +2,19 @@
 //  WineUnit.h
 //  wineguide
 //
-//  Created by Charles Feinn on 11/8/13.
+//  Created by Charles Feinn on 11/11/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Restaurant, Wine;
+@class Flight, Grouping, Wine;
 
 @interface WineUnit : NSManagedObject
 
+@property (nonatomic, retain) NSString * flightIdentifiers;
+@property (nonatomic, retain) NSString * groupIdentifiers;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSDate * lastAccessed;
 @property (nonatomic, retain) NSNumber * markForDeletion;
@@ -20,8 +22,21 @@
 @property (nonatomic, retain) NSString * quantity;
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSString * wineIdentifier;
-@property (nonatomic, retain) NSString * restaurantIdentifier;
-@property (nonatomic, retain) Restaurant *restaurant;
+@property (nonatomic, retain) NSSet *flights;
+@property (nonatomic, retain) NSSet *groups;
 @property (nonatomic, retain) Wine *wine;
+@end
+
+@interface WineUnit (CoreDataGeneratedAccessors)
+
+- (void)addFlightsObject:(Flight *)value;
+- (void)removeFlightsObject:(Flight *)value;
+- (void)addFlights:(NSSet *)values;
+- (void)removeFlights:(NSSet *)values;
+
+- (void)addGroupsObject:(Grouping *)value;
+- (void)removeGroupsObject:(Grouping *)value;
+- (void)addGroups:(NSSet *)values;
+- (void)removeGroups:(NSSet *)values;
 
 @end

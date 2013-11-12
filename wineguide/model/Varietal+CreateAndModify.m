@@ -26,7 +26,7 @@
 
 @implementation Varietal (CreateAndModify)
 
-+(Varietal *)varietalForWine:(Wine *)wine foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
++(Varietal *)varietalFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
 
 {
     Varietal *varietal = nil;
@@ -54,7 +54,6 @@
         
         // Wines
         WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
-        wdh.parentManagedObject = varietal;
         [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
     

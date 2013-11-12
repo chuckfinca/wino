@@ -10,8 +10,9 @@
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
 #import "NSManagedObject+Helper.h"
-#import "WineDataHelper.h"
+#import "WineUnitDataHelper.h"
 #import "RestaurantDataHelper.h"
+#import "Restaurant.h"
 
 #define FLIGHT_ENTITY @"Flight"
 
@@ -21,16 +22,16 @@
 #define NAME @"name"
 #define PRICE @"price"
 #define VERSION @"version"
-#define WINE_IDENTIFIERS @"wineIdentifiers"
+#define WINE_UNIT_IDENTIFIERS @"wineUnitIdentifiers"
 #define RESTAURANT_IDENTIFIER @"restaurantIdentifier"
 
-#define WINES @"wines"
+#define WINE_UNITS @"wineUnits"
 
 #define DIVIDER @"/"
 
 @implementation Flight (CreateAndModify)
 
-+(Flight *)flightFromRestaurant:(Restaurant *)restaurant foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
++(Flight *)flightFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
 {
     Flight *flight = nil;
     
@@ -51,7 +52,7 @@
         // store any information about relationships provided
         
         flight.restaurantIdentifier = [dictionary sanatizedStringForKey:RESTAURANT_IDENTIFIER];
-        flight.wineIdentifiers = [flight addIdentifiers:[dictionary sanatizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:flight.wineIdentifiers];
+        flight.wineUnitIdentifiers = [flight addIdentifiers:[dictionary sanatizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:flight.wineUnitIdentifiers];
         
         
         // RELATIONSHIPS
@@ -60,13 +61,11 @@
         
         // Restaurants
         RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context];
-        rdh.parentManagedObject = restaurant;
         [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
 
-        // Wines
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
-        wdh.parentManagedObject = flight;
-        [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
+        // WineUnits
+        WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
+        [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
     }
     
     // [flight logDetails];
@@ -84,12 +83,12 @@
     NSLog(@"name = %@",self.name);
     NSLog(@"price = %@",self.price);
     NSLog(@"version = %@",self.version);
-    NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
+    NSLog(@"wineUnitIdentifiers = %@",self.wineUnitIdentifiers);
     
     NSLog(@"restaurant = %@",self.restaurant.description);
     
-    NSLog(@"wines count = %i",[self.wines count]);
-    for(NSObject *obj in self.wines){
+    NSLog(@"wineUnits count = %i",[self.wineUnits count]);
+    for(NSObject *obj in self.wineUnits){
         NSLog(@"  %@",obj.description);
     }
     NSLog(@"\n\n\n");

@@ -55,7 +55,7 @@
 {
     self.wine = wine;
     
-    [self logDetailsOfWine:wine];
+    [self logDetails];
     
     NSString *wineName = @"";
     if([wine.name length] > 0){
@@ -100,30 +100,48 @@
     self.numReviewsLabel.attributedText = reviewsAS;
 }
 
--(void)logDetailsOfWine:(Wine *)wine
+-(void)logDetails
 {
-    NSLog(@"name = %@",wine.name);
-    NSLog(@"alcoholPercentage = %@",wine.alcoholPercentage);
-    NSLog(@"brand = %@",wine.brand.name);
-    NSLog(@"color = %@",wine.color);
-    NSLog(@"country = %@",wine.country);
-    NSLog(@"dessert = %@",wine.dessert);
-    NSLog(@"favorite = %@",wine.favorite);
-    NSLog(@"identifier = %@",wine.identifier);
-    NSLog(@"lastAccessed = %@",wine.lastAccessed);
-    NSLog(@"markForDeletion = %@",wine.markForDeletion);
-    NSLog(@"region = %@",wine.region);
-    NSLog(@"sparkling = %@",wine.sparkling);
-    NSLog(@"version = %@",wine.version);
-    NSLog(@"vineyard = %@",wine.vineyard);
-    NSLog(@"vintage = %@",wine.vintage);
+    NSLog(@"----------------------------------------");
+    NSLog(@"identifier = %@",self.wine.identifier);
+    NSLog(@"alcoholPercentage = %@",self.wine.alcoholPercentage);
+    NSLog(@"color = %@",self.wine.color);
+    NSLog(@"country = %@",self.wine.country);
+    NSLog(@"dessert = %@",self.wine.dessert);
+    NSLog(@"favorite = %@",self.wine.favorite);
+    NSLog(@"lastAccessed = %@",self.wine.lastAccessed);
+    NSLog(@"markForDeletion = %@",self.wine.markForDeletion);
+    NSLog(@"name = %@",self.wine.name);
+    NSLog(@"region = %@",self.wine.region);
+    NSLog(@"sparkling = %@",self.wine.sparkling);
+    NSLog(@"state = %@",self.wine.state);
+    NSLog(@"version = %@",self.wine.version);
+    NSLog(@"vineyard = %@",self.wine.vineyard);
+    NSLog(@"vintage = %@",self.wine.vintage);
     
-    for(Varietal *v in wine.varietals){
-        NSLog(@"Varietal = %@",v.name);
+    NSLog(@"brandIdentifier = %@",self.wine.brandIdentifier);
+    NSLog(@"wineUnitIdentifiers = %@",self.wine.wineUnitIdentifiers);
+    NSLog(@"tastingNoteIdentifers = %@",self.wine.tastingNoteIdentifers);
+    NSLog(@"varietalIdentifiers = %@",self.wine.varietalIdentifiers);
+    
+    NSLog(@"brand = %@",self.wine.brand.description);
+    
+    NSLog(@"tastingNotes count = %i",[self.wine.tastingNotes count]);
+    for(NSObject *obj in self.wine.tastingNotes){
+        NSLog(@"  %@",obj.description);
     }
-    for(TastingNote *t in wine.tastingNotes){
-        NSLog(@"TastingNote = %@",t.name);
+    
+    NSLog(@"varietals count = %i",[self.wine.varietals count]);
+    for(NSObject *obj in self.wine.varietals){
+        NSLog(@"  %@",obj.description);
     }
+    
+    NSLog(@"wineUnits = %i",[self.wine.wineUnits count]);
+    for(NSObject *obj in self.wine.wineUnits){
+        NSLog(@"  %@",obj.description);
+    }
+    NSLog(@"\n\n\n");
 }
+
 
 @end

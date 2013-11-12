@@ -8,19 +8,20 @@
 
 #import "GroupingDataHelper.h"
 #import "Grouping+CreateAndModify.h"
-#import "Restaurant.h"
+
+#define WINE_UNIT @"WineUnit"
 
 @implementation GroupingDataHelper
 
 -(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    return [Grouping groupFromRestaurant:(Restaurant *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    return [Grouping groupFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
     for(Grouping *grouping in managedObjectSet){
-        grouping.wines = [self updateManagedObject:grouping relationshipSet:grouping.wines withIdentifiersString:grouping.wineIdentifiers];
+        grouping.wineUnits = [self updateRelationshipSet:grouping.wineUnits ofEntitiesNamed:WINE_UNIT withIdentifiersString:grouping.wineUnitIdentifiers];
     }
 }
 

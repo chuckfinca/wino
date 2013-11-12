@@ -43,14 +43,10 @@
 #define VINEYARD @"vineyard"
 #define VINTAGE @"vintage"
 #define BRAND @"brand"
-#define GROUPINGS @"groupings"
 #define TASTING_NOTES @"tastingnotes"
-#define FLIGHTS @"flights"
 #define WINE_UNITS @"wineUnits"
 
 #define BRAND_IDENTIFIER @"brandIdentifier"
-#define FLIGHT_IDENTIFIERS @"flightIdentifiers"
-#define GROUP_IDENTIFIERS @"groupIdentifiers"
 #define WINE_UNIT_IDENTIFIERS @"wineUnitIdentifiers"
 #define VARIETAL_IDENTIFIERS @"varietalIdentifiers"
 #define TASTING_NOTE_IDENTIFIERS @"tastingNoteIdentifiers"
@@ -90,8 +86,6 @@
             // store any information about relationships provided
             
             wine.brandIdentifier = [dictionary sanatizedStringForKey:BRAND_IDENTIFIER];
-            wine.flightIdentifiers = [wine addIdentifiers:[dictionary sanatizedStringForKey:FLIGHT_IDENTIFIERS] toCurrentIdentifiers:wine.flightIdentifiers];
-            wine.groupIdentifiers = [wine addIdentifiers:[dictionary sanatizedStringForKey:GROUP_IDENTIFIERS] toCurrentIdentifiers:wine.groupIdentifiers];
             wine.wineUnitIdentifiers = [wine addIdentifiers:[dictionary sanatizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:wine.wineUnitIdentifiers];
             wine.tastingNoteIdentifers = [wine addIdentifiers:[dictionary sanatizedStringForKey:TASTING_NOTE_IDENTIFIERS] toCurrentIdentifiers:wine.tastingNoteIdentifers];
             wine.varietalIdentifiers = [wine addIdentifiers:[dictionary sanatizedStringForKey:VARIETAL_IDENTIFIERS] toCurrentIdentifiers:wine.varietalIdentifiers];
@@ -102,32 +96,18 @@
             
             // Brand
             BrandDataHelper *bdh = [[BrandDataHelper alloc] initWithContext:context];
-            bdh.parentManagedObject = wine;
             [bdh updateNestedManagedObjectsLocatedAtKey:BRAND inDictionary:dictionary];
         
             // Tasting Notes
             TastingNoteDataHelper *tndh = [[TastingNoteDataHelper alloc] initWithContext:context];
-            tndh.parentManagedObject = wine;
             [tndh updateNestedManagedObjectsLocatedAtKey:TASTING_NOTES inDictionary:dictionary];
             
             // Varietals
             VarietalDataHelper *vdh = [[VarietalDataHelper alloc] initWithContext:context];
-            vdh.parentManagedObject = wine;
             [vdh updateNestedManagedObjectsLocatedAtKey:VARIETALS inDictionary:dictionary];
-            
-            // Groupings
-            GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:context];
-            gdh.parentManagedObject = wine;
-            [gdh updateNestedManagedObjectsLocatedAtKey:GROUPINGS inDictionary:dictionary];
-            
-            // Flights
-            FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context];
-            fdh.parentManagedObject = wine;
-            [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
             
             // WineUnits
             WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
-            wudh.parentManagedObject = wine;
             [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
         }
     }
@@ -156,12 +136,10 @@
     NSLog(@"vineyard = %@",self.vineyard);
     NSLog(@"vintage = %@",self.vintage);
     
-    NSLog(@"vintage = %@",self.brandIdentifier);
-    NSLog(@"vintage = %@",self.flightIdentifiers);
-    NSLog(@"vintage = %@",self.groupIdentifiers);
-    NSLog(@"vintage = %@",self.wineUnitIdentifiers);
-    NSLog(@"vintage = %@",self.tastingNoteIdentifers);
-    NSLog(@"vintage = %@",self.varietalIdentifiers);
+    NSLog(@"brandIdentifier = %@",self.brandIdentifier);
+    NSLog(@"wineUnitIdentifiers = %@",self.wineUnitIdentifiers);
+    NSLog(@"tastingNoteIdentifers = %@",self.tastingNoteIdentifers);
+    NSLog(@"varietalIdentifiers = %@",self.varietalIdentifiers);
     
     NSLog(@"brand = %@",self.brand.description);
     
@@ -175,17 +153,7 @@
         NSLog(@"  %@",obj.description);
     }
     
-    NSLog(@"groupings count = %i",[self.groupings count]);
-    for(NSObject *obj in self.groupings){
-        NSLog(@"  %@",obj.description);
-    }
-    
-    NSLog(@"groupings flights = %i",[self.flights count]);
-    for(NSObject *obj in self.flights){
-        NSLog(@"  %@",obj.description);
-    }
-    
-    NSLog(@"wineUnits flights = %i",[self.wineUnits count]);
+    NSLog(@"wineUnits = %i",[self.wineUnits count]);
     for(NSObject *obj in self.wineUnits){
         NSLog(@"  %@",obj.description);
     }

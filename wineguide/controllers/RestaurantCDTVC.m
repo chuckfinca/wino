@@ -63,6 +63,9 @@
     // get the winelist for that restaurant
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
     self.restaurant = restaurant;
+    
+    [self logDetails];
+    
     self.context = restaurant.managedObjectContext;
     [self refreshWineList];
     self.title = nil;
@@ -104,6 +107,38 @@
     [self setupFetchedResultsController];
 }
 
+-(void)logDetails
+{
+    NSLog(@"----------------------------------------");
+    NSLog(@"identifier = %@",self.restaurant.identifier);
+    NSLog(@"address = %@",self.restaurant.address);
+    NSLog(@"city = %@",self.restaurant.city);
+    NSLog(@"country = %@",self.restaurant.country);
+    NSLog(@"lastAccessed = %@",self.restaurant.lastAccessed);
+    NSLog(@"latitude = %@",self.restaurant.latitude);
+    NSLog(@"longitude = %@",self.restaurant.longitude);
+    NSLog(@"markForDeletion = %@",self.restaurant.markForDeletion);
+    NSLog(@"menuNeedsUpdating = %@",self.restaurant.menuNeedsUpdating);
+    NSLog(@"name = %@",self.restaurant.name);
+    NSLog(@"state = %@",self.restaurant.state);
+    NSLog(@"version = %@",self.restaurant.version);
+    NSLog(@"zip = %@",self.restaurant.zip);
+    NSLog(@"flightIdentifiers = %@",self.restaurant.flightIdentifiers);
+    NSLog(@"groupIdentifiers = %@",self.restaurant.groupIdentifiers);
+    
+    NSLog(@"flights count = %i",[self.restaurant.flights count]);
+    for(NSObject *obj in self.restaurant.flights){
+        NSLog(@"  %@",obj.description);
+    }
+    
+    NSLog(@"groupings count = %i",[self.restaurant.groups count]);
+    for(NSObject *obj in self.restaurant.groups){
+        NSLog(@"  %@",obj.description);
+    }
+    
+    NSLog(@"\n\n\n");
+}
+
 -(void)setupFetchedResultsController
 {
     // NSLog(@"setupFetchedResultsController...");
@@ -114,7 +149,8 @@
                                 [NSSortDescriptor sortDescriptorWithKey:@"identifier"
                                                               ascending:YES
                                                                selector:@selector(localizedCaseInsensitiveCompare:)]];
-    request.predicate = [NSPredicate predicateWithFormat:@"wineUnits.restaurant CONTAINS %@",self.restaurant];
+    request.predicate = [NSPredicate predicateWithFormat:@"wineUnits.groupIdentifiers CONTAINS %@",[NSString stringWithFormat:@"grouping.%@.all",self.restaurant.identifier]];
+    //[NSPredicate predicateWithFormat:@"wineUnits.restaurant CONTAINS %@",self.restaurant];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
@@ -144,7 +180,7 @@
     // Configure the cell...
     
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:wine.brand.name attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:wine.identifier attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
     return cell;
 }
 

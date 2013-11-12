@@ -136,24 +136,21 @@
 
 
 
--(NSSet *)updateManagedObject:(NSManagedObject *)managedObject relationshipSet:(NSSet *)relationshipSet withIdentifiersString:(NSString *)identifiers
+-(NSSet *)updateRelationshipSet:(NSSet *)relationshipSet ofEntitiesNamed:(NSString *)entityName withIdentifiersString:(NSString *)identifiers
 {
     // separate identifiers of managed objects that need to be joined to
     NSArray *identifiersArray = [identifiers componentsSeparatedByString:DIVIDER];
-    NSLog(@"managedObject = %@",managedObject);
     NSLog(@"relationshipSet = %@",relationshipSet);
-    NSLog(@"identifiers = %@",identifiers);
+    //NSLog(@"identifiers = %@",identifiers);
     NSLog(@"identifiersArray = %@",identifiersArray);
     NSMutableArray *compoundPredicateArray = [[NSMutableArray alloc] init];
     for (NSString *identifier in identifiersArray){
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",identifier];
-        NSLog(@"predicate = %@",[NSPredicate description]);
         [compoundPredicateArray addObject:predicate];
     }
     NSCompoundPredicate *compoundPredicate = [[NSCompoundPredicate alloc] initWithType:NSOrPredicateType subpredicates:compoundPredicateArray];
     
-    NSLog(@"managedObject class = %@",[[managedObject class] description]);
-    NSArray *matches = [self managedObjectWithEntityName:[[managedObject class] description] usingPredicate:compoundPredicate inContext:self.context];
+    NSArray *matches = [self managedObjectWithEntityName:entityName usingPredicate:compoundPredicate inContext:self.context];
     
     NSMutableSet *set = [relationshipSet mutableCopy];
     if(!set) set = [[NSMutableSet alloc] init];
@@ -165,23 +162,33 @@
 
 -(NSArray *)managedObjectWithEntityName:(NSString *)entityName usingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context
 {
+    //NSLog(@"!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!");
     
+    //NSLog(@"[self class] = %@; entityName = %@",[self class],entityName);
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
     
+    //NSLog(@"sortDescriptors = %@",request.sortDescriptors);
+    
     request.predicate = predicate;
+    //NSLog(@"predicate = %@",predicate);
     
     NSError *error = nil;
     NSArray *matches = [context executeFetchRequest:request error:&error];
     
-    if(!matches || [matches count] == 0){
+    if(!matches){
         // Error
         NSLog(@"Error %@ - matches exists? %@; [matches count] = %i",error,matches ? @"yes" : @"no",[matches count]);
         return nil;
         
-    } else if ([matches count] > 1) {
+    } else if([matches count] == 0){
+        // Matches count
+        NSLog(@"[matches count] = %i",[matches count]);
+        return nil;
+    } else if([matches count] > 1) {
         // We found objects
         NSLog(@"We found objects!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        NSLog(@"[matches count] = %i",[matches count]);
         return matches;
         
     }  else {

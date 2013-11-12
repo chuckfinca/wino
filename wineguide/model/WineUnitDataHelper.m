@@ -10,11 +10,13 @@
 #import "WineUnit+CreateAndModify.h"
 #import "Restaurant.h"
 
+#define WINE @"Wine"
+
 @implementation WineUnitDataHelper
 
 -(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    return [WineUnit wineUnitFromRestaurant:(Restaurant *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    return [WineUnit wineUnitFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
 @end

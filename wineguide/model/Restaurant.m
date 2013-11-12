@@ -2,14 +2,13 @@
 //  Restaurant.m
 //  wineguide
 //
-//  Created by Charles Feinn on 11/8/13.
+//  Created by Charles Feinn on 11/11/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
 #import "Restaurant.h"
 #import "Flight.h"
 #import "Grouping.h"
-#import "WineUnit.h"
 
 
 @implementation Restaurant
@@ -28,10 +27,8 @@
 @dynamic name;
 @dynamic state;
 @dynamic version;
-@dynamic wineUnitIdentifiers;
 @dynamic zip;
 @dynamic flights;
-@dynamic groupings;
-@dynamic wineUnits;
+@dynamic groups;
 
 @end

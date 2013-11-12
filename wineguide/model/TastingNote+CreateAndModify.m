@@ -27,7 +27,7 @@
 
 #define DIVIDER @"/"
 
-+(TastingNote *)tastingNoteForWine:(Wine *)wine foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
++(TastingNote *)tastingNoteFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
 {
     TastingNote *tastingNote = nil;
     
@@ -55,7 +55,6 @@
         
         // Wines
         WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
-        wdh.parentManagedObject = tastingNote;
         [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
     

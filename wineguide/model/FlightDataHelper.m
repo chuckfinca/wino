@@ -8,20 +8,21 @@
 
 #import "FlightDataHelper.h"
 #import "Flight+CreateAndModify.h"
-#import "Restaurant.h"
+
+#define WINE_UNIT @"WineUnit"
 
 @implementation FlightDataHelper
 
 -(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    return [Flight flightFromRestaurant:(Restaurant *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    return [Flight flightFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
 
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
     for(Flight *flight in managedObjectSet){
-        flight.wines = [self updateManagedObject:flight relationshipSet:flight.wines withIdentifiersString:flight.wineIdentifiers];
+        flight.wineUnits = [self updateRelationshipSet:flight.wineUnits ofEntitiesNamed:WINE_UNIT withIdentifiersString:flight.wineUnitIdentifiers];
     }
 }
 

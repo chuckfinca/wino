@@ -8,19 +8,20 @@
 
 #import "BrandDataHelper.h"
 #import "Brand+CreateAndModify.h"
-#import "Wine.h"
+
+#define WINE @"Wine"
 
 @implementation BrandDataHelper
 
 -(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    return [Brand brandForWine:(Wine *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    return [Brand brandFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
     for(Brand *brand in managedObjectSet){
-        brand.wines = [self updateManagedObject:brand relationshipSet:brand.wines withIdentifiersString:brand.wineIdentifiers];
+        brand.wines = [self updateRelationshipSet:brand.wines ofEntitiesNamed:WINE withIdentifiersString:brand.wineIdentifiers];
     }
 }
 

@@ -8,19 +8,20 @@
 
 #import "TastingNoteDataHelper.h"
 #import "TastingNote+CreateAndModify.h"
-#import "Wine.h"
+
+#define WINE @"Wine"
 
 @implementation TastingNoteDataHelper
 
 -(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    return [TastingNote tastingNoteForWine:(Wine *)self.parentManagedObject foundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    return [TastingNote tastingNoteFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
     for(TastingNote *tastingNote in managedObjectSet){
-        tastingNote.wines = [self updateManagedObject:tastingNote relationshipSet:tastingNote.wines withIdentifiersString:tastingNote.wineIdentifiers];
+        tastingNote.wines = [self updateRelationshipSet:tastingNote.wines ofEntitiesNamed:WINE withIdentifiersString:tastingNote.wineIdentifiers];
     }
 }
 
