@@ -22,7 +22,7 @@
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
     for(Flight *flight in managedObjectSet){
-        flight.wineUnits = [self updateRelationshipSet:flight.wineUnits ofEntitiesNamed:WINE_UNIT withIdentifiersString:flight.wineUnitIdentifiers];
+        flight.wineUnits = [self updateRelationshipSet:flight.wineUnits ofEntitiesNamed:WINE_UNIT usingIdentifiersString:flight.wineUnitIdentifiers];
     }
 }
 

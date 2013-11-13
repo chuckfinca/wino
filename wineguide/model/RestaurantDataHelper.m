@@ -9,7 +9,7 @@
 #import "RestaurantDataHelper.h"
 #import "Restaurant+CreateAndModify.h"
 
-#define GROUPING @"Grouping"
+#define GROUPING @"Group"
 #define FLIGHT @"Flight"
 
 
@@ -23,11 +23,8 @@
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
     for(Restaurant *r in managedObjectSet){
-        //NSLog(@"groupings = %@",r.groupings);
-        //NSLog(@"groupIdentifiers = %@",r.groupIdentifiers);
-        r.groups = [self updateRelationshipSet:r.groups ofEntitiesNamed:GROUPING withIdentifiersString:r.groupIdentifiers];
-        //NSLog(@"flightIdentifiers = %@",r.flightIdentifiers);
-        r.flights = [self updateRelationshipSet:r.flights ofEntitiesNamed:FLIGHT withIdentifiersString:r.flightIdentifiers];
+        r.groups = [self updateRelationshipSet:r.groups ofEntitiesNamed:GROUPING usingIdentifiersString:r.groupIdentifiers];
+        r.flights = [self updateRelationshipSet:r.flights ofEntitiesNamed:FLIGHT usingIdentifiersString:r.flightIdentifiers];
     }
 }
 

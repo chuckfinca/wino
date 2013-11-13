@@ -19,7 +19,7 @@
 #import "WineUnitDataHelper.h"
 
 #import "Flight.h"
-#import "Grouping.h"
+#import "Group.h"
 #import "WineUnit.h"
 #import "Brand.h"
 
@@ -112,7 +112,7 @@
         }
     }
     
-    [wine logDetails];
+    // [wine logDetails];
     
     return wine;
 }

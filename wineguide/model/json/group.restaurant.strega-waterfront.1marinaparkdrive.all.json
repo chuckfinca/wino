@@ -1,7 +1,7 @@
 [
   {
     "about":"",
-    "identifier":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "identifier":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "markForDeletion":"",
     "name":"all",
     "restaurantIdentifier":"restaurant.strega-waterfront.1marinaparkdrive",
@@ -11,7 +11,7 @@
     "wineUnits":[
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.stemmari.varietal.pinotgrigio.2011.glass",
     "markForDeletion":"0",
     "price":8,
@@ -46,7 +46,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all/grouping.restaurant.strega-waterfront.1marinaparkdrive.hightestrated/grouping.restaurant.strega-waterfront.1marinaparkdrive.mostpopular/grouping.restaurant.strega-waterfront.1marinaparkdrive.bestvalue/grouping.restaurant.strega-waterfront.1marinaparkdrive.recommended/grouping.restaurant.strega-waterfront.1marinaparkdrive.rarefinds/grouping.restaurant.strega-waterfront.1marinaparkdrive.excellentvintages",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all/group.restaurant.strega-waterfront.1marinaparkdrive.hightestrated/group.restaurant.strega-waterfront.1marinaparkdrive.mostpopular/group.restaurant.strega-waterfront.1marinaparkdrive.bestvalue/group.restaurant.strega-waterfront.1marinaparkdrive.recommended/group.restaurant.strega-waterfront.1marinaparkdrive.rarefinds/group.restaurant.strega-waterfront.1marinaparkdrive.excellentvintages",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.marcofelluga.varietal.pinotgrigio.2011.glass",
     "markForDeletion":"0",
     "price":11,
@@ -81,7 +81,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.raymondlot3.varietal.chardonnay.2011.glass",
     "markForDeletion":"0",
     "price":8,
@@ -116,7 +116,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.rodneystrong.varietal.chardonnay.2011.glass",
     "markForDeletion":"0",
     "price":10,
@@ -151,7 +151,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all/grouping.restaurant.strega-waterfront.1marinaparkdrive.hightestrated/grouping.restaurant.strega-waterfront.1marinaparkdrive.mostpopular/grouping.restaurant.strega-waterfront.1marinaparkdrive.bestvalue/grouping.restaurant.strega-waterfront.1marinaparkdrive.recommended/grouping.restaurant.strega-waterfront.1marinaparkdrive.rarefinds/grouping.restaurant.strega-waterfront.1marinaparkdrive.excellentvintages",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all/group.restaurant.strega-waterfront.1marinaparkdrive.hightestrated/group.restaurant.strega-waterfront.1marinaparkdrive.mostpopular/group.restaurant.strega-waterfront.1marinaparkdrive.bestvalue/group.restaurant.strega-waterfront.1marinaparkdrive.recommended/group.restaurant.strega-waterfront.1marinaparkdrive.rarefinds/group.restaurant.strega-waterfront.1marinaparkdrive.excellentvintages",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.closduval.varietal.chardonnay.2011.glass",
     "markForDeletion":"0",
     "price":12,
@@ -186,7 +186,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.sonomacutrer.varietal.chardonnay.2011.glass",
     "markForDeletion":"0",
     "price":15,
@@ -221,7 +221,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.heitz.varietal.chardonnay.2010.glass",
     "markForDeletion":"0",
     "price":17,
@@ -256,7 +256,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.caymusconundrum..2011.glass",
     "markForDeletion":"0",
     "price":14,
@@ -291,7 +291,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.mauritsondrycreekvalley.varietal.sauvignonblanc.2001.glass",
     "markForDeletion":"0",
     "price":9,
@@ -326,7 +326,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.kimcrawford.varietal.sauvignonblanc.2012.glass",
     "markForDeletion":"0",
     "price":12,
@@ -361,7 +361,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.fournierlesbellesvignes.varietal.sancere.2011.glass",
     "markForDeletion":"0",
     "price":13,
@@ -396,7 +396,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.trimbachreserve.varietal.pinotgris.2008.glass",
     "markForDeletion":"0",
     "price":9,
@@ -431,7 +431,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all/grouping.restaurant.strega-waterfront.1marinaparkdrive.hightestrated/grouping.restaurant.strega-waterfront.1marinaparkdrive.mostpopular/grouping.restaurant.strega-waterfront.1marinaparkdrive.bestvalue/grouping.restaurant.strega-waterfront.1marinaparkdrive.recommended/grouping.restaurant.strega-waterfront.1marinaparkdrive.rarefinds/grouping.restaurant.strega-waterfront.1marinaparkdrive.excellentvintages",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all/group.restaurant.strega-waterfront.1marinaparkdrive.hightestrated/group.restaurant.strega-waterfront.1marinaparkdrive.mostpopular/group.restaurant.strega-waterfront.1marinaparkdrive.bestvalue/group.restaurant.strega-waterfront.1marinaparkdrive.recommended/group.restaurant.strega-waterfront.1marinaparkdrive.rarefinds/group.restaurant.strega-waterfront.1marinaparkdrive.excellentvintages",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.franciscoppola..2011.glass",
     "markForDeletion":"0",
     "price":9,
@@ -466,7 +466,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.s.a.prumessence.varietal.riesling.2012.glass",
     "markForDeletion":"0",
     "price":8,
@@ -501,7 +501,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.williamhillestate.varietal.cabernetsauvignon.2010.glass",
     "markForDeletion":"0",
     "price":9,
@@ -536,7 +536,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.steeleshootingstar.varietal.cabernetsauvignon.2010.glass",
     "markForDeletion":"0",
     "price":10,
@@ -571,7 +571,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.hessallomivineyard.varietal.cabernetsauvignon.2010.glass",
     "markForDeletion":"0",
     "price":12,
@@ -606,7 +606,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.st.francis.varietal.cabernetsauvignon.2009.glass",
     "markForDeletion":"0",
     "price":14,
@@ -641,7 +641,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.sequoiagrove.varietal.cabernetsauvignon.2009.glass",
     "markForDeletion":"0",
     "price":19,
@@ -676,7 +676,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.silveroak.varietal.cabernetsauvignon.2008.glass",
     "markForDeletion":"0",
     "price":25,
@@ -711,7 +711,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.alexandresirechlebordeaux.varietal.bordeaux.2009.glass",
     "markForDeletion":"0",
     "price":10,
@@ -746,7 +746,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.newtonclaret.varietal.meritage.2009.glass",
     "markForDeletion":"0",
     "price":15,
@@ -781,7 +781,7 @@
   },
   {
     "flightIdentifiers":"flight.restaurant.strega-waterfront.1marinaparkdrive.classicchiantis",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.banfisuperiore.varietal.chianti.2011.glass",
     "markForDeletion":"0",
     "price":10,
@@ -816,7 +816,7 @@
   },
   {
     "flightIdentifiers":"flight.restaurant.strega-waterfront.1marinaparkdrive.classicchiantis",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.classicobadiacoltibuono.varietal.chianti.2010.glass",
     "markForDeletion":"0",
     "price":12,
@@ -851,7 +851,7 @@
   },
   {
     "flightIdentifiers":"flight.restaurant.strega-waterfront.1marinaparkdrive.classicchiantis",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.classicoantinoripeppoli.varietal.chianti.2009.glass",
     "markForDeletion":"0",
     "price":14,
@@ -886,7 +886,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.caparzo.varietal.sangiovese.2010.glass",
     "markForDeletion":"0",
     "price":7,
@@ -921,7 +921,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.banficentine.varietal.supertuscan.2010.glass",
     "markForDeletion":"0",
     "price":9,
@@ -956,7 +956,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.lucente.varietal.supertuscan.2010.glass",
     "markForDeletion":"0",
     "price":17,
@@ -991,7 +991,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.damilanolecinquevigne.varietal.barolo.2009.glass",
     "markForDeletion":"0",
     "price":19,
@@ -1026,7 +1026,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.cooperhill.varietal.pinotnoir.2011.glass",
     "markForDeletion":"0",
     "price":10,
@@ -1061,7 +1061,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.talbottkalihart.varietal.pinotnoir.2010.glass",
     "markForDeletion":"0",
     "price":12,
@@ -1096,7 +1096,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.rodneystrongestate.varietal.pinotnoir.2011.glass",
     "markForDeletion":"0",
     "price":13,
@@ -1131,7 +1131,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.etudelyric.varietal.pinotnoir.2011.glass",
     "markForDeletion":"0",
     "price":15,
@@ -1166,7 +1166,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.spellbound.varietal.merlot.2009.glass",
     "markForDeletion":"0",
     "price":9,
@@ -1201,7 +1201,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.pauldolan.varietal.zinfandel.2010.glass",
     "markForDeletion":"0",
     "price":10,
@@ -1236,7 +1236,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.alamos.varietal.malbec.2011.glass",
     "markForDeletion":"0",
     "price":9,
@@ -1271,7 +1271,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.benziger.varietal.syrah.2007.glass",
     "markForDeletion":"0",
     "price":12,
@@ -1306,7 +1306,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "identifier":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.penfoldskoonungahills.varietal.shiraz.2010.glass",
     "markForDeletion":"0",
     "price":9,

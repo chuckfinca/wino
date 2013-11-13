@@ -1,7 +1,7 @@
 [
   {
     "about":"",
-    "identifier":"grouping.restaurant.leszygomates.129southstreet.all",
+    "identifier":"group.restaurant.leszygomates.129southstreet.all",
     "markForDeletion":"",
     "name":"all",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
@@ -11,7 +11,7 @@
     "wineUnits":[
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.aligote.2009.glass",
     "markForDeletion":"0",
     "price":8.5,
@@ -46,7 +46,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.marcoscolaris.varietal.pinotgrigio.2011.glass",
     "markForDeletion":"0",
     "price":10,
@@ -81,7 +81,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.stoneburn.varietal.sauvignonblanc.2012.glass",
     "markForDeletion":"0",
     "price":10,
@@ -116,7 +116,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainedesgrandesperrieres.varietal.sauvignonblanc.2011.glass",
     "markForDeletion":"0",
     "price":14,
@@ -151,7 +151,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainedel'oriel.varietal.pinotblanc.2010.glass",
     "markForDeletion":"0",
     "price":14,
@@ -186,7 +186,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all/grouping.restaurant.leszygomates.129southstreet.hightestrated/grouping.restaurant.leszygomates.129southstreet.mostpopular/grouping.restaurant.leszygomates.129southstreet.bestvalue/grouping.restaurant.leszygomates.129southstreet.recommended/grouping.restaurant.leszygomates.129southstreet.rarefinds/grouping.restaurant.leszygomates.129southstreet.excellentvintages",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all/group.restaurant.leszygomates.129southstreet.hightestrated/group.restaurant.leszygomates.129southstreet.mostpopular/group.restaurant.leszygomates.129southstreet.bestvalue/group.restaurant.leszygomates.129southstreet.recommended/group.restaurant.leszygomates.129southstreet.rarefinds/group.restaurant.leszygomates.129southstreet.excellentvintages",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.nxnw.varietal.riesling.2011.glass",
     "markForDeletion":"0",
     "price":9,
@@ -221,7 +221,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.KesselerRKabinett.varietal.riesling.2009.glass",
     "markForDeletion":"0",
     "price":13,
@@ -256,7 +256,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.ElkCove.varietal.riesling.2012.glass",
     "markForDeletion":"0",
     "price":12,
@@ -291,7 +291,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainedesyolais.varietal.muscadet.2010.glass",
     "markForDeletion":"0",
     "price":12,
@@ -326,7 +326,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.chardonnay.2007.glass",
     "markForDeletion":"0",
     "price":11,
@@ -361,7 +361,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.stuhlmullervineyards.varietal.chardonnay.2011.glass",
     "markForDeletion":"0",
     "price":12,
@@ -396,7 +396,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.chinon.varietal.cabernetfranc.2012.glass",
     "markForDeletion":"0",
     "price":11,
@@ -431,7 +431,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all/grouping.restaurant.leszygomates.129southstreet.hightestrated/grouping.restaurant.leszygomates.129southstreet.mostpopular/grouping.restaurant.leszygomates.129southstreet.bestvalue/grouping.restaurant.leszygomates.129southstreet.recommended/grouping.restaurant.leszygomates.129southstreet.rarefinds/grouping.restaurant.leszygomates.129southstreet.excellentvintages",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all/group.restaurant.leszygomates.129southstreet.hightestrated/group.restaurant.leszygomates.129southstreet.mostpopular/group.restaurant.leszygomates.129southstreet.bestvalue/group.restaurant.leszygomates.129southstreet.recommended/group.restaurant.leszygomates.129southstreet.rarefinds/group.restaurant.leszygomates.129southstreet.excellentvintages",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoirvarietal.gamaynoirajusblanc.2008.glass",
     "markForDeletion":"0",
     "price":8.5,
@@ -466,7 +466,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.nevermore.varietal.pinotnoir.2010.glass",
     "markForDeletion":"0",
     "price":16,
@@ -501,7 +501,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoir.2010.glass",
     "markForDeletion":"0",
     "price":12,
@@ -536,7 +536,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.fincadecero.varietal.malbec.2010.glass",
     "markForDeletion":"0",
     "price":14,
@@ -571,7 +571,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateauarmandiere.varietal.malbec.2008.glass",
     "markForDeletion":"0",
     "price":10,
@@ -606,7 +606,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainepaulautard.varietal.grenachevarietal.syrahvarietal.counoise.2011.glass",
     "markForDeletion":"0",
     "price":12,
@@ -641,7 +641,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.perrinl'oustalet.varietal.grenachevarietal.syrahvarietal.counoise.2011.glass",
     "markForDeletion":"0",
     "price":12,
@@ -676,7 +676,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainelaroque.varietal.cabernetfranc.2012.glass",
     "markForDeletion":"0",
     "price":12,
@@ -711,7 +711,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all/grouping.restaurant.leszygomates.129southstreet.hightestrated/grouping.restaurant.leszygomates.129southstreet.mostpopular/grouping.restaurant.leszygomates.129southstreet.bestvalue/grouping.restaurant.leszygomates.129southstreet.recommended/grouping.restaurant.leszygomates.129southstreet.rarefinds/grouping.restaurant.leszygomates.129southstreet.excellentvintages",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all/group.restaurant.leszygomates.129southstreet.hightestrated/group.restaurant.leszygomates.129southstreet.mostpopular/group.restaurant.leszygomates.129southstreet.bestvalue/group.restaurant.leszygomates.129southstreet.recommended/group.restaurant.leszygomates.129southstreet.rarefinds/group.restaurant.leszygomates.129southstreet.excellentvintages",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.fitchmountaincellars.varietal.cabernetsauvignon.2009.glass",
     "markForDeletion":"0",
     "price":12,
@@ -746,7 +746,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.prologue.varietal.cabernetsauvignon.2009.glass",
     "markForDeletion":"0",
     "price":14,
@@ -781,7 +781,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateauhautneville.varietal.merlot.2006.glass",
     "markForDeletion":"0",
     "price":12,
@@ -816,7 +816,7 @@
   },
   {
     "flightIdentifiers":"flight.restaurant.leszygomates.129southstreet.frenchvintages",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateaumoulindelillie.varietal.merlotvarietal.cabernetfranc.2011.glass",
     "markForDeletion":"0",
     "price":14,
@@ -851,7 +851,7 @@
   },
   {
     "flightIdentifiers":"flight.restaurant.leszygomates.129southstreet.frenchvintages",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateaumonregardlacroix.varietal.merlotvarietal.cabernetfranc.2009.glass",
     "markForDeletion":"0",
     "price":16,
@@ -886,7 +886,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateaujoinin.varietal.merlotvarietal.cabernetfrancvarietal.cabernetsauvignon.2010.glass",
     "markForDeletion":"0",
     "price":8.5,
@@ -921,7 +921,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.campdurouss.varietal.barbera.2008.glass",
     "markForDeletion":"0",
     "price":14,
@@ -956,7 +956,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.riojavega.varietal.tempranillo.2009.glass",
     "markForDeletion":"0",
     "price":8.5,
@@ -991,7 +991,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.fincadecero.varietal.petitverdot.2009.glass",
     "markForDeletion":"0",
     "price":12,
@@ -1026,7 +1026,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all",
     "identifier":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.ravenswood.varietal.zinfandel.2010.glass",
     "markForDeletion":"0",
     "price":11,

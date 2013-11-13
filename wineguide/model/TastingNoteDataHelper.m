@@ -21,7 +21,7 @@
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
     for(TastingNote *tastingNote in managedObjectSet){
-        tastingNote.wines = [self updateRelationshipSet:tastingNote.wines ofEntitiesNamed:WINE withIdentifiersString:tastingNote.wineIdentifiers];
+        tastingNote.wines = [self updateRelationshipSet:tastingNote.wines ofEntitiesNamed:WINE usingIdentifiersString:tastingNote.wineIdentifiers];
     }
 }
 

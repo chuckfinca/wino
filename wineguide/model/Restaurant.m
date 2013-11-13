@@ -2,13 +2,13 @@
 //  Restaurant.m
 //  wineguide
 //
-//  Created by Charles Feinn on 11/11/13.
+//  Created by Charles Feinn on 11/12/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
 #import "Restaurant.h"
 #import "Flight.h"
-#import "Grouping.h"
+#import "Group.h"
 
 
 @implementation Restaurant

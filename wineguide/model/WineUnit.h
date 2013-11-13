@@ -2,14 +2,14 @@
 //  WineUnit.h
 //  wineguide
 //
-//  Created by Charles Feinn on 11/11/13.
+//  Created by Charles Feinn on 11/12/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Flight, Grouping, Wine;
+@class Flight, Group, Wine;
 
 @interface WineUnit : NSManagedObject
 
@@ -34,8 +34,8 @@
 - (void)addFlights:(NSSet *)values;
 - (void)removeFlights:(NSSet *)values;
 
-- (void)addGroupsObject:(Grouping *)value;
-- (void)removeGroupsObject:(Grouping *)value;
+- (void)addGroupsObject:(Group *)value;
+- (void)removeGroupsObject:(Group *)value;
 - (void)addGroups:(NSSet *)values;
 - (void)removeGroups:(NSSet *)values;
 

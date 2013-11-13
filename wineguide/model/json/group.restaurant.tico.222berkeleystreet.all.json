@@ -1,7 +1,7 @@
 [
   {
     "about":"0",
-    "identifier":"grouping.restaurant.tico.222berkeleystreet.all",
+    "identifier":"group.restaurant.tico.222berkeleystreet.all",
     "markForDeletion":"0",
     "name":"all",
     "restaurantIdentifier":"restaurant.tico.222berkeleystreet",
@@ -11,7 +11,7 @@
     "wineUnits":[
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.poemabrut.varietal.cava..glass",
     "markForDeletion":"0",
     "price":8,
@@ -46,7 +46,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.fillaboa.varietal.albarino.2009.glass",
     "markForDeletion":"0",
     "price":9,
@@ -81,7 +81,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.cousinomacul.varietal.sauvignonblancvarietal.pinotgris.2009.glass",
     "markForDeletion":"0",
     "price":9,
@@ -116,7 +116,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.pulentaestate.varietal.pinotgris.2009.glass",
     "markForDeletion":"0",
     "price":9,
@@ -151,7 +151,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all/grouping.restaurant.tico.222berkeleystreet.hightestrated/grouping.restaurant.tico.222berkeleystreet.mostpopular/grouping.restaurant.tico.222berkeleystreet.bestvalue/grouping.restaurant.tico.222berkeleystreet.recommended/grouping.restaurant.tico.222berkeleystreet.rarefinds/grouping.restaurant.tico.222berkeleystreet.excellentvintages",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all/group.restaurant.tico.222berkeleystreet.hightestrated/group.restaurant.tico.222berkeleystreet.mostpopular/group.restaurant.tico.222berkeleystreet.bestvalue/group.restaurant.tico.222berkeleystreet.recommended/group.restaurant.tico.222berkeleystreet.rarefinds/group.restaurant.tico.222berkeleystreet.excellentvintages",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.graffignacentenario.varietal.pinotgrigio.2009.glass",
     "markForDeletion":"0",
     "price":8,
@@ -186,7 +186,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.localinda.varietal.torrontes.2010.glass",
     "markForDeletion":"0",
     "price":9,
@@ -221,7 +221,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.masdonis..2010.glass",
     "markForDeletion":"0",
     "price":7,
@@ -256,7 +256,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all/grouping.restaurant.tico.222berkeleystreet.hightestrated/grouping.restaurant.tico.222berkeleystreet.mostpopular/grouping.restaurant.tico.222berkeleystreet.bestvalue/grouping.restaurant.tico.222berkeleystreet.recommended/grouping.restaurant.tico.222berkeleystreet.rarefinds/grouping.restaurant.tico.222berkeleystreet.excellentvintages",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all/group.restaurant.tico.222berkeleystreet.hightestrated/group.restaurant.tico.222berkeleystreet.mostpopular/group.restaurant.tico.222berkeleystreet.bestvalue/group.restaurant.tico.222berkeleystreet.recommended/group.restaurant.tico.222berkeleystreet.rarefinds/group.restaurant.tico.222berkeleystreet.excellentvintages",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.hayman&hill.varietal.chardonnay.2008.glass",
     "markForDeletion":"0",
     "price":9,
@@ -291,7 +291,7 @@
   },
   {
     "flightIdentifiers":"flight.restaurant.tico.222berkeleystreet.exploresouthamerica",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.santacarolinareserve.varietal.pinotnoir.2010.glass",
     "markForDeletion":"0",
     "price":8,
@@ -326,7 +326,7 @@
   },
   {
     "flightIdentifiers":"flight.restaurant.tico.222berkeleystreet.exploresouthamerica",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.masitupungatopassodoble.varietal.malbec.2009.glass",
     "markForDeletion":"0",
     "price":9,
@@ -361,7 +361,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.elcastrodevaltuillejoven.varietal.mencia.2007.glass",
     "markForDeletion":"0",
     "price":7,
@@ -396,7 +396,7 @@
   },
   {
     "flightIdentifiers":"flight.restaurant.tico.222berkeleystreet.exploresouthamerica",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all/grouping.restaurant.tico.222berkeleystreet.hightestrated/grouping.restaurant.tico.222berkeleystreet.mostpopular/grouping.restaurant.tico.222berkeleystreet.bestvalue/grouping.restaurant.tico.222berkeleystreet.recommended/grouping.restaurant.tico.222berkeleystreet.rarefinds/grouping.restaurant.tico.222berkeleystreet.excellentvintages",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all/group.restaurant.tico.222berkeleystreet.hightestrated/group.restaurant.tico.222berkeleystreet.mostpopular/group.restaurant.tico.222berkeleystreet.bestvalue/group.restaurant.tico.222berkeleystreet.recommended/group.restaurant.tico.222berkeleystreet.rarefinds/group.restaurant.tico.222berkeleystreet.excellentvintages",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.veramonteprimus.varietal.carmenerevarietal.cabernetsauvignon.2006.glass",
     "markForDeletion":"0",
     "price":9,
@@ -431,7 +431,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.elcotocrianza.varietal.tempranillo.2007.glass",
     "markForDeletion":"0",
     "price":8,
@@ -466,7 +466,7 @@
   },
   {
     "flightIdentifiers":"0",
-    "groupIdentifiers":"grouping.restaurant.tico.222berkeleystreet.all",
+    "groupIdentifiers":"group.restaurant.tico.222berkeleystreet.all",
     "identifier":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.catena.varietal.cabernetsauvignon.2007.glass",
     "markForDeletion":"0",
     "price":10,

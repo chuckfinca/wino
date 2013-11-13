@@ -1,12 +1,13 @@
 //
-//  Grouping+CreateAndModify.m
+//  Group+CreateAndModify.m
 //  wineguide
 //
-//  Created by Charles Feinn on 11/4/13.
+//  Created by Charles Feinn on 11/12/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "Grouping+CreateAndModify.h"
+#import "Group+CreateAndModify.h"
+
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
 #import "NSManagedObject+Helper.h"
@@ -14,7 +15,7 @@
 #import "RestaurantDataHelper.h"
 #import "Restaurant.h"
 
-#define GROUPING_ENTITY @"Grouping"
+#define GROUP_ENTITY @"Group"
 
 #define ABOUT @"about"
 #define IDENTIFIER @"identifier"
@@ -28,29 +29,29 @@
 
 #define DIVIDER @"/"
 
-@implementation Grouping (CreateAndModify)
+@implementation Group (CreateAndModify)
 
-+(Grouping *)groupFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
++(Group *)groupFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
 {
-    Grouping *grouping = nil;
+    Group *group = nil;
     
-    grouping = (Grouping *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:GROUPING_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
+    group = (Group *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:GROUP_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
     
-    if(grouping){
+    if(group){
         
         // ATTRIBUTES
         
-        grouping.about = [dictionary sanatizedStringForKey:ABOUT];
-        grouping.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
-        // grouping.lastAccessed
-        grouping.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        grouping.name = [dictionary sanatizedStringForKey:NAME];
-        grouping.version = [dictionary sanitizedValueForKey:VERSION];
+        group.about = [dictionary sanatizedStringForKey:ABOUT];
+        group.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+        // group.lastAccessed
+        group.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
+        group.name = [dictionary sanatizedStringForKey:NAME];
+        group.version = [dictionary sanitizedValueForKey:VERSION];
         
         // store any information about relationships provided
         
-        grouping.restaurantIdentifier = [dictionary sanatizedStringForKey:RESTAURANT_IDENTIFIER];
-        grouping.wineUnitIdentifiers = [grouping addIdentifiers:[dictionary sanatizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:grouping.wineUnitIdentifiers];
+        group.restaurantIdentifier = [dictionary sanatizedStringForKey:RESTAURANT_IDENTIFIER];
+        group.wineUnitIdentifiers = [group addIdentifiers:[dictionary sanatizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:group.wineUnitIdentifiers];
         
         
         // RELATIONSHIPS
@@ -65,9 +66,9 @@
         [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
     }
     
-    // [grouping logDetails];
+    // [group logDetails];
     
-    return grouping;
+    return group;
 }
 
 -(void)logDetails

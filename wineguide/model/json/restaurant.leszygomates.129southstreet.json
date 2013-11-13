@@ -4,7 +4,7 @@
     "city":"boston",
     "country":"united states of america",
     "flightIdentifiers":"flight.restaurant.leszygomates.129southstreet.frenchvintages",
-    "groupIdentifiers":"grouping.restaurant.leszygomates.129southstreet.all/grouping.restaurant.leszygomates.129southstreet.bestvalue/grouping.restaurant.leszygomates.129southstreet.mostpopular/grouping.restaurant.leszygomates.129southstreet.highestrated/grouping.restaurant.leszygomates.129southstreet.recommended/grouping.restaurant.leszygomates.129southstreet.rarefinds/grouping.restaurant.leszygomates.129southstreet.excellentvintages/",
+    "groupIdentifiers":"group.restaurant.leszygomates.129southstreet.all/group.restaurant.leszygomates.129southstreet.bestvalue/group.restaurant.leszygomates.129southstreet.mostpopular/group.restaurant.leszygomates.129southstreet.highestrated/group.restaurant.leszygomates.129southstreet.recommended/group.restaurant.leszygomates.129southstreet.rarefinds/group.restaurant.leszygomates.129southstreet.excellentvintages/",
     "identifier":"restaurant.leszygomates.129southstreet",
     "latitude":42.30603,
     "longitude":-71.11497,
@@ -31,7 +31,7 @@
     "groups":[
   {
     "about":"0",
-    "identifier":"grouping.restaurant.leszygomates.129southstreet.all",
+    "identifier":"group.restaurant.leszygomates.129southstreet.all",
     "markForDeletion":"0",
     "name":"all",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
@@ -42,7 +42,7 @@
   },
   {
     "about":"Excellent wines at an excellent price",
-    "identifier":"grouping.restaurant.leszygomates.129southstreet.bestvalue",
+    "identifier":"group.restaurant.leszygomates.129southstreet.bestvalue",
     "markForDeletion":"0",
     "name":"best value",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
@@ -53,7 +53,7 @@
   },
   {
     "about":"User favorites",
-    "identifier":"grouping.restaurant.leszygomates.129southstreet.mostpopular",
+    "identifier":"group.restaurant.leszygomates.129southstreet.mostpopular",
     "markForDeletion":"0",
     "name":"most popular",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
@@ -64,7 +64,7 @@
   },
   {
     "about":"Highest rated",
-    "identifier":"grouping.restaurant.leszygomates.129southstreet.highestrated",
+    "identifier":"group.restaurant.leszygomates.129southstreet.highestrated",
     "markForDeletion":"0",
     "name":"highest rated",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
@@ -75,7 +75,7 @@
   },
   {
     "about":"Most recommended by users",
-    "identifier":"grouping.restaurant.leszygomates.129southstreet.recommended",
+    "identifier":"group.restaurant.leszygomates.129southstreet.recommended",
     "markForDeletion":"0",
     "name":"recommended",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
@@ -86,7 +86,7 @@
   },
   {
     "about":"You will have trouble finding these elsewhere",
-    "identifier":"grouping.restaurant.leszygomates.129southstreet.rarefinds",
+    "identifier":"group.restaurant.leszygomates.129southstreet.rarefinds",
     "markForDeletion":"0",
     "name":"rare finds",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
@@ -97,7 +97,7 @@
   },
   {
     "about":"Weather & location were just right to create superb wines",
-    "identifier":"grouping.restaurant.leszygomates.129southstreet.excellentvintages",
+    "identifier":"group.restaurant.leszygomates.129southstreet.excellentvintages",
     "markForDeletion":"0",
     "name":"excellent vintages",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Brand" representedClassName="Brand" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,7 +24,7 @@
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="flights" inverseEntity="Restaurant" syncable="YES"/>
         <relationship name="wineUnits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WineUnit" inverseName="flights" inverseEntity="WineUnit" syncable="YES"/>
     </entity>
-    <entity name="Grouping" representedClassName="Grouping" syncable="YES">
+    <entity name="Group" representedClassName="Group" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastAccessed" optional="YES" attributeType="Date" syncable="YES"/>
@@ -53,7 +53,7 @@
         <attribute name="version" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="restaurant" inverseEntity="Flight" syncable="YES"/>
-        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Grouping" inverseName="restaurant" inverseEntity="Grouping" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="restaurant" inverseEntity="Group" syncable="YES"/>
     </entity>
     <entity name="TastingNote" representedClassName="TastingNote" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
@@ -112,13 +112,13 @@
         <attribute name="version" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="wineIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="wineUnits" inverseEntity="Flight" syncable="YES"/>
-        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Grouping" inverseName="wineUnits" inverseEntity="Grouping" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="wineUnits" inverseEntity="Group" syncable="YES"/>
         <relationship name="wine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine" inverseName="wineUnits" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <elements>
         <element name="Brand" positionX="243" positionY="99" width="128" height="178"/>
         <element name="Flight" positionX="-279" positionY="198" width="128" height="208"/>
-        <element name="Grouping" positionX="-281" positionY="432" width="128" height="193"/>
+        <element name="Group" positionX="-281" positionY="432" width="128" height="193"/>
         <element name="Restaurant" positionX="-459" positionY="239" width="128" height="298"/>
         <element name="TastingNote" positionX="268" positionY="287" width="128" height="178"/>
         <element name="Varietal" positionX="252" positionY="477" width="128" height="163"/>

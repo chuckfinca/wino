@@ -31,7 +31,6 @@
 
 #pragma mark - Getters & Setters
 
-
 #pragma mark - Predicates
 
 -(NSString *)predicateString
@@ -62,40 +61,50 @@
     dispatch_async(jsonQueue, ^{
         NSData *data = [NSData dataWithContentsOfURL:url];
         if(data){
-            [self prepareSerializedData:data];
+            [self serializeData:data];
         } else {
             NSLog(@"data from JSON does not exist");
         }
     });
 }
 
--(void)prepareSerializedData:(NSData *)data
+-(void)serializeData:(NSData *)data
 {
     NSError *error;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
-                                                         options:NSJSONReadingAllowFragments
-                                                           error:&error];
+    id json = [NSJSONSerialization JSONObjectWithData:data
+                                              options:NSJSONReadingAllowFragments
+                                                error:&error];
     dispatch_async(dispatch_get_main_queue(), ^{
-        if(json){
-            [self updateCoreDataWithDictionaryObjectsInDictionary:json];
+        if([json isKindOfClass:[NSArray class]]){
+            [self updateCoreDataWithDictionariesInArray:(NSArray *)json];
         } else {
             NSLog(@"json dictionary does not exist!");
         }
     });
 }
 
--(void)updateCoreDataWithDictionaryObjectsInDictionary:(NSDictionary *)dictionary
+-(void)updateCoreDataWithDictionariesInArray:(NSArray *)array
 {
     if(self.context){
-        NSMutableSet *managedObjectSet = [[NSMutableSet alloc] init];
-        for(NSDictionary *managedObjectDataDictionary in dictionary){
-            NSManagedObject *mo = [self updateManagedObjectWithDictionary:managedObjectDataDictionary];
-            [managedObjectSet addObject:mo];
-        }
-        [self updateRelationshipsForObjectSet:managedObjectSet];
+        [self updateManagedObjectsInArray:array];
     } else {
         NSLog(@"DataHelper context = nil");
     }
+}
+
+-(void)updateManagedObjectsInArray:(NSArray *)managedObjects
+{
+    NSMutableSet *managedObjectSet = [[NSMutableSet alloc] init];
+    for(id obj in managedObjects){
+        if([obj isKindOfClass:[NSDictionary class]]){
+            NSDictionary *managedObjectDictionary = (NSDictionary *)obj;
+            
+            NSManagedObject *mo = [self updateManagedObjectWithDictionary:managedObjectDictionary];
+            //NSLog(@"creating/modifiying object = %@",mo.description);
+            [managedObjectSet addObject:mo];
+        }
+    }
+    [self updateRelationshipsForObjectSet:managedObjectSet];
 }
 
 #pragma mark - Update Core Data
@@ -103,46 +112,39 @@
 -(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
     // abstract
+    // for each set of managed objects related to the object returned from this method updateNestedManagedObjectsLocatedAtKey:inDictionary:
+    // will be called (by a DataHelper specific to that type of entity)
     NSManagedObject *managedObject = nil;
     return managedObject;
 }
 
+
+
+
 -(void)updateNestedManagedObjectsLocatedAtKey:(NSString *)key inDictionary:(NSDictionary *)dictionary
 {
-    id obj = [dictionary sanitizedValueForKey:key];
-    // The JSON may or may not have returned a nested JSON for this relationship.
+    id nestedObjects = [dictionary sanitizedValueForKey:key];
     
-    if([obj isKindOfClass:[NSArray class]]){
-        NSArray *arrayOfManagedObjectDictionaries = (NSArray *)obj;
-        
-        NSMutableSet *managedObjectSet = [[NSMutableSet alloc] init];
-        for(id dictionaryObj in arrayOfManagedObjectDictionaries){
-            if([dictionaryObj isKindOfClass:[NSDictionary class]]){
-                NSDictionary *managedObjectDictionary = (NSDictionary *)dictionaryObj;
-                NSManagedObject *mo = [self updateManagedObjectWithDictionary:managedObjectDictionary];
-                [managedObjectSet addObject:mo];
-            } else {
-                NSLog(@"nested object from JSON is not a dictionary, it is class = %@",[obj class]);
-            }
-        }
-        [self updateRelationshipsForObjectSet:managedObjectSet];
+    // check for nested JSON
+    if([nestedObjects isKindOfClass:[NSArray class]]){
+        [self updateManagedObjectsInArray:(NSArray *)nestedObjects];
     }
 }
+
 
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
     // abstract
+    // calls updateRelationshipSet:ofEntitiesNamed:withIdentifiersString: for each set of managed objects related to the
 }
 
 
-
--(NSSet *)updateRelationshipSet:(NSSet *)relationshipSet ofEntitiesNamed:(NSString *)entityName withIdentifiersString:(NSString *)identifiers
+-(NSSet *)updateRelationshipSet:(NSSet *)relationshipSet ofEntitiesNamed:(NSString *)entityName usingIdentifiersString:(NSString *)identifiers
 {
-    // separate identifiers of managed objects that need to be joined to
+    // separate identifiers
     NSArray *identifiersArray = [identifiers componentsSeparatedByString:DIVIDER];
-    NSLog(@"relationshipSet = %@",relationshipSet);
-    //NSLog(@"identifiers = %@",identifiers);
-    NSLog(@"identifiersArray = %@",identifiersArray);
+    
+    // create a compound OR predicate with all the identifiers
     NSMutableArray *compoundPredicateArray = [[NSMutableArray alloc] init];
     for (NSString *identifier in identifiersArray){
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",identifier];
@@ -150,53 +152,71 @@
     }
     NSCompoundPredicate *compoundPredicate = [[NSCompoundPredicate alloc] initWithType:NSOrPredicateType subpredicates:compoundPredicateArray];
     
+    // get all entities with name 'entityName' that have identifiers that were in the identifiers string
     NSArray *matches = [self managedObjectWithEntityName:entityName usingPredicate:compoundPredicate inContext:self.context];
     
-    NSMutableSet *set = [relationshipSet mutableCopy];
-    if(!set) set = [[NSMutableSet alloc] init];
-    for(NSManagedObject *mo in matches){
-        [set addObject:mo];
+    NSMutableSet *set = set = [relationshipSet mutableCopy];
+    
+    if(matches){
+        // take the current relationship set and add all of the matches to it
+        if(!set) set = [[NSMutableSet alloc] init];
+        
+        /*
+        NSLog(@"set count = %i",[set count]);
+        for(NSManagedObject *mo in set){
+            NSLog(@"description = %@",mo.description);
+        }
+         */
+        
+        for(NSManagedObject *mo in matches){
+            if(![set containsObject:mo]) {
+                //NSLog(@"adding new relationship");
+                [set addObject:mo];
+            }
+        }
     }
+    
     return set;
 }
 
 -(NSArray *)managedObjectWithEntityName:(NSString *)entityName usingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context
 {
-    //NSLog(@"!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!");
+    NSArray *matches = nil;
     
-    //NSLog(@"[self class] = %@; entityName = %@",[self class],entityName);
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-    
-    //NSLog(@"sortDescriptors = %@",request.sortDescriptors);
-    
-    request.predicate = predicate;
-    //NSLog(@"predicate = %@",predicate);
-    
-    NSError *error = nil;
-    NSArray *matches = [context executeFetchRequest:request error:&error];
-    
-    if(!matches){
-        // Error
-        NSLog(@"Error %@ - matches exists? %@; [matches count] = %i",error,matches ? @"yes" : @"no",[matches count]);
-        return nil;
+    if(entityName){
+        // NSLog(@"%@ is looking for relationships with %@ entities",[self class],entityName);
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
+        request.predicate = predicate;
         
-    } else if([matches count] == 0){
-        // Matches count
-        NSLog(@"[matches count] = %i",[matches count]);
-        return nil;
-    } else if([matches count] > 1) {
-        // We found objects
-        NSLog(@"We found objects!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        NSLog(@"[matches count] = %i",[matches count]);
-        return matches;
+        NSError *error = nil;
+        matches = [context executeFetchRequest:request error:&error];
         
-    }  else {
-        // Error
-        NSLog(@"Error %@ ",error);
+        if(!matches){
+            // Error
+            NSLog(@"Error %@ - matches exists? %@; [matches count] = %i",error,matches ? @"yes" : @"no",[matches count]);
+            return nil;
+            
+        } else if([matches count] == 0){
+            //NSLog(@"[matches count] = %i",[matches count]);
+            return nil;
+        } else if([matches count] > 0) {
+            // We found objects
+            //NSLog(@"[matches count] = %i",[matches count]);
+            return matches;
+            
+        }  else {
+            // Error
+            NSLog(@"Error %@ ",error.description);
+        }
     }
     return matches;
 }
+
+
+
+
+
 
 
 

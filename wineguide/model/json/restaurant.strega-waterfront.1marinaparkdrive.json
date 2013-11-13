@@ -4,7 +4,7 @@
     "city":"boston",
     "country":"united states of america",
     "flightIdentifiers":"flight.restaurant.strega-waterfront.1marinaparkdrive.classicchiantis",
-    "groupIdentifiers":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all/grouping.restaurant.strega-waterfront.1marinaparkdrive.bestvalue/grouping.restaurant.strega-waterfront.1marinaparkdrive.mostpopular/grouping.restaurant.strega-waterfront.1marinaparkdrive.highestrated/grouping.restaurant.strega-waterfront.1marinaparkdrive.recommended/grouping.restaurant.strega-waterfront.1marinaparkdrive.rarefinds/grouping.restaurant.strega-waterfront.1marinaparkdrive.excellentvintages/",
+    "groupIdentifiers":"group.restaurant.strega-waterfront.1marinaparkdrive.all/group.restaurant.strega-waterfront.1marinaparkdrive.bestvalue/group.restaurant.strega-waterfront.1marinaparkdrive.mostpopular/group.restaurant.strega-waterfront.1marinaparkdrive.highestrated/group.restaurant.strega-waterfront.1marinaparkdrive.recommended/group.restaurant.strega-waterfront.1marinaparkdrive.rarefinds/group.restaurant.strega-waterfront.1marinaparkdrive.excellentvintages/",
     "identifier":"restaurant.strega-waterfront.1marinaparkdrive",
     "latitude":42.352844,
     "longitude":-71.045266,
@@ -31,7 +31,7 @@
     "groups":[
   {
     "about":"0",
-    "identifier":"grouping.restaurant.strega-waterfront.1marinaparkdrive.all",
+    "identifier":"group.restaurant.strega-waterfront.1marinaparkdrive.all",
     "markForDeletion":"0",
     "name":"all",
     "restaurantIdentifier":"restaurant.strega-waterfront.1marinaparkdrive",
@@ -42,7 +42,7 @@
   },
   {
     "about":"Excellent wines at an excellent price",
-    "identifier":"grouping.restaurant.strega-waterfront.1marinaparkdrive.bestvalue",
+    "identifier":"group.restaurant.strega-waterfront.1marinaparkdrive.bestvalue",
     "markForDeletion":"0",
     "name":"best value",
     "restaurantIdentifier":"restaurant.strega-waterfront.1marinaparkdrive",
@@ -53,7 +53,7 @@
   },
   {
     "about":"User favorites",
-    "identifier":"grouping.restaurant.strega-waterfront.1marinaparkdrive.mostpopular",
+    "identifier":"group.restaurant.strega-waterfront.1marinaparkdrive.mostpopular",
     "markForDeletion":"0",
     "name":"most popular",
     "restaurantIdentifier":"restaurant.strega-waterfront.1marinaparkdrive",
@@ -64,7 +64,7 @@
   },
   {
     "about":"Highest rated",
-    "identifier":"grouping.restaurant.strega-waterfront.1marinaparkdrive.highestrated",
+    "identifier":"group.restaurant.strega-waterfront.1marinaparkdrive.highestrated",
     "markForDeletion":"0",
     "name":"highest rated",
     "restaurantIdentifier":"restaurant.strega-waterfront.1marinaparkdrive",
@@ -75,7 +75,7 @@
   },
   {
     "about":"Most recommended by users",
-    "identifier":"grouping.restaurant.strega-waterfront.1marinaparkdrive.recommended",
+    "identifier":"group.restaurant.strega-waterfront.1marinaparkdrive.recommended",
     "markForDeletion":"0",
     "name":"recommended",
     "restaurantIdentifier":"restaurant.strega-waterfront.1marinaparkdrive",
@@ -86,7 +86,7 @@
   },
   {
     "about":"You will have trouble finding these elsewhere",
-    "identifier":"grouping.restaurant.strega-waterfront.1marinaparkdrive.rarefinds",
+    "identifier":"group.restaurant.strega-waterfront.1marinaparkdrive.rarefinds",
     "markForDeletion":"0",
     "name":"rare finds",
     "restaurantIdentifier":"restaurant.strega-waterfront.1marinaparkdrive",
@@ -97,7 +97,7 @@
   },
   {
     "about":"Weather & location were just right to create superb wines",
-    "identifier":"grouping.restaurant.strega-waterfront.1marinaparkdrive.excellentvintages",
+    "identifier":"group.restaurant.strega-waterfront.1marinaparkdrive.excellentvintages",
     "markForDeletion":"0",
     "name":"excellent vintages",
     "restaurantIdentifier":"restaurant.strega-waterfront.1marinaparkdrive",

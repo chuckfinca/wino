@@ -7,7 +7,7 @@
 //
 
 #import "GroupingDataHelper.h"
-#import "Grouping+CreateAndModify.h"
+#import "Group+CreateAndModify.h"
 
 #define WINE_UNIT @"WineUnit"
 
@@ -15,13 +15,13 @@
 
 -(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
-    return [Grouping groupFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
+    return [Group groupFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
-    for(Grouping *grouping in managedObjectSet){
-        grouping.wineUnits = [self updateRelationshipSet:grouping.wineUnits ofEntitiesNamed:WINE_UNIT withIdentifiersString:grouping.wineUnitIdentifiers];
+    for(Group *group in managedObjectSet){
+        group.wineUnits = [self updateRelationshipSet:group.wineUnits ofEntitiesNamed:WINE_UNIT usingIdentifiersString:group.wineUnitIdentifiers];
     }
 }
 

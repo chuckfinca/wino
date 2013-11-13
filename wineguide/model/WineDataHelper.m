@@ -9,8 +9,6 @@
 #import "WineDataHelper.h"
 #import "Wine+CreateAndModify.h"
 
-#define GROUPING @"Grouping"
-#define FLIGHT @"Flight"
 #define WINE_UNIT @"WineUnit"
 #define TASTING_NOTE @"TastingNote"
 #define VARIETAL @"Varietal"
@@ -25,9 +23,9 @@
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
     for(Wine *wine in managedObjectSet){
-        wine.wineUnits = [self updateRelationshipSet:wine.wineUnits ofEntitiesNamed:WINE_UNIT withIdentifiersString:wine.wineUnitIdentifiers];
-        wine.tastingNotes = [self updateRelationshipSet:wine.tastingNotes ofEntitiesNamed:TASTING_NOTE withIdentifiersString:wine.tastingNoteIdentifers];
-        wine.varietals = [self updateRelationshipSet:wine.varietals ofEntitiesNamed:VARIETAL withIdentifiersString:wine.varietalIdentifiers];
+        wine.wineUnits = [self updateRelationshipSet:wine.wineUnits ofEntitiesNamed:WINE_UNIT usingIdentifiersString:wine.wineUnitIdentifiers];
+        wine.tastingNotes = [self updateRelationshipSet:wine.tastingNotes ofEntitiesNamed:TASTING_NOTE usingIdentifiersString:wine.tastingNoteIdentifers];
+        wine.varietals = [self updateRelationshipSet:wine.varietals ofEntitiesNamed:VARIETAL usingIdentifiersString:wine.varietalIdentifiers];
     }
 }
 

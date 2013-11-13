@@ -73,7 +73,7 @@
         [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
     }
     
-    [wineUnit logDetails];
+    //[wineUnit logDetails];
     
     return wineUnit;
 }

@@ -21,7 +21,7 @@
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
     for(Brand *brand in managedObjectSet){
-        brand.wines = [self updateRelationshipSet:brand.wines ofEntitiesNamed:WINE withIdentifiersString:brand.wineIdentifiers];
+        brand.wines = [self updateRelationshipSet:brand.wines ofEntitiesNamed:WINE usingIdentifiersString:brand.wineIdentifiers];
     }
 }
 

@@ -10,7 +10,6 @@
 #import "RestaurantDetailsVC.h"
 #import "WineCDTVC.h"
 #import "RestaurantDataHelper.h"
-#import "Grouping.h"
 #import "GroupingDataHelper.h"
 #import "Wine.h"
 #import "Brand.h"
@@ -83,23 +82,15 @@
 
 -(void)getWineList
 {
-    // ask for a restaurant's groupings, flights, and wineUnits
-    
-    NSLog(@"self.restaurant.identifier = %@",self.restaurant.identifier);
+    // ask for a restaurant specific info inncluding groupings and flights
     NSURL *restaurantUrl = [[NSBundle mainBundle] URLForResource:self.restaurant.identifier withExtension:JSON];
-    NSLog(@"---------------------------------------------------------------------------------------------------------");
-    NSLog(@"self.context = %@",self.context);
     RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context];
-    NSLog(@"restaurantUrl = %@",restaurantUrl);
-    NSLog(@"rdh.context = %@",rdh.context);
     [rdh updateCoreDataWithJSONFromURL:restaurantUrl];
     
     // grouping.identifiers should be restaurant.identifies with the amended group name, that way I can assume I know the all group identifier to make the appropriate call.
+    // call the server and ask for the all group, including all wineUnits, wines and brands
     
-    // call the server and ask for the all group, including all nested wines, containing nested brands, but only tastingNote and varietal identifiers
-    
-    NSString *urlString = [NSString stringWithFormat:@"grouping.%@.all",self.restaurant.identifier];
-    NSLog(@"urlString = %@", urlString);
+    NSString *urlString = [NSString stringWithFormat:@"group.%@.all",self.restaurant.identifier];
     NSURL *allGroupUrl = [[NSBundle mainBundle] URLForResource:urlString withExtension:JSON];
     GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:self.context];
     [gdh updateCoreDataWithJSONFromURL:allGroupUrl];
@@ -131,7 +122,7 @@
         NSLog(@"  %@",obj.description);
     }
     
-    NSLog(@"groupings count = %i",[self.restaurant.groups count]);
+    NSLog(@"groups count = %i",[self.restaurant.groups count]);
     for(NSObject *obj in self.restaurant.groups){
         NSLog(@"  %@",obj.description);
     }
@@ -149,7 +140,7 @@
                                 [NSSortDescriptor sortDescriptorWithKey:@"identifier"
                                                               ascending:YES
                                                                selector:@selector(localizedCaseInsensitiveCompare:)]];
-    request.predicate = [NSPredicate predicateWithFormat:@"wineUnits.groupIdentifiers CONTAINS %@",[NSString stringWithFormat:@"grouping.%@.all",self.restaurant.identifier]];
+    request.predicate = [NSPredicate predicateWithFormat:@"wineUnits.groupIdentifiers CONTAINS %@",[NSString stringWithFormat:@"group.%@.all",self.restaurant.identifier]];
     //[NSPredicate predicateWithFormat:@"wineUnits.restaurant CONTAINS %@",self.restaurant];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request

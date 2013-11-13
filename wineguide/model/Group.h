@@ -1,8 +1,8 @@
 //
-//  Grouping.h
+//  Group.h
 //  wineguide
 //
-//  Created by Charles Feinn on 11/11/13.
+//  Created by Charles Feinn on 11/12/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 
 @class Restaurant, WineUnit;
 
-@interface Grouping : NSManagedObject
+@interface Group : NSManagedObject
 
 @property (nonatomic, retain) NSString * about;
 @property (nonatomic, retain) NSString * identifier;
@@ -25,7 +25,7 @@
 @property (nonatomic, retain) NSSet *wineUnits;
 @end
 
-@interface Grouping (CoreDataGeneratedAccessors)
+@interface Group (CoreDataGeneratedAccessors)
 
 - (void)addWineUnitsObject:(WineUnit *)value;
 - (void)removeWineUnitsObject:(WineUnit *)value;
