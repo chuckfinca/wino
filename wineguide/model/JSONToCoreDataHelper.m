@@ -147,8 +147,9 @@
     // create a compound OR predicate with all the identifiers
     NSMutableArray *compoundPredicateArray = [[NSMutableArray alloc] init];
     for (NSString *identifier in identifiersArray){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",identifier];
-        [compoundPredicateArray addObject:predicate];
+        
+        NSDictionary *variables = @{@"IDENTIFIER" : identifier};
+        [compoundPredicateArray addObject:[self.predicate predicateWithSubstitutionVariables:variables]];
     }
     NSCompoundPredicate *compoundPredicate = [[NSCompoundPredicate alloc] initWithType:NSOrPredicateType subpredicates:compoundPredicateArray];
     
