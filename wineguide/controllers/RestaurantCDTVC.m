@@ -13,9 +13,10 @@
 #import "GroupingDataHelper.h"
 #import "Wine.h"
 #import "Brand.h"
+#import "Group.h"
+#import "WineUnit.h"
 
 #define JSON @"json"
-#define WINE_ENTITY @"Wine"
 
 @interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -45,7 +46,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     self.tableView.tableHeaderView = self.restaurantDetailsViewController.view;
-    
+    self.debug = YES;
     
 }
 
@@ -130,23 +131,31 @@
     NSLog(@"\n\n\n");
 }
 
+
+#define WINE_UNIT_ENTITY @"WineUnit"
+#define GROUP_ENTITY @"Group"
+
 -(void)setupFetchedResultsController
 {
     // NSLog(@"setupFetchedResultsController...");
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"color"
-                                                              ascending:YES
-                                                               selector:@selector(localizedCaseInsensitiveCompare:)],
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:GROUP_ENTITY];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                              ascending:YES],
                                 [NSSortDescriptor sortDescriptorWithKey:@"identifier"
                                                               ascending:YES
                                                                selector:@selector(localizedCaseInsensitiveCompare:)]];
-    request.predicate = [NSPredicate predicateWithFormat:@"wineUnits.groupIdentifiers CONTAINS %@",[NSString stringWithFormat:@"group.%@.all",self.restaurant.identifier]];
+    request.predicate = [NSPredicate predicateWithFormat:@"name != %@ && restaurantIdentifier == %@",@"all",self.restaurant.identifier];
     //[NSPredicate predicateWithFormat:@"wineUnits.restaurant CONTAINS %@",self.restaurant];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
-                                                                          sectionNameKeyPath:@"color"
+                                                                          sectionNameKeyPath:@"name"
                                                                                    cacheName:nil];
+    NSLog(@"results count = %i", [self.fetchedResultsController.fetchedObjects count]);
+    for(Group *g in self.fetchedResultsController.fetchedObjects){
+        NSLog(@"g.name = %@",g.name);
+        NSLog(@"g.wineUnits count = %i",[g.wineUnits count]);
+    }
 }
 
 #pragma mark - Getters & Setters
@@ -162,21 +171,33 @@
 #pragma mark - UITableViewDataSource
 
 
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"WineCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    // the indexPath.row is the section
+    Group *group = (Group *)self.fetchedResultsController.fetchedObjects[indexPath.section];
     
-    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:wine.identifier attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    NSArray *wineUnits = [group.wineUnits sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]]];
+    NSLog(@"[wineUnits count] = %i",[wineUnits count]);
+    
+    WineUnit *wineUnit = wineUnits[indexPath.row];
+    NSLog(@"wineUnit = %@",wineUnit);
+    
+    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:wineUnit.wine.identifier attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+
     return cell;
 }
 
-
-
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    Group *group = (Group *)self.fetchedResultsController.fetchedObjects[section];
+    NSLog(@"group = %@",group);
+    NSLog(@"[group.wineUnits count] = %i",[group.wineUnits count]);
+    
+    return [group.wineUnits count];
+}
 #pragma mark - UITableViewDelegate
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -200,13 +221,21 @@
                 WineCDTVC *wineCDTVC = (WineCDTVC *)segue.destinationViewController;
                 
                 // Pass the selected object to the new view controller.
-                Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-                [wineCDTVC setupWithWine:wine];
+                Group *group = (Group *)self.fetchedResultsController.fetchedObjects[indexPath.section];
+                NSArray *wineUnits = [group.wineUnits sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]]];
+                WineUnit *wineUnit = wineUnits[indexPath.row];
+                [wineCDTVC setupWithWine:wineUnit.wine];
             }
         }
     }
 }
 
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView reloadData];
+}
 
 
 @end

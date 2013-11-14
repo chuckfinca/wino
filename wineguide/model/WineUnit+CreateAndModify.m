@@ -21,15 +21,14 @@
 #define PRICE @"price"
 #define QUANTITY @"quantity"
 #define VERSION @"version"
-#define WINE_IDENTIFIER @"wineIdentifier"
+
 #define GROUP_IDENTIFIERS @"groupIdentifiers"
 #define FLIGHT_IDENTIFIERS @"flightIdentifiers"
+#define WINE_IDENTIFIER @"wineIdentifier"
 
 #define WINE @"wine"
 #define FLIGHTS @"flights"
 #define GROUPS @"groups"
-
-#define DIVIDER @"/"
 
 @implementation WineUnit (CreateAndModify)
 
@@ -52,10 +51,9 @@
         
         // store any information about relationships provided
         
-        wineUnit.wineIdentifier = [dictionary sanatizedStringForKey:WINE_IDENTIFIER];
         wineUnit.groupIdentifiers = [dictionary sanatizedStringForKey:GROUP_IDENTIFIERS];
         wineUnit.flightIdentifiers = [dictionary sanatizedStringForKey:FLIGHT_IDENTIFIERS];
-        
+        wineUnit.wineIdentifier = [dictionary sanatizedStringForKey:WINE_IDENTIFIER];
         
         // RELATIONSHIPS
         // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON

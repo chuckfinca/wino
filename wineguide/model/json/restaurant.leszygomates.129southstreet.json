@@ -1,5 +1,5 @@
 [
-  {
+{
     "address":"129 south street",
     "city":"boston",
     "country":"united states of america",
@@ -12,33 +12,33 @@
     "menuNeedsUpdating":"0",
     "name":"les zygomates",
     "state":"massachusetts",
-    "version":"0",
-    "zip":"0",
+    "version":"",
+    "zip":"",
     "flights":[
-  {
+{
     "about":"Experience the difference a year can make by sampling each",
     "identifier":"flight.restaurant.leszygomates.129southstreet.frenchvintages",
     "markForDeletion":"0",
     "name":"french vintages",
-    "price":"0",
+    "price":"",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
     "version":"0",
     "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateaumoulindelillie.varietal.merlotvarietal.cabernetfranc.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateaumonregardlacroix.varietal.merlotvarietal.cabernetfranc.2009.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   }
 ],
     "groups":[
-  {
-    "about":"0",
+{
+    "about":"",
     "identifier":"group.restaurant.leszygomates.129southstreet.all",
-    "markForDeletion":"0",
+    "markForDeletion":"",
     "name":"all",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
-    "version":"0",
-    "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.aligote.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.marcoscolaris.varietal.pinotgrigio.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.stoneburn.varietal.sauvignonblanc.2012.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainedesgrandesperrieres.varietal.sauvignonblanc.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainedel'oriel.varietal.pinotblanc.2010.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.nxnw.varietal.riesling.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.KesselerRKabinett.varietal.riesling.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.ElkCove.varietal.riesling.2012.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainedesyolais.varietal.muscadet.2010.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.chardonnay.2007.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.stuhlmullervineyards.varietal.chardonnay.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chinon.varietal.cabernetfranc.2012.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoirvarietal.gamaynoirajusblanc.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.nevermore.varietal.pinotnoir.2010.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoir.2010.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fincadecero.varietal.malbec.2010.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateauarmandiere.varietal.malbec.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainepaulautard.varietal.grenachevarietal.syrahvarietal.counoise.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.perrinl'oustalet.varietal.grenachevarietal.syrahvarietal.counoise.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainelaroque.varietal.cabernetfranc.2012.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fitchmountaincellars.varietal.cabernetsauvignon.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.prologue.varietal.cabernetsauvignon.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateauhautneville.varietal.merlot.2006.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateaumoulindelillie.varietal.merlotvarietal.cabernetfranc.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateaumonregardlacroix.varietal.merlotvarietal.cabernetfranc.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateaujoinin.varietal.merlotvarietal.cabernetfrancvarietal.cabernetsauvignon.2010.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.campdurouss.varietal.barbera.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.riojavega.varietal.tempranillo.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fincadecero.varietal.petitverdot.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.ravenswood.varietal.zinfandel.2010.glass/",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "version":"",
+    "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.aligote.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.marcoscolaris.varietal.pinotgrigio.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.stoneburn.varietal.sauvignonblanc.2012.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainedesgrandesperrieres.varietal.sauvignonblanc.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainedel'oriel.varietal.pinotblanc.2010.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.nxnw.varietal.riesling.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.kesselerrkabinett.varietal.riesling.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.elkcove.varietal.riesling.2012.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainedesyolais.varietal.muscadet.2010.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.chardonnay.2007.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.stuhlmullervineyards.varietal.chardonnay.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chinon.varietal.cabernetfranc.2012.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoirvarietal.gamaynoirajusblanc.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.nevermore.varietal.pinotnoir.2010.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoir.2010.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fincadecero.varietal.malbec.2010.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateauarmandiere.varietal.malbec.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainepaulautard.varietal.grenachevarietal.syrahvarietal.counoise.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.perrinl'oustalet.varietal.grenachevarietal.syrahvarietal.counoise.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainelaroque.varietal.cabernetfranc.2012.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fitchmountaincellars.varietal.cabernetsauvignon.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.prologue.varietal.cabernetsauvignon.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateauhautneville.varietal.merlot.2006.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateaumoulindelillie.varietal.merlotvarietal.cabernetfranc.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateaumonregardlacroix.varietal.merlotvarietal.cabernetfranc.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.chateaujoinin.varietal.merlotvarietal.cabernetfrancvarietal.cabernetsauvignon.2010.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.campdurouss.varietal.barbera.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.riojavega.varietal.tempranillo.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fincadecero.varietal.petitverdot.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.ravenswood.varietal.zinfandel.2010.glass",
+    "restaurant":"",
+    "wineUnits":""
   },
   {
     "about":"Excellent wines at an excellent price",
@@ -46,10 +46,10 @@
     "markForDeletion":"0",
     "name":"best value",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.nxnw.varietal.riesling.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoirvarietal.gamaynoirajusblanc.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fitchmountaincellars.varietal.cabernetsauvignon.2009.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   },
   {
     "about":"User favorites",
@@ -57,10 +57,10 @@
     "markForDeletion":"0",
     "name":"most popular",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.nxnw.varietal.riesling.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoirvarietal.gamaynoirajusblanc.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fitchmountaincellars.varietal.cabernetsauvignon.2009.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   },
   {
     "about":"Highest rated",
@@ -68,10 +68,10 @@
     "markForDeletion":"0",
     "name":"highest rated",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.nxnw.varietal.riesling.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoirvarietal.gamaynoirajusblanc.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fitchmountaincellars.varietal.cabernetsauvignon.2009.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   },
   {
     "about":"Most recommended by users",
@@ -79,10 +79,10 @@
     "markForDeletion":"0",
     "name":"recommended",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.nxnw.varietal.riesling.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoirvarietal.gamaynoirajusblanc.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fitchmountaincellars.varietal.cabernetsauvignon.2009.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   },
   {
     "about":"You will have trouble finding these elsewhere",
@@ -90,10 +90,10 @@
     "markForDeletion":"0",
     "name":"rare finds",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.nxnw.varietal.riesling.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoirvarietal.gamaynoirajusblanc.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fitchmountaincellars.varietal.cabernetsauvignon.2009.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   },
   {
     "about":"Weather & location were just right to create superb wines",
@@ -101,10 +101,10 @@
     "markForDeletion":"0",
     "name":"excellent vintages",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.nxnw.varietal.riesling.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoirvarietal.gamaynoirajusblanc.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fitchmountaincellars.varietal.cabernetsauvignon.2009.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   }
 ]
   }

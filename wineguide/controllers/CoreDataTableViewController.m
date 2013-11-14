@@ -153,6 +153,7 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
+    NSLog(@"controllerDidChangeContent");
     if (self.beganUpdates) [self.tableView endUpdates];
 }
 

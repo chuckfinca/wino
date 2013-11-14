@@ -1,5 +1,5 @@
 [
-  {
+{
     "address":"222 berkeley street",
     "city":"boston",
     "country":"united states of america",
@@ -12,33 +12,33 @@
     "menuNeedsUpdating":"0",
     "name":"tico",
     "state":"massachusetts",
-    "version":"0",
-    "zip":"0",
+    "version":"",
+    "zip":"",
     "flights":[
-  {
+{
     "about":"Experience the sophisticated flavors of South Americas diverse varietals",
     "identifier":"flight.restaurant.tico.222berkeleystreet.exploresouthamerica",
     "markForDeletion":"0",
     "name":"explore south america",
-    "price":"0",
+    "price":"",
     "restaurantIdentifier":"restaurant.tico.222berkeleystreet",
     "version":"0",
     "wineUnitIdentifiers":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.santacarolinareserve.varietal.pinotnoir.2010.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.masitupungatopassodoble.varietal.malbec.2009.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.veramonteprimus.varietal.carmenerevarietal.cabernetsauvignon.2006.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   }
 ],
     "groups":[
-  {
-    "about":"0",
+{
+    "about":"",
     "identifier":"group.restaurant.tico.222berkeleystreet.all",
-    "markForDeletion":"0",
+    "markForDeletion":"",
     "name":"all",
     "restaurantIdentifier":"restaurant.tico.222berkeleystreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.poemabrut.varietal.cava..glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.fillaboa.varietal.albarino.2009.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.cousinomacul.varietal.sauvignonblancvarietal.pinotgris.2009.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.pulentaestate.varietal.pinotgris.2009.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.graffignacentenario.varietal.pinotgrigio.2009.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.localinda.varietal.torrontes.2010.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.masdonis..2010.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.hayman&hill.varietal.chardonnay.2008.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.santacarolinareserve.varietal.pinotnoir.2010.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.masitupungatopassodoble.varietal.malbec.2009.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.elcastrodevaltuillejoven.varietal.mencia.2007.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.veramonteprimus.varietal.carmenerevarietal.cabernetsauvignon.2006.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.elcotocrianza.varietal.tempranillo.2007.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.catena.varietal.cabernetsauvignon.2007.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   },
   {
     "about":"Excellent wines at an excellent price",
@@ -46,10 +46,10 @@
     "markForDeletion":"0",
     "name":"best value",
     "restaurantIdentifier":"restaurant.tico.222berkeleystreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.graffignacentenario.varietal.pinotgrigio.2009.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.hayman&hill.varietal.chardonnay.2008.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.veramonteprimus.varietal.carmenerevarietal.cabernetsauvignon.2006.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   },
   {
     "about":"User favorites",
@@ -57,10 +57,10 @@
     "markForDeletion":"0",
     "name":"most popular",
     "restaurantIdentifier":"restaurant.tico.222berkeleystreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.graffignacentenario.varietal.pinotgrigio.2009.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.hayman&hill.varietal.chardonnay.2008.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.veramonteprimus.varietal.carmenerevarietal.cabernetsauvignon.2006.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   },
   {
     "about":"Highest rated",
@@ -68,10 +68,10 @@
     "markForDeletion":"0",
     "name":"highest rated",
     "restaurantIdentifier":"restaurant.tico.222berkeleystreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.graffignacentenario.varietal.pinotgrigio.2009.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.hayman&hill.varietal.chardonnay.2008.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.veramonteprimus.varietal.carmenerevarietal.cabernetsauvignon.2006.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   },
   {
     "about":"Most recommended by users",
@@ -79,10 +79,10 @@
     "markForDeletion":"0",
     "name":"recommended",
     "restaurantIdentifier":"restaurant.tico.222berkeleystreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.graffignacentenario.varietal.pinotgrigio.2009.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.hayman&hill.varietal.chardonnay.2008.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.veramonteprimus.varietal.carmenerevarietal.cabernetsauvignon.2006.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   },
   {
     "about":"You will have trouble finding these elsewhere",
@@ -90,10 +90,10 @@
     "markForDeletion":"0",
     "name":"rare finds",
     "restaurantIdentifier":"restaurant.tico.222berkeleystreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.graffignacentenario.varietal.pinotgrigio.2009.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.hayman&hill.varietal.chardonnay.2008.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.veramonteprimus.varietal.carmenerevarietal.cabernetsauvignon.2006.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   },
   {
     "about":"Weather & location were just right to create superb wines",
@@ -101,10 +101,10 @@
     "markForDeletion":"0",
     "name":"excellent vintages",
     "restaurantIdentifier":"restaurant.tico.222berkeleystreet",
-    "version":"0",
+    "version":"",
     "wineUnitIdentifiers":"wineunit.restaurant.tico.222berkeleystreet.wine.brand.graffignacentenario.varietal.pinotgrigio.2009.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.hayman&hill.varietal.chardonnay.2008.glass/wineunit.restaurant.tico.222berkeleystreet.wine.brand.veramonteprimus.varietal.carmenerevarietal.cabernetsauvignon.2006.glass",
-    "restaurant":"0",
-    "wineUnits":"0"
+    "restaurant":"",
+    "wineUnits":""
   }
 ]
   }
