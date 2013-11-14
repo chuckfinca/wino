@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantVC">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantDetailsVC">
             <connections>
                 <outlet property="cityAndStateTV" destination="Tth-1L-f2b" id="AWE-um-vUb"/>
                 <outlet property="restaurantNameTV" destination="AMh-ir-cDL" id="N2Q-Vl-X3R"/>
@@ -17,8 +17,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMh-ir-cDL" customClass="VariableHeightTV">
-                    <rect key="frame" x="20" y="20" width="280" height="33"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMh-ir-cDL" customClass="VariableHeightTV">
+                    <rect key="frame" x="20" y="20" width="280" height="38"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -34,8 +34,8 @@
                     </attributedString>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="Street" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8a-K0-8me" customClass="VariableHeightTV">
-                    <rect key="frame" x="20" y="43" width="280" height="33"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Street" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8a-K0-8me" customClass="VariableHeightTV">
+                    <rect key="frame" x="20" y="48" width="280" height="38"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -44,8 +44,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="City, State" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tth-1L-f2b" customClass="VariableHeightTV">
-                    <rect key="frame" x="20" y="66" width="280" height="33"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="City, State" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tth-1L-f2b" customClass="VariableHeightTV">
+                    <rect key="frame" x="20" y="76" width="280" height="38"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -54,17 +54,92 @@
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qnw-1j-mkf">
+                    <rect key="frame" x="20" y="122" width="44" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Hz9-ul-g4g"/>
+                        <constraint firstAttribute="width" constant="44" id="Mg7-m0-pce"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                    <state key="normal" title="pop"/>
+                    <connections>
+                        <action selector="refreshWinelist:" destination="-1" eventType="touchUpInside" id="w9q-DR-h8B"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yww-b5-xnA">
+                    <rect key="frame" x="72" y="122" width="44" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="Dsh-BG-0G2"/>
+                        <constraint firstAttribute="height" constant="44" id="hjx-Be-23R"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                    <state key="normal" title="rated"/>
+                    <connections>
+                        <action selector="refreshWinelist:" destination="-1" eventType="touchUpInside" id="liV-b3-Mtj"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcQ-l5-x9V">
+                    <rect key="frame" x="124" y="122" width="44" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="0VD-Av-wgO"/>
+                        <constraint firstAttribute="width" constant="44" id="hbB-hp-D7q"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                    <state key="normal" title="rare"/>
+                    <connections>
+                        <action selector="refreshWinelist:" destination="-1" eventType="touchUpInside" id="3U1-1c-9Rr"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCl-cr-TPB">
+                    <rect key="frame" x="176" y="122" width="44" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="b23-Um-w0F"/>
+                        <constraint firstAttribute="height" constant="44" id="iy8-e0-yn1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                    <state key="normal" title="vints"/>
+                    <connections>
+                        <action selector="refreshWinelist:" destination="-1" eventType="touchUpInside" id="vCp-fk-WjO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RV2-U1-bQB">
+                    <rect key="frame" x="228" y="122" width="44" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="3ti-hE-yXi"/>
+                        <constraint firstAttribute="height" constant="44" id="pxT-JO-SYZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                    <state key="normal" title="all"/>
+                    <connections>
+                        <action selector="refreshWinelist:" destination="-1" eventType="touchUpInside" id="pn0-e7-C98"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="T8a-K0-8me" firstAttribute="trailing" secondItem="AMh-ir-cDL" secondAttribute="trailing" id="10q-lN-uym"/>
+                <constraint firstItem="yww-b5-xnA" firstAttribute="leading" secondItem="Qnw-1j-mkf" secondAttribute="trailing" constant="8" id="23Q-76-JWi"/>
+                <constraint firstItem="Qnw-1j-mkf" firstAttribute="top" secondItem="Tth-1L-f2b" secondAttribute="bottom" constant="8" id="52W-lt-cCU"/>
+                <constraint firstItem="Qnw-1j-mkf" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="6Iz-Ib-ChH"/>
+                <constraint firstItem="Qnw-1j-mkf" firstAttribute="bottom" secondItem="RV2-U1-bQB" secondAttribute="bottom" id="6cH-ko-ss8"/>
                 <constraint firstItem="AMh-ir-cDL" firstAttribute="leading" secondItem="T8a-K0-8me" secondAttribute="leading" id="8cV-Ea-Z7X"/>
+                <constraint firstItem="OcQ-l5-x9V" firstAttribute="leading" secondItem="yww-b5-xnA" secondAttribute="trailing" constant="8" id="9rA-yN-He5"/>
+                <constraint firstItem="kCl-cr-TPB" firstAttribute="leading" secondItem="OcQ-l5-x9V" secondAttribute="trailing" constant="8" id="B6j-0i-5Sk"/>
                 <constraint firstItem="T8a-K0-8me" firstAttribute="trailing" secondItem="Tth-1L-f2b" secondAttribute="trailing" id="BqH-am-gwa"/>
+                <constraint firstItem="Qnw-1j-mkf" firstAttribute="bottom" secondItem="kCl-cr-TPB" secondAttribute="bottom" id="CT8-QI-O4g"/>
                 <constraint firstItem="AMh-ir-cDL" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="GfJ-is-pub"/>
                 <constraint firstAttribute="trailing" secondItem="AMh-ir-cDL" secondAttribute="trailing" constant="20" symbolic="YES" id="JAb-Lm-nFw"/>
                 <constraint firstItem="Tth-1L-f2b" firstAttribute="top" secondItem="T8a-K0-8me" secondAttribute="bottom" constant="-10" id="O0L-8m-y3I"/>
                 <constraint firstItem="AMh-ir-cDL" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="OgW-4S-567"/>
                 <constraint firstItem="Tth-1L-f2b" firstAttribute="leading" secondItem="T8a-K0-8me" secondAttribute="leading" id="U6F-fD-nrE"/>
+                <constraint firstItem="Qnw-1j-mkf" firstAttribute="bottom" secondItem="yww-b5-xnA" secondAttribute="bottom" id="Wg7-Cp-sks"/>
+                <constraint firstItem="Qnw-1j-mkf" firstAttribute="bottom" secondItem="OcQ-l5-x9V" secondAttribute="bottom" id="d5y-jk-0xP"/>
+                <constraint firstItem="RV2-U1-bQB" firstAttribute="leading" secondItem="kCl-cr-TPB" secondAttribute="trailing" constant="8" id="dVB-gh-ak2"/>
                 <constraint firstItem="T8a-K0-8me" firstAttribute="top" secondItem="AMh-ir-cDL" secondAttribute="bottom" constant="-10" id="jnD-3J-w9X"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

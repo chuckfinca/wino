@@ -24,6 +24,7 @@
 @property (nonatomic, strong) Restaurant *restaurant;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic) BOOL restaurantWineListCached;
+@property (nonatomic) BOOL beganUpdates;
 
 @end
 
@@ -170,6 +171,10 @@
 
 #pragma mark - UITableViewDataSource
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [self.fetchedResultsController.fetchedObjects count];
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -231,11 +236,12 @@
 }
 
 
-
+/*
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
+    NSLog(@"controllerDidChangeContent");
     [self.tableView reloadData];
 }
-
+ */
 
 @end

@@ -58,7 +58,7 @@
         [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     }
     
-    [brand logDetails];
+    // [brand logDetails];
     
     return brand;
 }

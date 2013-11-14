@@ -95,6 +95,7 @@
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext) {
+        NSLog(@"beginning updates");
         [self.tableView beginUpdates];
         self.beganUpdates = YES;
     }
@@ -105,6 +106,7 @@
 		   atIndex:(NSUInteger)sectionIndex
 	 forChangeType:(NSFetchedResultsChangeType)type
 {
+    NSLog(@"didChangeSection");
     if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext)
     {
         switch(type)
@@ -126,7 +128,8 @@
 	   atIndexPath:(NSIndexPath *)indexPath
 	 forChangeType:(NSFetchedResultsChangeType)type
 	  newIndexPath:(NSIndexPath *)newIndexPath
-{		
+{
+    NSLog(@"didChangeObject");
     if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext)
     {
         switch(type)
@@ -153,8 +156,10 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    NSLog(@"controllerDidChangeContent");
-    if (self.beganUpdates) [self.tableView endUpdates];
+    if (self.beganUpdates) {
+        
+        NSLog(@"ending updates");
+    }[self.tableView endUpdates];
 }
 
 - (void)endSuspensionOfUpdatesDueToContextChanges

@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet VariableHeightTV *streetAddressTV;
 @property (weak, nonatomic) IBOutlet VariableHeightTV *cityAndStateTV;
 
+@property (nonatomic, weak) IBOutlet UIButton *button;
+
 @end
 
 @implementation RestaurantDetailsVC
@@ -24,7 +26,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 125);
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 150);
     }
     return self;
 }
@@ -54,6 +56,13 @@
     NSString *cityState = [NSString stringWithFormat:@"%@, %@",restaurant.city, restaurant.state];
     self.cityAndStateTV.attributedText = [[NSAttributedString alloc] initWithString:cityState attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
     [self.cityAndStateTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:cityState] andMinimumHeight:V_HEIGHT];
+}
+
+
+- (IBAction)refreshWinelist:(UIButton *)sender {
+    
+    NSLog(@"sender.tag = %i",sender.tag);
+    
 }
 
 @end

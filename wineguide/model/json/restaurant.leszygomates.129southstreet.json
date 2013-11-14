@@ -47,7 +47,7 @@
     "name":"best value",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
     "version":"",
-    "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.nxnw.varietal.riesling.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoirvarietal.gamaynoirajusblanc.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fitchmountaincellars.varietal.cabernetsauvignon.2009.glass",
+    "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.aligote.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.aligote.2009.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.marcoscolaris.varietal.pinotgrigio.2011.glass",
     "restaurant":"",
     "wineUnits":""
   },
@@ -58,7 +58,7 @@
     "name":"most popular",
     "restaurantIdentifier":"restaurant.leszygomates.129southstreet",
     "version":"",
-    "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.nxnw.varietal.riesling.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.pinotnoirvarietal.gamaynoirajusblanc.2008.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.fitchmountaincellars.varietal.cabernetsauvignon.2009.glass",
+    "wineUnitIdentifiers":"wineunit.restaurant.leszygomates.129southstreet.wine.brand.marcoscolaris.varietal.pinotgrigio.2011.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.stoneburn.varietal.sauvignonblanc.2012.glass/wineunit.restaurant.leszygomates.129southstreet.wine.brand.stoneburn.varietal.sauvignonblanc.2012.glass“,
     "restaurant":"",
     "wineUnits":""
   },
