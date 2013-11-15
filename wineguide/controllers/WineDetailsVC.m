@@ -60,9 +60,11 @@
     NSString *wineName = @"";
     if([wine.name length] > 0){
         wineName = wine.name;
-    } else {
+    } else if(wine.brand.name){
         wineName = wine.brand.name;
     }
+    
+    NSLog(@"wineName = %@",wineName);
     NSAttributedString *name = [[NSAttributedString alloc] initWithString:wineName attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
     [self.wineNameTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:wineName] andMinimumHeight:V_HEIGHT];
     self.wineNameTV.attributedText = name;

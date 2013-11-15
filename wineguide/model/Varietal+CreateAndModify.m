@@ -37,16 +37,16 @@
         
         // ATTRIBUTES
         
-        varietal.about = [dictionary sanatizedStringForKey:ABOUT];
+        varietal.about = [dictionary sanitizedStringForKey:ABOUT];
         varietal.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // varietal.lastAccessed
         varietal.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        varietal.name = [dictionary sanatizedStringForKey:NAME];
+        varietal.name = [dictionary sanitizedStringForKey:NAME];
         varietal.version = [dictionary sanitizedValueForKey:VERSION];
         
         // store any information about relationships provided
         
-        varietal.wineIdentifiers = [varietal addIdentifiers:[dictionary sanatizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:varietal.wineIdentifiers];
+        varietal.wineIdentifiers = [varietal addIdentifiers:[dictionary sanitizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:varietal.wineIdentifiers];
         
         
         // RELATIONSHIPS

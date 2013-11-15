@@ -41,17 +41,17 @@
         
         // ATTRIBUTES
         
-        group.about = [dictionary sanatizedStringForKey:ABOUT];
+        group.about = [dictionary sanitizedStringForKey:ABOUT];
         group.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // group.lastAccessed
         group.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        group.name = [dictionary sanatizedStringForKey:NAME];
+        group.name = [dictionary sanitizedStringForKey:NAME];
         group.version = [dictionary sanitizedValueForKey:VERSION];
         
         // store any information about relationships provided
         
-        group.restaurantIdentifier = [dictionary sanatizedStringForKey:RESTAURANT_IDENTIFIER];
-        group.wineUnitIdentifiers = [group addIdentifiers:[dictionary sanatizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:group.wineUnitIdentifiers];
+        group.restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
+        group.wineUnitIdentifiers = [group addIdentifiers:[dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:group.wineUnitIdentifiers];
         
         
         // RELATIONSHIPS

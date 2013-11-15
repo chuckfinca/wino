@@ -11,7 +11,7 @@
 @interface NSDictionary (Helper)
 
 -(id)sanitizedValueForKey:(id)key;
--(id)sanatizedStringForKey:(id)key;
+-(id)sanitizedStringForKey:(id)key;
 
 -(NSArray *)separateNonNullStringLocatedAtKey:(NSString *)key;
 

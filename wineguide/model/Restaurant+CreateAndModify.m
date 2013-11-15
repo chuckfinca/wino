@@ -51,26 +51,26 @@
             
             // ATTRIBUTES
             
-            restaurant.address = [dictionary sanatizedStringForKey:ADDRESS];
-            restaurant.city = [dictionary sanatizedStringForKey:CITY];
-            restaurant.country = [dictionary sanatizedStringForKey:COUNTRY];
+            restaurant.address = [dictionary sanitizedStringForKey:ADDRESS];
+            restaurant.city = [dictionary sanitizedStringForKey:CITY];
+            restaurant.country = [dictionary sanitizedStringForKey:COUNTRY];
             restaurant.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             // restaurant.lastAccessed
             restaurant.latitude = [dictionary sanitizedValueForKey:LATITUDE];
             restaurant.longitude = [dictionary sanitizedValueForKey:LONGITUDE];
             restaurant.markForDeletion = [dictionary sanitizedValueForKey:DELETE_ENTITY];
             // restaurant.menuNeedsUpdating - used to notify server that we need to update a specific restaurant's menu.
-            restaurant.name = [dictionary sanatizedStringForKey:NAME];
-            restaurant.state = [dictionary sanatizedStringForKey:STATE];
+            restaurant.name = [dictionary sanitizedStringForKey:NAME];
+            restaurant.state = [dictionary sanitizedStringForKey:STATE];
             restaurant.version = [dictionary sanitizedValueForKey:VERSION];
             restaurant.zip = [[dictionary sanitizedValueForKey:ZIP] stringValue];
             
             // store any information about relationships provided
             
-            NSString *flightIdentifiers = [dictionary sanatizedStringForKey:FLIGHT_IDENTIFIERS];
+            NSString *flightIdentifiers = [dictionary sanitizedStringForKey:FLIGHT_IDENTIFIERS];
             restaurant.flightIdentifiers = [restaurant addIdentifiers:flightIdentifiers toCurrentIdentifiers:restaurant.flightIdentifiers];
             
-            NSString *groupIdentifiers = [dictionary sanatizedStringForKey:GROUP_IDENTIFIERS];
+            NSString *groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
             restaurant.groupIdentifiers = [restaurant addIdentifiers:groupIdentifiers toCurrentIdentifiers:restaurant.groupIdentifiers];
             
             

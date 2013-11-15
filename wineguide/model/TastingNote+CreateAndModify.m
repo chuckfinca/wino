@@ -37,17 +37,17 @@
         
         // ATTRIBUTES
         
-        tastingNote.about = [dictionary sanatizedStringForKey:ABOUT];
+        tastingNote.about = [dictionary sanitizedStringForKey:ABOUT];
         tastingNote.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // tastingNote.lastAccessed
         tastingNote.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        tastingNote.name = [dictionary sanatizedStringForKey:NAME];
-        tastingNote.tastingStage = [dictionary sanatizedStringForKey:TASTING_STAGE]; // appearance, in glass, in mouth, finish
+        tastingNote.name = [dictionary sanitizedStringForKey:NAME];
+        tastingNote.tastingStage = [dictionary sanitizedStringForKey:TASTING_STAGE]; // appearance, in glass, in mouth, finish
         tastingNote.version = [dictionary sanitizedValueForKey:VERSION];
         
         // store any information about relationships provided
         
-        tastingNote.wineIdentifiers = [tastingNote addIdentifiers:[dictionary sanatizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:tastingNote.wineIdentifiers];
+        tastingNote.wineIdentifiers = [tastingNote addIdentifiers:[dictionary sanitizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:tastingNote.wineIdentifiers];
         
         
         // RELATIONSHIPS

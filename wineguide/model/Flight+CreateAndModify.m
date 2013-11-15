@@ -41,18 +41,18 @@
         
         // ATTRIBUTES
         
-        flight.about = [dictionary sanatizedStringForKey:ABOUT];
+        flight.about = [dictionary sanitizedStringForKey:ABOUT];
         flight.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // flight.lastAccessed
         flight.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        flight.name = [dictionary sanatizedStringForKey:NAME];
+        flight.name = [dictionary sanitizedStringForKey:NAME];
         flight.price = [dictionary sanitizedValueForKey:PRICE];
         flight.version = [dictionary sanitizedValueForKey:VERSION];
         
         // store any information about relationships provided
         
-        flight.restaurantIdentifier = [dictionary sanatizedStringForKey:RESTAURANT_IDENTIFIER];
-        flight.wineUnitIdentifiers = [flight addIdentifiers:[dictionary sanatizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:flight.wineUnitIdentifiers];
+        flight.restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
+        flight.wineUnitIdentifiers = [flight addIdentifiers:[dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:flight.wineUnitIdentifiers];
         
         
         // RELATIONSHIPS

@@ -46,14 +46,14 @@
         // wineUnit.lastAccessed
         wineUnit.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
         wineUnit.price = [dictionary sanitizedValueForKey:PRICE];
-        wineUnit.quantity = [dictionary sanatizedStringForKey:QUANTITY];
+        wineUnit.quantity = [dictionary sanitizedStringForKey:QUANTITY];
         wineUnit.version = [dictionary sanitizedValueForKey:VERSION];
         
         // store any information about relationships provided
         
-        wineUnit.groupIdentifiers = [dictionary sanatizedStringForKey:GROUP_IDENTIFIERS];
-        wineUnit.flightIdentifiers = [dictionary sanatizedStringForKey:FLIGHT_IDENTIFIERS];
-        wineUnit.wineIdentifier = [dictionary sanatizedStringForKey:WINE_IDENTIFIER];
+        wineUnit.groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
+        wineUnit.flightIdentifiers = [dictionary sanitizedStringForKey:FLIGHT_IDENTIFIERS];
+        wineUnit.wineIdentifier = [dictionary sanitizedStringForKey:WINE_IDENTIFIER];
         
         // RELATIONSHIPS
         // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON

@@ -25,7 +25,7 @@
     return object;
 }
 
--(id)sanatizedStringForKey:(id)key
+-(id)sanitizedStringForKey:(id)key
 {
     id object = [self objectForKey:key];
     if(![object isKindOfClass:[NSString class]]) return nil;

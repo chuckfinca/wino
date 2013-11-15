@@ -68,27 +68,27 @@
             // ATTRIBUTES
             
             wine.alcoholPercentage = [dictionary sanitizedValueForKey:ALCOHOL];
-            wine.color = [dictionary sanatizedStringForKey:COLOR];
-            wine.country = [dictionary sanatizedStringForKey:COUNTRY];
+            wine.color = [dictionary sanitizedStringForKey:COLOR];
+            wine.country = [dictionary sanitizedStringForKey:COUNTRY];
             wine.dessert = [dictionary sanitizedValueForKey:DESSERT];
             // wine.favorite
             wine.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             // wine.lastAccessed
             wine.markForDeletion = [dictionary sanitizedValueForKey:DELETE_ENTITY];
-            wine.name = [dictionary sanatizedStringForKey:NAME];
-            wine.region = [dictionary sanatizedStringForKey:REGION];
+            wine.name = [dictionary sanitizedStringForKey:NAME];
+            wine.region = [dictionary sanitizedStringForKey:REGION];
             wine.sparkling = [dictionary sanitizedValueForKey:SPARKLING];
-            wine.state = [dictionary sanatizedStringForKey:STATE_GEO];
+            wine.state = [dictionary sanitizedStringForKey:STATE_GEO];
             wine.version = [dictionary sanitizedValueForKey:VERSION];
-            wine.vineyard = [dictionary sanatizedStringForKey:VINEYARD];
-            wine.vintage = [dictionary sanatizedStringForKey:VINTAGE];
+            wine.vineyard = [dictionary sanitizedStringForKey:VINEYARD];
+            wine.vintage = [dictionary sanitizedValueForKey:VINTAGE];
             
             // store any information about relationships provided
             
-            wine.brandIdentifier = [dictionary sanatizedStringForKey:BRAND_IDENTIFIER];
-            wine.wineUnitIdentifiers = [wine addIdentifiers:[dictionary sanatizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:wine.wineUnitIdentifiers];
-            wine.tastingNoteIdentifers = [wine addIdentifiers:[dictionary sanatizedStringForKey:TASTING_NOTE_IDENTIFIERS] toCurrentIdentifiers:wine.tastingNoteIdentifers];
-            wine.varietalIdentifiers = [wine addIdentifiers:[dictionary sanatizedStringForKey:VARIETAL_IDENTIFIERS] toCurrentIdentifiers:wine.varietalIdentifiers];
+            wine.brandIdentifier = [dictionary sanitizedStringForKey:BRAND_IDENTIFIER];
+            wine.wineUnitIdentifiers = [wine addIdentifiers:[dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:wine.wineUnitIdentifiers];
+            wine.tastingNoteIdentifers = [wine addIdentifiers:[dictionary sanitizedStringForKey:TASTING_NOTE_IDENTIFIERS] toCurrentIdentifiers:wine.tastingNoteIdentifers];
+            wine.varietalIdentifiers = [wine addIdentifiers:[dictionary sanitizedStringForKey:VARIETAL_IDENTIFIERS] toCurrentIdentifiers:wine.varietalIdentifiers];
             
             
             // RELATIONSHIPS

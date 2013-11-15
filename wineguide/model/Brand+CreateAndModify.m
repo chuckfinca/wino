@@ -37,17 +37,17 @@
         
         // ATTRIBUTES
         
-        brand.about = [dictionary sanatizedStringForKey:ABOUT];
+        brand.about = [dictionary sanitizedStringForKey:ABOUT];
         brand.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
         // brand.lastAccessed
         brand.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        brand.name = [dictionary sanatizedStringForKey:NAME];
+        brand.name = [dictionary sanitizedStringForKey:NAME];
         brand.version = [dictionary sanitizedValueForKey:VERSION];
-        brand.website = [dictionary sanatizedStringForKey:WEBSITE];
+        brand.website = [dictionary sanitizedStringForKey:WEBSITE];
         
         // store any information about relationships provided
         
-        brand.wineIdentifiers = [brand addIdentifiers:[dictionary sanatizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:brand.wineIdentifiers];
+        brand.wineIdentifiers = [brand addIdentifiers:[dictionary sanitizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:brand.wineIdentifiers];
         
         
         // RELATIONSHIPS

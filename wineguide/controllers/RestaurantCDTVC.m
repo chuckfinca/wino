@@ -85,7 +85,7 @@ typedef enum {
     self.restaurantDetailsViewController.delegate = self;
     self.restaurant = restaurant;
     
-    [self logDetails];
+    // [self logDetails];
     
     self.context = restaurant.managedObjectContext;
     [self refreshWineList];
@@ -125,18 +125,26 @@ typedef enum {
 {
     // NSLog(@"setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_UNIT_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"wine.name"
-                                                              ascending:YES],
+    request.sortDescriptors = @[
                                 [NSSortDescriptor sortDescriptorWithKey:@"wine.color"
+                                                              ascending:YES],
+                                [NSSortDescriptor sortDescriptorWithKey:@"wine.name"
                                                               ascending:YES]];
     
     NSString *groupIdentifier = [NSString stringWithFormat:@"group.%@.%@",self.restaurant.identifier,self.listName];
     request.predicate = [NSPredicate predicateWithFormat:@"ANY groups.identifier = %@",groupIdentifier];
     
+    request.shouldRefreshRefetchedObjects = YES;
+    
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"wine.color"
                                                                                    cacheName:nil];
+    
+    NSLog(@"fetchedResultCount = %i",[self.fetchedResultsController.fetchedObjects count]);
+    for(NSObject *fetchedResult in self.fetchedResultsController.fetchedObjects){
+        NSLog(@"fetchedResult = %@",fetchedResult.description);
+    }
 }
 
 #pragma mark - Getters & Setters
@@ -157,7 +165,6 @@ typedef enum {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSLog(@"wineUnit = %@",wineUnit);
     
     cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:wineUnit.wine.identifier attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
 
@@ -224,7 +231,7 @@ typedef enum {
         default:
             break;
     }
-    
+    self.fetchedResultsController = nil;
     [self setupFetchedResultsController];
 }
 
