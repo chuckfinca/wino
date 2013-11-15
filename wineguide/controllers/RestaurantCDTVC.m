@@ -18,13 +18,23 @@
 
 #define JSON @"json"
 
-@interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource>
+typedef enum {
+    MostPopular,
+    HighestRated,
+    RareFinds,
+    ExcellentVintages,
+    All
+} WineList;
+
+@interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource, RestaurantDetailsVC_WineSelectionDelegate>
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
 @property (nonatomic, strong) Restaurant *restaurant;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic) BOOL restaurantWineListCached;
-@property (nonatomic) BOOL beganUpdates;
+@property (nonatomic, strong) NSString *listName;
+
+
 
 @end
 
@@ -57,12 +67,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Getters & Setters
+
+-(NSString *)listName
+{
+    if(!_listName) _listName = @"popular";
+    return _listName;
+}
+
+
 #pragma mark - Setup
 
 -(void)setupWithRestaurant:(Restaurant *)restaurant
 {
     // get the winelist for that restaurant
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
+    self.restaurantDetailsViewController.delegate = self;
     self.restaurant = restaurant;
     
     [self logDetails];
@@ -75,8 +95,6 @@
 -(void)refreshWineList
 {
     // if we have cached data about the restaurant's wine list then display that, if not get it from the server
-    
-    
     if(self.restaurantWineListCached == NO){
         [self getWineList];
     }
@@ -99,6 +117,122 @@
     
     [self setupFetchedResultsController];
 }
+
+
+#define WINE_UNIT_ENTITY @"WineUnit"
+
+-(void)setupFetchedResultsController
+{
+    // NSLog(@"setupFetchedResultsController...");
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_UNIT_ENTITY];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"wine.name"
+                                                              ascending:YES],
+                                [NSSortDescriptor sortDescriptorWithKey:@"wine.color"
+                                                              ascending:YES]];
+    
+    NSString *groupIdentifier = [NSString stringWithFormat:@"group.%@.%@",self.restaurant.identifier,self.listName];
+    request.predicate = [NSPredicate predicateWithFormat:@"ANY groups.identifier = %@",groupIdentifier];
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.context
+                                                                          sectionNameKeyPath:@"wine.color"
+                                                                                   cacheName:nil];
+}
+
+#pragma mark - Getters & Setters
+
+-(RestaurantDetailsVC *)restaurantDetailsViewController
+{
+    if(!_restaurantDetailsViewController){
+        _restaurantDetailsViewController = [[RestaurantDetailsVC alloc] initWithNibName:@"RestaurantDetails" bundle:nil];
+    }
+    return _restaurantDetailsViewController;
+}
+
+#pragma mark - UITableViewDataSource
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"WineCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSLog(@"wineUnit = %@",wineUnit);
+    
+    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:wineUnit.wine.identifier attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"WineSectionHeader"];
+    return view;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // NSLog(@"prepareForSegue...");
+    if([sender isKindOfClass:[UITableViewCell class]]){
+        
+        UITableViewCell *tvc = (UITableViewCell *)sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tvc];
+        
+        if(indexPath){
+            if([segue.destinationViewController isKindOfClass:[WineCDTVC class]]){
+                
+                // Get the new view controller using [segue destinationViewController].
+                WineCDTVC *wineCDTVC = (WineCDTVC *)segue.destinationViewController;
+                
+                // Pass the selected object to the new view controller.
+                WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
+                [wineCDTVC setupWithWine:wineUnit.wine];
+            }
+        }
+    }
+}
+
+
+#pragma mark - RestaurantDetailsVC_WineSelectionDelegate
+
+-(void)loadWineList:(int)listNumber
+{
+    switch (listNumber) {
+        case MostPopular:
+            // fetch
+            self.listName = @"mostpopular";
+            break;
+        case HighestRated:
+            // fetch
+            self.listName = @"highestrated";
+            break;
+        case RareFinds:
+            // fetch
+            self.listName = @"rarefinds";
+            break;
+        case ExcellentVintages:
+            // fetch
+            self.listName = @"excellentvintages";
+            break;
+        case All:
+            // fetch
+            self.listName = @"all";
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self setupFetchedResultsController];
+}
+
+
+
+
+
+#pragma mark - Restaurant Details
 
 -(void)logDetails
 {
@@ -133,115 +267,5 @@
 }
 
 
-#define WINE_UNIT_ENTITY @"WineUnit"
-#define GROUP_ENTITY @"Group"
-
--(void)setupFetchedResultsController
-{
-    // NSLog(@"setupFetchedResultsController...");
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:GROUP_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
-                                                              ascending:YES],
-                                [NSSortDescriptor sortDescriptorWithKey:@"identifier"
-                                                              ascending:YES
-                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
-    request.predicate = [NSPredicate predicateWithFormat:@"name != %@ && restaurantIdentifier == %@",@"all",self.restaurant.identifier];
-    //[NSPredicate predicateWithFormat:@"wineUnits.restaurant CONTAINS %@",self.restaurant];
-    
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                        managedObjectContext:self.context
-                                                                          sectionNameKeyPath:@"name"
-                                                                                   cacheName:nil];
-    NSLog(@"results count = %i", [self.fetchedResultsController.fetchedObjects count]);
-    for(Group *g in self.fetchedResultsController.fetchedObjects){
-        NSLog(@"g.name = %@",g.name);
-        NSLog(@"g.wineUnits count = %i",[g.wineUnits count]);
-    }
-}
-
-#pragma mark - Getters & Setters
-
--(RestaurantDetailsVC *)restaurantDetailsViewController
-{
-    if(!_restaurantDetailsViewController){
-        _restaurantDetailsViewController = [[RestaurantDetailsVC alloc] initWithNibName:@"RestaurantDetails" bundle:nil];
-    }
-    return _restaurantDetailsViewController;
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return [self.fetchedResultsController.fetchedObjects count];
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"WineCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // the indexPath.row is the section
-    Group *group = (Group *)self.fetchedResultsController.fetchedObjects[indexPath.section];
-    
-    NSArray *wineUnits = [group.wineUnits sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]]];
-    NSLog(@"[wineUnits count] = %i",[wineUnits count]);
-    
-    WineUnit *wineUnit = wineUnits[indexPath.row];
-    NSLog(@"wineUnit = %@",wineUnit);
-    
-    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:wineUnit.wine.identifier attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
-
-    return cell;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    Group *group = (Group *)self.fetchedResultsController.fetchedObjects[section];
-    NSLog(@"group = %@",group);
-    NSLog(@"[group.wineUnits count] = %i",[group.wineUnits count]);
-    
-    return [group.wineUnits count];
-}
-#pragma mark - UITableViewDelegate
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"WineSectionHeader"];
-    return view;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // NSLog(@"prepareForSegue...");
-    if([sender isKindOfClass:[UITableViewCell class]]){
-        
-        UITableViewCell *tvc = (UITableViewCell *)sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:tvc];
-        
-        if(indexPath){
-            if([segue.destinationViewController isKindOfClass:[WineCDTVC class]]){
-                
-                // Get the new view controller using [segue destinationViewController].
-                WineCDTVC *wineCDTVC = (WineCDTVC *)segue.destinationViewController;
-                
-                // Pass the selected object to the new view controller.
-                Group *group = (Group *)self.fetchedResultsController.fetchedObjects[indexPath.section];
-                NSArray *wineUnits = [group.wineUnits sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]]];
-                WineUnit *wineUnit = wineUnits[indexPath.row];
-                [wineCDTVC setupWithWine:wineUnit.wine];
-            }
-        }
-    }
-}
-
-
-/*
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    NSLog(@"controllerDidChangeContent");
-    [self.tableView reloadData];
-}
- */
 
 @end
