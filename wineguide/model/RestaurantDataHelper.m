@@ -22,6 +22,8 @@
 
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
+    NSLog(@"%@ updateRelationshipsForObjectSet",[[managedObjectSet anyObject] class]);
+    NSLog(@"set count = %i",[managedObjectSet count]);
     for(Restaurant *r in managedObjectSet){
         r.groups = [self updateRelationshipSet:r.groups ofEntitiesNamed:GROUPING usingIdentifiersString:r.groupIdentifiers];
         r.flights = [self updateRelationshipSet:r.flights ofEntitiesNamed:FLIGHT usingIdentifiersString:r.flightIdentifiers];

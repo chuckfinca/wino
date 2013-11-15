@@ -7,7 +7,10 @@
 //
 
 #import "JSONToCoreDataHelper.h"
+#import "Restaurant.h"
 
 @interface GroupingDataHelper : JSONToCoreDataHelper
+
+@property (nonatomic, weak) Restaurant *restaurant;
 
 @end

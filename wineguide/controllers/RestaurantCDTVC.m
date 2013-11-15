@@ -113,6 +113,7 @@ typedef enum {
     NSString *urlString = [NSString stringWithFormat:@"group.%@.all",self.restaurant.identifier];
     NSURL *allGroupUrl = [[NSBundle mainBundle] URLForResource:urlString withExtension:JSON];
     GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:self.context];
+    gdh.restaurant = self.restaurant;
     [gdh updateCoreDataWithJSONFromURL:allGroupUrl];
     
     [self setupFetchedResultsController];

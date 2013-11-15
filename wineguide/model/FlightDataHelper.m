@@ -21,6 +21,8 @@
 
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
+    NSLog(@"%@ updateRelationshipsForObjectSet",[[managedObjectSet anyObject] class]);
+    NSLog(@"set count = %i",[managedObjectSet count]);
     for(Flight *flight in managedObjectSet){
         flight.wineUnits = [self updateRelationshipSet:flight.wineUnits ofEntitiesNamed:WINE_UNIT usingIdentifiersString:flight.wineUnitIdentifiers];
     }
