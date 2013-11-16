@@ -18,6 +18,7 @@
 
 #define ABOUT @"about"
 #define IDENTIFIER @"identifier"
+#define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
 #define MARK_FOR_DELETION @"markForDeletion"
 #define NAME @"name"
 #define TASTING_STAGE @"tastingStage"
@@ -35,27 +36,39 @@
     
     if(tastingNote){
         
-        // ATTRIBUTES
-        
-        tastingNote.about = [dictionary sanitizedStringForKey:ABOUT];
-        tastingNote.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
-        // tastingNote.lastAccessed
-        tastingNote.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        tastingNote.name = [dictionary sanitizedStringForKey:NAME];
-        tastingNote.tastingStage = [dictionary sanitizedStringForKey:TASTING_STAGE]; // appearance, in glass, in mouth, finish
-        tastingNote.version = [dictionary sanitizedValueForKey:VERSION];
-        
-        // store any information about relationships provided
-        
-        tastingNote.wineIdentifiers = [tastingNote addIdentifiers:[dictionary sanitizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:tastingNote.wineIdentifiers];
-        
-        
-        // RELATIONSHIPS
-        // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
-        
-        // Wines
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
-        [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
+        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
+            NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
+            
+            tastingNote.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+            tastingNote.isPlaceholderForFutureObject = @YES;
+        } else {
+            
+            if([tastingNote.version intValue] == 0 || tastingNote.version < dictionary[VERSION]){
+                
+                // ATTRIBUTES
+                
+                tastingNote.about = [dictionary sanitizedStringForKey:ABOUT];
+                tastingNote.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+                tastingNote.isPlaceholderForFutureObject = @NO;
+                // tastingNote.lastAccessed
+                tastingNote.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
+                tastingNote.name = [dictionary sanitizedStringForKey:NAME];
+                tastingNote.tastingStage = [dictionary sanitizedStringForKey:TASTING_STAGE]; // appearance, in glass, in mouth, finish
+                tastingNote.version = [dictionary sanitizedValueForKey:VERSION];
+                
+                // store any information about relationships provided
+                
+                tastingNote.wineIdentifiers = [tastingNote addIdentifiers:[dictionary sanitizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:tastingNote.wineIdentifiers];
+                
+                
+                // RELATIONSHIPS
+                // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
+                
+                // Wines
+                WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
+                [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
+            }
+        }
     }
     
     // [tastingNote logDetails];
@@ -67,6 +80,7 @@
 {
     NSLog(@"----------------------------------------");
     NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"about = %@",self.about);
     NSLog(@"lastAccessed = %@",self.lastAccessed);
     NSLog(@"markForDeletion = %@",self.markForDeletion);

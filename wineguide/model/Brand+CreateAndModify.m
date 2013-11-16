@@ -18,6 +18,7 @@
 
 #define ABOUT @"about"
 #define IDENTIFIER @"identifier"
+#define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
 #define MARK_FOR_DELETION @"markForDeletion"
 #define NAME @"name"
 #define VERSION @"version"
@@ -35,27 +36,40 @@
     
     if(brand){
         
-        // ATTRIBUTES
-        
-        brand.about = [dictionary sanitizedStringForKey:ABOUT];
-        brand.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
-        // brand.lastAccessed
-        brand.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        brand.name = [dictionary sanitizedStringForKey:NAME];
-        brand.version = [dictionary sanitizedValueForKey:VERSION];
-        brand.website = [dictionary sanitizedStringForKey:WEBSITE];
-        
-        // store any information about relationships provided
-        
-        brand.wineIdentifiers = [brand addIdentifiers:[dictionary sanitizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:brand.wineIdentifiers];
-        
-        
-        // RELATIONSHIPS
-        // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
-        
-        // Wines
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
-        [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
+        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
+            NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
+            
+            brand.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+            brand.isPlaceholderForFutureObject = @YES;
+            
+        } else {
+            
+            if([brand.version intValue] == 0 || brand.version < dictionary[VERSION]){
+                
+                // ATTRIBUTES
+                
+                brand.about = [dictionary sanitizedStringForKey:ABOUT];
+                brand.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+                brand.isPlaceholderForFutureObject = @NO;
+                // brand.lastAccessed
+                brand.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
+                brand.name = [dictionary sanitizedStringForKey:NAME];
+                brand.version = [dictionary sanitizedValueForKey:VERSION];
+                brand.website = [dictionary sanitizedStringForKey:WEBSITE];
+                
+                // store any information about relationships provided
+                
+                brand.wineIdentifiers = [brand addIdentifiers:[dictionary sanitizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:brand.wineIdentifiers];
+                
+                
+                // RELATIONSHIPS
+                // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
+                
+                // Wines
+                WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
+                [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
+            }
+        }
     }
     
     // [brand logDetails];
@@ -68,6 +82,7 @@
     NSLog(@"----------------------------------------");
     NSLog(@"about = %@",self.about);
     NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"lastAccessed = %@",self.lastAccessed);
     NSLog(@"markForDeletion = %@",self.markForDeletion);
     NSLog(@"name = %@",self.name);

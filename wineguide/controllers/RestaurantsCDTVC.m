@@ -95,7 +95,8 @@
     
     // Configure the cell...
     Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:restaurant.name attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    NSString *name = restaurant.name ? restaurant.name : @"asdf";
+    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
     
     return cell;
 }

@@ -2,7 +2,7 @@
 //  Varietal.h
 //  wineguide
 //
-//  Created by Charles Feinn on 11/13/13.
+//  Created by Charles Feinn on 11/16/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSString * wineIdentifiers;
+@property (nonatomic, retain) NSNumber * isPlaceholderForFutureObject;
 @property (nonatomic, retain) NSSet *wines;
 @end
 

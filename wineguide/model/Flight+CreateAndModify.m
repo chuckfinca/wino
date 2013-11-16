@@ -18,6 +18,7 @@
 
 #define ABOUT @"about"
 #define IDENTIFIER @"identifier"
+#define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
 #define MARK_FOR_DELETION @"markForDeletion"
 #define NAME @"name"
 #define PRICE @"price"
@@ -39,33 +40,45 @@
     
     if(flight){
         
-        // ATTRIBUTES
-        
-        flight.about = [dictionary sanitizedStringForKey:ABOUT];
-        flight.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
-        // flight.lastAccessed
-        flight.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        flight.name = [dictionary sanitizedStringForKey:NAME];
-        flight.price = [dictionary sanitizedValueForKey:PRICE];
-        flight.version = [dictionary sanitizedValueForKey:VERSION];
-        
-        // store any information about relationships provided
-        
-        flight.restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
-        flight.wineUnitIdentifiers = [flight addIdentifiers:[dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:flight.wineUnitIdentifiers];
-        
-        
-        // RELATIONSHIPS
-        
-        // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
-        
-        // Restaurants
-        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context];
-        [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
-
-        // WineUnits
-        WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
-        [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
+        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
+            NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
+            
+            flight.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+            flight.isPlaceholderForFutureObject = @YES;
+        } else {
+            
+            if([flight.version intValue] == 0 || flight.version < dictionary[VERSION]){
+                
+                // ATTRIBUTES
+                
+                flight.about = [dictionary sanitizedStringForKey:ABOUT];
+                flight.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+                flight.isPlaceholderForFutureObject = @NO;
+                // flight.lastAccessed
+                flight.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
+                flight.name = [dictionary sanitizedStringForKey:NAME];
+                flight.price = [dictionary sanitizedValueForKey:PRICE];
+                flight.version = [dictionary sanitizedValueForKey:VERSION];
+                
+                // store any information about relationships provided
+                
+                flight.restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
+                flight.wineUnitIdentifiers = [flight addIdentifiers:[dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:flight.wineUnitIdentifiers];
+                
+                
+                // RELATIONSHIPS
+                
+                // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
+                
+                // Restaurants
+                RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context];
+                [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
+                
+                // WineUnits
+                WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
+                [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
+            }
+        }
     }
     
     // [flight logDetails];
@@ -77,6 +90,7 @@
 {
     NSLog(@"----------------------------------------");
     NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"address = %@",self.about);
     NSLog(@"lastAccessed = %@",self.lastAccessed);
     NSLog(@"markForDeletion = %@",self.markForDeletion);

@@ -2,7 +2,7 @@
 //  Flight.m
 //  wineguide
 //
-//  Created by Charles Feinn on 11/13/13.
+//  Created by Charles Feinn on 11/16/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -22,6 +22,7 @@
 @dynamic restaurantIdentifier;
 @dynamic version;
 @dynamic wineUnitIdentifiers;
+@dynamic isPlaceholderForFutureObject;
 @dynamic restaurant;
 @dynamic wineUnits;
 

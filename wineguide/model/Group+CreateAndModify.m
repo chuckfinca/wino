@@ -19,6 +19,7 @@
 
 #define ABOUT @"about"
 #define IDENTIFIER @"identifier"
+#define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
 #define MARK_FOR_DELETION @"markForDeletion"
 #define NAME @"name"
 #define VERSION @"version"
@@ -39,34 +40,47 @@
     
     if(group){
         
-        // ATTRIBUTES
+        NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IS_PLACEHOLDER]);
         
-        group.about = [dictionary sanitizedStringForKey:ABOUT];
-        group.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
-        // group.lastAccessed
-        group.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-        group.name = [dictionary sanitizedStringForKey:NAME];
-        group.version = [dictionary sanitizedValueForKey:VERSION];
+        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
+            
+            group.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
+            group.isPlaceholderForFutureObject = @YES;
+            
+        } else {
+            if([group.version intValue] == 0 || group.version < dictionary[VERSION]){
+                // ATTRIBUTES
+                
+                group.about = [dictionary sanitizedStringForKey:ABOUT];
+                group.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+                group.isPlaceholderForFutureObject = @NO;
+                // group.lastAccessed
+                group.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
+                group.name = [dictionary sanitizedStringForKey:NAME];
+                group.version = [dictionary sanitizedValueForKey:VERSION];
+                
+                // store any information about relationships provided
+                
+                group.restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
+                group.wineUnitIdentifiers = [group addIdentifiers:[dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:group.wineUnitIdentifiers];
+                
+                // RELATIONSHIPS
+                // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
+                
+                // Restaurants
+                RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context];
+                [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
+                
+                // WineUnits
+                WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
+                [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
+            }
+        }
         
-        // store any information about relationships provided
         
-        group.restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
-        group.wineUnitIdentifiers = [group addIdentifiers:[dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:group.wineUnitIdentifiers];
-        
-        
-        // RELATIONSHIPS
-        // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
-        
-        // Restaurants
-        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context];
-        [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
-        
-        // WineUnits
-        WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
-        [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
     }
     
-    // [group logDetails];
+    [group logDetails];
     
     return group;
 }
@@ -75,6 +89,7 @@
 {
     NSLog(@"----------------------------------------");
     NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"address = %@",self.about);
     NSLog(@"lastAccessed = %@",self.lastAccessed);
     NSLog(@"markForDeletion = %@",self.markForDeletion);

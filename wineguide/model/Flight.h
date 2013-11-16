@@ -2,7 +2,7 @@
 //  Flight.h
 //  wineguide
 //
-//  Created by Charles Feinn on 11/13/13.
+//  Created by Charles Feinn on 11/16/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSString * restaurantIdentifier;
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSString * wineUnitIdentifiers;
+@property (nonatomic, retain) NSNumber * isPlaceholderForFutureObject;
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) NSSet *wineUnits;
 @end

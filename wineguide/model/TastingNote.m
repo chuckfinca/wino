@@ -2,7 +2,7 @@
 //  TastingNote.m
 //  wineguide
 //
-//  Created by Charles Feinn on 11/13/13.
+//  Created by Charles Feinn on 11/16/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -20,6 +20,7 @@
 @dynamic tastingStage;
 @dynamic version;
 @dynamic wineIdentifiers;
+@dynamic isPlaceholderForFutureObject;
 @dynamic wines;
 
 @end

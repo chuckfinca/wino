@@ -21,6 +21,7 @@
 #define CITY @"city"
 #define COUNTRY @"country"
 #define IDENTIFIER @"identifier"
+#define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
 #define LAST_ACCESSED @"lastAccessed"
 #define LATITUDE @"latitude"
 #define LONGITUDE @"longitude"
@@ -47,47 +48,57 @@
     restaurant = (Restaurant *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:RESTAURANT_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
     
     if(restaurant){
-        if([restaurant.version intValue] == 0 || restaurant.version < dictionary[VERSION]){
+        
+        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
+            NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
             
-            // ATTRIBUTES
-            
-            restaurant.address = [dictionary sanitizedStringForKey:ADDRESS];
-            restaurant.city = [dictionary sanitizedStringForKey:CITY];
-            restaurant.country = [dictionary sanitizedStringForKey:COUNTRY];
             restaurant.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
-            // restaurant.lastAccessed
-            restaurant.latitude = [dictionary sanitizedValueForKey:LATITUDE];
-            restaurant.longitude = [dictionary sanitizedValueForKey:LONGITUDE];
-            restaurant.markForDeletion = [dictionary sanitizedValueForKey:DELETE_ENTITY];
-            // restaurant.menuNeedsUpdating - used to notify server that we need to update a specific restaurant's menu.
-            restaurant.name = [dictionary sanitizedStringForKey:NAME];
-            restaurant.state = [dictionary sanitizedStringForKey:STATE];
-            restaurant.version = [dictionary sanitizedValueForKey:VERSION];
-            restaurant.zip = [[dictionary sanitizedValueForKey:ZIP] stringValue];
+            restaurant.isPlaceholderForFutureObject = @YES;
+        } else {
             
-            // store any information about relationships provided
-            
-            NSString *flightIdentifiers = [dictionary sanitizedStringForKey:FLIGHT_IDENTIFIERS];
-            restaurant.flightIdentifiers = [restaurant addIdentifiers:flightIdentifiers toCurrentIdentifiers:restaurant.flightIdentifiers];
-            
-            NSString *groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
-            restaurant.groupIdentifiers = [restaurant addIdentifiers:groupIdentifiers toCurrentIdentifiers:restaurant.groupIdentifiers];
-            
-            
-            // RELATIONSHIPS
-            // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON, if not then update the appropriate relationshipIdentifiers attribute
-            
-            // Flights
-            FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context];
-            [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
-            
-            // Groupings
-            GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:context];
-            [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
+            if([restaurant.version intValue] == 0 || restaurant.version < dictionary[VERSION]){
+                
+                // ATTRIBUTES
+                
+                restaurant.address = [dictionary sanitizedStringForKey:ADDRESS];
+                restaurant.city = [dictionary sanitizedStringForKey:CITY];
+                restaurant.country = [dictionary sanitizedStringForKey:COUNTRY];
+                restaurant.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+                restaurant.isPlaceholderForFutureObject = @NO;
+                // restaurant.lastAccessed
+                restaurant.latitude = [dictionary sanitizedValueForKey:LATITUDE];
+                restaurant.longitude = [dictionary sanitizedValueForKey:LONGITUDE];
+                restaurant.markForDeletion = [dictionary sanitizedValueForKey:DELETE_ENTITY];
+                // restaurant.menuNeedsUpdating - used to notify server that we need to update a specific restaurant's menu.
+                restaurant.name = [dictionary sanitizedStringForKey:NAME];
+                restaurant.state = [dictionary sanitizedStringForKey:STATE];
+                restaurant.version = [dictionary sanitizedValueForKey:VERSION];
+                restaurant.zip = [[dictionary sanitizedValueForKey:ZIP] stringValue];
+                
+                // store any information about relationships provided
+                
+                NSString *flightIdentifiers = [dictionary sanitizedStringForKey:FLIGHT_IDENTIFIERS];
+                restaurant.flightIdentifiers = [restaurant addIdentifiers:flightIdentifiers toCurrentIdentifiers:restaurant.flightIdentifiers];
+                
+                NSString *groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
+                restaurant.groupIdentifiers = [restaurant addIdentifiers:groupIdentifiers toCurrentIdentifiers:restaurant.groupIdentifiers];
+                
+                
+                // RELATIONSHIPS
+                // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON, if not then update the appropriate relationshipIdentifiers attribute
+                
+                // Flights
+                FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context];
+                [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
+                
+                // Groupings
+                GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:context];
+                [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
+            }
         }
     }
     
-    // [restaurant logDetails];
+    [restaurant logDetails];
     
     return restaurant;
 }
@@ -97,6 +108,7 @@
 {
     NSLog(@"----------------------------------------");
     NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"address = %@",self.address);
     NSLog(@"city = %@",self.city);
     NSLog(@"country = %@",self.country);
@@ -124,12 +136,6 @@
     
     NSLog(@"\n\n\n");
 }
-
-
-
-
-
-
 
 
 

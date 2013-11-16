@@ -2,7 +2,7 @@
 //  WineUnit.m
 //  wineguide
 //
-//  Created by Charles Feinn on 11/13/13.
+//  Created by Charles Feinn on 11/16/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -23,6 +23,7 @@
 @dynamic quantity;
 @dynamic version;
 @dynamic wineIdentifier;
+@dynamic isPlaceholderForFutureObject;
 @dynamic flights;
 @dynamic groups;
 @dynamic wine;

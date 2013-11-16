@@ -8,6 +8,7 @@
 
 #import "BrandDataHelper.h"
 #import "Brand+CreateAndModify.h"
+#import "WineDataHelper.h"
 
 #define WINE @"Wine"
 
@@ -20,11 +21,23 @@
 
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
-    NSLog(@"%@ updateRelationshipsForObjectSet",[[managedObjectSet anyObject] class]);
-    NSLog(@"set count = %i",[managedObjectSet count]);
+    //NSLog(@"%@ updateRelationshipsForObjectSet",[[managedObjectSet anyObject] class]);
+    //NSLog(@"set count = %i",[managedObjectSet count]);
     for(Brand *brand in managedObjectSet){
         brand.wines = [self updateRelationshipSet:brand.wines ofEntitiesNamed:WINE usingIdentifiersString:brand.wineIdentifiers];
     }
 }
+
+
+-(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray
+{
+    if([entityName isEqualToString:WINE]){
+        
+        // Wines
+        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:self.context];
+        [wdh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
+    }
+}
+
 
 @end
