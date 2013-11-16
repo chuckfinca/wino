@@ -24,8 +24,6 @@
 
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
-   // NSLog(@"%@ updateRelationshipsForObjectSet",[[managedObjectSet anyObject] class]);
-    //NSLog(@"set count = %i",[managedObjectSet count]);
     for(Group *group in managedObjectSet){
         group.wineUnits = [self updateRelationshipSet:group.wineUnits ofEntitiesNamed:WINE_UNIT usingIdentifiersString:group.wineUnitIdentifiers];
     }

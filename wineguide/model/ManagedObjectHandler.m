@@ -33,13 +33,11 @@
     } else if ([matches count] == 0 && [dictionary[MARK_FOR_DELETION] boolValue] == NO) {
         // Create new managed object
         managedObject = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
-            // [ManagedObjectHandler logIdentifierWithString:@"create 1" ofManagedObject:managedObject];
         
     } else if ([matches count] == 1){
         // Managed object already exists
         if([dictionary[MARK_FOR_DELETION] boolValue] == NO){
             managedObject = [matches lastObject];
-                // [ManagedObjectHandler logIdentifierWithString:@"return 1" ofManagedObject:managedObject];
         }
     } else {
         // Error

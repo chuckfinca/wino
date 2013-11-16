@@ -102,7 +102,6 @@
             NSDictionary *managedObjectDictionary = (NSDictionary *)obj;
             
             NSManagedObject *mo = [self updateManagedObjectWithDictionary:managedObjectDictionary];
-            //NSLog(@"creating/modifiying object = %@",mo.description);
             [managedObjectSet addObject:mo];
         }
     }
@@ -143,12 +142,9 @@
 
 -(NSSet *)updateRelationshipSet:(NSSet *)relationshipSet ofEntitiesNamed:(NSString *)entityName usingIdentifiersString:(NSString *)identifiers
 {
-    NSLog(@"----------------------%@ relationship with %@",[self class],entityName);
     // separate identifiers
     NSMutableArray *relatedIdentifiersArray = [[identifiers componentsSeparatedByString:DIVIDER] mutableCopy];
     
-    //NSLog(@"relatedIdentifiers = %@",relatedIdentifiersArray);
-    NSLog(@"relatedIdentifiersArray count = %i",[relatedIdentifiersArray count]);
     // create a compound OR predicate with all the identifiers
     NSMutableArray *compoundPredicateArray = [[NSMutableArray alloc] init];
     for (NSString *identifier in relatedIdentifiersArray){
@@ -168,25 +164,14 @@
         // take the current relationship set and add all of the matches to it
         if(!set) set = [[NSMutableSet alloc] init];
         
-        /*
-        NSLog(@"set count = %i",[set count]);
-        for(NSManagedObject *mo in set){
-            NSLog(@"description = %@",mo.description);
-        }
-         */
-        
         for(NSManagedObject *mo in matches){
             if(![set containsObject:mo]) {
-                //NSLog(@"adding new relationship");
                 [set addObject:mo];
             }
             // remove identifier from relatedIdentifierArray
-            //NSLog(@"removing %@",mo.identifier);
             [relatedIdentifiersArray removeObject:mo.identifier];
         }
     }
-    
-    NSLog(@"relatedIdentifiers = %@",relatedIdentifiersArray);
     
     // after previous for loop we are left with only identifiers for objects that do not yet exist.
     NSMutableArray *managedObjectPlaceholdersThatNeedToBeCreated = [[NSMutableArray alloc] init];
@@ -197,10 +182,7 @@
             [managedObjectPlaceholdersThatNeedToBeCreated addObject:managedObjectDictionary];
         }
     }
-    //NSLog(@"managedObjectsThatNeedToBeCreated - %@",managedObjectsThatNeedToBeCreated);
     if([managedObjectPlaceholdersThatNeedToBeCreated count] > 0) {
-        NSLog(@"***************** need to create placeholder objects");
-        NSLog(@"managedObjectPlaceholdersThatNeedToBeCreated = %@",managedObjectPlaceholdersThatNeedToBeCreated);
         [self updateManagedObjectsWithEntityName:entityName withDictionariesInArray:managedObjectPlaceholdersThatNeedToBeCreated];
     }
     
@@ -209,7 +191,6 @@
 
 -(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray
 {
-    NSLog(@"updateManagedObjectsWithEntityName called by class = %@",[self class]);
     // abstract
 }
 
@@ -218,7 +199,6 @@
     NSArray *matches = nil;
     
     if(entityName){
-        // NSLog(@"%@ is looking for relationships with %@ entities",[self class],entityName);
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
         request.predicate = predicate;

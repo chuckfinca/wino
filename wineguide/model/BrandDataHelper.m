@@ -21,8 +21,6 @@
 
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
 {
-    //NSLog(@"%@ updateRelationshipsForObjectSet",[[managedObjectSet anyObject] class]);
-    //NSLog(@"set count = %i",[managedObjectSet count]);
     for(Brand *brand in managedObjectSet){
         brand.wines = [self updateRelationshipSet:brand.wines ofEntitiesNamed:WINE usingIdentifiersString:brand.wineIdentifiers];
     }

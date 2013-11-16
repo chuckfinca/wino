@@ -31,12 +31,9 @@
 -(NSSet *)updateRelationshipSet:(NSSet *)relationshipSet ofEntitiesNamed:(NSString *)entityName usingIdentifiersString:(NSString *)identifiers;
 
 // Called by DataHelpers to create the appropriate DataHelpers
--(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray;
+-(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray; // abstract
 
 // Called by DataHelpers created by updateManagedObjectsWithEntityName:withDictionariesInArray: to create necessary placeholder entities
 -(void)updateManagedObjectsWithDictionariesInArray:(NSArray *)managedObjectDictionariesArray;
-
-
--(NSArray *)nestedJSON:(id)json;
 
 @end
