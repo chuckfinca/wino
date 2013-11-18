@@ -37,7 +37,8 @@
     if(varietal){
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
-            NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
+            
+            //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
             
             varietal.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             varietal.isPlaceholderForFutureObject = @YES;

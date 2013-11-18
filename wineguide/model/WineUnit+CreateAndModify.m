@@ -42,10 +42,12 @@
     if(wineUnit){
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
-            NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
+            
+            //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
             
             wineUnit.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             wineUnit.isPlaceholderForFutureObject = @YES;
+            
         } else {
             
             if([wineUnit.version intValue] == 0 || wineUnit.version < dictionary[VERSION]){

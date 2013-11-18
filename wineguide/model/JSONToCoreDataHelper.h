@@ -24,10 +24,10 @@
 // Called by managed object categories insearch of nested JSON
 -(void)updateNestedManagedObjectsLocatedAtKey:(NSString *)key inDictionary:(NSDictionary *)dictionary;
 
-// Called by DataHelpers to update relationships for a set of managed objects that were just created and/or modified
+// Called by DataHelpers to update relationships for a particular type of entity
 -(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet;
 
-// Called by DataHelpers to update one type of relationship for a given managed object
+// Called by DataHelpers to update a specific relationship set for a given entity
 -(NSSet *)updateRelationshipSet:(NSSet *)relationshipSet ofEntitiesNamed:(NSString *)entityName usingIdentifiersString:(NSString *)identifiers;
 
 // Called by DataHelpers to create the appropriate DataHelpers

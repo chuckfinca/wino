@@ -50,10 +50,12 @@
     if(restaurant){
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
-            NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
+            
+            //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
             
             restaurant.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             restaurant.isPlaceholderForFutureObject = @YES;
+            
         } else {
             
             if([restaurant.version intValue] == 0 || restaurant.version < dictionary[VERSION]){
@@ -98,7 +100,7 @@
         }
     }
     
-    [restaurant logDetails];
+    //[restaurant logDetails];
     
     return restaurant;
 }

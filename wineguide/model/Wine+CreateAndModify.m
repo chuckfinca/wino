@@ -66,7 +66,8 @@
     if(wine){
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
-            NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
+            
+            //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
             
             wine.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             wine.isPlaceholderForFutureObject = @YES;

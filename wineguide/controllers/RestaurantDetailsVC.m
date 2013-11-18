@@ -60,8 +60,6 @@
 
 
 - (IBAction)refreshWinelist:(UIButton *)sender {
-    
-    NSLog(@"sender.tag = %i",sender.tag);
     [self.delegate loadWineList:sender.tag];
 }
 

@@ -141,7 +141,6 @@ typedef enum {
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"wine.color"
                                                                                    cacheName:nil];
-    
     NSLog(@"fetchedResultCount = %i",[self.fetchedResultsController.fetchedObjects count]);
     for(NSObject *fetchedResult in self.fetchedResultsController.fetchedObjects){
         NSLog(@"fetchedResult = %@",fetchedResult.description);

@@ -37,10 +37,12 @@
     if(tastingNote){
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
-            NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
+            
+            //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
             
             tastingNote.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             tastingNote.isPlaceholderForFutureObject = @YES;
+            
         } else {
             
             if([tastingNote.version intValue] == 0 || tastingNote.version < dictionary[VERSION]){

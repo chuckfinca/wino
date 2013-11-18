@@ -41,10 +41,12 @@
     if(flight){
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
-            NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
+            
+            //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
             
             flight.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             flight.isPlaceholderForFutureObject = @YES;
+            
         } else {
             
             if([flight.version intValue] == 0 || flight.version < dictionary[VERSION]){

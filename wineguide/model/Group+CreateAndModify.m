@@ -40,7 +40,7 @@
     
     if(group){
         
-        NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IS_PLACEHOLDER]);
+        //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IS_PLACEHOLDER]);
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
@@ -80,7 +80,7 @@
         
     }
     
-    [group logDetails];
+    // [group logDetails];
     
     return group;
 }

@@ -157,7 +157,7 @@
     // get all entities with name 'entityName' that have identifiers that were in the identifiers string
     NSArray *matches = [self managedObjectWithEntityName:entityName usingPredicate:compoundPredicate inContext:self.context];
     
-    NSLog(@"matches count = %i",[matches count]);
+    // NSLog(@"matches count = %i",[matches count]);
     NSMutableSet *set = set = [relationshipSet mutableCopy];
     
     if(matches){
