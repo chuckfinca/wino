@@ -52,28 +52,25 @@
     
     if(restaurant.name){
         nameRange = NSMakeRange([textViewString length], [restaurant.name length]);
-        textViewString = [textViewString stringByAppendingString:restaurant.name];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[restaurant.name capitalizedString]]];
     }
     if(restaurant.address){
         addressRange = NSMakeRange([textViewString length]+1, [restaurant.address length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",restaurant.address]];
-    }
-    if(restaurant.city || restaurant.state){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n"]];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[restaurant.address capitalizedString]]];
     }
     if(restaurant.city){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",restaurant.city]];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[restaurant.city capitalizedString]]];
     }
     if(restaurant.city && restaurant.state){
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@", "]];
     }
     if(restaurant.state){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",restaurant.state]];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[restaurant.state capitalizedString]]];
     }
     
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
     self.restaurantNameTV.attributedText = attributedText;
-    self.restaurantNameTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    self.restaurantNameTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
     
     [self.restaurantNameTV.textStorage addAttribute:NSFontAttributeName
                                               value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
