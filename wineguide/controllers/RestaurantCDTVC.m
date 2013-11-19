@@ -167,7 +167,7 @@ typedef enum {
     
     WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:wineUnit.wine.name attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[wineUnit.wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
 
     return cell;
 }
