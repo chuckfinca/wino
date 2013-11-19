@@ -9,6 +9,7 @@
 #import "JSONToCoreDataHelper.h"
 #import "NSDictionary+Helper.h"
 #import "NSManagedObject+Helper.h"
+#import "IterationCounter.h"
 
 
 #define IDENTIFIER @"identifier"
@@ -23,15 +24,20 @@
 
 @implementation JSONToCoreDataHelper
 
--(id)initWithContext:(NSManagedObjectContext *)context
+-(id)initWithContext:(NSManagedObjectContext *)context andRelatedObject:(NSManagedObject *)managedObject andNeededManagedObjectIdentifiersString:(NSString *)identifiers
 {
     self = [super init];
     _context = context;
+    _relatedObject = managedObject;
+    _setOfIdentifiersThatNeedToBeTurnedIntoObjects = [NSMutableSet setWithArray:[identifiers componentsSeparatedByString:DIVIDER]];
+    
+    
+    
+    [IterationCounter sharedIterationCounter].counterOne++;
+    NSLog(@"counterOne = %i",[IterationCounter sharedIterationCounter].counterOne);
     return self;
 }
 
-
-#pragma mark - Getters & Setters
 
 #pragma mark - Predicates
 
@@ -96,19 +102,30 @@
 
 -(void)updateManagedObjectsWithDictionariesInArray:(NSArray *)managedObjectDictionariesArray
 {
-    NSMutableSet *managedObjectSet = [[NSMutableSet alloc] init];
     for(id obj in managedObjectDictionariesArray){
         if([obj isKindOfClass:[NSDictionary class]]){
             NSDictionary *managedObjectDictionary = (NSDictionary *)obj;
             
-            NSManagedObject *mo = [self updateManagedObjectWithDictionary:managedObjectDictionary];
-            [managedObjectSet addObject:mo];
+            NSManagedObject *mo = [self createOrModifyManagedObjectWithDictionary:managedObjectDictionary];
+            [self.setOfIdentifiersThatNeedToBeTurnedIntoObjects removeObject:mo.identifier];
         }
     }
-    [self updateRelationshipsForObjectSet:managedObjectSet];
+    [self createPlaceholderForObjectInSet:self.setOfIdentifiersThatNeedToBeTurnedIntoObjects];
 }
 
+
 #pragma mark - Update Core Data
+
+
+-(NSManagedObject *)createOrModifyManagedObjectWithDictionary:(NSDictionary *)dictionary
+{
+    NSManagedObject *mo = [self updateManagedObjectWithDictionary:dictionary];
+    [self addRelationToManagedObject:mo];
+    
+    [IterationCounter sharedIterationCounter].counterTwo++;
+    NSLog(@"counterTwo = %i",[IterationCounter sharedIterationCounter].counterTwo);
+    return mo;
+}
 
 -(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
@@ -120,8 +137,6 @@
 }
 
 
-
-
 -(void)updateNestedManagedObjectsLocatedAtKey:(NSString *)key inDictionary:(NSDictionary *)dictionary
 {
     id nestedObjects = [dictionary sanitizedValueForKey:key];
@@ -130,105 +145,38 @@
     if([nestedObjects isKindOfClass:[NSArray class]]){
         [self updateManagedObjectsWithDictionariesInArray:(NSArray *)nestedObjects];
     }
+    [self createPlaceholderForObjectInSet:self.setOfIdentifiersThatNeedToBeTurnedIntoObjects];
 }
 
 
--(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
+
+#pragma mark - Relationships
+
+-(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    // abstract
-    // calls updateRelationshipSet:ofEntitiesNamed:withIdentifiersString: for each set of managed objects related to the
+    // we need to add self.relatedObject to one of managedObjects sets
 }
 
-
--(NSSet *)updateRelationshipSet:(NSSet *)relationshipSet ofEntitiesNamed:(NSString *)entityName usingIdentifiersString:(NSString *)identifiers
+-(NSSet *)addRelationToSet:(NSSet *)set
 {
-    // separate identifiers
-    NSMutableArray *relatedIdentifiersArray = [[identifiers componentsSeparatedByString:DIVIDER] mutableCopy];
-    
-    // create a compound OR predicate with all the identifiers
-    NSMutableArray *compoundPredicateArray = [[NSMutableArray alloc] init];
-    for (NSString *identifier in relatedIdentifiersArray){
-        
-        NSDictionary *variables = @{@"IDENTIFIER" : identifier};
-        [compoundPredicateArray addObject:[self.predicate predicateWithSubstitutionVariables:variables]];
-    }
-    NSCompoundPredicate *compoundPredicate = [[NSCompoundPredicate alloc] initWithType:NSOrPredicateType subpredicates:compoundPredicateArray];
-    
-    // get all entities with name 'entityName' that have identifiers that were in the identifiers string
-    NSArray *matches = [self managedObjectWithEntityName:entityName usingPredicate:compoundPredicate inContext:self.context];
-    
-    // NSLog(@"matches count = %i",[matches count]);
-    NSMutableSet *set = set = [relationshipSet mutableCopy];
-    
-    if(matches){
-        // take the current relationship set and add all of the matches to it
-        if(!set) set = [[NSMutableSet alloc] init];
-        
-        for(NSManagedObject *mo in matches){
-            if(![set containsObject:mo]) {
-                [set addObject:mo];
+    NSMutableSet *mutableSet = [set mutableCopy];
+    if(![mutableSet containsObject:self.relatedObject]) [mutableSet addObject:self.relatedObject];
+    return mutableSet;
+}
+
+#pragma Placeholder Objects
+
+-(void)createPlaceholderForObjectInSet:(NSSet *)set
+{
+    if([self.setOfIdentifiersThatNeedToBeTurnedIntoObjects count] > 0){
+        for(NSString *identifier in set){
+            if([identifier length] > 0){
+                NSDictionary *managedObjectDictionary = @{IDENTIFIER : identifier, IS_PLACEHOLDER : @YES};
+                [self createOrModifyManagedObjectWithDictionary:managedObjectDictionary];
             }
-            // remove identifier from relatedIdentifierArray
-            [relatedIdentifiersArray removeObject:mo.identifier];
         }
     }
-    
-    // after previous for loop we are left with only identifiers for objects that do not yet exist.
-    NSMutableArray *managedObjectPlaceholdersThatNeedToBeCreated = [[NSMutableArray alloc] init];
-    for(NSString *identifier in relatedIdentifiersArray){
-        if([identifier length] > 0){
-            
-            NSDictionary *managedObjectDictionary = @{IDENTIFIER : identifier, IS_PLACEHOLDER : @YES};
-            [managedObjectPlaceholdersThatNeedToBeCreated addObject:managedObjectDictionary];
-        }
-    }
-    if([managedObjectPlaceholdersThatNeedToBeCreated count] > 0) {
-        [self updateManagedObjectsWithEntityName:entityName withDictionariesInArray:managedObjectPlaceholdersThatNeedToBeCreated];
-    }
-    
-    return set;
 }
-
--(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray
-{
-    // abstract
-}
-
--(NSArray *)managedObjectWithEntityName:(NSString *)entityName usingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context
-{
-    NSArray *matches = nil;
-    
-    if(entityName){
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-        request.predicate = predicate;
-        
-        NSError *error = nil;
-        matches = [context executeFetchRequest:request error:&error];
-        
-        if(!matches){
-            // Error
-            NSLog(@"Error %@ - matches exists? %@; [matches count] = %i",error,matches ? @"yes" : @"no",[matches count]);
-            return nil;
-            
-        } else if([matches count] == 0){
-            //NSLog(@"[matches count] = %i",[matches count]);
-            return nil;
-        } else if([matches count] > 0) {
-            // We found objects
-            //NSLog(@"[matches count] = %i",[matches count]);
-            return matches;
-            
-        }  else {
-            // Error
-            NSLog(@"Error %@ ",error.description);
-        }
-    }
-    return matches;
-}
-
-
-
 
 
 

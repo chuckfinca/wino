@@ -42,8 +42,6 @@
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
-            //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
-            
             flight.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             flight.isPlaceholderForFutureObject = @YES;
             
@@ -64,8 +62,11 @@
                 
                 // store any information about relationships provided
                 
-                flight.restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
-                flight.wineUnitIdentifiers = [flight addIdentifiers:[dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:flight.wineUnitIdentifiers];
+                NSString *restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
+                flight.restaurantIdentifier = restaurantIdentifier;
+                
+                NSString *wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
+                flight.wineUnitIdentifiers = [flight addIdentifiers:wineUnitIdentifiers toCurrentIdentifiers:flight.wineUnitIdentifiers];
                 
                 
                 // RELATIONSHIPS
@@ -73,11 +74,11 @@
                 // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
                 
                 // Restaurants
-                RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context];
+                RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:flight andNeededManagedObjectIdentifiersString:restaurantIdentifier];
                 [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
                 
                 // WineUnits
-                WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
+                WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:flight andNeededManagedObjectIdentifiersString:wineUnitIdentifiers];
                 [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
             }
         }

@@ -19,24 +19,16 @@
     return [Varietal varietalFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
+-(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    for(Varietal *varietal in managedObjectSet){
-        varietal.wines = [self updateRelationshipSet:varietal.wines ofEntitiesNamed:WINE usingIdentifiersString:varietal.wineIdentifiers];
-    }
-}
-
-
--(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray
-{
-    if([entityName isEqualToString:WINE]){
+    if([managedObject isKindOfClass:[Varietal class]]){
+        Varietal *varietal = (Varietal *)managedObject;
         
-        // Wines
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:self.context];
-        [wdh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
+        if ([self.relatedObject class] == [Wine class]){
+            varietal.wines = [self addRelationToSet:varietal.wines];
+        }
     }
 }
-
 
 
 @end

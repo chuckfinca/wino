@@ -88,7 +88,7 @@
     // this will be replaced with a server url when available
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
     
-    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context];
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
     [rdh updateCoreDataWithJSONFromURL:url];
 }
 

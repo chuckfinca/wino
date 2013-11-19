@@ -72,11 +72,8 @@
     if(wine.name){
         nameRange = NSMakeRange([textViewString length], [wine.name length]);
         textViewString = [textViewString stringByAppendingString:wine.name];
-    } else if(wine.brand){
-        nameRange = NSMakeRange([textViewString length], [wine.brand.name length]);
-        textViewString = [textViewString stringByAppendingString:wine.brand.name];
     }
-    if((wine.name || wine.brand) && wine.vintage){
+    if(wine.name && wine.vintage){
         textViewString = [textViewString stringByAppendingString:@"\n"];
     }
     if(wine.vintage){

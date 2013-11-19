@@ -51,8 +51,6 @@
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
-            //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
-            
             restaurant.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             restaurant.isPlaceholderForFutureObject = @YES;
             
@@ -90,11 +88,11 @@
                 // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON, if not then update the appropriate relationshipIdentifiers attribute
                 
                 // Flights
-                FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context];
+                FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:restaurant andNeededManagedObjectIdentifiersString:flightIdentifiers];
                 [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
                 
                 // Groupings
-                GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:context];
+                GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:context andRelatedObject:restaurant andNeededManagedObjectIdentifiersString:groupIdentifiers];
                 [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
             }
         }

@@ -10,6 +10,8 @@
 #import "Group+CreateAndModify.h"
 #import "RestaurantDataHelper.h"
 #import "WineUnitDataHelper.h"
+#import "Restaurant.h"
+#import "WineUnit.h"
 
 #define WINE_UNIT @"WineUnit"
 #define GROUP @"Group"
@@ -22,26 +24,18 @@
     return [Group groupFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
+-(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    for(Group *group in managedObjectSet){
-        group.wineUnits = [self updateRelationshipSet:group.wineUnits ofEntitiesNamed:WINE_UNIT usingIdentifiersString:group.wineUnitIdentifiers];
-    }
-}
-
--(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray
-{
-    if([entityName isEqualToString:RESTAURANT]){
+    if([managedObject isKindOfClass:[Group class]]){
+        Group *group = (Group *)managedObject;
         
-        // Restaurant
-        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context];
-        [rdh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
-    } else if([entityName isEqualToString:WINE_UNIT]){
-        
-        // WineUnits
-        WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:self.context];
-        [wudh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
-        
+        if([self.relatedObject class] == [Restaurant class]){
+            group.restaurant = (Restaurant *)self.relatedObject;
+            
+        } else if ([self.relatedObject class] == [WineUnit class]){
+            group.wineUnits = [self addRelationToSet:group.wineUnits];
+            
+        }
     }
 }
 

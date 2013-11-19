@@ -10,6 +10,8 @@
 #import "Restaurant+CreateAndModify.h"
 #import "GroupingDataHelper.h"
 #import "FlightDataHelper.h"
+#import "Group.h"
+#import "Flight.h"
 
 #define GROUP @"Group"
 #define FLIGHT @"Flight"
@@ -22,30 +24,18 @@
     return [Restaurant restaurantFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
-{
-    for(Restaurant *r in managedObjectSet){
-        
-        // if i can add additional identifiers to the String needed for the below method then all the relationships should be created...
-        r.groups = [self updateRelationshipSet:r.groups ofEntitiesNamed:GROUP usingIdentifiersString:r.groupIdentifiers];
-        r.flights = [self updateRelationshipSet:r.flights ofEntitiesNamed:FLIGHT usingIdentifiersString:r.flightIdentifiers];
-    }
-}
 
-
--(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray
+-(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    if([entityName isEqualToString:GROUP]){
+    if([managedObject isKindOfClass:[Restaurant class]]){
+        Restaurant *restaurant = (Restaurant *)managedObject;
         
-        // Groupings
-        GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:self.context];
-        [gdh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
-        
-    } else if([entityName isEqualToString:FLIGHT]){
-        
-        // Flights
-        FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:self.context];
-        [fdh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
+        if([self.relatedObject class] == [Flight class]){
+            restaurant.flights = [self addRelationToSet:restaurant.flights];
+            
+        } else if ([self.relatedObject class] == [Group class]){
+            restaurant.groups = [self addRelationToSet:restaurant.groups];
+        }
     }
 }
 

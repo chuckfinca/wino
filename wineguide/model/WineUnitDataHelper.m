@@ -25,39 +25,23 @@
     return [WineUnit wineUnitFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
+
+-(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    for(WineUnit *wu in managedObjectSet){
-        wu.groups = [self updateRelationshipSet:wu.groups ofEntitiesNamed:GROUP usingIdentifiersString:wu.groupIdentifiers];
-        wu.flights = [self updateRelationshipSet:wu.flights ofEntitiesNamed:FLIGHT usingIdentifiersString:wu.flightIdentifiers];
+    if([managedObject isKindOfClass:[WineUnit class]]){
+        WineUnit *wineUnit = (WineUnit *)managedObject;
+        
+        if([self.relatedObject class] == [Restaurant class]){
+            wineUnit.wine = (Wine *)self.relatedObject;
+            
+        } else if([self.relatedObject class] == [Flight class]){
+            wineUnit.flights = [self addRelationToSet:wineUnit.flights];
+            
+        } else if ([self.relatedObject class] == [Group class]){
+            wineUnit.groups = [self addRelationToSet:wineUnit.groups];
+        }
     }
 }
-
-
-
--(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray
-{
-    if([entityName isEqualToString:GROUP]){
-        
-        // Groupings
-        GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:self.context];
-        [gdh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
-        
-    } else if([entityName isEqualToString:FLIGHT]){
-        
-        // Flights
-        FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:self.context];
-        [fdh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
-        
-    } else if([entityName isEqualToString:WINE]){
-        
-        // Wine
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:self.context];
-        [wdh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
-    }
-}
-
-
 
 
 @end

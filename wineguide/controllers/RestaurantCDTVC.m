@@ -104,16 +104,16 @@ typedef enum {
 {
     // ask for a restaurant specific info inncluding groupings and flights
     NSURL *restaurantUrl = [[NSBundle mainBundle] URLForResource:self.restaurant.identifier withExtension:JSON];
-    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context];
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
     [rdh updateCoreDataWithJSONFromURL:restaurantUrl];
     
     // grouping.identifiers should be restaurant.identifies with the amended group name, that way I can assume I know the all group identifier to make the appropriate call.
     // call the server and ask for the all group, including all wineUnits, wines and brands
     
+    
     NSString *urlString = [NSString stringWithFormat:@"group.%@.all",self.restaurant.identifier];
     NSURL *allGroupUrl = [[NSBundle mainBundle] URLForResource:urlString withExtension:JSON];
-    GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:self.context];
-    gdh.restaurant = self.restaurant;
+    GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
     [gdh updateCoreDataWithJSONFromURL:allGroupUrl];
     
     [self setupFetchedResultsController];
@@ -166,7 +166,7 @@ typedef enum {
     
     WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:wineUnit.wine.identifier attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:wineUnit.wine.name attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
 
     return cell;
 }

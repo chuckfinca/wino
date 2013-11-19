@@ -19,21 +19,15 @@
     return [Brand brandFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
-{
-    for(Brand *brand in managedObjectSet){
-        brand.wines = [self updateRelationshipSet:brand.wines ofEntitiesNamed:WINE usingIdentifiersString:brand.wineIdentifiers];
-    }
-}
 
-
--(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray
+-(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    if([entityName isEqualToString:WINE]){
+    if([managedObject isKindOfClass:[Brand class]]){
+        Brand *brand = (Brand *)managedObject;
         
-        // Wines
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:self.context];
-        [wdh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
+        if ([self.relatedObject class] == [Wine class]){
+            brand.wines = [self addRelationToSet:brand.wines];
+        }
     }
 }
 

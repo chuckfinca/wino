@@ -38,8 +38,6 @@
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
-            //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
-            
             tastingNote.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             tastingNote.isPlaceholderForFutureObject = @YES;
             
@@ -60,14 +58,15 @@
                 
                 // store any information about relationships provided
                 
-                tastingNote.wineIdentifiers = [tastingNote addIdentifiers:[dictionary sanitizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:tastingNote.wineIdentifiers];
+                NSString *wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
+                tastingNote.wineIdentifiers = [tastingNote addIdentifiers:wineIdentifiers toCurrentIdentifiers:tastingNote.wineIdentifiers];
                 
                 
                 // RELATIONSHIPS
                 // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
                 
                 // Wines
-                WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
+                WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:tastingNote andNeededManagedObjectIdentifiersString:wineIdentifiers];
                 [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
             }
         }

@@ -40,8 +40,6 @@
     
     if(group){
         
-        //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IS_PLACEHOLDER]);
-        
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
             group.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
@@ -61,18 +59,22 @@
                 
                 // store any information about relationships provided
                 
-                group.restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
-                group.wineUnitIdentifiers = [group addIdentifiers:[dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:group.wineUnitIdentifiers];
+                NSString *restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
+                group.restaurantIdentifier = restaurantIdentifier;
+                
+                NSString *wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
+                group.wineUnitIdentifiers = [group addIdentifiers:wineUnitIdentifiers toCurrentIdentifiers:group.wineUnitIdentifiers];
+                
                 
                 // RELATIONSHIPS
                 // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
                 
                 // Restaurants
-                RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context];
+                RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:group andNeededManagedObjectIdentifiersString:restaurantIdentifier];
                 [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
                 
                 // WineUnits
-                WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
+                WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:group andNeededManagedObjectIdentifiersString:wineUnitIdentifiers];
                 [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
             }
         }

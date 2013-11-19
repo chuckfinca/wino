@@ -43,8 +43,6 @@
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
-            //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
-            
             wineUnit.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             wineUnit.isPlaceholderForFutureObject = @YES;
             
@@ -64,24 +62,31 @@
                 
                 // store any information about relationships provided
                 
-                wineUnit.groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
-                wineUnit.flightIdentifiers = [dictionary sanitizedStringForKey:FLIGHT_IDENTIFIERS];
-                wineUnit.wineIdentifier = [dictionary sanitizedStringForKey:WINE_IDENTIFIER];
+                NSString *flightIdentifiers = [dictionary sanitizedStringForKey:FLIGHT_IDENTIFIERS];
+                wineUnit.flightIdentifiers = [wineUnit addIdentifiers:flightIdentifiers toCurrentIdentifiers:wineUnit.flightIdentifiers];
+                
+                NSString *groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
+                wineUnit.groupIdentifiers = [wineUnit addIdentifiers:groupIdentifiers toCurrentIdentifiers:wineUnit.groupIdentifiers];
+                
+                NSString *wineIdentifier = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
+                wineUnit.wineIdentifier = wineIdentifier;
+                
                 
                 // RELATIONSHIPS
                 // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
-                
-                // Wines
-                WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
-                [wdh updateNestedManagedObjectsLocatedAtKey:WINE inDictionary:dictionary];
-                
                 // Flights
-                FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context];
+                FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:wineUnit andNeededManagedObjectIdentifiersString:flightIdentifiers];
                 [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
                 
                 // Groupings
-                GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:context];
+                GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:context andRelatedObject:wineUnit andNeededManagedObjectIdentifiersString:groupIdentifiers];
                 [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
+                
+                // Wines
+                WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:wineUnit andNeededManagedObjectIdentifiersString:wineIdentifier];
+                [wdh updateNestedManagedObjectsLocatedAtKey:WINE inDictionary:dictionary];
+                
+                
             }
         }
     }

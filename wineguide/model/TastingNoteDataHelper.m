@@ -19,21 +19,14 @@
     return [TastingNote tastingNoteFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
--(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
+-(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    for(TastingNote *tastingNote in managedObjectSet){
-        tastingNote.wines = [self updateRelationshipSet:tastingNote.wines ofEntitiesNamed:WINE usingIdentifiersString:tastingNote.wineIdentifiers];
-    }
-}
-
-
--(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray
-{
-    if([entityName isEqualToString:WINE]){
+    if([managedObject isKindOfClass:[TastingNote class]]){
+        TastingNote *tastingNote = (TastingNote *)managedObject;
         
-        // Wines
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:self.context];
-        [wdh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
+        if ([self.relatedObject class] == [Wine class]){
+            tastingNote.wines = [self addRelationToSet:tastingNote.wines];
+        }
     }
 }
 

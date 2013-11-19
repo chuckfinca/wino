@@ -10,6 +10,8 @@
 #import "Flight+CreateAndModify.h"
 #import "RestaurantDataHelper.h"
 #import "WineUnitDataHelper.h"
+#import "WineUnit.h"
+#import "Restaurant.h"
 
 #define WINE_UNIT @"WineUnit"
 #define RESTAURANT @"Restaurant"
@@ -21,27 +23,18 @@
     return [Flight flightFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withEntityInfo:dictionary];
 }
 
-
--(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet
+-(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    for(Flight *flight in managedObjectSet){
-        flight.wineUnits = [self updateRelationshipSet:flight.wineUnits ofEntitiesNamed:WINE_UNIT usingIdentifiersString:flight.wineUnitIdentifiers];
-    }
-}
-
--(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray
-{
-    if([entityName isEqualToString:RESTAURANT]){
+    if([managedObject isKindOfClass:[Flight class]]){
+        Flight *flight = (Flight *)managedObject;
         
-        // Restaurant
-        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context];
-        [rdh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
-    } else if([entityName isEqualToString:WINE_UNIT]){
-        
-        // WineUnits
-        WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:self.context];
-        [wudh updateManagedObjectsWithDictionariesInArray:managedObjectDictionariesArray];
-        
+        if([self.relatedObject class] == [Restaurant class]){
+            flight.restaurant = (Restaurant *)self.relatedObject;
+            
+        } else if ([self.relatedObject class] == [WineUnit class]){
+            flight.wineUnits = [self addRelationToSet:flight.wineUnits];
+            
+        }
     }
 }
 

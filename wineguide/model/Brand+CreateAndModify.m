@@ -37,7 +37,6 @@
     if(brand){
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
-            NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
             
             brand.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             brand.isPlaceholderForFutureObject = @YES;
@@ -59,20 +58,21 @@
                 
                 // store any information about relationships provided
                 
-                brand.wineIdentifiers = [brand addIdentifiers:[dictionary sanitizedStringForKey:WINE_IDENTIFIERS] toCurrentIdentifiers:brand.wineIdentifiers];
+                NSString *wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
+                brand.wineIdentifiers = [brand addIdentifiers:wineIdentifiers toCurrentIdentifiers:brand.wineIdentifiers];
                 
                 
                 // RELATIONSHIPS
                 // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
                 
                 // Wines
-                WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context];
+                WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:brand andNeededManagedObjectIdentifiersString:wineIdentifiers];
                 [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
             }
         }
     }
     
-    [brand logDetails];
+    //[brand logDetails];
     
     return brand;
 }

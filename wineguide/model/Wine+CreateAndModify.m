@@ -67,8 +67,6 @@
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
-            //NSLog(@"placeholder - %@",[dictionary sanitizedStringForKey:IDENTIFIER]);
-            
             wine.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             wine.isPlaceholderForFutureObject = @YES;
             
@@ -96,29 +94,37 @@
                 
                 // store any information about relationships provided
                 
-                wine.brandIdentifier = [dictionary sanitizedStringForKey:BRAND_IDENTIFIER];
-                wine.wineUnitIdentifiers = [wine addIdentifiers:[dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS] toCurrentIdentifiers:wine.wineUnitIdentifiers];
-                wine.tastingNoteIdentifers = [wine addIdentifiers:[dictionary sanitizedStringForKey:TASTING_NOTE_IDENTIFIERS] toCurrentIdentifiers:wine.tastingNoteIdentifers];
-                wine.varietalIdentifiers = [wine addIdentifiers:[dictionary sanitizedStringForKey:VARIETAL_IDENTIFIERS] toCurrentIdentifiers:wine.varietalIdentifiers];
+                NSString *brandIdentifier = [dictionary sanitizedStringForKey:BRAND_IDENTIFIER];
+                wine.brandIdentifier = brandIdentifier;
+                
+                NSString *tastingNoteIdentifiers = [dictionary sanitizedStringForKey:TASTING_NOTE_IDENTIFIERS];
+                wine.tastingNoteIdentifers = [wine addIdentifiers:tastingNoteIdentifiers toCurrentIdentifiers:wine.tastingNoteIdentifers];
+                
+                NSString *varietalIdentifiers = [dictionary sanitizedStringForKey:VARIETAL_IDENTIFIERS];
+                wine.varietalIdentifiers = [wine addIdentifiers:varietalIdentifiers toCurrentIdentifiers:wine.varietalIdentifiers];
+                
+                NSString *wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
+                wine.wineUnitIdentifiers = [wine addIdentifiers:wineUnitIdentifiers toCurrentIdentifiers:wine.wineUnitIdentifiers];
                 
                 
                 // RELATIONSHIPS
                 // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
                 
                 // Brand
-                BrandDataHelper *bdh = [[BrandDataHelper alloc] initWithContext:context];
+                BrandDataHelper *bdh = [[BrandDataHelper alloc] initWithContext:context andRelatedObject:wine andNeededManagedObjectIdentifiersString:brandIdentifier];
                 [bdh updateNestedManagedObjectsLocatedAtKey:BRAND inDictionary:dictionary];
+                if(!wine.name) wine.name = wine.brand.name;
                 
                 // Tasting Notes
-                TastingNoteDataHelper *tndh = [[TastingNoteDataHelper alloc] initWithContext:context];
+                TastingNoteDataHelper *tndh = [[TastingNoteDataHelper alloc] initWithContext:context andRelatedObject:wine andNeededManagedObjectIdentifiersString:tastingNoteIdentifiers];
                 [tndh updateNestedManagedObjectsLocatedAtKey:TASTING_NOTES inDictionary:dictionary];
                 
                 // Varietals
-                VarietalDataHelper *vdh = [[VarietalDataHelper alloc] initWithContext:context];
+                VarietalDataHelper *vdh = [[VarietalDataHelper alloc] initWithContext:context andRelatedObject:wine andNeededManagedObjectIdentifiersString:varietalIdentifiers];
                 [vdh updateNestedManagedObjectsLocatedAtKey:VARIETALS inDictionary:dictionary];
                 
                 // WineUnits
-                WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context];
+                WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:wine andNeededManagedObjectIdentifiersString:wineUnitIdentifiers];
                 [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
             }
         }

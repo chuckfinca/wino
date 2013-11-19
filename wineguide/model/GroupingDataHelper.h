@@ -11,6 +11,4 @@
 
 @interface GroupingDataHelper : JSONToCoreDataHelper
 
-@property (nonatomic, weak) Restaurant *restaurant;
-
 @end

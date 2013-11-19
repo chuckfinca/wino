@@ -11,29 +11,26 @@
 
 @interface JSONToCoreDataHelper : NSObject
 
--(id)initWithContext:(NSManagedObjectContext *)context; // designated initializer
-
-@property (nonatomic, strong) NSPredicate *predicate;
 @property (nonatomic, weak) NSManagedObjectContext *context;
+@property (nonatomic, strong) NSPredicate *predicate;
+@property (nonatomic, strong) NSManagedObject *relatedObject;
+@property (nonatomic, strong) NSMutableSet *setOfIdentifiersThatNeedToBeTurnedIntoObjects;
+
+
+
+-(id)initWithContext:(NSManagedObjectContext *)context andRelatedObject:(NSManagedObject *)managedObject andNeededManagedObjectIdentifiersString:(NSString *)identifiers; // designated initializer
+
 
 -(void)updateCoreDataWithJSONFromURL:(NSURL *)url;
-
 -(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary; // abstract
 -(NSPredicate *)predicateForDicitonary:(NSDictionary *)dictionary;
+
 
 // Called by managed object categories insearch of nested JSON
 -(void)updateNestedManagedObjectsLocatedAtKey:(NSString *)key inDictionary:(NSDictionary *)dictionary;
 
-// Called by DataHelpers to update relationships for a particular type of entity
--(void)updateRelationshipsForObjectSet:(NSSet *)managedObjectSet;
-
-// Called by DataHelpers to update a specific relationship set for a given entity
--(NSSet *)updateRelationshipSet:(NSSet *)relationshipSet ofEntitiesNamed:(NSString *)entityName usingIdentifiersString:(NSString *)identifiers;
-
-// Called by DataHelpers to create the appropriate DataHelpers
--(void)updateManagedObjectsWithEntityName:(NSString *)entityName withDictionariesInArray:(NSArray *)managedObjectDictionariesArray; // abstract
-
-// Called by DataHelpers created by updateManagedObjectsWithEntityName:withDictionariesInArray: to create necessary placeholder entities
--(void)updateManagedObjectsWithDictionariesInArray:(NSArray *)managedObjectDictionariesArray;
+// Methods that create placeholder objects and add relationships
+-(void)addRelationToManagedObject:(NSManagedObject *)managedObject;
+-(NSSet *)addRelationToSet:(NSSet *)set;
 
 @end
