@@ -71,6 +71,25 @@
                                                                                                   cacheName:nil];
 }
 
+-(void)setupTextForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    NSString *text = [NSString stringWithFormat:@"%@ %@",[restaurant.name capitalizedString],[restaurant.address capitalizedString]];
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+    [attributedText addAttribute:NSFontAttributeName
+                           value:[UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]
+                           range:NSMakeRange(0, [restaurant.name length])];
+    [attributedText addAttribute:NSFontAttributeName
+                           value:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption2]
+                           range:NSMakeRange([restaurant.name length]+1, [restaurant.address length])];
+    [attributedText addAttribute:NSForegroundColorAttributeName
+                           value:[UIColor lightGrayColor]
+                           range:NSMakeRange([restaurant.name length]+1, [restaurant.address length])];
+    
+    cell.textLabel.attributedText = attributedText;
+}
+
 
 #pragma mark - Getters & Setters
 
@@ -94,9 +113,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSString *name = restaurant.name ? restaurant.name : @"asdf";
-    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    [self setupTextForCell:cell atIndexPath:indexPath];
     
     return cell;
 }
