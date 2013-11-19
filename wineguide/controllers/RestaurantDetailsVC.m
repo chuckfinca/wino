@@ -24,7 +24,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 150);
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 130);
     }
     return self;
 }

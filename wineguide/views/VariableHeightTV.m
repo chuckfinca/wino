@@ -38,7 +38,7 @@
         
         float height = tvSize.height > minimumHeight ? tvSize.height : minimumHeight;
         
-        if(height != minimumHeight) height += height/10;
+        //if(height != minimumHeight) height += height/10;
         
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
         
