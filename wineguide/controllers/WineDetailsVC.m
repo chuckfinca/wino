@@ -17,10 +17,6 @@
 
 @property (nonatomic, strong) Wine *wine;
 @property (nonatomic, weak) IBOutlet VariableHeightTV *wineNameTV;
-@property (nonatomic, weak) IBOutlet VariableHeightTV *yearTV;
-@property (nonatomic, weak) IBOutlet VariableHeightTV *varietalTV;
-@property (nonatomic, weak) IBOutlet VariableHeightTV *regionTV;
-@property (nonatomic, weak) IBOutlet VariableHeightTV *alcoholPercentageTV;
 @property (nonatomic, weak) IBOutlet UILabel *numReviewsLabel;
 
 @end
@@ -32,7 +28,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 250);
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 200);
     }
     return self;
 }
@@ -57,42 +53,72 @@
     
     [self logDetails];
     
-    NSString *wineName = @"";
-    if([wine.name length] > 0){
-        wineName = wine.name;
-    } else if(wine.brand.name){
-        wineName = wine.brand.name;
-    }
-    
-    NSLog(@"wineName = %@",wineName);
-    NSAttributedString *name = [[NSAttributedString alloc] initWithString:wineName attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
-    [self.wineNameTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:wineName] andMinimumHeight:V_HEIGHT];
-    self.wineNameTV.attributedText = name;
-    
-    NSString *vintageString = [NSString stringWithFormat:@"%@",wine.vintage];
-    NSAttributedString *vintage = [[NSAttributedString alloc] initWithString:vintageString attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
-    [self.yearTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:vintageString] andMinimumHeight:V_HEIGHT];
-    self.yearTV.attributedText = vintage;
-    
-    NSString *varietalsString = [NSString stringWithFormat:@"%@ - ",wine.color];
-    for(Varietal *v in wine.varietals){
-        varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",v.name]];
-    }
-    varietalsString = [varietalsString substringToIndex:[varietalsString length]-2];
-    NSAttributedString *varietals = [[NSAttributedString alloc] initWithString:varietalsString attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
-    [self.varietalTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:varietalsString] andMinimumHeight:V_HEIGHT];
-    self.varietalTV.attributedText = varietals;
-    
-    NSString *locationString = [NSString stringWithFormat:@"%@, %@",wine.region, wine.country];
-    NSAttributedString *location = [[NSAttributedString alloc] initWithString:locationString attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
-    [self.regionTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:wine.region] andMinimumHeight:V_HEIGHT];
-    self.regionTV.attributedText = location;
-    
-    NSAttributedString *vineyard = [[NSAttributedString alloc] initWithString:wine.vineyard attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
-    [self.alcoholPercentageTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:wine.vineyard] andMinimumHeight:V_HEIGHT];
-    self.alcoholPercentageTV.attributedText = vineyard;
+    [self setupTextForWine:wine];
     
     [self setupReviewsLabel];
+}
+
+-(void)setupTextForWine:(Wine *)wine
+{
+    NSString *textViewString = @"";
+    NSRange nameRange = NSMakeRange(0, 0);
+    NSRange vintageRange = NSMakeRange(0, 0);
+    NSRange colorRange = NSMakeRange(0, 0);
+    NSRange varietalRange = NSMakeRange(0, 0);
+    NSRange regionRange = NSMakeRange(0, 0);
+    NSRange countryRange = NSMakeRange(0, 0);
+    NSRange vineyardRange = NSMakeRange(0, 0);
+    
+    if(wine.name){
+        nameRange = NSMakeRange([textViewString length], [wine.name length]);
+        textViewString = [textViewString stringByAppendingString:wine.name];
+    } else if(wine.brand){
+        nameRange = NSMakeRange([textViewString length], [wine.brand.name length]);
+        textViewString = [textViewString stringByAppendingString:wine.brand.name];
+    }
+    if((wine.name || wine.brand) && wine.vintage){
+        textViewString = [textViewString stringByAppendingString:@"\n"];
+    }
+    if(wine.vintage){
+        NSString *vintageString = [wine.vintage stringValue];
+        vintageRange = NSMakeRange([textViewString length], [vintageString length]);
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",vintageString]];
+    }
+    if(wine.color){
+        colorRange = NSMakeRange([textViewString length]+1, [wine.color length]);
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",wine.color]];
+    }
+    if(wine.varietals){
+        NSString *varietalsString = @"";
+        for(Varietal *varietal in wine.varietals){
+            varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
+        }
+        varietalRange = NSMakeRange([textViewString length]+1, [varietalsString length]);
+        textViewString = [textViewString stringByAppendingString:varietalsString];
+    }
+    if(wine.region){
+        regionRange = NSMakeRange([textViewString length]+1, [wine.region length]);
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",wine.region]];
+    }
+    if(wine.country){
+        countryRange = NSMakeRange([textViewString length]+1, [wine.country length]);
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",wine.country]];
+    }
+    if(wine.vineyard){
+        vineyardRange = NSMakeRange([textViewString length]+1, [wine.vineyard length]);
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",wine.vineyard]];
+    }
+    
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
+    self.wineNameTV.attributedText = attributedText;
+    self.wineNameTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    
+    [self.wineNameTV.textStorage addAttribute:NSFontAttributeName
+                                              value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
+                                              range:nameRange];
+    
+    [self.wineNameTV setHeightConstraintForAttributedText:self.wineNameTV.textStorage andMinimumHeight:V_HEIGHT];
+    
 }
 
 -(void)setupReviewsLabel

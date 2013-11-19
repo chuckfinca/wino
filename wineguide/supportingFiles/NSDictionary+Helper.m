@@ -16,7 +16,7 @@
 -(id)sanitizedValueForKey:(id)key
 {
     id object = [self objectForKey:key];
-    if (object == [NSNull null] || [object  isEqual: @""]){
+    if (object == [NSNull null] || [object isEqual:@""]){
         return nil;
     } if ([object isEqual:@"0"]){
         return @0;
@@ -28,15 +28,8 @@
 -(id)sanitizedStringForKey:(id)key
 {
     id object = [self objectForKey:key];
-    if(![object isKindOfClass:[NSString class]]) return nil;
+    if(![object isKindOfClass:[NSString class]] || [object isEqualToString:@""]) return nil;
     return object;
-}
-
-// used to separate multiple entries resulting from a given JSON dictionary key
--(NSArray *)separateNonNullStringLocatedAtKey:(NSString *)key
-{
-    NSString *string = [self sanitizedValueForKey:key];
-    return [string componentsSeparatedByString:DIVIDER];
 }
 
 @end

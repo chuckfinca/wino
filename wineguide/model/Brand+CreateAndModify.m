@@ -72,7 +72,7 @@
         }
     }
     
-    // [brand logDetails];
+    [brand logDetails];
     
     return brand;
 }

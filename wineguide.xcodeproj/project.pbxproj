@@ -344,8 +344,8 @@
 		C9061E31181F1E13003D8A55 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				C9061E41181F2865003D8A55 /* VariableHeightTV.m */,
 				C9061E42181F2865003D8A55 /* VariableHeightTV.h */,
+				C9061E41181F2865003D8A55 /* VariableHeightTV.m */,
 				C9061E3E181F27F1003D8A55 /* RestaurantHeaderView.h */,
 				C9061E3F181F27F1003D8A55 /* RestaurantHeaderView.m */,
 				C9061E56181F3D2F003D8A55 /* WineHeaderView.h */,

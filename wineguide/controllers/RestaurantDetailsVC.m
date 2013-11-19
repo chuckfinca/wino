@@ -12,8 +12,6 @@
 @interface RestaurantDetailsVC ()
 
 @property (weak, nonatomic) IBOutlet VariableHeightTV *restaurantNameTV;
-@property (weak, nonatomic) IBOutlet VariableHeightTV *streetAddressTV;
-@property (weak, nonatomic) IBOutlet VariableHeightTV *cityAndStateTV;
 
 @property (nonatomic, weak) IBOutlet UIButton *button;
 
@@ -47,15 +45,42 @@
 
 -(void)setupWithRestaurant:(Restaurant *)restaurant
 {
-    self.restaurantNameTV.attributedText = [[NSAttributedString alloc] initWithString:restaurant.name attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]}];
-    [self.restaurantNameTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:restaurant.name] andMinimumHeight:V_HEIGHT];
+    NSString *textViewString = @"";
+    NSRange nameRange = NSMakeRange(0, 0);
+    NSRange addressRange = NSMakeRange(0, 0);
     
-    self.streetAddressTV.attributedText = [[NSAttributedString alloc] initWithString:restaurant.address attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
-    [self.streetAddressTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:restaurant.address] andMinimumHeight:V_HEIGHT];
     
-    NSString *cityState = [NSString stringWithFormat:@"%@, %@",restaurant.city, restaurant.state];
-    self.cityAndStateTV.attributedText = [[NSAttributedString alloc] initWithString:cityState attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
-    [self.cityAndStateTV setHeightConstraintForAttributedText:[[NSAttributedString alloc] initWithString:cityState] andMinimumHeight:V_HEIGHT];
+    if(restaurant.name){
+        nameRange = NSMakeRange([textViewString length], [restaurant.name length]);
+        textViewString = [textViewString stringByAppendingString:restaurant.name];
+    }
+    if(restaurant.address){
+        addressRange = NSMakeRange([textViewString length]+1, [restaurant.address length]);
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",restaurant.address]];
+    }
+    if(restaurant.city || restaurant.state){
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n"]];
+    }
+    if(restaurant.city){
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",restaurant.city]];
+    }
+    if(restaurant.city && restaurant.state){
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@", "]];
+    }
+    if(restaurant.state){
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",restaurant.state]];
+    }
+    
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
+    self.restaurantNameTV.attributedText = attributedText;
+    self.restaurantNameTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    
+    [self.restaurantNameTV.textStorage addAttribute:NSFontAttributeName
+                                              value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
+                                              range:nameRange];
+    
+    [self.restaurantNameTV setHeightConstraintForAttributedText:attributedText andMinimumHeight:V_HEIGHT];
+    
 }
 
 
