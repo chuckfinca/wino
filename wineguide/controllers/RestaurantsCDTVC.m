@@ -75,24 +75,21 @@
 {
     Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    NSString *text = [NSString stringWithFormat:@"%@ %@",[restaurant.name capitalizedString],[restaurant.address capitalizedString]];
-    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
-    [attributedText addAttribute:NSFontAttributeName
-                           value:[UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]
-                           range:NSMakeRange(0, [restaurant.name length])];
-    [attributedText addAttribute:NSFontAttributeName
-                           value:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption2]
-                           range:NSMakeRange([restaurant.name length]+1, [restaurant.address length])];
-    [attributedText addAttribute:NSForegroundColorAttributeName
-                           value:[UIColor lightGrayColor]
-                           range:NSMakeRange([restaurant.name length]+1, [restaurant.address length])];
-    
-    cell.textLabel.attributedText = attributedText;
+    if(restaurant.name){
+        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    }
+    if(restaurant.address){
+        cell.detailTextLabel.numberOfLines = 0;
+        cell.detailTextLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.address capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1], NSForegroundColorAttributeName : [UIColor lightGrayColor]}];
+    }
 }
 
 
 #pragma mark - Getters & Setters
 
+
+
+#pragma mark - UITableViewDelegate
 
 
 #pragma mark - UITableViewDataSource
