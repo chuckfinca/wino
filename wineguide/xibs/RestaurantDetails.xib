@@ -6,7 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantDetailsVC">
             <connections>
-                <outlet property="restaurantNameTV" destination="AMh-ir-cDL" id="N2Q-Vl-X3R"/>
+                <outlet property="restaurantDetailsTV" destination="AMh-ir-cDL" id="mFp-66-eDb"/>
+                <outlet property="segmentedControl" destination="1uM-lx-Ch0" id="3Ha-cI-BL8"/>
                 <outlet property="view" destination="1" id="DBb-2J-Vxe"/>
             </connections>
         </placeholder>
@@ -32,87 +33,28 @@
                     </attributedString>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qnw-1j-mkf">
-                    <rect key="frame" x="20" y="66" width="44" height="44"/>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1uM-lx-Ch0">
+                    <rect key="frame" x="20" y="78" width="280" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="Hz9-ul-g4g"/>
-                        <constraint firstAttribute="width" constant="44" id="Mg7-m0-pce"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
-                    <state key="normal" title="popular"/>
+                    <segments>
+                        <segment title="popular"/>
+                        <segment title="rated"/>
+                        <segment title="value"/>
+                        <segment title="all"/>
+                    </segments>
                     <connections>
-                        <action selector="refreshWinelist:" destination="-1" eventType="touchUpInside" id="w9q-DR-h8B"/>
+                        <action selector="refreshList:" destination="-1" eventType="valueChanged" id="3jG-Y5-23Q"/>
                     </connections>
-                </button>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yww-b5-xnA">
-                    <rect key="frame" x="72" y="66" width="44" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="44" id="Dsh-BG-0G2"/>
-                        <constraint firstAttribute="height" constant="44" id="hjx-Be-23R"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
-                    <state key="normal" title="rated"/>
-                    <connections>
-                        <action selector="refreshWinelist:" destination="-1" eventType="touchUpInside" id="liV-b3-Mtj"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcQ-l5-x9V">
-                    <rect key="frame" x="124" y="66" width="44" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="0VD-Av-wgO"/>
-                        <constraint firstAttribute="width" constant="44" id="hbB-hp-D7q"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
-                    <state key="normal" title="rare"/>
-                    <connections>
-                        <action selector="refreshWinelist:" destination="-1" eventType="touchUpInside" id="3U1-1c-9Rr"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCl-cr-TPB">
-                    <rect key="frame" x="176" y="66" width="44" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="44" id="b23-Um-w0F"/>
-                        <constraint firstAttribute="height" constant="44" id="iy8-e0-yn1"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
-                    <state key="normal" title="vintage"/>
-                    <connections>
-                        <action selector="refreshWinelist:" destination="-1" eventType="touchUpInside" id="vCp-fk-WjO"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RV2-U1-bQB">
-                    <rect key="frame" x="228" y="66" width="44" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="44" id="3ti-hE-yXi"/>
-                        <constraint firstAttribute="height" constant="44" id="pxT-JO-SYZ"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
-                    <state key="normal" title="all"/>
-                    <connections>
-                        <action selector="refreshWinelist:" destination="-1" eventType="touchUpInside" id="pn0-e7-C98"/>
-                    </connections>
-                </button>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="yww-b5-xnA" firstAttribute="leading" secondItem="Qnw-1j-mkf" secondAttribute="trailing" constant="8" id="23Q-76-JWi"/>
-                <constraint firstItem="Qnw-1j-mkf" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="6Iz-Ib-ChH"/>
-                <constraint firstItem="Qnw-1j-mkf" firstAttribute="bottom" secondItem="RV2-U1-bQB" secondAttribute="bottom" id="6cH-ko-ss8"/>
-                <constraint firstItem="OcQ-l5-x9V" firstAttribute="leading" secondItem="yww-b5-xnA" secondAttribute="trailing" constant="8" id="9rA-yN-He5"/>
-                <constraint firstItem="kCl-cr-TPB" firstAttribute="leading" secondItem="OcQ-l5-x9V" secondAttribute="trailing" constant="8" id="B6j-0i-5Sk"/>
-                <constraint firstItem="Qnw-1j-mkf" firstAttribute="bottom" secondItem="kCl-cr-TPB" secondAttribute="bottom" id="CT8-QI-O4g"/>
+                <constraint firstAttribute="trailing" secondItem="1uM-lx-Ch0" secondAttribute="trailing" constant="20" id="8CT-0Y-ff1"/>
                 <constraint firstItem="AMh-ir-cDL" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="GfJ-is-pub"/>
                 <constraint firstAttribute="trailing" secondItem="AMh-ir-cDL" secondAttribute="trailing" id="JAb-Lm-nFw"/>
                 <constraint firstItem="AMh-ir-cDL" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="OgW-4S-567"/>
-                <constraint firstItem="Qnw-1j-mkf" firstAttribute="bottom" secondItem="yww-b5-xnA" secondAttribute="bottom" id="Wg7-Cp-sks"/>
-                <constraint firstItem="Qnw-1j-mkf" firstAttribute="bottom" secondItem="OcQ-l5-x9V" secondAttribute="bottom" id="d5y-jk-0xP"/>
-                <constraint firstItem="RV2-U1-bQB" firstAttribute="leading" secondItem="kCl-cr-TPB" secondAttribute="trailing" constant="8" id="dVB-gh-ak2"/>
-                <constraint firstItem="Qnw-1j-mkf" firstAttribute="top" secondItem="AMh-ir-cDL" secondAttribute="bottom" constant="8" symbolic="YES" id="sAy-vN-ffX"/>
+                <constraint firstItem="1uM-lx-Ch0" firstAttribute="top" secondItem="AMh-ir-cDL" secondAttribute="bottom" constant="20" id="g0f-pn-zpV"/>
+                <constraint firstItem="1uM-lx-Ch0" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="m0t-MS-hak"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

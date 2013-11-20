@@ -11,9 +11,8 @@
 
 @interface RestaurantDetailsVC ()
 
-@property (weak, nonatomic) IBOutlet VariableHeightTV *restaurantNameTV;
-
-@property (nonatomic, weak) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet VariableHeightTV *restaurantDetailsTV;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @end
 
@@ -24,7 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 130);
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 140);
     }
     return self;
 }
@@ -69,20 +68,20 @@
     }
     
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
-    self.restaurantNameTV.attributedText = attributedText;
-    self.restaurantNameTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+    self.restaurantDetailsTV.attributedText = attributedText;
+    self.restaurantDetailsTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
     
-    [self.restaurantNameTV.textStorage addAttribute:NSFontAttributeName
+    [self.restaurantDetailsTV.textStorage addAttribute:NSFontAttributeName
                                               value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
                                               range:nameRange];
     
-    [self.restaurantNameTV setHeightConstraintForAttributedText:attributedText andMinimumHeight:V_HEIGHT];
+    [self.restaurantDetailsTV setHeightConstraintForAttributedText:attributedText andMinimumHeight:V_HEIGHT];
     
 }
 
-
-- (IBAction)refreshWinelist:(UIButton *)sender {
-    [self.delegate loadWineList:sender.tag];
+- (IBAction)refreshList:(UISegmentedControl *)sender {
+    NSLog(@"sender.tag = %i",sender.selectedSegmentIndex);
+    [self.delegate loadWineList:sender.selectedSegmentIndex];
 }
 
 @end

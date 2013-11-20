@@ -21,9 +21,10 @@
 typedef enum {
     MostPopular,
     HighestRated,
-    RareFinds,
+    BestValue,
+    All,
     ExcellentVintages,
-    All
+    RareFinds,
 } WineList;
 
 @interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource, RestaurantDetailsVC_WineSelectionDelegate>
@@ -229,9 +230,9 @@ typedef enum {
             // fetch
             self.listName = @"highestrated";
             break;
-        case RareFinds:
+        case BestValue:
             // fetch
-            self.listName = @"rarefinds";
+            self.listName = @"bestvalue";
             break;
         case ExcellentVintages:
             // fetch
