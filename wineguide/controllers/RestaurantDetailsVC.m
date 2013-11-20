@@ -69,7 +69,7 @@
     
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
     self.restaurantDetailsTV.attributedText = attributedText;
-    self.restaurantDetailsTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+    self.restaurantDetailsTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
     
     [self.restaurantDetailsTV.textStorage addAttribute:NSFontAttributeName
                                               value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]

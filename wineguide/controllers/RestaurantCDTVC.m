@@ -144,7 +144,6 @@ typedef enum {
     for(NSObject *fetchedResult in self.fetchedResultsController.fetchedObjects){
         NSLog(@"fetchedResult = %@",fetchedResult.description);
     }
-    self.title = @"";
 }
 
 #pragma mark - Getters & Setters

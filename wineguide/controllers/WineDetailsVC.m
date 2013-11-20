@@ -75,11 +75,11 @@
     if(wine.vintage){
         NSString *vintageString = [wine.vintage stringValue];
         vintageRange = NSMakeRange([textViewString length], [vintageString length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@ ",[vintageString capitalizedString]]];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[vintageString capitalizedString]]];
         if(!wine.varietals) textViewString = [textViewString stringByAppendingString:@"\n"];
     }
     if(wine.varietals){
-        NSString *varietalsString = @"";
+        NSString *varietalsString = @" - ";
         for(Varietal *varietal in wine.varietals){
             varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
         }
@@ -103,7 +103,7 @@
     
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
     self.wineNameTV.attributedText = attributedText;
-    self.wineNameTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
+    self.wineNameTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
     
     [self.wineNameTV.textStorage addAttribute:NSFontAttributeName
                                               value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
