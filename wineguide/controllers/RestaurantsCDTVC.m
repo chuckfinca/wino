@@ -85,12 +85,6 @@
 }
 
 
-#pragma mark - Getters & Setters
-
-
-
-#pragma mark - UITableViewDelegate
-
 
 #pragma mark - UITableViewDataSource
 

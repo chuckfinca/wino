@@ -15,6 +15,7 @@
 #import "Brand.h"
 #import "Group.h"
 #import "WineUnit.h"
+#import "Varietal.h"
 
 #define JSON @"json"
 
@@ -163,11 +164,41 @@ typedef enum {
     static NSString *CellIdentifier = @"WineCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[wineUnit.wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    [self setupTextForCell:cell atIndexPath:indexPath];
 
     return cell;
+}
+
+-(void)setupTextForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    
+    if(wineUnit.wine.name){
+        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[wineUnit.wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    }
+    
+    NSString *textViewString = @"";
+    if(wineUnit.wine.vintage){
+        NSString *vintageString = [wineUnit.wine.vintage stringValue];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[vintageString capitalizedString]]];
+    }
+    if(wineUnit.wine.varietals){
+        NSString *varietalsString = @"";
+        if(wineUnit.wine.vintage) {
+            varietalsString = @" - ";
+        }
+        for(Varietal *varietal in wineUnit.wine.varietals){
+            varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
+        }
+        varietalsString = [varietalsString substringToIndex:[varietalsString length]-2];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[varietalsString capitalizedString]]];
+    }
+    if(wineUnit.wine.vintage || wineUnit.wine.varietals){
+        cell.detailTextLabel.numberOfLines = 0;
+        cell.detailTextLabel.attributedText = [[NSAttributedString alloc] initWithString:textViewString attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [UIColor lightGrayColor]}];
+    }
+    
 }
 
 #pragma mark - UITableViewDelegate

@@ -64,12 +64,12 @@
 {
     NSString *textViewString = @"";
     NSRange nameRange = NSMakeRange(0, 0);
-    NSRange restaurantRange = NSMakeRange(0, 0);
     NSRange vintageRange = NSMakeRange(0, 0);
     NSRange varietalRange = NSMakeRange(0, 0);
     NSRange regionRange = NSMakeRange(0, 0);
     NSRange countryRange = NSMakeRange(0, 0);
     NSRange vineyardRange = NSMakeRange(0, 0);
+    NSRange restaurantRange = NSMakeRange(0, 0);
     
     if(wine.name){
         nameRange = NSMakeRange([textViewString length], [wine.name length]);
