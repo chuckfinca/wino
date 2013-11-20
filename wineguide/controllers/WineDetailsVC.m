@@ -76,7 +76,8 @@
         NSString *vintageString = [wine.vintage stringValue];
         vintageRange = NSMakeRange([textViewString length], [vintageString length]);
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[vintageString capitalizedString]]];
-        if(!wine.varietals) textViewString = [textViewString stringByAppendingString:@"\n"];
+    } else {
+        textViewString = [textViewString stringByAppendingString:@"\n"];
     }
     if(wine.varietals){
         NSString *varietalsString = @" - ";
@@ -99,6 +100,11 @@
     if(wine.vineyard){
         vineyardRange = NSMakeRange([textViewString length]+1, [wine.vineyard length]);
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[wine.vineyard capitalizedString]]];
+    }
+    if(wine.alcoholPercentage){
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@%%\n",[wine.alcoholPercentage stringValue]]];
+    } else {
+        textViewString = [textViewString stringByAppendingString:@"\n"];
     }
     
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
