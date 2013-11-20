@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) WineDetailsVC *wineDetailsViewController;
 @property (nonatomic, strong) Wine *wine;
+@property (nonatomic, strong) Restaurant *restaurant;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 
 @end
@@ -57,10 +58,11 @@
 
 #pragma mark - Setup
 
--(void)setupWithWine:(Wine *)wine
+-(void)setupWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
 {
-    [self.wineDetailsViewController setupWithWine:wine];
+    [self.wineDetailsViewController setupWithWine:wine fromRestaurant:(Restaurant *)restaurant];
     self.wine = wine;
+    self.restaurant = restaurant;
     self.context = wine.managedObjectContext;
     
     // get the reviews for that wine

@@ -207,7 +207,7 @@ typedef enum {
                 
                 // Pass the selected object to the new view controller.
                 WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
-                [wineCDTVC setupWithWine:wineUnit.wine];
+                [wineCDTVC setupWithWine:wineUnit.wine fromRestaurant:self.restaurant];
             }
         }
     }

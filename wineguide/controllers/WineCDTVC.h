@@ -8,9 +8,10 @@
 
 #import "CoreDataTableViewController.h"
 #import "Wine.h"
+#import "Restaurant.h"
 
 @interface WineCDTVC : CoreDataTableViewController
 
--(void)setupWithWine:(Wine *)wine;
+-(void)setupWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant;
 
 @end

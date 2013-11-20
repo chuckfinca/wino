@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Wine.h"
+#import "Restaurant.h"
 
 @interface WineDetailsVC : UIViewController
 
--(void)setupWithWine:(Wine *)wine;
+-(void)setupWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant;
 
 @end
