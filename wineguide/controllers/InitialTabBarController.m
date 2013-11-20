@@ -10,6 +10,8 @@
 #import "DocumentHandler.h"
 #import "LocationHelper.h"
 #import "RestaurantDataHelper.h"
+#import "TastingNoteDataHelper.h"
+#import "VarietalDataHelper.h"
 
 @interface InitialTabBarController ()
 
@@ -61,6 +63,8 @@
 -(void)refresh
 {
     NSLog(@"refresh...");
+    [self updateTastingNotes];
+    [self updateVarietals];
     
     [self checkUserLocation];
     
@@ -82,6 +86,21 @@
     
     
 }
+
+-(void)updateTastingNotes
+{
+    NSURL *tastingNoteJSONUrl = [[NSBundle mainBundle] URLForResource:@"tastingnotes" withExtension:@"json"];
+    TastingNoteDataHelper *tndh = [[TastingNoteDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
+    [tndh updateCoreDataWithJSONFromURL:tastingNoteJSONUrl];
+}
+
+-(void)updateVarietals
+{
+    NSURL *varietalsJSONUrl = [[NSBundle mainBundle] URLForResource:@"varietals" withExtension:@"json"];
+    VarietalDataHelper *vdh = [[VarietalDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
+    [vdh updateCoreDataWithJSONFromURL:varietalsJSONUrl];
+}
+
 
 -(void)updateRestaurants
 {

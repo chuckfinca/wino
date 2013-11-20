@@ -63,7 +63,6 @@
     NSString *textViewString = @"";
     NSRange nameRange = NSMakeRange(0, 0);
     NSRange vintageRange = NSMakeRange(0, 0);
-    NSRange colorRange = NSMakeRange(0, 0);
     NSRange varietalRange = NSMakeRange(0, 0);
     NSRange regionRange = NSMakeRange(0, 0);
     NSRange countryRange = NSMakeRange(0, 0);
@@ -71,44 +70,40 @@
     
     if(wine.name){
         nameRange = NSMakeRange([textViewString length], [wine.name length]);
-        textViewString = [textViewString stringByAppendingString:wine.name];
-    }
-    if(wine.name && wine.vintage){
-        textViewString = [textViewString stringByAppendingString:@"\n"];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[wine.name capitalizedString]]];
     }
     if(wine.vintage){
         NSString *vintageString = [wine.vintage stringValue];
         vintageRange = NSMakeRange([textViewString length], [vintageString length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",vintageString]];
-    }
-    if(wine.color){
-        colorRange = NSMakeRange([textViewString length]+1, [wine.color length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",wine.color]];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@ ",[vintageString capitalizedString]]];
+        if(!wine.varietals) textViewString = [textViewString stringByAppendingString:@"\n"];
     }
     if(wine.varietals){
         NSString *varietalsString = @"";
         for(Varietal *varietal in wine.varietals){
             varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
         }
+        if([varietalsString length] > 0) varietalsString = [varietalsString substringToIndex:[varietalsString length]-2];
         varietalRange = NSMakeRange([textViewString length]+1, [varietalsString length]);
-        textViewString = [textViewString stringByAppendingString:varietalsString];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[varietalsString capitalizedString]]];
     }
     if(wine.region){
         regionRange = NSMakeRange([textViewString length]+1, [wine.region length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",wine.region]];
+        textViewString = [textViewString stringByAppendingString:[wine.region capitalizedString]];
     }
     if(wine.country){
+        if(wine.region) textViewString = [textViewString stringByAppendingString:@", "];
         countryRange = NSMakeRange([textViewString length]+1, [wine.country length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",wine.country]];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[wine.country capitalizedString]]];
     }
     if(wine.vineyard){
         vineyardRange = NSMakeRange([textViewString length]+1, [wine.vineyard length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",wine.vineyard]];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[wine.vineyard capitalizedString]]];
     }
     
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
     self.wineNameTV.attributedText = attributedText;
-    self.wineNameTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    self.wineNameTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
     
     [self.wineNameTV.textStorage addAttribute:NSFontAttributeName
                                               value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
