@@ -57,8 +57,6 @@ typedef enum {
     // self.clearsSelectionOnViewWillAppear = NO;
     
     self.tableView.tableHeaderView = self.restaurantDetailsViewController.view;
-    self.debug = YES;
-    
 }
 
 -(void)didReceiveMemoryWarning
@@ -71,7 +69,7 @@ typedef enum {
 
 -(NSString *)listName
 {
-    if(!_listName) _listName = @"popular";
+    if(!_listName) _listName = @"mostpopular";
     return _listName;
 }
 
@@ -174,11 +172,24 @@ typedef enum {
 
 #pragma mark - UITableViewDelegate
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    UIView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"WineSectionHeader"];
-    return view;
+	id <NSFetchedResultsSectionInfo> theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
+	return [[theSection name] capitalizedString];
 }
+
+/*
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    // if this method is used we need to register the appropriate class for use as a reuseable view (probably in viewDidLoad).
+    // [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeaderViewIdentifier"];
+ 
+    UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeaderViewIdentifier"];
+    sectionHeaderView.contentView.backgroundColor = [UIColor purpleColor];
+    return sectionHeaderView;
+}
+ */
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -201,6 +212,8 @@ typedef enum {
         }
     }
 }
+
+#pragma mark - NSFetchedResultsControllerDelegate
 
 
 #pragma mark - RestaurantDetailsVC_WineSelectionDelegate
