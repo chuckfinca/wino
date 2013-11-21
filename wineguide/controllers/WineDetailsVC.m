@@ -29,7 +29,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 200);
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 240);
     }
     return self;
 }
@@ -73,7 +73,7 @@
     
     if(wine.name){
         nameRange = NSMakeRange([textViewString length], [wine.name length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[wine.name capitalizedString]]];
+        textViewString = [textViewString stringByAppendingString:[wine.name capitalizedString]];
     }
     if(wine.vintage){
         NSString *vintageString = [wine.vintage stringValue];
@@ -82,12 +82,13 @@
     }
     if(wine.varietals){
         NSString *varietalsString = @" - ";
-        for(Varietal *varietal in wine.varietals){
+        NSArray *varietals = [wine.varietals sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        for(Varietal *varietal in varietals){
             varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
         }
         varietalsString = [varietalsString substringToIndex:[varietalsString length]-2];
         varietalRange = NSMakeRange([textViewString length]+1, [varietalsString length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[varietalsString capitalizedString]]];
+        textViewString = [textViewString stringByAppendingString:[varietalsString capitalizedString]];
     }
     if(wine.region){
         regionRange = NSMakeRange([textViewString length]+1, [wine.region length]);
@@ -100,30 +101,39 @@
             textViewString = [textViewString stringByAppendingString:@"\n"];
         }
         countryRange = NSMakeRange([textViewString length]+1, [wine.country length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[wine.country capitalizedString]]];
+        textViewString = [textViewString stringByAppendingString:[wine.country capitalizedString]];
     }
     if(wine.vineyard){
         vineyardRange = NSMakeRange([textViewString length]+1, [wine.vineyard length]);
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",[wine.vineyard capitalizedString]]];
     }
     if(wine.alcoholPercentage){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@%% Alcohol",[wine.alcoholPercentage stringValue]]];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@%% alcohol",[wine.alcoholPercentage stringValue]]];
     }
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY groups.restaurantIdentifier == %@",self.restaurant.identifier];
-    
     NSSet *wineUnits = [wine.wineUnits filteredSetUsingPredicate:predicate];
     if(wineUnits){
         
-        NSString * wineUnitsString = @" ";
+        NSString * wineUnitsString = @"\n\n";
         for(WineUnit *wineUnit in wineUnits){
-            wineUnitsString = [NSString stringWithFormat:@"\n\n$%@ %@, ",[wineUnit.price stringValue],wineUnit.quantity];
+            wineUnitsString = [wineUnitsString stringByAppendingString:[NSString stringWithFormat:@"$%@ %@, ",[wineUnit.price stringValue],wineUnit.quantity]];
         }
         wineUnitsString = [wineUnitsString substringToIndex:[wineUnitsString length]-2];
         textViewString = [textViewString stringByAppendingString:wineUnitsString];
         restaurantRange = NSMakeRange([textViewString length], [self.restaurant.name length]+3);
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@" @ %@",[self.restaurant.name capitalizedString]]];
     }
+    if(wine.tastingNotes){
+        NSString *tastingNotesString = @"\n\nTasting notes: ";
+        NSArray *tastingNotes = [wine.tastingNotes sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        for(TastingNote *tastingNote in tastingNotes){
+            tastingNotesString = [tastingNotesString stringByAppendingString:[NSString stringWithFormat:@"%@, ",tastingNote.name]];
+        }
+        tastingNotesString = [tastingNotesString substringToIndex:[tastingNotesString length]-2];
+        textViewString = [textViewString stringByAppendingString:tastingNotesString];
+    }
+    
     
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
     self.wineNameTV.attributedText = attributedText;

@@ -16,6 +16,7 @@
 #import "Group.h"
 #import "WineUnit.h"
 #import "Varietal.h"
+#import "TastingNote.h"
 
 #define JSON @"json"
 
@@ -127,6 +128,8 @@ typedef enum {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_UNIT_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"wine.color"
                                                               ascending:YES],
+                                [NSSortDescriptor sortDescriptorWithKey:@"wine.varietalIdentifiers"
+                                                              ascending:YES],
                                 [NSSortDescriptor sortDescriptorWithKey:@"wine.name"
                                                               ascending:YES]];
     
@@ -186,12 +189,23 @@ typedef enum {
         if(wineUnit.wine.vintage) {
             varietalsString = @" - ";
         }
-        for(Varietal *varietal in wineUnit.wine.varietals){
+        NSArray *varietals = [wineUnit.wine.varietals sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        for(Varietal *varietal in varietals){
             varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
         }
         varietalsString = [varietalsString substringToIndex:[varietalsString length]-2];
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[varietalsString capitalizedString]]];
     }
+    if(wineUnit.wine.tastingNotes){
+        NSString *tastingNotesString = @"\n";
+        NSArray *tastingNotes = [wineUnit.wine.tastingNotes sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        for(TastingNote *tastingNote in tastingNotes){
+            tastingNotesString = [tastingNotesString stringByAppendingString:[NSString stringWithFormat:@"%@, ",tastingNote.name]];
+        }
+        tastingNotesString = [tastingNotesString substringToIndex:[tastingNotesString length]-2];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",tastingNotesString]];
+    }
+    
     if(wineUnit.wine.vintage || wineUnit.wine.varietals){
         cell.detailTextLabel.numberOfLines = 0;
         cell.detailTextLabel.attributedText = [[NSAttributedString alloc] initWithString:textViewString attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [UIColor lightGrayColor]}];

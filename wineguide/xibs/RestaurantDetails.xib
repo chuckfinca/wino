@@ -34,11 +34,11 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1uM-lx-Ch0">
-                    <rect key="frame" x="20" y="78" width="280" height="29"/>
+                    <rect key="frame" x="13" y="78" width="295" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="popular"/>
-                        <segment title="rated"/>
+                        <segment title="well rated"/>
                         <segment title="value"/>
                         <segment title="all"/>
                     </segments>
@@ -49,12 +49,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="1uM-lx-Ch0" secondAttribute="trailing" constant="20" id="8CT-0Y-ff1"/>
                 <constraint firstItem="AMh-ir-cDL" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="GfJ-is-pub"/>
                 <constraint firstAttribute="trailing" secondItem="AMh-ir-cDL" secondAttribute="trailing" id="JAb-Lm-nFw"/>
                 <constraint firstItem="AMh-ir-cDL" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="OgW-4S-567"/>
+                <constraint firstAttribute="trailing" secondItem="1uM-lx-Ch0" secondAttribute="trailing" constant="12" id="VdE-Tg-WYB"/>
+                <constraint firstItem="1uM-lx-Ch0" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="13" id="efH-32-eby"/>
                 <constraint firstItem="1uM-lx-Ch0" firstAttribute="top" secondItem="AMh-ir-cDL" secondAttribute="bottom" constant="20" id="g0f-pn-zpV"/>
-                <constraint firstItem="1uM-lx-Ch0" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="m0t-MS-hak"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
