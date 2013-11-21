@@ -15,12 +15,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="c9I-dc-8hT" kind="relationship" relationship="rootViewController" id="TGX-wd-FyP"/>
+                        <segue destination="SuW-Gu-nSw" kind="relationship" relationship="rootViewController" id="Nep-ax-hHL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILd-yr-Dv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="221" y="160"/>
+            <point key="canvasLocation" x="505" y="160"/>
         </scene>
         <!--RestaurantsCDTVC-->
         <scene sceneID="Hf6-e8-0Zr">
@@ -69,64 +69,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04R-gd-WBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1036" y="160"/>
-        </scene>
-        <!--HomeVC-->
-        <scene sceneID="eIk-JZ-Qg2">
-            <objects>
-                <viewController id="c9I-dc-8hT" customClass="HomeVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vnh-me-eaS"/>
-                        <viewControllerLayoutGuide type="bottom" id="qk6-NE-qdr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="119-js-lw7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7V-lW-S1H">
-                                <rect key="frame" x="20" y="243" width="280" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.37094537789999998" green="0.18735637860000001" blue="0.40712041440000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="4Gi-uf-gIy"/>
-                                    <constraint firstAttribute="height" constant="82" id="USf-ro-7mQ"/>
-                                </constraints>
-                                <state key="normal" title="Find wines near me">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="SuW-Gu-nSw" kind="push" identifier="FindRestaurantsNearby" id="1tR-Ht-IFT"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The quick and easy way to find a perfect wine off that menu." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pNL-kN-cir">
-                                <rect key="frame" x="20" y="333" width="280" height="77"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="77" id="m0A-iF-OgQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="pNL-kN-cir" secondAttribute="trailing" constant="20" id="GDf-7u-ySj"/>
-                            <constraint firstAttribute="centerX" secondItem="A7V-lW-S1H" secondAttribute="centerX" id="af4-Hs-0tq"/>
-                            <constraint firstItem="pNL-kN-cir" firstAttribute="leading" secondItem="119-js-lw7" secondAttribute="leading" constant="20" id="gP5-jm-wFK"/>
-                            <constraint firstAttribute="centerY" secondItem="A7V-lW-S1H" secondAttribute="centerY" id="hu5-hC-LSl"/>
-                            <constraint firstItem="pNL-kN-cir" firstAttribute="top" secondItem="A7V-lW-S1H" secondAttribute="bottom" constant="8" id="xhd-Qx-KMN"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Ngf-fm-atv"/>
-                    <connections>
-                        <outlet property="appDescriptionTV" destination="pNL-kN-cir" id="weO-cg-BLf"/>
-                        <outlet property="findWinesButton" destination="A7V-lW-S1H" id="Wfe-P5-kja"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p0i-wU-JLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="623" y="160"/>
         </scene>
         <!--RestaurantCDTVC-->
         <scene sceneID="fQO-YH-hC5">
@@ -221,7 +163,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHW-Tz-hvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-313" y="572"/>
+            <point key="canvasLocation" x="-29" y="572"/>
         </scene>
     </scenes>
     <resources>

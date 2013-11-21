@@ -10,6 +10,7 @@
 #import "RestaurantCDTVC.h"
 #import "Restaurant.h"
 #import "InitialTabBarController.h"
+#import "DocumentHandler.h"
 
 @interface RestaurantsCDTVC ()
 
@@ -34,7 +35,22 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self listenForDocumentReadyNotification];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)refresh
+{
     if([self.tabBarController isKindOfClass:[InitialTabBarController class]]){
         InitialTabBarController *itbc = (InitialTabBarController *)self.tabBarController;
         self.context = itbc.context;
@@ -45,7 +61,6 @@
     if(self.fetchedResultsController.fetchedObjects > 0){
         self.title = @"Nearby";
     }
- 
 }
 
 - (void)didReceiveMemoryWarning
@@ -129,6 +144,16 @@
             }
         }
     }
+}
+
+#pragma mark - Listen for Notifications
+
+-(void)listenForDocumentReadyNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refresh)
+                                                 name:@"Document Ready"
+                                               object:nil];
 }
 
 

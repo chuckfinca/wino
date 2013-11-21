@@ -47,9 +47,9 @@
         [[DocumentHandler sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document){
             self.document = document;
             self.context = document.managedObjectContext;
-            
             // Do any additional work now that the document is ready
             [self refresh];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Document Ready" object:nil];
         }];
     }
 }
@@ -68,6 +68,7 @@
     
     [self checkUserLocation];
     
+    self.locationServicesEnabled = YES;
     if(self.locationServicesEnabled){
         [self updateRestaurants];
     }
@@ -86,6 +87,31 @@
     
     
 }
+
+-(void)checkUserLocation
+{
+    if([LocationHelper locationServicesEnabled]){
+        NSLog(@"locationServicesEnabled");
+        self.locationServicesEnabled = YES;
+    }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if([identifier isEqualToString:@"FindRestaurantsNearby"]){
+        NSLog(@"identifier = %@",identifier);
+        if(!self.locationServicesEnabled){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enable location services?" message:@"Wine Guide would like to use your location." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+            [alert show];
+            return NO;
+        }
+    }
+    return YES;
+}
+
+
+#pragma mark - Update Core Data
+
 
 -(void)updateTastingNotes
 {
@@ -110,17 +136,6 @@
     RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
     [rdh updateCoreDataWithJSONFromURL:url];
 }
-
--(void)checkUserLocation
-{
-    if([LocationHelper locationServicesEnabled]){
-        NSLog(@"locationServicesEnabled");
-        self.locationServicesEnabled = YES;
-    }
-}
-
-
-
 
 
 
