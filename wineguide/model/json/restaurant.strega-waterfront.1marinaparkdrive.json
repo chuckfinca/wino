@@ -47,7 +47,7 @@
     "name":"best value",
     "restaurantIdentifier":"restaurant.strega-waterfront.1marinaparkdrive",
     "version":"0",
-    "wineUnitIdentifiers":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.marcofelluga.varietal.pinotgrigio.2011.glass/wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.closduval.varietal.chardonnay.2011.glass/wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.franciscoppola..2011.glass",
+    "wineUnitIdentifiers":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.stemmari.varietal.pinotgrigio.2011.glass/wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.marcofelluga.varietal.pinotgrigio.2011.glass/wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.raymondlot3.varietal.chardonnay.2011.glass/wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.rodneystrong.varietal.chardonnay.2011.glass",
     "restaurant":"",
     "wineUnits":""
   },
@@ -58,7 +58,7 @@
     "name":"most popular",
     "restaurantIdentifier":"restaurant.strega-waterfront.1marinaparkdrive",
     "version":"0",
-    "wineUnitIdentifiers":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.marcofelluga.varietal.pinotgrigio.2011.glass/wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.closduval.varietal.chardonnay.2011.glass/wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.franciscoppola..2011.glass",
+    "wineUnitIdentifiers":"wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.closduval.varietal.chardonnay.2011.glass/wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.sonomacutrer.varietal.chardonnay.2011.glass/wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.heitz.varietal.chardonnay.2010.glass/wineunit.restaurant.strega-waterfront.1marinaparkdrive.wine.brand.caymusconundrum..2011.glass",
     "restaurant":"",
     "wineUnits":""
   },
