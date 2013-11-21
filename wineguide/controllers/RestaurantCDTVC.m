@@ -54,7 +54,7 @@ typedef enum {
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -119,15 +119,13 @@ typedef enum {
     [self setupFetchedResultsController];
 }
 
-
 #define WINE_UNIT_ENTITY @"WineUnit"
 
 -(void)setupFetchedResultsController
 {
     // NSLog(@"setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_UNIT_ENTITY];
-    request.sortDescriptors = @[
-                                [NSSortDescriptor sortDescriptorWithKey:@"wine.color"
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"wine.color"
                                                               ascending:YES],
                                 [NSSortDescriptor sortDescriptorWithKey:@"wine.name"
                                                               ascending:YES]];
@@ -165,7 +163,7 @@ typedef enum {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     [self setupTextForCell:cell atIndexPath:indexPath];
-
+    
     return cell;
 }
 
@@ -210,15 +208,15 @@ typedef enum {
 }
 
 /*
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    // if this method is used we need to register the appropriate class for use as a reuseable view (probably in viewDidLoad).
-    // [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeaderViewIdentifier"];
+ - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+ {
+ // if this method is used we need to register the appropriate class for use as a reuseable view (probably in viewDidLoad).
+ // [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeaderViewIdentifier"];
  
-    UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeaderViewIdentifier"];
-    sectionHeaderView.contentView.backgroundColor = [UIColor purpleColor];
-    return sectionHeaderView;
-}
+ UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeaderViewIdentifier"];
+ sectionHeaderView.contentView.backgroundColor = [UIColor purpleColor];
+ return sectionHeaderView;
+ }
  */
 
 

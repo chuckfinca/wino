@@ -114,15 +114,15 @@
     
     NSSet *wineUnits = [wine.wineUnits filteredSetUsingPredicate:predicate];
     if(wineUnits){
-        restaurantRange = NSMakeRange([textViewString length], [self.restaurant.name length]+4);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n\n%@: ",[self.restaurant.name capitalizedString]]];
         
         NSString * wineUnitsString = @" ";
         for(WineUnit *wineUnit in wineUnits){
-            wineUnitsString = [NSString stringWithFormat:@"$%@ %@, ",[wineUnit.price stringValue],wineUnit.quantity];
+            wineUnitsString = [NSString stringWithFormat:@"\n\n$%@ %@, ",[wineUnit.price stringValue],wineUnit.quantity];
         }
         wineUnitsString = [wineUnitsString substringToIndex:[wineUnitsString length]-2];
         textViewString = [textViewString stringByAppendingString:wineUnitsString];
+        restaurantRange = NSMakeRange([textViewString length], [self.restaurant.name length]+3);
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@" @ %@",[self.restaurant.name capitalizedString]]];
     }
     
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
