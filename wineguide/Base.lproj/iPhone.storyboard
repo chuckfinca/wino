@@ -4,11 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Near Me-->
         <scene sceneID="xLQ-YU-XQd">
             <objects>
                 <navigationController definesPresentationContext="YES" id="OV2-Hf-2fH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="VrK-JF-UWa"/>
+                    <tabBarItem key="tabBarItem" title="Near Me" image="tab_nearMe.png" id="VrK-JF-UWa"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rni-fG-KNB">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
@@ -244,6 +244,9 @@
             <point key="canvasLocation" x="221" y="898"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_nearMe.png" width="30" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
