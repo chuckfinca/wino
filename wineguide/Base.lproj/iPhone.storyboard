@@ -217,31 +217,11 @@
                     </tabBar>
                     <connections>
                         <segue destination="OV2-Hf-2fH" kind="relationship" relationship="viewControllers" id="xQj-lU-CVU"/>
-                        <segue destination="Su0-En-3Gi" kind="relationship" relationship="viewControllers" id="DH3-0T-1eH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHW-Tz-hvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-313" y="572"/>
-        </scene>
-        <!--View Controller - Item 2-->
-        <scene sceneID="suV-5O-sLg">
-            <objects>
-                <viewController id="Su0-En-3Gi" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ap5-Rt-qJ1"/>
-                        <viewControllerLayoutGuide type="bottom" id="srB-Wa-Lng"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ldt-qg-gbl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.37094537789999998" green="0.18735637860000001" blue="0.40712041440000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="FPS-gA-t1U"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ayG-Go-cOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="221" y="898"/>
         </scene>
     </scenes>
     <resources>
