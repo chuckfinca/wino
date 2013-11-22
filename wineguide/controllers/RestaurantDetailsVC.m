@@ -7,11 +7,11 @@
 //
 
 #import "RestaurantDetailsVC.h"
-#import "VariableHeightTV.h"
+#import "RestaurantDetailsTV.h"
 
 @interface RestaurantDetailsVC ()
 
-@property (weak, nonatomic) IBOutlet VariableHeightTV *restaurantDetailsTV;
+@property (weak, nonatomic) IBOutlet RestaurantDetailsTV *restaurantDetailsTV;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @end
@@ -40,44 +40,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-#define V_HEIGHT 20
-
 -(void)setupWithRestaurant:(Restaurant *)restaurant
 {
-    NSString *textViewString = @"";
-    NSRange nameRange = NSMakeRange(0, 0);
-    NSRange addressRange = NSMakeRange(0, 0);
-    
-    
-    if(restaurant.name){
-        nameRange = NSMakeRange([textViewString length], [restaurant.name length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[restaurant.name capitalizedString]]];
-    }
-    if(restaurant.address){
-        addressRange = NSMakeRange([textViewString length]+1, [restaurant.address length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[restaurant.address capitalizedString]]];
-    }
-    if(restaurant.city){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[restaurant.city capitalizedString]]];
-    }
-    if(restaurant.city && restaurant.state){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@", "]];
-    }
-    if(restaurant.state){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[restaurant.state capitalizedString]]];
-    }
-    
-    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
-    self.restaurantDetailsTV.attributedText = attributedText;
-    self.restaurantDetailsTV.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
-    
-    [self.restaurantDetailsTV.textStorage addAttribute:NSFontAttributeName
-                                              value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
-                                              range:nameRange];
-    
-    [self.restaurantDetailsTV setHeightConstraintForAttributedText:attributedText andMinimumHeight:V_HEIGHT];
-    
+    [self.restaurantDetailsTV setupTextViewWithRestaurant:restaurant];
 }
+
 
 - (IBAction)refreshList:(UISegmentedControl *)sender {
     [self.delegate loadWineList:sender.selectedSegmentIndex];
