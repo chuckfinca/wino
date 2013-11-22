@@ -12,8 +12,9 @@
 #import "RestaurantDataHelper.h"
 #import "TastingNoteDataHelper.h"
 #import "VarietalDataHelper.h"
+#import "ColorSchemer.h"
 
-@interface InitialTabBarController ()
+@interface InitialTabBarController () <UIAlertViewDelegate>
 
 @property (nonatomic, strong) UIManagedDocument *document;
 @property (nonatomic, readwrite) NSManagedObjectContext *context;
@@ -36,7 +37,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.view.tintColor = [UIColor colorWithRed:0.666667f green:0.470588f blue:0.650980f alpha:1.0F];
+    
+    [self setupAppColorScheme];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -60,6 +62,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setupAppColorScheme
+{
+    self.view.tintColor = [ColorSchemer sharedInstance].baseColor;
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 -(void)refresh
 {
     NSLog(@"refresh...");
@@ -67,46 +76,19 @@
     [self updateVarietals];
     
     [self checkUserLocation];
-    
-    self.locationServicesEnabled = YES;
     if(self.locationServicesEnabled){
         [self updateRestaurants];
     }
-    
-    // if location services have not been enabled yet
-    // user enables location
-    
-    // at start of app OR after location services have been enabled
-    // get users location
-    // compare location with stored location
-    // if no stored location OR stored location is different than user's location then ask server for restaurants in the users area/city
-    // once downloaded store the restaurant data in db
-    // use local restaurant info to get/display the restaurants near the user
-    
-    // when on the list page we should download the wine menus for the closest 3? restaurants
-    
-    
 }
 
 -(void)checkUserLocation
 {
-    if([LocationHelper locationServicesEnabled]){
+    if(!self.locationServicesEnabled){
         NSLog(@"locationServicesEnabled");
-        self.locationServicesEnabled = YES;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enable location services?" message:@"Wine Guide would like to use your location." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+        alert.tintColor = [ColorSchemer sharedInstance].textLink;
+        [alert show];
     }
-}
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    if([identifier isEqualToString:@"FindRestaurantsNearby"]){
-        NSLog(@"identifier = %@",identifier);
-        if(!self.locationServicesEnabled){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enable location services?" message:@"Wine Guide would like to use your location." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
-            [alert show];
-            return NO;
-        }
-    }
-    return YES;
 }
 
 
@@ -137,6 +119,16 @@
     [rdh updateCoreDataWithJSONFromURL:url];
 }
 
+
+#pragma mark - UIAlertViewDelegate
+
+-(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1) {
+        self.locationServicesEnabled = [LocationHelper locationServicesEnabled];
+        [self updateRestaurants];
+    }
+}
 
 
 

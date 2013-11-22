@@ -10,11 +10,12 @@
 #import "RestaurantCDTVC.h"
 #import "Restaurant.h"
 #import "InitialTabBarController.h"
-#import "DocumentHandler.h"
+#import "ColorSchemer.h"
 
-@interface RestaurantsCDTVC ()
+@interface RestaurantsCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, weak) NSManagedObjectContext *context;
+@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -32,7 +33,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    [self setupSearchBar];
+    [self setupNavigationBar];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 }
@@ -41,6 +45,7 @@
 {
     [super viewWillAppear:animated];
     [self listenForDocumentReadyNotification];
+    [self listenForKeyboardNotifcations];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -48,6 +53,14 @@
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+
+
+#pragma mark - Getters & Setters
+
+
+
+#pragma mark - Setup
 
 -(void)refresh
 {
@@ -63,13 +76,17 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
+-(void)setupNavigationBar
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.666667f green:0.470588f blue:0.650980f alpha:1.0F];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
-#pragma mark - Setup
+-(void)setupSearchBar
+{
+    self.searchBar.delegate = self;
+    self.searchBar.placeholder = @"Search restaurants...";
+}
 
 -(void)setupFetchedResultsController
 {
@@ -81,9 +98,9 @@
     request.predicate = nil;
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                                       managedObjectContext:self.context
-                                                                                         sectionNameKeyPath:nil
-                                                                                                  cacheName:nil];
+                                                                        managedObjectContext:self.context
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
 }
 
 -(void)setupTextForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -146,6 +163,52 @@
     }
 }
 
+
+
+#pragma mark - UISearchBarDelegate
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    NSLog(@"searchText = %@",searchText);
+    [self setupSearchResultsFetchControllerWithUserText:searchText];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    // NSLog(@"searchBarSearchButtonClicked...");
+    [self setupFetchedResultsController];
+    [searchBar resignFirstResponder];
+    NSString *input = searchBar.text;
+    NSLog(@"input = %@",input);
+    
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    // NSLog(@"searchBarCancelButtonClicked...");
+    [searchBar resignFirstResponder];
+    searchBar.text = @"";
+    [self setupFetchedResultsController];
+}
+
+
+-(void)setupSearchResultsFetchControllerWithUserText:(NSString *)text
+{
+    // NSLog(@"setupSearchResultsFetchController...");
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Restaurant"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                              ascending:YES
+                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
+    request.predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.context
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+    
+}
+
+
 #pragma mark - Listen for Notifications
 
 -(void)listenForDocumentReadyNotification
@@ -156,5 +219,37 @@
                                                object:nil];
 }
 
+
+-(void)listenForKeyboardNotifcations
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showHideCancelButton:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showHideCancelButton:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+-(void)showHideCancelButton:(NSNotification *)notification
+{
+    NSLog(@"asdfasdfasdfasdf");
+    if(notification.name == UIKeyboardWillShowNotification){
+        [self.searchBar setShowsCancelButton:YES animated:YES];
+    } else {
+        [self.searchBar setShowsCancelButton:NO animated:NO];
+    }
+}
+
+
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 @end

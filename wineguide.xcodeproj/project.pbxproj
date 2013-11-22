@@ -35,7 +35,6 @@
 		C9061E40181F27F1003D8A55 /* RestaurantHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E3F181F27F1003D8A55 /* RestaurantHeaderView.m */; };
 		C9061E43181F2865003D8A55 /* VariableHeightTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E41181F2865003D8A55 /* VariableHeightTV.m */; };
 		C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */; };
-		C9061E49181F3480003D8A55 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E48181F3480003D8A55 /* HomeVC.m */; };
 		C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9061E4D181F36BE003D8A55 /* WineDetails.xib */; };
 		C9061E53181F3CD3003D8A55 /* star_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = C9061E50181F3CD3003D8A55 /* star_empty.png */; };
 		C9061E54181F3CD3003D8A55 /* star_full.png in Resources */ = {isa = PBXBuildFile; fileRef = C9061E51181F3CD3003D8A55 /* star_full.png */; };
@@ -73,6 +72,7 @@
 		C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFE4182310060038216C /* Wine+CreateAndModify.m */; };
 		C98DEFE8182312130038216C /* ManagedObjectHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFE7182312130038216C /* ManagedObjectHandler.m */; };
 		C98DEFFE182329D30038216C /* restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = C98DEFFA182329D30038216C /* restaurants.json */; };
+		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
 		C9D4472F183C9468004C8AF2 /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472D183C9468004C8AF2 /* tastingnotes.json */; };
 		C9D44730183C9468004C8AF2 /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472E183C9468004C8AF2 /* varietals.json */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
@@ -139,8 +139,6 @@
 		C9061E42181F2865003D8A55 /* VariableHeightTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VariableHeightTV.h; path = views/VariableHeightTV.h; sourceTree = "<group>"; };
 		C9061E44181F2BF2003D8A55 /* RestaurantDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantDetailsVC.h; path = controllers/RestaurantDetailsVC.h; sourceTree = "<group>"; };
 		C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantDetailsVC.m; path = controllers/RestaurantDetailsVC.m; sourceTree = "<group>"; };
-		C9061E47181F3480003D8A55 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeVC.h; path = controllers/HomeVC.h; sourceTree = "<group>"; };
-		C9061E48181F3480003D8A55 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeVC.m; path = controllers/HomeVC.m; sourceTree = "<group>"; };
 		C9061E4D181F36BE003D8A55 /* WineDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineDetails.xib; path = xibs/WineDetails.xib; sourceTree = "<group>"; };
 		C9061E50181F3CD3003D8A55 /* star_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_empty.png; path = images/star_empty.png; sourceTree = "<group>"; };
 		C9061E51181F3CD3003D8A55 /* star_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_full.png; path = images/star_full.png; sourceTree = "<group>"; };
@@ -205,6 +203,8 @@
 		C98DEFE6182312130038216C /* ManagedObjectHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagedObjectHandler.h; path = model/ManagedObjectHandler.h; sourceTree = "<group>"; };
 		C98DEFE7182312130038216C /* ManagedObjectHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagedObjectHandler.m; path = model/ManagedObjectHandler.m; sourceTree = "<group>"; };
 		C98DEFFA182329D30038216C /* restaurants.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurants.json; path = model/json/restaurants.json; sourceTree = "<group>"; };
+		C9C7D5EA183FDE5600A2E955 /* ColorSchemer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSchemer.h; path = model/ColorSchemer.h; sourceTree = "<group>"; };
+		C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSchemer.m; path = model/ColorSchemer.m; sourceTree = "<group>"; };
 		C9D4472D183C9468004C8AF2 /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tastingnotes.json; sourceTree = "<group>"; };
 		C9D4472E183C9468004C8AF2 /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = varietals.json; sourceTree = "<group>"; };
 		C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentHandler.h; path = model/DocumentHandler.h; sourceTree = "<group>"; };
@@ -331,8 +331,6 @@
 			children = (
 				C9DDD08A1820307D000A6FD7 /* InitialTabBarController.h */,
 				C9DDD08B1820307D000A6FD7 /* InitialTabBarController.m */,
-				C9061E47181F3480003D8A55 /* HomeVC.h */,
-				C9061E48181F3480003D8A55 /* HomeVC.m */,
 				C9061E2E181F1C9C003D8A55 /* RestaurantsCDTVC.h */,
 				C9061E2F181F1C9C003D8A55 /* RestaurantsCDTVC.m */,
 				C9061E38181F216C003D8A55 /* RestaurantCDTVC.h */,
@@ -486,6 +484,8 @@
 				C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */,
 				C98DEFB11821C7E30038216C /* LocationHelper.h */,
 				C98DEFB21821C7E30038216C /* LocationHelper.m */,
+				C9C7D5EA183FDE5600A2E955 /* ColorSchemer.h */,
+				C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -608,6 +608,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9038602183811D0006CE3CE /* Brand.m in Sources */,
+				C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */,
 				C90385F9183811D0006CE3CE /* Wine.m in Sources */,
 				C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */,
 				C9DDD08C1820307D000A6FD7 /* InitialTabBarController.m in Sources */,
@@ -650,7 +651,6 @@
 				C92932D2182AD8E80035C93C /* GroupingDataHelper.m in Sources */,
 				C90385FC183811D0006CE3CE /* WineUnit.m in Sources */,
 				C9061DFB181F07CE003D8A55 /* main.m in Sources */,
-				C9061E49181F3480003D8A55 /* HomeVC.m in Sources */,
 				C92932D5182AD9040035C93C /* WineUnitDataHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
