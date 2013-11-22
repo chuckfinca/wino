@@ -10,4 +10,13 @@
 
 @interface ColorSchemer : NSObject
 
++(ColorSchemer *)sharedInstance;
+
+@property (nonatomic, readonly) UIColor *textPrimary;
+@property (nonatomic, readonly) UIColor *textSecondary;
+@property (nonatomic, readonly) UIColor *textLink;
+
+@property (nonatomic, readonly) UIColor *baseColor;
+
+
 @end
