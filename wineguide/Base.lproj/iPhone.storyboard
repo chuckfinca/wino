@@ -154,7 +154,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Cml-bN-hJG">
-                        <barButtonItem key="rightBarButtonItem" image="favorite_no.png" id="Y3C-hO-GN7">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Y3C-hO-GN7">
                             <connections>
                                 <action selector="favorite:" destination="T41-yL-OZa" id="PFK-gC-Sqf"/>
                             </connections>
@@ -189,7 +189,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="favorite_no.png" width="36" height="36"/>
         <image name="tab_nearMe.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

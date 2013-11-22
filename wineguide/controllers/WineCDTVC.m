@@ -136,9 +136,9 @@
 -(void)setupFavoriteButton
 {
     if([self.wine.favorite boolValue] == YES){
-        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_yes.png"]];
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_y.png"]];
     } else {
-        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_no.png"]];
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_n.png"]];
     }
 }
 
@@ -146,10 +146,10 @@
 {
     if([self.wine.favorite boolValue] == YES){
         self.wine.favorite = @NO;
-        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_no.png"]];
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_n.png"]];
     } else {
         self.wine.favorite = @YES;
-        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_yes.png"]];
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_y.png"]];
     }
 }
 
