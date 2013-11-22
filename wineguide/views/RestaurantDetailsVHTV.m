@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "RestaurantDetailsTV.h"
+#import "RestaurantDetailsVHTV.h"
 
-@implementation RestaurantDetailsTV
+@implementation RestaurantDetailsVHTV
 
 - (id)initWithFrame:(CGRect)frame
 {

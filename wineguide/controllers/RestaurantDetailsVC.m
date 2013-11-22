@@ -7,11 +7,11 @@
 //
 
 #import "RestaurantDetailsVC.h"
-#import "RestaurantDetailsTV.h"
+#import "RestaurantDetailsVHTV.h"
 
 @interface RestaurantDetailsVC ()
 
-@property (weak, nonatomic) IBOutlet RestaurantDetailsTV *restaurantDetailsTV;
+@property (weak, nonatomic) IBOutlet RestaurantDetailsVHTV *restaurantDetailsTV;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @end
@@ -23,7 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 140);
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 127);
     }
     return self;
 }

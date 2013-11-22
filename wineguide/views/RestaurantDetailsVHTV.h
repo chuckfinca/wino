@@ -10,7 +10,7 @@
 #import "VariableHeightTV.h"
 #import "Restaurant.h"
 
-@interface RestaurantDetailsTV : VariableHeightTV
+@interface RestaurantDetailsVHTV : VariableHeightTV
 
 -(void)setupTextViewWithRestaurant:(Restaurant *)restaurant;
 
