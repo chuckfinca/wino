@@ -33,10 +33,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
     self.tableView.tableHeaderView = self.wineDetailsViewController.view;
 }
 
@@ -72,25 +68,24 @@
 -(void)refreshReviewList
 {
     // if we have cached wine review data then display that while checking to see if there is newer information on the server
-    
-        [self getReviewList];
+    [self getReviewList];
 }
 
 -(void)getReviewList
 {
     /* placeholder for future code
      
-    NSString *restaurantName = self.restaurant.name;
-    NSString *nameWithoutSpaces = [restaurantName stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    // this will be replaced with a server url when available
-    NSURL *url = [[NSBundle mainBundle] URLForResource:nameWithoutSpaces withExtension:@"json"];
-    
-    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:self.context];
-    wdh.restaurant = self.restaurant;
-    
-    [wdh updateCoreDataWithJSONFromURL:url];
-    [self setupFetchedResultsController];
+     NSString *restaurantName = self.restaurant.name;
+     NSString *nameWithoutSpaces = [restaurantName stringByReplacingOccurrencesOfString:@" " withString:@""];
+     
+     // this will be replaced with a server url when available
+     NSURL *url = [[NSBundle mainBundle] URLForResource:nameWithoutSpaces withExtension:@"json"];
+     
+     WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:self.context];
+     wdh.restaurant = self.restaurant;
+     
+     [wdh updateCoreDataWithJSONFromURL:url];
+     [self setupFetchedResultsController];
      */
 }
 
@@ -123,44 +118,6 @@
     return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
 
 #pragma mark - UITableViewDelegate
 
@@ -170,17 +127,6 @@
     return view;
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a story board-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- 
- */
 
 @end
 
