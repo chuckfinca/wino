@@ -1,5 +1,5 @@
 //
-//  WineHeaderView.h
+//  RestaurantsTVC.h
 //  wineguide
 //
 //  Created by Charles Feinn on 10/28/13.
@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataTableViewController.h"
+#import "SearchableCDTVC.h"
 
-@interface WineHeaderView : UIView
+@interface RestaurantsSCDTVC : SearchableCDTVC
 
 @end

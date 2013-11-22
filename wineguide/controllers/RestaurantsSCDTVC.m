@@ -6,20 +6,20 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "RestaurantsCDTVC.h"
+#import "RestaurantsSCDTVC.h"
 #import "RestaurantCDTVC.h"
 #import "Restaurant.h"
 #import "InitialTabBarController.h"
 #import "ColorSchemer.h"
 
-@interface RestaurantsCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface RestaurantsSCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, weak) NSManagedObjectContext *context;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
 @end
 
-@implementation RestaurantsCDTVC
+@implementation RestaurantsSCDTVC
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,7 +45,6 @@
 {
     [super viewWillAppear:animated];
     [self listenForDocumentReadyNotification];
-    [self listenForKeyboardNotifcations];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -86,21 +85,6 @@
 {
     self.searchBar.delegate = self;
     self.searchBar.placeholder = @"Search restaurants...";
-}
-
--(void)setupFetchedResultsController
-{
-    // NSLog(@"setupFetchedResultsController...");
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Restaurant"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
-                                                              ascending:YES
-                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
-    request.predicate = nil;
-    
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                        managedObjectContext:self.context
-                                                                          sectionNameKeyPath:nil
-                                                                                   cacheName:nil];
 }
 
 -(void)setupTextForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -164,35 +148,24 @@
 }
 
 
+#pragma mark - SearchableCDTVC Required Methods
 
-#pragma mark - UISearchBarDelegate
-
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+-(void)setupFetchedResultsController
 {
-    NSLog(@"searchText = %@",searchText);
-    [self setupSearchResultsFetchControllerWithUserText:searchText];
-}
-
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    // NSLog(@"searchBarSearchButtonClicked...");
-    [self setupFetchedResultsController];
-    [searchBar resignFirstResponder];
-    NSString *input = searchBar.text;
-    NSLog(@"input = %@",input);
+    // NSLog(@"setupFetchedResultsController...");
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Restaurant"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                              ascending:YES
+                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
+    request.predicate = nil;
     
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.context
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
 }
 
--(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    // NSLog(@"searchBarCancelButtonClicked...");
-    [searchBar resignFirstResponder];
-    searchBar.text = @"";
-    [self setupFetchedResultsController];
-}
-
-
--(void)setupSearchResultsFetchControllerWithUserText:(NSString *)text
+-(void)searchFetchedResultsForText:(NSString *)text
 {
     // NSLog(@"setupSearchResultsFetchController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Restaurant"];
@@ -218,33 +191,6 @@
                                                  name:@"Document Ready"
                                                object:nil];
 }
-
-
--(void)listenForKeyboardNotifcations
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(showHideCancelButton:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(showHideCancelButton:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-}
-
--(void)showHideCancelButton:(NSNotification *)notification
-{
-    NSLog(@"asdfasdfasdfasdf");
-    if(notification.name == UIKeyboardWillShowNotification){
-        [self.searchBar setShowsCancelButton:YES animated:YES];
-    } else {
-        [self.searchBar setShowsCancelButton:NO animated:NO];
-    }
-}
-
-
-
 
 - (void)didReceiveMemoryWarning
 {
