@@ -11,6 +11,7 @@
 #import "Brand.h"
 #import "TastingNote.h"
 #import "WineUnit.h"
+#import "ColorSchemer.h"
 
 @implementation WineDetailsVHTV
 
@@ -105,11 +106,14 @@
     self.attributedText = attributedText;
     self.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
     
+    [self.textStorage addAttribute:NSForegroundColorAttributeName
+                             value:[ColorSchemer sharedInstance].textPrimary
+                             range:NSMakeRange(0, [self.textStorage length])];
     [self.textStorage addAttribute:NSFontAttributeName
                                         value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
                                         range:nameRange];
     [self.textStorage addAttribute:NSForegroundColorAttributeName
-                                        value:[UIColor grayColor]
+                                        value:[ColorSchemer sharedInstance].textSecondary
                                         range:restaurantRange];
     
     [self setHeightConstraintForAttributedText:self.textStorage andMinimumHeight:V_HEIGHT];

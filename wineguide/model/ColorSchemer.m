@@ -47,7 +47,7 @@ static ColorSchemer *sharedInstance;
 }
 -(UIColor *)textSecondary
 {
-    if(!_textSecondary) _textSecondary = [UIColor colorWithRed:0.800000F green:0.800000F blue:0.800000F alpha:1.0F];
+    if(!_textSecondary) _textSecondary = [UIColor colorWithRed:0.533333F green:0.533333F blue:0.533333F alpha:1.0F];
     return _textSecondary;
 }
 -(UIColor *)textLink

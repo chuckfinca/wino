@@ -78,7 +78,7 @@
 
 -(void)setupNavigationBar
 {
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.666667f green:0.470588f blue:0.650980f alpha:1.0F];
+    self.navigationController.navigationBar.barTintColor = [ColorSchemer sharedInstance].baseColor;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
@@ -108,11 +108,11 @@
     Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     if(restaurant.name){
-        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     }
     if(restaurant.address){
         cell.detailTextLabel.numberOfLines = 0;
-        cell.detailTextLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.address capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [UIColor lightGrayColor]}];
+        cell.detailTextLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.address capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     }
 }
 

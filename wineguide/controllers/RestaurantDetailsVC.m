@@ -11,7 +11,7 @@
 
 @interface RestaurantDetailsVC ()
 
-@property (weak, nonatomic) IBOutlet RestaurantDetailsVHTV *restaurantDetailsTV;
+@property (weak, nonatomic) IBOutlet RestaurantDetailsVHTV *restaurantDetailsVHTV;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @end
@@ -42,7 +42,7 @@
 
 -(void)setupWithRestaurant:(Restaurant *)restaurant
 {
-    [self.restaurantDetailsTV setupTextViewWithRestaurant:restaurant];
+    [self.restaurantDetailsVHTV setupTextViewWithRestaurant:restaurant];
 }
 
 

@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantDetailsVC">
             <connections>
-                <outlet property="restaurantDetailsTV" destination="AMh-ir-cDL" id="mFp-66-eDb"/>
+                <outlet property="restaurantDetailsVHTV" destination="AMh-ir-cDL" id="RQM-4d-fFJ"/>
                 <outlet property="segmentedControl" destination="1uM-lx-Ch0" id="3Ha-cI-BL8"/>
                 <outlet property="view" destination="1" id="DBb-2J-Vxe"/>
             </connections>

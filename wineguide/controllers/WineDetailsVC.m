@@ -9,12 +9,13 @@
 #import "WineDetailsVC.h"
 #import "WineDetailsVHTV.h"
 #import "Brand.h"
+#import "ColorSchemer.h"
 
 @interface WineDetailsVC ()
 
 @property (nonatomic, weak) Wine *wine;
 @property (nonatomic, weak) Restaurant *restaurant;
-@property (nonatomic, weak) IBOutlet WineDetailsVHTV *wineNameTV;
+@property (nonatomic, weak) IBOutlet WineDetailsVHTV *wineDetailsVHTV;
 @property (nonatomic, weak) IBOutlet UILabel *numReviewsLabel;
 
 @end
@@ -58,13 +59,13 @@
 
 -(void)setupTextForWine:(Wine *)wine
 {
-    [self.wineNameTV setupTextViewWithWine:wine fromRestaurant:self.restaurant];
+    [self.wineDetailsVHTV setupTextViewWithWine:wine fromRestaurant:self.restaurant];
 }
 
 -(void)setupReviewsLabel
 {
     NSString *reviewsText = @"11 reviews";
-    NSAttributedString *reviewsAS = [[NSAttributedString alloc] initWithString:reviewsText attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1]}];
+    NSAttributedString *reviewsAS = [[NSAttributedString alloc] initWithString:reviewsText attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     self.numReviewsLabel.attributedText = reviewsAS;
 }
 

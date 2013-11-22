@@ -8,7 +8,7 @@
 
 #import "WineCDTVC.h"
 #import "WineDetailsVC.h"
-#import "InitialTabBarController.h"
+#import "ColorSchemer.h"
 
 @interface WineCDTVC ()
 
@@ -16,6 +16,8 @@
 @property (nonatomic, strong) Wine *wine;
 @property (nonatomic, strong) Restaurant *restaurant;
 @property (nonatomic, strong) NSManagedObjectContext *context;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *favoriteButton;
 
 @end
 
@@ -34,6 +36,7 @@
 {
     [super viewDidLoad];
     self.tableView.tableHeaderView = self.wineDetailsViewController.view;
+    [self setupFavoriteButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -113,7 +116,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"review" attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]}];
+    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"review" attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     
     return cell;
 }
@@ -125,6 +128,29 @@
 {
     UIView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"WineSectionHeader"];
     return view;
+}
+
+
+#pragma mark - Favorites
+
+-(void)setupFavoriteButton
+{
+    if([self.wine.favorite boolValue] == YES){
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_yes.png"]];
+    } else {
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_no.png"]];
+    }
+}
+
+-(IBAction)favorite:(UIBarButtonItem *)sender
+{
+    if([self.wine.favorite boolValue] == YES){
+        self.wine.favorite = @NO;
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_no.png"]];
+    } else {
+        self.wine.favorite = @YES;
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_yes.png"]];
+    }
 }
 
 

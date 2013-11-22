@@ -7,6 +7,7 @@
 //
 
 #import "RestaurantDetailsVHTV.h"
+#import "ColorSchemer.h"
 
 @implementation RestaurantDetailsVHTV
 
@@ -50,6 +51,9 @@
     self.attributedText = attributedText;
     self.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
     
+    [self.textStorage addAttribute:NSForegroundColorAttributeName
+                             value:[ColorSchemer sharedInstance].textPrimary
+                             range:NSMakeRange(0, [self.textStorage length])];
     [self.textStorage addAttribute:NSFontAttributeName
                                                  value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
                                                  range:nameRange];
