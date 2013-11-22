@@ -31,10 +31,11 @@
     _relatedObject = managedObject;
     _setOfIdentifiersThatNeedToBeTurnedIntoObjects = [NSMutableSet setWithArray:[identifiers componentsSeparatedByString:DIVIDER]];
     
-    
-    
     [IterationCounter sharedIterationCounter].counterOne++;
-    NSLog(@"counterOne = %i",[IterationCounter sharedIterationCounter].counterOne);
+    if([IterationCounter sharedIterationCounter].counterOne % 100 == 0){
+        NSLog(@"counterOne = %i",[IterationCounter sharedIterationCounter].counterOne);
+    }
+    
     return self;
 }
 
@@ -123,7 +124,10 @@
     [self addRelationToManagedObject:mo];
     
     [IterationCounter sharedIterationCounter].counterTwo++;
-    NSLog(@"counterTwo = %i",[IterationCounter sharedIterationCounter].counterTwo);
+    if([IterationCounter sharedIterationCounter].counterTwo % 100 == 0) {
+        NSLog(@"counterTwo = %i",[IterationCounter sharedIterationCounter].counterTwo);
+    }
+    
     return mo;
 }
 
