@@ -71,7 +71,7 @@
         }
     }
     
-    [varietal logDetails];
+    //[varietal logDetails];
     
     return varietal;
 }

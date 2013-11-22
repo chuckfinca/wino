@@ -72,7 +72,7 @@
         }
     }
     
-    [tastingNote logDetails];
+    //[tastingNote logDetails];
     
     return tastingNote;
 }

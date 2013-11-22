@@ -80,7 +80,6 @@
 }
 
 - (IBAction)refreshList:(UISegmentedControl *)sender {
-    NSLog(@"sender.tag = %i",sender.selectedSegmentIndex);
     [self.delegate loadWineList:sender.selectedSegmentIndex];
 }
 
