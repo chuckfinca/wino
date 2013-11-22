@@ -73,6 +73,7 @@
 		C98DEFFE182329D30038216C /* restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = C98DEFFA182329D30038216C /* restaurants.json */; };
 		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
 		C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EE183FE6E400A2E955 /* RestaurantDetailsVHTV.m */; };
+		C9C7D5F2183FEA7E00A2E955 /* WineDetailsVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5F1183FEA7E00A2E955 /* WineDetailsVHTV.m */; };
 		C9D4472F183C9468004C8AF2 /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472D183C9468004C8AF2 /* tastingnotes.json */; };
 		C9D44730183C9468004C8AF2 /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472E183C9468004C8AF2 /* varietals.json */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
@@ -205,6 +206,8 @@
 		C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSchemer.m; path = model/ColorSchemer.m; sourceTree = "<group>"; };
 		C9C7D5ED183FE6E400A2E955 /* RestaurantDetailsVHTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantDetailsVHTV.h; path = views/RestaurantDetailsVHTV.h; sourceTree = "<group>"; };
 		C9C7D5EE183FE6E400A2E955 /* RestaurantDetailsVHTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantDetailsVHTV.m; path = views/RestaurantDetailsVHTV.m; sourceTree = "<group>"; };
+		C9C7D5F0183FEA7E00A2E955 /* WineDetailsVHTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineDetailsVHTV.h; path = views/WineDetailsVHTV.h; sourceTree = "<group>"; };
+		C9C7D5F1183FEA7E00A2E955 /* WineDetailsVHTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineDetailsVHTV.m; path = views/WineDetailsVHTV.m; sourceTree = "<group>"; };
 		C9D4472D183C9468004C8AF2 /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tastingnotes.json; sourceTree = "<group>"; };
 		C9D4472E183C9468004C8AF2 /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = varietals.json; sourceTree = "<group>"; };
 		C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentHandler.h; path = model/DocumentHandler.h; sourceTree = "<group>"; };
@@ -356,6 +359,8 @@
 				C9061E57181F3D2F003D8A55 /* WineHeaderView.m */,
 				C9C7D5ED183FE6E400A2E955 /* RestaurantDetailsVHTV.h */,
 				C9C7D5EE183FE6E400A2E955 /* RestaurantDetailsVHTV.m */,
+				C9C7D5F0183FEA7E00A2E955 /* WineDetailsVHTV.h */,
+				C9C7D5F1183FEA7E00A2E955 /* WineDetailsVHTV.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				C9038602183811D0006CE3CE /* Brand.m in Sources */,
 				C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */,
 				C90385F9183811D0006CE3CE /* Wine.m in Sources */,
+				C9C7D5F2183FEA7E00A2E955 /* WineDetailsVHTV.m in Sources */,
 				C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */,
 				C9DDD08C1820307D000A6FD7 /* InitialTabBarController.m in Sources */,
 				C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */,
