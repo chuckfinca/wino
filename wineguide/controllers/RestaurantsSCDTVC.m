@@ -57,9 +57,8 @@
 
 #pragma mark - Getters & Setters
 
-
-
 #pragma mark - Setup
+
 
 -(void)refresh
 {
@@ -116,8 +115,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"cellForRowAtIndexPath...");
+    UITableViewCell *cell = nil;
+    
     static NSString *CellIdentifier = @"RestaurantCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     [self setupTextForCell:cell atIndexPath:indexPath];
@@ -152,7 +154,7 @@
 
 -(void)setupFetchedResultsController
 {
-    // NSLog(@"setupFetchedResultsController...");
+    NSLog(@"setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Restaurant"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES

@@ -13,12 +13,18 @@
 #import "TastingNoteDataHelper.h"
 #import "VarietalDataHelper.h"
 #import "ColorSchemer.h"
+#import "TutorialVC.h"
+
+#define SUPRESS_TUTORIAL @"ShowTutorial"
 
 @interface InitialTabBarController () <UIAlertViewDelegate>
 
 @property (nonatomic, strong) UIManagedDocument *document;
 @property (nonatomic, readwrite) NSManagedObjectContext *context;
 @property (nonatomic) BOOL locationServicesEnabled;
+
+@property (nonatomic) BOOL supressTutorial;
+@property (nonatomic, strong) TutorialVC *tutorialVC;
 
 @end
 
@@ -54,6 +60,16 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"Document Ready" object:nil];
         }];
     }
+    
+    if(self.supressTutorial == NO) {
+        [self setupTutorial];
+    }
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,6 +77,31 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Getters & Setters
+
+-(BOOL)supressTutorial
+{
+    if(!_supressTutorial) {
+        _supressTutorial = [[[NSUserDefaults standardUserDefaults] valueForKey:SUPRESS_TUTORIAL] boolValue];
+    }
+    return _supressTutorial;
+}
+
+#pragma mark - Setup
+
+-(void)setupTutorial
+{
+    self.tutorialVC = [[TutorialVC alloc] init];
+    [self.view addSubview:self.tutorialVC.view];
+    [self.view bringSubviewToFront:self.tutorialVC.view];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dismissTutorial:)
+                                                 name:@"Dismiss Tutorial"
+                                               object:nil];
+}
+
 
 -(void)setupAppColorScheme
 {
@@ -75,11 +116,16 @@
     [self updateTastingNotes];
     [self updateVarietals];
     
-    [self checkUserLocation];
     if(self.locationServicesEnabled){
         [self updateRestaurants];
+    } else {
+        if(!self.tutorialVC){
+            [self checkUserLocation];
+        }
     }
 }
+
+
 
 -(void)checkUserLocation
 {
@@ -131,7 +177,27 @@
 }
 
 
+#pragma mark - Tutorial
 
+-(void)dismissTutorial:(NSNotification *)notification
+{
+    NSLog(@"notifcation received");
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.tutorialVC.view.alpha = 0;
+    } completion:^(BOOL finished) {
+        NSLog(@"finished!");
+        [self.tutorialVC.view removeFromSuperview];
+        self.tutorialVC = nil;
+        [self disableIntro];
+    }];
+    [self checkUserLocation];
+}
+
+-(void)disableIntro
+{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:SUPRESS_TUTORIAL];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 
 

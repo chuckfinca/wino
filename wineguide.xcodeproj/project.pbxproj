@@ -76,6 +76,13 @@
 		C9C7D611184011D100A2E955 /* favorite_y.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D60D184011D100A2E955 /* favorite_y.png */; };
 		C9C7D612184011D100A2E955 /* favorite_y@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D60E184011D100A2E955 /* favorite_y@2x.png */; };
 		C9C7D6151840168700A2E955 /* SearchableCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D6141840168700A2E955 /* SearchableCDTVC.m */; };
+		C9C7D61718401F1700A2E955 /* tab_nearMe.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D61618401F1700A2E955 /* tab_nearMe.png */; };
+		C9C7D61918401F7100A2E955 /* tab_nearMe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D61818401F7100A2E955 /* tab_nearMe@2x.png */; };
+		C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D61E184029B600A2E955 /* TutorialVC.m */; };
+		C9C7D62518402BBE00A2E955 /* Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62418402BBE00A2E955 /* Tutorial.xib */; };
+		C9C7D62818402E0600A2E955 /* TutorialDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */; };
+		C9C7D62B18403E0E00A2E955 /* tutorialImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62918403E0E00A2E955 /* tutorialImage.png */; };
+		C9C7D62C18403E0E00A2E955 /* tutorialImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62A18403E0E00A2E955 /* tutorialImage@2x.png */; };
 		C9D4472F183C9468004C8AF2 /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472D183C9468004C8AF2 /* tastingnotes.json */; };
 		C9D44730183C9468004C8AF2 /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472E183C9468004C8AF2 /* varietals.json */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
@@ -212,6 +219,15 @@
 		C9C7D60E184011D100A2E955 /* favorite_y@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favorite_y@2x.png"; path = "images/favorite_y@2x.png"; sourceTree = "<group>"; };
 		C9C7D6131840168700A2E955 /* SearchableCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchableCDTVC.h; path = controllers/SearchableCDTVC.h; sourceTree = "<group>"; };
 		C9C7D6141840168700A2E955 /* SearchableCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchableCDTVC.m; path = controllers/SearchableCDTVC.m; sourceTree = "<group>"; };
+		C9C7D61618401F1700A2E955 /* tab_nearMe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_nearMe.png; path = images/tab_nearMe.png; sourceTree = "<group>"; };
+		C9C7D61818401F7100A2E955 /* tab_nearMe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_nearMe@2x.png"; path = "images/tab_nearMe@2x.png"; sourceTree = "<group>"; };
+		C9C7D61D184029B600A2E955 /* TutorialVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialVC.h; path = controllers/TutorialVC.h; sourceTree = "<group>"; };
+		C9C7D61E184029B600A2E955 /* TutorialVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialVC.m; path = controllers/TutorialVC.m; sourceTree = "<group>"; };
+		C9C7D62418402BBE00A2E955 /* Tutorial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Tutorial.xib; path = xibs/Tutorial.xib; sourceTree = "<group>"; };
+		C9C7D62618402E0600A2E955 /* TutorialDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialDetailsVC.h; path = controllers/TutorialDetailsVC.h; sourceTree = "<group>"; };
+		C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialDetailsVC.m; path = controllers/TutorialDetailsVC.m; sourceTree = "<group>"; };
+		C9C7D62918403E0E00A2E955 /* tutorialImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorialImage.png; path = images/tutorialImage.png; sourceTree = "<group>"; };
+		C9C7D62A18403E0E00A2E955 /* tutorialImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorialImage@2x.png"; path = "images/tutorialImage@2x.png"; sourceTree = "<group>"; };
 		C9D4472D183C9468004C8AF2 /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tastingnotes.json; sourceTree = "<group>"; };
 		C9D4472E183C9468004C8AF2 /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = varietals.json; sourceTree = "<group>"; };
 		C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentHandler.h; path = model/DocumentHandler.h; sourceTree = "<group>"; };
@@ -338,6 +354,10 @@
 			children = (
 				C9DDD08A1820307D000A6FD7 /* InitialTabBarController.h */,
 				C9DDD08B1820307D000A6FD7 /* InitialTabBarController.m */,
+				C9C7D61D184029B600A2E955 /* TutorialVC.h */,
+				C9C7D61E184029B600A2E955 /* TutorialVC.m */,
+				C9C7D62618402E0600A2E955 /* TutorialDetailsVC.h */,
+				C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */,
 				C9C7D6131840168700A2E955 /* SearchableCDTVC.h */,
 				C9C7D6141840168700A2E955 /* SearchableCDTVC.m */,
 				C9061E2E181F1C9C003D8A55 /* RestaurantsSCDTVC.h */,
@@ -374,6 +394,7 @@
 			children = (
 				C9061E3B181F2767003D8A55 /* RestaurantDetails.xib */,
 				C9061E4D181F36BE003D8A55 /* WineDetails.xib */,
+				C9C7D62418402BBE00A2E955 /* Tutorial.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -381,6 +402,8 @@
 		C9061E4F181F3CC2003D8A55 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C9C7D61618401F1700A2E955 /* tab_nearMe.png */,
+				C9C7D61818401F7100A2E955 /* tab_nearMe@2x.png */,
 				C9C7D60B184011D100A2E955 /* favorite_n.png */,
 				C9C7D60C184011D100A2E955 /* favorite_n@2x.png */,
 				C9C7D60D184011D100A2E955 /* favorite_y.png */,
@@ -388,6 +411,8 @@
 				C9061E50181F3CD3003D8A55 /* star_empty.png */,
 				C9061E51181F3CD3003D8A55 /* star_full.png */,
 				C9061E52181F3CD3003D8A55 /* star_half.png */,
+				C9C7D62918403E0E00A2E955 /* tutorialImage.png */,
+				C9C7D62A18403E0E00A2E955 /* tutorialImage@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -581,12 +606,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9C7D611184011D100A2E955 /* favorite_y.png in Resources */,
+				C9C7D62B18403E0E00A2E955 /* tutorialImage.png in Resources */,
 				C9061E05181F07CE003D8A55 /* iPad.storyboard in Resources */,
+				C9C7D62C18403E0E00A2E955 /* tutorialImage@2x.png in Resources */,
 				C92CAE3418330CC700F29C9B /* group.restaurant.leszygomates.129southstreet.all.json in Resources */,
 				C9061E53181F3CD3003D8A55 /* star_empty.png in Resources */,
+				C9C7D61918401F7100A2E955 /* tab_nearMe@2x.png in Resources */,
 				C9C7D612184011D100A2E955 /* favorite_y@2x.png in Resources */,
 				C9061E55181F3CD3003D8A55 /* star_half.png in Resources */,
 				C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */,
+				C9C7D62518402BBE00A2E955 /* Tutorial.xib in Resources */,
 				C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */,
 				C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */,
 				C9061E0A181F07CE003D8A55 /* Images.xcassets in Resources */,
@@ -601,6 +630,7 @@
 				C9061E3C181F2767003D8A55 /* RestaurantDetails.xib in Resources */,
 				C92CAE3618330CC700F29C9B /* group.restaurant.tico.222berkeleystreet.all.json in Resources */,
 				C92CAE3518330CC700F29C9B /* group.restaurant.strega-waterfront.1marinaparkdrive.all.json in Resources */,
+				C9C7D61718401F1700A2E955 /* tab_nearMe.png in Resources */,
 				C9C7D610184011D100A2E955 /* favorite_n@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,6 +651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9038602183811D0006CE3CE /* Brand.m in Sources */,
+				C9C7D62818402E0600A2E955 /* TutorialDetailsVC.m in Sources */,
 				C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */,
 				C90385F9183811D0006CE3CE /* Wine.m in Sources */,
 				C9C7D5F2183FEA7E00A2E955 /* WineDetailsVHTV.m in Sources */,
@@ -652,6 +683,7 @@
 				C90385F0183811D0006CE3CE /* TastingNote.m in Sources */,
 				C90385F3183811D0006CE3CE /* Group.m in Sources */,
 				C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */,
+				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
 				C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,
 				C90385F6183811D0006CE3CE /* Restaurant.m in Sources */,
