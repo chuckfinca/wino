@@ -14,9 +14,6 @@
 
 @interface RestaurantsSCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
 
-@property (nonatomic, weak) NSManagedObjectContext *context;
-@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
-
 @end
 
 @implementation RestaurantsSCDTVC
@@ -44,7 +41,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self listenForDocumentReadyNotification];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -59,21 +55,6 @@
 
 #pragma mark - Setup
 
-
--(void)refresh
-{
-    if([self.tabBarController isKindOfClass:[InitialTabBarController class]]){
-        InitialTabBarController *itbc = (InitialTabBarController *)self.tabBarController;
-        self.context = itbc.context;
-    }
-    if (self.context){
-        [self setupFetchedResultsController];
-    }
-    if(self.fetchedResultsController.fetchedObjects > 0){
-        self.title = @"Nearby";
-    }
-}
-
 -(void)setupNavigationBar
 {
     self.navigationController.navigationBar.barTintColor = [ColorSchemer sharedInstance].baseColor;
@@ -82,7 +63,6 @@
 
 -(void)setupSearchBar
 {
-    self.searchBar.delegate = self;
     self.searchBar.placeholder = @"Search restaurants...";
 }
 
@@ -108,10 +88,6 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.fetchedResultsController.fetchedObjects count];
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -181,17 +157,6 @@
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
     
-}
-
-
-#pragma mark - Listen for Notifications
-
--(void)listenForDocumentReadyNotification
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(refresh)
-                                                 name:@"Document Ready"
-                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning

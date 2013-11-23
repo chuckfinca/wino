@@ -10,6 +10,9 @@
 
 @interface SearchableCDTVC : CoreDataTableViewController
 
+@property (nonatomic, weak) NSManagedObjectContext *context;
+@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
+
 -(void)setupFetchedResultsController; // Abstract
 -(void)searchFetchedResultsForText:(NSString *)text; // Abstract
 

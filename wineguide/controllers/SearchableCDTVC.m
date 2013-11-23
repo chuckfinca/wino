@@ -7,10 +7,9 @@
 //
 
 #import "SearchableCDTVC.h"
+#import "InitialTabBarController.h"
 
 @interface SearchableCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
-
-@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -29,12 +28,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self setupSearchBar];
+    [self getManagedObjectContext];
+    
+    NSLog(@"self.searchBar.delegate");
+    self.searchBar.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [self listenForKeyboardNotifcations];
+    [self listenForDocumentReadyNotification];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -43,10 +46,35 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark - Setup
 
--(void)setupSearchBar
+-(void)refresh
 {
-    self.searchBar.delegate = self;
+    if(!self.context){
+        [self getManagedObjectContext];
+    }
+    if (self.context){
+        [self setupFetchedResultsController];
+    }
+    if(self.fetchedResultsController.fetchedObjects > 0){
+        self.title = @"Nearby";
+    }
+}
+
+-(void)getManagedObjectContext
+{
+    if([self.tabBarController isKindOfClass:[InitialTabBarController class]]){
+        InitialTabBarController *itbc = (InitialTabBarController *)self.tabBarController;
+        self.context = itbc.context;
+    }
+}
+
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.fetchedResultsController.fetchedObjects count];
 }
 
 #pragma mark - UISearchBarDelegate
@@ -95,6 +123,14 @@
 
 
 #pragma mark - Listen for Notifications
+
+-(void)listenForDocumentReadyNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refresh)
+                                                 name:@"Document Ready"
+                                               object:nil];
+}
 
 -(void)listenForKeyboardNotifcations
 {

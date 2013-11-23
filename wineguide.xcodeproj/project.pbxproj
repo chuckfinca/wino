@@ -83,6 +83,7 @@
 		C9C7D62818402E0600A2E955 /* TutorialDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */; };
 		C9C7D62B18403E0E00A2E955 /* tutorialImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62918403E0E00A2E955 /* tutorialImage.png */; };
 		C9C7D62C18403E0E00A2E955 /* tutorialImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62A18403E0E00A2E955 /* tutorialImage@2x.png */; };
+		C9C7D62F184047EB00A2E955 /* FavoritesSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D62E184047EB00A2E955 /* FavoritesSCDTVC.m */; };
 		C9D4472F183C9468004C8AF2 /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472D183C9468004C8AF2 /* tastingnotes.json */; };
 		C9D44730183C9468004C8AF2 /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472E183C9468004C8AF2 /* varietals.json */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
@@ -228,6 +229,8 @@
 		C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialDetailsVC.m; path = controllers/TutorialDetailsVC.m; sourceTree = "<group>"; };
 		C9C7D62918403E0E00A2E955 /* tutorialImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorialImage.png; path = images/tutorialImage.png; sourceTree = "<group>"; };
 		C9C7D62A18403E0E00A2E955 /* tutorialImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorialImage@2x.png"; path = "images/tutorialImage@2x.png"; sourceTree = "<group>"; };
+		C9C7D62D184047EB00A2E955 /* FavoritesSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesSCDTVC.h; path = controllers/FavoritesSCDTVC.h; sourceTree = "<group>"; };
+		C9C7D62E184047EB00A2E955 /* FavoritesSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesSCDTVC.m; path = controllers/FavoritesSCDTVC.m; sourceTree = "<group>"; };
 		C9D4472D183C9468004C8AF2 /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tastingnotes.json; sourceTree = "<group>"; };
 		C9D4472E183C9468004C8AF2 /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = varietals.json; sourceTree = "<group>"; };
 		C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentHandler.h; path = model/DocumentHandler.h; sourceTree = "<group>"; };
@@ -372,6 +375,8 @@
 				C9F47975181F4D940026A383 /* WineDetailsVC.m */,
 				C98DEFC51821DA790038216C /* CoreDataTableViewController.h */,
 				C98DEFC61821DA790038216C /* CoreDataTableViewController.m */,
+				C9C7D62D184047EB00A2E955 /* FavoritesSCDTVC.h */,
+				C9C7D62E184047EB00A2E955 /* FavoritesSCDTVC.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -683,6 +688,7 @@
 				C90385F0183811D0006CE3CE /* TastingNote.m in Sources */,
 				C90385F3183811D0006CE3CE /* Group.m in Sources */,
 				C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */,
+				C9C7D62F184047EB00A2E955 /* FavoritesSCDTVC.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
 				C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,
