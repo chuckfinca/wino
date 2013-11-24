@@ -44,7 +44,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self setupAppColorScheme];
+    self.view.tintColor = [ColorSchemer sharedInstance].baseColor;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -56,6 +56,8 @@
             self.document = document;
             self.context = document.managedObjectContext;
             // Do any additional work now that the document is ready
+            [self updateTastingNotes];
+            [self updateVarietals];
             [self refresh];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"Document Ready" object:nil];
         }];
@@ -102,20 +104,9 @@
                                                object:nil];
 }
 
-
--(void)setupAppColorScheme
-{
-    self.view.tintColor = [ColorSchemer sharedInstance].baseColor;
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-}
-
 -(void)refresh
 {
     NSLog(@"refresh...");
-    [self updateTastingNotes];
-    [self updateVarietals];
-    
     if(self.locationServicesEnabled){
         [self updateRestaurants];
     } else {
@@ -195,8 +186,8 @@
 
 -(void)disableIntro
 {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:SUPRESS_TUTORIAL];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    //[[NSUserDefaults standardUserDefaults] setBool:YES forKey:SUPRESS_TUTORIAL];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
