@@ -11,6 +11,8 @@
 
 @interface TutorialDetailsVC ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *tutorialImageView;
+
 @end
 
 @implementation TutorialDetailsVC
@@ -33,27 +35,32 @@
     
     switch (self.index) {
         case 0:
-            text = @"Welcome to Gimmee, the best way to find the perfect wine off that menu!";
+            text = @"Welcome to Gimme, the best way to find the perfect wine off that menu!";
+            self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_logo.png"];
             break;
         case 1:
-            text = @"Browse wines at restaurants nearby";
+            text = @"Checkout wines at nearby restaurants";
+            self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_nearby.png"];
             break;
         case 2:
-            text = @"Search for specific wines";
+            text = @"Browse by value or popularity";
+            self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_nearby.png"];
             break;
         case 3:
             text = @"Favorite wines you want to remember";
-            break;
-        case 4:
-            text = @"Some more instructions";
+            self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_favorites.png"];
             break;
         default:
             break;
     }
     
-    self.screenInstructionText.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+    if(self.index == 0){
+        [attributedString addAttributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].baseColor} range:NSMakeRange(11, 5)];
+    }
+    self.screenInstructionText.attributedText = attributedString;
     self.screenInstructionText.numberOfLines = 0;
-    self.view.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.95];
+    self.view.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.97];
 }
 
 - (void)didReceiveMemoryWarning

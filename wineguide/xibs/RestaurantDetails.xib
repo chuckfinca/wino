@@ -38,7 +38,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="popular"/>
-                        <segment title="well rated"/>
+                        <segment title="high rating"/>
                         <segment title="value"/>
                         <segment title="all"/>
                     </segments>

@@ -94,13 +94,14 @@
     return [self viewControllerAtIndex:index];
 }
 
+#define NUM_TUTORIAL_SCREENS 4
 
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
     int index = [(TutorialDetailsVC *)viewController index];
     index++;
     
-    if (index == 5) {
+    if (index == NUM_TUTORIAL_SCREENS) {
         return nil;
     }
     return [self viewControllerAtIndex:index];
@@ -108,7 +109,7 @@
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
     // The number of items reflected in the page indicator.
-    return 5;
+    return NUM_TUTORIAL_SCREENS;
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {

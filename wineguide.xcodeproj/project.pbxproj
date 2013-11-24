@@ -81,10 +81,14 @@
 		C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D61E184029B600A2E955 /* TutorialVC.m */; };
 		C9C7D62518402BBE00A2E955 /* Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62418402BBE00A2E955 /* Tutorial.xib */; };
 		C9C7D62818402E0600A2E955 /* TutorialDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */; };
-		C9C7D62B18403E0E00A2E955 /* tutorialImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62918403E0E00A2E955 /* tutorialImage.png */; };
-		C9C7D62C18403E0E00A2E955 /* tutorialImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62A18403E0E00A2E955 /* tutorialImage@2x.png */; };
+		C9C7D62B18403E0E00A2E955 /* tutorial_nearby.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62918403E0E00A2E955 /* tutorial_nearby.png */; };
+		C9C7D62C18403E0E00A2E955 /* tutorial_nearby@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62A18403E0E00A2E955 /* tutorial_nearby@2x.png */; };
 		C9C7D62F184047EB00A2E955 /* FavoritesSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D62E184047EB00A2E955 /* FavoritesSCDTVC.m */; };
 		C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D63118417DED00A2E955 /* CustomNC.m */; };
+		C9C7D6351841933900A2E955 /* tutorial_favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6331841933900A2E955 /* tutorial_favorites.png */; };
+		C9C7D6361841933900A2E955 /* tutorial_favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6341841933900A2E955 /* tutorial_favorites@2x.png */; };
+		C9C7D6391842AACD00A2E955 /* tutorial_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6371842AACD00A2E955 /* tutorial_logo.png */; };
+		C9C7D63A1842AACD00A2E955 /* tutorial_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6381842AACD00A2E955 /* tutorial_logo@2x.png */; };
 		C9D4472F183C9468004C8AF2 /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472D183C9468004C8AF2 /* tastingnotes.json */; };
 		C9D44730183C9468004C8AF2 /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472E183C9468004C8AF2 /* varietals.json */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
@@ -228,12 +232,16 @@
 		C9C7D62418402BBE00A2E955 /* Tutorial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Tutorial.xib; path = xibs/Tutorial.xib; sourceTree = "<group>"; };
 		C9C7D62618402E0600A2E955 /* TutorialDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialDetailsVC.h; path = controllers/TutorialDetailsVC.h; sourceTree = "<group>"; };
 		C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialDetailsVC.m; path = controllers/TutorialDetailsVC.m; sourceTree = "<group>"; };
-		C9C7D62918403E0E00A2E955 /* tutorialImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorialImage.png; path = images/tutorialImage.png; sourceTree = "<group>"; };
-		C9C7D62A18403E0E00A2E955 /* tutorialImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorialImage@2x.png"; path = "images/tutorialImage@2x.png"; sourceTree = "<group>"; };
+		C9C7D62918403E0E00A2E955 /* tutorial_nearby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_nearby.png; path = images/tutorial_nearby.png; sourceTree = "<group>"; };
+		C9C7D62A18403E0E00A2E955 /* tutorial_nearby@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorial_nearby@2x.png"; path = "images/tutorial_nearby@2x.png"; sourceTree = "<group>"; };
 		C9C7D62D184047EB00A2E955 /* FavoritesSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesSCDTVC.h; path = controllers/FavoritesSCDTVC.h; sourceTree = "<group>"; };
 		C9C7D62E184047EB00A2E955 /* FavoritesSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesSCDTVC.m; path = controllers/FavoritesSCDTVC.m; sourceTree = "<group>"; };
 		C9C7D63018417DED00A2E955 /* CustomNC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomNC.h; path = controllers/CustomNC.h; sourceTree = "<group>"; };
 		C9C7D63118417DED00A2E955 /* CustomNC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomNC.m; path = controllers/CustomNC.m; sourceTree = "<group>"; };
+		C9C7D6331841933900A2E955 /* tutorial_favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_favorites.png; path = images/tutorial_favorites.png; sourceTree = "<group>"; };
+		C9C7D6341841933900A2E955 /* tutorial_favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorial_favorites@2x.png"; path = "images/tutorial_favorites@2x.png"; sourceTree = "<group>"; };
+		C9C7D6371842AACD00A2E955 /* tutorial_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_logo.png; path = images/tutorial_logo.png; sourceTree = "<group>"; };
+		C9C7D6381842AACD00A2E955 /* tutorial_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorial_logo@2x.png"; path = "images/tutorial_logo@2x.png"; sourceTree = "<group>"; };
 		C9D4472D183C9468004C8AF2 /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tastingnotes.json; sourceTree = "<group>"; };
 		C9D4472E183C9468004C8AF2 /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = varietals.json; sourceTree = "<group>"; };
 		C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentHandler.h; path = model/DocumentHandler.h; sourceTree = "<group>"; };
@@ -421,8 +429,12 @@
 				C9061E50181F3CD3003D8A55 /* star_empty.png */,
 				C9061E51181F3CD3003D8A55 /* star_full.png */,
 				C9061E52181F3CD3003D8A55 /* star_half.png */,
-				C9C7D62918403E0E00A2E955 /* tutorialImage.png */,
-				C9C7D62A18403E0E00A2E955 /* tutorialImage@2x.png */,
+				C9C7D62918403E0E00A2E955 /* tutorial_nearby.png */,
+				C9C7D62A18403E0E00A2E955 /* tutorial_nearby@2x.png */,
+				C9C7D6331841933900A2E955 /* tutorial_favorites.png */,
+				C9C7D6341841933900A2E955 /* tutorial_favorites@2x.png */,
+				C9C7D6371842AACD00A2E955 /* tutorial_logo.png */,
+				C9C7D6381842AACD00A2E955 /* tutorial_logo@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -616,9 +628,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9C7D611184011D100A2E955 /* favorite_y.png in Resources */,
-				C9C7D62B18403E0E00A2E955 /* tutorialImage.png in Resources */,
+				C9C7D63A1842AACD00A2E955 /* tutorial_logo@2x.png in Resources */,
+				C9C7D62B18403E0E00A2E955 /* tutorial_nearby.png in Resources */,
 				C9061E05181F07CE003D8A55 /* iPad.storyboard in Resources */,
-				C9C7D62C18403E0E00A2E955 /* tutorialImage@2x.png in Resources */,
+				C9C7D62C18403E0E00A2E955 /* tutorial_nearby@2x.png in Resources */,
+				C9C7D6361841933900A2E955 /* tutorial_favorites@2x.png in Resources */,
 				C92CAE3418330CC700F29C9B /* group.restaurant.leszygomates.129southstreet.all.json in Resources */,
 				C9061E53181F3CD3003D8A55 /* star_empty.png in Resources */,
 				C9C7D61918401F7100A2E955 /* tab_nearMe@2x.png in Resources */,
@@ -626,7 +640,9 @@
 				C9061E55181F3CD3003D8A55 /* star_half.png in Resources */,
 				C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */,
 				C9C7D62518402BBE00A2E955 /* Tutorial.xib in Resources */,
+				C9C7D6351841933900A2E955 /* tutorial_favorites.png in Resources */,
 				C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */,
+				C9C7D6391842AACD00A2E955 /* tutorial_logo.png in Resources */,
 				C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */,
 				C9061E0A181F07CE003D8A55 /* Images.xcassets in Resources */,
 				C9061E54181F3CD3003D8A55 /* star_full.png in Resources */,

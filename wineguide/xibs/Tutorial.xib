@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialDetailsVC">
             <connections>
                 <outlet property="screenInstructionText" destination="0Vb-DW-1wc" id="Q4k-ae-3xs"/>
+                <outlet property="tutorialImageView" destination="MF3-GY-a5y" id="PZe-gV-KUf"/>
                 <outlet property="view" destination="1" id="SMV-PW-S5w"/>
             </connections>
         </placeholder>
@@ -21,7 +22,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorialImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="MF3-GY-a5y">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial_nearby.png" translatesAutoresizingMaskIntoConstraints="NO" id="MF3-GY-a5y">
                     <rect key="frame" x="70" y="194" width="180" height="180"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
@@ -59,6 +60,6 @@
         </view>
     </objects>
     <resources>
-        <image name="tutorialImage.png" width="180" height="180"/>
+        <image name="tutorial_nearby.png" width="180" height="180"/>
     </resources>
 </document>
