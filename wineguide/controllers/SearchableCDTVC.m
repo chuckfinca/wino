@@ -69,14 +69,6 @@
     }
 }
 
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.fetchedResultsController.fetchedObjects count];
-}
-
 #pragma mark - UISearchBarDelegate
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
