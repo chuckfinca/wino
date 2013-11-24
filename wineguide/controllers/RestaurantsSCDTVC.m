@@ -83,7 +83,6 @@
     return 1;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"cellForRowAtIndexPath...");
@@ -133,9 +132,7 @@
                                                                selector:@selector(localizedCaseInsensitiveCompare:)]];
     
     if(text){
-        NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
-        NSCompoundPredicate *compoundPredicate = [[NSCompoundPredicate alloc] initWithType:NSAndPredicateType subpredicates:@[self.fetchPredicate, searchPredicate]];
-        request.predicate = compoundPredicate;
+        request.predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
     } else {
         request.predicate = self.fetchPredicate;
     }
