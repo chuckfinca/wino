@@ -17,6 +17,7 @@
 
 @interface FavoritesSCDTVC ()
 
+
 @end
 
 @implementation FavoritesSCDTVC
@@ -34,11 +35,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self setupSearchBar];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self setupFetchedResultsController];
+    [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,9 +49,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Getters & Setters
+
+-(NSPredicate *)fetchPredicate
+{
+    return [NSPredicate predicateWithFormat:@"favorite = %@",@YES];
+}
+
+
 #pragma mark - Setup
 
--(void)setupFetchedResultsController
+-(void)setupSearchBar
+{
+    self.searchBar.placeholder = @"Search favorites...";
+}
+
+#pragma mark - SearchableCDTVC Required Methods
+
+
+-(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     NSLog(@"Favorites setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
@@ -60,15 +78,18 @@
                                 [NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES]];
     
-    request.predicate = [NSPredicate predicateWithFormat:@"favorite = %@",@YES];
-    
-    request.shouldRefreshRefetchedObjects = YES;
+    if(text){
+        NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
+        NSCompoundPredicate *compoundPredicate = [[NSCompoundPredicate alloc] initWithType:NSAndPredicateType subpredicates:@[self.fetchPredicate, searchPredicate]];
+        request.predicate = compoundPredicate;
+    } else {
+        request.predicate = self.fetchPredicate;
+    }
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"color"
                                                                                    cacheName:nil];
-    // [self logFetchResults];
 }
 
 -(void)logFetchResults

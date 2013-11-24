@@ -30,12 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self setupSearchBar];
-    [self setupNavigationBar];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -50,16 +45,15 @@
 }
 
 
-
 #pragma mark - Getters & Setters
 
-#pragma mark - Setup
-
--(void)setupNavigationBar
+-(NSPredicate *)fetchPredicate
 {
-    self.navigationController.navigationBar.barTintColor = [ColorSchemer sharedInstance].baseColor;
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    return nil;
 }
+
+
+#pragma mark - Setup
 
 -(void)setupSearchBar
 {
@@ -128,35 +122,27 @@
 
 #pragma mark - SearchableCDTVC Required Methods
 
--(void)setupFetchedResultsController
-{
-    NSLog(@"setupFetchedResultsController...");
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Restaurant"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
-                                                              ascending:YES
-                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
-    request.predicate = nil;
-    
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                        managedObjectContext:self.context
-                                                                          sectionNameKeyPath:nil
-                                                                                   cacheName:nil];
-}
 
--(void)searchFetchedResultsForText:(NSString *)text
+-(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
-    // NSLog(@"setupSearchResultsFetchController...");
+    NSLog(@"Favorites setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Restaurant"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES
                                                                selector:@selector(localizedCaseInsensitiveCompare:)]];
-    request.predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
+    
+    if(text){
+        NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
+        NSCompoundPredicate *compoundPredicate = [[NSCompoundPredicate alloc] initWithType:NSAndPredicateType subpredicates:@[self.fetchPredicate, searchPredicate]];
+        request.predicate = compoundPredicate;
+    } else {
+        request.predicate = self.fetchPredicate;
+    }
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
-    
 }
 
 - (void)didReceiveMemoryWarning

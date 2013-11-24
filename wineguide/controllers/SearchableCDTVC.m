@@ -10,7 +10,6 @@
 #import "InitialTabBarController.h"
 
 @interface SearchableCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
-
 @end
 
 @implementation SearchableCDTVC
@@ -54,7 +53,7 @@
         [self getManagedObjectContext];
     }
     if (self.context){
-        [self setupFetchedResultsController];
+        [self setupAndSearchFetchedResultsControllerWithText:nil];
     }
     if(self.fetchedResultsController.fetchedObjects > 0){
         self.title = @"Nearby";
@@ -74,7 +73,7 @@
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     //NSLog(@"searchText = %@",searchText);
-    [self searchFetchedResultsForText:searchText];
+    [self setupAndSearchFetchedResultsControllerWithText:searchText];
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -100,19 +99,13 @@
     // NSLog(@"searchBarCancelButtonClicked...");
     [searchBar resignFirstResponder];
     searchBar.text = @"";
-    [self setupFetchedResultsController];
+    [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
--(void)searchFetchedResultsForText:(NSString *)text
+-(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     // Abstract
 }
-
--(void)setupFetchedResultsController
-{
-    // Abstract
-}
-
 
 #pragma mark - Listen for Notifications
 

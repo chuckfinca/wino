@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller - Near Me-->
+        <!--CustomNC - Near Me-->
         <scene sceneID="xLQ-YU-XQd">
             <objects>
-                <navigationController definesPresentationContext="YES" id="OV2-Hf-2fH" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="OV2-Hf-2fH" customClass="CustomNC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Near Me" image="tab_nearMe.png" id="VrK-JF-UWa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rni-fG-KNB">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
@@ -102,6 +102,7 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" id="X3k-J3-Opp">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
@@ -143,10 +144,10 @@
             </objects>
             <point key="canvasLocation" x="1475" y="891"/>
         </scene>
-        <!--Navigation Controller - Favorites-->
+        <!--CustomNC - Favorites-->
         <scene sceneID="496-CP-L3k">
             <objects>
-                <navigationController definesPresentationContext="YES" id="mww-Ib-My5" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="mww-Ib-My5" customClass="CustomNC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="favorite_y.png" id="01R-bH-gIV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yha-Qd-Zmr">
                         <autoresizingMask key="autoresizingMask"/>

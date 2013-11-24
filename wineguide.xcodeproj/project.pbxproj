@@ -84,6 +84,7 @@
 		C9C7D62B18403E0E00A2E955 /* tutorialImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62918403E0E00A2E955 /* tutorialImage.png */; };
 		C9C7D62C18403E0E00A2E955 /* tutorialImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62A18403E0E00A2E955 /* tutorialImage@2x.png */; };
 		C9C7D62F184047EB00A2E955 /* FavoritesSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D62E184047EB00A2E955 /* FavoritesSCDTVC.m */; };
+		C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D63118417DED00A2E955 /* CustomNC.m */; };
 		C9D4472F183C9468004C8AF2 /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472D183C9468004C8AF2 /* tastingnotes.json */; };
 		C9D44730183C9468004C8AF2 /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472E183C9468004C8AF2 /* varietals.json */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
@@ -231,6 +232,8 @@
 		C9C7D62A18403E0E00A2E955 /* tutorialImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorialImage@2x.png"; path = "images/tutorialImage@2x.png"; sourceTree = "<group>"; };
 		C9C7D62D184047EB00A2E955 /* FavoritesSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesSCDTVC.h; path = controllers/FavoritesSCDTVC.h; sourceTree = "<group>"; };
 		C9C7D62E184047EB00A2E955 /* FavoritesSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesSCDTVC.m; path = controllers/FavoritesSCDTVC.m; sourceTree = "<group>"; };
+		C9C7D63018417DED00A2E955 /* CustomNC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomNC.h; path = controllers/CustomNC.h; sourceTree = "<group>"; };
+		C9C7D63118417DED00A2E955 /* CustomNC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomNC.m; path = controllers/CustomNC.m; sourceTree = "<group>"; };
 		C9D4472D183C9468004C8AF2 /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tastingnotes.json; sourceTree = "<group>"; };
 		C9D4472E183C9468004C8AF2 /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = varietals.json; sourceTree = "<group>"; };
 		C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentHandler.h; path = model/DocumentHandler.h; sourceTree = "<group>"; };
@@ -357,6 +360,8 @@
 			children = (
 				C9DDD08A1820307D000A6FD7 /* InitialTabBarController.h */,
 				C9DDD08B1820307D000A6FD7 /* InitialTabBarController.m */,
+				C9C7D63018417DED00A2E955 /* CustomNC.h */,
+				C9C7D63118417DED00A2E955 /* CustomNC.m */,
 				C9C7D61D184029B600A2E955 /* TutorialVC.h */,
 				C9C7D61E184029B600A2E955 /* TutorialVC.m */,
 				C9C7D62618402E0600A2E955 /* TutorialDetailsVC.h */,
@@ -684,6 +689,7 @@
 				C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */,
 				C92DF04318247AB3009DCB2C /* Brand+CreateAndModify.m in Sources */,
 				C92DF00718247082009DCB2C /* NSDictionary+Helper.m in Sources */,
+				C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */,
 				C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */,
 				C90385F0183811D0006CE3CE /* TastingNote.m in Sources */,
 				C90385F3183811D0006CE3CE /* Group.m in Sources */,

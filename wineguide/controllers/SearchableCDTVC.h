@@ -13,7 +13,9 @@
 @property (nonatomic, weak) NSManagedObjectContext *context;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
--(void)setupFetchedResultsController; // Abstract
--(void)searchFetchedResultsForText:(NSString *)text; // Abstract
+@property (nonatomic, strong) NSPredicate *fetchPredicate; // Abstract
+
+-(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text; // Abstract
+
 
 @end
