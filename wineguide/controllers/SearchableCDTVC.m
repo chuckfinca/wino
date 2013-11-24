@@ -55,9 +55,6 @@
     if (self.context){
         [self setupAndSearchFetchedResultsControllerWithText:nil];
     }
-    if(self.fetchedResultsController.fetchedObjects > 0){
-        self.title = @"Nearby";
-    }
 }
 
 -(void)getManagedObjectContext

@@ -31,6 +31,7 @@
 {
     [super viewDidLoad];
     [self setupSearchBar];
+    self.title = @"Nearby";
 }
 
 -(void)viewWillAppear:(BOOL)animated
