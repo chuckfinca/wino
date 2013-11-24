@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C9061DEA181F07CE003D8A55"
                BuildableName = "wineguide.app"
-               BlueprintName = "wineguide"
-               ReferencedContainer = "container:wineguide.xcodeproj">
+               BlueprintName = "Gimme"
+               ReferencedContainer = "container:Gimme.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C9061E0E181F07CE003D8A55"
                BuildableName = "wineguideTests.xctest"
-               BlueprintName = "wineguideTests"
-               ReferencedContainer = "container:wineguide.xcodeproj">
+               BlueprintName = "GimmeTests"
+               ReferencedContainer = "container:Gimme.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9061DEA181F07CE003D8A55"
             BuildableName = "wineguide.app"
-            BlueprintName = "wineguide"
-            ReferencedContainer = "container:wineguide.xcodeproj">
+            BlueprintName = "Gimme"
+            ReferencedContainer = "container:Gimme.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9061DEA181F07CE003D8A55"
             BuildableName = "wineguide.app"
-            BlueprintName = "wineguide"
-            ReferencedContainer = "container:wineguide.xcodeproj">
+            BlueprintName = "Gimme"
+            ReferencedContainer = "container:Gimme.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9061DEA181F07CE003D8A55"
             BuildableName = "wineguide.app"
-            BlueprintName = "wineguide"
-            ReferencedContainer = "container:wineguide.xcodeproj">
+            BlueprintName = "Gimme"
+            ReferencedContainer = "container:Gimme.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
