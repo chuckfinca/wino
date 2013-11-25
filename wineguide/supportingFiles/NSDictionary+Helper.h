@@ -13,6 +13,4 @@
 -(id)sanitizedValueForKey:(id)key;
 -(id)sanitizedStringForKey:(id)key;
 
--(NSArray *)separateNonNullStringLocatedAtKey:(NSString *)key;
-
 @end

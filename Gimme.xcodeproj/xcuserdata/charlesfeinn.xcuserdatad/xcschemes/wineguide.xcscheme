@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C9061DEA181F07CE003D8A55"
-               BuildableName = "wineguide.app"
+               BuildableName = "Gimme.app"
                BlueprintName = "Gimme"
                ReferencedContainer = "container:Gimme.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C9061E0E181F07CE003D8A55"
-               BuildableName = "wineguideTests.xctest"
+               BuildableName = "GimmeTests.xctest"
                BlueprintName = "GimmeTests"
                ReferencedContainer = "container:Gimme.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9061DEA181F07CE003D8A55"
-            BuildableName = "wineguide.app"
+            BuildableName = "Gimme.app"
             BlueprintName = "Gimme"
             ReferencedContainer = "container:Gimme.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9061DEA181F07CE003D8A55"
-            BuildableName = "wineguide.app"
+            BuildableName = "Gimme.app"
             BlueprintName = "Gimme"
             ReferencedContainer = "container:Gimme.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9061DEA181F07CE003D8A55"
-            BuildableName = "wineguide.app"
+            BuildableName = "Gimme.app"
             BlueprintName = "Gimme"
             ReferencedContainer = "container:Gimme.xcodeproj">
          </BuildableReference>
