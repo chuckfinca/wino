@@ -11,6 +11,7 @@
 
 @interface TutorialDetailsVC ()
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpaceLayoutConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *tutorialImageView;
 
 @end
@@ -61,6 +62,18 @@
     self.screenInstructionText.attributedText = attributedString;
     self.screenInstructionText.numberOfLines = 0;
     self.view.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.97];
+}
+
+-(void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    if([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait){
+        self.topSpaceLayoutConstraint.constant = 100;
+    } else {
+        self.topSpaceLayoutConstraint.constant = 0;
+    }
+    
+    [self.view setNeedsLayout];
 }
 
 - (void)didReceiveMemoryWarning

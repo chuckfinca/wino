@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialDetailsVC">
             <connections>
                 <outlet property="screenInstructionText" destination="0Vb-DW-1wc" id="Q4k-ae-3xs"/>
+                <outlet property="topSpaceLayoutConstraint" destination="TQk-OJ-7kS" id="Bw7-pg-Y5q"/>
                 <outlet property="tutorialImageView" destination="MF3-GY-a5y" id="PZe-gV-KUf"/>
                 <outlet property="view" destination="1" id="SMV-PW-S5w"/>
             </connections>
@@ -17,21 +18,21 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="0Vb-DW-1wc">
-                    <rect key="frame" x="20" y="382" width="280" height="21"/>
+                    <rect key="frame" x="20" y="238" width="280" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial_nearby.png" translatesAutoresizingMaskIntoConstraints="NO" id="MF3-GY-a5y">
-                    <rect key="frame" x="70" y="194" width="180" height="180"/>
+                    <rect key="frame" x="70" y="50" width="180" height="180"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="KgY-DA-uFQ"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="y8S-MN-CLc"/>
+                        <constraint firstAttribute="height" constant="180" id="KgY-DA-uFQ"/>
+                        <constraint firstAttribute="width" constant="180" id="y8S-MN-CLc"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24F-T8-sNi">
-                    <rect key="frame" x="20" y="411" width="280" height="44"/>
+                    <rect key="frame" x="20" y="267" width="280" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="DUA-8w-bqu"/>
@@ -47,7 +48,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="0Vb-DW-1wc" secondAttribute="trailing" constant="20" id="56s-gv-DgV"/>
                 <constraint firstAttribute="centerX" secondItem="MF3-GY-a5y" secondAttribute="centerX" id="IOz-09-5gG"/>
-                <constraint firstAttribute="centerY" secondItem="MF3-GY-a5y" secondAttribute="centerY" id="KbC-xt-MFO"/>
+                <constraint firstItem="MF3-GY-a5y" firstAttribute="top" secondItem="1" secondAttribute="top" constant="50" id="TQk-OJ-7kS"/>
                 <constraint firstItem="0Vb-DW-1wc" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="TkN-1i-Ftn"/>
                 <constraint firstItem="0Vb-DW-1wc" firstAttribute="top" secondItem="MF3-GY-a5y" secondAttribute="bottom" constant="8" id="UBp-pc-8zX"/>
                 <constraint firstItem="0Vb-DW-1wc" firstAttribute="centerX" secondItem="MF3-GY-a5y" secondAttribute="centerX" id="Ztx-5n-buJ"/>
@@ -60,6 +61,6 @@
         </view>
     </objects>
     <resources>
-        <image name="tutorial_nearby.png" width="180" height="180"/>
+        <image name="tutorial_nearby.png" width="320" height="320"/>
     </resources>
 </document>
