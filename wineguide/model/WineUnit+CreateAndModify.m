@@ -110,12 +110,12 @@
     NSLog(@"groupIdentifiers = %@",self.groupIdentifiers);
     NSLog(@"wineIdentifier = %@",self.wineIdentifier);
     
-    NSLog(@"flights count = %i",[self.flights count]);
+    NSLog(@"flights count = %lu",(unsigned long)[self.flights count]);
     for(NSObject *obj in self.flights){
         NSLog(@"  %@",obj.description);
     }
     
-    NSLog(@"groupings count = %i",[self.groups count]);
+    NSLog(@"groupings count = %lu",(unsigned long)[self.groups count]);
     for(NSObject *obj in self.groups){
         NSLog(@"  %@",obj.description);
     }

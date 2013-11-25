@@ -101,7 +101,7 @@
     
     NSLog(@"restaurant = %@",self.restaurant.description);
     
-    NSLog(@"wineUnits count = %i",[self.wineUnits count]);
+    NSLog(@"wineUnits count = %lu",(unsigned long)[self.wineUnits count]);
     for(NSObject *obj in self.wineUnits){
         NSLog(@"  %@",obj.description);
     }

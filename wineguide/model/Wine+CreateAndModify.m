@@ -162,17 +162,17 @@
     
     NSLog(@"brand = %@",self.brand.description);
     
-    NSLog(@"tastingNotes count = %i",[self.tastingNotes count]);
+    NSLog(@"tastingNotes count = %lu", (unsigned long)[self.tastingNotes count]);
     for(NSObject *obj in self.tastingNotes){
         NSLog(@"  %@",obj.description);
     }
     
-    NSLog(@"varietals count = %i",[self.varietals count]);
+    NSLog(@"varietals count = %lu", (unsigned long)[self.varietals count]);
     for(NSObject *obj in self.varietals){
         NSLog(@"  %@",obj.description);
     }
     
-    NSLog(@"wineUnits = %i",[self.wineUnits count]);
+    NSLog(@"wineUnits count = %lu", (unsigned long)[self.wineUnits count]);
     for(NSObject *obj in self.wineUnits){
         NSLog(@"  %@",obj.description);
     }

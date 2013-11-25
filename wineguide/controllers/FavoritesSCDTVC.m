@@ -95,7 +95,7 @@
 
 -(void)logFetchResults
 {
-    NSLog(@"fetchedResultCount = %i",[self.fetchedResultsController.fetchedObjects count]);
+    NSLog(@"fetchedResultCount = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
     for(NSObject *fetchedResult in self.fetchedResultsController.fetchedObjects){
         NSLog(@"fetchedResult = %@",fetchedResult.description);
     }

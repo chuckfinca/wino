@@ -11,7 +11,7 @@
 
 @protocol RestaurantDetailsVC_WineSelectionDelegate
 
-- (void)loadWineList:(int)listNumber;
+- (void)loadWineList:(NSUInteger)listNumber;
 
 @end
 

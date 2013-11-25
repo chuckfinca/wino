@@ -148,7 +148,7 @@ typedef enum {
 
 -(void)logFetchResults
 {
-    NSLog(@"fetchedResultCount = %i",[self.fetchedResultsController.fetchedObjects count]);
+    NSLog(@"fetchedResultCount = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
     for(NSObject *fetchedResult in self.fetchedResultsController.fetchedObjects){
         NSLog(@"fetchedResult = %@",fetchedResult.description);
     }
@@ -267,7 +267,7 @@ typedef enum {
 
 #pragma mark - RestaurantDetailsVC_WineSelectionDelegate
 
--(void)loadWineList:(int)listNumber
+-(void)loadWineList:(NSUInteger)listNumber
 {
     switch (listNumber) {
         case MostPopular:
@@ -323,12 +323,12 @@ typedef enum {
     NSLog(@"flightIdentifiers = %@",self.restaurant.flightIdentifiers);
     NSLog(@"groupIdentifiers = %@",self.restaurant.groupIdentifiers);
     
-    NSLog(@"flights count = %i",[self.restaurant.flights count]);
+    NSLog(@"flights count = %lu",(unsigned long)[self.restaurant.flights count]);
     for(NSObject *obj in self.restaurant.flights){
         NSLog(@"  %@",obj.description);
     }
     
-    NSLog(@"groups count = %i",[self.restaurant.groups count]);
+    NSLog(@"groups count = %lu",(unsigned long)[self.restaurant.groups count]);
     for(NSObject *obj in self.restaurant.groups){
         NSLog(@"  %@",obj.description);
     }

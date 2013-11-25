@@ -124,12 +124,12 @@
     NSLog(@"flightIdentifiers = %@",self.flightIdentifiers);
     NSLog(@"groupIdentifiers = %@",self.groupIdentifiers);
     
-    NSLog(@"flights count = %i",[self.flights count]);
+    NSLog(@"flights count = %lu", (unsigned long)[self.flights count]);
     for(NSObject *obj in self.flights){
         NSLog(@"  %@",obj.description);
     }
     
-    NSLog(@"groupings count = %i",[self.groups count]);
+    NSLog(@"groupings count = %lu", (unsigned long)[self.groups count]);
     for(NSObject *obj in self.groups){
         NSLog(@"  %@",obj.description);
     }

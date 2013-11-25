@@ -89,7 +89,7 @@
     NSLog(@"version = %@",self.version);
     NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
     
-    NSLog(@"wines count = %i",[self.wines count]);
+    NSLog(@"wines count = %lu",(unsigned long)[self.wines count]);
     for(NSObject *obj in self.wines){
         NSLog(@"  %@",obj.description);
     }
