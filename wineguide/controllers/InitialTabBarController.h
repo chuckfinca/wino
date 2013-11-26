@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainPanelTabBarVC.h"
 
-@interface InitialTabBarController : UITabBarController
+@interface InitialTabBarController : MainPanelTabBarVC
 
 @property (nonatomic, readonly) NSManagedObjectContext *context;
 

@@ -18,5 +18,10 @@
 
 @property (nonatomic, readonly) UIColor *baseColor;
 
+@property (nonatomic, readonly) UIColor *customBackgroundColor;
+@property (nonatomic, readonly) UIColor *menuBackgroundColor;
+
+@property (nonatomic, readonly) UIColor *shadowColor;
+
 
 @end

@@ -89,6 +89,10 @@
 		C9C7D6361841933900A2E955 /* tutorial_favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6341841933900A2E955 /* tutorial_favorites@2x.png */; };
 		C9C7D6391842AACD00A2E955 /* tutorial_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6371842AACD00A2E955 /* tutorial_logo.png */; };
 		C9C7D63A1842AACD00A2E955 /* tutorial_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6381842AACD00A2E955 /* tutorial_logo@2x.png */; };
+		C9D078401845252000F47851 /* MainPanelTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D078391845252000F47851 /* MainPanelTabBarVC.m */; };
+		C9D078421845252000F47851 /* PanelsContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D0783D1845252000F47851 /* PanelsContainerViewController.m */; };
+		C9D078431845252000F47851 /* SidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D0783F1845252000F47851 /* SidePanelViewController.m */; };
+		C9D0784818452AF800F47851 /* Initial_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D0784618452AF800F47851 /* Initial_iPhone.storyboard */; };
 		C9D4472F183C9468004C8AF2 /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472D183C9468004C8AF2 /* tastingnotes.json */; };
 		C9D44730183C9468004C8AF2 /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C9D4472E183C9468004C8AF2 /* varietals.json */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
@@ -242,6 +246,13 @@
 		C9C7D6341841933900A2E955 /* tutorial_favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorial_favorites@2x.png"; path = "images/tutorial_favorites@2x.png"; sourceTree = "<group>"; };
 		C9C7D6371842AACD00A2E955 /* tutorial_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_logo.png; path = images/tutorial_logo.png; sourceTree = "<group>"; };
 		C9C7D6381842AACD00A2E955 /* tutorial_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorial_logo@2x.png"; path = "images/tutorial_logo@2x.png"; sourceTree = "<group>"; };
+		C9D078381845252000F47851 /* MainPanelTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPanelTabBarVC.h; path = controllers/panels/MainPanelTabBarVC.h; sourceTree = "<group>"; };
+		C9D078391845252000F47851 /* MainPanelTabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPanelTabBarVC.m; path = controllers/panels/MainPanelTabBarVC.m; sourceTree = "<group>"; };
+		C9D0783C1845252000F47851 /* PanelsContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PanelsContainerViewController.h; path = controllers/panels/PanelsContainerViewController.h; sourceTree = "<group>"; };
+		C9D0783D1845252000F47851 /* PanelsContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PanelsContainerViewController.m; path = controllers/panels/PanelsContainerViewController.m; sourceTree = "<group>"; };
+		C9D0783E1845252000F47851 /* SidePanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SidePanelViewController.h; path = controllers/panels/SidePanelViewController.h; sourceTree = "<group>"; };
+		C9D0783F1845252000F47851 /* SidePanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SidePanelViewController.m; path = controllers/panels/SidePanelViewController.m; sourceTree = "<group>"; };
+		C9D0784718452AF800F47851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Initial_iPhone.storyboard; sourceTree = "<group>"; };
 		C9D4472D183C9468004C8AF2 /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tastingnotes.json; sourceTree = "<group>"; };
 		C9D4472E183C9468004C8AF2 /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = varietals.json; sourceTree = "<group>"; };
 		C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentHandler.h; path = model/DocumentHandler.h; sourceTree = "<group>"; };
@@ -315,6 +326,7 @@
 		C9061DF4181F07CE003D8A55 /* wineguide */ = {
 			isa = PBXGroup;
 			children = (
+				C9D0784618452AF800F47851 /* Initial_iPhone.storyboard */,
 				C9061E00181F07CE003D8A55 /* iPhone.storyboard */,
 				C9061E03181F07CE003D8A55 /* iPad.storyboard */,
 				C9061E3D181F276D003D8A55 /* xibs */,
@@ -366,6 +378,7 @@
 		C9061E29181F0A14003D8A55 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C9D078371845240F00F47851 /* panels */,
 				C9DDD08A1820307D000A6FD7 /* InitialTabBarController.h */,
 				C9DDD08B1820307D000A6FD7 /* InitialTabBarController.m */,
 				C9C7D63018417DED00A2E955 /* CustomNC.h */,
@@ -530,6 +543,19 @@
 			name = json;
 			sourceTree = "<group>";
 		};
+		C9D078371845240F00F47851 /* panels */ = {
+			isa = PBXGroup;
+			children = (
+				C9D078381845252000F47851 /* MainPanelTabBarVC.h */,
+				C9D078391845252000F47851 /* MainPanelTabBarVC.m */,
+				C9D0783C1845252000F47851 /* PanelsContainerViewController.h */,
+				C9D0783D1845252000F47851 /* PanelsContainerViewController.m */,
+				C9D0783E1845252000F47851 /* SidePanelViewController.h */,
+				C9D0783F1845252000F47851 /* SidePanelViewController.m */,
+			);
+			name = panels;
+			sourceTree = "<group>";
+		};
 		C9DDD08418201EBF000A6FD7 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +681,7 @@
 				C9061DF9181F07CE003D8A55 /* InfoPlist.strings in Resources */,
 				C9061E3C181F2767003D8A55 /* RestaurantDetails.xib in Resources */,
 				C92CAE3618330CC700F29C9B /* group.restaurant.tico.222berkeleystreet.all.json in Resources */,
+				C9D0784818452AF800F47851 /* Initial_iPhone.storyboard in Resources */,
 				C92CAE3518330CC700F29C9B /* group.restaurant.strega-waterfront.1marinaparkdrive.all.json in Resources */,
 				C9C7D61718401F1700A2E955 /* tab_nearMe.png in Resources */,
 				C9C7D610184011D100A2E955 /* favorite_n@2x.png in Resources */,
@@ -676,6 +703,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D078431845252000F47851 /* SidePanelViewController.m in Sources */,
 				C9038602183811D0006CE3CE /* Brand.m in Sources */,
 				C9C7D62818402E0600A2E955 /* TutorialDetailsVC.m in Sources */,
 				C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */,
@@ -686,6 +714,7 @@
 				C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */,
 				C9061E30181F1C9C003D8A55 /* RestaurantsSCDTVC.m in Sources */,
 				C92DF09618286942009DCB2C /* Flight+CreateAndModify.m in Sources */,
+				C9D078401845252000F47851 /* MainPanelTabBarVC.m in Sources */,
 				C92CADCD1832B12100F29C9B /* IterationCounter.m in Sources */,
 				C90385FF183811D0006CE3CE /* Flight.m in Sources */,
 				C9DDD0A11820885C000A6FD7 /* Restaurant+CreateAndModify.m in Sources */,
@@ -716,6 +745,7 @@
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,
 				C90385F6183811D0006CE3CE /* Restaurant.m in Sources */,
 				C98DEFB018217BE70038216C /* RestaurantDataHelper.m in Sources */,
+				C9D078421845252000F47851 /* PanelsContainerViewController.m in Sources */,
 				C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */,
 				C98DEFE8182312130038216C /* ManagedObjectHandler.m in Sources */,
 				C92DF1D018297A76009DCB2C /* WineUnit+CreateAndModify.m in Sources */,
@@ -778,6 +808,14 @@
 				C9061E1A181F07CE003D8A55 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C9D0784618452AF800F47851 /* Initial_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9D0784718452AF800F47851 /* Base */,
+			);
+			name = Initial_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

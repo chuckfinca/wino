@@ -18,6 +18,11 @@
 @property (nonatomic, readwrite) UIColor *textSecondary;
 @property (nonatomic, readwrite) UIColor *textLink;
 
+@property (nonatomic, readwrite) UIColor *customBackgroundColor;
+@property (nonatomic, readwrite) UIColor *menuBackgroundColor;
+
+@property (nonatomic, readwrite) UIColor *shadowColor;
+
 @end
 
 @implementation ColorSchemer
@@ -54,6 +59,24 @@ static ColorSchemer *sharedInstance;
 {
     if(!_textLink) _textLink = [UIColor colorWithRed:0.666667f green:0.470588f blue:0.650980f alpha:1.0];
     return _textLink;
+}
+
+-(UIColor *)customBackgroundColor
+{
+    if(!_customBackgroundColor) _customBackgroundColor = [UIColor whiteColor];
+    return _customBackgroundColor;
+}
+
+-(UIColor *)menuBackgroundColor
+{
+    if(!_menuBackgroundColor) _menuBackgroundColor = [UIColor darkGrayColor];
+    return _menuBackgroundColor;
+}
+
+-(UIColor *)shadowColor
+{
+    if(!_shadowColor) _shadowColor = [UIColor colorWithRed:0.133333F green:0.133333F blue:0.133333F alpha:0.5F];
+    return _shadowColor;
 }
 
 
