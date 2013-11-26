@@ -77,19 +77,20 @@
     if(wine.alcoholPercentage){
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@%% alcohol",[wine.alcoholPercentage stringValue]]];
     }
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY groups.restaurantIdentifier == %@",restaurant.identifier];
-    NSSet *wineUnits = [wine.wineUnits filteredSetUsingPredicate:predicate];
-    if(wineUnits){
-        
-        NSString * wineUnitsString = @"\n\n";
-        for(WineUnit *wineUnit in wineUnits){
-            wineUnitsString = [wineUnitsString stringByAppendingString:[NSString stringWithFormat:@"$%@ %@, ",[wineUnit.price stringValue],wineUnit.quantity]];
+    if(restaurant){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY groups.restaurantIdentifier == %@",restaurant.identifier];
+        NSSet *wineUnits = [wine.wineUnits filteredSetUsingPredicate:predicate];
+        if(wineUnits){
+            
+            NSString * wineUnitsString = @"\n\n";
+            for(WineUnit *wineUnit in wineUnits){
+                wineUnitsString = [wineUnitsString stringByAppendingString:[NSString stringWithFormat:@"$%@ %@, ",[wineUnit.price stringValue],wineUnit.quantity]];
+            }
+            wineUnitsString = [wineUnitsString substringToIndex:[wineUnitsString length]-2];
+            textViewString = [textViewString stringByAppendingString:wineUnitsString];
+            restaurantRange = NSMakeRange([textViewString length], [restaurant.name length]+3);
+            textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@" @ %@",[restaurant.name capitalizedString]]];
         }
-        wineUnitsString = [wineUnitsString substringToIndex:[wineUnitsString length]-2];
-        textViewString = [textViewString stringByAppendingString:wineUnitsString];
-        restaurantRange = NSMakeRange([textViewString length], [restaurant.name length]+3);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@" @ %@",[restaurant.name capitalizedString]]];
     }
     if(wine.tastingNotes){
         NSString *tastingNotesString = @"\n\nTasting notes: ";
