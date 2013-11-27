@@ -85,7 +85,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"cellForRowAtIndexPath...");
+    // NSLog(@"cellForRowAtIndexPath...");
     UITableViewCell *cell = nil;
     
     static NSString *CellIdentifier = @"RestaurantCell";

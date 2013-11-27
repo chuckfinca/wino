@@ -17,7 +17,6 @@
 
 @interface FavoritesSCDTVC ()
 
-
 @end
 
 @implementation FavoritesSCDTVC

@@ -172,11 +172,10 @@
 
 -(void)dismissTutorial:(NSNotification *)notification
 {
-    NSLog(@"notifcation received");
+    NSLog(@"dismissTutorial notifcation received");
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.tutorialVC.view.alpha = 0;
     } completion:^(BOOL finished) {
-        NSLog(@"finished!");
         [self.tutorialVC.view removeFromSuperview];
         self.tutorialVC = nil;
         [self disableIntro];

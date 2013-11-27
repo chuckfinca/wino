@@ -28,8 +28,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self getManagedObjectContext];
-    
-    NSLog(@"self.searchBar.delegate");
     self.searchBar.delegate = self;
 }
 

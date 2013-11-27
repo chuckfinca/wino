@@ -8,17 +8,12 @@
 
 #import "PanelsContainerViewController.h"
 
-#define MAIN_VC_TAG 1
-#define LEFT_VC_TAG 2
-#define RIGHT_VC_TAG 2
 #define CORNER_RADIUS 4
 #define SLIDE_TIMING .25
 #define PANEL_WIDTH 270
 
 @interface PanelsContainerViewController () <UIGestureRecognizerDelegate>
 
-@property (nonatomic) BOOL showingLeftPanel;
-@property (nonatomic) BOOL showingRightPanel;
 @property (nonatomic) BOOL showPanel;
 @property (nonatomic) CGPoint preVelocity;
 
@@ -40,7 +35,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self setupView];
-    NSLog(@"PanelsContainerViewController viewDidLoad");
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -72,7 +66,6 @@
     [self.view addSubview:self.mainPanelViewController.view];
     [self addChildViewController:self.mainPanelViewController];
     [self.mainPanelViewController didMoveToParentViewController:self];
-    self.mainPanelViewController.view.tag = MAIN_VC_TAG;
     
     [self setupMainPanelFrame];
     [self setupGestures];
@@ -103,53 +96,28 @@
     }
 }
 
--(UIView *)getLeftView
+-(UIView *)prepareViewForSidePanelVC:(UIViewController *)sideViewController
 {
-    //NSLog(@"getting leftPanelViewController");
-    self.leftPanelViewController.view.tag = LEFT_VC_TAG;
     
-    [self.view addSubview:self.leftPanelViewController.view];
-    [self addChildViewController:self.leftPanelViewController];
-    [self.leftPanelViewController didMoveToParentViewController:self];
+    [self.view addSubview:sideViewController.view];
+    [self addChildViewController:sideViewController];
+    [sideViewController didMoveToParentViewController:self];
     
-    self.leftPanelViewController.view.frame = CGRectMake(0, 0, self.mainPanelViewController.view.frame.size.width, self.mainPanelViewController.view.frame.size.height);
-    //self.leftPanelViewController.view.backgroundColor = [ColorSchemer sharedInstance].menuBackgroundColor;
+    sideViewController.view.frame = CGRectMake(0, 0, self.mainPanelViewController.view.frame.size.width, self.mainPanelViewController.view.frame.size.height);
     
     // set up view shadow
     [self showCenterViewWithShadow:YES];
     
-    return self.leftPanelViewController.view;
-}
-
--(UIView *)getRightView
-{
-    //NSLog(@"getting rightPanelViewController");
-    self.rightPanelViewController.view.tag = RIGHT_VC_TAG;
-    
-    [self.view addSubview:self.rightPanelViewController.view];
-    [self addChildViewController:self.rightPanelViewController];
-    [self.rightPanelViewController didMoveToParentViewController:self];
-    
-    self.rightPanelViewController.view.frame = CGRectMake(0, 0, self.mainPanelViewController.view.frame.size.width, self.mainPanelViewController.view.frame.size.height);
-    //self.rightPanelViewController.view.backgroundColor = [ColorSchemer sharedInstance].menuBackgroundColor;
-    
-    // set up view shadow
-    [self showCenterViewWithShadow:YES];
-    
-    return self.rightPanelViewController.view;
+    return sideViewController.view;
 }
 
 -(void)resetPanels
 {
     //NSLog(@"resetPanels...");
     [self.leftPanelViewController.view removeFromSuperview];
-    
-    self.showingLeftPanel = NO;
-    
     [self.rightPanelViewController.view removeFromSuperview];
     
-    self.showingRightPanel = NO;
-    
+    self.showPanel = NO;
     
     // reset view shadow
     [self showCenterViewWithShadow:NO];
@@ -158,36 +126,26 @@
 
 #pragma mark - Delegate Actions
 
-- (void)movePanelLeft // to show right panel
+- (void)showView:(UIView *)view // to show right panel
 {
     //NSLog(@"PCVC - movePanelLeft");
-    UIView *childView = [self getRightView];
-    [self.view sendSubviewToBack:childView];
+    [self.view sendSubviewToBack:view];
+    
+    float offsetDirection;
+    if([view isEqual:self.leftPanelViewController.view]){
+        offsetDirection = -1;
+    } else {
+        offsetDirection = 1;
+    }
     
     [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.mainPanelViewController.view.frame = CGRectMake(-PANEL_WIDTH, 0, self.mainPanelViewController.view.frame.size.width, self.view.frame.size.height);
+        self.mainPanelViewController.view.frame = CGRectMake(offsetDirection*PANEL_WIDTH, 0, self.mainPanelViewController.view.frame.size.width, self.view.frame.size.height);
     } completion:^(BOOL finished) {
         if(finished){
         }
     }];
     
-    self.showingLeftPanel = YES;
-}
-
-- (void)movePanelRight // to show left panel
-{
-    //NSLog(@"PCVC - movePanelRight");
-    UIView *childView = [self getLeftView];
-    [self.view sendSubviewToBack:childView];
-    
-    [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.mainPanelViewController.view.frame = CGRectMake(PANEL_WIDTH, 0, self.mainPanelViewController.view.frame.size.width, self.view.frame.size.height);
-    } completion:^(BOOL finished) {
-        if(finished){
-        }
-    }];
-    
-    self.showingRightPanel = YES;
+    self.showPanel = YES;
 }
 
 - (void)movePanelToOriginalPosition
@@ -227,14 +185,12 @@
         UIView __weak *childView = nil;
         
         if(velocity.x > 0){
-            if(!self.showingRightPanel){
-                //NSLog(@"getLeftView");
-                childView = [self getLeftView];
+            if(!self.showPanel){
+                childView = [self prepareViewForSidePanelVC:self.leftPanelViewController];
             }
         } else {
-            if(!self.showingLeftPanel){
-                //NSLog(@"getRightView");
-                childView = [self getRightView];
+            if(!self.showPanel){
+                childView = [self prepareViewForSidePanelVC:self.rightPanelViewController];
             }
         }
         // make sure the view you're working with is front and center
@@ -242,41 +198,29 @@
         [panGesture.view bringSubviewToFront:[panGesture view]];
     }
     
+    if([panGesture state] == UIGestureRecognizerStateChanged){
+        translatedPoint = [panGesture translationInView:self.view];
+        float newX = panGesture.view.center.x + translatedPoint.x;
+        panGesture.view.center = CGPointMake(newX, panGesture.view.center.y);
+        [panGesture setTranslation:CGPointMake(0, 0) inView:self.view];
+    }
+    
     if([panGesture state] == UIGestureRecognizerStateEnded){
         //NSLog(@"UIGestureRecognizerStateEnded...");
         
         float originX = self.mainPanelViewController.view.frame.origin.x;
         
-        if(!self.showingLeftPanel && !self.showingRightPanel){
+        if(!self.showPanel){
             if(originX <= -(PANEL_WIDTH/2)){
-                NSLog(@"movePanelLeft");
-                [self movePanelLeft];
+                [self showView:self.leftPanelViewController.view];
             } else if (originX >=PANEL_WIDTH/2){
-                NSLog(@"movePanelRight");
-                [self movePanelRight];
+                [self showView:self.rightPanelViewController.view];
             } else {
                 [self movePanelToOriginalPosition];
             }
         } else {
             [self movePanelToOriginalPosition];
         }
-        
-        /*
-         NSLog(@"translatedPoint.x = %f",translatedPoint.x);
-         NSLog(@"origin.x = %f",originX);
-         NSLog(@"center = %f",self.mainPanelViewController.view.center.x);
-         NSLog(@"delta origin = %f",self.beginningOrigin - self.mainPanelViewController.view.frame.origin.x);
-         NSLog(@"delta center = %f",self.beginningCenter - self.mainPanelViewController.view.center.x);
-         NSLog(@"self.showingLeftPanel = %i",self.showingLeftPanel);
-         NSLog(@"showingRightPanel = %i",self.showingRightPanel);
-         */
-    }
-    
-    if([panGesture state] == UIGestureRecognizerStateChanged){
-        translatedPoint = [panGesture translationInView:self.view];
-        float newX = panGesture.view.center.x + translatedPoint.x;
-        panGesture.view.center = CGPointMake(newX, panGesture.view.center.y);
-        [panGesture setTranslation:CGPointMake(0, 0) inView:self.view];
     }
     
 }

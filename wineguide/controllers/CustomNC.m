@@ -34,6 +34,15 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
+-(void)viewWillLayoutSubviews
+{
+    if([UIApplication sharedApplication].statusBarHidden == YES){
+        self.navigationBar.frame = CGRectMake(self.navigationBar.frame.origin.x, self.navigationBar.frame.origin.y+20, self.navigationBar.frame.size.width, self.navigationBar.frame.size.height);
+    } else {
+        self.navigationBar.frame = CGRectMake(self.navigationBar.frame.origin.x, self.navigationBar.frame.origin.y, self.navigationBar.frame.size.width, self.navigationBar.frame.size.height);
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

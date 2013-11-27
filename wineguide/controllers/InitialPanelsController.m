@@ -7,6 +7,7 @@
 //
 
 #import "InitialPanelsController.h"
+#import "UserMenuVC.h"
 
 @interface InitialPanelsController ()
 
@@ -46,12 +47,8 @@
         storyboardName =  @"iPhone";
     }
     self.mainPanelViewController = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateInitialViewController];
-
-    self.leftPanelViewController = [[UIViewController alloc] init];
-    self.leftPanelViewController.view.backgroundColor = [UIColor greenColor];
-    
+    self.leftPanelViewController = [[UserMenuVC alloc] initWithNibName:@"UserMenu" bundle:nil];
     self.rightPanelViewController = [[UIViewController alloc] init];
-    self.rightPanelViewController.view.backgroundColor = [UIColor redColor];
 }
 
 @end
