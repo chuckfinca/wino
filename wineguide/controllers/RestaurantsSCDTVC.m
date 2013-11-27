@@ -8,6 +8,7 @@
 
 #import "RestaurantsSCDTVC.h"
 #import "RestaurantCDTVC.h"
+#import "RestaurantDataHelper.h"
 #import "Restaurant.h"
 #import "MainTabBarController.h"
 #import "ColorSchemer.h"
@@ -74,6 +75,11 @@
     }
 }
 
+
+-(void)getMoreResultsFromTheServer
+{
+    [self findRestaurantsNearby];
+}
 
 
 #pragma mark - UITableViewDataSource
@@ -147,6 +153,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+
+#pragma mark - Update Core Data
+
+-(void)findRestaurantsNearby
+{
+    // this will be replaced with a server url when available
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
+    
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
+    [rdh updateCoreDataWithJSONFromURL:url];
 }
 
 @end

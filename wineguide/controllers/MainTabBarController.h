@@ -10,6 +10,6 @@
 
 @interface MainTabBarController : UITabBarController
 
-@property (nonatomic, readonly) NSManagedObjectContext *context;
+@property (nonatomic, strong) NSManagedObjectContext *context;
 
 @end

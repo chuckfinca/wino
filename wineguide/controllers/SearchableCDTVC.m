@@ -8,6 +8,7 @@
 
 #import "SearchableCDTVC.h"
 #import "MainTabBarController.h"
+#import "DocumentHandler.h"
 
 @interface SearchableCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
 @end
@@ -27,14 +28,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self getManagedObjectContext];
+    [self refresh];
     self.searchBar.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [self listenForKeyboardNotifcations];
-    [self listenForDocumentReadyNotification];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -47,19 +47,20 @@
 
 -(void)refresh
 {
-    if(!self.context){
-        [self getManagedObjectContext];
-    }
+    [self getManagedObjectContext];
     if (self.context){
+        [self getMoreResultsFromTheServer];
         [self setupAndSearchFetchedResultsControllerWithText:nil];
     }
 }
 
 -(void)getManagedObjectContext
 {
-    if([self.tabBarController isKindOfClass:[MainTabBarController class]]){
-        MainTabBarController *itbc = (MainTabBarController *)self.tabBarController;
-        self.context = itbc.context;
+    if(!self.context && [DocumentHandler sharedDocumentHandler]){
+        self.context = [DocumentHandler sharedDocumentHandler].document.managedObjectContext;
+    } else {
+        [self listenForDocumentReadyNotification];
+        NSLog(@"cannot get managed object context because either self.context exists (%@) or [DocumentHandler sharedDocumentHandler] does not exist (%@). Did start listening to DocumentReady notifications",self.context,[DocumentHandler sharedDocumentHandler]);
     }
 }
 
@@ -86,7 +87,7 @@
 
 -(void)getMoreResultsFromTheServer
 {
-    NSLog(@"getMoreResultsFromTheServer...");
+    // abstract
 }
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar

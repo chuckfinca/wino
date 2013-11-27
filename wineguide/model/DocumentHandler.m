@@ -47,6 +47,7 @@ static DocumentHandler *sharedInstance;
     void (^onDocumentDidLoad)(BOOL) = ^(BOOL success){
         if(success){
             onDocumentReady(self.document);
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Document Ready" object:nil];
         } else {
             NSLog(@"document failed to load");
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Problem loading data" message:@"Please fully quit the app and reopen it. If you see this message again, delete the app and reinstall. Sorry for the inconvenience." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];

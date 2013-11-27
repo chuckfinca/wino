@@ -7,9 +7,22 @@
 //
 
 #import "InitialPanelsController.h"
+#import "DocumentHandler.h"
+#import "LocalObjectUpdater.h"
+#import "MainTabBarController.h"
+#import "ColorSchemer.h"
+#import "TutorialVC.h"
 #import "UserMenuVC.h"
 
+#define SUPRESS_TUTORIAL @"ShowTutorial"
+
 @interface InitialPanelsController ()
+
+@property (nonatomic, strong) UIManagedDocument *document;
+@property (nonatomic, strong) NSManagedObjectContext *context;
+@property (nonatomic, strong) TutorialVC *tutorialVC;
+@property (nonatomic) BOOL supressTutorial;
+@property (nonatomic) BOOL locationServicesEnabled;
 
 @end
 
@@ -29,14 +42,23 @@
     [self setupViewControllers];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self setupDocument];
+    
+    if(self.supressTutorial == NO) {
+        [self setupTutorial];
+    }
 }
+#pragma mark - Getters & Setters
 
-- (void)didReceiveMemoryWarning
+-(BOOL)supressTutorial
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if(!_supressTutorial) {
+        _supressTutorial = [[[NSUserDefaults standardUserDefaults] valueForKey:SUPRESS_TUTORIAL] boolValue];
+    }
+    return _supressTutorial;
 }
 
+#pragma mark - Setup
 
 -(void)setupViewControllers
 {
@@ -49,6 +71,78 @@
     self.mainPanelViewController = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateInitialViewController];
     self.leftPanelViewController = [[UserMenuVC alloc] initWithNibName:@"UserMenu" bundle:nil];
     self.rightPanelViewController = [[UIViewController alloc] init];
+}
+
+-(void)setupTutorial
+{
+    self.tutorialVC = [[TutorialVC alloc] init];
+    [self.view addSubview:self.tutorialVC.view];
+    [self.view bringSubviewToFront:self.tutorialVC.view];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dismissTutorial:)
+                                                 name:@"Dismiss Tutorial"
+                                               object:nil];
+}
+
+-(void)setupDocument
+{
+    if(!self.document){
+        [[DocumentHandler sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document){
+            self.document = document;
+            self.context = document.managedObjectContext;
+            // Do any additional work now that the document is ready
+            [self updateLocalObjects];
+            MainTabBarController *mtbc = (MainTabBarController *)self.mainPanelViewController;
+            mtbc.context = document.managedObjectContext;
+        }];
+    }
+}
+
+-(void)updateLocalObjects
+{
+    LocalObjectUpdater *lou = [[LocalObjectUpdater alloc] init];
+    lou.context = self.context;
+    [lou updateTastingNotesAndVarietals];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Tutorial
+
+-(void)dismissTutorial:(NSNotification *)notification
+{
+    NSLog(@"dismissTutorial notifcation received");
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.tutorialVC.view.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.tutorialVC.view removeFromSuperview];
+        self.tutorialVC = nil;
+        [self disableIntro];
+    }];
+    [self checkUserLocation];
+}
+
+-(void)disableIntro
+{
+    //[[NSUserDefaults standardUserDefaults] setBool:YES forKey:SUPRESS_TUTORIAL];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+#pragma mark - Location
+
+-(void)checkUserLocation
+{
+    if(!self.locationServicesEnabled){
+        NSLog(@"locationServicesEnabled");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enable location services?" message:@"Wine Guide would like to use your location." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+        alert.tintColor = [ColorSchemer sharedInstance].textLink;
+        [alert show];
+    }
 }
 
 @end

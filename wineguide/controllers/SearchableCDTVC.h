@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSPredicate *fetchPredicate; // Abstract
 
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text; // Abstract
+-(void)getMoreResultsFromTheServer; // Abstract
 
 
 @end
