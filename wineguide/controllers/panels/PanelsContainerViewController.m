@@ -54,6 +54,7 @@
 {
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
     [self setupMainPanelFrame];
+    [self movePanelToOriginalPosition];
 }
 
 
@@ -126,9 +127,8 @@
 
 #pragma mark - Delegate Actions
 
-- (void)showView:(UIView *)view // to show right panel
+- (void)revealView:(UIView *)view
 {
-    //NSLog(@"PCVC - movePanelLeft");
     [self.view sendSubviewToBack:view];
     
     float offsetDirection;
@@ -212,9 +212,9 @@
         
         if(!self.showPanel){
             if(originX <= -(PANEL_WIDTH/2)){
-                [self showView:self.leftPanelViewController.view];
+                [self revealView:self.leftPanelViewController.view];
             } else if (originX >=PANEL_WIDTH/2){
-                [self showView:self.rightPanelViewController.view];
+                [self revealView:self.rightPanelViewController.view];
             } else {
                 [self movePanelToOriginalPosition];
             }
