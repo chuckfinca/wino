@@ -10,4 +10,8 @@
 
 @interface PanelsContainerViewController : UIViewController
 
+@property (nonatomic, strong) UIViewController *mainPanelViewController; // abstract
+@property (nonatomic, strong) UIViewController *leftPanelViewController; // abstract
+@property (nonatomic, strong) UIViewController *rightPanelViewController; // abstract
+
 @end
