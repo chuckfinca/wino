@@ -7,7 +7,7 @@
 //
 
 #import "SearchableCDTVC.h"
-#import "InitialTabBarController.h"
+#import "MainTabBarController.h"
 
 @interface SearchableCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
 @end
@@ -59,8 +59,8 @@
 
 -(void)getManagedObjectContext
 {
-    if([self.tabBarController isKindOfClass:[InitialTabBarController class]]){
-        InitialTabBarController *itbc = (InitialTabBarController *)self.tabBarController;
+    if([self.tabBarController isKindOfClass:[MainTabBarController class]]){
+        MainTabBarController *itbc = (MainTabBarController *)self.tabBarController;
         self.context = itbc.context;
     }
 }

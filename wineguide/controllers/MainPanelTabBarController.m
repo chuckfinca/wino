@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "InitialTabBarController.h"
+#import "MainTabBarController.h"
 #import "DocumentHandler.h"
 #import "LocationHelper.h"
 #import "RestaurantDataHelper.h"
@@ -17,7 +17,7 @@
 
 #define SUPRESS_TUTORIAL @"ShowTutorial"
 
-@interface InitialTabBarController () <UIAlertViewDelegate>
+@interface MainTabBarController () <UIAlertViewDelegate>
 
 @property (nonatomic, strong) UIManagedDocument *document;
 @property (nonatomic, readwrite) NSManagedObjectContext *context;
@@ -28,7 +28,7 @@
 
 @end
 
-@implementation InitialTabBarController
+@implementation MainTabBarController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

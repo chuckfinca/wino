@@ -9,7 +9,7 @@
 #import "RestaurantsSCDTVC.h"
 #import "RestaurantCDTVC.h"
 #import "Restaurant.h"
-#import "InitialTabBarController.h"
+#import "MainTabBarController.h"
 #import "ColorSchemer.h"
 
 @interface RestaurantsSCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
