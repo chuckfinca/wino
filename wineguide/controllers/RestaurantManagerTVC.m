@@ -82,7 +82,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.groups count];
+    return [self.groups count]+1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -94,14 +94,19 @@
 {
     // NSLog(@"cellForRowAtIndexPath...");
     UITableViewCell *cell = nil;
+    NSString *cellIdentifier;
     
-    static NSString *CellIdentifier = @"GroupCell";
-    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    Group *group = self.groups[indexPath.row];
-    
-    cell.textLabel.text = group.name;
+    if(indexPath.row == [self.groups count]){
+        cellIdentifier = @"AddGroupCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    } else {
+        cellIdentifier = @"GroupCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        
+        // Configure the cell...
+        Group *group = self.groups[indexPath.row];
+        cell.textLabel.text = group.name;
+    }
     
     return cell;
 }
@@ -109,10 +114,12 @@
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
     NSLog(@"moveRowAtIndexPath...");
-    Group *group = [self.groups objectAtIndex:fromIndexPath.row];
-    [self.groups removeObject:self.groups[fromIndexPath.row]];
-    [self.groups insertObject:group atIndex:toIndexPath.row];
-    NSLog(@"self.groups = %@",self.groups);
+    if(toIndexPath.row < [self.groups count]){
+        Group *group = [self.groups objectAtIndex:fromIndexPath.row];
+        [self.groups removeObject:self.groups[fromIndexPath.row]];
+        [self.groups insertObject:group atIndex:toIndexPath.row];
+        NSLog(@"self.groups = %@",self.groups);
+    }
 }
 
 #pragma mark - Editing
@@ -120,6 +127,9 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
+    if(indexPath.row == [self.groups count]){
+        return NO;
+    }
     return YES;
 }
 
@@ -162,6 +172,14 @@
     NSLog(@"didEndEditingRowAtIndexPath");
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
+    if (proposedDestinationIndexPath.row == [self.groups count]) {
+        return sourceIndexPath;
+    }
+    else {
+        return proposedDestinationIndexPath;
+    }
+}
 
 #pragma mark - Target Action
 
