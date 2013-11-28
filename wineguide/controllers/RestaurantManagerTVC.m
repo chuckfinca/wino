@@ -111,6 +111,9 @@
     return cell;
 }
 
+
+#pragma mark - Editing
+
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
     NSLog(@"moveRowAtIndexPath...");
@@ -121,8 +124,6 @@
         NSLog(@"self.groups = %@",self.groups);
     }
 }
-
-#pragma mark - Editing
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -158,13 +159,6 @@
     }
 }
 
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
-
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
@@ -178,6 +172,28 @@
     }
     else {
         return proposedDestinationIndexPath;
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // NSLog(@"prepareForSegue...");
+    if([sender isKindOfClass:[UITableViewCell class]]){
+        
+        UITableViewCell *tvc = (UITableViewCell *)sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tvc];
+        
+        if(indexPath){
+            if([segue.destinationViewController isKindOfClass:[UITableViewController class]]){
+                
+                // Get the new view controller using [segue destinationViewController].
+                UITableViewController *tvc = (UITableViewController *)segue.destinationViewController;
+                
+                // Pass the selected object to the new view controller.
+                Group *group = self.groups[indexPath.row];
+                tvc.title = group.name;
+            }
+        }
     }
 }
 
