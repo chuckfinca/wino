@@ -6,8 +6,9 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "SearchableCDTVC.h"
+#import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface RestaurantManagerSCDTVC : SearchableCDTVC
+@interface RestaurantManagerTVC : UITableViewController
 
 @end

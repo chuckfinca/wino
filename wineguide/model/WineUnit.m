@@ -1,8 +1,8 @@
 //
 //  WineUnit.m
-//  wineguide
+//  Gimme
 //
-//  Created by Charles Feinn on 11/16/13.
+//  Created by Charles Feinn on 11/27/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -17,13 +17,13 @@
 @dynamic flightIdentifiers;
 @dynamic groupIdentifiers;
 @dynamic identifier;
+@dynamic isPlaceholderForFutureObject;
 @dynamic lastAccessed;
 @dynamic markForDeletion;
 @dynamic price;
 @dynamic quantity;
 @dynamic version;
 @dynamic wineIdentifier;
-@dynamic isPlaceholderForFutureObject;
 @dynamic flights;
 @dynamic groups;
 @dynamic wine;

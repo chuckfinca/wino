@@ -34,6 +34,7 @@
         <attribute name="markForDeletion" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="restaurantIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="wineUnitIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="groups" inverseEntity="Restaurant" syncable="YES"/>
@@ -126,7 +127,7 @@
     <elements>
         <element name="Brand" positionX="243" positionY="54" width="128" height="193"/>
         <element name="Flight" positionX="-279" positionY="198" width="128" height="223"/>
-        <element name="Group" positionX="-281" positionY="432" width="128" height="208"/>
+        <element name="Group" positionX="-281" positionY="432" width="128" height="223"/>
         <element name="Restaurant" positionX="-459" positionY="239" width="128" height="313"/>
         <element name="TastingNote" positionX="268" positionY="261" width="128" height="193"/>
         <element name="Varietal" positionX="252" positionY="477" width="128" height="178"/>

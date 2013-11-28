@@ -8,14 +8,13 @@
 
 #import "UserMenuVC.h"
 #import "ColorSchemer.h"
-#import "RestaurantCDTVC.h"
+#import "RestaurantManagerTVC.h"
 
 @interface UserMenuVC ()
 
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *updateRestaurantButton;
 
-@property (nonatomic, strong) RestaurantCDTVC *restaurantCDTVC;
 
 @end
 
@@ -45,29 +44,22 @@
 
 #pragma mark - Getters & Setters
 
--(RestaurantCDTVC *)restaurantCDTVC
+-(RestaurantManagerTVC *)restaurantManagerTVC
 {
-    if(!_restaurantCDTVC) {
-        
-        NSString *storyboardName;
-        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
-            storyboardName =  @"Restauranteur_iPad";
-        } else {
-            storyboardName =  @"Restauranteur_iPhone";
-        }
-        _restaurantCDTVC = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateInitialViewController];
-        
-        //_restaurantCDTVC setupWithRestaurant:
+    NSString *storyboardName;
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        storyboardName =  @"Restauranteur_iPad";
+    } else {
+        storyboardName =  @"Restauranteur_iPhone";
     }
-    return _restaurantCDTVC;
+    return [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateInitialViewController];
 }
 
 - (IBAction)updateRestaurant:(UIButton *)sender
 {
     [UIApplication sharedApplication].statusBarHidden = NO;
     
-    [self presentViewController:self.restaurantCDTVC animated:YES completion:^{
-    }];
+    [self presentViewController:self.restaurantManagerTVC animated:YES completion:^{}];
 }
 
 

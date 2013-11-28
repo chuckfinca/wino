@@ -1,8 +1,8 @@
 //
 //  Wine.m
-//  wineguide
+//  Gimme
 //
-//  Created by Charles Feinn on 11/16/13.
+//  Created by Charles Feinn on 11/27/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -22,6 +22,7 @@
 @dynamic dessert;
 @dynamic favorite;
 @dynamic identifier;
+@dynamic isPlaceholderForFutureObject;
 @dynamic lastAccessed;
 @dynamic markForDeletion;
 @dynamic name;
@@ -34,7 +35,6 @@
 @dynamic vineyard;
 @dynamic vintage;
 @dynamic wineUnitIdentifiers;
-@dynamic isPlaceholderForFutureObject;
 @dynamic brand;
 @dynamic tastingNotes;
 @dynamic varietals;

@@ -1,8 +1,8 @@
 //
 //  WineUnit.h
-//  wineguide
+//  Gimme
 //
-//  Created by Charles Feinn on 11/16/13.
+//  Created by Charles Feinn on 11/27/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -16,13 +16,13 @@
 @property (nonatomic, retain) NSString * flightIdentifiers;
 @property (nonatomic, retain) NSString * groupIdentifiers;
 @property (nonatomic, retain) NSString * identifier;
+@property (nonatomic, retain) NSNumber * isPlaceholderForFutureObject;
 @property (nonatomic, retain) NSDate * lastAccessed;
 @property (nonatomic, retain) NSNumber * markForDeletion;
 @property (nonatomic, retain) NSNumber * price;
 @property (nonatomic, retain) NSString * quantity;
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSString * wineIdentifier;
-@property (nonatomic, retain) NSNumber * isPlaceholderForFutureObject;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
 @property (nonatomic, retain) Wine *wine;
