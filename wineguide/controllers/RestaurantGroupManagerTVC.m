@@ -9,6 +9,7 @@
 #import "RestaurantGroupManagerTVC.h"
 #import "Restaurant.h"
 #import "Group+CreateAndModify.h"
+#import "RestaurantWineListManagerTVC.h"
 
 #define RESTAURANT_ENTITY @"Restaurant"
 #define GROUP_ENTITY @"Group"
@@ -123,11 +124,10 @@
             if([segue.destinationViewController isKindOfClass:[UITableViewController class]]){
                 
                 // Get the new view controller using [segue destinationViewController].
-                UITableViewController *tvc = (UITableViewController *)segue.destinationViewController;
+                RestaurantWineListManagerTVC *rwltvc = (RestaurantWineListManagerTVC *)segue.destinationViewController;
                 
                 // Pass the selected object to the new view controller.
-                Group *group = self.managedObjects[indexPath.row];
-                tvc.title = group.name;
+                rwltvc.group = (Group *)self.managedObjects[indexPath.row];
             }
         }
     }
