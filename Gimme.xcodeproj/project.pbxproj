@@ -54,6 +54,7 @@
 		C92DF1D018297A76009DCB2C /* WineUnit+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF1CF18297A76009DCB2C /* WineUnit+CreateAndModify.m */; };
 		C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF232182AD063009DCB2C /* FlightDataHelper.m */; };
 		C92DF236182AD376009DCB2C /* TastingNoteDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF235182AD376009DCB2C /* TastingNoteDataHelper.m */; };
+		C9328CC518496B7500AF6DEA /* ListManagerTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9328CC418496B7500AF6DEA /* ListManagerTVC.m */; };
 		C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */; };
 		C9487D0C182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */; };
 		C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */; };
@@ -195,6 +196,8 @@
 		C92DF232182AD063009DCB2C /* FlightDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightDataHelper.m; path = model/FlightDataHelper.m; sourceTree = "<group>"; };
 		C92DF234182AD376009DCB2C /* TastingNoteDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingNoteDataHelper.h; path = model/TastingNoteDataHelper.h; sourceTree = "<group>"; };
 		C92DF235182AD376009DCB2C /* TastingNoteDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingNoteDataHelper.m; path = model/TastingNoteDataHelper.m; sourceTree = "<group>"; };
+		C9328CC318496B7500AF6DEA /* ListManagerTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListManagerTVC.h; path = controllers/ListManagerTVC.h; sourceTree = "<group>"; };
+		C9328CC418496B7500AF6DEA /* ListManagerTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListManagerTVC.m; path = controllers/ListManagerTVC.m; sourceTree = "<group>"; };
 		C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.leszygomates.129southstreet.json; path = model/json/restaurant.leszygomates.129southstreet.json; sourceTree = "<group>"; };
 		C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "restaurant.strega-waterfront.1marinaparkdrive.json"; path = "model/json/restaurant.strega-waterfront.1marinaparkdrive.json"; sourceTree = "<group>"; };
 		C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.tico.222berkeleystreet.json; path = model/json/restaurant.tico.222berkeleystreet.json; sourceTree = "<group>"; };
@@ -397,6 +400,8 @@
 				C9DDD08B1820307D000A6FD7 /* MainTabBarController.m */,
 				C91F59BD18457AE800CF7F18 /* UserMenuVC.h */,
 				C91F59BE18457AE800CF7F18 /* UserMenuVC.m */,
+				C9328CC318496B7500AF6DEA /* ListManagerTVC.h */,
+				C9328CC418496B7500AF6DEA /* ListManagerTVC.m */,
 				C91F59C3184581C900CF7F18 /* RestaurantGroupManagerTVC.h */,
 				C91F59C4184581C900CF7F18 /* RestaurantGroupManagerTVC.m */,
 				C9C7D63018417DED00A2E955 /* CustomNC.h */,
@@ -760,6 +765,7 @@
 				C98DEFB018217BE70038216C /* RestaurantDataHelper.m in Sources */,
 				C9D078421845252000F47851 /* PanelsContainerViewController.m in Sources */,
 				C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */,
+				C9328CC518496B7500AF6DEA /* ListManagerTVC.m in Sources */,
 				C98DEFE8182312130038216C /* ManagedObjectHandler.m in Sources */,
 				C92DF1D018297A76009DCB2C /* WineUnit+CreateAndModify.m in Sources */,
 				C92932D8182B00D50035C93C /* BrandDataHelper.m in Sources */,

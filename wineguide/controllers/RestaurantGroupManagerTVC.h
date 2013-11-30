@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
+#import "ListManagerTVC.h"
 
-@interface RestaurantGroupManagerTVC : UITableViewController
+
+@interface RestaurantGroupManagerTVC : ListManagerTVC
 
 @end
