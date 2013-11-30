@@ -11,7 +11,7 @@
 #import "NSDictionary+Helper.h"
 #import "NSManagedObject+Helper.h"
 #import "FlightDataHelper.h"
-#import "GroupingDataHelper.h"
+#import "GroupDataHelper.h"
 #import "WineUnitDataHelper.h"
 
 
@@ -92,7 +92,7 @@
                 [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
                 
                 // Groupings
-                GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:context andRelatedObject:restaurant andNeededManagedObjectIdentifiersString:groupIdentifiers];
+                GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:restaurant andNeededManagedObjectIdentifiersString:groupIdentifiers];
                 [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
             }
         }

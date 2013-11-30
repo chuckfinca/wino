@@ -10,7 +10,7 @@
 #import "RestaurantDetailsVC.h"
 #import "WineCDTVC.h"
 #import "RestaurantDataHelper.h"
-#import "GroupingDataHelper.h"
+#import "GroupDataHelper.h"
 #import "Wine.h"
 #import "Brand.h"
 #import "Group.h"
@@ -115,7 +115,7 @@ typedef enum {
     
     NSString *urlString = [NSString stringWithFormat:@"group.%@.all",self.restaurant.identifier];
     NSURL *allGroupUrl = [[NSBundle mainBundle] URLForResource:urlString withExtension:JSON];
-    GroupingDataHelper *gdh = [[GroupingDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
+    GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
     [gdh updateCoreDataWithJSONFromURL:allGroupUrl];
     
     [self setupFetchedResultsController];

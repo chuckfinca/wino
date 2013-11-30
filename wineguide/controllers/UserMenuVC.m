@@ -8,7 +8,7 @@
 
 #import "UserMenuVC.h"
 #import "ColorSchemer.h"
-#import "RestaurantManagerTVC.h"
+#import "RestaurantGroupManagerTVC.h"
 
 @interface UserMenuVC ()
 
@@ -44,7 +44,7 @@
 
 #pragma mark - Getters & Setters
 
--(RestaurantManagerTVC *)restaurantManagerTVC
+-(RestaurantGroupManagerTVC *)restaurantManagerTVC
 {
     NSString *storyboardName;
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){

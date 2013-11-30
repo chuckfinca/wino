@@ -9,6 +9,6 @@
 #import "JSONToCoreDataHelper.h"
 #import "Restaurant.h"
 
-@interface GroupingDataHelper : JSONToCoreDataHelper
+@interface GroupDataHelper : JSONToCoreDataHelper
 
 @end

@@ -14,7 +14,7 @@
 #import "BrandDataHelper.h"
 #import "TastingNoteDataHelper.h"
 #import "VarietalDataHelper.h"
-#import "GroupingDataHelper.h"
+#import "GroupDataHelper.h"
 #import "FlightDataHelper.h"
 #import "WineUnitDataHelper.h"
 

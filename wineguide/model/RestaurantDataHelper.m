@@ -8,7 +8,7 @@
 
 #import "RestaurantDataHelper.h"
 #import "Restaurant+CreateAndModify.h"
-#import "GroupingDataHelper.h"
+#import "GroupDataHelper.h"
 #import "FlightDataHelper.h"
 #import "Group.h"
 #import "Flight.h"

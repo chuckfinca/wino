@@ -6,22 +6,24 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "RestaurantManagerTVC.h"
+#import "RestaurantGroupManagerTVC.h"
 #import "DocumentHandler.h"
 #import "Restaurant.h"
-#import "Group.h"
+#import "Group+CreateAndModify.h"
 
 #define RESTAURANT_ENTITY @"Restaurant"
 #define GROUP_ENTITY @"Group"
 
-@interface RestaurantManagerTVC ()
+@interface RestaurantGroupManagerTVC () <UITextFieldDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) Restaurant *restaurant;
 @property (nonatomic, strong) NSMutableArray *groups; // of Group objects
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 @end
 
-@implementation RestaurantManagerTVC
+@implementation RestaurantGroupManagerTVC
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +41,19 @@
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self getManagedObjectContext];
     [self loadRestaurant];
-    [self loadRestaurantGroups];
+    [self refreshTableView];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self listenForKeyboardNotifcations];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)getManagedObjectContext
@@ -61,7 +75,7 @@
     self.restaurant = [match firstObject];
 }
 
--(void)loadRestaurantGroups
+-(void)refreshTableView
 {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:GROUP_ENTITY];
     request.predicate = [NSPredicate predicateWithFormat:@"restaurantIdentifier = %@",self.restaurant.identifier];
@@ -110,6 +124,7 @@
     
     return cell;
 }
+
 
 
 #pragma mark - Editing
@@ -206,8 +221,97 @@
     }];
 }
 
+- (IBAction)addNewGroup:(UIButton *)sender
+{
+    NSLog(@"addNewGroup...");
+    [self.textField resignFirstResponder];
+    [self showAddNewGroupActionSheet];
+}
+
+-(void)showAddNewGroupActionSheet
+{
+    NSLog(@"createNewGroup...");
+    if([self.textField.text length] > 0){
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Create group \"%@\"",self.textField.text]
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                             destructiveButtonTitle:nil
+                                                  otherButtonTitles:@"Create group", nil];
+        [sheet showInView:self.view.window];
+    }
+}
 
 
+#pragma mark - Notifications
+
+-(void)listenForKeyboardNotifcations
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showHideCancelButton:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showHideCancelButton:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+-(void)showHideCancelButton:(NSNotification *)notification
+{
+    //NSLog(@"self.newGroupNameTextField.text = %@",self.groupNameTextField.text);
+}
+
+#pragma mark - UITextFieldDelegate
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if(!self.textField){
+        NSLog(@"textFieldDidBeginEditing");
+        self.textField = textField;
+    }
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSLog(@"textFieldDidEndEditing");
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    [self showAddNewGroupActionSheet];
+    return YES;
+}
+
+
+#pragma mark - UIActionSheetDelegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0){
+        [self createNewGroupNamed:self.textField.text];
+    }
+    self.textField.text = @"";
+}
+
+#pragma mark - Core Data
+
+-(void)createNewGroupNamed:(NSString *)newGroupName
+{
+    NSString *groupName = [newGroupName lowercaseString];
+    groupName = [groupName stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSString *groupIdentifier = [NSString stringWithFormat:@"group.%@.%@",self.restaurant.identifier,groupName];
+    NSLog(@"groupIdentifier = %@",groupIdentifier);
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",groupIdentifier];
+    
+    Group *group = [Group groupFoundUsingPredicate:predicate inContext:self.context withEntityInfo:@{@"identifier" : groupIdentifier, @"name" : newGroupName, @"restaurantIdentifier" : self.restaurant.identifier}];
+    group.sortOrder = @([self.groups count]);
+    
+    [self refreshTableView];
+}
 
 - (void)didReceiveMemoryWarning
 {

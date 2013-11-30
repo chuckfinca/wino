@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "GroupingDataHelper.h"
+#import "GroupDataHelper.h"
 #import "Group+CreateAndModify.h"
 #import "RestaurantDataHelper.h"
 #import "WineUnitDataHelper.h"
@@ -17,7 +17,7 @@
 #define GROUP @"Group"
 #define RESTAURANT @"Restaurant"
 
-@implementation GroupingDataHelper
+@implementation GroupDataHelper
 
 -(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
