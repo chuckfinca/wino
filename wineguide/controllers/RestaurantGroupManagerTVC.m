@@ -14,12 +14,18 @@
 #define RESTAURANT_ENTITY @"Restaurant"
 #define GROUP_ENTITY @"Group"
 
+typedef enum {
+    DeleteEntity,
+    AddEntity,
+} ActionSheetType;
+
 @interface RestaurantGroupManagerTVC () <UITextFieldDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) Restaurant *restaurant;
 @property (nonatomic, strong) NSMutableArray *groups; // of Group objects
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic, weak) Group *groupToDelete;
 @end
 
 @implementation RestaurantGroupManagerTVC
@@ -154,8 +160,17 @@
 {
     NSLog(@"commitEditingStyle");
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        self.groupToDelete = self.groups[indexPath.row];
+        UIActionSheet *deleteSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Delete group \"%@\"?\nThis action cannot be undone.",self.groupToDelete.name]
+                                                                 delegate:self
+                                                        cancelButtonTitle:@"Cancel"
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:@"Delete group", nil];
+        deleteSheet.tag = DeleteEntity;
+        
+        
+        [deleteSheet showInView:self.view.window];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -232,12 +247,13 @@
 {
     NSLog(@"createNewGroup...");
     if([self.textField.text length] > 0){
-        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Create group \"%@\"",self.textField.text]
-                                                           delegate:self
-                                                  cancelButtonTitle:@"Cancel"
-                                             destructiveButtonTitle:nil
-                                                  otherButtonTitles:@"Create group", nil];
-        [sheet showInView:self.view.window];
+        UIActionSheet *addSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Create group \"%@\"",self.textField.text]
+                                                              delegate:self
+                                                     cancelButtonTitle:@"Cancel"
+                                                destructiveButtonTitle:nil
+                                                     otherButtonTitles:@"Create group", nil];
+        addSheet.tag = AddEntity;
+        [addSheet showInView:self.view.window];
     }
 }
 
@@ -290,9 +306,15 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 0){
-        [self createNewGroupNamed:self.textField.text];
+        if(actionSheet.tag == DeleteEntity){
+            [self.context deleteObject:self.groupToDelete];
+            [self refreshTableView];
+        }
+        if(actionSheet.tag == AddEntity){
+            [self createNewGroupNamed:self.textField.text];
+            self.textField.text = @"";
+        }
     }
-    self.textField.text = @"";
 }
 
 #pragma mark - Core Data
