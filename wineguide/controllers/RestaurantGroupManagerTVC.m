@@ -91,6 +91,7 @@ typedef enum {
     NSArray *matches = [self.context executeFetchRequest:request error:&error];
     self.groups = [matches mutableCopy];
     [self.tableView reloadData];
+    [self setGroupSortOrder];
 }
 
 #pragma mark - UITableViewDataSource
@@ -137,12 +138,10 @@ typedef enum {
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    NSLog(@"moveRowAtIndexPath...");
     if(toIndexPath.row < [self.groups count]){
         Group *group = [self.groups objectAtIndex:fromIndexPath.row];
         [self.groups removeObject:self.groups[fromIndexPath.row]];
         [self.groups insertObject:group atIndex:toIndexPath.row];
-        NSLog(@"self.groups = %@",self.groups);
     }
 }
 
@@ -158,7 +157,6 @@ typedef enum {
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"commitEditingStyle");
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         self.groupToDelete = self.groups[indexPath.row];
@@ -181,11 +179,14 @@ typedef enum {
 {
     [super setEditing:editing animated:animated];
     if(self.editing == NO){
-        NSLog(@"self.editing == NO");
-        for(Group *group in self.groups){
-            group.sortOrder = @([self.groups indexOfObject:group]);
-            NSLog(@"%@ is sortOrder = %@",group.name, group.sortOrder);
-        }
+        [self setGroupSortOrder];
+    }
+}
+
+-(void)setGroupSortOrder
+{
+    for(Group *group in self.groups){
+        group.sortOrder = @([self.groups indexOfObject:group]);
     }
 }
 
