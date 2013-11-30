@@ -111,6 +111,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [super prepareForSegue:segue sender:sender];
+    
     // NSLog(@"prepareForSegue...");
     if([sender isKindOfClass:[UITableViewCell class]]){
         

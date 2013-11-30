@@ -16,4 +16,8 @@
 -(void)refreshTableView; // Abstract
 -(void)createNewManagedObjectNamed:(NSString *)newManagedObjectName; // Abstract
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; // Abstract but call super to dismiss keyboard if necessary
+
+
+
 @end

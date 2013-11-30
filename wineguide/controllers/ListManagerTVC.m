@@ -80,6 +80,13 @@ typedef enum {
     return cell;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [self.textField resignFirstResponder];
+    
+    // Abstract need to call super
+}
+
 #pragma mark - UITableViewDelegate
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
@@ -104,6 +111,8 @@ typedef enum {
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.textField resignFirstResponder];
+    
     // Return NO if you do not want the specified item to be editable.
     if(indexPath.row == [self.managedObjects count]){
         return NO;
