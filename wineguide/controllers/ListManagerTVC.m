@@ -7,17 +7,10 @@
 //
 
 #import "ListManagerTVC.h"
-#import <CoreData/CoreData.h>
 #import "DocumentHandler.h"
-
-typedef enum {
-    DeleteEntity,
-    AddEntity,
-} ActionSheetType;
 
 @interface ListManagerTVC () <UITextFieldDelegate, UIActionSheetDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic, weak) NSManagedObject *managedObjectToDelete;
 
 @end
@@ -124,22 +117,18 @@ typedef enum {
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
         self.managedObjectToDelete = self.managedObjects[indexPath.row];
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        UIActionSheet *deleteSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Delete group \"%@\"?\nThis action cannot be undone.",cell.textLabel.text]
-                                                                 delegate:self
-                                                        cancelButtonTitle:@"Cancel"
-                                                   destructiveButtonTitle:nil
-                                                        otherButtonTitles:@"Delete group", nil];
-        deleteSheet.tag = DeleteEntity;
-        
-        
-        [deleteSheet showInView:self.view.window];
+        [self showRemoveActionSheetItem:cell.textLabel.text];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
+}
+
+-(void)showRemoveActionSheetItem:(NSString *)itemName
+{
+    // Abstract
 }
 
 
@@ -155,7 +144,7 @@ typedef enum {
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    [self showAddNewManagedObjectActionSheet];
+    [self showAddActionSheet];
     return YES;
 }
 
@@ -166,8 +155,7 @@ typedef enum {
 {
     if(buttonIndex == 0){
         if(actionSheet.tag == DeleteEntity){
-            [self.context deleteObject:self.managedObjectToDelete];
-            [self refreshTableView];
+            [self deleteFromListManagedObject:self.managedObjectToDelete];
         }
         if(actionSheet.tag == AddEntity){
             [self createNewManagedObjectNamed:self.textField.text];
@@ -178,6 +166,11 @@ typedef enum {
             self.textField.text = @"";
         }
     }
+}
+
+-(void)deleteFromListManagedObject:(NSManagedObject *)managedObject
+{
+    // Abstract
 }
 
 -(void)createNewManagedObjectNamed:(NSString *)newManagedObjectName
@@ -191,23 +184,13 @@ typedef enum {
 {
     // NSLog(@"addNewGroup...");
     [self.textField resignFirstResponder];
-    [self showAddNewManagedObjectActionSheet];
+    [self showAddActionSheet];
 }
 
--(void)showAddNewManagedObjectActionSheet
+-(void)showAddActionSheet
 {
-    // NSLog(@"showAddNewManagedObjectActionSheet...");
-    if([self.textField.text length] > 0){
-        UIActionSheet *addSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Create group \"%@\"",self.textField.text]
-                                                              delegate:self
-                                                     cancelButtonTitle:@"Cancel"
-                                                destructiveButtonTitle:nil
-                                                     otherButtonTitles:@"Create group", nil];
-        addSheet.tag = AddEntity;
-        [addSheet showInView:self.view.window];
-    }
+    // Abstract
 }
-
 
 - (void)didReceiveMemoryWarning
 {

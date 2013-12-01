@@ -14,7 +14,7 @@
 #define RESTAURANT_ENTITY @"Restaurant"
 #define GROUP_ENTITY @"Group"
 
-@interface RestaurantGroupManagerTVC () 
+@interface RestaurantGroupManagerTVC () <UIActionSheetDelegate>
 
 @property (nonatomic, strong) Restaurant *restaurant;
 @end
@@ -63,7 +63,6 @@
 }
 
 
-
 #pragma mark - UITableViewDataSource
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -109,7 +108,6 @@
 }
 
 
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [super prepareForSegue:segue sender:sender];
@@ -140,7 +138,33 @@
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
+-(void)showRemoveActionSheetItem:(NSString *)itemName
+{
+    UIActionSheet *deleteSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Delete Group \"%@\"?",itemName]
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Delete"
+                                  
+                                                    otherButtonTitles:nil];
+    deleteSheet.tag = DeleteEntity;
+    
+    
+    [deleteSheet showInView:self.view.window];
+}
 
+-(void)showAddActionSheet
+{
+    // NSLog(@"showAddNewManagedObjectActionSheet...");
+    if([self.textField.text length] > 0){
+        UIActionSheet *addSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Create Group \"%@\"",self.textField.text]
+                                                              delegate:self
+                                                     cancelButtonTitle:@"Cancel"
+                                                destructiveButtonTitle:nil
+                                                     otherButtonTitles:@"Create Group", nil];
+        addSheet.tag = AddEntity;
+        [addSheet showInView:self.view.window];
+    }
+}
 
 #pragma mark - Core Data
 
@@ -151,10 +175,21 @@
     NSString *groupIdentifier = [NSString stringWithFormat:@"group.%@.%@",self.restaurant.identifier,groupName];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",groupIdentifier];
-    [Group groupFoundUsingPredicate:predicate inContext:self.context withEntityInfo:@{@"identifier" : groupIdentifier, @"name" : newManagedObjectName, @"restaurantIdentifier" : self.restaurant.identifier, @"sortOrder" : @([self.managedObjects count])}];
+    Group *group = [Group groupFoundUsingPredicate:predicate inContext:self.context withEntityInfo:@{@"identifier" : groupIdentifier, @"name" : newManagedObjectName, @"restaurantIdentifier" : self.restaurant.identifier}];
+    group.restaurant = self.restaurant;
+    group.sortOrder = [NSNumber numberWithInteger:[self.managedObjects count]];
     
     [self refreshTableView];
 }
+
+-(void)deleteFromListManagedObject:(id)managedObject
+{
+    [self.context deleteObject:managedObject];
+    [self refreshTableView];
+}
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

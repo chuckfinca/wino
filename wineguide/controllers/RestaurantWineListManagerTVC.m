@@ -12,7 +12,7 @@
 
 #define WINE_UNIT_ENTITY @"WineUnit"
 
-@interface RestaurantWineListManagerTVC ()
+@interface RestaurantWineListManagerTVC () <UIActionSheetDelegate>
 
 @end
 
@@ -70,6 +70,58 @@
     }
     
     return cell;
+}
+
+#pragma mark - Pre Core Data Changes
+
+-(void)showRemoveActionSheetForCell:(UITableViewCell *)cell
+{
+    UIActionSheet *deleteSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Remove Wine \"%@\"?",cell.textLabel.text]
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Remove"
+                                  
+                                                    otherButtonTitles:nil];
+    deleteSheet.tag = DeleteEntity;
+    
+    
+    [deleteSheet showInView:self.view.window];
+}
+
+-(void)showAddActionSheet
+{
+    // NSLog(@"showAddNewManagedObjectActionSheet...");
+    if([self.textField.text length] > 0){
+        UIActionSheet *addSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Add Wine \"%@\"",self.textField.text]
+                                                              delegate:self
+                                                     cancelButtonTitle:@"Cancel"
+                                                destructiveButtonTitle:nil
+                                                     otherButtonTitles:@"Add", nil];
+        addSheet.tag = AddEntity;
+        [addSheet showInView:self.view.window];
+    }
+}
+
+#pragma mark - Core Data
+
+-(void)createNewManagedObjectNamed:(NSString *)newManagedObjectName
+{
+    NSLog(@"createNewManagedObjectNamed...");
+    /*
+    NSString *groupName = [newManagedObjectName lowercaseString];
+    groupName = [groupName stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *groupIdentifier = [NSString stringWithFormat:@"group.%@.%@",self.restaurant.identifier,groupName];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",groupIdentifier];
+    [Group groupFoundUsingPredicate:predicate inContext:self.context withEntityInfo:@{@"identifier" : groupIdentifier, @"name" : newManagedObjectName, @"restaurantIdentifier" : self.restaurant.identifier, @"sortOrder" : @([self.managedObjects count])}];
+    */
+    [self refreshTableView];
+}
+
+-(void)deleteFromListManagedObject:(id)managedObject
+{
+    NSLog(@"deleteFromListManagedObject...");
+    [self refreshTableView];
 }
 
 
