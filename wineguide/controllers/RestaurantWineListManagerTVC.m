@@ -9,10 +9,13 @@
 #import "RestaurantWineListManagerTVC.h"
 #import "WineUnit.h"
 #import "Wine.h"
+#import "WineSCDTVC.h"
 
 #define WINE_UNIT_ENTITY @"WineUnit"
 
 @interface RestaurantWineListManagerTVC () <UIActionSheetDelegate>
+
+@property (nonatomic, strong) WineSCDTVC *wineSCDTVC;
 
 @end
 
@@ -60,6 +63,7 @@
     if(indexPath.row == [self.managedObjects count]){
         cellIdentifier = @"AddWineCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        cell.textLabel.text = @"Add wine...";
     } else {
         cellIdentifier = @"WineCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
@@ -72,14 +76,27 @@
     return cell;
 }
 
+#pragma mark - Getters & Setters
+
+-(WineSCDTVC *)wineSCDTVC
+{
+    NSString *storyboardName;
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        storyboardName =  @"WineSearch_iPad";
+    } else {
+        storyboardName =  @"WineSearch_iPhone";
+    }
+    return [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateInitialViewController];
+}
+
 #pragma mark - Pre Core Data Changes
 
--(void)showRemoveActionSheetForCell:(UITableViewCell *)cell
+-(void)showRemoveActionSheetItem:(NSString *)itemName
 {
-    UIActionSheet *deleteSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Remove Wine \"%@\"?",cell.textLabel.text]
+    UIActionSheet *deleteSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Remove Wine \"%@\"?",itemName]
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:@"Remove"
+                                               destructiveButtonTitle:@"Remove from group"
                                   
                                                     otherButtonTitles:nil];
     deleteSheet.tag = DeleteEntity;
@@ -102,6 +119,9 @@
     }
 }
 
+
+
+
 #pragma mark - Core Data
 
 -(void)createNewManagedObjectNamed:(NSString *)newManagedObjectName
@@ -122,6 +142,15 @@
 {
     NSLog(@"deleteFromListManagedObject...");
     [self refreshTableView];
+}
+
+
+#pragma mark - Target Action
+
+- (IBAction)addWine:(UIButton *)sender
+{
+    NSLog(@"addWine...");
+    [self presentViewController:self.wineSCDTVC animated:YES completion:^{}];
 }
 
 

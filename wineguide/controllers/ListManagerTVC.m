@@ -126,11 +126,6 @@
     }
 }
 
--(void)showRemoveActionSheetItem:(NSString *)itemName
-{
-    // Abstract
-}
-
 
 #pragma mark - UITextFieldDelegate
 
@@ -165,8 +160,26 @@
         if(actionSheet.tag == AddEntity){
             self.textField.text = @"";
         }
+        if(actionSheet.tag == DeleteEntity){
+            [self setEditing:NO animated:YES];
+        }
     }
 }
+
+#pragma mark - Pre Core Data
+
+-(void)showAddActionSheet
+{
+    // Abstract
+}
+
+-(void)showRemoveActionSheetItem:(NSString *)itemName
+{
+    // Abstract
+}
+
+
+#pragma mark - Core Data
 
 -(void)deleteFromListManagedObject:(NSManagedObject *)managedObject
 {
@@ -185,11 +198,6 @@
     // NSLog(@"addNewGroup...");
     [self.textField resignFirstResponder];
     [self showAddActionSheet];
-}
-
--(void)showAddActionSheet
-{
-    // Abstract
 }
 
 - (void)didReceiveMemoryWarning
