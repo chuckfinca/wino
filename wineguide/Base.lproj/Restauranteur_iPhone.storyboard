@@ -56,20 +56,15 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Restaurant" id="dPZ-Zh-83y">
-                        <barButtonItem key="leftBarButtonItem" style="done" id="PwR-Or-Jgl">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BrY-nV-xhK">
-                                <rect key="frame" x="16" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Close"/>
-                                <connections>
-                                    <action selector="dismissModalVC:" destination="gqK-oI-mZz" eventType="touchUpInside" id="mlM-8b-9dQ"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="j11-hi-SP4">
+                            <connections>
+                                <segue destination="JxO-Xa-bG9" kind="unwind" unwindAction="dismissRestaurantGroupManagerTVC:" id="0Hw-Yk-0Hc"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnT-Z9-vnq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="JxO-Xa-bG9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="477" y="70"/>
         </scene>
@@ -90,25 +85,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddWineCell" id="Cp4-cl-oge">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddWineCell" id="Cp4-cl-oge">
                                 <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cp4-cl-oge" id="CEt-cy-s7L">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfV-iw-qlf">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Add Wine...">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="addWine:" destination="gQZ-DI-XVI" eventType="touchUpInside" id="72b-np-mWu"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="gaX-SV-Sdl" kind="push" id="FhT-S5-DjD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -121,6 +107,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zju-KX-1DS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="913" y="70"/>
+        </scene>
+        <!--Restaurant Wine ManagerSCDTVC-->
+        <scene sceneID="XAE-H5-keS">
+            <objects>
+                <tableViewController id="gaX-SV-Sdl" customClass="RestaurantWineManagerSCDTVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8Cg-1h-x5J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" id="vqo-fh-rND">
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WineCell" id="l6H-gE-yO1">
+                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l6H-gE-yO1" id="jZs-gH-TlF">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gaX-SV-Sdl" id="OCt-iF-eQZ"/>
+                            <outlet property="delegate" destination="gaX-SV-Sdl" id="UxE-Nz-gSZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="0dr-RC-c0x"/>
+                    <connections>
+                        <outlet property="searchBar" destination="vqo-fh-rND" id="Be7-sP-f5p"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Z9-iL-pCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1409" y="70"/>
         </scene>
         <!--CustomNC-->
         <scene sceneID="AJD-lq-YOp">

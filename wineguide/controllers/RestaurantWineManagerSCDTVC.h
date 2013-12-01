@@ -8,6 +8,6 @@
 
 #import "SearchableCDTVC.h"
 
-@interface WineSCDTVC : SearchableCDTVC
+@interface RestaurantWineManagerSCDTVC : SearchableCDTVC
 
 @end

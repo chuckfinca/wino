@@ -55,12 +55,23 @@
     return [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateInitialViewController];
 }
 
+#pragma mark - Target Action
+
 - (IBAction)updateRestaurant:(UIButton *)sender
 {
     [UIApplication sharedApplication].statusBarHidden = NO;
     
     [self presentViewController:self.restaurantManagerTVC animated:YES completion:^{}];
 }
+
+-(IBAction)dismissRestaurantGroupManagerTVC:(UIStoryboardSegue *)unwindSegue
+{
+    UIViewController *sourceViewController = unwindSegue.sourceViewController;
+    if([sourceViewController isKindOfClass:[RestaurantGroupManagerTVC class]]){
+        NSLog(@"we have a RestaurantGroupManagerTVC");
+    }
+}
+
 
 
 

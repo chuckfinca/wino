@@ -133,11 +133,6 @@
 
 #pragma mark - Target Action
 
-- (IBAction)dismissModalVC:(UIButton *)sender
-{
-    [self dismissViewControllerAnimated:YES completion:^{}];
-}
-
 -(void)showRemoveActionSheetItem:(NSString *)itemName
 {
     UIActionSheet *deleteSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Delete Group \"%@\"?",itemName]

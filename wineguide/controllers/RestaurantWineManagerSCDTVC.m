@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "WineSCDTVC.h"
+#import "RestaurantWineManagerSCDTVC.h"
 #import "Wine.h"
 #import "Varietal.h"
 #import "TastingNote.h"
@@ -14,11 +14,11 @@
 
 #define WINE_ENTITY @"Wine"
 
-@interface WineSCDTVC ()
+@interface RestaurantWineManagerSCDTVC ()
 
 @end
 
-@implementation WineSCDTVC
+@implementation RestaurantWineManagerSCDTVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

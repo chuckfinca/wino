@@ -9,13 +9,11 @@
 #import "RestaurantWineListManagerTVC.h"
 #import "WineUnit.h"
 #import "Wine.h"
-#import "WineSCDTVC.h"
+#import "RestaurantWineManagerSCDTVC.h"
 
 #define WINE_UNIT_ENTITY @"WineUnit"
 
 @interface RestaurantWineListManagerTVC () <UIActionSheetDelegate>
-
-@property (nonatomic, strong) WineSCDTVC *wineSCDTVC;
 
 @end
 
@@ -78,17 +76,6 @@
 
 #pragma mark - Getters & Setters
 
--(WineSCDTVC *)wineSCDTVC
-{
-    NSString *storyboardName;
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
-        storyboardName =  @"WineSearch_iPad";
-    } else {
-        storyboardName =  @"WineSearch_iPhone";
-    }
-    return [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateInitialViewController];
-}
-
 #pragma mark - Pre Core Data Changes
 
 -(void)showRemoveActionSheetItem:(NSString *)itemName
@@ -147,11 +134,6 @@
 
 #pragma mark - Target Action
 
-- (IBAction)addWine:(UIButton *)sender
-{
-    NSLog(@"addWine...");
-    [self presentViewController:self.wineSCDTVC animated:YES completion:^{}];
-}
 
 
 - (void)didReceiveMemoryWarning
