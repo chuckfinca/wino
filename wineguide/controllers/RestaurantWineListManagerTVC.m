@@ -146,6 +146,25 @@
 -(void)deleteFromListManagedObject:(id)managedObject
 {
     NSLog(@"deleteFromListManagedObject...");
+    if([managedObject isKindOfClass:[WineUnit class]]){
+        
+        WineUnit *wu = (WineUnit *)managedObject;
+        NSMutableSet *groups = [wu.groups mutableCopy];
+        [groups removeObject:self.group];
+        wu.groups = groups;
+        wu.groupIdentifiers = [wu.groupIdentifiers stringByReplacingOccurrencesOfString:self.group.identifier withString:@""];
+        wu.groupIdentifiers = [wu.groupIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
+        
+        NSMutableSet *wineUnits = [self.group.wineUnits mutableCopy];
+        [wineUnits removeObject:wu];
+        self.group.wineUnits = wineUnits;
+        
+        NSString *wineUnitIdentifiers = self.group.wineUnitIdentifiers;
+        wineUnitIdentifiers = [wineUnitIdentifiers stringByReplacingOccurrencesOfString:wu.identifier withString:@""];
+        wineUnitIdentifiers = [wineUnitIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
+        self.group.wineUnitIdentifiers = wineUnitIdentifiers;
+        
+    }
     [self refreshTableView];
 }
 
