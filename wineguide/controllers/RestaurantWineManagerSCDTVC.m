@@ -11,10 +11,13 @@
 #import "Varietal.h"
 #import "TastingNote.h"
 #import "ColorSchemer.h"
+#import "WineUnitDataHelper.h"
 
 #define WINE_ENTITY @"Wine"
 
-@interface RestaurantWineManagerSCDTVC ()
+@interface RestaurantWineManagerSCDTVC () <UIAlertViewDelegate>
+
+@property (nonatomic, strong) Wine *selectedWine;
 
 @end
 
@@ -34,7 +37,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self setupSearchBar];
-    self.title = @"Wines";
+    self.title = @"Add wine";
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -108,6 +111,20 @@
     return cell;
 }
 
+#pragma mark UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Wine *wine = (Wine *)self.fetchedResultsController.fetchedObjects[indexPath.row];
+    self.selectedWine = wine;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:nil
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Add wine", nil];
+    [alert show];
+}
+
 -(void)setupTextForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -147,6 +164,46 @@
         cell.detailTextLabel.numberOfLines = 0;
         cell.detailTextLabel.attributedText = [[NSAttributedString alloc] initWithString:textViewString attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     }
+    
+}
+
+#pragma mark - UIAlertViewDelegate
+
+-(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"buttonIndex = %i",buttonIndex);
+    if(buttonIndex == 1){
+        NSLog(@"creating new wineUnit and linking it to the appropriate group");
+        [self addWineToGroup];
+        [self.navigationController popViewControllerAnimated:YES];
+        // for each wine that is selected we need to
+        // get or create the appropriate wine unit
+        // add the right group to the wine unit
+        // if the wine isn't in the all group it need to be added there as well
+        
+    } else {
+            // [self setEditing:NO animated:YES];
+    }
+}
+
+#pragma mark - Core Data
+
+-(void)addWineToGroup
+{
+    // at this point we definitely have a wine and a group but do not necessarily have a wineUnit
+    // NOTE - the problem with this is that a group needs to have specific wine units, not necessarily wines
+    
+    NSString *wineUnitIdentifier = [NSString stringWithFormat:@"wineunit.%@.%@.glass",self.group.restaurantIdentifier,self.selectedWine.identifier];
+    //wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.aligote.2009.glass
+    NSLog(@"wineUnitIdentifier - %@",wineUnitIdentifier);
+    
+    WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:self.context andRelatedObject:self.group andNeededManagedObjectIdentifiersString:nil];
+    [wudh createWineUnitWithIdentifier:wineUnitIdentifier
+                                 price:nil
+                              quantity:@"glass"
+                     flightIdentifiers:nil
+                      groupIdentifiers:self.group.identifier
+                     andWineIdentifier:self.selectedWine.identifier];
     
 }
 

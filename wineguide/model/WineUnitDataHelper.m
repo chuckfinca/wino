@@ -43,5 +43,24 @@
     }
 }
 
+-(void)createWineUnitWithIdentifier:(NSString *)identifier price:(NSNumber *)price quantity:(NSString *)quantity flightIdentifiers:(NSString *)flightIdentifiers groupIdentifiers:(NSString *)groupIdentifiers andWineIdentifier:(NSString *)wineIdentifier
+{
+    NSMutableDictionary *wineUnitDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{@"lastAccessed" : [NSDate date]}];
+    
+    if(identifier) [wineUnitDictionary setObject:identifier forKey:@"identifier"];
+    if(price) [wineUnitDictionary setObject:price forKey:@"price"];
+    if(quantity) [wineUnitDictionary setObject:quantity forKey:@"quantity"];
+    if(flightIdentifiers) [wineUnitDictionary setObject:flightIdentifiers forKey:@"flightIdentifiers"];
+    if(groupIdentifiers) [wineUnitDictionary setObject:groupIdentifiers forKey:@"groupIdentifiers"];
+    if(wineIdentifier) [wineUnitDictionary setObject:wineIdentifier forKey:@"wineIdentifier"];
+    
+    NSLog(@"groupIdentifiers %@",groupIdentifiers);
+    NSLog(@"wineIdentifier %@",wineIdentifier);
+    
+    [self updateManagedObjectWithDictionary:wineUnitDictionary];
+}
+
+
+
 
 @end

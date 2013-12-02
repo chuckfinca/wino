@@ -135,10 +135,10 @@
 
 -(void)showRemoveActionSheetItem:(NSString *)itemName
 {
-    UIActionSheet *deleteSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Delete Group \"%@\"?",itemName]
+    UIActionSheet *deleteSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:@"Delete"
+                                               destructiveButtonTitle:@"Delete group"
                                   
                                                     otherButtonTitles:nil];
     deleteSheet.tag = DeleteEntity;

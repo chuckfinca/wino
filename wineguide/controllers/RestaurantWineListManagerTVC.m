@@ -33,6 +33,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = self.group.name;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self refreshTableView];
 }
 
@@ -76,14 +81,27 @@
 
 #pragma mark - Getters & Setters
 
+
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.destinationViewController isKindOfClass:[RestaurantWineManagerSCDTVC class]]){
+        NSLog(@"prepareForSegue");
+        RestaurantWineManagerSCDTVC *rwm = (RestaurantWineManagerSCDTVC *)segue.destinationViewController;
+        rwm.group = self.group;
+    }
+}
+
+
 #pragma mark - Pre Core Data Changes
 
 -(void)showRemoveActionSheetItem:(NSString *)itemName
 {
-    UIActionSheet *deleteSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Remove Wine \"%@\"?",itemName]
+    UIActionSheet *deleteSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:@"Remove from group"
+                                               destructiveButtonTitle:@"Remove wine"
                                   
                                                     otherButtonTitles:nil];
     deleteSheet.tag = DeleteEntity;

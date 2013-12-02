@@ -68,7 +68,7 @@
                 NSString *groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
                 wineUnit.groupIdentifiers = [wineUnit addIdentifiers:groupIdentifiers toCurrentIdentifiers:wineUnit.groupIdentifiers];
                 
-                NSString *wineIdentifier = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
+                NSString *wineIdentifier = [dictionary sanitizedStringForKey:WINE_IDENTIFIER];
                 wineUnit.wineIdentifier = wineIdentifier;
                 
                 
@@ -91,7 +91,7 @@
         }
     }
     
-    // [wineUnit logDetails];
+    [wineUnit logDetails];
     
     return wineUnit;
 }
