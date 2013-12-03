@@ -35,7 +35,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="i90-6Q-KWZ">
-                    <rect key="frame" x="48" y="61" width="20" height="20"/>
+                    <rect key="frame" x="40" y="61" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="GKA-y9-ULd"/>
@@ -43,7 +43,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="3yS-wg-yeU">
-                    <rect key="frame" x="76" y="61" width="20" height="20"/>
+                    <rect key="frame" x="60" y="61" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Auh-Hb-cqB"/>
@@ -51,7 +51,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_half.png" translatesAutoresizingMaskIntoConstraints="NO" id="lhq-KP-rY1">
-                    <rect key="frame" x="104" y="61" width="20" height="20"/>
+                    <rect key="frame" x="80" y="61" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="7HM-ZK-hyS"/>
@@ -59,7 +59,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="y3a-zY-7KZ">
-                    <rect key="frame" x="132" y="61" width="20" height="20"/>
+                    <rect key="frame" x="100" y="61" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="Qwn-U0-c66"/>
@@ -67,7 +67,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wx-0P-yCa">
-                    <rect key="frame" x="160" y="61" width="140" height="21"/>
+                    <rect key="frame" x="128" y="61" width="172" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -77,8 +77,8 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="lhq-KP-rY1" firstAttribute="top" secondItem="3yS-wg-yeU" secondAttribute="top" id="4DD-eK-eTX"/>
-                <constraint firstItem="lhq-KP-rY1" firstAttribute="leading" secondItem="3yS-wg-yeU" secondAttribute="trailing" constant="8" id="73b-8C-zRR"/>
-                <constraint firstItem="3yS-wg-yeU" firstAttribute="leading" secondItem="i90-6Q-KWZ" secondAttribute="trailing" constant="8" id="8vW-hl-DX9"/>
+                <constraint firstItem="lhq-KP-rY1" firstAttribute="leading" secondItem="3yS-wg-yeU" secondAttribute="trailing" id="73b-8C-zRR"/>
+                <constraint firstItem="3yS-wg-yeU" firstAttribute="leading" secondItem="i90-6Q-KWZ" secondAttribute="trailing" id="8vW-hl-DX9"/>
                 <constraint firstAttribute="trailing" secondItem="ygn-v6-iWS" secondAttribute="trailing" id="9ol-Pg-kli"/>
                 <constraint firstItem="2wx-0P-yCa" firstAttribute="leading" secondItem="y3a-zY-7KZ" secondAttribute="trailing" constant="8" id="AEk-yY-fvD"/>
                 <constraint firstAttribute="trailing" secondItem="2wx-0P-yCa" secondAttribute="trailing" constant="20" id="D4o-f1-gjA"/>
@@ -86,8 +86,8 @@
                 <constraint firstItem="ygn-v6-iWS" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Qv0-oA-RqP"/>
                 <constraint firstItem="lhq-KP-rY1" firstAttribute="top" secondItem="hwo-PU-HzH" secondAttribute="top" id="RmA-0w-LLu"/>
                 <constraint firstItem="hwo-PU-HzH" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="Ucb-v9-VYS"/>
-                <constraint firstItem="y3a-zY-7KZ" firstAttribute="leading" secondItem="lhq-KP-rY1" secondAttribute="trailing" constant="8" id="cWb-kJ-mAU"/>
-                <constraint firstItem="i90-6Q-KWZ" firstAttribute="leading" secondItem="hwo-PU-HzH" secondAttribute="trailing" constant="8" id="ecx-nV-vn6"/>
+                <constraint firstItem="y3a-zY-7KZ" firstAttribute="leading" secondItem="lhq-KP-rY1" secondAttribute="trailing" id="cWb-kJ-mAU"/>
+                <constraint firstItem="i90-6Q-KWZ" firstAttribute="leading" secondItem="hwo-PU-HzH" secondAttribute="trailing" id="ecx-nV-vn6"/>
                 <constraint firstItem="y3a-zY-7KZ" firstAttribute="centerY" secondItem="2wx-0P-yCa" secondAttribute="centerY" id="fcz-m8-AV7"/>
                 <constraint firstItem="lhq-KP-rY1" firstAttribute="top" secondItem="i90-6Q-KWZ" secondAttribute="top" id="sF7-fM-KkE"/>
                 <constraint firstItem="lhq-KP-rY1" firstAttribute="top" secondItem="y3a-zY-7KZ" secondAttribute="top" id="upB-It-A2F"/>

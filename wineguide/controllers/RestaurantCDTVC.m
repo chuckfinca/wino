@@ -259,8 +259,6 @@ typedef enum {
 -(void)loadWineList:(NSUInteger)listNumber
 {
     NSNumber *sortOrder = [NSNumber numberWithInteger:listNumber];
-    NSLog(@"listNumber = %i",listNumber);
-    NSLog(@"sortOrder = %@",sortOrder);
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:GROUP_ENTITY];
     request.predicate = [NSPredicate predicateWithFormat:@"restaurantIdentifier = %@ AND sortOrder = %@",self.restaurant.identifier,sortOrder];
@@ -270,14 +268,12 @@ typedef enum {
     NSArray *match = [self.context executeFetchRequest:request error:&error];
     
     if([match count] == 1){
-        NSLog(@"match = %@", match);
         Group *group = (Group *)[match firstObject];
         self.selectedGroupIdentifier = group.identifier;
-        NSLog(@"group identifier = %@",self.selectedGroupIdentifier);
-    } if([match count] > 1){
+    } else if([match count] > 1){
         [self setSortOrderForGroups];
     } else {
-        NSLog(@"Group not found");
+        NSLog(@"Restaurant's wine list Group not found");
     }
     
     self.fetchedResultsController = nil;

@@ -82,7 +82,9 @@
                             <outlet property="delegate" destination="SuW-Gu-nSw" id="Ykk-Y1-1IF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="UhF-NX-iwN"/>
+                    <navigationItem key="navigationItem" id="UhF-NX-iwN">
+                        <barButtonItem key="leftBarButtonItem" image="settings.png" id="52k-Ch-k8m"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="Dh4-27-ckg" id="ii4-yR-bAi"/>
                     </connections>
@@ -269,6 +271,7 @@
     </scenes>
     <resources>
         <image name="favorite_y.png" width="36" height="36"/>
+        <image name="settings.png" width="36" height="36"/>
         <image name="tab_nearMe.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

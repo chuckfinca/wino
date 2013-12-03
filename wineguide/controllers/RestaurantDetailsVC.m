@@ -77,7 +77,6 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    NSLog(@"controllerDidChangeContent");
     [self setupSegmentedControl];
 }
 
