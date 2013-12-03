@@ -18,10 +18,12 @@
 #import "Varietal.h"
 #import "TastingNote.h"
 #import "ColorSchemer.h"
+#import "WineCell.h"
 
 #define JSON @"json"
 #define GROUP_ENTITY @"Group"
 #define WINE_UNIT_ENTITY @"WineUnit"
+#define WINE_CELL @"WineCell"
 
 typedef enum {
     MostPopular,
@@ -64,6 +66,8 @@ typedef enum {
     // self.clearsSelectionOnViewWillAppear = NO;
     self.title = @"Wine List";
     self.tableView.tableHeaderView = self.restaurantDetailsViewController.view;
+    [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)didReceiveMemoryWarning
@@ -160,55 +164,20 @@ typedef enum {
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"WineCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *cellIdentifier = WINE_CELL;
+    NSLog(@"cellID = %@",cellIdentifier);
+    WineCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    [self setupTextForCell:cell atIndexPath:indexPath];
+    WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [cell setupCellForWineUnit:wineUnit];
     
     return cell;
 }
 
--(void)setupTextForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    
-    if(wineUnit.wine.name){
-        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[wineUnit.wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
-    }
-    
-    NSString *textViewString = @"";
-    if(wineUnit.wine.vintage){
-        NSString *vintageString = [wineUnit.wine.vintage stringValue];
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[vintageString capitalizedString]]];
-    }
-    if(wineUnit.wine.varietals){
-        NSString *varietalsString = @"";
-        if(wineUnit.wine.vintage) {
-            varietalsString = @" - ";
-        }
-        NSArray *varietals = [wineUnit.wine.varietals sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-        for(Varietal *varietal in varietals){
-            varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
-        }
-        varietalsString = [varietalsString substringToIndex:[varietalsString length]-2];
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[varietalsString capitalizedString]]];
-    }
-    if(wineUnit.wine.tastingNotes){
-        NSString *tastingNotesString = @"\n";
-        NSArray *tastingNotes = [wineUnit.wine.tastingNotes sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-        for(TastingNote *tastingNote in tastingNotes){
-            tastingNotesString = [tastingNotesString stringByAppendingString:[NSString stringWithFormat:@"%@, ",tastingNote.name]];
-        }
-        tastingNotesString = [tastingNotesString substringToIndex:[tastingNotesString length]-2];
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",tastingNotesString]];
-    }
-    
-    if(wineUnit.wine.vintage || wineUnit.wine.varietals){
-        cell.detailTextLabel.numberOfLines = 0;
-        cell.detailTextLabel.attributedText = [[NSAttributedString alloc] initWithString:textViewString attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
-    }
-    
+    NSLog(@"indexPath = %@",indexPath);
+    [self performSegueWithIdentifier:@"WineDetailsSegue" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
 #pragma mark - UITableViewDelegate
@@ -217,6 +186,11 @@ typedef enum {
 {
 	id <NSFetchedResultsSectionInfo> theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
 	return [[theSection name] capitalizedString];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
 }
 
 /*

@@ -35,6 +35,7 @@
     [super viewDidLoad];
     [self setupSearchBar];
     self.title = @"Nearby";
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)viewWillAppear:(BOOL)animated

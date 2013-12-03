@@ -65,6 +65,8 @@ static ColorSchemer *sharedInstance;
 -(UIColor *)customBackgroundColor
 {
     if(!_customBackgroundColor) _customBackgroundColor = [UIColor whiteColor];
+        //[UIColor colorWithRed:1.000000F green:0.956722F blue:0.915948F alpha:1.0F];
+        //[UIColor colorWithRed:0.968627F green:0.894118F blue:0.823529F alpha:1.0F];
     return _customBackgroundColor;
 }
 
