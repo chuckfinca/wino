@@ -33,14 +33,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
     self.view.tintColor = [ColorSchemer sharedInstance].baseColor;
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning

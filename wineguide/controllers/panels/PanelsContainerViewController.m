@@ -12,6 +12,8 @@
 #define SLIDE_TIMING .25
 #define PANEL_WIDTH 270
 
+#define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
+
 @interface PanelsContainerViewController () <UIGestureRecognizerDelegate>
 
 @property (nonatomic) BOOL showPanel;
@@ -40,6 +42,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHideLeftPanel:) name:SHOW_OR_HIDE_LEFT_PANEL object:nil];
     
 }
 
@@ -133,9 +136,9 @@
     
     float offsetDirection;
     if([view isEqual:self.leftPanelViewController.view]){
-        offsetDirection = -1;
-    } else {
         offsetDirection = 1;
+    } else {
+        offsetDirection = -1;
     }
     
     [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
@@ -212,9 +215,9 @@
         
         if(!self.showPanel){
             if(originX <= -(PANEL_WIDTH/2)){
-                [self revealView:self.leftPanelViewController.view];
-            } else if (originX >=PANEL_WIDTH/2){
                 [self revealView:self.rightPanelViewController.view];
+            } else if (originX >=PANEL_WIDTH/2){
+                [self revealView:self.leftPanelViewController.view];
             } else {
                 [self movePanelToOriginalPosition];
             }
@@ -222,7 +225,19 @@
             [self movePanelToOriginalPosition];
         }
     }
-    
+}
+
+#pragma mark - Notifications
+
+-(void)showHideLeftPanel:(NSNotification *)notification
+{
+    if([self.view.subviews containsObject:self.leftPanelViewController.view]){
+        [self movePanelToOriginalPosition];
+    } else {
+        UIView *leftPanelView = [self prepareViewForSidePanelVC:self.leftPanelViewController];
+        [self.view sendSubviewToBack:leftPanelView];
+        [self revealView:self.leftPanelViewController.view];
+    }
 }
 
 @end

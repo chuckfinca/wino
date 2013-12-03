@@ -13,6 +13,8 @@
 #import "MainTabBarController.h"
 #import "ColorSchemer.h"
 
+#define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
+
 @interface RestaurantsSCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @end
@@ -167,5 +169,16 @@
     RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
     [rdh updateCoreDataWithJSONFromURL:url];
 }
+
+#pragma mark - Target Action
+
+- (IBAction)revealLeftPanel:(UIBarButtonItem *)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_OR_HIDE_LEFT_PANEL object:nil];
+}
+
+
+
+
 
 @end

@@ -83,7 +83,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="UhF-NX-iwN">
-                        <barButtonItem key="leftBarButtonItem" image="settings.png" id="52k-Ch-k8m"/>
+                        <barButtonItem key="leftBarButtonItem" image="settings.png" id="lgg-b2-Eur">
+                            <connections>
+                                <action selector="revealLeftPanel:" destination="SuW-Gu-nSw" id="963-eA-VxC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="Dh4-27-ckg" id="ii4-yR-bAi"/>
@@ -271,7 +275,7 @@
     </scenes>
     <resources>
         <image name="favorite_y.png" width="36" height="36"/>
-        <image name="settings.png" width="36" height="36"/>
+        <image name="settings.png" width="20" height="20"/>
         <image name="tab_nearMe.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -280,6 +284,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0Yx-WB-kIQ"/>
+        <segue reference="Dfa-zJ-zAi"/>
     </inferredMetricsTieBreakers>
 </document>
