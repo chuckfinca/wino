@@ -20,6 +20,8 @@
 #import "ColorSchemer.h"
 
 #define JSON @"json"
+#define GROUP_ENTITY @"Group"
+#define WINE_UNIT_ENTITY @"WineUnit"
 
 typedef enum {
     MostPopular,
@@ -37,7 +39,8 @@ typedef enum {
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic) BOOL restaurantWineListCached;
 @property (nonatomic, strong) NSString *listName;
-
+@property (nonatomic, strong) NSFetchedResultsController *restaurantGroupsFRC;
+@property (nonatomic, strong) NSString *selectedGroupIdentifier;
 
 
 @end
@@ -71,25 +74,18 @@ typedef enum {
 
 #pragma mark - Getters & Setters
 
--(NSString *)listName
-{
-    if(!_listName) _listName = @"mostpopular";
-    return _listName;
-}
-
-
 #pragma mark - Setup
 
 -(void)setupWithRestaurant:(Restaurant *)restaurant
 {
     // get the winelist for that restaurant
+    self.context = restaurant.managedObjectContext;
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
     self.restaurantDetailsViewController.delegate = self;
     self.restaurant = restaurant;
     
     // [self logDetails];
     
-    self.context = restaurant.managedObjectContext;
     [self refreshWineList];
     self.title = nil;
 }
@@ -121,8 +117,6 @@ typedef enum {
     [self setupFetchedResultsController];
 }
 
-#define WINE_UNIT_ENTITY @"WineUnit"
-
 -(void)setupFetchedResultsController
 {
     // NSLog(@"setupFetchedResultsController...");
@@ -133,9 +127,7 @@ typedef enum {
                                                               ascending:YES],
                                 [NSSortDescriptor sortDescriptorWithKey:@"wine.name"
                                                               ascending:YES]];
-    
-    NSString *groupIdentifier = [NSString stringWithFormat:@"group.%@.%@",self.restaurant.identifier,self.listName];
-    request.predicate = [NSPredicate predicateWithFormat:@"ANY groups.identifier = %@",groupIdentifier];
+    request.predicate = [NSPredicate predicateWithFormat:@"ANY groups.identifier = %@",self.selectedGroupIdentifier];
     
     request.shouldRefreshRefetchedObjects = YES;
     
@@ -143,13 +135,13 @@ typedef enum {
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"wine.color"
                                                                                    cacheName:nil];
-    // [self logFetchResults];
+    //[self logFetchResultsForController:self.fetchedResultsController];
 }
 
--(void)logFetchResults
+-(void)logFetchResultsForController:(NSFetchedResultsController *)frc
 {
-    NSLog(@"fetchedResultCount = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
-    for(NSObject *fetchedResult in self.fetchedResultsController.fetchedObjects){
+    NSLog(@"fetchedResultCount = %lu",(unsigned long)[frc.fetchedObjects count]);
+    for(NSObject *fetchedResult in frc.fetchedObjects){
         NSLog(@"fetchedResult = %@",fetchedResult.description);
     }
 }
@@ -262,40 +254,51 @@ typedef enum {
     }
 }
 
-#pragma mark - NSFetchedResultsControllerDelegate
-
-
 #pragma mark - RestaurantDetailsVC_WineSelectionDelegate
 
 -(void)loadWineList:(NSUInteger)listNumber
 {
-    switch (listNumber) {
-        case MostPopular:
-            // fetch
-            self.listName = @"mostpopular";
-            break;
-        case HighestRated:
-            // fetch
-            self.listName = @"highestrated";
-            break;
-        case BestValue:
-            // fetch
-            self.listName = @"bestvalue";
-            break;
-        case ExcellentVintages:
-            // fetch
-            self.listName = @"excellentvintages";
-            break;
-        case All:
-            // fetch
-            self.listName = @"all";
-            break;
-            
-        default:
-            break;
+    NSNumber *sortOrder = [NSNumber numberWithInteger:listNumber];
+    NSLog(@"listNumber = %i",listNumber);
+    NSLog(@"sortOrder = %@",sortOrder);
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:GROUP_ENTITY];
+    request.predicate = [NSPredicate predicateWithFormat:@"restaurantIdentifier = %@ AND sortOrder = %@",self.restaurant.identifier,sortOrder];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
+    
+    NSError *error;
+    NSArray *match = [self.context executeFetchRequest:request error:&error];
+    
+    if([match count] == 1){
+        NSLog(@"match = %@", match);
+        Group *group = (Group *)[match firstObject];
+        self.selectedGroupIdentifier = group.identifier;
+        NSLog(@"group identifier = %@",self.selectedGroupIdentifier);
+    } if([match count] > 1){
+        [self setSortOrderForGroups];
+    } else {
+        NSLog(@"Group not found");
     }
+    
     self.fetchedResultsController = nil;
     [self setupFetchedResultsController];
+}
+
+-(void)setSortOrderForGroups
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:GROUP_ENTITY];
+    request.predicate = [NSPredicate predicateWithFormat:@"restaurantIdentifier = %@",self.restaurant.identifier];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
+    
+    NSError *error;
+    NSArray *matches = [self.context executeFetchRequest:request error:&error];
+    
+    int index = 0;
+    for(Group *group in matches){
+        group.sortOrder = [NSNumber numberWithInt:index];
+        index++;
+    }
+    [self loadWineList:0];
 }
 
 

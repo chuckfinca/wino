@@ -37,10 +37,10 @@
                     <rect key="frame" x="-3" y="78" width="327" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
-                        <segment title="popular"/>
-                        <segment title="high rating"/>
-                        <segment title="value"/>
-                        <segment title="all"/>
+                        <segment title=""/>
+                        <segment title=""/>
+                        <segment title=""/>
+                        <segment title=""/>
                     </segments>
                     <connections>
                         <action selector="refreshList:" destination="-1" eventType="valueChanged" id="3jG-Y5-23Q"/>

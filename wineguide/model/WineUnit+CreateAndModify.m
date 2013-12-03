@@ -91,7 +91,7 @@
         }
     }
     
-    [wineUnit logDetails];
+    //[wineUnit logDetails];
     
     return wineUnit;
 }
