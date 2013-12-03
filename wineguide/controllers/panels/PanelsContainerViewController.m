@@ -43,7 +43,6 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHideLeftPanel:) name:SHOW_OR_HIDE_LEFT_PANEL object:nil];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +57,11 @@
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
     [self setupMainPanelFrame];
     [self movePanelToOriginalPosition];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

@@ -134,7 +134,7 @@
 
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
-    NSLog(@"Favorites setupFetchedResultsController...");
+    //NSLog(@"Favorites setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Restaurant"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES
