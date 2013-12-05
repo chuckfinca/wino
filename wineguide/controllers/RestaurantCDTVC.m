@@ -246,6 +246,7 @@ typedef enum {
         [self setSortOrderForGroups];
     } else {
         NSLog(@"Restaurant's wine list Group not found");
+        self.selectedGroupIdentifier = nil;
     }
     
     self.fetchedResultsController = nil;

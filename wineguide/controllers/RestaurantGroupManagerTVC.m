@@ -170,7 +170,7 @@
     NSString *groupIdentifier = [NSString stringWithFormat:@"group.%@.%@",self.restaurant.identifier,groupName];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",groupIdentifier];
-    NSDictionary *groupInfo = @{@"identifier" : groupIdentifier, @"name" : newManagedObjectName, @"restaurantIdentifier" : self.restaurant.identifier, @"version" : @1};
+    NSDictionary *groupInfo = @{@"identifier" : groupIdentifier, @"name" : newManagedObjectName, @"restaurantIdentifier" : self.restaurant.identifier, @"lastUpdated" : [NSDate date]};
     Group *group = [Group groupFoundUsingPredicate:predicate inContext:self.context withEntityInfo:groupInfo];
     group.restaurant = self.restaurant;
     group.sortOrder = [NSNumber numberWithInteger:[self.managedObjects count]];
@@ -180,7 +180,20 @@
 
 -(void)deleteFromListManagedObject:(id)managedObject
 {
-    [self.context deleteObject:managedObject];
+    if([managedObject isKindOfClass:[Group class]]){
+        Group *group = (Group *)managedObject;
+        group.deletedEntity = @YES;
+        
+        group.restaurantIdentifier = nil;
+        group.restaurant = nil;
+        
+        NSMutableSet *groups = [self.restaurant.groups mutableCopy];
+        [groups removeObject:group];
+        NSString *groupIdentifiers = self.restaurant.groupIdentifiers;
+        groupIdentifiers = [groupIdentifiers stringByReplacingOccurrencesOfString:group.identifier withString:@""];
+        groupIdentifiers = [groupIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
+        self.restaurant.groupIdentifiers = groupIdentifiers;
+    }
     [self refreshTableView];
 }
 
