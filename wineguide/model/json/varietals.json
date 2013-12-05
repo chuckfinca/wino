@@ -2,7 +2,8 @@
   {
     "about":"",
     "identifier":"varietal.pinotgrigio",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"pinot grigio",
     "version":"0",
     "wineIdentifiers":"",
@@ -11,7 +12,8 @@
   {
     "about":"",
     "identifier":"varietal.chardonnay",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"chardonnay",
     "version":"0",
     "wineIdentifiers":"",
@@ -20,7 +22,8 @@
   {
     "about":"",
     "identifier":"varietal.sauvignonblanc",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"sauvignon blanc",
     "version":"0",
     "wineIdentifiers":"",
@@ -29,7 +32,8 @@
   {
     "about":"",
     "identifier":"varietal.sancere",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"sancere",
     "version":"0",
     "wineIdentifiers":"",
@@ -38,7 +42,8 @@
   {
     "about":"",
     "identifier":"varietal.pinotgris",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"pinot gris",
     "version":"0",
     "wineIdentifiers":"",
@@ -47,7 +52,8 @@
   {
     "about":"",
     "identifier":"varietal.rose",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"rose",
     "version":"0",
     "wineIdentifiers":"",
@@ -56,7 +62,8 @@
   {
     "about":"",
     "identifier":"varietal.cabernetsauvignon",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"cabernet sauvignon",
     "version":"0",
     "wineIdentifiers":"",
@@ -65,7 +72,8 @@
   {
     "about":"",
     "identifier":"varietal.bordeaux",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"bordeaux",
     "version":"0",
     "wineIdentifiers":"",
@@ -74,7 +82,8 @@
   {
     "about":"",
     "identifier":"varietal.meritage",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"meritage",
     "version":"0",
     "wineIdentifiers":"",
@@ -83,7 +92,8 @@
   {
     "about":"",
     "identifier":"varietal.chianti",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"chianti",
     "version":"0",
     "wineIdentifiers":"",
@@ -92,7 +102,8 @@
   {
     "about":"",
     "identifier":"varietal.sangiovese",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"sangiovese",
     "version":"0",
     "wineIdentifiers":"",
@@ -101,7 +112,8 @@
   {
     "about":"",
     "identifier":"varietal.supertuscan",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"super tuscan",
     "version":"0",
     "wineIdentifiers":"",
@@ -110,7 +122,8 @@
   {
     "about":"",
     "identifier":"varietal.barolo",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"barolo",
     "version":"0",
     "wineIdentifiers":"",
@@ -119,7 +132,8 @@
   {
     "about":"",
     "identifier":"varietal.pinotnoir",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"pinot noir",
     "version":"0",
     "wineIdentifiers":"",
@@ -128,7 +142,8 @@
   {
     "about":"",
     "identifier":"varietal.merlot",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"merlot",
     "version":"0",
     "wineIdentifiers":"",
@@ -137,7 +152,8 @@
   {
     "about":"",
     "identifier":"varietal.zinfandel",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"zinfandel",
     "version":"0",
     "wineIdentifiers":"",
@@ -146,7 +162,8 @@
   {
     "about":"",
     "identifier":"varietal.malbec",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"malbec",
     "version":"0",
     "wineIdentifiers":"",
@@ -155,7 +172,8 @@
   {
     "about":"",
     "identifier":"varietal.syrah",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"syrah",
     "version":"0",
     "wineIdentifiers":"",
@@ -164,7 +182,8 @@
   {
     "about":"",
     "identifier":"varietal.shiraz",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"shiraz",
     "version":"0",
     "wineIdentifiers":"",
@@ -173,7 +192,8 @@
   {
     "about":"",
     "identifier":"varietal.cava",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"cava",
     "version":"0",
     "wineIdentifiers":"",
@@ -182,7 +202,8 @@
   {
     "about":"",
     "identifier":"varietal.albarino",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"albarino",
     "version":"0",
     "wineIdentifiers":"",
@@ -191,7 +212,8 @@
   {
     "about":"",
     "identifier":"varietal.torrontes",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"torrontes",
     "version":"0",
     "wineIdentifiers":"",
@@ -200,7 +222,8 @@
   {
     "about":"",
     "identifier":"varietal.mencia",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"mencia",
     "version":"0",
     "wineIdentifiers":"",
@@ -209,7 +232,8 @@
   {
     "about":"",
     "identifier":"varietal.carmenere",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"carmenere",
     "version":"0",
     "wineIdentifiers":"",
@@ -218,7 +242,8 @@
   {
     "about":"",
     "identifier":"varietal.tempranillo",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"tempranillo",
     "version":"0",
     "wineIdentifiers":"",
@@ -227,7 +252,8 @@
   {
     "about":"",
     "identifier":"varietal.aligote",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"aligote",
     "version":"0",
     "wineIdentifiers":"",
@@ -236,7 +262,8 @@
   {
     "about":"",
     "identifier":"varietal.pinotblanc",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"pinot blanc",
     "version":"0",
     "wineIdentifiers":"",
@@ -245,7 +272,8 @@
   {
     "about":"",
     "identifier":"varietal.riesling",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"riesling",
     "version":"0",
     "wineIdentifiers":"",
@@ -254,7 +282,8 @@
   {
     "about":"",
     "identifier":"varietal.muscadet",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"muscadet",
     "version":"0",
     "wineIdentifiers":"",
@@ -263,7 +292,8 @@
   {
     "about":"",
     "identifier":"varietal.cabernetfranc",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"cabernet franc",
     "version":"0",
     "wineIdentifiers":"",
@@ -272,7 +302,8 @@
   {
     "about":"",
     "identifier":"varietal.gamaynoirajusblanc",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"gamay noir a jus blanc",
     "version":"0",
     "wineIdentifiers":"",
@@ -281,7 +312,8 @@
   {
     "about":"",
     "identifier":"varietal.grenache",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"grenache",
     "version":"0",
     "wineIdentifiers":"",
@@ -290,7 +322,8 @@
   {
     "about":"",
     "identifier":"varietal.counoise",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"counoise",
     "version":"0",
     "wineIdentifiers":"",
@@ -299,7 +332,8 @@
   {
     "about":"",
     "identifier":"varietal.barbera",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"barbera",
     "version":"0",
     "wineIdentifiers":"",
@@ -308,7 +342,8 @@
   {
     "about":"",
     "identifier":"varietal.petitverdot",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"petit verdot",
     "version":"0",
     "wineIdentifiers":"",

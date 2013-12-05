@@ -2,7 +2,7 @@
 //  Group.m
 //  Gimme
 //
-//  Created by Charles Feinn on 11/27/13.
+//  Created by Charles Feinn on 12/4/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -14,14 +14,14 @@
 @implementation Group
 
 @dynamic about;
-@dynamic sortOrder;
 @dynamic identifier;
 @dynamic isPlaceholderForFutureObject;
-@dynamic lastAccessed;
-@dynamic markForDeletion;
+@dynamic lastUpdated;
+@dynamic deletedEntity;
 @dynamic name;
 @dynamic restaurantIdentifier;
-@dynamic version;
+@dynamic sortOrder;
+@dynamic versionNumber;
 @dynamic wineUnitIdentifiers;
 @dynamic restaurant;
 @dynamic wineUnits;

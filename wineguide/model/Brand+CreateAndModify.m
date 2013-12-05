@@ -19,9 +19,10 @@
 #define ABOUT @"about"
 #define IDENTIFIER @"identifier"
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
-#define MARK_FOR_DELETION @"markForDeletion"
+#define LAST_UPDATED @"lastUpdated"
+#define DELETED_ENTITY @"deletedEntity"
 #define NAME @"name"
-#define VERSION @"version"
+#define VERSION_NUMBER @"versionNumber"
 #define WEBSITE @"website"
 #define WINE_IDENTIFIERS @"wineIdentifiers"
 #define WINES @"wines"
@@ -34,7 +35,21 @@
     
     brand = (Brand *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:BRAND_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
     
-    if(brand){
+    NSString *wineIdentifiers;
+    
+    NSLog(@"self = %@",self);
+    NSLog(@"lastUpdated = %@",brand.lastUpdated);
+    NSLog(@"dictionary[LAST_UPDATED] = %@",dictionary[LAST_UPDATED]);
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyy-MM-dd HH:mm:ss Z"];
+    NSDate *serverDate = [dateFormatter dateFromString:dictionary[LAST_UPDATED]];
+    
+    NSLog(@"serverDate = %@",serverDate);
+    if(!brand.lastUpdated || [brand.lastUpdated laterDate:serverDate] == serverDate){
+        NSLog(@"inside");
+        
+        // ATTRIBUTES
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
@@ -43,34 +58,28 @@
             
         } else {
             
-            if([brand.version intValue] == 0 || brand.version < dictionary[VERSION]){
-                
-                // ATTRIBUTES
-                
-                brand.about = [dictionary sanitizedStringForKey:ABOUT];
-                brand.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
-                brand.isPlaceholderForFutureObject = @NO;
-                // brand.lastAccessed
-                brand.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-                brand.name = [dictionary sanitizedStringForKey:NAME];
-                brand.version = [dictionary sanitizedValueForKey:VERSION];
-                brand.website = [dictionary sanitizedStringForKey:WEBSITE];
-                
-                // store any information about relationships provided
-                
-                NSString *wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
-                brand.wineIdentifiers = [brand addIdentifiers:wineIdentifiers toCurrentIdentifiers:brand.wineIdentifiers];
-                
-                
-                // RELATIONSHIPS
-                // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
-                
-                // Wines
-                WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:brand andNeededManagedObjectIdentifiersString:wineIdentifiers];
-                [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
-            }
+            brand.about = [dictionary sanitizedStringForKey:ABOUT];
+            brand.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+            brand.isPlaceholderForFutureObject = @NO;
+            brand.lastUpdated = [NSDate date];
+            brand.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
+            brand.name = [dictionary sanitizedStringForKey:NAME];
+            brand.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
+            brand.website = [dictionary sanitizedStringForKey:WEBSITE];
+            
+            // store any information about relationships provided
+            
+            wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
+            brand.wineIdentifiers = [brand addIdentifiers:wineIdentifiers toCurrentIdentifiers:brand.wineIdentifiers];
         }
     }
+    
+    // RELATIONSHIPS
+    // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
+    
+    // Wines
+    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:brand andNeededManagedObjectIdentifiersString:wineIdentifiers];
+    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     
     //[brand logDetails];
     
@@ -83,10 +92,10 @@
     NSLog(@"about = %@",self.about);
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
-    NSLog(@"lastAccessed = %@",self.lastAccessed);
-    NSLog(@"markForDeletion = %@",self.markForDeletion);
+    NSLog(@"lastUpdated = %@",self.lastUpdated);
+    NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);
-    NSLog(@"version = %@",self.version);
+    NSLog(@"lastUpdated = %@",self.lastUpdated);
     NSLog(@"website = %@",self.website);
     NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
     

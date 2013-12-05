@@ -78,13 +78,13 @@
     NSLog(@"country = %@",self.wine.country);
     NSLog(@"dessert = %@",self.wine.dessert);
     NSLog(@"favorite = %@",self.wine.favorite);
-    NSLog(@"lastAccessed = %@",self.wine.lastAccessed);
-    NSLog(@"markForDeletion = %@",self.wine.markForDeletion);
+    NSLog(@"lastUpdated = %@",self.wine.lastUpdated);
+    NSLog(@"deletedEntity = %@",self.wine.deletedEntity);
     NSLog(@"name = %@",self.wine.name);
     NSLog(@"region = %@",self.wine.region);
     NSLog(@"sparkling = %@",self.wine.sparkling);
     NSLog(@"state = %@",self.wine.state);
-    NSLog(@"version = %@",self.wine.version);
+    NSLog(@"versionNumber = %@",self.wine.versionNumber);
     NSLog(@"vineyard = %@",self.wine.vineyard);
     NSLog(@"vintage = %@",self.wine.vintage);
     

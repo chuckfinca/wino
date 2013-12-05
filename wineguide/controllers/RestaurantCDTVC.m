@@ -165,7 +165,6 @@ typedef enum {
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = WINE_CELL;
-    NSLog(@"cellID = %@",cellIdentifier);
     WineCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -176,7 +175,6 @@ typedef enum {
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"indexPath = %@",indexPath);
     [self performSegueWithIdentifier:@"WineDetailsSegue" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
@@ -284,14 +282,14 @@ typedef enum {
     NSLog(@"address = %@",self.restaurant.address);
     NSLog(@"city = %@",self.restaurant.city);
     NSLog(@"country = %@",self.restaurant.country);
-    NSLog(@"lastAccessed = %@",self.restaurant.lastAccessed);
+    NSLog(@"lastUpdated = %@",self.restaurant.lastUpdated);
     NSLog(@"latitude = %@",self.restaurant.latitude);
     NSLog(@"longitude = %@",self.restaurant.longitude);
-    NSLog(@"markForDeletion = %@",self.restaurant.markForDeletion);
+    NSLog(@"deletedEntity = %@",self.restaurant.deletedEntity);
     NSLog(@"menuNeedsUpdating = %@",self.restaurant.menuNeedsUpdating);
     NSLog(@"name = %@",self.restaurant.name);
     NSLog(@"state = %@",self.restaurant.state);
-    NSLog(@"version = %@",self.restaurant.version);
+    NSLog(@"versionNumber = %@",self.restaurant.versionNumber);
     NSLog(@"zip = %@",self.restaurant.zip);
     NSLog(@"flightIdentifiers = %@",self.restaurant.flightIdentifiers);
     NSLog(@"groupIdentifiers = %@",self.restaurant.groupIdentifiers);

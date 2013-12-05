@@ -14,6 +14,9 @@
 
 #define IDENTIFIER @"identifier"
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
+#define LAST_UPDATED @"lastUpdated"
+#define INITIAL_DATE @"2013-12-05 00:17:54 +0000"
+
 #define DIVIDER @"/"
 
 @interface JSONToCoreDataHelper ()
@@ -66,6 +69,7 @@
 
 -(void)updateCoreDataWithJSONFromURL:(NSURL *)url
 {
+    NSLog(@"url = %@",url);
     dispatch_queue_t jsonQueue = dispatch_queue_create("JSON_Queue", NULL);
     dispatch_async(jsonQueue, ^{
         NSData *data = [NSData dataWithContentsOfURL:url];
@@ -88,6 +92,7 @@
             [self updateCoreDataWithDictionariesInArray:(NSArray *)json];
         } else {
             NSLog(@"json dictionary does not exist!");
+            NSLog(@"error = %@",error);
         }
     });
 }
@@ -175,7 +180,7 @@
     if([self.setOfIdentifiersThatNeedToBeTurnedIntoObjects count] > 0){
         for(NSString *identifier in set){
             if([identifier length] > 0){
-                NSDictionary *managedObjectDictionary = @{IDENTIFIER : identifier, IS_PLACEHOLDER : @YES};
+                NSDictionary *managedObjectDictionary = @{IDENTIFIER : identifier, IS_PLACEHOLDER : @YES, LAST_UPDATED : INITIAL_DATE};
                 [self createOrModifyManagedObjectWithDictionary:managedObjectDictionary];
             }
         }

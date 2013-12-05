@@ -20,9 +20,10 @@
 #define ABOUT @"about"
 #define IDENTIFIER @"identifier"
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
-#define MARK_FOR_DELETION @"markForDeletion"
+#define LAST_UPDATED @"lastUpdated"
+#define DELETED_ENTITY @"deletedEntity"
 #define NAME @"name"
-#define VERSION @"version"
+#define VERSION_NUMBER @"versionNumber"
 #define WINE_UNIT_IDENTIFIERS @"wineUnitIdentifiers"
 #define RESTAURANT_IDENTIFIER @"restaurantIdentifier"
 
@@ -38,7 +39,20 @@
     
     group = (Group *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:GROUP_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
     
-    if(group){
+    NSString *restaurantIdentifier;
+    NSString *wineUnitIdentifiers;
+    
+    NSLog(@"self = %@",self);
+    NSLog(@"lastUpdated = %@",group.lastUpdated);
+    NSLog(@"dictionary[LAST_UPDATED] = %@",dictionary[LAST_UPDATED]);
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyy-MM-dd HH:mm:ss Z"];
+    NSDate *serverDate = [dateFormatter dateFromString:dictionary[LAST_UPDATED]];
+    
+    NSLog(@"serverDate = %@",serverDate);
+    if(!group.lastUpdated || [group.lastUpdated laterDate:serverDate] == serverDate){
+        NSLog(@"inside");
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
@@ -46,41 +60,36 @@
             group.isPlaceholderForFutureObject = @YES;
             
         } else {
-            if([group.version intValue] == 0 || group.version < dictionary[VERSION]){
-                // ATTRIBUTES
-                
-                group.about = [dictionary sanitizedStringForKey:ABOUT];
-                group.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
-                group.isPlaceholderForFutureObject = @NO;
-                // group.lastAccessed
-                group.markForDeletion = [dictionary sanitizedValueForKey:MARK_FOR_DELETION];
-                group.name = [dictionary sanitizedStringForKey:NAME];
-                group.version = [dictionary sanitizedValueForKey:VERSION];
-                
-                // store any information about relationships provided
-                
-                NSString *restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
-                group.restaurantIdentifier = restaurantIdentifier;
-                
-                NSString *wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
-                group.wineUnitIdentifiers = [group addIdentifiers:wineUnitIdentifiers toCurrentIdentifiers:group.wineUnitIdentifiers];
-                
-                
-                // RELATIONSHIPS
-                // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
-                
-                // Restaurants
-                RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:group andNeededManagedObjectIdentifiersString:restaurantIdentifier];
-                [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
-                
-                // WineUnits
-                WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:group andNeededManagedObjectIdentifiersString:wineUnitIdentifiers];
-                [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
-            }
+            // ATTRIBUTES
+            
+            group.about = [dictionary sanitizedStringForKey:ABOUT];
+            group.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+            group.isPlaceholderForFutureObject = @NO;
+            group.lastUpdated = [NSDate date];
+            group.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
+            group.name = [dictionary sanitizedStringForKey:NAME];
+            group.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
+            
+            // store any information about relationships provided
+            
+            restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
+            group.restaurantIdentifier = restaurantIdentifier;
+            
+            wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
+            group.wineUnitIdentifiers = [group addIdentifiers:wineUnitIdentifiers toCurrentIdentifiers:group.wineUnitIdentifiers];
         }
-        
-        
     }
+    
+    // RELATIONSHIPS
+    // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
+    
+    // Restaurants
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:group andNeededManagedObjectIdentifiersString:restaurantIdentifier];
+    [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
+    
+    // WineUnits
+    WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:group andNeededManagedObjectIdentifiersString:wineUnitIdentifiers];
+    [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
     
     // [group logDetails];
     
@@ -93,10 +102,10 @@
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"address = %@",self.about);
-    NSLog(@"lastAccessed = %@",self.lastAccessed);
-    NSLog(@"markForDeletion = %@",self.markForDeletion);
+    NSLog(@"lastUpdated = %@",self.lastUpdated);
+    NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);
-    NSLog(@"version = %@",self.version);
+    NSLog(@"versionNumber = %@",self.versionNumber);
     NSLog(@"wineUnitIdentifiers = %@",self.wineUnitIdentifiers);
     
     NSLog(@"restaurant = %@",self.restaurant.description);

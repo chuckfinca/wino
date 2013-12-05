@@ -2,7 +2,7 @@
 //  Restaurant.m
 //  Gimme
 //
-//  Created by Charles Feinn on 11/27/13.
+//  Created by Charles Feinn on 12/4/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -20,14 +20,14 @@
 @dynamic groupIdentifiers;
 @dynamic identifier;
 @dynamic isPlaceholderForFutureObject;
-@dynamic lastAccessed;
+@dynamic lastUpdated;
 @dynamic latitude;
 @dynamic longitude;
-@dynamic markForDeletion;
+@dynamic deletedEntity;
 @dynamic menuNeedsUpdating;
 @dynamic name;
 @dynamic state;
-@dynamic version;
+@dynamic versionNumber;
 @dynamic zip;
 @dynamic flights;
 @dynamic groups;

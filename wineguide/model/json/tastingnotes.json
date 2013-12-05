@@ -2,7 +2,8 @@
   {
     "about":"",
     "identifier":"tastingnote.almond",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"almond",
     "tastingStage":"in mouth",
     "version":"0",
@@ -12,7 +13,8 @@
   {
     "about":"",
     "identifier":"tastingnote.apple",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"apple",
     "tastingStage":"in mouth",
     "version":"0",
@@ -22,7 +24,8 @@
   {
     "about":"",
     "identifier":"tastingnote.apricot",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"apricot",
     "tastingStage":"in mouth",
     "version":"0",
@@ -32,7 +35,8 @@
   {
     "about":"",
     "identifier":"tastingnote.asparagus",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"asparagus",
     "tastingStage":"in mouth",
     "version":"0",
@@ -42,7 +46,8 @@
   {
     "about":"",
     "identifier":"tastingnote.beeswax",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"beeswax",
     "tastingStage":"in mouth",
     "version":"0",
@@ -52,7 +57,8 @@
   {
     "about":"",
     "identifier":"tastingnote.bellpepper",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"bell pepper",
     "tastingStage":"in mouth",
     "version":"0",
@@ -62,7 +68,8 @@
   {
     "about":"",
     "identifier":"tastingnote.blackberry",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"blackberry",
     "tastingStage":"in mouth",
     "version":"0",
@@ -72,7 +79,8 @@
   {
     "about":"",
     "identifier":"tastingnote.blackcherry",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"black cherry",
     "tastingStage":"in mouth",
     "version":"0",
@@ -82,7 +90,8 @@
   {
     "about":"",
     "identifier":"tastingnote.blackcurrants",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"black currants",
     "tastingStage":"in mouth",
     "version":"0",
@@ -92,7 +101,8 @@
   {
     "about":"",
     "identifier":"tastingnote.blackpepper",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"black pepper",
     "tastingStage":"in mouth",
     "version":"0",
@@ -102,7 +112,8 @@
   {
     "about":"",
     "identifier":"tastingnote.butter",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"butter",
     "tastingStage":"finish",
     "version":"0",
@@ -112,7 +123,8 @@
   {
     "about":"",
     "identifier":"tastingnote.capsicum",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"capsicum",
     "tastingStage":"in mouth",
     "version":"0",
@@ -122,7 +134,8 @@
   {
     "about":"",
     "identifier":"tastingnote.chocolate",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"chocolate",
     "tastingStage":"finish",
     "version":"0",
@@ -132,7 +145,8 @@
   {
     "about":"",
     "identifier":"tastingnote.cinnamon",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"cinnamon",
     "tastingStage":"finish",
     "version":"0",
@@ -142,7 +156,8 @@
   {
     "about":"",
     "identifier":"tastingnote.citrus",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"citrus",
     "tastingStage":"in mouth",
     "version":"0",
@@ -152,7 +167,8 @@
   {
     "about":"",
     "identifier":"tastingnote.citrusfruits",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"citrus fruits",
     "tastingStage":"in mouth",
     "version":"0",
@@ -162,7 +178,8 @@
   {
     "about":"",
     "identifier":"tastingnote.clove",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"clove",
     "tastingStage":"finish",
     "version":"0",
@@ -172,7 +189,8 @@
   {
     "about":"",
     "identifier":"tastingnote.cream",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"cream",
     "tastingStage":"finish",
     "version":"0",
@@ -182,7 +200,8 @@
   {
     "about":"",
     "identifier":"tastingnote.cutgrass",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"cut grass",
     "tastingStage":"in glass",
     "version":"0",
@@ -192,7 +211,8 @@
   {
     "about":"",
     "identifier":"tastingnote.darkfruits",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"dark fruits",
     "tastingStage":"in mouth",
     "version":"0",
@@ -202,7 +222,8 @@
   {
     "about":"",
     "identifier":"tastingnote.earthy",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"earthy",
     "tastingStage":"",
     "version":"0",
@@ -212,7 +233,8 @@
   {
     "about":"",
     "identifier":"tastingnote.earthyminerality",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"earthy minerality",
     "tastingStage":"",
     "version":"0",
@@ -222,7 +244,8 @@
   {
     "about":"",
     "identifier":"tastingnote.elderberries",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"elderberries",
     "tastingStage":"",
     "version":"0",
@@ -232,7 +255,8 @@
   {
     "about":"",
     "identifier":"tastingnote.eucalyptus",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"eucalyptus",
     "tastingStage":"",
     "version":"0",
@@ -242,7 +266,8 @@
   {
     "about":"",
     "identifier":"tastingnote.freshlymowngrass",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"freshly mown grass",
     "tastingStage":"",
     "version":"0",
@@ -252,7 +277,8 @@
   {
     "about":"",
     "identifier":"tastingnote.gooseberry",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"gooseberry",
     "tastingStage":"",
     "version":"0",
@@ -262,7 +288,8 @@
   {
     "about":"",
     "identifier":"tastingnote.grapefruit",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"grapefruit",
     "tastingStage":"",
     "version":"0",
@@ -272,7 +299,8 @@
   {
     "about":"",
     "identifier":"tastingnote.greenbellpepper",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"green bell pepper",
     "tastingStage":"",
     "version":"0",
@@ -282,7 +310,8 @@
   {
     "about":"",
     "identifier":"tastingnote.greenfruits",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"green fruits",
     "tastingStage":"",
     "version":"0",
@@ -292,7 +321,8 @@
   {
     "about":"",
     "identifier":"tastingnote.guava",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"guava",
     "tastingStage":"",
     "version":"0",
@@ -302,7 +332,8 @@
   {
     "about":"",
     "identifier":"tastingnote.herbs",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"herbs",
     "tastingStage":"",
     "version":"0",
@@ -312,7 +343,8 @@
   {
     "about":"",
     "identifier":"tastingnote.honey",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"honey",
     "tastingStage":"",
     "version":"0",
@@ -322,7 +354,8 @@
   {
     "about":"",
     "identifier":"tastingnote.leather",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"leather",
     "tastingStage":"",
     "version":"0",
@@ -332,7 +365,8 @@
   {
     "about":"",
     "identifier":"tastingnote.lemon",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"lemon",
     "tastingStage":"in mouth",
     "version":"0",
@@ -342,7 +376,8 @@
   {
     "about":"",
     "identifier":"tastingnote.lime",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"lime",
     "tastingStage":"",
     "version":"0",
@@ -352,7 +387,8 @@
   {
     "about":"",
     "identifier":"tastingnote.liquorice",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"liquorice",
     "tastingStage":"",
     "version":"0",
@@ -362,7 +398,8 @@
   {
     "about":"",
     "identifier":"tastingnote.melon",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"melon",
     "tastingStage":"in mouth",
     "version":"0",
@@ -372,7 +409,8 @@
   {
     "about":"",
     "identifier":"tastingnote.minerals",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"minerals",
     "tastingStage":"in glass",
     "version":"0",
@@ -382,7 +420,8 @@
   {
     "about":"",
     "identifier":"tastingnote.mint",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"mint",
     "tastingStage":"",
     "version":"0",
@@ -392,7 +431,8 @@
   {
     "about":"",
     "identifier":"tastingnote.nutmeg",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"nutmeg",
     "tastingStage":"",
     "version":"0",
@@ -402,7 +442,8 @@
   {
     "about":"",
     "identifier":"tastingnote.oak",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"oak",
     "tastingStage":"finish",
     "version":"0",
@@ -412,7 +453,8 @@
   {
     "about":"",
     "identifier":"tastingnote.orange",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"orange",
     "tastingStage":"",
     "version":"0",
@@ -422,7 +464,8 @@
   {
     "about":"",
     "identifier":"tastingnote.passionfruit",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"passionfruit",
     "tastingStage":"",
     "version":"0",
@@ -432,7 +475,8 @@
   {
     "about":"",
     "identifier":"tastingnote.peach",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"peach",
     "tastingStage":"",
     "version":"0",
@@ -442,7 +486,8 @@
   {
     "about":"",
     "identifier":"tastingnote.pear",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"pear",
     "tastingStage":"in mouth",
     "version":"0",
@@ -452,7 +497,8 @@
   {
     "about":"",
     "identifier":"tastingnote.pencilshavings",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"pencil shavings",
     "tastingStage":"",
     "version":"0",
@@ -462,7 +508,8 @@
   {
     "about":"",
     "identifier":"tastingnote.pepper",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"pepper",
     "tastingStage":"",
     "version":"0",
@@ -472,7 +519,8 @@
   {
     "about":"",
     "identifier":"tastingnote.petrol",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"petrol",
     "tastingStage":"",
     "version":"0",
@@ -482,7 +530,8 @@
   {
     "about":"",
     "identifier":"tastingnote.pineapple",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"pineapple",
     "tastingStage":"in mouth",
     "version":"0",
@@ -492,7 +541,8 @@
   {
     "about":"",
     "identifier":"tastingnote.plums",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"plums",
     "tastingStage":"",
     "version":"0",
@@ -502,7 +552,8 @@
   {
     "about":"",
     "identifier":"tastingnote.pomegranate",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"pomegranate",
     "tastingStage":"",
     "version":"0",
@@ -512,7 +563,8 @@
   {
     "about":"",
     "identifier":"tastingnote.raspberry",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"raspberry",
     "tastingStage":"",
     "version":"0",
@@ -522,7 +574,8 @@
   {
     "about":"",
     "identifier":"tastingnote.redfruit",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"red fruit",
     "tastingStage":"",
     "version":"0",
@@ -532,7 +585,8 @@
   {
     "about":"",
     "identifier":"tastingnote.roses",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"roses",
     "tastingStage":"",
     "version":"0",
@@ -542,7 +596,8 @@
   {
     "about":"",
     "identifier":"tastingnote.smoke",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"smoke",
     "tastingStage":"",
     "version":"0",
@@ -552,7 +607,8 @@
   {
     "about":"",
     "identifier":"tastingnote.smoky",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"smoky",
     "tastingStage":"",
     "version":"0",
@@ -562,7 +618,8 @@
   {
     "about":"",
     "identifier":"tastingnote.stewedprunes",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"stewed prunes",
     "tastingStage":"",
     "version":"0",
@@ -572,7 +629,8 @@
   {
     "about":"",
     "identifier":"tastingnote.strawberry",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"strawberry",
     "tastingStage":"",
     "version":"0",
@@ -582,7 +640,8 @@
   {
     "about":"",
     "identifier":"tastingnote.tar",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"tar",
     "tastingStage":"",
     "version":"0",
@@ -592,7 +651,8 @@
   {
     "about":"",
     "identifier":"tastingnote.tartredfruit",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"tart red fruit",
     "tastingStage":"",
     "version":"0",
@@ -602,7 +662,8 @@
   {
     "about":"",
     "identifier":"tastingnote.thyme",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"thyme",
     "tastingStage":"",
     "version":"0",
@@ -612,7 +673,8 @@
   {
     "about":"",
     "identifier":"tastingnote.tobacco",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"tobacco",
     "tastingStage":"",
     "version":"0",
@@ -622,7 +684,8 @@
   {
     "about":"",
     "identifier":"tastingnote.tomato",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"tomato",
     "tastingStage":"",
     "version":"0",
@@ -632,7 +695,8 @@
   {
     "about":"",
     "identifier":"tastingnote.vanilla",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"vanilla",
     "tastingStage":"in mouth",
     "version":"0",
@@ -642,7 +706,8 @@
   {
     "about":"",
     "identifier":"tastingnote.violet",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"violet",
     "tastingStage":"",
     "version":"0",
@@ -652,7 +717,8 @@
   {
     "about":"",
     "identifier":"tastingnote.wet",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"wet",
     "tastingStage":"",
     "version":"0",
@@ -662,7 +728,8 @@
   {
     "about":"",
     "identifier":"tastingnote.wool",
-    "markForDeletion":"0",
+    "deletedEntity":"0",
+    "lastUpdated":"2013-12-05 00:17:54 +0000",
     "name":"wool",
     "tastingStage":"",
     "version":"0",

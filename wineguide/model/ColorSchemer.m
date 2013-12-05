@@ -41,8 +41,9 @@ static ColorSchemer *sharedInstance;
 
 -(UIColor *)baseColor
 {
-    if(!_baseColor) _baseColor = [UIColor colorWithRed:0.364706F green:0.129412F blue:0.160784F alpha:1.0F];
-        //[UIColor colorWithRed:0.666667f green:0.470588f blue:0.650980f alpha:1.0];
+    if(!_baseColor) _baseColor = [UIColor colorWithRed:0.596078F green:0.376471F blue:0.600000F alpha:1.0F]; // original purple
+        //[UIColor colorWithRed:0.666667f green:0.470588f blue:0.650980f alpha:1.0]; // original slightly lighter purple
+        //[UIColor colorWithRed:0.364706F green:0.129412F blue:0.160784F alpha:1.0F]; // dark red wine
     return _baseColor;
 }
 

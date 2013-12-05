@@ -170,7 +170,8 @@
     NSString *groupIdentifier = [NSString stringWithFormat:@"group.%@.%@",self.restaurant.identifier,groupName];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",groupIdentifier];
-    Group *group = [Group groupFoundUsingPredicate:predicate inContext:self.context withEntityInfo:@{@"identifier" : groupIdentifier, @"name" : newManagedObjectName, @"restaurantIdentifier" : self.restaurant.identifier}];
+    NSDictionary *groupInfo = @{@"identifier" : groupIdentifier, @"name" : newManagedObjectName, @"restaurantIdentifier" : self.restaurant.identifier, @"version" : @1};
+    Group *group = [Group groupFoundUsingPredicate:predicate inContext:self.context withEntityInfo:groupInfo];
     group.restaurant = self.restaurant;
     group.sortOrder = [NSNumber numberWithInteger:[self.managedObjects count]];
     

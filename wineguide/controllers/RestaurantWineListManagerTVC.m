@@ -53,6 +53,8 @@
     NSError *error;
     NSArray *matches = [self.context executeFetchRequest:request error:&error];
     self.managedObjects = [matches mutableCopy];
+    NSLog(@"self.managedObjects = %@",self.managedObjects);
+    NSLog(@"self.group.wineUnitIDs = %@",self.group.wineUnitIdentifiers);
     [self.tableView reloadData];
 }
 
@@ -149,22 +151,31 @@
     if([managedObject isKindOfClass:[WineUnit class]]){
         
         WineUnit *wu = (WineUnit *)managedObject;
+        NSLog(@"wu.groups = %@",wu.groups);
         NSMutableSet *groups = [wu.groups mutableCopy];
         [groups removeObject:self.group];
         wu.groups = groups;
-        wu.groupIdentifiers = [wu.groupIdentifiers stringByReplacingOccurrencesOfString:self.group.identifier withString:@""];
-        wu.groupIdentifiers = [wu.groupIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
+        NSLog(@"wu.groups = %@",wu.groups);
         
+        NSString *groupIdentifiers = [wu.groupIdentifiers stringByReplacingOccurrencesOfString:self.group.identifier withString:@""];
+        groupIdentifiers = [wu.groupIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
+        wu.groupIdentifiers = groupIdentifiers;
+        
+        NSLog(@"wineUnitIDS = %@",self.group.wineUnitIdentifiers);
         NSMutableSet *wineUnits = [self.group.wineUnits mutableCopy];
+        NSLog(@"wu = %@",wu);
+        [wineUnits containsObject:wu] ? NSLog(@"y") : NSLog(@"n");
         [wineUnits removeObject:wu];
         self.group.wineUnits = wineUnits;
+        NSLog(@"wineUnitIDs = %@",self.group.wineUnitIdentifiers);
         
         NSString *wineUnitIdentifiers = self.group.wineUnitIdentifiers;
         wineUnitIdentifiers = [wineUnitIdentifiers stringByReplacingOccurrencesOfString:wu.identifier withString:@""];
         wineUnitIdentifiers = [wineUnitIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
         self.group.wineUnitIdentifiers = wineUnitIdentifiers;
-        
+        NSLog(@"context parent = %@",self.context.parentContext);
     }
+    
     [self refreshTableView];
 }
 
