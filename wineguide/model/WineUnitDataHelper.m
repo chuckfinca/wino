@@ -45,7 +45,7 @@
 
 -(void)createWineUnitWithIdentifier:(NSString *)identifier price:(NSNumber *)price quantity:(NSString *)quantity flightIdentifiers:(NSString *)flightIdentifiers groupIdentifiers:(NSString *)groupIdentifiers andWineIdentifier:(NSString *)wineIdentifier
 {
-    NSMutableDictionary *wineUnitDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{@"lastAccessed" : [NSDate date]}];
+    NSMutableDictionary *wineUnitDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{@"lastUpdated" : [NSDate date]}];
     
     if(identifier) [wineUnitDictionary setObject:identifier forKey:@"identifier"];
     if(price) [wineUnitDictionary setObject:price forKey:@"price"];

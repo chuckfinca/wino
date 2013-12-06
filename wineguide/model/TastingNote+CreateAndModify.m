@@ -35,17 +35,11 @@
     
     tastingNote = (TastingNote *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:TASTING_NOTE_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
     
-    NSString *wineIdentifiers;
+    NSMutableDictionary *identifiers = [[NSMutableDictionary alloc] init];
     
-    NSLog(@"self = %@",self);
-    NSLog(@"lastUpdated = %@",tastingNote.lastUpdated);
-    NSLog(@"dictionary[LAST_UPDATED] = %@",dictionary[LAST_UPDATED]);
+    NSDate *dictionaryLastUpdatedDate = [tastingNote lastUpdatedDateFromDictionary:dictionary];
     
-    NSDate *serverDate = [dictionary dateFromString:dictionary[LAST_UPDATED]];
-    
-    NSLog(@"serverDate = %@",serverDate);
-    if(!tastingNote.lastUpdated || [tastingNote.lastUpdated laterDate:serverDate] == serverDate){
-        NSLog(@"inside");
+    if(!tastingNote.lastUpdated || [tastingNote.lastUpdated laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
         // ATTRIBUTES
         
@@ -59,7 +53,7 @@
             tastingNote.about = [dictionary sanitizedStringForKey:ABOUT];
             tastingNote.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             tastingNote.isPlaceholderForFutureObject = @NO;
-            tastingNote.lastUpdated = [NSDate date];
+            tastingNote.lastUpdated = dictionaryLastUpdatedDate;
             tastingNote.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             tastingNote.name = [dictionary sanitizedStringForKey:NAME];
             tastingNote.tastingStage = [dictionary sanitizedStringForKey:TASTING_STAGE]; // appearance, in glass, in mouth, finish
@@ -67,21 +61,32 @@
             
             // store any information about relationships provided
             
-            wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
+            NSString *wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
             tastingNote.wineIdentifiers = [tastingNote addIdentifiers:wineIdentifiers toCurrentIdentifiers:tastingNote.wineIdentifiers];
+            if(wineIdentifiers) [identifiers setObject:wineIdentifiers forKey:WINE_IDENTIFIERS];
         }
+        
+        [tastingNote updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+        
+    } else if([tastingNote.lastUpdated isEqualToDate:dictionaryLastUpdatedDate]){
+        [tastingNote updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
-    
-    // RELATIONSHIPS
-    // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
-    
-    // Wines
-    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:tastingNote andNeededManagedObjectIdentifiersString:wineIdentifiers];
-    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     
     //[tastingNote logDetails];
     
     return tastingNote;
+}
+
+
+
+-(void)updateRelationshipsUsingDictionary:(NSDictionary *)dictionary identifiersDictionary:(NSDictionary *)identifiers andContext:(NSManagedObjectContext *)context
+{
+    // RELATIONSHIPS
+    // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
+    
+    // Wines
+    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIERS]];
+    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
 }
 
 -(void)logDetails

@@ -39,18 +39,11 @@
     
     flight = (Flight *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:FLIGHT_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
     
-    NSString *restaurantIdentifier;
-    NSString *wineUnitIdentifiers;
+    NSMutableDictionary *identifiers = [[NSMutableDictionary alloc] init];
     
-    NSLog(@"self = %@",self);
-    NSLog(@"lastUpdated = %@",flight.lastUpdated);
-    NSLog(@"dictionary[LAST_UPDATED] = %@",dictionary[LAST_UPDATED]);
+    NSDate *dictionaryLastUpdatedDate = [flight lastUpdatedDateFromDictionary:dictionary];
     
-    NSDate *serverDate = [dictionary dateFromString:dictionary[LAST_UPDATED]];
-    
-    NSLog(@"serverDate = %@",serverDate);
-    if(!flight.lastUpdated || [flight.lastUpdated laterDate:serverDate] == serverDate){
-        NSLog(@"inside");
+    if(!flight.lastUpdated || [flight.lastUpdated laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
@@ -64,7 +57,7 @@
             flight.about = [dictionary sanitizedStringForKey:ABOUT];
             flight.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             flight.isPlaceholderForFutureObject = @NO;
-            flight.lastUpdated = [NSDate date];
+            flight.lastUpdated = dictionaryLastUpdatedDate;
             flight.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             flight.name = [dictionary sanitizedStringForKey:NAME];
             flight.price = [dictionary sanitizedValueForKey:PRICE];
@@ -72,29 +65,39 @@
             
             // store any information about relationships provided
             
-            restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
+            NSString *restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
             flight.restaurantIdentifier = restaurantIdentifier;
+            if(restaurantIdentifier) [identifiers setObject:restaurantIdentifier forKey:RESTAURANT_IDENTIFIER];
             
-            wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
+            NSString *wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
             flight.wineUnitIdentifiers = [flight addIdentifiers:wineUnitIdentifiers toCurrentIdentifiers:flight.wineUnitIdentifiers];
+            if(wineUnitIdentifiers) [identifiers setObject:wineUnitIdentifiers forKey:WINE_UNIT_IDENTIFIERS];
         }
+        
+        [flight updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+        
+    } else if([flight.lastUpdated isEqualToDate:dictionaryLastUpdatedDate]){
+        [flight updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
+    //[flight logDetails];
+    
+    return flight;
+}
+
+-(void)updateRelationshipsUsingDictionary:(NSDictionary *)dictionary identifiersDictionary:(NSDictionary *)identifiers andContext:(NSManagedObjectContext *)context
+{
     // RELATIONSHIPS
     
     // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
     
     // Restaurants
-    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:flight andNeededManagedObjectIdentifiersString:restaurantIdentifier];
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[RESTAURANT_IDENTIFIER]];
     [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
     
     // WineUnits
-    WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:flight andNeededManagedObjectIdentifiersString:wineUnitIdentifiers];
+    WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_UNIT_IDENTIFIERS]];
     [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
-    
-    // [flight logDetails];
-    
-    return flight;
 }
 
 -(void)logDetails

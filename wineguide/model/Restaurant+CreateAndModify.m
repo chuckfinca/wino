@@ -47,18 +47,17 @@
     
     restaurant = (Restaurant *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:RESTAURANT_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
     
-    NSString *flightIdentifiers;
-    NSString *groupIdentifiers;
-    NSLog(@"self = %@",self);
-    NSLog(@"date = %@",[NSDate date]);
-    NSLog(@"lastUpdated = %@",restaurant.lastUpdated);
-    NSLog(@"dictionary[LAST_UPDATED] = %@",dictionary[LAST_UPDATED]);
+    NSMutableDictionary *identifiers = [[NSMutableDictionary alloc] init];
     
-    NSDate *serverDate = [dictionary dateFromString:dictionary[LAST_UPDATED]];
+    NSDate *dictionaryLastUpdatedDate = [restaurant lastUpdatedDateFromDictionary:dictionary];
     
-    NSLog(@"serverDate = %@",serverDate);
-    if(!restaurant.lastUpdated || [restaurant.lastUpdated laterDate:serverDate] == serverDate){
-        NSLog(@"inside");
+    if(!restaurant.lastUpdated || [restaurant.lastUpdated laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
+        
+        // EXEPTION: user updates a restaurant group on their iPhone and a restaurant flight on their iPad
+        // in that case we need to make sure that the server processes the first change first, then the second, and that the device only hears from the server after it's own changes have been registered.
+        
+        
+        
         
         // ATTRIBUTES
         
@@ -74,7 +73,7 @@
             restaurant.country = [dictionary sanitizedStringForKey:COUNTRY];
             restaurant.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             restaurant.isPlaceholderForFutureObject = @NO;
-            restaurant.lastUpdated = [NSDate date];
+            restaurant.lastUpdated = dictionaryLastUpdatedDate;
             restaurant.latitude = [dictionary sanitizedValueForKey:LATITUDE];
             restaurant.longitude = [dictionary sanitizedValueForKey:LONGITUDE];
             restaurant.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
@@ -86,30 +85,39 @@
             
             // store any information about relationships provided
             
-            flightIdentifiers = [dictionary sanitizedStringForKey:FLIGHT_IDENTIFIERS];
+            NSString *flightIdentifiers = [dictionary sanitizedStringForKey:FLIGHT_IDENTIFIERS];
             restaurant.flightIdentifiers = [restaurant addIdentifiers:flightIdentifiers toCurrentIdentifiers:restaurant.flightIdentifiers];
+            if(flightIdentifiers) [identifiers setObject:flightIdentifiers forKey:FLIGHT_IDENTIFIERS];
             
-            groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
+            NSString *groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
             restaurant.groupIdentifiers = [restaurant addIdentifiers:groupIdentifiers toCurrentIdentifiers:restaurant.groupIdentifiers];
+            if(groupIdentifiers) [identifiers setObject:groupIdentifiers forKey:GROUP_IDENTIFIERS];
         }
+        
+        [restaurant updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+        
+    } else if([restaurant.lastUpdated isEqualToDate:dictionaryLastUpdatedDate]){
+        [restaurant updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
-    
-    // RELATIONSHIPS
-    // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON, if not then update the appropriate relationshipIdentifiers attribute
-    
-    // Flights
-    FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:restaurant andNeededManagedObjectIdentifiersString:flightIdentifiers];
-    [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
-    
-    // Groupings
-    GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:restaurant andNeededManagedObjectIdentifiersString:groupIdentifiers];
-    [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
     
     //[restaurant logDetails];
     
     return restaurant;
 }
 
+-(void)updateRelationshipsUsingDictionary:(NSDictionary *)dictionary identifiersDictionary:(NSDictionary *)identifiers andContext:(NSManagedObjectContext *)context
+{
+    // RELATIONSHIPS
+    // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON, if not then update the appropriate relationshipIdentifiers attribute
+    
+    // Flights
+    FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[FLIGHT_IDENTIFIERS]];
+    [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
+    
+    // Groupings
+    GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[GROUP_IDENTIFIERS]];
+    [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
+}
 
 -(void)logDetails
 {

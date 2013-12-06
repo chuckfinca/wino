@@ -85,7 +85,6 @@ typedef enum {
     // get the winelist for that restaurant
     self.context = restaurant.managedObjectContext;
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
-    self.restaurantDetailsViewController.delegate = self;
     self.restaurant = restaurant;
     
     // [self logDetails];
@@ -117,13 +116,10 @@ typedef enum {
     NSURL *allGroupUrl = [[NSBundle mainBundle] URLForResource:urlString withExtension:JSON];
     GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
     [gdh updateCoreDataWithJSONFromURL:allGroupUrl];
-    
-    [self setupFetchedResultsController];
 }
 
 -(void)setupFetchedResultsController
 {
-    // NSLog(@"setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_UNIT_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"wine.color"
                                                               ascending:YES],
@@ -132,8 +128,6 @@ typedef enum {
                                 [NSSortDescriptor sortDescriptorWithKey:@"wine.name"
                                                               ascending:YES]];
     request.predicate = [NSPredicate predicateWithFormat:@"ANY groups.identifier = %@",self.selectedGroupIdentifier];
-    
-    request.shouldRefreshRefetchedObjects = YES;
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
@@ -156,6 +150,7 @@ typedef enum {
 {
     if(!_restaurantDetailsViewController){
         _restaurantDetailsViewController = [[RestaurantDetailsVC alloc] initWithNibName:@"RestaurantDetails" bundle:nil];
+        _restaurantDetailsViewController.delegate = self;
     }
     return _restaurantDetailsViewController;
 }

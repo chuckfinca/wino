@@ -40,19 +40,11 @@
     
     wineUnit = (WineUnit *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:WINE_UNIT_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
     
-    NSString *flightIdentifiers;
-    NSString *groupIdentifiers;
-    NSString *wineIdentifier;
+    NSMutableDictionary *identifiers = [[NSMutableDictionary alloc] init];
     
-    NSLog(@"self = %@",self);
-    NSLog(@"lastUpdated = %@",wineUnit.lastUpdated);
-    NSLog(@"dictionary[LAST_UPDATED] = %@",dictionary[LAST_UPDATED]);
+    NSDate *dictionaryLastUpdatedDate = [wineUnit lastUpdatedDateFromDictionary:dictionary];
     
-    NSDate *serverDate = [dictionary dateFromString:dictionary[LAST_UPDATED]];
-    
-    NSLog(@"serverDate = %@",serverDate);
-    if(!wineUnit.lastUpdated || [wineUnit.lastUpdated laterDate:serverDate] == serverDate){
-        NSLog(@"inside");
+    if(!wineUnit.lastUpdated || [wineUnit.lastUpdated laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
@@ -66,7 +58,7 @@
             // wineUnit.lastAccessed
             wineUnit.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             wineUnit.isPlaceholderForFutureObject = @NO;
-            wineUnit.lastUpdated = [NSDate date];
+            wineUnit.lastUpdated = dictionaryLastUpdatedDate;
             wineUnit.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             wineUnit.price = [dictionary sanitizedValueForKey:PRICE];
             wineUnit.quantity = [dictionary sanitizedStringForKey:QUANTITY];
@@ -74,35 +66,47 @@
             
             // store any information about relationships provided
             
-            flightIdentifiers = [dictionary sanitizedStringForKey:FLIGHT_IDENTIFIERS];
+            NSString *flightIdentifiers = [dictionary sanitizedStringForKey:FLIGHT_IDENTIFIERS];
             wineUnit.flightIdentifiers = [wineUnit addIdentifiers:flightIdentifiers toCurrentIdentifiers:wineUnit.flightIdentifiers];
+            if(flightIdentifiers) [identifiers setObject:flightIdentifiers forKey:FLIGHT_IDENTIFIERS];
             
-            groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
+            NSString *groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
             wineUnit.groupIdentifiers = [wineUnit addIdentifiers:groupIdentifiers toCurrentIdentifiers:wineUnit.groupIdentifiers];
+            if(groupIdentifiers) [identifiers setObject:groupIdentifiers forKey:GROUP_IDENTIFIERS];
             
-            wineIdentifier = [dictionary sanitizedStringForKey:WINE_IDENTIFIER];
+            NSString *wineIdentifier = [dictionary sanitizedStringForKey:WINE_IDENTIFIER];
             wineUnit.wineIdentifier = wineIdentifier;
+            if(wineIdentifier) [identifiers setObject:wineIdentifier forKey:WINE_IDENTIFIER];
         }
+        
+        [wineUnit updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+        
+    } else if([wineUnit.lastUpdated isEqualToDate:dictionaryLastUpdatedDate]){
+        [wineUnit updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
-    // RELATIONSHIPS
-    // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
-    // Flights
-    FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:wineUnit andNeededManagedObjectIdentifiersString:flightIdentifiers];
-    [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
-    
-    // Groupings
-    GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:wineUnit andNeededManagedObjectIdentifiersString:groupIdentifiers];
-    [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
-    
-    // Wines
-    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:wineUnit andNeededManagedObjectIdentifiersString:wineIdentifier];
-    [wdh updateNestedManagedObjectsLocatedAtKey:WINE inDictionary:dictionary];
-    
-    //[wineUnit logDetails];
+    // [wineUnit logDetails];
     
     return wineUnit;
 }
+
+-(void)updateRelationshipsUsingDictionary:(NSDictionary *)dictionary identifiersDictionary:(NSDictionary *)identifiers andContext:(NSManagedObjectContext *)context
+{
+    // RELATIONSHIPS
+    // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
+    // Flights
+    FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[FLIGHT_IDENTIFIERS]];
+    [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
+    
+    // Groupings
+    GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[GROUP_IDENTIFIERS]];
+    [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
+    
+    // Wines
+    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIER]];
+    [wdh updateNestedManagedObjectsLocatedAtKey:WINE inDictionary:dictionary];
+}
+
 
 -(void)logDetails
 {

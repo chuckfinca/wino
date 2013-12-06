@@ -171,7 +171,7 @@
 
 -(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"buttonIndex = %i",buttonIndex);
+    NSLog(@"buttonIndex = %li",(long)buttonIndex);
     if(buttonIndex == 1){
         NSLog(@"creating new wineUnit and linking it to the appropriate group");
         [self addWineToGroup];

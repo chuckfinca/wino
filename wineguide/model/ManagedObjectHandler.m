@@ -10,7 +10,7 @@
 
 #define IDENTIFIER @"identifier"
 #define NAME @"name"
-#define MARK_FOR_DELETION @"markForDeletion"
+#define DELETED_ENTITY @"deletedEntity"
 
 @implementation ManagedObjectHandler
 
@@ -30,15 +30,13 @@
         // Error
         NSLog(@"Error %@ - matches exists? %@; [matches count] = %lu",error,matches ? @"yes" : @"no",(unsigned long)[matches count]);
         
-    } else if ([matches count] == 0 && [dictionary[MARK_FOR_DELETION] boolValue] == NO) {
+    } else if ([matches count] == 0 && [dictionary[DELETED_ENTITY] boolValue] == NO) {
         // Create new managed object
         managedObject = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
         
     } else if ([matches count] == 1){
         // Managed object already exists
-        if([dictionary[MARK_FOR_DELETION] boolValue] == NO){
             managedObject = [matches lastObject];
-        }
     } else {
         // Error
         NSLog(@"Error %@ - ManagedObject %@ will be nil",error,dictionary[IDENTIFIER]);

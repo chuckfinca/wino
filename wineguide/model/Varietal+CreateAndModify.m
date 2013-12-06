@@ -29,23 +29,16 @@
 @implementation Varietal (CreateAndModify)
 
 +(Varietal *)varietalFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
-
 {
     Varietal *varietal = nil;
     
     varietal = (Varietal *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:VARIETAL_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
     
-    NSString *wineIdentifiers;
+    NSMutableDictionary *identifiers = [[NSMutableDictionary alloc] init];
     
-    NSLog(@"self = %@",self);
-    NSLog(@"lastUpdated = %@",varietal.lastUpdated);
-    NSLog(@"dictionary[LAST_UPDATED] = %@",dictionary[LAST_UPDATED]);
+    NSDate *dictionaryLastUpdatedDate = [varietal lastUpdatedDateFromDictionary:dictionary];
     
-    NSDate *serverDate = [dictionary dateFromString:dictionary[LAST_UPDATED]];
-    
-    NSLog(@"serverDate = %@",serverDate);
-    if(!varietal.lastUpdated || [varietal.lastUpdated laterDate:serverDate] == serverDate){
-        NSLog(@"inside");
+    if(!varietal.lastUpdated || [varietal.lastUpdated laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
         // ATTRIBUTES
         
@@ -59,28 +52,39 @@
             varietal.about = [dictionary sanitizedStringForKey:ABOUT];
             varietal.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             varietal.isPlaceholderForFutureObject = @NO;
-            varietal.lastUpdated = [NSDate date];
+            varietal.lastUpdated = dictionaryLastUpdatedDate;
             varietal.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             varietal.name = [dictionary sanitizedStringForKey:NAME];
             varietal.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
             
             // store any information about relationships provided
             
-            wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
+            NSString *wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
             varietal.wineIdentifiers = [varietal addIdentifiers:wineIdentifiers toCurrentIdentifiers:varietal.wineIdentifiers];
+            if(wineIdentifiers) [identifiers setObject:wineIdentifiers forKey:WINE_IDENTIFIERS];
         }
+        
+        [varietal updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+        
+    } else if([varietal.lastUpdated isEqualToDate:dictionaryLastUpdatedDate]){
+        [varietal updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
-    
-    // RELATIONSHIPS
-    // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
-    
-    // Wines
-    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:varietal andNeededManagedObjectIdentifiersString:wineIdentifiers];
-    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
     
     //[varietal logDetails];
     
     return varietal;
+}
+
+
+
+-(void)updateRelationshipsUsingDictionary:(NSDictionary *)dictionary identifiersDictionary:(NSDictionary *)identifiers andContext:(NSManagedObjectContext *)context
+{
+    // RELATIONSHIPS
+    // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
+    
+    // Wines
+    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIERS]];
+    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
 }
 
 

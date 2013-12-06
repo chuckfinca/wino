@@ -150,6 +150,7 @@
     NSLog(@"deleteFromListManagedObject...");
     if([managedObject isKindOfClass:[WineUnit class]]){
         
+        // remove the Group from the WineUnit
         WineUnit *wu = (WineUnit *)managedObject;
         NSLog(@"wu.groups = %@",wu.groups);
         NSMutableSet *groups = [wu.groups mutableCopy];
@@ -161,6 +162,10 @@
         groupIdentifiers = [wu.groupIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
         wu.groupIdentifiers = groupIdentifiers;
         
+        wu.lastUpdated = [NSDate date];
+        
+        
+        // remove the WineUnit from the Group
         NSLog(@"wineUnitIDS = %@",self.group.wineUnitIdentifiers);
         NSMutableSet *wineUnits = [self.group.wineUnits mutableCopy];
         NSLog(@"wu = %@",wu);
@@ -174,6 +179,8 @@
         wineUnitIdentifiers = [wineUnitIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
         self.group.wineUnitIdentifiers = wineUnitIdentifiers;
         NSLog(@"context parent = %@",self.context.parentContext);
+        
+        self.group.lastUpdated = [NSDate date];
     }
     
     [self refreshTableView];

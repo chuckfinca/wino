@@ -14,12 +14,8 @@
 #import "BrandDataHelper.h"
 #import "TastingNoteDataHelper.h"
 #import "VarietalDataHelper.h"
-#import "GroupDataHelper.h"
-#import "FlightDataHelper.h"
 #import "WineUnitDataHelper.h"
 
-#import "Flight.h"
-#import "Group.h"
 #import "WineUnit.h"
 #import "Brand.h"
 
@@ -63,20 +59,11 @@
     
     wine = (Wine *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:WINE_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
     
-    NSString *brandIdentifier;
-    NSString *tastingNoteIdentifiers;
-    NSString *varietalIdentifiers;
-    NSString *wineUnitIdentifiers;
+    NSMutableDictionary *identifiers = [[NSMutableDictionary alloc] init];
     
-    NSLog(@"self = %@",self);
-    NSLog(@"lastUpdated = %@",wine.lastUpdated);
-    NSLog(@"dictionary[LAST_UPDATED] = %@",dictionary[LAST_UPDATED]);
+    NSDate *dictionaryLastUpdatedDate = [wine lastUpdatedDateFromDictionary:dictionary];
     
-    NSDate *serverDate = [dictionary dateFromString:dictionary[LAST_UPDATED]];
-    
-    NSLog(@"serverDate = %@",serverDate);
-    if(!wine.lastUpdated || [wine.lastUpdated laterDate:serverDate] == serverDate){
-        NSLog(@"inside");
+    if(!wine.lastUpdated || [wine.lastUpdated laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
         // ATTRIBUTES
         
@@ -94,7 +81,7 @@
             // wine.favorite
             wine.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             wine.isPlaceholderForFutureObject = @NO;
-            wine.lastUpdated = [NSDate date];
+            wine.lastUpdated = dictionaryLastUpdatedDate;
             wine.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             wine.name = [dictionary sanitizedStringForKey:NAME];
             wine.region = [dictionary sanitizedStringForKey:REGION];
@@ -106,43 +93,57 @@
             
             // store any information about relationships provided
             
-            brandIdentifier = [dictionary sanitizedStringForKey:BRAND_IDENTIFIER];
+            NSString *brandIdentifier = [dictionary sanitizedStringForKey:BRAND_IDENTIFIER];
             wine.brandIdentifier = brandIdentifier;
+            if(brandIdentifier) [identifiers setObject:brandIdentifier forKey:BRAND_IDENTIFIER];
             
-            tastingNoteIdentifiers = [dictionary sanitizedStringForKey:TASTING_NOTE_IDENTIFIERS];
+            NSString *tastingNoteIdentifiers = [dictionary sanitizedStringForKey:TASTING_NOTE_IDENTIFIERS];
             wine.tastingNoteIdentifers = [wine addIdentifiers:tastingNoteIdentifiers toCurrentIdentifiers:wine.tastingNoteIdentifers];
+            if(tastingNoteIdentifiers) [identifiers setObject:tastingNoteIdentifiers forKey:TASTING_NOTE_IDENTIFIERS];
             
-            varietalIdentifiers = [dictionary sanitizedStringForKey:VARIETAL_IDENTIFIERS];
+            NSString *varietalIdentifiers = [dictionary sanitizedStringForKey:VARIETAL_IDENTIFIERS];
             wine.varietalIdentifiers = [wine addIdentifiers:varietalIdentifiers toCurrentIdentifiers:wine.varietalIdentifiers];
+            if(varietalIdentifiers) [identifiers setObject:varietalIdentifiers forKey:VARIETAL_IDENTIFIERS];
             
-            wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
+            NSString *wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
             wine.wineUnitIdentifiers = [wine addIdentifiers:wineUnitIdentifiers toCurrentIdentifiers:wine.wineUnitIdentifiers];
+            if(wineUnitIdentifiers) [identifiers setObject:wineUnitIdentifiers forKey:WINE_UNIT_IDENTIFIERS];
         }
+        
+        [wine updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+        
+    } else if([wine.lastUpdated isEqualToDate:dictionaryLastUpdatedDate]){
+        [wine updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
+    //[wine logDetails];
+    
+    return wine;
+}
+
+
+
+-(void)updateRelationshipsUsingDictionary:(NSDictionary *)dictionary identifiersDictionary:(NSDictionary *)identifiers andContext:(NSManagedObjectContext *)context
+{
     // RELATIONSHIPS
     // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
     
     // Brand
-    BrandDataHelper *bdh = [[BrandDataHelper alloc] initWithContext:context andRelatedObject:wine andNeededManagedObjectIdentifiersString:brandIdentifier];
+    BrandDataHelper *bdh = [[BrandDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[BRAND_IDENTIFIER]];
     [bdh updateNestedManagedObjectsLocatedAtKey:BRAND inDictionary:dictionary];
-    if(!wine.name) wine.name = wine.brand.name;
+    if(!self.name) self.name = self.brand.name;
     
     // Tasting Notes
-    TastingNoteDataHelper *tndh = [[TastingNoteDataHelper alloc] initWithContext:context andRelatedObject:wine andNeededManagedObjectIdentifiersString:tastingNoteIdentifiers];
+    TastingNoteDataHelper *tndh = [[TastingNoteDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[TASTING_NOTE_IDENTIFIERS]];
     [tndh updateNestedManagedObjectsLocatedAtKey:TASTING_NOTES inDictionary:dictionary];
     
     // Varietals
-    VarietalDataHelper *vdh = [[VarietalDataHelper alloc] initWithContext:context andRelatedObject:wine andNeededManagedObjectIdentifiersString:varietalIdentifiers];
+    VarietalDataHelper *vdh = [[VarietalDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[VARIETAL_IDENTIFIERS]];
     [vdh updateNestedManagedObjectsLocatedAtKey:VARIETALS inDictionary:dictionary];
     
     // WineUnits
-    WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:wine andNeededManagedObjectIdentifiersString:wineUnitIdentifiers];
+    WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_UNIT_IDENTIFIERS]];
     [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
-    
-    // [wine logDetails];
-    
-    return wine;
 }
 
 -(void)logDetails

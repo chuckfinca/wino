@@ -13,5 +13,6 @@
 @property (nonatomic, retain) NSString *identifier; // abstract
 
 -(NSString *)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers;
+-(NSDate *)lastUpdatedDateFromDictionary:(NSDictionary *)dictionary;
 
 @end

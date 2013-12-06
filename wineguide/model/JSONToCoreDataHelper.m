@@ -14,8 +14,6 @@
 
 #define IDENTIFIER @"identifier"
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
-#define LAST_UPDATED @"lastUpdated"
-#define INITIAL_DATE @"2013-12-05 00:17:54 +0000"
 
 #define DIVIDER @"/"
 
@@ -69,7 +67,6 @@
 
 -(void)updateCoreDataWithJSONFromURL:(NSURL *)url
 {
-    NSLog(@"url = %@",url);
     dispatch_queue_t jsonQueue = dispatch_queue_create("JSON_Queue", NULL);
     dispatch_async(jsonQueue, ^{
         NSData *data = [NSData dataWithContentsOfURL:url];
@@ -180,7 +177,7 @@
     if([self.setOfIdentifiersThatNeedToBeTurnedIntoObjects count] > 0){
         for(NSString *identifier in set){
             if([identifier length] > 0){
-                NSDictionary *managedObjectDictionary = @{IDENTIFIER : identifier, IS_PLACEHOLDER : @YES, LAST_UPDATED : INITIAL_DATE};
+                NSDictionary *managedObjectDictionary = @{IDENTIFIER : identifier, IS_PLACEHOLDER : @YES};
                 [self createOrModifyManagedObjectWithDictionary:managedObjectDictionary];
             }
         }

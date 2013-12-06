@@ -7,7 +7,10 @@
 //
 
 #import "NSManagedObject+Helper.h"
+#import "NSDictionary+Helper.h"
 
+#define LAST_UPDATED @"lastUpdated"
+#define INITIAL_DATE @"2013-12-05 00:17:54 +0000"
 #define DIVIDER @"/"
 
 
@@ -39,6 +42,24 @@
 -(NSString *)description
 {
     return self.identifier;
+}
+
+-(NSDate *)lastUpdatedDateFromDictionary:(NSDictionary *)dictionary
+{
+    NSDate *dictionaryUpdatedDate;
+    if([dictionary[LAST_UPDATED] isKindOfClass:[NSString class]]){
+        dictionaryUpdatedDate = [dictionary dateFromString:dictionary[LAST_UPDATED]];
+    } else if([dictionary[LAST_UPDATED] isKindOfClass:[NSDate class]]){
+        dictionaryUpdatedDate = dictionary[LAST_UPDATED];
+    } else if(!dictionary[LAST_UPDATED]){
+        dictionaryUpdatedDate = [dictionary dateFromString:INITIAL_DATE];
+    } else {
+        NSLog(@"ERROR - dictionary[LAST_UPDATED] isn't a NSString or NSDate");
+        NSLog(@"it's %@",dictionary[LAST_UPDATED]);
+        NSLog(@"a %@",[dictionary[LAST_UPDATED] class]);
+    }
+    // NSLog(@"dictionaryLastUpdatedDate = %@",dictionaryUpdatedDate);
+    return dictionaryUpdatedDate;
 }
 
 @end

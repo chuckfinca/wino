@@ -48,6 +48,7 @@
         [self setupTutorial];
     }
 }
+
 #pragma mark - Getters & Setters
 
 -(BOOL)supressTutorial
