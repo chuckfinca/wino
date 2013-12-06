@@ -57,13 +57,37 @@ static DocumentHandler *sharedInstance;
     
     if(![[NSFileManager defaultManager] fileExistsAtPath:[self.document.fileURL path]]){
         [self.document saveToURL:self.document.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:onDocumentDidLoad];
-    } else if (self.document.documentState == UIDocumentStateClosed){
-        [self.document openWithCompletionHandler:onDocumentDidLoad];
-    } else if (self.document.documentState == UIDocumentStateNormal){
-        onDocumentDidLoad(YES);
     } else {
-        NSLog(@"ERROR: UIManagedDocument state = %u",self.document.documentState);
+        switch (self.document.documentState) {
+            case UIDocumentStateClosed:
+                [self.document openWithCompletionHandler:onDocumentDidLoad];
+                break;
+            case UIDocumentStateNormal:
+                onDocumentDidLoad(YES);
+                break;
+            case UIDocumentStateEditingDisabled:
+                NSLog(@"UIDocumentStateEditingDisabled"); // temporary situation, try again
+                break;
+            case UIDocumentStateInConflict:
+                NSLog(@"UIDocumentStateInConflict"); // some other device changed it via iCloud
+                break;
+            case UIDocumentStateSavingError:
+                NSLog(@"UIDocumentStateSavingError"); // success will be NO in onDocumentReady
+                break;
+            default:
+                break;
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 @end
