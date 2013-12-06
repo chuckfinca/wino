@@ -48,9 +48,7 @@
     NSLog(@"lastUpdated = %@",wineUnit.lastUpdated);
     NSLog(@"dictionary[LAST_UPDATED] = %@",dictionary[LAST_UPDATED]);
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyy-MM-dd HH:mm:ss Z"];
-    NSDate *serverDate = [dateFormatter dateFromString:dictionary[LAST_UPDATED]];
+    NSDate *serverDate = [dictionary dateFromString:dictionary[LAST_UPDATED]];
     
     NSLog(@"serverDate = %@",serverDate);
     if(!wineUnit.lastUpdated || [wineUnit.lastUpdated laterDate:serverDate] == serverDate){
