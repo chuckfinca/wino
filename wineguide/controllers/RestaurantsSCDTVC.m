@@ -12,6 +12,8 @@
 #import "Restaurant.h"
 #import "ColorSchemer.h"
 
+#define RESTAURANT_ENTITY @"Restaurant"
+
 #define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
 
 @interface RestaurantsSCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
@@ -41,8 +43,14 @@
 {
     [super viewWillAppear:animated];
     NSLog(@"viewWillAppear");
-    [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+    NSLog(@"fetched results count = %i",[self.fetchedResultsController.fetchedObjects count]);
+    //[self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:RESTAURANT_ENTITY];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
     
+    NSError *error;
+    NSArray * matches = [self.context executeFetchRequest:request error:&error];
+    NSLog(@"matches = %@",matches);
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -97,10 +105,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // NSLog(@"cellForRowAtIndexPath...");
-    UITableViewCell *cell = nil;
-    
-    static NSString *CellIdentifier = @"RestaurantCell";
-    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantCell" forIndexPath:indexPath];
     
     // Configure the cell...
     [self setupTextForCell:cell atIndexPath:indexPath];
@@ -137,8 +142,8 @@
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     //NSLog(@"Favorites setupFetchedResultsController...");
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Restaurant"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:RESTAURANT_ENTITY];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier"
                                                               ascending:YES
                                                                selector:@selector(localizedCaseInsensitiveCompare:)]];
     

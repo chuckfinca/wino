@@ -108,7 +108,6 @@
     for(id obj in managedObjectDictionariesArray){
         if([obj isKindOfClass:[NSDictionary class]]){
             NSDictionary *managedObjectDictionary = (NSDictionary *)obj;
-            
             NSManagedObject *mo = [self createOrModifyManagedObjectWithDictionary:managedObjectDictionary];
             [self.setOfIdentifiersThatNeedToBeTurnedIntoObjects removeObject:mo.identifier];
         }
@@ -183,8 +182,6 @@
         }
     }
 }
-
-
 
 
 

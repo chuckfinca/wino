@@ -28,7 +28,7 @@
 -(id)sanitizedStringForKey:(id)key
 {
     id object = [self objectForKey:key];
-    if(![object isKindOfClass:[NSString class]] || [object isEqualToString:@""]) return nil;
+    if(![object isKindOfClass:[NSString class]] || [object isEqualToString:@""] || [object isEqualToString:@"0"]) return nil;
     return object;
 }
 

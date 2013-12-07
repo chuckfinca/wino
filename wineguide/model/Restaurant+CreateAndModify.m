@@ -65,7 +65,7 @@
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
-            restaurant.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+            restaurant.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
             restaurant.isPlaceholderForFutureObject = @YES;
             
         } else {
@@ -73,7 +73,7 @@
             restaurant.address = [dictionary sanitizedStringForKey:ADDRESS];
             restaurant.city = [dictionary sanitizedStringForKey:CITY];
             restaurant.country = [dictionary sanitizedStringForKey:COUNTRY];
-            restaurant.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+            restaurant.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
             restaurant.isPlaceholderForFutureObject = @NO;
             restaurant.lastServerUpdate = dictionaryLastUpdatedDate;
             restaurant.latitude = [dictionary sanitizedValueForKey:LATITUDE];
@@ -117,16 +117,25 @@
     // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON, if not then update the appropriate relationshipIdentifiers attribute
     
     // Flights
-    FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[FLIGHT_IDENTIFIERS]];
-    [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
+    NSString *flightIdentifiers = identifiers[FLIGHT_IDENTIFIERS];
+    if(flightIdentifiers){
+        FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:flightIdentifiers];
+        [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
+    }
     
     // Groupings
-    GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[GROUP_IDENTIFIERS]];
-    [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
+    NSString *groupIdentifiers = identifiers[GROUP_IDENTIFIERS];
+    if(groupIdentifiers){
+        GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:groupIdentifiers];
+        [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
+    }
     
     // WineUnits
-    WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_UNIT_IDENTIFIERS]];
-    [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
+    NSString *wineUnitIdentifiers = identifiers[WINE_UNIT_IDENTIFIERS];
+    if(wineUnitIdentifiers){
+        WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:wineUnitIdentifiers];
+        [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
+    }
 }
 
 -(void)logDetails

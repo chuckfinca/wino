@@ -42,15 +42,17 @@
         
         // ATTRIBUTES
         
-        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
+        if(!varietal.isPlaceholderForFutureObject && [[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
-            varietal.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+            varietal.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
             varietal.isPlaceholderForFutureObject = @YES;
             
         } else {
             
             varietal.about = [dictionary sanitizedStringForKey:ABOUT];
-            varietal.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+            
+            
+            varietal.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
             varietal.isPlaceholderForFutureObject = @NO;
             varietal.lastServerUpdate = dictionaryLastUpdatedDate;
             varietal.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
@@ -83,8 +85,11 @@
     // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
     
     // Wines
-    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIERS]];
-    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
+    NSString *wineIdentifiers = identifiers[WINE_IDENTIFIERS];
+    if(wineIdentifiers){
+        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:wineIdentifiers];
+        [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
+    }
 }
 
 

@@ -54,7 +54,7 @@
             // ATTRIBUTES
             
             group.about = [dictionary sanitizedStringForKey:ABOUT];
-            group.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+            group.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
             group.isPlaceholderForFutureObject = @NO;
             group.lastServerUpdate = dictionaryLastUpdatedDate;
             group.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
@@ -78,7 +78,7 @@
         [group updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
-    // [group logDetails];
+    //[group logDetails];
     
     return group;
 }
@@ -90,12 +90,17 @@
     // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
     
     // Restaurants
-    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[RESTAURANT_IDENTIFIER]];
-    [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
-    
-    // WineUnits
-    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIERS]];
-    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
+    NSString *restaurantIdentifier = identifiers[RESTAURANT_IDENTIFIER];
+    if(restaurantIdentifier){
+        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:restaurantIdentifier];
+        [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
+    }
+    // Wines
+    NSString *wineIdentifiers = identifiers[WINE_IDENTIFIERS];
+    if(wineIdentifiers){
+        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:wineIdentifiers];
+        [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
+    }
 }
 
 -(void)logDetails

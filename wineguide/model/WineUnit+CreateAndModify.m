@@ -46,7 +46,7 @@
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
-            wineUnit.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
+            wineUnit.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
             wineUnit.isPlaceholderForFutureObject = @YES;
             
         } else {
@@ -79,7 +79,7 @@
         [wineUnit updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
-    // [wineUnit logDetails];
+    //[wineUnit logDetails];
     
     return wineUnit;
 }
@@ -87,12 +87,17 @@
 -(void)updateRelationshipsUsingDictionary:(NSDictionary *)dictionary identifiersDictionary:(NSDictionary *)identifiers andContext:(NSManagedObjectContext *)context
 {
     // Restaurants
-    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[RESTAURANT_IDENTIFIER]];
-    [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
-    
+    NSString *restaurantIdentifier = identifiers[RESTAURANT_IDENTIFIER];
+    if(restaurantIdentifier){
+        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:restaurantIdentifier];
+        [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
+    }
     // Wines
-    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIER]];
-    [wdh updateNestedManagedObjectsLocatedAtKey:WINE inDictionary:dictionary];
+    NSString *wineIdentifiers = identifiers[WINE_IDENTIFIER];
+    if(wineIdentifiers){
+        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:wineIdentifiers];
+        [wdh updateNestedManagedObjectsLocatedAtKey:WINE inDictionary:dictionary];
+    }
 }
 
 
