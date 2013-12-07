@@ -192,17 +192,17 @@
         
         // Delete restaurant relationship and mark as deleted
         NSMutableSet *groups = [self.restaurant.groups mutableCopy];
-        NSLog(@"self.restaurant.groups count before %i",[self.restaurant.groups count]);
+        NSLog(@"self.restaurant.groups count before %lu",(unsigned long)[self.restaurant.groups count]);
         [groups removeObject:group];
         self.restaurant.groups = groups;
-        NSLog(@"self.restaurant.groups count after %i",[self.restaurant.groups count]);
+        NSLog(@"self.restaurant.groups count after %lu",(unsigned long)[self.restaurant.groups count]);
         
         NSString *groupIdentifiers = self.restaurant.groupIdentifiers;
-        NSLog(@"groupIdentifiers length before %i",[self.restaurant.groupIdentifiers length]);
+        NSLog(@"groupIdentifiers length before %lu",(unsigned long)[self.restaurant.groupIdentifiers length]);
         groupIdentifiers = [groupIdentifiers stringByReplacingOccurrencesOfString:group.identifier withString:@""];
         groupIdentifiers = [groupIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
         self.restaurant.groupIdentifiers = groupIdentifiers;
-        NSLog(@"groupIdentifiers length after %i",[self.restaurant.groupIdentifiers length]);
+        NSLog(@"groupIdentifiers length after %lu",(unsigned long)[self.restaurant.groupIdentifiers length]);
         
         self.restaurant.lastUpdated = [NSDate date];
     }
