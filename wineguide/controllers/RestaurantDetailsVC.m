@@ -37,7 +37,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
 }
 
 -(void)setupFetchedResultsController
@@ -54,6 +53,16 @@
     
     NSError *error;
     [self.fetchedResultsController performFetch:&error];
+    
+    // [self logFetchResultsForController:self.fetchedResultsController];
+}
+
+-(void)logFetchResultsForController:(NSFetchedResultsController *)frc
+{
+    NSLog(@"fetchedResultCount = %lu",(unsigned long)[frc.fetchedObjects count]);
+    for(NSObject *fetchedResult in frc.fetchedObjects){
+        NSLog(@"fetchedResult = %@",fetchedResult.description);
+    }
 }
 
 
@@ -92,6 +101,7 @@
     [self.restaurantDetailsVHTV setupTextViewWithRestaurant:restaurant];
     self.restaurant = restaurant;
     [self setupFetchedResultsController];
+    [self setupSegmentedControl];
 }
 
 

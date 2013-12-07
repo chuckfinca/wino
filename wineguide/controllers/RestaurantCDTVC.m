@@ -65,7 +65,6 @@ typedef enum {
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     self.title = @"Wine List";
-    self.tableView.tableHeaderView = self.restaurantDetailsViewController.view;
     [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
@@ -78,14 +77,24 @@ typedef enum {
 
 #pragma mark - Getters & Setters
 
+-(RestaurantDetailsVC *)restaurantDetailsViewController
+{
+    if(!_restaurantDetailsViewController){
+        _restaurantDetailsViewController = [[RestaurantDetailsVC alloc] initWithNibName:@"RestaurantDetails" bundle:nil];
+        _restaurantDetailsViewController.delegate = self;
+    }
+    return _restaurantDetailsViewController;
+}
+
 #pragma mark - Setup
 
 -(void)setupWithRestaurant:(Restaurant *)restaurant
 {
     // get the winelist for that restaurant
+    self.restaurant = restaurant;
     self.context = restaurant.managedObjectContext;
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
-    self.restaurant = restaurant;
+    self.tableView.tableHeaderView = self.restaurantDetailsViewController.view;
     
     // [self logDetails];
     
@@ -142,17 +151,6 @@ typedef enum {
     for(NSObject *fetchedResult in frc.fetchedObjects){
         NSLog(@"fetchedResult = %@",fetchedResult.description);
     }
-}
-
-#pragma mark - Getters & Setters
-
--(RestaurantDetailsVC *)restaurantDetailsViewController
-{
-    if(!_restaurantDetailsViewController){
-        _restaurantDetailsViewController = [[RestaurantDetailsVC alloc] initWithNibName:@"RestaurantDetails" bundle:nil];
-        _restaurantDetailsViewController.delegate = self;
-    }
-    return _restaurantDetailsViewController;
 }
 
 #pragma mark - UITableViewDataSource

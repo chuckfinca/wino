@@ -50,7 +50,7 @@
     self.wine = wine;
     self.restaurant = restaurant;
     
-    [self logDetails];
+    // [self logDetails];
     
     [self setupTextForWine:wine];
     
