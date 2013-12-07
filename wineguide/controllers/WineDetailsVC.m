@@ -78,7 +78,7 @@
     NSLog(@"country = %@",self.wine.country);
     NSLog(@"dessert = %@",self.wine.dessert);
     NSLog(@"favorite = %@",self.wine.favorite);
-    NSLog(@"lastUpdated = %@",self.wine.lastUpdated);
+    NSLog(@"lastServerUpdate = %@",self.wine.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.wine.deletedEntity);
     NSLog(@"name = %@",self.wine.name);
     NSLog(@"region = %@",self.wine.region);

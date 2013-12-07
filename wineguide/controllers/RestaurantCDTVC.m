@@ -276,7 +276,7 @@ typedef enum {
     NSLog(@"address = %@",self.restaurant.address);
     NSLog(@"city = %@",self.restaurant.city);
     NSLog(@"country = %@",self.restaurant.country);
-    NSLog(@"lastUpdated = %@",self.restaurant.lastUpdated);
+    NSLog(@"lastServerUpdate = %@",self.restaurant.lastServerUpdate);
     NSLog(@"latitude = %@",self.restaurant.latitude);
     NSLog(@"longitude = %@",self.restaurant.longitude);
     NSLog(@"deletedEntity = %@",self.restaurant.deletedEntity);

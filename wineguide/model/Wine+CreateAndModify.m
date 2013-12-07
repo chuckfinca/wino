@@ -29,7 +29,7 @@
 #define FAVORITE @"favorite"
 #define IDENTIFIER @"identifier"
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
-#define LAST_UPDATED @"lastUpdated"
+#define LAST_SERVER_UPDATE @"lastServerUpdate"
 #define DELETED_ENTITY @"deletedEntity"
 #define NAME @"name"
 #define REGION @"region"
@@ -63,7 +63,7 @@
     
     NSDate *dictionaryLastUpdatedDate = [wine lastUpdatedDateFromDictionary:dictionary];
     
-    if(!wine.lastUpdated || [wine.lastUpdated laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
+    if(!wine.lastServerUpdate || [wine.lastServerUpdate laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
         // ATTRIBUTES
         
@@ -81,7 +81,7 @@
             // wine.favorite
             wine.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             wine.isPlaceholderForFutureObject = @NO;
-            wine.lastUpdated = dictionaryLastUpdatedDate;
+            wine.lastServerUpdate = dictionaryLastUpdatedDate;
             wine.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             wine.name = [dictionary sanitizedStringForKey:NAME];
             wine.region = [dictionary sanitizedStringForKey:REGION];
@@ -112,7 +112,7 @@
         
         [wine updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
         
-    } else if([wine.lastUpdated isEqualToDate:dictionaryLastUpdatedDate]){
+    } else if([wine.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [wine updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
@@ -156,7 +156,7 @@
     NSLog(@"country = %@",self.country);
     NSLog(@"dessert = %@",self.dessert);
     NSLog(@"favorite = %@",self.favorite);
-    NSLog(@"lastUpdated = %@",self.lastUpdated);
+    NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);
     NSLog(@"region = %@",self.region);

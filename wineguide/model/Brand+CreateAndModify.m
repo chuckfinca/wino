@@ -19,7 +19,7 @@
 #define ABOUT @"about"
 #define IDENTIFIER @"identifier"
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
-#define LAST_UPDATED @"lastUpdated"
+#define LAST_SERVER_UPDATE @"lastServerUpdate"
 #define DELETED_ENTITY @"deletedEntity"
 #define NAME @"name"
 #define VERSION_NUMBER @"versionNumber"
@@ -39,7 +39,7 @@
     
     NSDate *dictionaryLastUpdatedDate = [brand lastUpdatedDateFromDictionary:dictionary];
     
-    if(!brand.lastUpdated || [brand.lastUpdated laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
+    if(!brand.lastServerUpdate || [brand.lastServerUpdate laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
         // ATTRIBUTES
         
@@ -53,7 +53,7 @@
             brand.about = [dictionary sanitizedStringForKey:ABOUT];
             brand.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             brand.isPlaceholderForFutureObject = @NO;
-            brand.lastUpdated = dictionaryLastUpdatedDate;
+            brand.lastServerUpdate = dictionaryLastUpdatedDate;
             brand.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             brand.name = [dictionary sanitizedStringForKey:NAME];
             brand.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
@@ -68,7 +68,7 @@
         
         [brand updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
         
-    } else if([brand.lastUpdated isEqualToDate:dictionaryLastUpdatedDate]){
+    } else if([brand.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [brand updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
@@ -95,10 +95,9 @@
     NSLog(@"about = %@",self.about);
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
-    NSLog(@"lastUpdated = %@",self.lastUpdated);
+    NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);
-    NSLog(@"lastUpdated = %@",self.lastUpdated);
     NSLog(@"website = %@",self.website);
     NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
     

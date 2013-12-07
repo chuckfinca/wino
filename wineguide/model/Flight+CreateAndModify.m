@@ -19,7 +19,7 @@
 #define ABOUT @"about"
 #define IDENTIFIER @"identifier"
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
-#define LAST_UPDATED @"lastUpdated"
+#define LAST_SERVER_UPDATE @"lastServerUpdate"
 #define DELETED_ENTITY @"deletedEntity"
 #define NAME @"name"
 #define PRICE @"price"
@@ -43,7 +43,7 @@
     
     NSDate *dictionaryLastUpdatedDate = [flight lastUpdatedDateFromDictionary:dictionary];
     
-    if(!flight.lastUpdated || [flight.lastUpdated laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
+    if(!flight.lastServerUpdate || [flight.lastServerUpdate laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
@@ -57,7 +57,7 @@
             flight.about = [dictionary sanitizedStringForKey:ABOUT];
             flight.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             flight.isPlaceholderForFutureObject = @NO;
-            flight.lastUpdated = dictionaryLastUpdatedDate;
+            flight.lastServerUpdate = dictionaryLastUpdatedDate;
             flight.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             flight.name = [dictionary sanitizedStringForKey:NAME];
             flight.price = [dictionary sanitizedValueForKey:PRICE];
@@ -76,7 +76,7 @@
         
         [flight updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
         
-    } else if([flight.lastUpdated isEqualToDate:dictionaryLastUpdatedDate]){
+    } else if([flight.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [flight updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
@@ -106,7 +106,7 @@
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"address = %@",self.about);
-    NSLog(@"lastUpdated = %@",self.lastUpdated);
+    NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);
     NSLog(@"price = %@",self.price);

@@ -2,7 +2,7 @@
 //  Wine.m
 //  Gimme
 //
-//  Created by Charles Feinn on 12/4/13.
+//  Created by Charles Feinn on 12/6/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -19,12 +19,12 @@
 @dynamic brandIdentifier;
 @dynamic color;
 @dynamic country;
+@dynamic deletedEntity;
 @dynamic dessert;
 @dynamic favorite;
 @dynamic identifier;
 @dynamic isPlaceholderForFutureObject;
-@dynamic lastUpdated;
-@dynamic deletedEntity;
+@dynamic lastServerUpdate;
 @dynamic name;
 @dynamic region;
 @dynamic sparkling;
@@ -35,6 +35,7 @@
 @dynamic vineyard;
 @dynamic vintage;
 @dynamic wineUnitIdentifiers;
+@dynamic lastLocalUpdate;
 @dynamic brand;
 @dynamic tastingNotes;
 @dynamic varietals;

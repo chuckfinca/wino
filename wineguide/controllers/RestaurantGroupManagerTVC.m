@@ -188,7 +188,7 @@
         group.deletedEntity = @YES;
         group.restaurantIdentifier = nil;
         group.restaurant = nil;
-        group.lastUpdated = [NSDate date];
+        group.lastServerUpdate = [NSDate date];
         
         // Delete restaurant relationship and mark as deleted
         NSMutableSet *groups = [self.restaurant.groups mutableCopy];
@@ -204,7 +204,7 @@
         self.restaurant.groupIdentifiers = groupIdentifiers;
         NSLog(@"groupIdentifiers length after %lu",(unsigned long)[self.restaurant.groupIdentifiers length]);
         
-        self.restaurant.lastUpdated = [NSDate date];
+        self.restaurant.lastServerUpdate = [NSDate date];
     }
     [self refreshTableView];
 }

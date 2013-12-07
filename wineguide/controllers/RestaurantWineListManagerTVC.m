@@ -162,7 +162,7 @@
         groupIdentifiers = [wu.groupIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
         wu.groupIdentifiers = groupIdentifiers;
         
-        wu.lastUpdated = [NSDate date];
+        wu.lastServerUpdate = [NSDate date];
         
         
         // remove the WineUnit from the Group
@@ -180,7 +180,7 @@
         self.group.wineUnitIdentifiers = wineUnitIdentifiers;
         NSLog(@"context parent = %@",self.context.parentContext);
         
-        self.group.lastUpdated = [NSDate date];
+        self.group.lastServerUpdate = [NSDate date];
     }
     
     [self refreshTableView];

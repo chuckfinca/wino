@@ -2,7 +2,7 @@
 //  WineUnit.h
 //  Gimme
 //
-//  Created by Charles Feinn on 12/4/13.
+//  Created by Charles Feinn on 12/6/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -13,16 +13,17 @@
 
 @interface WineUnit : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * deletedEntity;
 @property (nonatomic, retain) NSString * flightIdentifiers;
 @property (nonatomic, retain) NSString * groupIdentifiers;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSNumber * isPlaceholderForFutureObject;
-@property (nonatomic, retain) NSDate * lastUpdated;
-@property (nonatomic, retain) NSNumber * deletedEntity;
+@property (nonatomic, retain) NSDate * lastServerUpdate;
 @property (nonatomic, retain) NSNumber * price;
 @property (nonatomic, retain) NSString * quantity;
 @property (nonatomic, retain) NSNumber * versionNumber;
 @property (nonatomic, retain) NSString * wineIdentifier;
+@property (nonatomic, retain) NSDate * lastLocalUpdate;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
 @property (nonatomic, retain) Wine *wine;

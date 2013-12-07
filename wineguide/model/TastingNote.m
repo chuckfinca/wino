@@ -2,7 +2,7 @@
 //  TastingNote.m
 //  Gimme
 //
-//  Created by Charles Feinn on 12/4/13.
+//  Created by Charles Feinn on 12/6/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -13,14 +13,15 @@
 @implementation TastingNote
 
 @dynamic about;
+@dynamic deletedEntity;
 @dynamic identifier;
 @dynamic isPlaceholderForFutureObject;
-@dynamic lastUpdated;
-@dynamic deletedEntity;
+@dynamic lastServerUpdate;
 @dynamic name;
 @dynamic tastingStage;
 @dynamic versionNumber;
 @dynamic wineIdentifiers;
+@dynamic lastLocalUpdate;
 @dynamic wines;
 
 @end

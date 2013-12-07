@@ -19,7 +19,7 @@
 #define ABOUT @"about"
 #define IDENTIFIER @"identifier"
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
-#define LAST_UPDATED @"lastUpdated"
+#define LAST_SERVER_UPDATE @"lastServerUpdate"
 #define DELETED_ENTITY @"deletedEntity"
 #define NAME @"name"
 #define TASTING_STAGE @"tastingStage"
@@ -39,7 +39,7 @@
     
     NSDate *dictionaryLastUpdatedDate = [tastingNote lastUpdatedDateFromDictionary:dictionary];
     
-    if(!tastingNote.lastUpdated || [tastingNote.lastUpdated laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
+    if(!tastingNote.lastServerUpdate || [tastingNote.lastServerUpdate laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
         // ATTRIBUTES
         
@@ -53,7 +53,7 @@
             tastingNote.about = [dictionary sanitizedStringForKey:ABOUT];
             tastingNote.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             tastingNote.isPlaceholderForFutureObject = @NO;
-            tastingNote.lastUpdated = dictionaryLastUpdatedDate;
+            tastingNote.lastServerUpdate = dictionaryLastUpdatedDate;
             tastingNote.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             tastingNote.name = [dictionary sanitizedStringForKey:NAME];
             tastingNote.tastingStage = [dictionary sanitizedStringForKey:TASTING_STAGE]; // appearance, in glass, in mouth, finish
@@ -68,7 +68,7 @@
         
         [tastingNote updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
         
-    } else if([tastingNote.lastUpdated isEqualToDate:dictionaryLastUpdatedDate]){
+    } else if([tastingNote.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [tastingNote updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
@@ -95,7 +95,7 @@
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"about = %@",self.about);
-    NSLog(@"lastUpdated = %@",self.lastUpdated);
+    NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);
     NSLog(@"tastingStage = %@",self.tastingStage);

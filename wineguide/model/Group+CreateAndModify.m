@@ -20,7 +20,7 @@
 #define ABOUT @"about"
 #define IDENTIFIER @"identifier"
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
-#define LAST_UPDATED @"lastUpdated"
+#define LAST_SERVER_UPDATE @"lastServerUpdate"
 #define DELETED_ENTITY @"deletedEntity"
 #define NAME @"name"
 #define VERSION_NUMBER @"versionNumber"
@@ -43,7 +43,7 @@
     
     NSDate *dictionaryLastUpdatedDate = [group lastUpdatedDateFromDictionary:dictionary];
     
-    if(!group.lastUpdated || [group.lastUpdated laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
+    if(!group.lastServerUpdate || [group.lastServerUpdate laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
             
@@ -56,7 +56,7 @@
             group.about = [dictionary sanitizedStringForKey:ABOUT];
             group.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             group.isPlaceholderForFutureObject = @NO;
-            group.lastUpdated = dictionaryLastUpdatedDate;
+            group.lastServerUpdate = dictionaryLastUpdatedDate;
             group.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             group.name = [dictionary sanitizedStringForKey:NAME];
             group.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
@@ -74,7 +74,7 @@
         
         [group updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
         
-    } else if([group.lastUpdated isEqualToDate:dictionaryLastUpdatedDate]){
+    } else if([group.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [group updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
@@ -104,7 +104,7 @@
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"address = %@",self.about);
-    NSLog(@"lastUpdated = %@",self.lastUpdated);
+    NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);
     NSLog(@"versionNumber = %@",self.versionNumber);

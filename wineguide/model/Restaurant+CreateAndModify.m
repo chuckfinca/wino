@@ -22,7 +22,7 @@
 #define COUNTRY @"country"
 #define IDENTIFIER @"identifier"
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
-#define LAST_UPDATED @"lastUpdated"
+#define LAST_SERVER_UPDATE @"lastServerUpdate"
 #define LATITUDE @"latitude"
 #define LONGITUDE @"longitude"
 #define DELETED_ENTITY @"deletedEntity"
@@ -51,7 +51,7 @@
     
     NSDate *dictionaryLastUpdatedDate = [restaurant lastUpdatedDateFromDictionary:dictionary];
     
-    if(!restaurant.lastUpdated || [restaurant.lastUpdated laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
+    if(!restaurant.lastServerUpdate || [restaurant.lastServerUpdate laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
         // EXEPTION: user updates a restaurant group on their iPhone and a restaurant flight on their iPad
         // in that case we need to make sure that the server processes the first change first, then the second, and that the device only hears from the server after it's own changes have been registered.
@@ -73,7 +73,7 @@
             restaurant.country = [dictionary sanitizedStringForKey:COUNTRY];
             restaurant.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             restaurant.isPlaceholderForFutureObject = @NO;
-            restaurant.lastUpdated = dictionaryLastUpdatedDate;
+            restaurant.lastServerUpdate = dictionaryLastUpdatedDate;
             restaurant.latitude = [dictionary sanitizedValueForKey:LATITUDE];
             restaurant.longitude = [dictionary sanitizedValueForKey:LONGITUDE];
             restaurant.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
@@ -96,7 +96,7 @@
         
         [restaurant updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
         
-    } else if([restaurant.lastUpdated isEqualToDate:dictionaryLastUpdatedDate]){
+    } else if([restaurant.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [restaurant updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
@@ -127,7 +127,7 @@
     NSLog(@"address = %@",self.address);
     NSLog(@"city = %@",self.city);
     NSLog(@"country = %@",self.country);
-    NSLog(@"lastUpdated = %@",self.lastUpdated);
+    NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"latitude = %@",self.latitude);
     NSLog(@"longitude = %@",self.longitude);
     NSLog(@"deletedEntity = %@",self.deletedEntity);

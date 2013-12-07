@@ -2,7 +2,7 @@
 //  Wine.h
 //  Gimme
 //
-//  Created by Charles Feinn on 12/4/13.
+//  Created by Charles Feinn on 12/6/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -17,12 +17,12 @@
 @property (nonatomic, retain) NSString * brandIdentifier;
 @property (nonatomic, retain) NSString * color;
 @property (nonatomic, retain) NSString * country;
+@property (nonatomic, retain) NSNumber * deletedEntity;
 @property (nonatomic, retain) NSNumber * dessert;
 @property (nonatomic, retain) NSNumber * favorite;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSNumber * isPlaceholderForFutureObject;
-@property (nonatomic, retain) NSDate * lastUpdated;
-@property (nonatomic, retain) NSNumber * deletedEntity;
+@property (nonatomic, retain) NSDate * lastServerUpdate;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * region;
 @property (nonatomic, retain) NSNumber * sparkling;
@@ -33,6 +33,7 @@
 @property (nonatomic, retain) NSString * vineyard;
 @property (nonatomic, retain) NSNumber * vintage;
 @property (nonatomic, retain) NSString * wineUnitIdentifiers;
+@property (nonatomic, retain) NSDate * lastLocalUpdate;
 @property (nonatomic, retain) Brand *brand;
 @property (nonatomic, retain) NSSet *tastingNotes;
 @property (nonatomic, retain) NSSet *varietals;
