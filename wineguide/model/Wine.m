@@ -8,6 +8,8 @@
 
 #import "Wine.h"
 #import "Brand.h"
+#import "Flight.h"
+#import "Group.h"
 #import "TastingNote.h"
 #import "Varietal.h"
 #import "WineUnit.h"
@@ -36,9 +38,13 @@
 @dynamic vintage;
 @dynamic wineUnitIdentifiers;
 @dynamic lastLocalUpdate;
+@dynamic flightIdentifiers;
+@dynamic groupIdentifiers;
 @dynamic brand;
 @dynamic tastingNotes;
 @dynamic varietals;
 @dynamic wineUnits;
+@dynamic groups;
+@dynamic flights;
 
 @end

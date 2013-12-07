@@ -32,7 +32,7 @@
             flight.restaurant = (Restaurant *)self.relatedObject;
             
         } else if ([self.relatedObject class] == [WineUnit class]){
-            flight.wineUnits = [self addRelationToSet:flight.wineUnits];
+            flight.wines = [self addRelationToSet:flight.wines];
             
         }
     }

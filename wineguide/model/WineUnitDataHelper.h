@@ -10,6 +10,4 @@
 
 @interface WineUnitDataHelper : JSONToCoreDataHelper
 
--(void)createWineUnitWithIdentifier:(NSString *)identifier price:(NSNumber *)price quantity:(NSString *)quantity flightIdentifiers:(NSString *)flightIdentifiers groupIdentifiers:(NSString *)groupIdentifiers andWineIdentifier:(NSString *)wineIdentifier;
-
 @end

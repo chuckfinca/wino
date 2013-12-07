@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Restaurant, WineUnit;
+@class Restaurant, Wine;
 
 @interface Group : NSManagedObject
 
@@ -22,17 +22,17 @@
 @property (nonatomic, retain) NSString * restaurantIdentifier;
 @property (nonatomic, retain) NSNumber * sortOrder;
 @property (nonatomic, retain) NSNumber * versionNumber;
-@property (nonatomic, retain) NSString * wineUnitIdentifiers;
+@property (nonatomic, retain) NSString * wineIdentifiers;
 @property (nonatomic, retain) NSDate * lastLocalUpdate;
 @property (nonatomic, retain) Restaurant *restaurant;
-@property (nonatomic, retain) NSSet *wineUnits;
+@property (nonatomic, retain) NSSet *wines;
 @end
 
 @interface Group (CoreDataGeneratedAccessors)
 
-- (void)addWineUnitsObject:(WineUnit *)value;
-- (void)removeWineUnitsObject:(WineUnit *)value;
-- (void)addWineUnits:(NSSet *)values;
-- (void)removeWineUnits:(NSSet *)values;
+- (void)addWinesObject:(Wine *)value;
+- (void)removeWinesObject:(Wine *)value;
+- (void)addWines:(NSSet *)values;
+- (void)removeWines:(NSSet *)values;
 
 @end

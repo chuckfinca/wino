@@ -33,7 +33,7 @@
             group.restaurant = (Restaurant *)self.relatedObject;
             
         } else if ([self.relatedObject class] == [WineUnit class]){
-            group.wineUnits = [self addRelationToSet:group.wineUnits];
+            group.wines = [self addRelationToSet:group.wines];
             
         }
     }

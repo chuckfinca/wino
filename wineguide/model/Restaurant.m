@@ -9,6 +9,7 @@
 #import "Restaurant.h"
 #import "Flight.h"
 #import "Group.h"
+#import "WineUnit.h"
 
 
 @implementation Restaurant
@@ -30,7 +31,9 @@
 @dynamic versionNumber;
 @dynamic zip;
 @dynamic lastLocalUpdate;
+@dynamic wineUnitIdentifiers;
 @dynamic flights;
 @dynamic groups;
+@dynamic wineUnits;
 
 @end

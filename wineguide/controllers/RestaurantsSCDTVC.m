@@ -10,7 +10,6 @@
 #import "RestaurantCDTVC.h"
 #import "RestaurantDataHelper.h"
 #import "Restaurant.h"
-#import "MainTabBarController.h"
 #import "ColorSchemer.h"
 
 #define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"

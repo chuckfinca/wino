@@ -14,7 +14,6 @@
 #import "Wine.h"
 #import "Brand.h"
 #import "Group.h"
-#import "WineUnit.h"
 #import "Varietal.h"
 #import "TastingNote.h"
 #import "ColorSchemer.h"
@@ -22,7 +21,7 @@
 
 #define JSON @"json"
 #define GROUP_ENTITY @"Group"
-#define WINE_UNIT_ENTITY @"WineUnit"
+#define WINE_ENTITY @"Wine"
 #define WINE_CELL @"WineCell"
 
 typedef enum {
@@ -129,18 +128,18 @@ typedef enum {
 
 -(void)setupFetchedResultsController
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_UNIT_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"wine.color"
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"color"
                                                               ascending:YES],
-                                [NSSortDescriptor sortDescriptorWithKey:@"wine.varietalIdentifiers"
+                                [NSSortDescriptor sortDescriptorWithKey:@"varietalIdentifiers"
                                                               ascending:YES],
-                                [NSSortDescriptor sortDescriptorWithKey:@"wine.name"
+                                [NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES]];
     request.predicate = [NSPredicate predicateWithFormat:@"ANY groups.identifier = %@",self.selectedGroupIdentifier];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
-                                                                          sectionNameKeyPath:@"wine.color"
+                                                                          sectionNameKeyPath:@"color"
                                                                                    cacheName:nil];
     //[self logFetchResultsForController:self.fetchedResultsController];
 }
@@ -160,8 +159,8 @@ typedef enum {
     static NSString *cellIdentifier = WINE_CELL;
     WineCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [cell setupCellForWineUnit:wineUnit];
+    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [cell setupCellForWine:wine];
     
     return cell;
 }
@@ -212,8 +211,8 @@ typedef enum {
                 WineCDTVC *wineCDTVC = (WineCDTVC *)segue.destinationViewController;
                 
                 // Pass the selected object to the new view controller.
-                WineUnit *wineUnit = [self.fetchedResultsController objectAtIndexPath:indexPath];
-                [wineCDTVC setupWithWine:wineUnit.wine fromRestaurant:self.restaurant];
+                Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+                [wineCDTVC setupWithWine:wine fromRestaurant:self.restaurant];
             }
         }
     }

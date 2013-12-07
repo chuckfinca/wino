@@ -24,9 +24,9 @@
         <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="restaurantIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="versionNumber" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="wineUnitIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wineIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="flights" inverseEntity="Restaurant" syncable="YES"/>
-        <relationship name="wineUnits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WineUnit" inverseName="flights" inverseEntity="WineUnit" syncable="YES"/>
+        <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine" inverseName="flights" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <entity name="Group" representedClassName="Group" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
@@ -39,9 +39,9 @@
         <attribute name="restaurantIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sortOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="versionNumber" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="wineUnitIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wineIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="groups" inverseEntity="Restaurant" syncable="YES"/>
-        <relationship name="wineUnits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WineUnit" inverseName="groups" inverseEntity="WineUnit" syncable="YES"/>
+        <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine" inverseName="groups" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <entity name="Restaurant" representedClassName="Restaurant" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -60,9 +60,11 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="versionNumber" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="wineUnitIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="restaurant" inverseEntity="Flight" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="restaurant" inverseEntity="Group" syncable="YES"/>
+        <relationship name="wineUnits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WineUnit" inverseName="restaurant" inverseEntity="WineUnit" syncable="YES"/>
     </entity>
     <entity name="TastingNote" representedClassName="TastingNote" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
@@ -97,6 +99,8 @@
         <attribute name="deletedEntity" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="dessert" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="flightIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="groupIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isPlaceholderForFutureObject" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastLocalUpdate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -112,34 +116,34 @@
         <attribute name="vintage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="wineUnitIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="brand" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Brand" inverseName="wines" inverseEntity="Brand" syncable="YES"/>
+        <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="wines" inverseEntity="Flight" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="wines" inverseEntity="Group" syncable="YES"/>
         <relationship name="tastingNotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TastingNote" inverseName="wines" inverseEntity="TastingNote" syncable="YES"/>
         <relationship name="varietals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Varietal" inverseName="wines" inverseEntity="Varietal" syncable="YES"/>
         <relationship name="wineUnits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WineUnit" inverseName="wine" inverseEntity="WineUnit" syncable="YES"/>
     </entity>
     <entity name="WineUnit" representedClassName="WineUnit" syncable="YES">
         <attribute name="deletedEntity" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="flightIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="groupIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isPlaceholderForFutureObject" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastLocalUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="lastServerUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="restaurantIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="versionNumber" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="wineIdentifier" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="wineUnits" inverseEntity="Flight" syncable="YES"/>
-        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="wineUnits" inverseEntity="Group" syncable="YES"/>
+        <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="wineUnits" inverseEntity="Restaurant" syncable="YES"/>
         <relationship name="wine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine" inverseName="wineUnits" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <elements>
         <element name="Brand" positionX="16" positionY="-180" width="128" height="208"/>
-        <element name="Flight" positionX="-513" positionY="-153" width="128" height="238"/>
-        <element name="Group" positionX="-513" positionY="225" width="128" height="238"/>
-        <element name="Restaurant" positionX="-684" positionY="18" width="128" height="328"/>
+        <element name="Flight" positionX="-351" positionY="-169" width="128" height="238"/>
+        <element name="Group" positionX="-360" positionY="83" width="128" height="238"/>
+        <element name="Restaurant" positionX="-531" positionY="-27" width="128" height="358"/>
         <element name="TastingNote" positionX="34" positionY="54" width="128" height="208"/>
         <element name="Varietal" positionX="25" positionY="288" width="128" height="193"/>
-        <element name="Wine" positionX="-164" positionY="0" width="128" height="418"/>
-        <element name="WineUnit" positionX="-333" positionY="0" width="128" height="253"/>
+        <element name="Wine" positionX="-162" positionY="-46" width="128" height="478"/>
+        <element name="WineUnit" positionX="-351" positionY="333" width="128" height="223"/>
     </elements>
 </model>

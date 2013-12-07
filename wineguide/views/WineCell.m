@@ -46,25 +46,25 @@
 }
 
 
--(void)setupCellForWineUnit:(WineUnit *)wineUnit
+-(void)setupCellForWine:(Wine *)wine
 {
     [self setupCell];
     
-    if(wineUnit.wine.name){
-        self.name.attributedText = [[NSAttributedString alloc] initWithString:[wineUnit.wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+    if(wine.name){
+        self.name.attributedText = [[NSAttributedString alloc] initWithString:[wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     }
     
     NSString *vintageAndVarietals = @"";
-    if(wineUnit.wine.vintage){
-        NSString *vintageString = [wineUnit.wine.vintage stringValue];
+    if(wine.vintage){
+        NSString *vintageString = [wine.vintage stringValue];
         vintageAndVarietals = [vintageAndVarietals stringByAppendingString:[NSString stringWithFormat:@"%@",[vintageString capitalizedString]]];
     }
-    if(wineUnit.wine.varietals){
+    if(wine.varietals){
         NSString *varietalsString = @"";
-        if(wineUnit.wine.vintage) {
+        if(wine.vintage) {
             varietalsString = @" - ";
         }
-        NSArray *varietals = [wineUnit.wine.varietals sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        NSArray *varietals = [wine.varietals sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
         for(Varietal *varietal in varietals){
             varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
         }
@@ -79,8 +79,8 @@
     self.numberOfReviews.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%i reviews",r] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     
     NSString *tastingNotesString = @"";
-    if(wineUnit.wine.tastingNotes){
-        NSArray *tastingNotes = [wineUnit.wine.tastingNotes sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+    if(wine.tastingNotes){
+        NSArray *tastingNotes = [wine.tastingNotes sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
         for(TastingNote *tastingNote in tastingNotes){
             tastingNotesString = [tastingNotesString stringByAppendingString:[NSString stringWithFormat:@"%@, ",tastingNote.name]];
         }
@@ -88,5 +88,12 @@
     }
     self.tastingNotes.attributedText = [[NSAttributedString alloc] initWithString:tastingNotesString attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
 }
+
+
+
+
+
+
+
 
 @end

@@ -8,7 +8,7 @@
 
 #import "Flight.h"
 #import "Restaurant.h"
-#import "WineUnit.h"
+#import "Wine.h"
 
 
 @implementation Flight
@@ -22,9 +22,9 @@
 @dynamic price;
 @dynamic restaurantIdentifier;
 @dynamic versionNumber;
-@dynamic wineUnitIdentifiers;
+@dynamic wineIdentifiers;
 @dynamic lastLocalUpdate;
 @dynamic restaurant;
-@dynamic wineUnits;
+@dynamic wines;
 
 @end

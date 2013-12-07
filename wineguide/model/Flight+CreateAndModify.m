@@ -10,7 +10,7 @@
 #import "ManagedObjectHandler.h"
 #import "NSDictionary+Helper.h"
 #import "NSManagedObject+Helper.h"
-#import "WineUnitDataHelper.h"
+#import "WineDataHelper.h"
 #import "RestaurantDataHelper.h"
 #import "Restaurant.h"
 
@@ -24,10 +24,10 @@
 #define NAME @"name"
 #define PRICE @"price"
 #define VERSION_NUMBER @"versionNumber"
-#define WINE_UNIT_IDENTIFIERS @"wineUnitIdentifiers"
+#define WINE_IDENTIFIERS @"wineIdentifiers"
 #define RESTAURANT_IDENTIFIER @"restaurantIdentifier"
 
-#define WINE_UNITS @"wineUnits"
+#define WINES @"wines"
 
 #define DIVIDER @"/"
 
@@ -69,9 +69,9 @@
             flight.restaurantIdentifier = restaurantIdentifier;
             if(restaurantIdentifier) [identifiers setObject:restaurantIdentifier forKey:RESTAURANT_IDENTIFIER];
             
-            NSString *wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
-            flight.wineUnitIdentifiers = [flight addIdentifiers:wineUnitIdentifiers toCurrentIdentifiers:flight.wineUnitIdentifiers];
-            if(wineUnitIdentifiers) [identifiers setObject:wineUnitIdentifiers forKey:WINE_UNIT_IDENTIFIERS];
+            NSString *wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
+            flight.wineIdentifiers = [flight addIdentifiers:wineIdentifiers toCurrentIdentifiers:flight.wineIdentifiers];
+            if(wineIdentifiers) [identifiers setObject:wineIdentifiers forKey:WINE_IDENTIFIERS];
         }
         
         [flight updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
@@ -96,8 +96,8 @@
     [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
     
     // WineUnits
-    WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_UNIT_IDENTIFIERS]];
-    [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
+    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIERS]];
+    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
 }
 
 -(void)logDetails
@@ -106,17 +106,18 @@
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"address = %@",self.about);
+    NSLog(@"lastLocalUpdate = %@",self.lastLocalUpdate);
     NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);
     NSLog(@"price = %@",self.price);
     NSLog(@"versionNumber = %@",self.versionNumber);
-    NSLog(@"wineUnitIdentifiers = %@",self.wineUnitIdentifiers);
+    NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
     
     NSLog(@"restaurant = %@",self.restaurant.description);
     
-    NSLog(@"wineUnits count = %lu", (unsigned long)[self.wineUnits count]);
-    for(NSObject *obj in self.wineUnits){
+    NSLog(@"wines count = %lu", (unsigned long)[self.wines count]);
+    for(NSObject *obj in self.wines){
         NSLog(@"  %@",obj.description);
     }
     NSLog(@"\n\n\n");

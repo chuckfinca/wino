@@ -8,7 +8,7 @@
 
 #import "Group.h"
 #import "Restaurant.h"
-#import "WineUnit.h"
+#import "Wine.h"
 
 
 @implementation Group
@@ -22,9 +22,9 @@
 @dynamic restaurantIdentifier;
 @dynamic sortOrder;
 @dynamic versionNumber;
-@dynamic wineUnitIdentifiers;
+@dynamic wineIdentifiers;
 @dynamic lastLocalUpdate;
 @dynamic restaurant;
-@dynamic wineUnits;
+@dynamic wines;
 
 @end

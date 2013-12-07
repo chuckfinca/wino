@@ -7,16 +7,14 @@
 //
 
 #import "WineUnit.h"
-#import "Flight.h"
-#import "Group.h"
+#import "Restaurant.h"
 #import "Wine.h"
 
 
 @implementation WineUnit
 
 @dynamic deletedEntity;
-@dynamic flightIdentifiers;
-@dynamic groupIdentifiers;
+@dynamic restaurantIdentifier;
 @dynamic identifier;
 @dynamic isPlaceholderForFutureObject;
 @dynamic lastServerUpdate;
@@ -25,8 +23,7 @@
 @dynamic versionNumber;
 @dynamic wineIdentifier;
 @dynamic lastLocalUpdate;
-@dynamic flights;
-@dynamic groups;
 @dynamic wine;
+@dynamic restaurant;
 
 @end

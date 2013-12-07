@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Brand, TastingNote, Varietal, WineUnit;
+@class Brand, Flight, Group, TastingNote, Varietal, WineUnit;
 
 @interface Wine : NSManagedObject
 
@@ -34,10 +34,14 @@
 @property (nonatomic, retain) NSNumber * vintage;
 @property (nonatomic, retain) NSString * wineUnitIdentifiers;
 @property (nonatomic, retain) NSDate * lastLocalUpdate;
+@property (nonatomic, retain) NSString * flightIdentifiers;
+@property (nonatomic, retain) NSString * groupIdentifiers;
 @property (nonatomic, retain) Brand *brand;
 @property (nonatomic, retain) NSSet *tastingNotes;
 @property (nonatomic, retain) NSSet *varietals;
 @property (nonatomic, retain) NSSet *wineUnits;
+@property (nonatomic, retain) NSSet *groups;
+@property (nonatomic, retain) NSSet *flights;
 @end
 
 @interface Wine (CoreDataGeneratedAccessors)
@@ -56,5 +60,15 @@
 - (void)removeWineUnitsObject:(WineUnit *)value;
 - (void)addWineUnits:(NSSet *)values;
 - (void)removeWineUnits:(NSSet *)values;
+
+- (void)addGroupsObject:(Group *)value;
+- (void)removeGroupsObject:(Group *)value;
+- (void)addGroups:(NSSet *)values;
+- (void)removeGroups:(NSSet *)values;
+
+- (void)addFlightsObject:(Flight *)value;
+- (void)removeFlightsObject:(Flight *)value;
+- (void)addFlights:(NSSet *)values;
+- (void)removeFlights:(NSSet *)values;
 
 @end

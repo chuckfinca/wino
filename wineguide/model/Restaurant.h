@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Flight, Group;
+@class Flight, Group, WineUnit;
 
 @interface Restaurant : NSManagedObject
 
@@ -30,8 +30,10 @@
 @property (nonatomic, retain) NSNumber * versionNumber;
 @property (nonatomic, retain) NSString * zip;
 @property (nonatomic, retain) NSDate * lastLocalUpdate;
+@property (nonatomic, retain) NSString * wineUnitIdentifiers;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
+@property (nonatomic, retain) NSSet *wineUnits;
 @end
 
 @interface Restaurant (CoreDataGeneratedAccessors)
@@ -45,5 +47,10 @@
 - (void)removeGroupsObject:(Group *)value;
 - (void)addGroups:(NSSet *)values;
 - (void)removeGroups:(NSSet *)values;
+
+- (void)addWineUnitsObject:(WineUnit *)value;
+- (void)removeWineUnitsObject:(WineUnit *)value;
+- (void)addWineUnits:(NSSet *)values;
+- (void)removeWineUnits:(NSSet *)values;
 
 @end

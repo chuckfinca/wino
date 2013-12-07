@@ -33,9 +33,11 @@
 
 #define FLIGHT_IDENTIFIERS @"flightIdentifiers"
 #define GROUP_IDENTIFIERS @"groupIdentifiers"
+#define WINE_UNIT_IDENTIFIERS @"wineUnitIdentifiers"
 
 #define FLIGHTS @"flights"
 #define GROUPS @"groups"
+#define WINE_UNITS @"wineUnits"
 
 #define DIVIDER @"/"
 
@@ -92,6 +94,10 @@
             NSString *groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
             restaurant.groupIdentifiers = [restaurant addIdentifiers:groupIdentifiers toCurrentIdentifiers:restaurant.groupIdentifiers];
             if(groupIdentifiers) [identifiers setObject:groupIdentifiers forKey:GROUP_IDENTIFIERS];
+            
+            NSString *wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
+            restaurant.wineUnitIdentifiers = [restaurant addIdentifiers:wineUnitIdentifiers toCurrentIdentifiers:restaurant.wineUnitIdentifiers];
+            if(wineUnitIdentifiers) [identifiers setObject:wineUnitIdentifiers forKey:WINE_UNIT_IDENTIFIERS];
         }
         
         [restaurant updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
@@ -117,6 +123,10 @@
     // Groupings
     GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[GROUP_IDENTIFIERS]];
     [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
+    
+    // WineUnits
+    WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_UNIT_IDENTIFIERS]];
+    [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
 }
 
 -(void)logDetails
@@ -127,6 +137,7 @@
     NSLog(@"address = %@",self.address);
     NSLog(@"city = %@",self.city);
     NSLog(@"country = %@",self.country);
+    NSLog(@"lastLocalUpdate = %@",self.lastLocalUpdate);
     NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"latitude = %@",self.latitude);
     NSLog(@"longitude = %@",self.longitude);
@@ -138,6 +149,7 @@
     NSLog(@"zip = %@",self.zip);
     NSLog(@"flightIdentifiers = %@",self.flightIdentifiers);
     NSLog(@"groupIdentifiers = %@",self.groupIdentifiers);
+    NSLog(@"wineUnitIdentifiers = %@",self.wineUnitIdentifiers);
     
     NSLog(@"flights count = %lu", (unsigned long)[self.flights count]);
     for(NSObject *obj in self.flights){
@@ -146,6 +158,11 @@
     
     NSLog(@"groupings count = %lu", (unsigned long)[self.groups count]);
     for(NSObject *obj in self.groups){
+        NSLog(@"  %@",obj.description);
+    }
+    
+    NSLog(@"wineUnits count = %lu",(unsigned long)[self.wineUnits count]);
+    for(NSObject *obj in self.wineUnits){
         NSLog(@"  %@",obj.description);
     }
     

@@ -11,6 +11,6 @@
 
 @interface WineCell : UITableViewCell
 
--(void)setupCellForWineUnit:(WineUnit *)wineUnit;
+-(void)setupCellForWine:(Wine *)wine;
 
 @end

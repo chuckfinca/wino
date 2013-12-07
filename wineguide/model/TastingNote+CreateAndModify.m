@@ -95,6 +95,7 @@
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"about = %@",self.about);
+    NSLog(@"lastLocalUpdate = %@",self.lastLocalUpdate);
     NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);

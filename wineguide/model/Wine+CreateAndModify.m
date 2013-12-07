@@ -14,6 +14,8 @@
 #import "BrandDataHelper.h"
 #import "TastingNoteDataHelper.h"
 #import "VarietalDataHelper.h"
+#import "FlightDataHelper.h"
+#import "GroupDataHelper.h"
 #import "WineUnitDataHelper.h"
 
 #import "WineUnit.h"
@@ -38,15 +40,20 @@
 #define VARIETALS @"varietals"
 #define VERSION_NUMBER @"versionNumber"
 #define VINEYARD @"vineyard"
+
 #define VINTAGE @"vintage"
 #define BRAND @"brand"
 #define TASTING_NOTES @"tastingnotes"
 #define WINE_UNITS @"wineUnits"
+#define GROUPS @"groups"
+#define FLIGHTS @"flights"
 
 #define BRAND_IDENTIFIER @"brandIdentifier"
-#define WINE_UNIT_IDENTIFIERS @"wineUnitIdentifiers"
 #define VARIETAL_IDENTIFIERS @"varietalIdentifiers"
 #define TASTING_NOTE_IDENTIFIERS @"tastingNoteIdentifiers"
+#define FLIGHT_IDENTIFIERS @"flightIdentifiers"
+#define GROUP_IDENTIFIERS @"groupIdentifiers"
+#define WINE_UNIT_IDENTIFIERS @"wineUnitIdentifiers"
 
 #define DIVIDER @"/"
 
@@ -141,6 +148,14 @@
     VarietalDataHelper *vdh = [[VarietalDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[VARIETAL_IDENTIFIERS]];
     [vdh updateNestedManagedObjectsLocatedAtKey:VARIETALS inDictionary:dictionary];
     
+    // Flights
+    FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[FLIGHT_IDENTIFIERS]];
+    [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
+    
+    // Groupings
+    GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[GROUP_IDENTIFIERS]];
+    [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
+    
     // WineUnits
     WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_UNIT_IDENTIFIERS]];
     [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
@@ -156,6 +171,7 @@
     NSLog(@"country = %@",self.country);
     NSLog(@"dessert = %@",self.dessert);
     NSLog(@"favorite = %@",self.favorite);
+    NSLog(@"lastLocalUpdate = %@",self.lastLocalUpdate);
     NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);

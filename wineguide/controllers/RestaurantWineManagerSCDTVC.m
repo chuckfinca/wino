@@ -193,18 +193,6 @@
     // at this point we definitely have a wine and a group but do not necessarily have a wineUnit
     // NOTE - the problem with this is that a group needs to have specific wine units, not necessarily wines
     
-    NSString *wineUnitIdentifier = [NSString stringWithFormat:@"wineunit.%@.%@.glass",self.group.restaurantIdentifier,self.selectedWine.identifier];
-    //wineunit.restaurant.leszygomates.129southstreet.wine.brand.domainechevalier.varietal.aligote.2009.glass
-    NSLog(@"wineUnitIdentifier - %@",wineUnitIdentifier);
-    
-    WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:self.context andRelatedObject:self.group andNeededManagedObjectIdentifiersString:nil];
-    [wudh createWineUnitWithIdentifier:wineUnitIdentifier
-                                 price:nil
-                              quantity:@"glass"
-                     flightIdentifiers:nil
-                      groupIdentifiers:self.group.identifier
-                     andWineIdentifier:self.selectedWine.identifier];
-    
 }
 
 /*

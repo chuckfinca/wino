@@ -11,8 +11,7 @@
 #import "NSDictionary+Helper.h"
 #import "NSManagedObject+Helper.h"
 #import "WineDataHelper.h"
-#import "GroupDataHelper.h"
-#import "FlightDataHelper.h"
+#import "RestaurantDataHelper.h"
 
 #define WINE_UNIT_ENTITY @"WineUnit"
 
@@ -24,8 +23,7 @@
 #define QUANTITY @"quantity"
 #define VERSION_NUMBER @"versionNumber"
 
-#define GROUP_IDENTIFIERS @"groupIdentifiers"
-#define FLIGHT_IDENTIFIERS @"flightIdentifiers"
+#define RESTAURANT_IDENTIFIER @"restaurantIdentifier"
 #define WINE_IDENTIFIER @"wineIdentifier"
 
 #define WINE @"wine"
@@ -66,13 +64,9 @@
             
             // store any information about relationships provided
             
-            NSString *flightIdentifiers = [dictionary sanitizedStringForKey:FLIGHT_IDENTIFIERS];
-            wineUnit.flightIdentifiers = [wineUnit addIdentifiers:flightIdentifiers toCurrentIdentifiers:wineUnit.flightIdentifiers];
-            if(flightIdentifiers) [identifiers setObject:flightIdentifiers forKey:FLIGHT_IDENTIFIERS];
-            
-            NSString *groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
-            wineUnit.groupIdentifiers = [wineUnit addIdentifiers:groupIdentifiers toCurrentIdentifiers:wineUnit.groupIdentifiers];
-            if(groupIdentifiers) [identifiers setObject:groupIdentifiers forKey:GROUP_IDENTIFIERS];
+            NSString *restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
+            wineUnit.restaurantIdentifier = restaurantIdentifier;
+            if(restaurantIdentifier) [identifiers setObject:restaurantIdentifier forKey:RESTAURANT_IDENTIFIER];
             
             NSString *wineIdentifier = [dictionary sanitizedStringForKey:WINE_IDENTIFIER];
             wineUnit.wineIdentifier = wineIdentifier;
@@ -92,15 +86,9 @@
 
 -(void)updateRelationshipsUsingDictionary:(NSDictionary *)dictionary identifiersDictionary:(NSDictionary *)identifiers andContext:(NSManagedObjectContext *)context
 {
-    // RELATIONSHIPS
-    // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
-    // Flights
-    FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[FLIGHT_IDENTIFIERS]];
-    [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
-    
-    // Groupings
-    GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[GROUP_IDENTIFIERS]];
-    [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
+    // Restaurants
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[RESTAURANT_IDENTIFIER]];
+    [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
     
     // Wines
     WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIER]];
@@ -113,24 +101,15 @@
     NSLog(@"----------------------------------------");
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
+    NSLog(@"lastLocalUpdate = %@",self.lastLocalUpdate);
     NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"price = %@",self.price);
     NSLog(@"quantity = %@",self.quantity);
     NSLog(@"versionNumber = %@",self.versionNumber);
-    NSLog(@"flightIdentifiers = %@",self.flightIdentifiers);
-    NSLog(@"groupIdentifiers = %@",self.groupIdentifiers);
     NSLog(@"wineIdentifier = %@",self.wineIdentifier);
     
-    NSLog(@"flights count = %lu",(unsigned long)[self.flights count]);
-    for(NSObject *obj in self.flights){
-        NSLog(@"  %@",obj.description);
-    }
-    
-    NSLog(@"groupings count = %lu",(unsigned long)[self.groups count]);
-    for(NSObject *obj in self.groups){
-        NSLog(@"  %@",obj.description);
-    }
+    NSLog(@"restaurant = %@",self.restaurant);
     
     NSLog(@"wine = %@",self.wine);
     NSLog(@"\n\n\n");
