@@ -41,15 +41,9 @@
     
     if(!brand.lastServerUpdate || [brand.lastServerUpdate laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
-        // ATTRIBUTES
-        
-        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
+        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == NO){
             
-            brand.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
-            brand.isPlaceholderForFutureObject = @YES;
-            
-        } else {
-            
+            // ATTRIBUTES
             brand.about = [dictionary sanitizedStringForKey:ABOUT];
             brand.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
             brand.isPlaceholderForFutureObject = @NO;
@@ -64,9 +58,15 @@
             NSString *wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
             brand.wineIdentifiers = [brand addIdentifiers:wineIdentifiers toCurrentIdentifiers:brand.wineIdentifiers];
             if(wineIdentifiers) [identifiers setObject:wineIdentifiers forKey:WINE_IDENTIFIERS];
+            
+            
+            [brand updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+            
+        } else {
+            // Create placeholder object
+            brand.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
+            brand.isPlaceholderForFutureObject = @YES;
         }
-        
-        [brand updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
         
     } else if([brand.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [brand updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
@@ -85,11 +85,8 @@
     // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
     
     // Wines
-    NSString *wineIdentifiers = identifiers[WINE_IDENTIFIERS];
-    if(wineIdentifiers){
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:wineIdentifiers];
-        [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
-    }
+    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIERS]];
+    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
 }
 
 -(void)logDetails

@@ -8,9 +8,6 @@
 
 #import "VarietalDataHelper.h"
 #import "Varietal+CreateAndModify.h"
-#import "WineDataHelper.h"
-
-#define WINE @"Wine"
 
 @implementation VarietalDataHelper
 

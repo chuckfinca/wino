@@ -112,12 +112,22 @@
             wine.varietalIdentifiers = [wine addIdentifiers:varietalIdentifiers toCurrentIdentifiers:wine.varietalIdentifiers];
             if(varietalIdentifiers) [identifiers setObject:varietalIdentifiers forKey:VARIETAL_IDENTIFIERS];
             
+            NSString *flightIdentifiers = [dictionary sanitizedStringForKey:FLIGHT_IDENTIFIERS];
+            wine.flightIdentifiers = [wine addIdentifiers:flightIdentifiers toCurrentIdentifiers:wine.flightIdentifiers];
+            if(flightIdentifiers) [identifiers setObject:flightIdentifiers forKey:FLIGHT_IDENTIFIERS];
+            
+            NSString *groupIdentifiers = [dictionary sanitizedStringForKey:GROUP_IDENTIFIERS];
+            wine.groupIdentifiers = [wine addIdentifiers:groupIdentifiers toCurrentIdentifiers:wine.groupIdentifiers];
+            if(groupIdentifiers) [identifiers setObject:groupIdentifiers forKey:GROUP_IDENTIFIERS];
+            
             NSString *wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
             wine.wineUnitIdentifiers = [wine addIdentifiers:wineUnitIdentifiers toCurrentIdentifiers:wine.wineUnitIdentifiers];
             if(wineUnitIdentifiers) [identifiers setObject:wineUnitIdentifiers forKey:WINE_UNIT_IDENTIFIERS];
         }
         
-        [wine updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+        if([wine.isPlaceholderForFutureObject boolValue] == NO){
+            [wine updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+        }
         
     } else if([wine.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [wine updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
@@ -136,47 +146,29 @@
     // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
     
     // Brand
-    NSString *brandIdentifier = identifiers[BRAND_IDENTIFIER];
-    if(brandIdentifier){
-        BrandDataHelper *bdh = [[BrandDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:brandIdentifier];
-        [bdh updateNestedManagedObjectsLocatedAtKey:BRAND inDictionary:dictionary];
-        if(!self.name) self.name = self.brand.name;
-    }
+    BrandDataHelper *bdh = [[BrandDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[BRAND_IDENTIFIER]];
+    [bdh updateNestedManagedObjectsLocatedAtKey:BRAND inDictionary:dictionary];
+    if(!self.name) self.name = self.brand.name;
     
     // Tasting Notes
-    NSString *tastingNoteIdentifiers = identifiers[TASTING_NOTE_IDENTIFIERS];
-    if(tastingNoteIdentifiers){
-        TastingNoteDataHelper *tndh = [[TastingNoteDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:tastingNoteIdentifiers];
-        [tndh updateNestedManagedObjectsLocatedAtKey:TASTING_NOTES inDictionary:dictionary];
-    }
+    TastingNoteDataHelper *tndh = [[TastingNoteDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[TASTING_NOTE_IDENTIFIERS]];
+    [tndh updateNestedManagedObjectsLocatedAtKey:TASTING_NOTES inDictionary:dictionary];
     
     // Varietals
-    NSString *varietalIdentifiers = identifiers[VARIETAL_IDENTIFIERS];
-    if(varietalIdentifiers){
-        VarietalDataHelper *vdh = [[VarietalDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:varietalIdentifiers];
-        [vdh updateNestedManagedObjectsLocatedAtKey:VARIETALS inDictionary:dictionary];
-    }
+    VarietalDataHelper *vdh = [[VarietalDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[VARIETAL_IDENTIFIERS]];
+    [vdh updateNestedManagedObjectsLocatedAtKey:VARIETALS inDictionary:dictionary];
     
     // Flights
-    NSString *flightIdentifiers = identifiers[FLIGHT_IDENTIFIERS];
-    if(flightIdentifiers){
-        FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:flightIdentifiers];
-        [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
-    }
+    FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[FLIGHT_IDENTIFIERS]];
+    [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
     
     // Groupings
-    NSString *groupIdentifiers = identifiers[GROUP_IDENTIFIERS];
-    if(groupIdentifiers){
-        GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:groupIdentifiers];
-        [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
-    }
+    GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[GROUP_IDENTIFIERS]];
+    [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
     
     // WineUnits
-    NSString *wineUnitIdentifiers = identifiers[WINE_UNIT_IDENTIFIERS];
-    if(wineUnitIdentifiers){
-        WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:wineUnitIdentifiers];
-        [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
-    }
+    WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_UNIT_IDENTIFIERS]];
+    [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
 }
 
 -(void)logDetails
@@ -206,6 +198,12 @@
     NSLog(@"varietalIdentifiers = %@",self.varietalIdentifiers);
     
     NSLog(@"brand = %@",self.brand.description);
+    
+    
+    NSLog(@"groups count = %lu", (unsigned long)[self.groups count]);
+    for(NSObject *obj in self.groups){
+        NSLog(@"  %@",obj.description);
+    }
     
     NSLog(@"tastingNotes count = %lu", (unsigned long)[self.tastingNotes count]);
     for(NSObject *obj in self.tastingNotes){

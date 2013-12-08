@@ -8,9 +8,6 @@
 
 #import "TastingNoteDataHelper.h"
 #import "TastingNote+CreateAndModify.h"
-#import "WineDataHelper.h"
-
-#define WINE @"Wine"
 
 @implementation TastingNoteDataHelper
 

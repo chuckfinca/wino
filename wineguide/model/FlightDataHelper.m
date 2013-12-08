@@ -8,13 +8,9 @@
 
 #import "FlightDataHelper.h"
 #import "Flight+CreateAndModify.h"
-#import "RestaurantDataHelper.h"
-#import "WineUnitDataHelper.h"
-#import "WineUnit.h"
+#import "Wine.h"
 #import "Restaurant.h"
 
-#define WINE_UNIT @"WineUnit"
-#define RESTAURANT @"Restaurant"
 
 @implementation FlightDataHelper
 
@@ -31,9 +27,8 @@
         if([self.relatedObject class] == [Restaurant class]){
             flight.restaurant = (Restaurant *)self.relatedObject;
             
-        } else if ([self.relatedObject class] == [WineUnit class]){
+        } else if ([self.relatedObject class] == [Wine class]){
             flight.wines = [self addRelationToSet:flight.wines];
-            
         }
     }
 }

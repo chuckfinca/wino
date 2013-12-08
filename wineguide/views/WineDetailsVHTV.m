@@ -78,7 +78,7 @@
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@%% alcohol",[wine.alcoholPercentage stringValue]]];
     }
     if(restaurant){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY groups.restaurantIdentifier == %@",restaurant.identifier];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY restaurantIdentifier == %@",restaurant.identifier];
         NSSet *wineUnits = [wine.wineUnits filteredSetUsingPredicate:predicate];
         if(wineUnits){
             

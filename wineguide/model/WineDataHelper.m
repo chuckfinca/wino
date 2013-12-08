@@ -8,11 +8,9 @@
 
 #import "WineDataHelper.h"
 #import "Wine+CreateAndModify.h"
-#import "BrandDataHelper.h"
-#import "TastingNoteDataHelper.h"
-#import "WineUnitDataHelper.h"
-#import "VarietalDataHelper.h"
 #import "Brand.h"
+#import "Flight.h"
+#import "Group.h"
 #import "TastingNote.h"
 #import "WineUnit.h"
 #import "Varietal.h"
@@ -39,6 +37,12 @@
             
         } else if ([self.relatedObject class] == [TastingNote class]){
             wine.tastingNotes = [self addRelationToSet:wine.tastingNotes];
+            
+        } else if([self.relatedObject class] == [Flight class]){
+            wine.flights = [self addRelationToSet:wine.flights];
+            
+        } else if ([self.relatedObject class] == [Group class]){
+            wine.groups = [self addRelationToSet:wine.groups];
             
         } else if ([self.relatedObject class] == [WineUnit class]){
             wine.wineUnits = [self addRelationToSet:wine.wineUnits];

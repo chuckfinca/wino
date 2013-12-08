@@ -9,11 +9,7 @@
 #import "WineUnitDataHelper.h"
 #import "WineUnit+CreateAndModify.h"
 #import "Wine.h"
-#import "WineDataHelper.h"
-
-#define GROUP @"Group"
-#define FLIGHT @"Flight"
-#define WINE @"Wine"
+#import "Restaurant.h"
 
 @implementation WineUnitDataHelper
 
@@ -31,7 +27,7 @@
         if([self.relatedObject class] == [Restaurant class]){
             wineUnit.restaurant = (Restaurant *)self.relatedObject;
             
-        } else if([self.relatedObject class] == [Wine class]){
+        } else if ([self.relatedObject class] == [Wine class]){
             wineUnit.wine = (Wine *)self.relatedObject;
         }
     }

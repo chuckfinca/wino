@@ -45,14 +45,9 @@
     
     if(!group.lastServerUpdate || [group.lastServerUpdate laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
-        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
+        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == NO){
             
-            group.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
-            group.isPlaceholderForFutureObject = @YES;
-            
-        } else {
             // ATTRIBUTES
-            
             group.about = [dictionary sanitizedStringForKey:ABOUT];
             group.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
             group.isPlaceholderForFutureObject = @NO;
@@ -70,9 +65,15 @@
             NSString *wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
             group.wineIdentifiers = [group addIdentifiers:wineIdentifiers toCurrentIdentifiers:group.wineIdentifiers];
             if(wineIdentifiers) [identifiers setObject:wineIdentifiers forKey:WINE_IDENTIFIERS];
+            
+            
+            [group updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+            
+        } else {
+            // Create placeholder object
+            group.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
+            group.isPlaceholderForFutureObject = @YES;
         }
-        
-        [group updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
         
     } else if([group.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [group updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
@@ -90,17 +91,13 @@
     // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
     
     // Restaurants
-    NSString *restaurantIdentifier = identifiers[RESTAURANT_IDENTIFIER];
-    if(restaurantIdentifier){
-        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:restaurantIdentifier];
-        [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
-    }
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[RESTAURANT_IDENTIFIER]];
+    [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
+    
     // Wines
-    NSString *wineIdentifiers = identifiers[WINE_IDENTIFIERS];
-    if(wineIdentifiers){
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:wineIdentifiers];
-        [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
-    }
+    NSLog(@"groups wine ids = %@",identifiers[WINE_IDENTIFIERS]);
+    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIERS]];
+    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
 }
 
 -(void)logDetails

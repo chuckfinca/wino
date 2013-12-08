@@ -59,17 +59,9 @@
         // in that case we need to make sure that the server processes the first change first, then the second, and that the device only hears from the server after it's own changes have been registered.
         
         
-        
-        
-        // ATTRIBUTES
-        
-        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
+        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == NO){
             
-            restaurant.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
-            restaurant.isPlaceholderForFutureObject = @YES;
-            
-        } else {
-            
+            // ATTRIBUTES
             restaurant.address = [dictionary sanitizedStringForKey:ADDRESS];
             restaurant.city = [dictionary sanitizedStringForKey:CITY];
             restaurant.country = [dictionary sanitizedStringForKey:COUNTRY];
@@ -98,9 +90,15 @@
             NSString *wineUnitIdentifiers = [dictionary sanitizedStringForKey:WINE_UNIT_IDENTIFIERS];
             restaurant.wineUnitIdentifiers = [restaurant addIdentifiers:wineUnitIdentifiers toCurrentIdentifiers:restaurant.wineUnitIdentifiers];
             if(wineUnitIdentifiers) [identifiers setObject:wineUnitIdentifiers forKey:WINE_UNIT_IDENTIFIERS];
+            
+            
+            [restaurant updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+            
+        } else {
+            // Create placeholder object
+            restaurant.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
+            restaurant.isPlaceholderForFutureObject = @YES;
         }
-        
-        [restaurant updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
         
     } else if([restaurant.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [restaurant updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
@@ -117,25 +115,16 @@
     // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON, if not then update the appropriate relationshipIdentifiers attribute
     
     // Flights
-    NSString *flightIdentifiers = identifiers[FLIGHT_IDENTIFIERS];
-    if(flightIdentifiers){
-        FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:flightIdentifiers];
-        [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
-    }
+    FlightDataHelper *fdh = [[FlightDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[FLIGHT_IDENTIFIERS]];
+    [fdh updateNestedManagedObjectsLocatedAtKey:FLIGHTS inDictionary:dictionary];
     
     // Groupings
-    NSString *groupIdentifiers = identifiers[GROUP_IDENTIFIERS];
-    if(groupIdentifiers){
-        GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:groupIdentifiers];
-        [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
-    }
+    GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[GROUP_IDENTIFIERS]];
+    [gdh updateNestedManagedObjectsLocatedAtKey:GROUPS inDictionary:dictionary];
     
     // WineUnits
-    NSString *wineUnitIdentifiers = identifiers[WINE_UNIT_IDENTIFIERS];
-    if(wineUnitIdentifiers){
-        WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:wineUnitIdentifiers];
-        [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
-    }
+    WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_UNIT_IDENTIFIERS]];
+    [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
 }
 
 -(void)logDetails
@@ -165,7 +154,7 @@
         NSLog(@"  %@",obj.description);
     }
     
-    NSLog(@"groupings count = %lu", (unsigned long)[self.groups count]);
+    NSLog(@"groups count = %lu", (unsigned long)[self.groups count]);
     for(NSObject *obj in self.groups){
         NSLog(@"  %@",obj.description);
     }

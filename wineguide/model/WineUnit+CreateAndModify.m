@@ -44,12 +44,7 @@
     
     if(!wineUnit.lastServerUpdate || [wineUnit.lastServerUpdate laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
-        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
-            
-            wineUnit.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
-            wineUnit.isPlaceholderForFutureObject = @YES;
-            
-        } else {
+        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == NO){
             
             // ATTRIBUTES
             
@@ -71,9 +66,15 @@
             NSString *wineIdentifier = [dictionary sanitizedStringForKey:WINE_IDENTIFIER];
             wineUnit.wineIdentifier = wineIdentifier;
             if(wineIdentifier) [identifiers setObject:wineIdentifier forKey:WINE_IDENTIFIER];
+            
+            
+            [wineUnit updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+            
+        } else {
+            // Create placeholder object
+            wineUnit.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
+            wineUnit.isPlaceholderForFutureObject = @YES;
         }
-        
-        [wineUnit updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
         
     } else if([wineUnit.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [wineUnit updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
@@ -87,17 +88,12 @@
 -(void)updateRelationshipsUsingDictionary:(NSDictionary *)dictionary identifiersDictionary:(NSDictionary *)identifiers andContext:(NSManagedObjectContext *)context
 {
     // Restaurants
-    NSString *restaurantIdentifier = identifiers[RESTAURANT_IDENTIFIER];
-    if(restaurantIdentifier){
-        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:restaurantIdentifier];
-        [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
-    }
-    // Wines
-    NSString *wineIdentifiers = identifiers[WINE_IDENTIFIER];
-    if(wineIdentifiers){
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:wineIdentifiers];
-        [wdh updateNestedManagedObjectsLocatedAtKey:WINE inDictionary:dictionary];
-    }
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[RESTAURANT_IDENTIFIER]];
+    [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
+    
+    // Wine
+    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIER]];
+    [wdh updateNestedManagedObjectsLocatedAtKey:WINE inDictionary:dictionary];
 }
 
 

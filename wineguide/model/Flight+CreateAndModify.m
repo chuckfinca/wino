@@ -45,15 +45,9 @@
     
     if(!flight.lastServerUpdate || [flight.lastServerUpdate laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
-        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
-            
-            flight.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
-            flight.isPlaceholderForFutureObject = @YES;
-            
-        } else {
+        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == NO){
             
             // ATTRIBUTES
-            
             flight.about = [dictionary sanitizedStringForKey:ABOUT];
             flight.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
             flight.isPlaceholderForFutureObject = @NO;
@@ -72,9 +66,15 @@
             NSString *wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
             flight.wineIdentifiers = [flight addIdentifiers:wineIdentifiers toCurrentIdentifiers:flight.wineIdentifiers];
             if(wineIdentifiers) [identifiers setObject:wineIdentifiers forKey:WINE_IDENTIFIERS];
+            
+            
+            [flight updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+            
+        } else {
+            // Create placeholder object
+            flight.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
+            flight.isPlaceholderForFutureObject = @YES;
         }
-        
-        [flight updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
         
     } else if([flight.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [flight updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
@@ -92,18 +92,12 @@
     // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
     
     // Restaurants
-    NSString *restaurantIdentifier = identifiers[RESTAURANT_IDENTIFIER];
-    if(restaurantIdentifier){
-        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:restaurantIdentifier];
-        [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
-    }
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[RESTAURANT_IDENTIFIER]];
+    [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
     
     // Wines
-    NSString *wineIdentifiers = identifiers[WINE_IDENTIFIERS];
-    if(wineIdentifiers){
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:wineIdentifiers];
-        [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
-    }
+    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIERS]];
+    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
 }
 
 -(void)logDetails

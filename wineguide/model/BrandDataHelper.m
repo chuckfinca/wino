@@ -8,9 +8,6 @@
 
 #import "BrandDataHelper.h"
 #import "Brand+CreateAndModify.h"
-#import "WineDataHelper.h"
-
-#define WINE @"Wine"
 
 @implementation BrandDataHelper
 

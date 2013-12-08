@@ -8,14 +8,8 @@
 
 #import "GroupDataHelper.h"
 #import "Group+CreateAndModify.h"
-#import "RestaurantDataHelper.h"
-#import "WineUnitDataHelper.h"
 #import "Restaurant.h"
-#import "WineUnit.h"
-
-#define WINE_UNIT @"WineUnit"
-#define GROUP @"Group"
-#define RESTAURANT @"Restaurant"
+#import "Wine.h"
 
 @implementation GroupDataHelper
 
@@ -32,9 +26,8 @@
         if([self.relatedObject class] == [Restaurant class]){
             group.restaurant = (Restaurant *)self.relatedObject;
             
-        } else if ([self.relatedObject class] == [WineUnit class]){
+        } else if ([self.relatedObject class] == [Wine class]){
             group.wines = [self addRelationToSet:group.wines];
-            
         }
     }
 }

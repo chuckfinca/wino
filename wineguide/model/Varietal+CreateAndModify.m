@@ -40,18 +40,10 @@
     
     if(!varietal.lastServerUpdate || [varietal.lastServerUpdate laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
         
-        // ATTRIBUTES
-        
-        if(!varietal.isPlaceholderForFutureObject && [[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == YES){
+        if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == NO){
             
-            varietal.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
-            varietal.isPlaceholderForFutureObject = @YES;
-            
-        } else {
-            
+            // ATTRIBUTES
             varietal.about = [dictionary sanitizedStringForKey:ABOUT];
-            
-            
             varietal.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
             varietal.isPlaceholderForFutureObject = @NO;
             varietal.lastServerUpdate = dictionaryLastUpdatedDate;
@@ -64,9 +56,15 @@
             NSString *wineIdentifiers = [dictionary sanitizedStringForKey:WINE_IDENTIFIERS];
             varietal.wineIdentifiers = [varietal addIdentifiers:wineIdentifiers toCurrentIdentifiers:varietal.wineIdentifiers];
             if(wineIdentifiers) [identifiers setObject:wineIdentifiers forKey:WINE_IDENTIFIERS];
+            
+            
+            [varietal updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+            
+        } else {
+            // Create placeholder object
+            varietal.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
+            varietal.isPlaceholderForFutureObject = @YES;
         }
-        
-        [varietal updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
         
     } else if([varietal.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
         [varietal updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
@@ -85,11 +83,8 @@
     // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON
     
     // Wines
-    NSString *wineIdentifiers = identifiers[WINE_IDENTIFIERS];
-    if(wineIdentifiers){
-        WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:wineIdentifiers];
-        [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
-    }
+    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIERS]];
+    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
 }
 
 

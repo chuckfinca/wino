@@ -141,7 +141,6 @@ typedef enum {
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"color"
                                                                                    cacheName:nil];
-    //[self logFetchResultsForController:self.fetchedResultsController];
 }
 
 -(void)logFetchResultsForController:(NSFetchedResultsController *)frc

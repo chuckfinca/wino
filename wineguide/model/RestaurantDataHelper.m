@@ -8,14 +8,9 @@
 
 #import "RestaurantDataHelper.h"
 #import "Restaurant+CreateAndModify.h"
-#import "GroupDataHelper.h"
-#import "FlightDataHelper.h"
 #import "Group.h"
 #import "Flight.h"
-
-#define GROUP @"Group"
-#define FLIGHT @"Flight"
-
+#import "WineUnit.h"
 
 @implementation RestaurantDataHelper
 
@@ -35,6 +30,10 @@
             
         } else if ([self.relatedObject class] == [Group class]){
             restaurant.groups = [self addRelationToSet:restaurant.groups];
+            
+        } else if ([self.relatedObject class] == [WineUnit class]){
+            restaurant.wineUnits = [self addRelationToSet:restaurant.wineUnits];
+            
         }
     }
 }
