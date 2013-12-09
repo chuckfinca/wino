@@ -7,7 +7,6 @@
 //
 
 #import "MainTabBarController.h"
-#import "RestaurantDataHelper.h"
 #import "ColorSchemer.h"
 
 #define SUPRESS_TUTORIAL @"ShowTutorial"

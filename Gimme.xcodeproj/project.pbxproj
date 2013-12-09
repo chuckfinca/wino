@@ -86,6 +86,7 @@
 		C9C6A2081852B33A00CFBBD5 /* WineUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A2071852B33A00CFBBD5 /* WineUnit.m */; };
 		C9C6A20B1852B33A00CFBBD5 /* TastingNote.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A20A1852B33A00CFBBD5 /* TastingNote.m */; };
 		C9C6A20E1852B33A00CFBBD5 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A20D1852B33A00CFBBD5 /* Flight.m */; };
+		C9C6A21018568ABE00CFBBD5 /* brands.json in Resources */ = {isa = PBXBuildFile; fileRef = C9C6A20F18568ABE00CFBBD5 /* brands.json */; };
 		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
 		C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EE183FE6E400A2E955 /* RestaurantDetailsVHTV.m */; };
 		C9C7D5F2183FEA7E00A2E955 /* WineDetailsVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5F1183FEA7E00A2E955 /* WineDetailsVHTV.m */; };
@@ -259,6 +260,7 @@
 		C9C6A20A1852B33A00CFBBD5 /* TastingNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingNote.m; path = model/TastingNote.m; sourceTree = "<group>"; };
 		C9C6A20C1852B33A00CFBBD5 /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flight.h; path = model/Flight.h; sourceTree = "<group>"; };
 		C9C6A20D1852B33A00CFBBD5 /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Flight.m; path = model/Flight.m; sourceTree = "<group>"; };
+		C9C6A20F18568ABE00CFBBD5 /* brands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = brands.json; path = model/json/brands.json; sourceTree = "<group>"; };
 		C9C7D5EA183FDE5600A2E955 /* ColorSchemer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSchemer.h; path = model/ColorSchemer.h; sourceTree = "<group>"; };
 		C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSchemer.m; path = model/ColorSchemer.m; sourceTree = "<group>"; };
 		C9C7D5ED183FE6E400A2E955 /* RestaurantDetailsVHTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantDetailsVHTV.h; path = views/RestaurantDetailsVHTV.h; sourceTree = "<group>"; };
@@ -598,6 +600,7 @@
 				C92CAE3318330CC700F29C9B /* group.restaurant.tico.222berkeleystreet.all.json */,
 				C96D5FB9185005B60068093C /* tastingnotes.json */,
 				C96D5FBA185005B60068093C /* varietals.json */,
+				C9C6A20F18568ABE00CFBBD5 /* brands.json */,
 			);
 			name = json;
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */,
 				C9C7D62518402BBE00A2E955 /* Tutorial.xib in Resources */,
 				C9C7D6351841933900A2E955 /* tutorial_favorites.png in Resources */,
+				C9C6A21018568ABE00CFBBD5 /* brands.json in Resources */,
 				C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */,
 				C9C7D6391842AACD00A2E955 /* tutorial_logo.png in Resources */,
 				C9ACC7D2184E6F4100E5945D /* star_empty@2x.png in Resources */,

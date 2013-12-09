@@ -9,6 +9,7 @@
 #import "LocalObjectUpdater.h"
 #import "TastingNoteDataHelper.h"
 #import "VarietalDataHelper.h"
+#import "BrandDataHelper.h"
 
 @implementation LocalObjectUpdater
 
@@ -16,6 +17,9 @@
 {
     [self updateTastingNotes];
     [self updateVarietals];
+    
+    // FOR PRE-HEROKU USE ONLY
+    [self updateBrands];
 }
 
 -(void)updateTastingNotes
@@ -30,6 +34,15 @@
     NSURL *varietalsJSONUrl = [[NSBundle mainBundle] URLForResource:@"varietals" withExtension:@"json"];
     VarietalDataHelper *vdh = [[VarietalDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
     [vdh updateCoreDataWithJSONFromURL:varietalsJSONUrl];
+}
+
+// FOR PRE-HEROKU USE ONLY
+
+-(void)updateBrands
+{
+    NSURL *brandsJSONUrl = [[NSBundle mainBundle] URLForResource:@"brands" withExtension:@"json"];
+    BrandDataHelper *bdh = [[BrandDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
+    [bdh updateCoreDataWithJSONFromURL:brandsJSONUrl];
 }
 
 

@@ -39,20 +39,6 @@
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    NSLog(@"viewWillAppear");
-    NSLog(@"fetched results count = %i",[self.fetchedResultsController.fetchedObjects count]);
-    //[self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:RESTAURANT_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-    
-    NSError *error;
-    NSArray * matches = [self.context executeFetchRequest:request error:&error];
-    NSLog(@"matches = %@",matches);
-}
-
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
