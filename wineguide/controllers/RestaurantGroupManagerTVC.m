@@ -10,6 +10,7 @@
 #import "Restaurant.h"
 #import "Group+CreateAndModify.h"
 #import "RestaurantWineListManagerTVC.h"
+#import "AddGroupCell.h"
 
 #define RESTAURANT_ENTITY @"Restaurant"
 #define GROUP_ENTITY @"Group"
@@ -67,7 +68,11 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	return @"Groups";
+    if(section == 0){
+	return @"Current Groups";
+    } else {
+        return @"New Group";
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,9 +81,11 @@
     UITableViewCell *cell = nil;
     NSString *cellIdentifier;
     
-    if(indexPath.row == [self.managedObjects count]){
+    if(indexPath == [NSIndexPath indexPathForItem:0 inSection:1]){
         cellIdentifier = @"AddGroupCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        AddGroupCell *addCell = (AddGroupCell *)cell;
+        self.textField = addCell.textField;
     } else {
         cellIdentifier = @"GroupCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
@@ -208,6 +215,7 @@
     }
     [self refreshTableView];
 }
+
 
 
 
