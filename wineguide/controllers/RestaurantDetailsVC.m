@@ -68,16 +68,19 @@
 
 -(void)setupSegmentedControl
 {
+    [self.segmentedControl removeAllSegments];
+    
     int index = 0;
     for(Group *group in self.fetchedResultsController.fetchedObjects){
-        [self.segmentedControl setTitle:group.name forSegmentAtIndex:index];
-        if(index < 3){
+        [self.segmentedControl insertSegmentWithTitle:[group.name capitalizedString] atIndex:index animated:YES];
+        if(index < 3 && index < [self.fetchedResultsController.fetchedObjects count]){
             index++;
         } else {
             break;
         }
     }
     [self.segmentedControl setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:10.0]} forState:UIControlStateNormal];
+    [self.segmentedControl setSelectedSegmentIndex:0];
     [self.delegate loadWineList:[self.segmentedControl selectedSegmentIndex]];
 }
 
