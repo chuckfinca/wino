@@ -15,11 +15,11 @@
 
 @interface WineCell ()
 
-@property (nonatomic, strong) Wine *wine;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *vintageAndVarietals;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfReviews;
 @property (weak, nonatomic) IBOutlet UILabel *tastingNotes;
+@property (nonatomic, strong) Wine *wine;
 
 @end
 @implementation WineCell

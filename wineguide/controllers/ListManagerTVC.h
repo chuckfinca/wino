@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "ColorSchemer.h"
 
 typedef enum {
     DeleteEntity,
@@ -18,8 +19,8 @@ typedef enum {
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSMutableArray *managedObjects;
-
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+
 
 -(void)refreshTableView; // Abstract
 

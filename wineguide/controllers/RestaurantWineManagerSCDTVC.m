@@ -12,8 +12,11 @@
 #import "TastingNote.h"
 #import "ColorSchemer.h"
 #import "WineUnitDataHelper.h"
+#import "Restaurant.h"
+#import "WineCell.h"
 
 #define WINE_ENTITY @"Wine"
+#define GROUP_ENTITY @"Group"
 
 @interface RestaurantWineManagerSCDTVC () <UIAlertViewDelegate>
 
@@ -104,9 +107,10 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"WineCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    WineCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    [self setupTextForCell:cell atIndexPath:indexPath];
+    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [cell setupCellForWine:wine];
     
     return cell;
 }
@@ -115,8 +119,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Wine *wine = (Wine *)self.fetchedResultsController.fetchedObjects[indexPath.row];
+    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     self.selectedWine = wine;
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
                                                     message:nil
                                                    delegate:self
@@ -125,56 +130,15 @@
     [alert show];
 }
 
--(void)setupTextForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    if(wine.name){
-        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
-    }
-    
-    NSString *textViewString = @"";
-    if(wine.vintage){
-        NSString *vintageString = [wine.vintage stringValue];
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[vintageString capitalizedString]]];
-    }
-    if(wine.varietals){
-        NSString *varietalsString = @"";
-        if(wine.vintage) {
-            varietalsString = @" - ";
-        }
-        NSArray *varietals = [wine.varietals sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-        for(Varietal *varietal in varietals){
-            varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
-        }
-        varietalsString = [varietalsString substringToIndex:[varietalsString length]-2];
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[varietalsString capitalizedString]]];
-    }
-    if(wine.tastingNotes){
-        NSString *tastingNotesString = @"\n";
-        NSArray *tastingNotes = [wine.tastingNotes sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-        for(TastingNote *tastingNote in tastingNotes){
-            tastingNotesString = [tastingNotesString stringByAppendingString:[NSString stringWithFormat:@"%@, ",tastingNote.name]];
-        }
-        tastingNotesString = [tastingNotesString substringToIndex:[tastingNotesString length]-2];
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",tastingNotesString]];
-    }
-    
-    if(wine.vintage || wine.varietals){
-        cell.detailTextLabel.numberOfLines = 0;
-        cell.detailTextLabel.attributedText = [[NSAttributedString alloc] initWithString:textViewString attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
-    }
-    
-}
 
 #pragma mark - UIAlertViewDelegate
 
 -(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"buttonIndex = %li",(long)buttonIndex);
     if(buttonIndex == 1){
         NSLog(@"creating new wineUnit and linking it to the appropriate group");
-        [self addWineToGroup];
+        NSLog(@"wine.name = %@",self.selectedWine.name);
+        [self addWine:self.selectedWine];
         [self.navigationController popViewControllerAnimated:YES];
         // for each wine that is selected we need to
         // get or create the appropriate wine unit
@@ -184,14 +148,36 @@
     } else {
             // [self setEditing:NO animated:YES];
     }
+    self.selectedWine = nil;
 }
 
 #pragma mark - Core Data
 
--(void)addWineToGroup
+-(void)addWine:(Wine *)wine
 {
-    // at this point we definitely have a wine and a group but do not necessarily have a wineUnit
-    // NOTE - the problem with this is that a group needs to have specific wine units, not necessarily wines
+    if(![self.group.wines containsObject:wine]){
+        NSMutableSet *wines = [self.group.wines mutableCopy];
+        [wines addObject:wine];
+        self.group.wines = wines;
+        
+    }
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:GROUP_ENTITY];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"identifier = %@",[NSString stringWithFormat:@"group.%@.all",self.group.restaurant.identifier]];
+    
+    NSError *error;
+    NSArray *allGroupArray = [self.context executeFetchRequest:request error:&error];
+    NSLog(@"allGroup count = %lu",(unsigned long)[allGroupArray count]);
+    Group *allGroup = (Group *)[allGroupArray firstObject];
+    
+    if(![allGroup.wines containsObject:wine]){
+        NSMutableSet *aGWines = [allGroup.wines mutableCopy];
+        [aGWines addObject:wine];
+        allGroup.wines = aGWines;
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"need to create wine unit!" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
+    [alert show];
     
 }
 

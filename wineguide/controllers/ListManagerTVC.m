@@ -53,12 +53,17 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.managedObjects count]+1;
+    if(section == 0){
+        return [self.managedObjects count];
+    } else {
+        return 1;
+    }
+    
 }
 
 
@@ -107,7 +112,7 @@
     [self.textField resignFirstResponder];
     
     // Return NO if you do not want the specified item to be editable.
-    if(indexPath.row == [self.managedObjects count]){
+    if(indexPath == [NSIndexPath indexPathForItem:0 inSection:1]){
         return NO;
     }
     return YES;
@@ -195,9 +200,14 @@
 
 - (IBAction)addNewManagedObject:(UIButton *)sender
 {
-    // NSLog(@"addNewGroup...");
-    [self.textField resignFirstResponder];
-    [self showAddActionSheet];
+    // NSLog(@"addNewManagedObject...");
+    if([self.textField isFirstResponder]){
+        
+        [self.textField resignFirstResponder];
+        [self showAddActionSheet];
+    } else {
+        [self.textField becomeFirstResponder];
+    }
 }
 
 - (void)didReceiveMemoryWarning

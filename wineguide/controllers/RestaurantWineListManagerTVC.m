@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.title = self.group.name;
+    self.title = [self.group.name capitalizedString];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -56,29 +56,57 @@
 }
 
 
+#pragma mark - UITableViewDelegate
+
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if(section == 0){
+        return @"Wines";
+    } else {
+        return nil;
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(section == 0){
+        return [self.managedObjects count];
+    } else {
+        return 1;
+    }
+    
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // NSLog(@"cellForRowAtIndexPath...");
     UITableViewCell *cell = nil;
     NSString *cellIdentifier;
     
-    if(indexPath.row == [self.managedObjects count]){
+    if(indexPath == [NSIndexPath indexPathForItem:0 inSection:1]){
         cellIdentifier = @"AddWineCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        cell.textLabel.text = @"Add wine...";
+        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Add wine..." attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textLink}];
     } else {
         cellIdentifier = @"WineCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
         // Configure the cell...
         Wine *wine = self.managedObjects[indexPath.row];
-        cell.textLabel.text = wine.name;
+        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     }
     
     return cell;
 }
 
-#pragma mark - Getters & Setters
 
 
 

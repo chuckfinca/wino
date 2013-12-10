@@ -92,7 +92,7 @@
         
         // Configure the cell...
         Group *group = self.managedObjects[indexPath.row];
-        cell.textLabel.text = group.name;
+        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[group.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];;
     }
     
     return cell;
