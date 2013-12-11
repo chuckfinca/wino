@@ -12,12 +12,18 @@
 #define SLIDE_TIMING .25
 #define PANEL_WIDTH 270
 
+NSString * const RightSideBoundary = @"RightSideBoundary";
+NSString * const LeftSideBoundary = @"LeftSideBoundary";
+
+
 #define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
 
-@interface PanelsContainerViewController () <UIGestureRecognizerDelegate>
+@interface PanelsContainerViewController () <UIGestureRecognizerDelegate, UICollisionBehaviorDelegate>
 
 @property (nonatomic) BOOL showPanel;
 @property (nonatomic) CGPoint preVelocity;
+@property (nonatomic, strong) UIDynamicAnimator *dynamicAnimator;
+@property (nonatomic) CGPoint anchorPoint;
 
 @end
 
@@ -65,6 +71,15 @@
 }
 
 
+#pragma mark - Setters & Getters
+
+-(UIDynamicAnimator *)dynamicAnimator
+{
+    if(!_dynamicAnimator) {
+        _dynamicAnimator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view.window];
+    }
+    return _dynamicAnimator;
+}
 
 #pragma mark - Setup View
 
@@ -121,6 +136,7 @@
 
 -(void)resetPanels
 {
+    
     //NSLog(@"resetPanels...");
     [self.leftPanelViewController.view removeFromSuperview];
     [self.rightPanelViewController.view removeFromSuperview];
@@ -132,25 +148,32 @@
 }
 
 
+-(void)attachSnapBehavior
+{
+    UISnapBehavior *snap = [[UISnapBehavior alloc] initWithItem:self.mainPanelViewController.view snapToPoint:self.anchorPoint];
+    snap.damping = 0.5;
+    [self.dynamicAnimator addBehavior:snap];
+    
+    [self.dynamicAnimator performSelector:@selector(removeAllBehaviors) withObject:nil afterDelay:1.0f];
+}
+
 #pragma mark - Delegate Actions
 
 - (void)revealView:(UIView *)view
 {
     [self.view sendSubviewToBack:view];
     
-    float offsetDirection;
+    float x;
     if([view isEqual:self.leftPanelViewController.view]){
-        offsetDirection = 1;
+        
+        x = self.view.frame.size.width/2+PANEL_WIDTH;
+        self.anchorPoint = CGPointMake(x, self.view.frame.size.height/2);
+        
     } else {
-        offsetDirection = -1;
+        x = self.view.frame.size.width/2-PANEL_WIDTH;
+        self.anchorPoint = CGPointMake(x, self.view.frame.size.height/2);
     }
-    
-    [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.mainPanelViewController.view.frame = CGRectMake(offsetDirection*PANEL_WIDTH, 0, self.mainPanelViewController.view.frame.size.width, self.view.frame.size.height);
-    } completion:^(BOOL finished) {
-        if(finished){
-        }
-    }];
+    [self attachSnapBehavior];
     
     self.showPanel = YES;
 }
@@ -219,8 +242,10 @@
         
         if(!self.showPanel){
             if(originX <= -(PANEL_WIDTH/2)){
+                NSLog(@"slide left");
                 [self revealView:self.rightPanelViewController.view];
             } else if (originX >=PANEL_WIDTH/2){
+                NSLog(@"slide right");
                 [self revealView:self.leftPanelViewController.view];
             } else {
                 [self movePanelToOriginalPosition];
@@ -242,6 +267,13 @@
         [self.view sendSubviewToBack:leftPanelView];
         [self revealView:self.leftPanelViewController.view];
     }
+}
+
+#pragma mark - UICollisionBehaviorDelegate 
+
+-(void)collisionBehavior:(UICollisionBehavior *)behavior endedContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier
+{
+    [self.dynamicAnimator performSelector:@selector(removeAllBehaviors) withObject:nil afterDelay:0.5];
 }
 
 @end
