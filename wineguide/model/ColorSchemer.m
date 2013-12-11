@@ -73,7 +73,7 @@ static ColorSchemer *sharedInstance;
 
 -(UIColor *)menuBackgroundColor
 {
-    if(!_menuBackgroundColor) _menuBackgroundColor = [UIColor darkGrayColor];
+    if(!_menuBackgroundColor) _menuBackgroundColor = [UIColor colorWithRed:0.133333F green:0.133333F blue:0.133333F alpha:1.0F];
     return _menuBackgroundColor;
 }
 
