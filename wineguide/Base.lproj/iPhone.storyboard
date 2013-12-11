@@ -159,6 +159,41 @@
             </objects>
             <point key="canvasLocation" x="505" y="905"/>
         </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="4hJ-Dc-v2d">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="HWg-27-Udv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="eLZ-YI-mL3"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cAo-vs-VLy">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="u9u-jo-qhx" kind="relationship" relationship="rootViewController" id="BBc-TX-KXW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nsz-fb-0vD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="1627"/>
+        </scene>
+        <!--TimelineVC-->
+        <scene sceneID="jbQ-9A-p8i">
+            <objects>
+                <viewController id="u9u-jo-qhx" customClass="TimelineVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lht-eP-eiR"/>
+                        <viewControllerLayoutGuide type="bottom" id="ngN-Mm-iCv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xe0-v5-ReW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yO1-Ug-zTh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f8D-Zm-aak" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1036" y="1627"/>
+        </scene>
         <!--RestaurantCDTVC-->
         <scene sceneID="fQO-YH-hC5">
             <objects>
@@ -246,6 +281,7 @@
                     <connections>
                         <segue destination="OV2-Hf-2fH" kind="relationship" relationship="viewControllers" id="xQj-lU-CVU"/>
                         <segue destination="mww-Ib-My5" kind="relationship" relationship="viewControllers" id="eny-gd-Xkk"/>
+                        <segue destination="HWg-27-Udv" kind="relationship" relationship="viewControllers" id="cFK-Qi-phC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHW-Tz-hvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
