@@ -137,13 +137,13 @@
         <relationship name="wine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine" inverseName="wineUnits" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Brand" positionX="16" positionY="-180" width="128" height="208"/>
-        <element name="Flight" positionX="-351" positionY="-169" width="128" height="238"/>
-        <element name="Group" positionX="-360" positionY="83" width="128" height="238"/>
-        <element name="Restaurant" positionX="-531" positionY="-27" width="128" height="358"/>
-        <element name="TastingNote" positionX="34" positionY="54" width="128" height="208"/>
-        <element name="Varietal" positionX="25" positionY="288" width="128" height="193"/>
-        <element name="Wine" positionX="-162" positionY="-46" width="128" height="478"/>
-        <element name="WineUnit" positionX="-351" positionY="333" width="128" height="223"/>
+        <element name="Brand" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Flight" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Group" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Restaurant" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="TastingNote" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Varietal" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Wine" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WineUnit" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

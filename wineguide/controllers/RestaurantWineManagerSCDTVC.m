@@ -17,6 +17,7 @@
 
 #define WINE_ENTITY @"Wine"
 #define GROUP_ENTITY @"Group"
+#define WINE_CELL @"WineCell"
 
 @interface RestaurantWineManagerSCDTVC () <UIAlertViewDelegate>
 
@@ -41,6 +42,7 @@
 	// Do any additional setup after loading the view.
     [self setupSearchBar];
     self.title = @"Add wine";
+    [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -113,6 +115,12 @@
     [cell setupCellForWine:wine];
     
     return cell;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 65;
 }
 
 #pragma mark UITableViewDelegate

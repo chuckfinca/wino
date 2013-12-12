@@ -68,11 +68,21 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if(section == 0){
+    if(section == 1){
 	return @"Current Groups";
     } else {
-        return @"New Group";
+        return nil;
     }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(section == 1){
+        return [self.managedObjects count];
+    } else {
+        return 1;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -81,7 +91,7 @@
     UITableViewCell *cell = nil;
     NSString *cellIdentifier;
     
-    if(indexPath == [NSIndexPath indexPathForItem:0 inSection:1]){
+    if([indexPath isEqual:[NSIndexPath indexPathForItem:0 inSection:0]]){
         cellIdentifier = @"AddGroupCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         AddGroupCell *addCell = (AddGroupCell *)cell;
@@ -91,8 +101,8 @@
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
         // Configure the cell...
-        Group *group = self.managedObjects[indexPath.row];
-        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[group.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];;
+            Group *group = self.managedObjects[indexPath.row];
+            cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[group.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     }
     
     return cell;

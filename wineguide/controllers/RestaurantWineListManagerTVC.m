@@ -10,6 +10,9 @@
 #import "WineUnit.h"
 #import "Wine.h"
 #import "RestaurantWineManagerSCDTVC.h"
+#import "WineCell.h"
+
+#define WINE_CELL @"WineCell"
 
 #define WINE_ENTITY @"Wine"
 
@@ -33,6 +36,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = [self.group.name capitalizedString];
+    [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -67,8 +71,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if(section == 0){
-        return @"Wines";
+    if(section == 1){
+        return [self.group.name capitalizedString];
     } else {
         return nil;
     }
@@ -76,7 +80,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0){
+    NSLog(@"section = %i",section);
+    if(section == 1){
         return [self.managedObjects count];
     } else {
         return 1;
@@ -90,24 +95,36 @@
     // NSLog(@"cellForRowAtIndexPath...");
     UITableViewCell *cell = nil;
     NSString *cellIdentifier;
+    NSLog(@"indexPath = %@",indexPath);
     
-    if(indexPath == [NSIndexPath indexPathForItem:0 inSection:1]){
+    if([indexPath isEqual: [NSIndexPath indexPathForItem:0 inSection:0]]){
         cellIdentifier = @"AddWineCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Add wine..." attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textLink}];
     } else {
         cellIdentifier = @"WineCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        WineCell *wineCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
         // Configure the cell...
         Wine *wine = self.managedObjects[indexPath.row];
-        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+        
+        [wineCell setupCellForWine:wine];
+        
+        cell = wineCell;
     }
     
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 1){
+        return 65;
+    }
+    return 44;
+}
 
 
 
