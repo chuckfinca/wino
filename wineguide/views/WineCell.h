@@ -11,6 +11,8 @@
 
 @interface WineCell : UITableViewCell
 
+@property (nonatomic) BOOL showReviewsAndTastingNotes;
+
 -(void)setupCellForWine:(Wine *)wine;
 
 @end

@@ -108,6 +108,11 @@
             <connections>
                 <outlet property="name" destination="5Xe-51-zAi" id="0DN-Gw-RVK"/>
                 <outlet property="numberOfReviews" destination="2h6-HV-tAu" id="eM7-iz-ich"/>
+                <outlet property="star1" destination="78d-tT-bLz" id="YM4-iL-9JS"/>
+                <outlet property="star2" destination="Rz4-ud-v3r" id="Umm-xM-eUi"/>
+                <outlet property="star3" destination="MGZ-XI-V2y" id="Nt3-hY-QEh"/>
+                <outlet property="star4" destination="4bc-FN-NC5" id="cV3-Gd-vXs"/>
+                <outlet property="star5" destination="EuX-4U-kzc" id="cOd-w8-xZb"/>
                 <outlet property="tastingNotes" destination="Y4V-62-xPI" id="uCj-LB-GSf"/>
                 <outlet property="vintageAndVarietals" destination="dOi-d1-Suz" id="jEo-hq-DDW"/>
             </connections>
