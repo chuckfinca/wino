@@ -68,12 +68,6 @@ typedef enum {
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
--(void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Getters & Setters
 
 -(RestaurantDetailsVC *)restaurantDetailsViewController
@@ -300,6 +294,17 @@ typedef enum {
     NSLog(@"\n\n\n");
 }
 
+
+
+
+
+
+
+-(void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 
 @end
