@@ -35,7 +35,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.title = [self.group.name capitalizedString];
     [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
 }
 
@@ -71,8 +70,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if(section == 0 && [self.managedObjects count] > 0){
-        return nil;
+    if(section == 0){
+        return self.group.name;
     } else {
         return nil;
     }
@@ -101,6 +100,7 @@
         cellIdentifier = @"AddWineCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Add wine..." attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textLink}];
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
     } else {
         cellIdentifier = @"WineCell";
         WineCell *wineCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
@@ -109,6 +109,8 @@
         Wine *wine = self.managedObjects[indexPath.row];
         
         [wineCell setupCellForWine:wine];
+        
+        wineCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         cell = wineCell;
     }

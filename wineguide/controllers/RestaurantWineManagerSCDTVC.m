@@ -154,7 +154,7 @@
         // if the wine isn't in the all group it need to be added there as well
         
     } else {
-            // [self setEditing:NO animated:YES];
+        [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     }
     self.selectedWine = nil;
 }
