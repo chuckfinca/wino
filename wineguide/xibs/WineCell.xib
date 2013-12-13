@@ -7,7 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1" customClass="WineCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xe-51-zAi">
@@ -104,7 +104,6 @@
                 <constraint firstAttribute="trailing" secondItem="5Xe-51-zAi" secondAttribute="trailing" constant="20" id="pp5-Ja-1tu"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="name" destination="5Xe-51-zAi" id="0DN-Gw-RVK"/>
                 <outlet property="numberOfReviews" destination="2h6-HV-tAu" id="eM7-iz-ich"/>

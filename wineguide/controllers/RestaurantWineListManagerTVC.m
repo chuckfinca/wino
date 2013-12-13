@@ -71,7 +71,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if(section == 1 && [self.managedObjects count] > 0){
+    if(section == 0 && [self.managedObjects count] > 0){
         return nil;
     } else {
         return nil;
@@ -81,7 +81,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSLog(@"section = %i",section);
-    if(section == 1){
+    if(section == 0){
         return [self.managedObjects count];
     } else {
         return 1;
@@ -97,7 +97,7 @@
     NSString *cellIdentifier;
     NSLog(@"indexPath = %@",indexPath);
     
-    if([indexPath isEqual: [NSIndexPath indexPathForItem:0 inSection:0]]){
+    if([indexPath isEqual: [NSIndexPath indexPathForItem:0 inSection:1]]){
         cellIdentifier = @"AddWineCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Add wine..." attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textLink}];
@@ -120,7 +120,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 1){
+    if(indexPath.section == 0){
         return 62;
     }
     return 44;

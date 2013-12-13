@@ -82,7 +82,7 @@
 {
     [self.textField resignFirstResponder];
     
-    // Abstract need to call super
+    // Abstract, need to call super
 }
 
 #pragma mark - UITableViewDelegate
@@ -114,7 +114,7 @@
     [self.textField resignFirstResponder];
     
     // Return NO if you do not want the specified item to be editable.
-    if(indexPath == [NSIndexPath indexPathForItem:0 inSection:1]){
+    if([indexPath isEqual: [NSIndexPath indexPathForItem:0 inSection:1]]){
         return NO;
     }
     
