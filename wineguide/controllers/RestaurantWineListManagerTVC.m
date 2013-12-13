@@ -71,8 +71,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if(section == 1){
-        return [self.group.name capitalizedString];
+    if(section == 1 && [self.managedObjects count] > 0){
+        return nil;
     } else {
         return nil;
     }
@@ -121,7 +121,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section == 1){
-        return 65;
+        return 62;
     }
     return 44;
 }
