@@ -159,11 +159,11 @@
             </objects>
             <point key="canvasLocation" x="505" y="905"/>
         </scene>
-        <!--CustomNC - Item-->
+        <!--CustomNC - Timeline-->
         <scene sceneID="4hJ-Dc-v2d">
             <objects>
                 <navigationController definesPresentationContext="YES" id="HWg-27-Udv" customClass="CustomNC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="eLZ-YI-mL3"/>
+                    <tabBarItem key="tabBarItem" title="Timeline" id="eLZ-YI-mL3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cAo-vs-VLy">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -197,18 +197,18 @@
                                     <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="60" minY="0.0" maxX="60" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WineCardCell" id="mGx-m2-g1K" customClass="WineCardCell">
-                                        <rect key="frame" x="60" y="89" width="200" height="200"/>
+                                        <rect key="frame" x="0.0" y="114" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <size key="customSize" width="200" height="200"/>
+                                        <size key="customSize" width="150" height="150"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

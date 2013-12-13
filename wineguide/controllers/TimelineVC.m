@@ -50,6 +50,7 @@
 {
     [super viewDidAppear:animated];
     [self.wineCardCollectionView.collectionViewLayout invalidateLayout];
+    //self.wineCardCollectionView.contentOffset = CGPointMake(0,0);
 }
 
 
@@ -88,7 +89,6 @@
     
     NSError *error;
     self.wines = [self.context executeFetchRequest:request error:&error];
-    NSLog(@"num results = %i",[self.wines count]);
 }
 
 
@@ -96,27 +96,21 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    NSLog(@"numberOfSectionsInCollectionView");
     return 1;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSLog(@"numberOfItemsInSection");
-    NSInteger numItems = 0;
-    
     if(collectionView == self.wineCardCollectionView){
-        NSLog(@"[self.wines count] = %i",[self.wines count]);
         return [self.wines count];
+    } else {
+        return 0;
     }
-    
-    return numItems;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell;
-    NSLog(@"cellForItemAtIndexPath");
     
     if(collectionView == self.wineCardCollectionView){
         WineCardCell *wineCardCell = [collectionView dequeueReusableCellWithReuseIdentifier:WINE_CARD_CELL forIndexPath:indexPath];
@@ -129,7 +123,6 @@
     
     return cell;
 }
-
 
 
 
