@@ -62,6 +62,9 @@
 		C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */; };
 		C9487D9A182EF119007F7E19 /* NSManagedObject+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9487D99182EF119007F7E19 /* NSManagedObject+Helper.m */; };
 		C95A2CBF185A31980043ECB0 /* SpringyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A2CBE185A31980043ECB0 /* SpringyFlowLayout.m */; };
+		C95A2CC2185B80070043ECB0 /* visible.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CC0185B80070043ECB0 /* visible.png */; };
+		C95A2CC3185B80070043ECB0 /* visible@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CC1185B80070043ECB0 /* visible@2x.png */; };
+		C95A2CC6185B87930043ECB0 /* RestaurantGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A2CC5185B87930043ECB0 /* RestaurantGroupCell.m */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -224,6 +227,10 @@
 		C9487D99182EF119007F7E19 /* NSManagedObject+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+Helper.m"; path = "model/NSManagedObject+Helper.m"; sourceTree = "<group>"; };
 		C95A2CBD185A31980043ECB0 /* SpringyFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpringyFlowLayout.h; path = views/SpringyFlowLayout.h; sourceTree = "<group>"; };
 		C95A2CBE185A31980043ECB0 /* SpringyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpringyFlowLayout.m; path = views/SpringyFlowLayout.m; sourceTree = "<group>"; };
+		C95A2CC0185B80070043ECB0 /* visible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = visible.png; path = images/visible.png; sourceTree = "<group>"; };
+		C95A2CC1185B80070043ECB0 /* visible@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "visible@2x.png"; path = "images/visible@2x.png"; sourceTree = "<group>"; };
+		C95A2CC4185B87930043ECB0 /* RestaurantGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantGroupCell.h; path = views/RestaurantGroupCell.h; sourceTree = "<group>"; };
+		C95A2CC5185B87930043ECB0 /* RestaurantGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantGroupCell.m; path = views/RestaurantGroupCell.m; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -492,6 +499,8 @@
 				C9C6A21C18592AC300CFBBD5 /* WineCardCell.m */,
 				C95A2CBD185A31980043ECB0 /* SpringyFlowLayout.h */,
 				C95A2CBE185A31980043ECB0 /* SpringyFlowLayout.m */,
+				C95A2CC4185B87930043ECB0 /* RestaurantGroupCell.h */,
+				C95A2CC5185B87930043ECB0 /* RestaurantGroupCell.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -512,6 +521,8 @@
 		C9061E4F181F3CC2003D8A55 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C95A2CC0185B80070043ECB0 /* visible.png */,
+				C95A2CC1185B80070043ECB0 /* visible@2x.png */,
 				C9C7D61618401F1700A2E955 /* tab_nearMe.png */,
 				C9C7D61818401F7100A2E955 /* tab_nearMe@2x.png */,
 				C9C7D60B184011D100A2E955 /* favorite_n.png */,
@@ -728,6 +739,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9ACC7DD184E8C3600E5945D /* WineCell.xib in Resources */,
+				C95A2CC3185B80070043ECB0 /* visible@2x.png in Resources */,
 				C96D5FBC185005B60068093C /* varietals.json in Resources */,
 				C9C7D611184011D100A2E955 /* favorite_y.png in Resources */,
 				C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */,
@@ -742,6 +754,7 @@
 				C91F59C218457EB800CF7F18 /* Restauranteur_iPhone.storyboard in Resources */,
 				C9061E53181F3CD3003D8A55 /* star_empty.png in Resources */,
 				C9C7D61918401F7100A2E955 /* tab_nearMe@2x.png in Resources */,
+				C95A2CC2185B80070043ECB0 /* visible.png in Resources */,
 				C9C7D612184011D100A2E955 /* favorite_y@2x.png in Resources */,
 				C9061E55181F3CD3003D8A55 /* star_half.png in Resources */,
 				C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */,
@@ -825,6 +838,7 @@
 				C92DF04318247AB3009DCB2C /* Brand+CreateAndModify.m in Sources */,
 				C92DF00718247082009DCB2C /* NSDictionary+Helper.m in Sources */,
 				C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */,
+				C95A2CC6185B87930043ECB0 /* RestaurantGroupCell.m in Sources */,
 				C9C6A2021852B33A00CFBBD5 /* Brand.m in Sources */,
 				C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */,
 				C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */,

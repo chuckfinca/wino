@@ -13,14 +13,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GroupCell" id="aEh-gV-zYL">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GroupCell" id="aEh-gV-zYL" customClass="RestaurantGroupCell">
                                 <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aEh-gV-zYL" id="qTF-cl-MOS">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visible.png" translatesAutoresizingMaskIntoConstraints="NO" id="5rP-Yv-jKl">
+                                            <rect key="frame" x="243" y="0.0" width="44" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="8zs-FF-nKR"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="881-ld-Wbg">
+                                            <rect key="frame" x="20" y="11" width="223" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="881-ld-Wbg" firstAttribute="leading" secondItem="qTF-cl-MOS" secondAttribute="leading" constant="20" id="AOL-y5-LCH"/>
+                                        <constraint firstItem="881-ld-Wbg" firstAttribute="top" secondItem="qTF-cl-MOS" secondAttribute="top" constant="11" id="Aqj-uN-z5d"/>
+                                        <constraint firstAttribute="bottom" secondItem="5rP-Yv-jKl" secondAttribute="bottom" id="QrU-xI-VdQ"/>
+                                        <constraint firstItem="5rP-Yv-jKl" firstAttribute="top" secondItem="qTF-cl-MOS" secondAttribute="top" id="Vpj-05-WbI"/>
+                                        <constraint firstItem="5rP-Yv-jKl" firstAttribute="leading" secondItem="881-ld-Wbg" secondAttribute="trailing" id="qTt-G4-7Jk"/>
+                                        <constraint firstAttribute="bottom" secondItem="881-ld-Wbg" secondAttribute="bottom" constant="11" id="sQB-uL-NMo"/>
+                                        <constraint firstAttribute="trailing" secondItem="5rP-Yv-jKl" secondAttribute="trailing" id="tN0-9O-If7"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="groupNameLabel" destination="881-ld-Wbg" id="ues-Cv-fff"/>
+                                    <outlet property="isVisibleImageView" destination="5rP-Yv-jKl" id="E2R-4P-Qie"/>
                                     <segue destination="gQZ-DI-XVI" kind="push" id="Zzo-Mh-yuq"/>
                                 </connections>
                             </tableViewCell>
@@ -31,9 +59,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euT-vH-OvK">
-                                            <rect key="frame" x="268" y="0.0" width="52" height="43"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euT-vH-OvK">
+                                            <rect key="frame" x="276" y="0.0" width="44" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="Co4-us-pCA"/>
+                                            </constraints>
                                             <state key="normal" title="+">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -41,8 +72,8 @@
                                                 <action selector="addNewManagedObject:" destination="gqK-oI-mZz" eventType="touchUpInside" id="WaA-8Y-I0Q"/>
                                             </connections>
                                         </button>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add group..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cx3-y0-gVe">
-                                            <rect key="frame" x="20" y="7" width="240" height="30"/>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Group..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cx3-y0-gVe">
+                                            <rect key="frame" x="20" y="7" width="248" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -51,6 +82,15 @@
                                             </connections>
                                         </textField>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="euT-vH-OvK" firstAttribute="leading" secondItem="cx3-y0-gVe" secondAttribute="trailing" constant="8" id="GQZ-KH-GWC"/>
+                                        <constraint firstItem="euT-vH-OvK" firstAttribute="top" secondItem="AWV-6N-wC9" secondAttribute="top" id="Jda-8Q-wIG"/>
+                                        <constraint firstAttribute="trailing" secondItem="euT-vH-OvK" secondAttribute="trailing" id="MGT-PQ-PRf"/>
+                                        <constraint firstAttribute="bottom" secondItem="cx3-y0-gVe" secondAttribute="bottom" constant="6" id="Y3e-z4-7cB"/>
+                                        <constraint firstAttribute="bottom" secondItem="euT-vH-OvK" secondAttribute="bottom" id="tJS-Dg-5Ng"/>
+                                        <constraint firstItem="cx3-y0-gVe" firstAttribute="top" secondItem="AWV-6N-wC9" secondAttribute="top" constant="7" id="w99-n6-cdv"/>
+                                        <constraint firstItem="cx3-y0-gVe" firstAttribute="leading" secondItem="AWV-6N-wC9" secondAttribute="leading" constant="20" id="wJ8-hc-OLU"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="textField" destination="cx3-y0-gVe" id="yD6-cI-DeB"/>
@@ -69,7 +109,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnT-Z9-vnq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JxO-Xa-bG9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="477" y="70"/>
+            <point key="canvasLocation" x="433" y="70"/>
         </scene>
         <!--Restaurant Wine List ManagerTVC-->
         <scene sceneID="E8f-aF-25C">
@@ -165,6 +205,9 @@
             <point key="canvasLocation" x="-57" y="70"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="visible.png" width="44" height="44"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

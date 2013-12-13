@@ -11,6 +11,7 @@
 #import "Group+CreateAndModify.h"
 #import "RestaurantWineListManagerTVC.h"
 #import "AddGroupCell.h"
+#import "RestaurantGroupCell.h"
 
 #define RESTAURANT_ENTITY @"Restaurant"
 #define GROUP_ENTITY @"Group"
@@ -68,8 +69,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if(section == 1){
-	return @"Current Groups";
+    if(section == 0){
+        return @"Groups";
     } else {
         return nil;
     }
@@ -77,7 +78,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 1){
+    if(section == 0){
         return [self.managedObjects count];
     } else {
         return 1;
@@ -91,18 +92,21 @@
     UITableViewCell *cell = nil;
     NSString *cellIdentifier;
     
-    if([indexPath isEqual:[NSIndexPath indexPathForItem:0 inSection:0]]){
+    if([indexPath isEqual:[NSIndexPath indexPathForItem:0 inSection:1]]){
         cellIdentifier = @"AddGroupCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        AddGroupCell *addCell = (AddGroupCell *)cell;
+        AddGroupCell *addCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         self.textField = addCell.textField;
+        
+        cell = addCell;
     } else {
         cellIdentifier = @"GroupCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        RestaurantGroupCell *restaurantGroupCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
         // Configure the cell...
-            Group *group = self.managedObjects[indexPath.row];
-            cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[group.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+        Group *group = self.managedObjects[indexPath.row];
+        [restaurantGroupCell setupCellAtIndexPath:indexPath forGroup:group];
+    
+        cell = restaurantGroupCell;
     }
     
     return cell;
@@ -122,6 +126,7 @@
     for(Group *group in self.managedObjects){
         group.sortOrder = @([self.managedObjects indexOfObject:group]);
     }
+    //[self.tableView reloadSections:[[NSIndexSet alloc] initWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
