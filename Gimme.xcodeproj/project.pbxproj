@@ -67,6 +67,8 @@
 		C95A2CC6185B87930043ECB0 /* RestaurantGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A2CC5185B87930043ECB0 /* RestaurantGroupCell.m */; };
 		C95A2CC9185BDC0F0043ECB0 /* tutorial_triedIt.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CC7185BDC0F0043ECB0 /* tutorial_triedIt.png */; };
 		C95A2CCA185BDC0F0043ECB0 /* tutorial_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CC8185BDC0F0043ECB0 /* tutorial_triedIt@2x.png */; };
+		C95A2CCD185BE4D30043ECB0 /* tab_timeline.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CCB185BE4D30043ECB0 /* tab_timeline.png */; };
+		C95A2CCE185BE4D30043ECB0 /* tab_timeline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CCC185BE4D30043ECB0 /* tab_timeline@2x.png */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -235,6 +237,8 @@
 		C95A2CC5185B87930043ECB0 /* RestaurantGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantGroupCell.m; path = views/RestaurantGroupCell.m; sourceTree = "<group>"; };
 		C95A2CC7185BDC0F0043ECB0 /* tutorial_triedIt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_triedIt.png; path = images/tutorial_triedIt.png; sourceTree = "<group>"; };
 		C95A2CC8185BDC0F0043ECB0 /* tutorial_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorial_triedIt@2x.png"; path = "images/tutorial_triedIt@2x.png"; sourceTree = "<group>"; };
+		C95A2CCB185BE4D30043ECB0 /* tab_timeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_timeline.png; path = images/tab_timeline.png; sourceTree = "<group>"; };
+		C95A2CCC185BE4D30043ECB0 /* tab_timeline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_timeline@2x.png"; path = "images/tab_timeline@2x.png"; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -529,6 +533,8 @@
 				C95A2CC1185B80070043ECB0 /* visible@2x.png */,
 				C9C7D61618401F1700A2E955 /* tab_nearMe.png */,
 				C9C7D61818401F7100A2E955 /* tab_nearMe@2x.png */,
+				C95A2CCB185BE4D30043ECB0 /* tab_timeline.png */,
+				C95A2CCC185BE4D30043ECB0 /* tab_timeline@2x.png */,
 				C9C7D60B184011D100A2E955 /* favorite_n.png */,
 				C9C7D60C184011D100A2E955 /* favorite_n@2x.png */,
 				C9C7D60D184011D100A2E955 /* favorite_y.png */,
@@ -773,6 +779,7 @@
 				C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */,
 				C9061E0A181F07CE003D8A55 /* Images.xcassets in Resources */,
 				C9C6A21F18592AEF00CFBBD5 /* WineCardCell.xib in Resources */,
+				C95A2CCE185BE4D30043ECB0 /* tab_timeline@2x.png in Resources */,
 				C9061E54181F3CD3003D8A55 /* star_full.png in Resources */,
 				C9487D0C182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json in Resources */,
 				C98DEFFE182329D30038216C /* restaurants.json in Resources */,
@@ -781,6 +788,7 @@
 				C9061E02181F07CE003D8A55 /* iPhone.storyboard in Resources */,
 				C91F59BC18456A2100CF7F18 /* UserMenu.xib in Resources */,
 				C9ACC7D4184E6F4100E5945D /* star_half@2x.png in Resources */,
+				C95A2CCD185BE4D30043ECB0 /* tab_timeline.png in Resources */,
 				C9061DF9181F07CE003D8A55 /* InfoPlist.strings in Resources */,
 				C9061E3C181F2767003D8A55 /* RestaurantDetails.xib in Resources */,
 				C92CAE3618330CC700F29C9B /* group.restaurant.tico.222berkeleystreet.all.json in Resources */,

@@ -33,6 +33,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.view.tintColor = [ColorSchemer sharedInstance].baseColor;
+    self.selectedIndex = 1;
 }
 
 - (void)didReceiveMemoryWarning
