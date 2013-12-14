@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpaceLayoutConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *tutorialImageView;
+@property (weak, nonatomic) IBOutlet UIButton *dismissTutorialButton;
 
 @end
 
@@ -36,29 +37,30 @@
     
     switch (self.index) {
         case 0:
-            text = @"Welcome to Gimme, the best way to find the perfect wine off that menu!";
+            text = @"The best way to find the perfect wine a that menu.";
             self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_logo.png"];
+            self.dismissTutorialButton.hidden = YES;
             break;
         case 1:
-            text = @"Checkout wines at nearby restaurants";
+            text = @"Within a few taps you'll be browsing the wine list of the restaurant your at, no typing required.";
             self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_nearby.png"];
+            self.dismissTutorialButton.hidden = YES;
             break;
         case 2:
-            text = @"Browse by value or popularity";
-            self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_nearby.png"];
+            text = @"The Corkie community breaks wine reviews into essential points (star ratings, tasting notes, food pairings, and indepth reviews)";
+            self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_favorites.png"];
+            self.dismissTutorialButton.hidden = YES;
             break;
         case 3:
-            text = @"Favorite wines you want to remember";
-            self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_favorites.png"];
+            text = @"As you try wines check them in to your timeline with the Tried It button.";
+            self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_triedIt.png"];
+            self.dismissTutorialButton.hidden = NO;
             break;
         default:
             break;
     }
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
-    if(self.index == 0){
-        [attributedString addAttributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].baseColor} range:NSMakeRange(11, 5)];
-    }
     self.screenInstructionText.attributedText = attributedString;
     self.screenInstructionText.numberOfLines = 0;
     self.view.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.97];

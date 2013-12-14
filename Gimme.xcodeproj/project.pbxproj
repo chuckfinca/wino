@@ -65,6 +65,8 @@
 		C95A2CC2185B80070043ECB0 /* visible.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CC0185B80070043ECB0 /* visible.png */; };
 		C95A2CC3185B80070043ECB0 /* visible@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CC1185B80070043ECB0 /* visible@2x.png */; };
 		C95A2CC6185B87930043ECB0 /* RestaurantGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A2CC5185B87930043ECB0 /* RestaurantGroupCell.m */; };
+		C95A2CC9185BDC0F0043ECB0 /* tutorial_triedIt.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CC7185BDC0F0043ECB0 /* tutorial_triedIt.png */; };
+		C95A2CCA185BDC0F0043ECB0 /* tutorial_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CC8185BDC0F0043ECB0 /* tutorial_triedIt@2x.png */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -231,6 +233,8 @@
 		C95A2CC1185B80070043ECB0 /* visible@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "visible@2x.png"; path = "images/visible@2x.png"; sourceTree = "<group>"; };
 		C95A2CC4185B87930043ECB0 /* RestaurantGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantGroupCell.h; path = views/RestaurantGroupCell.h; sourceTree = "<group>"; };
 		C95A2CC5185B87930043ECB0 /* RestaurantGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantGroupCell.m; path = views/RestaurantGroupCell.m; sourceTree = "<group>"; };
+		C95A2CC7185BDC0F0043ECB0 /* tutorial_triedIt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_triedIt.png; path = images/tutorial_triedIt.png; sourceTree = "<group>"; };
+		C95A2CC8185BDC0F0043ECB0 /* tutorial_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorial_triedIt@2x.png"; path = "images/tutorial_triedIt@2x.png"; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -541,6 +545,8 @@
 				C9C7D6341841933900A2E955 /* tutorial_favorites@2x.png */,
 				C9C7D6371842AACD00A2E955 /* tutorial_logo.png */,
 				C9C7D6381842AACD00A2E955 /* tutorial_logo@2x.png */,
+				C95A2CC7185BDC0F0043ECB0 /* tutorial_triedIt.png */,
+				C95A2CC8185BDC0F0043ECB0 /* tutorial_triedIt@2x.png */,
 				C9ACC7D5184E72AB00E5945D /* settings.png */,
 				C9ACC7D6184E72AB00E5945D /* settings@2x.png */,
 			);
@@ -770,6 +776,7 @@
 				C9061E54181F3CD3003D8A55 /* star_full.png in Resources */,
 				C9487D0C182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json in Resources */,
 				C98DEFFE182329D30038216C /* restaurants.json in Resources */,
+				C95A2CCA185BDC0F0043ECB0 /* tutorial_triedIt@2x.png in Resources */,
 				C9C7D60F184011D100A2E955 /* favorite_n.png in Resources */,
 				C9061E02181F07CE003D8A55 /* iPhone.storyboard in Resources */,
 				C91F59BC18456A2100CF7F18 /* UserMenu.xib in Resources */,
@@ -781,6 +788,7 @@
 				C9D0784818452AF800F47851 /* Initial_iPhone.storyboard in Resources */,
 				C92CAE3518330CC700F29C9B /* group.restaurant.strega-waterfront.1marinaparkdrive.all.json in Resources */,
 				C9C7D61718401F1700A2E955 /* tab_nearMe.png in Resources */,
+				C95A2CC9185BDC0F0043ECB0 /* tutorial_triedIt.png in Resources */,
 				C9C7D610184011D100A2E955 /* favorite_n@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

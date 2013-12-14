@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialDetailsVC">
             <connections>
+                <outlet property="dismissTutorialButton" destination="24F-T8-sNi" id="hNF-5C-JPX"/>
                 <outlet property="screenInstructionText" destination="0Vb-DW-1wc" id="Q4k-ae-3xs"/>
                 <outlet property="topSpaceLayoutConstraint" destination="TQk-OJ-7kS" id="Bw7-pg-Y5q"/>
                 <outlet property="tutorialImageView" destination="MF3-GY-a5y" id="PZe-gV-KUf"/>
