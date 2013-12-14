@@ -39,7 +39,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self setupFavoriteButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,6 +56,7 @@
     // [self logDetails];
     
     [self setupTextForWine:wine];
+    [self setupFavoriteButton];
     
     [self setupReviewsLabel];
 }
@@ -90,14 +90,15 @@
 
 - (IBAction)favoriteWine:(UIButton *)sender
 {
-    
     if([self.wine.favorite boolValue] == YES){
         self.wine.favorite = @NO;
         [self.favoriteButton setImage:[UIImage imageNamed:@"button_favorite.png"] forState:UIControlStateNormal];
+        
     } else {
         self.wine.favorite = @YES;
         [self.favoriteButton setImage:[UIImage imageNamed:@"button_favorited.png"] forState:UIControlStateNormal];
     }
+    [self.favoriteButton setNeedsDisplay];
 }
 
 

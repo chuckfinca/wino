@@ -110,6 +110,7 @@
         [self.star3 removeFromSuperview];
         [self.star4 removeFromSuperview];
         [self.star5 removeFromSuperview];
+        self.favoriteImageView.hidden = YES;
     }
     
 }

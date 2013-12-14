@@ -44,7 +44,7 @@
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@", "]];
     }
     if(restaurant.state){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[restaurant.state capitalizedString]]];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[restaurant.state capitalizedString]]];
     }
     
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];

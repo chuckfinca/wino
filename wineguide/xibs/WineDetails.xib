@@ -29,7 +29,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="hwo-PU-HzH">
-                    <rect key="frame" x="20" y="53" width="20" height="20"/>
+                    <rect key="frame" x="12" y="53" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="IuW-ca-081"/>
@@ -37,7 +37,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="i90-6Q-KWZ">
-                    <rect key="frame" x="40" y="53" width="20" height="20"/>
+                    <rect key="frame" x="32" y="53" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="GKA-y9-ULd"/>
@@ -45,7 +45,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="3yS-wg-yeU">
-                    <rect key="frame" x="60" y="53" width="20" height="20"/>
+                    <rect key="frame" x="52" y="53" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Auh-Hb-cqB"/>
@@ -53,7 +53,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_half.png" translatesAutoresizingMaskIntoConstraints="NO" id="lhq-KP-rY1">
-                    <rect key="frame" x="80" y="53" width="20" height="20"/>
+                    <rect key="frame" x="72" y="53" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="7HM-ZK-hyS"/>
@@ -61,7 +61,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="y3a-zY-7KZ">
-                    <rect key="frame" x="100" y="53" width="20" height="20"/>
+                    <rect key="frame" x="92" y="53" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="Qwn-U0-c66"/>
@@ -69,21 +69,21 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wx-0P-yCa">
-                    <rect key="frame" x="128" y="53" width="172" height="21"/>
+                    <rect key="frame" x="120" y="53" width="180" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2p1-mh-LEB">
-                    <rect key="frame" x="12" y="123" width="44" height="44"/>
+                    <rect key="frame" x="12" y="127" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="button_triedIt.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrN-4a-f94">
-                    <rect key="frame" x="64" y="123" width="44" height="44"/>
+                    <rect key="frame" x="64" y="127" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="button_favorite.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,7 +93,7 @@
                     </connections>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Wine details" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOt-3Q-iLX" customClass="WineDetailsVHTV">
-                    <rect key="frame" x="0.0" y="82" width="320" height="33"/>
+                    <rect key="frame" x="0.0" y="86" width="320" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -115,12 +115,12 @@
                 <constraint firstItem="2wx-0P-yCa" firstAttribute="leading" secondItem="y3a-zY-7KZ" secondAttribute="trailing" constant="8" id="AEk-yY-fvD"/>
                 <constraint firstAttribute="trailing" secondItem="2wx-0P-yCa" secondAttribute="trailing" constant="20" id="D4o-f1-gjA"/>
                 <constraint firstItem="qOt-3Q-iLX" firstAttribute="trailing" secondItem="ygn-v6-iWS" secondAttribute="trailing" id="JWG-TM-BJ2"/>
-                <constraint firstItem="qOt-3Q-iLX" firstAttribute="top" secondItem="2wx-0P-yCa" secondAttribute="bottom" constant="8" symbolic="YES" id="LjK-hd-BSC"/>
+                <constraint firstItem="qOt-3Q-iLX" firstAttribute="top" secondItem="2wx-0P-yCa" secondAttribute="bottom" constant="12" id="LjK-hd-BSC"/>
                 <constraint firstItem="2p1-mh-LEB" firstAttribute="top" secondItem="IrN-4a-f94" secondAttribute="top" id="MKo-qk-hcL"/>
                 <constraint firstItem="hwo-PU-HzH" firstAttribute="top" secondItem="ygn-v6-iWS" secondAttribute="bottom" id="MSC-pa-XfT"/>
                 <constraint firstItem="ygn-v6-iWS" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Qv0-oA-RqP"/>
                 <constraint firstItem="lhq-KP-rY1" firstAttribute="top" secondItem="hwo-PU-HzH" secondAttribute="top" id="RmA-0w-LLu"/>
-                <constraint firstItem="hwo-PU-HzH" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="Ucb-v9-VYS"/>
+                <constraint firstItem="hwo-PU-HzH" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="12" id="Ucb-v9-VYS"/>
                 <constraint firstItem="IrN-4a-f94" firstAttribute="leading" secondItem="2p1-mh-LEB" secondAttribute="trailing" constant="8" id="X9B-Lc-lID"/>
                 <constraint firstItem="y3a-zY-7KZ" firstAttribute="leading" secondItem="lhq-KP-rY1" secondAttribute="trailing" id="cWb-kJ-mAU"/>
                 <constraint firstItem="i90-6Q-KWZ" firstAttribute="leading" secondItem="hwo-PU-HzH" secondAttribute="trailing" id="ecx-nV-vn6"/>
