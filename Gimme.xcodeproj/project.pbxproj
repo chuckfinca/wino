@@ -76,6 +76,8 @@
 		C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A2CD8185BF8360043ECB0 /* WineNameVHTV.m */; };
 		C95A2CDC185C02300043ECB0 /* button_favorited.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDA185C02300043ECB0 /* button_favorited.png */; };
 		C95A2CDD185C02300043ECB0 /* button_favorited@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDB185C02300043ECB0 /* button_favorited@2x.png */; };
+		C95A2CE0185C04DB0043ECB0 /* favoriteIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDE185C04DB0043ECB0 /* favoriteIndicator.png */; };
+		C95A2CE1185C04DB0043ECB0 /* favoriteIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDF185C04DB0043ECB0 /* favoriteIndicator@2x.png */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -254,6 +256,8 @@
 		C95A2CD8185BF8360043ECB0 /* WineNameVHTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineNameVHTV.m; path = views/WineNameVHTV.m; sourceTree = "<group>"; };
 		C95A2CDA185C02300043ECB0 /* button_favorited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_favorited.png; path = images/button_favorited.png; sourceTree = "<group>"; };
 		C95A2CDB185C02300043ECB0 /* button_favorited@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_favorited@2x.png"; path = "images/button_favorited@2x.png"; sourceTree = "<group>"; };
+		C95A2CDE185C04DB0043ECB0 /* favoriteIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favoriteIndicator.png; path = images/favoriteIndicator.png; sourceTree = "<group>"; };
+		C95A2CDF185C04DB0043ECB0 /* favoriteIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favoriteIndicator@2x.png"; path = "images/favoriteIndicator@2x.png"; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -578,6 +582,8 @@
 				C95A2CD4185BF11A0043ECB0 /* button_favorite@2x.png */,
 				C95A2CDA185C02300043ECB0 /* button_favorited.png */,
 				C95A2CDB185C02300043ECB0 /* button_favorited@2x.png */,
+				C95A2CDE185C04DB0043ECB0 /* favoriteIndicator.png */,
+				C95A2CDF185C04DB0043ECB0 /* favoriteIndicator@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -775,11 +781,13 @@
 			files = (
 				C9ACC7DD184E8C3600E5945D /* WineCell.xib in Resources */,
 				C95A2CC3185B80070043ECB0 /* visible@2x.png in Resources */,
+				C95A2CE1185C04DB0043ECB0 /* favoriteIndicator@2x.png in Resources */,
 				C95A2CD6185BF11A0043ECB0 /* button_favorite@2x.png in Resources */,
 				C96D5FBC185005B60068093C /* varietals.json in Resources */,
 				C9C7D611184011D100A2E955 /* favorite_y.png in Resources */,
 				C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */,
 				C9ACC7D3184E6F4100E5945D /* star_full@2x.png in Resources */,
+				C95A2CE0185C04DB0043ECB0 /* favoriteIndicator.png in Resources */,
 				C95A2CD2185BEC3B0043ECB0 /* button_triedIt@2x.png in Resources */,
 				C95A2CD1185BEC3B0043ECB0 /* button_triedIt.png in Resources */,
 				C9C7D63A1842AACD00A2E955 /* tutorial_logo@2x.png in Resources */,

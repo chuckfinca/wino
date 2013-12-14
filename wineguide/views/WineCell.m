@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *star3;
 @property (weak, nonatomic) IBOutlet UIImageView *star4;
 @property (weak, nonatomic) IBOutlet UIImageView *star5;
+@property (weak, nonatomic) IBOutlet UIImageView *favoriteImageView;
 
 @end
 @implementation WineCell
@@ -54,6 +55,8 @@
 -(void)setupCellForWine:(Wine *)wine
 {
     [self setupCell];
+    
+    self.wine = wine;
     
     if(wine.name){
         self.name.attributedText = [[NSAttributedString alloc] initWithString:[wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
@@ -92,6 +95,13 @@
             tastingNotesString = [tastingNotesString substringToIndex:[tastingNotesString length]-2];
         }
         self.tastingNotes.attributedText = [[NSAttributedString alloc] initWithString:tastingNotesString attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+        
+        if([self.wine.favorite boolValue] == YES){
+            self.favoriteImageView.hidden = NO;
+        } else {
+            self.favoriteImageView.hidden = YES;
+        }
+        
     } else {
         [self.numberOfReviews removeFromSuperview];
         [self.tastingNotes removeFromSuperview];
