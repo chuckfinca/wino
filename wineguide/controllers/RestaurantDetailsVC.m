@@ -72,7 +72,7 @@
     
     int index = 0;
     for(Group *group in self.fetchedResultsController.fetchedObjects){
-        [self.segmentedControl insertSegmentWithTitle:[group.name capitalizedString] atIndex:index animated:YES];
+        [self.segmentedControl insertSegmentWithTitle:[group.name capitalizedString] atIndex:index animated:NO];
         if(index < 3 && index < [self.fetchedResultsController.fetchedObjects count]){
             index++;
         } else {
