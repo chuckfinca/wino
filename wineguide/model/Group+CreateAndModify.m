@@ -95,7 +95,6 @@
     [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
     
     // Wines
-    NSLog(@"groups wine ids = %@",identifiers[WINE_IDENTIFIERS]);
     WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIERS]];
     [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
 }

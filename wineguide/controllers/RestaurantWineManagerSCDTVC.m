@@ -76,7 +76,6 @@
 
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
-    NSLog(@"Wines setupFetchedResultsController...");
     if(text){
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"color"
@@ -144,14 +143,8 @@
 -(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1){
-        NSLog(@"creating new wineUnit and linking it to the appropriate group");
-        NSLog(@"wine.name = %@",self.selectedWine.name);
         [self addWine:self.selectedWine];
         [self.navigationController popViewControllerAnimated:YES];
-        // for each wine that is selected we need to
-        // get or create the appropriate wine unit
-        // add the right group to the wine unit
-        // if the wine isn't in the all group it need to be added there as well
         
     } else {
         [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
@@ -176,7 +169,6 @@
     
     NSError *error;
     NSArray *allGroupArray = [self.context executeFetchRequest:request error:&error];
-    NSLog(@"allGroup count = %lu",(unsigned long)[allGroupArray count]);
     Group *allGroup = (Group *)[allGroupArray firstObject];
     
     if(![allGroup.wines containsObject:wine]){
@@ -188,31 +180,5 @@
     [alert show];
     
 }
-
-/*
- 
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // NSLog(@"prepareForSegue...");
- if([sender isKindOfClass:[UITableViewCell class]]){
- 
- UITableViewCell *tvc = (UITableViewCell *)sender;
- NSIndexPath *indexPath = [self.tableView indexPathForCell:tvc];
- 
- if(indexPath){
- if([segue.destinationViewController isKindOfClass:[WineCDTVC class]]){
- 
- // Get the new view controller using [segue destinationViewController].
- WineCDTVC *wineCDTVC = (WineCDTVC *)segue.destinationViewController;
- 
- // Pass the selected object to the new view controller.
- Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
- [wineCDTVC setupWithWine:wine fromRestaurant:nil];
- }
- }
- }
- }
- 
- */
 
 @end

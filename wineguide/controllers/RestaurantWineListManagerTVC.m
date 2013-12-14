@@ -79,7 +79,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"section = %i",section);
     if(section == 0){
         return [self.managedObjects count];
     } else {
@@ -94,7 +93,6 @@
     // NSLog(@"cellForRowAtIndexPath...");
     UITableViewCell *cell = nil;
     NSString *cellIdentifier;
-    NSLog(@"indexPath = %@",indexPath);
     
     if([indexPath isEqual: [NSIndexPath indexPathForItem:0 inSection:1]]){
         cellIdentifier = @"AddWineCell";
@@ -133,7 +131,6 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.destinationViewController isKindOfClass:[RestaurantWineManagerSCDTVC class]]){
-        NSLog(@"prepareForSegue");
         RestaurantWineManagerSCDTVC *rwm = (RestaurantWineManagerSCDTVC *)segue.destinationViewController;
         rwm.group = self.group;
     }
@@ -191,16 +188,13 @@
 
 -(void)deleteFromListManagedObject:(id)managedObject
 {
-    NSLog(@"deleteFromListManagedObject...");
     if([managedObject isKindOfClass:[Wine class]]){
         
         // remove the Group from the WineUnit
         Wine *w = (Wine *)managedObject;
-        NSLog(@"w.groups = %@",w.groups);
         NSMutableSet *groups = [w.groups mutableCopy];
         [groups removeObject:self.group];
         w.groups = groups;
-        NSLog(@"w.groups = %@",w.groups);
         
         NSString *groupIdentifiers = [w.groupIdentifiers stringByReplacingOccurrencesOfString:self.group.identifier withString:@""];
         groupIdentifiers = [groupIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
@@ -210,18 +204,13 @@
         
         
         // remove the WineUnit from the Group
-        NSLog(@"wineIdentifiers = %@",self.group.wineIdentifiers);
         NSMutableSet *wines = [self.group.wines mutableCopy];
-        NSLog(@"w = %@",w);
-        [wines containsObject:w] ? NSLog(@"y") : NSLog(@"n");
         [wines removeObject:w];
         self.group.wines = wines;
-        NSLog(@"wineIdentifiers = %@",self.group.wineIdentifiers);
         
         NSString *wineIdentifiers = [self.group.wineIdentifiers stringByReplacingOccurrencesOfString:w.identifier withString:@""];
         wineIdentifiers = [wineIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
         self.group.wineIdentifiers = wineIdentifiers;
-        NSLog(@"context parent = %@",self.context.parentContext);
         
         self.group.lastServerUpdate = [NSDate date];
     }

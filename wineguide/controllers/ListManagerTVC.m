@@ -100,7 +100,6 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    NSLog(@"moveRowAtIndexPath");
     if(toIndexPath.row < [self.managedObjects count]){
         NSManagedObject *mo = [self.managedObjects objectAtIndex:fromIndexPath.row];
         [self.managedObjects removeObject:self.managedObjects[fromIndexPath.row]];
@@ -110,7 +109,6 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"canEditRowAtIndexPath");
     [self.textField resignFirstResponder];
     
     // Return NO if you do not want the specified item to be editable.
@@ -124,7 +122,6 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"commitEditingStyle");
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         self.managedObjectToDelete = self.managedObjects[indexPath.row];
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];

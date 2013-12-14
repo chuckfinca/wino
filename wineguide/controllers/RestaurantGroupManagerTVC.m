@@ -206,7 +206,6 @@
         
         // Delete group relationships and mark as deleted
         Group *group = (Group *)managedObject;
-        NSLog(@"marked as deletedEntity %@",group.identifier);
         group.deletedEntity = @YES;
         group.restaurantIdentifier = nil;
         group.restaurant = nil;
@@ -214,17 +213,13 @@
         
         // Delete restaurant relationship and mark as deleted
         NSMutableSet *groups = [self.restaurant.groups mutableCopy];
-        NSLog(@"self.restaurant.groups count before %lu",(unsigned long)[self.restaurant.groups count]);
         [groups removeObject:group];
         self.restaurant.groups = groups;
-        NSLog(@"self.restaurant.groups count after %lu",(unsigned long)[self.restaurant.groups count]);
         
         NSString *groupIdentifiers = self.restaurant.groupIdentifiers;
-        NSLog(@"groupIdentifiers length before %lu",(unsigned long)[self.restaurant.groupIdentifiers length]);
         groupIdentifiers = [groupIdentifiers stringByReplacingOccurrencesOfString:group.identifier withString:@""];
         groupIdentifiers = [groupIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
         self.restaurant.groupIdentifiers = groupIdentifiers;
-        NSLog(@"groupIdentifiers length after %lu",(unsigned long)[self.restaurant.groupIdentifiers length]);
         
         self.restaurant.lastServerUpdate = [NSDate date];
     }
