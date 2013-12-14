@@ -73,6 +73,9 @@
 		C95A2CD2185BEC3B0043ECB0 /* button_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CD0185BEC3B0043ECB0 /* button_triedIt@2x.png */; };
 		C95A2CD5185BF11A0043ECB0 /* button_favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CD3185BF11A0043ECB0 /* button_favorite.png */; };
 		C95A2CD6185BF11A0043ECB0 /* button_favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CD4185BF11A0043ECB0 /* button_favorite@2x.png */; };
+		C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A2CD8185BF8360043ECB0 /* WineNameVHTV.m */; };
+		C95A2CDC185C02300043ECB0 /* button_favorited.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDA185C02300043ECB0 /* button_favorited.png */; };
+		C95A2CDD185C02300043ECB0 /* button_favorited@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDB185C02300043ECB0 /* button_favorited@2x.png */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -247,6 +250,10 @@
 		C95A2CD0185BEC3B0043ECB0 /* button_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_triedIt@2x.png"; path = "images/button_triedIt@2x.png"; sourceTree = "<group>"; };
 		C95A2CD3185BF11A0043ECB0 /* button_favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_favorite.png; path = images/button_favorite.png; sourceTree = "<group>"; };
 		C95A2CD4185BF11A0043ECB0 /* button_favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_favorite@2x.png"; path = "images/button_favorite@2x.png"; sourceTree = "<group>"; };
+		C95A2CD7185BF8360043ECB0 /* WineNameVHTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineNameVHTV.h; path = views/WineNameVHTV.h; sourceTree = "<group>"; };
+		C95A2CD8185BF8360043ECB0 /* WineNameVHTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineNameVHTV.m; path = views/WineNameVHTV.m; sourceTree = "<group>"; };
+		C95A2CDA185C02300043ECB0 /* button_favorited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_favorited.png; path = images/button_favorited.png; sourceTree = "<group>"; };
+		C95A2CDB185C02300043ECB0 /* button_favorited@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_favorited@2x.png"; path = "images/button_favorited@2x.png"; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -505,8 +512,6 @@
 				C9061E41181F2865003D8A55 /* VariableHeightTV.m */,
 				C9C7D5ED183FE6E400A2E955 /* RestaurantDetailsVHTV.h */,
 				C9C7D5EE183FE6E400A2E955 /* RestaurantDetailsVHTV.m */,
-				C9C7D5F0183FEA7E00A2E955 /* WineDetailsVHTV.h */,
-				C9C7D5F1183FEA7E00A2E955 /* WineDetailsVHTV.m */,
 				C9ACC7D9184E892400E5945D /* WineCell.h */,
 				C9ACC7DA184E892400E5945D /* WineCell.m */,
 				C9C6A21118569A9E00CFBBD5 /* AddGroupCell.h */,
@@ -517,6 +522,10 @@
 				C95A2CBE185A31980043ECB0 /* SpringyFlowLayout.m */,
 				C95A2CC4185B87930043ECB0 /* RestaurantGroupCell.h */,
 				C95A2CC5185B87930043ECB0 /* RestaurantGroupCell.m */,
+				C95A2CD7185BF8360043ECB0 /* WineNameVHTV.h */,
+				C95A2CD8185BF8360043ECB0 /* WineNameVHTV.m */,
+				C9C7D5F0183FEA7E00A2E955 /* WineDetailsVHTV.h */,
+				C9C7D5F1183FEA7E00A2E955 /* WineDetailsVHTV.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -567,6 +576,8 @@
 				C95A2CD0185BEC3B0043ECB0 /* button_triedIt@2x.png */,
 				C95A2CD3185BF11A0043ECB0 /* button_favorite.png */,
 				C95A2CD4185BF11A0043ECB0 /* button_favorite@2x.png */,
+				C95A2CDA185C02300043ECB0 /* button_favorited.png */,
+				C95A2CDB185C02300043ECB0 /* button_favorited@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -778,10 +789,12 @@
 				C9ACC7D7184E72AB00E5945D /* settings.png in Resources */,
 				C9C7D6361841933900A2E955 /* tutorial_favorites@2x.png in Resources */,
 				C92CAE3418330CC700F29C9B /* group.restaurant.leszygomates.129southstreet.all.json in Resources */,
+				C95A2CDC185C02300043ECB0 /* button_favorited.png in Resources */,
 				C91F59C218457EB800CF7F18 /* Restauranteur_iPhone.storyboard in Resources */,
 				C9061E53181F3CD3003D8A55 /* star_empty.png in Resources */,
 				C9C7D61918401F7100A2E955 /* tab_nearMe@2x.png in Resources */,
 				C95A2CC2185B80070043ECB0 /* visible.png in Resources */,
+				C95A2CDD185C02300043ECB0 /* button_favorited@2x.png in Resources */,
 				C9C7D612184011D100A2E955 /* favorite_y@2x.png in Resources */,
 				C9061E55181F3CD3003D8A55 /* star_half.png in Resources */,
 				C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */,
@@ -893,6 +906,7 @@
 				C9C6A2161857DF1A00CFBBD5 /* TimelineVC.m in Sources */,
 				C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */,
 				C92932D2182AD8E80035C93C /* GroupDataHelper.m in Sources */,
+				C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */,
 				C9061DFB181F07CE003D8A55 /* main.m in Sources */,
 				C92932D5182AD9040035C93C /* WineUnitDataHelper.m in Sources */,
 				C91F59BA184562E600CF7F18 /* InitialPanelsController.m in Sources */,

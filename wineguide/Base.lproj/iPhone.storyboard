@@ -291,16 +291,7 @@
                             <outlet property="delegate" destination="T41-yL-OZa" id="fvs-Gn-Di5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Cml-bN-hJG">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Y3C-hO-GN7">
-                            <connections>
-                                <action selector="favorite:" destination="T41-yL-OZa" id="PFK-gC-Sqf"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="favoriteButton" destination="Y3C-hO-GN7" id="lAU-38-QSk"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="Cml-bN-hJG"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xh-Jn-wIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -33,8 +33,9 @@
         
         UITextView *tv = [[UITextView alloc] init];
         tv.attributedText = attributedText;
+        tv.textContainerInset = UIEdgeInsetsMake(0, 10, 0, 10);
         
-        CGSize tvSize = [tv sizeThatFits:CGSizeMake(self.bounds.size.width, 999999)];
+        CGSize tvSize = [tv sizeThatFits:CGSizeMake(self.bounds.size.width, FLT_MAX)];
         
         float height = tvSize.height > minimumHeight ? tvSize.height : minimumHeight;
         

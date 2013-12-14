@@ -30,36 +30,15 @@
 -(void)setupTextViewWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
 {
     NSString *textViewString = @"";
-    NSRange nameRange = NSMakeRange(0, 0);
-    NSRange vintageRange = NSMakeRange(0, 0);
-    NSRange varietalRange = NSMakeRange(0, 0);
+    
     NSRange regionRange = NSMakeRange(0, 0);
     NSRange countryRange = NSMakeRange(0, 0);
     NSRange vineyardRange = NSMakeRange(0, 0);
     NSRange restaurantRange = NSMakeRange(0, 0);
     
-    if(wine.name){
-        nameRange = NSMakeRange([textViewString length], [wine.name length]);
-        textViewString = [textViewString stringByAppendingString:[wine.name capitalizedString]];
-    }
-    if(wine.vintage){
-        NSString *vintageString = [wine.vintage stringValue];
-        vintageRange = NSMakeRange([textViewString length], [vintageString length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",[vintageString capitalizedString]]];
-    }
-    if(wine.varietals){
-        NSString *varietalsString = @" - ";
-        NSArray *varietals = [wine.varietals sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-        for(Varietal *varietal in varietals){
-            varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
-        }
-        varietalsString = [varietalsString substringToIndex:[varietalsString length]-2];
-        varietalRange = NSMakeRange([textViewString length]+1, [varietalsString length]);
-        textViewString = [textViewString stringByAppendingString:[varietalsString capitalizedString]];
-    }
     if(wine.region){
         regionRange = NSMakeRange([textViewString length]+1, [wine.region length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",[wine.region capitalizedString]]];
+        textViewString = [textViewString stringByAppendingString:[wine.region capitalizedString]];
     }
     if(wine.country){
         if(wine.region){
@@ -110,9 +89,6 @@
     [self.textStorage addAttribute:NSForegroundColorAttributeName
                              value:[ColorSchemer sharedInstance].textPrimary
                              range:NSMakeRange(0, [self.textStorage length])];
-    [self.textStorage addAttribute:NSFontAttributeName
-                                        value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
-                                        range:nameRange];
     [self.textStorage addAttribute:NSForegroundColorAttributeName
                                         value:[ColorSchemer sharedInstance].textSecondary
                                         range:restaurantRange];

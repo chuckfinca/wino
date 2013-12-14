@@ -17,7 +17,6 @@
 @property (nonatomic, strong) Restaurant *restaurant;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *favoriteButton;
 
 @end
 
@@ -36,7 +35,6 @@
 {
     [super viewDidLoad];
     self.tableView.tableHeaderView = self.wineDetailsViewController.view;
-    [self setupFavoriteButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -131,27 +129,7 @@
 }
 
 
-#pragma mark - Favorites
 
--(void)setupFavoriteButton
-{
-    if([self.wine.favorite boolValue] == YES){
-        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_y.png"]];
-    } else {
-        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_n.png"]];
-    }
-}
-
--(IBAction)favorite:(UIBarButtonItem *)sender
-{
-    if([self.wine.favorite boolValue] == YES){
-        self.wine.favorite = @NO;
-        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_n.png"]];
-    } else {
-        self.wine.favorite = @YES;
-        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_y.png"]];
-    }
-}
 
 
 @end

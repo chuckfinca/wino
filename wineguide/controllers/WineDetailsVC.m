@@ -8,6 +8,7 @@
 
 #import "WineDetailsVC.h"
 #import "WineDetailsVHTV.h"
+#import "WineNameVHTV.h"
 #import "Brand.h"
 #import "ColorSchemer.h"
 
@@ -16,7 +17,9 @@
 @property (nonatomic, weak) Wine *wine;
 @property (nonatomic, weak) Restaurant *restaurant;
 @property (nonatomic, weak) IBOutlet WineDetailsVHTV *wineDetailsVHTV;
+@property (nonatomic, weak) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (nonatomic, weak) IBOutlet UILabel *numReviewsLabel;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 
 @end
 
@@ -36,6 +39,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self setupFavoriteButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,6 +63,7 @@
 
 -(void)setupTextForWine:(Wine *)wine
 {
+    [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:self.restaurant];
     [self.wineDetailsVHTV setupTextViewWithWine:wine fromRestaurant:self.restaurant];
 }
 
@@ -68,6 +73,34 @@
     NSAttributedString *reviewsAS = [[NSAttributedString alloc] initWithString:reviewsText attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     self.numReviewsLabel.attributedText = reviewsAS;
 }
+
+
+#pragma mark - Favorites
+
+-(void)setupFavoriteButton
+{
+    if([self.wine.favorite boolValue] == YES){
+        [self.favoriteButton setImage:[UIImage imageNamed:@"button_favorited.png"] forState:UIControlStateNormal];
+    } else {
+        [self.favoriteButton setImage:[UIImage imageNamed:@"button_favorite.png"] forState:UIControlStateNormal];
+    }
+}
+
+
+
+- (IBAction)favoriteWine:(UIButton *)sender
+{
+    
+    if([self.wine.favorite boolValue] == YES){
+        self.wine.favorite = @NO;
+        [self.favoriteButton setImage:[UIImage imageNamed:@"button_favorite.png"] forState:UIControlStateNormal];
+    } else {
+        self.wine.favorite = @YES;
+        [self.favoriteButton setImage:[UIImage imageNamed:@"button_favorited.png"] forState:UIControlStateNormal];
+    }
+}
+
+
 
 -(void)logDetails
 {
