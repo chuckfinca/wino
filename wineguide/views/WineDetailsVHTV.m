@@ -31,48 +31,8 @@
 {
     NSString *textViewString = @"";
     
-    NSRange regionRange = NSMakeRange(0, 0);
-    NSRange countryRange = NSMakeRange(0, 0);
-    NSRange vineyardRange = NSMakeRange(0, 0);
-    NSRange restaurantRange = NSMakeRange(0, 0);
-    
-    if(wine.region){
-        regionRange = NSMakeRange([textViewString length]+1, [wine.region length]);
-        textViewString = [textViewString stringByAppendingString:[wine.region capitalizedString]];
-    }
-    if(wine.country){
-        if(wine.region){
-            textViewString = [textViewString stringByAppendingString:@", "];
-        } else {
-            textViewString = [textViewString stringByAppendingString:@"\n"];
-        }
-        countryRange = NSMakeRange([textViewString length]+1, [wine.country length]);
-        textViewString = [textViewString stringByAppendingString:[wine.country capitalizedString]];
-    }
-    if(wine.vineyard){
-        vineyardRange = NSMakeRange([textViewString length]+1, [wine.vineyard length]);
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",[wine.vineyard capitalizedString]]];
-    }
-    if(wine.alcoholPercentage){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@%% alcohol",[wine.alcoholPercentage stringValue]]];
-    }
-    if(restaurant){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY restaurantIdentifier == %@",restaurant.identifier];
-        NSSet *wineUnits = [wine.wineUnits filteredSetUsingPredicate:predicate];
-        if(wineUnits){
-            
-            NSString * wineUnitsString = @"\n\n";
-            for(WineUnit *wineUnit in wineUnits){
-                wineUnitsString = [wineUnitsString stringByAppendingString:[NSString stringWithFormat:@"$%@ %@, ",[wineUnit.price stringValue],wineUnit.quantity]];
-            }
-            wineUnitsString = [wineUnitsString substringToIndex:[wineUnitsString length]-2];
-            textViewString = [textViewString stringByAppendingString:wineUnitsString];
-            restaurantRange = NSMakeRange([textViewString length], [restaurant.name length]+3);
-            textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@" @ %@",[restaurant.name capitalizedString]]];
-        }
-    }
     if(wine.tastingNotes){
-        NSString *tastingNotesString = @"\n\nTasting notes: ";
+        NSString *tastingNotesString = @"Tasting notes: ";
         NSArray *tastingNotes = [wine.tastingNotes sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
         for(TastingNote *tastingNote in tastingNotes){
             tastingNotesString = [tastingNotesString stringByAppendingString:[NSString stringWithFormat:@"%@, ",tastingNote.name]];
@@ -89,9 +49,6 @@
     [self.textStorage addAttribute:NSForegroundColorAttributeName
                              value:[ColorSchemer sharedInstance].textPrimary
                              range:NSMakeRange(0, [self.textStorage length])];
-    [self.textStorage addAttribute:NSForegroundColorAttributeName
-                                        value:[ColorSchemer sharedInstance].textSecondary
-                                        range:restaurantRange];
     
     [self setHeightConstraintForAttributedText:self.textStorage andMinimumHeight:V_HEIGHT];
     

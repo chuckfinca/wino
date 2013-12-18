@@ -20,6 +20,7 @@
 @property (nonatomic, weak) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (nonatomic, weak) IBOutlet UILabel *numReviewsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (weak, nonatomic) IBOutlet UILabel *numFriendsLabel;
 
 @end
 
@@ -30,7 +31,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 240);
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 300);
     }
     return self;
 }
@@ -59,6 +60,7 @@
     [self setupFavoriteButton];
     
     [self setupReviewsLabel];
+    [self setupNumFriendsLabel];
 }
 
 -(void)setupTextForWine:(Wine *)wine
@@ -72,6 +74,31 @@
     NSString *reviewsText = @"11 reviews";
     NSAttributedString *reviewsAS = [[NSAttributedString alloc] initWithString:reviewsText attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     self.numReviewsLabel.attributedText = reviewsAS;
+}
+
+-(void)setupNumFriendsLabel
+{
+    NSString *youAndString = @"";
+    if([self.wine.favorite boolValue] == YES){
+        youAndString = @" you &";
+    }
+    
+    int r = arc4random_uniform(10) + 1;
+    NSMutableAttributedString *numFriendsAttributedText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"+%@ %i friends liked this",youAndString,r] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+    
+    if([self.wine.favorite boolValue] == YES){
+        [numFriendsAttributedText addAttribute:NSForegroundColorAttributeName
+                                         value:[ColorSchemer sharedInstance].textLink
+                                         range:NSMakeRange(2, 3)];
+        
+        UIFontDescriptor *fontDesciptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleFootnote];
+        UIFontDescriptor *boldFontDescriptor = [fontDesciptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
+        
+        [numFriendsAttributedText addAttribute:NSFontAttributeName
+                                         value:[UIFont fontWithDescriptor:boldFontDescriptor size:0]
+                                         range:NSMakeRange(2, 3)];
+    }
+    self.numFriendsLabel.attributedText = numFriendsAttributedText;
 }
 
 

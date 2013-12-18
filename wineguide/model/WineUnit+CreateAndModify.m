@@ -60,6 +60,7 @@
             // store any information about relationships provided
             
             NSString *restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
+            NSLog(@"restaurantIdentifier = %@",restaurantIdentifier);
             wineUnit.restaurantIdentifier = restaurantIdentifier;
             if(restaurantIdentifier) [identifiers setObject:restaurantIdentifier forKey:RESTAURANT_IDENTIFIER];
             
@@ -80,7 +81,7 @@
         [wineUnit updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
-    //[wineUnit logDetails];
+    [wineUnit logDetails];
     
     return wineUnit;
 }
