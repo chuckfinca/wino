@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *star3;
 @property (weak, nonatomic) IBOutlet UIImageView *star4;
 @property (weak, nonatomic) IBOutlet UIImageView *star5;
-@property (weak, nonatomic) IBOutlet UIImageView *favoriteImageView;
+@property (weak, nonatomic) IBOutlet UILabel *numFriendsLabel;
 
 @end
 @implementation WineCell
@@ -81,10 +81,32 @@
     }
     self.vintageAndVarietals.attributedText = [[NSAttributedString alloc] initWithString:vintageAndVarietals attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     
-    if(self.showReviewsAndTastingNotes){
+    if(!self.abridged){
         
         int r = arc4random_uniform(50) + 1;
         self.numberOfReviews.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%i reviews",r] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+        
+        NSString *youAndString = @"";
+        if([self.wine.favorite boolValue] == YES){
+            youAndString = @" you &";
+        }
+        
+        r = arc4random_uniform(10) + 1;
+        NSMutableAttributedString *numFriendsAttributedText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"+%@ %i friends liked this",youAndString,r] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+        
+        if([self.wine.favorite boolValue] == YES){
+            [numFriendsAttributedText addAttribute:NSForegroundColorAttributeName
+                                             value:[ColorSchemer sharedInstance].textLink
+                                             range:NSMakeRange(2, 3)];
+            
+            UIFontDescriptor *fontDesciptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleFootnote];
+            UIFontDescriptor *boldFontDescriptor = [fontDesciptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
+
+            [numFriendsAttributedText addAttribute:NSFontAttributeName
+                                             value:[UIFont fontWithDescriptor:boldFontDescriptor size:0]
+                                             range:NSMakeRange(2, 3)];
+        }
+        self.numFriendsLabel.attributedText = numFriendsAttributedText;
         
         NSString *tastingNotesString = @"";
         if(wine.tastingNotes){
@@ -96,12 +118,6 @@
         }
         self.tastingNotes.attributedText = [[NSAttributedString alloc] initWithString:tastingNotesString attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
         
-        if([self.wine.favorite boolValue] == YES){
-            self.favoriteImageView.hidden = NO;
-        } else {
-            self.favoriteImageView.hidden = YES;
-        }
-        
     } else {
         [self.numberOfReviews removeFromSuperview];
         [self.tastingNotes removeFromSuperview];
@@ -110,7 +126,6 @@
         [self.star3 removeFromSuperview];
         [self.star4 removeFromSuperview];
         [self.star5 removeFromSuperview];
-        self.favoriteImageView.hidden = YES;
     }
     
 }

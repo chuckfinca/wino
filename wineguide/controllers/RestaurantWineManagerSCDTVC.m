@@ -112,6 +112,7 @@
     
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell setupCellForWine:wine];
+    cell.abridged = YES;
     
     return cell;
 }

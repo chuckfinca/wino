@@ -153,7 +153,6 @@ typedef enum {
     
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.showReviewsAndTastingNotes = YES;
     [cell setupCellForWine:wine];
     
     return cell;
@@ -174,7 +173,7 @@ typedef enum {
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 150;
 }
 
 /*
