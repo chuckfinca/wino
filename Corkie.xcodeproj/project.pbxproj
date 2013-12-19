@@ -163,22 +163,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C9061DEB181F07CE003D8A55 /* Gimme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gimme.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9061DEB181F07CE003D8A55 /* Corkie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Corkie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9061DEE181F07CE003D8A55 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9061DF0181F07CE003D8A55 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C9061DF2181F07CE003D8A55 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C9061DF6181F07CE003D8A55 /* Gimme-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Gimme-Info.plist"; sourceTree = "<group>"; };
+		C9061DF6181F07CE003D8A55 /* Corkie-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Corkie-Info.plist"; sourceTree = "<group>"; };
 		C9061DF8181F07CE003D8A55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9061DFA181F07CE003D8A55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C9061DFC181F07CE003D8A55 /* Gimme-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gimme-Prefix.pch"; sourceTree = "<group>"; };
+		C9061DFC181F07CE003D8A55 /* Corkie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Corkie-Prefix.pch"; sourceTree = "<group>"; };
 		C9061DFD181F07CE003D8A55 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9061DFE181F07CE003D8A55 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C9061E01181F07CE003D8A55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone.storyboard; sourceTree = "<group>"; };
 		C9061E04181F07CE003D8A55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPad.storyboard; sourceTree = "<group>"; };
 		C9061E09181F07CE003D8A55 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C9061E0F181F07CE003D8A55 /* GimmeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GimmeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9061E0F181F07CE003D8A55 /* CorkieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorkieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9061E10181F07CE003D8A55 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		C9061E18181F07CE003D8A55 /* GimmeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GimmeTests-Info.plist"; sourceTree = "<group>"; };
+		C9061E18181F07CE003D8A55 /* CorkieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CorkieTests-Info.plist"; sourceTree = "<group>"; };
 		C9061E1A181F07CE003D8A55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9061E1C181F07CE003D8A55 /* wineguideTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wineguideTests.m; sourceTree = "<group>"; };
 		C9061E2E181F1C9C003D8A55 /* RestaurantsSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantsSCDTVC.h; path = controllers/RestaurantsSCDTVC.h; sourceTree = "<group>"; };
@@ -420,8 +420,8 @@
 		C9061DEC181F07CE003D8A55 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C9061DEB181F07CE003D8A55 /* Gimme.app */,
-				C9061E0F181F07CE003D8A55 /* GimmeTests.xctest */,
+				C9061DEB181F07CE003D8A55 /* Corkie.app */,
+				C9061E0F181F07CE003D8A55 /* CorkieTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -461,10 +461,10 @@
 				C9061E4F181F3CC2003D8A55 /* images */,
 				C9061DFD181F07CE003D8A55 /* AppDelegate.h */,
 				C9061DFE181F07CE003D8A55 /* AppDelegate.m */,
-				C9061DF6181F07CE003D8A55 /* Gimme-Info.plist */,
+				C9061DF6181F07CE003D8A55 /* Corkie-Info.plist */,
 				C9061DF7181F07CE003D8A55 /* InfoPlist.strings */,
 				C9061DFA181F07CE003D8A55 /* main.m */,
-				C9061DFC181F07CE003D8A55 /* Gimme-Prefix.pch */,
+				C9061DFC181F07CE003D8A55 /* Corkie-Prefix.pch */,
 				C92DF00518247082009DCB2C /* NSDictionary+Helper.h */,
 				C92DF00618247082009DCB2C /* NSDictionary+Helper.m */,
 				C92CADCB1832B12100F29C9B /* IterationCounter.h */,
@@ -485,7 +485,7 @@
 		C9061E17181F07CE003D8A55 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C9061E18181F07CE003D8A55 /* GimmeTests-Info.plist */,
+				C9061E18181F07CE003D8A55 /* CorkieTests-Info.plist */,
 				C9061E19181F07CE003D8A55 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -748,9 +748,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C9061DEA181F07CE003D8A55 /* Gimme */ = {
+		C9061DEA181F07CE003D8A55 /* Corkie */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9061E20181F07CE003D8A55 /* Build configuration list for PBXNativeTarget "Gimme" */;
+			buildConfigurationList = C9061E20181F07CE003D8A55 /* Build configuration list for PBXNativeTarget "Corkie" */;
 			buildPhases = (
 				C9061DE7181F07CE003D8A55 /* Sources */,
 				C9061DE8181F07CE003D8A55 /* Frameworks */,
@@ -760,14 +760,14 @@
 			);
 			dependencies = (
 			);
-			name = Gimme;
+			name = Corkie;
 			productName = wineguide;
-			productReference = C9061DEB181F07CE003D8A55 /* Gimme.app */;
+			productReference = C9061DEB181F07CE003D8A55 /* Corkie.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C9061E0E181F07CE003D8A55 /* GimmeTests */ = {
+		C9061E0E181F07CE003D8A55 /* CorkieTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9061E23181F07CE003D8A55 /* Build configuration list for PBXNativeTarget "GimmeTests" */;
+			buildConfigurationList = C9061E23181F07CE003D8A55 /* Build configuration list for PBXNativeTarget "CorkieTests" */;
 			buildPhases = (
 				C9061E0B181F07CE003D8A55 /* Sources */,
 				C9061E0C181F07CE003D8A55 /* Frameworks */,
@@ -778,9 +778,9 @@
 			dependencies = (
 				C9061E15181F07CE003D8A55 /* PBXTargetDependency */,
 			);
-			name = GimmeTests;
+			name = CorkieTests;
 			productName = wineguideTests;
-			productReference = C9061E0F181F07CE003D8A55 /* GimmeTests.xctest */;
+			productReference = C9061E0F181F07CE003D8A55 /* CorkieTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -800,7 +800,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C9061DE6181F07CE003D8A55 /* Build configuration list for PBXProject "Gimme" */;
+			buildConfigurationList = C9061DE6181F07CE003D8A55 /* Build configuration list for PBXProject "Corkie" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -813,8 +813,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C9061DEA181F07CE003D8A55 /* Gimme */,
-				C9061E0E181F07CE003D8A55 /* GimmeTests */,
+				C9061DEA181F07CE003D8A55 /* Corkie */,
+				C9061E0E181F07CE003D8A55 /* CorkieTests */,
 			);
 		};
 /* End PBXProject section */
@@ -992,7 +992,7 @@
 /* Begin PBXTargetDependency section */
 		C9061E15181F07CE003D8A55 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C9061DEA181F07CE003D8A55 /* Gimme */;
+			target = C9061DEA181F07CE003D8A55 /* Corkie */;
 			targetProxy = C9061E14181F07CE003D8A55 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1131,10 +1131,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "wineguide/Gimme-Prefix.pch";
-				INFOPLIST_FILE = "wineguide/Gimme-Info.plist";
+				GCC_PREFIX_HEADER = "wineguide/Corkie-Prefix.pch";
+				INFOPLIST_FILE = "wineguide/Corkie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = Gimme;
+				PRODUCT_NAME = Corkie;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1148,10 +1148,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "wineguide/Gimme-Prefix.pch";
-				INFOPLIST_FILE = "wineguide/Gimme-Info.plist";
+				GCC_PREFIX_HEADER = "wineguide/Corkie-Prefix.pch";
+				INFOPLIST_FILE = "wineguide/Corkie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = Gimme;
+				PRODUCT_NAME = Corkie;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1173,8 +1173,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "wineguideTests/GimmeTests-Info.plist";
-				PRODUCT_NAME = GimmeTests;
+				INFOPLIST_FILE = "wineguideTests/CorkieTests-Info.plist";
+				PRODUCT_NAME = CorkieTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1192,8 +1192,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wineguide/wineguide-Prefix.pch";
-				INFOPLIST_FILE = "wineguideTests/GimmeTests-Info.plist";
-				PRODUCT_NAME = GimmeTests;
+				INFOPLIST_FILE = "wineguideTests/CorkieTests-Info.plist";
+				PRODUCT_NAME = CorkieTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1202,7 +1202,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C9061DE6181F07CE003D8A55 /* Build configuration list for PBXProject "Gimme" */ = {
+		C9061DE6181F07CE003D8A55 /* Build configuration list for PBXProject "Corkie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9061E1E181F07CE003D8A55 /* Debug */,
@@ -1211,7 +1211,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9061E20181F07CE003D8A55 /* Build configuration list for PBXNativeTarget "Gimme" */ = {
+		C9061E20181F07CE003D8A55 /* Build configuration list for PBXNativeTarget "Corkie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9061E21181F07CE003D8A55 /* Debug */,
@@ -1220,7 +1220,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9061E23181F07CE003D8A55 /* Build configuration list for PBXNativeTarget "GimmeTests" */ = {
+		C9061E23181F07CE003D8A55 /* Build configuration list for PBXNativeTarget "CorkieTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9061E24181F07CE003D8A55 /* Debug */,
