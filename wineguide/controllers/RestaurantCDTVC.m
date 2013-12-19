@@ -141,19 +141,6 @@ typedef enum {
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"color"
                                                                                    cacheName:nil];
-    [self setTEMPORARYratings];
-}
-
--(void)setTEMPORARYratings
-{
-    NSMutableArray *temporaryRatings = [[NSMutableArray alloc] init];
-    for(id obj in self.fetchedResultsController.fetchedObjects){
-        // temporary rating generator
-        float rating = arc4random_uniform(11) + 1;
-        rating = rating/2;
-        [temporaryRatings addObject:@(rating)];
-    }
-    self.tEMPORARYratings = temporaryRatings;
 }
 
 -(void)logFetchResultsForController:(NSFetchedResultsController *)frc
@@ -168,13 +155,18 @@ typedef enum {
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"indexPath = %@",indexPath);
+    NSLog(@"row = %i",indexPath.row);
     WineCell *cell = [tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
     
+    [cell.ratingsCollectionView resetCollectionView];
     cell.ratingsCollectionView.delegate = self;
     cell.ratingsCollectionView.dataSource = self;
     cell.ratingsCollectionView.index = indexPath.row;
+    NSLog(@"index = %i",cell.ratingsCollectionView.index);
     [cell.ratingsCollectionView registerNib:[UINib nibWithNibName:@"RatingsCVC" bundle:nil] forCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL];
     
+    [cell.reviewersCollectionView resetCollectionView];
     cell.reviewersCollectionView.delegate = self;
     cell.reviewersCollectionView.dataSource = self;
     cell.reviewersCollectionView.index = indexPath.row;
@@ -316,7 +308,6 @@ typedef enum {
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = nil;
-    
     if(collectionView.tag == RatingsCollectionView){
         
         RatingsReusableView *ratingsCell = (RatingsReusableView *)[collectionView dequeueReusableCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
@@ -335,6 +326,26 @@ typedef enum {
     }
     
     return cell;
+}
+
+-(NSArray *)tEMPORARYratings{
+    if(!_tEMPORARYratings) {
+        if([self.fetchedResultsController.fetchedObjects count] > 0){
+            
+            NSMutableArray *temporaryRatings = [[NSMutableArray alloc] init];
+            for(id obj in self.fetchedResultsController.fetchedObjects){
+                // temporary rating generator
+                float rating = arc4random_uniform(11) + 1;
+                rating = rating/2;
+                [temporaryRatings addObject:@(rating)];
+            }
+            _tEMPORARYratings = temporaryRatings;
+            NSLog(@"temporaryRatings = %@",temporaryRatings);
+        } else {
+            return nil;
+        }
+    }
+    return _tEMPORARYratings;
 }
 
 #pragma mark - UICollectionViewDelegate

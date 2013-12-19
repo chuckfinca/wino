@@ -12,4 +12,6 @@
 
 @property (nonatomic) int index;
 
+-(void)resetCollectionView;
+
 @end

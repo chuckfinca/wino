@@ -23,6 +23,8 @@
 -(void)setupImageViewForGlassNumber:(int)glassNumber andRating:(float)rating
 {
     UIImage *glass;
+    NSLog(@"glassNumber = %i",glassNumber);
+    NSLog(@"rating = %f",rating);
     if(rating - glassNumber >= 1){
         glass = [UIImage imageNamed:@"glass_full.png"];
     } else if(rating - glassNumber > 0){
