@@ -31,12 +31,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tasting notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4V-62-xPI">
-                    <rect key="frame" x="20" y="131" width="280" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 6 liked this" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="162" translatesAutoresizingMaskIntoConstraints="NO" id="SyG-FI-wkG">
                     <rect key="frame" x="130" y="93" width="162" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -76,17 +70,14 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Y4V-62-xPI" firstAttribute="top" secondItem="z1V-44-gbk" secondAttribute="bottom" constant="8" id="1Yz-Uu-fDG"/>
                 <constraint firstItem="2h6-HV-tAu" firstAttribute="centerY" secondItem="QkO-GG-F6J" secondAttribute="centerY" id="2xI-o0-3Nz"/>
                 <constraint firstItem="QkO-GG-F6J" firstAttribute="top" secondItem="dOi-d1-Suz" secondAttribute="bottom" constant="8" symbolic="YES" id="2yX-Bi-khQ"/>
                 <constraint firstItem="SyG-FI-wkG" firstAttribute="leading" secondItem="z1V-44-gbk" secondAttribute="trailing" constant="8" id="5rY-yb-JPO"/>
-                <constraint firstItem="Y4V-62-xPI" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="7Jv-HH-r0l"/>
                 <constraint firstAttribute="trailing" secondItem="5Xe-51-zAi" secondAttribute="trailing" constant="28" id="DH3-UX-DLQ"/>
                 <constraint firstItem="dOi-d1-Suz" firstAttribute="top" secondItem="5Xe-51-zAi" secondAttribute="bottom" id="DgG-l1-gSI"/>
                 <constraint firstItem="z1V-44-gbk" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="IVe-Ez-3mr"/>
                 <constraint firstAttribute="trailing" secondItem="2h6-HV-tAu" secondAttribute="trailing" constant="20" id="MXO-u8-eGr"/>
                 <constraint firstItem="z1V-44-gbk" firstAttribute="centerY" secondItem="SyG-FI-wkG" secondAttribute="centerY" id="Rg2-22-UjF"/>
-                <constraint firstAttribute="trailing" secondItem="Y4V-62-xPI" secondAttribute="trailing" constant="20" id="XDg-5e-cpb"/>
                 <constraint firstItem="5Xe-51-zAi" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="bFd-M0-ENQ"/>
                 <constraint firstItem="z1V-44-gbk" firstAttribute="top" secondItem="QkO-GG-F6J" secondAttribute="bottom" constant="8" id="bSY-H9-LOb"/>
                 <constraint firstItem="QkO-GG-F6J" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="c7A-1N-cix"/>
@@ -104,7 +95,6 @@
                 <outlet property="numberOfReviews" destination="2h6-HV-tAu" id="eM7-iz-ich"/>
                 <outlet property="ratingsCollectionView" destination="QkO-GG-F6J" id="VgB-YH-hYO"/>
                 <outlet property="reviewersCollectionView" destination="z1V-44-gbk" id="cig-0H-iEa"/>
-                <outlet property="tastingNotes" destination="Y4V-62-xPI" id="uCj-LB-GSf"/>
                 <outlet property="vintageAndVarietals" destination="dOi-d1-Suz" id="jEo-hq-DDW"/>
             </connections>
         </view>

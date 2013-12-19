@@ -106,8 +106,8 @@
         // Configure the cell...
         Wine *wine = self.managedObjects[indexPath.row];
         
-        [wineCell setupCellForWine:wine];
         wineCell.abridged = YES;
+        [wineCell setupCellForWine:wine];
         
         wineCell.selectionStyle = UITableViewCellSelectionStyleNone;
         

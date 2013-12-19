@@ -19,12 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *vintageAndVarietals;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfReviews;
-@property (weak, nonatomic) IBOutlet UILabel *tastingNotes;
-@property (weak, nonatomic) IBOutlet UIImageView *star1;
-@property (weak, nonatomic) IBOutlet UIImageView *star2;
-@property (weak, nonatomic) IBOutlet UIImageView *star3;
-@property (weak, nonatomic) IBOutlet UIImageView *star4;
-@property (weak, nonatomic) IBOutlet UIImageView *star5;
 @property (weak, nonatomic) IBOutlet UILabel *numFriendsLabel;
 
 @end
@@ -90,7 +84,7 @@
     self.vintageAndVarietals.attributedText = [[NSAttributedString alloc] initWithString:vintageAndVarietals attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     
     if(!self.abridged){
-        
+        NSLog(@"abridged");
         int r = arc4random_uniform(50) + 1;
         self.numberOfReviews.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%i reviews",r] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
         
@@ -116,24 +110,9 @@
         }
         self.numFriendsLabel.attributedText = numFriendsAttributedText;
         
-        NSString *tastingNotesString = @"";
-        if(wine.tastingNotes){
-            NSArray *tastingNotes = [wine.tastingNotes sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-            for(TastingNote *tastingNote in tastingNotes){
-                tastingNotesString = [tastingNotesString stringByAppendingString:[NSString stringWithFormat:@"%@, ",tastingNote.name]];
-            }
-            tastingNotesString = [tastingNotesString substringToIndex:[tastingNotesString length]-2];
-        }
-        self.tastingNotes.attributedText = [[NSAttributedString alloc] initWithString:tastingNotesString attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
-        
     } else {
         [self.numberOfReviews removeFromSuperview];
-        [self.tastingNotes removeFromSuperview];
-        [self.star1 removeFromSuperview];
-        [self.star2 removeFromSuperview];
-        [self.star3 removeFromSuperview];
-        [self.star4 removeFromSuperview];
-        [self.star5 removeFromSuperview];
+        [self.numFriendsLabel removeFromSuperview];
         [self.ratingsCollectionView removeFromSuperview];
         [self.reviewersCollectionView removeFromSuperview];
     }

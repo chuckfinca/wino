@@ -26,7 +26,6 @@
 {
     NSString *textViewString = @"";
     NSRange nameRange = NSMakeRange(0, 0);
-    NSRange addressRange = NSMakeRange(0, 0);
     
     
     if(restaurant.name){
@@ -34,7 +33,6 @@
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[restaurant.name capitalizedString]]];
     }
     if(restaurant.address){
-        addressRange = NSMakeRange([textViewString length]+1, [restaurant.address length]);
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[restaurant.address capitalizedString]]];
     }
     if(restaurant.city){

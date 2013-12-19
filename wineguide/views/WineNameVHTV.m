@@ -31,11 +31,6 @@
 {
     NSString *textViewString = @"";
     NSRange nameRange = NSMakeRange(0, 0);
-    NSRange vintageRange = NSMakeRange(0, 0);
-    NSRange varietalRange = NSMakeRange(0, 0);
-    NSRange regionRange = NSMakeRange(0, 0);
-    NSRange countryRange = NSMakeRange(0, 0);
-    NSRange vineyardRange = NSMakeRange(0, 0);
     NSRange restaurantRange = NSMakeRange(0, 0);
     
     if(wine.name){
@@ -44,7 +39,6 @@
     }
     if(wine.vintage){
         NSString *vintageString = [wine.vintage stringValue];
-        vintageRange = NSMakeRange([textViewString length], [vintageString length]);
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",[vintageString capitalizedString]]];
     }
     if(wine.varietals){
@@ -54,12 +48,10 @@
             varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
         }
         varietalsString = [varietalsString substringToIndex:[varietalsString length]-2];
-        varietalRange = NSMakeRange([textViewString length]+1, [varietalsString length]);
         textViewString = [textViewString stringByAppendingString:[varietalsString capitalizedString]];
     }
     
     if(wine.region){
-        regionRange = NSMakeRange([textViewString length]+1, [wine.region length]);
         textViewString = [textViewString stringByAppendingString:[wine.region capitalizedString]];
     }
     if(wine.country){
@@ -68,11 +60,9 @@
         } else {
             textViewString = [textViewString stringByAppendingString:@"\n"];
         }
-        countryRange = NSMakeRange([textViewString length]+1, [wine.country length]);
         textViewString = [textViewString stringByAppendingString:[wine.country capitalizedString]];
     }
     if(wine.vineyard){
-        vineyardRange = NSMakeRange([textViewString length]+1, [wine.vineyard length]);
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",[wine.vineyard capitalizedString]]];
     }
     if(wine.alcoholPercentage){
