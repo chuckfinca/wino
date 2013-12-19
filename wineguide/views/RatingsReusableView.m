@@ -9,6 +9,13 @@
 #import "RatingsReusableView.h"
 #import <math.h>
 
+@interface RatingsReusableView ()
+
+@property (nonatomic, strong) UIImage *full;
+@property (nonatomic, strong) UIImage *half;
+@property (nonatomic, strong) UIImage *empty;
+
+@end
 @implementation RatingsReusableView
 
 - (id)initWithFrame:(CGRect)frame
@@ -20,17 +27,35 @@
     return self;
 }
 
+-(UIImage *)full
+{
+    if(!_full) _full = [UIImage imageNamed:@"glass_full.png"];
+    return _full;
+}
+
+-(UIImage *)half
+{
+    if(!_half) _half = [UIImage imageNamed:@"glass_half.png"];
+    return _half;
+}
+
+-(UIImage *)empty
+{
+    if(!_empty) _empty = [UIImage imageNamed:@"glass_empty.png"];
+    return _empty;
+}
+
 -(void)setupImageViewForGlassNumber:(int)glassNumber andRating:(float)rating
 {
     UIImage *glass;
     NSLog(@"glassNumber = %i",glassNumber);
     NSLog(@"rating = %f",rating);
     if(rating - glassNumber >= 1){
-        glass = [UIImage imageNamed:@"glass_full.png"];
+        glass = self.full;
     } else if(rating - glassNumber > 0){
-            glass = [UIImage imageNamed:@"glass_half.png"];
+            glass = self.half;
     } else {
-        glass = [UIImage imageNamed:@"glass_empty.png"];
+        glass = self.empty;
     }
     [self.glassImageView setImage:glass];
 }
