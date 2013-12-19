@@ -10,17 +10,20 @@
             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_alan.png" translatesAutoresizingMaskIntoConstraints="NO" id="iOG-E9-MwN">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEb-4t-L1d">
                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="user_alan.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="iOG-E9-MwN" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="OIv-xX-AaJ"/>
-                <constraint firstAttribute="trailing" secondItem="iOG-E9-MwN" secondAttribute="trailing" id="eWF-ju-Omt"/>
-                <constraint firstAttribute="bottom" secondItem="iOG-E9-MwN" secondAttribute="bottom" id="kgj-ux-0l8"/>
-                <constraint firstItem="iOG-E9-MwN" firstAttribute="top" secondItem="1" secondAttribute="top" id="zcH-Lv-GHs"/>
+                <constraint firstItem="BEb-4t-L1d" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="N7X-eJ-gYE"/>
+                <constraint firstItem="BEb-4t-L1d" firstAttribute="top" secondItem="1" secondAttribute="top" id="ZGV-GB-P7U"/>
+                <constraint firstAttribute="trailing" secondItem="BEb-4t-L1d" secondAttribute="trailing" id="a4S-1B-LCt"/>
+                <constraint firstAttribute="bottom" secondItem="BEb-4t-L1d" secondAttribute="bottom" id="k1l-Ed-xtL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

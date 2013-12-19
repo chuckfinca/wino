@@ -19,6 +19,7 @@
 #import "ColorSchemer.h"
 #import "WineCell.h"
 #import "CollectionViewWithIndex.h"
+#import "RatingsReusableView.h"
 
 #define JSON @"json"
 #define GROUP_ENTITY @"Group"
@@ -45,6 +46,9 @@ typedef enum {
 @property (nonatomic, strong) NSString *listName;
 @property (nonatomic, strong) NSFetchedResultsController *restaurantGroupsFRC;
 @property (nonatomic, strong) NSString *selectedGroupIdentifier;
+
+
+@property (nonatomic, strong) NSArray *tEMPORARYratings;
 
 @end
 
@@ -137,6 +141,19 @@ typedef enum {
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"color"
                                                                                    cacheName:nil];
+    [self setTEMPORARYratings];
+}
+
+-(void)setTEMPORARYratings
+{
+    NSMutableArray *temporaryRatings = [[NSMutableArray alloc] init];
+    for(id obj in self.fetchedResultsController.fetchedObjects){
+        // temporary rating generator
+        float rating = arc4random_uniform(11) + 1;
+        rating = rating/2;
+        [temporaryRatings addObject:@(rating)];
+    }
+    self.tEMPORARYratings = temporaryRatings;
 }
 
 -(void)logFetchResultsForController:(NSFetchedResultsController *)frc
@@ -278,11 +295,9 @@ typedef enum {
         CollectionViewWithIndex *collectionViewWithIndex = (CollectionViewWithIndex *)collectionView;
         
         if(collectionViewWithIndex.tag == RatingsCollectionView){
-            NSLog(@"aaa");
             numberOfItemsInSection = 6;
             
         } else if (collectionViewWithIndex.tag == ReviewersCollectionView){
-            NSLog(@"bbb");
             
             // the number below needs to be replaced with the number of friend reviews (up to 3 or 4) once we have users set up
             numberOfItemsInSection = 3;
@@ -303,8 +318,16 @@ typedef enum {
     UICollectionViewCell *cell = nil;
     
     if(collectionView.tag == RatingsCollectionView){
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor grayColor];
+        
+        RatingsReusableView *ratingsCell = (RatingsReusableView *)[collectionView dequeueReusableCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
+        
+        CollectionViewWithIndex *cvwi = (CollectionViewWithIndex *)collectionView;
+        float rating = [self.tEMPORARYratings[cvwi.index] floatValue];
+        NSLog(@"rating = %f",rating);
+        
+        [ratingsCell setupImageViewForGlassNumber:indexPath.row andRating:rating];
+        
+        cell = (UICollectionViewCell *)ratingsCell;
         
     } else if (collectionView.tag == ReviewersCollectionView){
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL forIndexPath:indexPath];

@@ -50,16 +50,12 @@
 {
     self.ratingsCollectionView.backgroundColor = [UIColor redColor];
     self.ratingsCollectionView.tag = RatingsCollectionView;
-    
-    NSLog(@"%i",self.ratingsCollectionView.tag);
 }
 
 -(void)setupReviewsCollectionView
 {
     self.reviewersCollectionView.backgroundColor = [UIColor greenColor];
     self.reviewersCollectionView.tag = ReviewersCollectionView;
-    UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout*)self.reviewersCollectionView.collectionViewLayout;
-    NSLog(@"%i",self.reviewersCollectionView.tag);
 }
 
 

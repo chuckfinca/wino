@@ -102,6 +102,7 @@
 		C991FBA118625F3B00C10B52 /* CollectionViewWithIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBA018625F3B00C10B52 /* CollectionViewWithIndex.m */; };
 		C991FBA5186269C300C10B52 /* RatingsCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C991FBA4186269C300C10B52 /* RatingsCVC.xib */; };
 		C991FBA7186269D800C10B52 /* ReviewerCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C991FBA6186269D800C10B52 /* ReviewerCVC.xib */; };
+		C991FBAA1862740300C10B52 /* RatingsReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBA91862740300C10B52 /* RatingsReusableView.m */; };
 		C9ACC7D7184E72AB00E5945D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D5184E72AB00E5945D /* settings.png */; };
 		C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D6184E72AB00E5945D /* settings@2x.png */; };
 		C9ACC7DB184E892400E5945D /* WineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC7DA184E892400E5945D /* WineCell.m */; };
@@ -301,6 +302,8 @@
 		C991FBA018625F3B00C10B52 /* CollectionViewWithIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionViewWithIndex.m; path = views/CollectionViewWithIndex.m; sourceTree = "<group>"; };
 		C991FBA4186269C300C10B52 /* RatingsCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingsCVC.xib; path = xibs/RatingsCVC.xib; sourceTree = "<group>"; };
 		C991FBA6186269D800C10B52 /* ReviewerCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewerCVC.xib; sourceTree = "<group>"; };
+		C991FBA81862740300C10B52 /* RatingsReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingsReusableView.h; path = views/RatingsReusableView.h; sourceTree = "<group>"; };
+		C991FBA91862740300C10B52 /* RatingsReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingsReusableView.m; path = views/RatingsReusableView.m; sourceTree = "<group>"; };
 		C9ACC7D5184E72AB00E5945D /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = images/settings.png; sourceTree = "<group>"; };
 		C9ACC7D6184E72AB00E5945D /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "images/settings@2x.png"; sourceTree = "<group>"; };
 		C9ACC7D9184E892400E5945D /* WineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineCell.h; path = views/WineCell.h; sourceTree = "<group>"; };
@@ -555,6 +558,8 @@
 				C9C7D5F1183FEA7E00A2E955 /* WineDetailsVHTV.m */,
 				C991FB9F18625F3B00C10B52 /* CollectionViewWithIndex.h */,
 				C991FBA018625F3B00C10B52 /* CollectionViewWithIndex.m */,
+				C991FBA81862740300C10B52 /* RatingsReusableView.h */,
+				C991FBA91862740300C10B52 /* RatingsReusableView.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -954,6 +959,7 @@
 				C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */,
 				C9328CC518496B7500AF6DEA /* ListManagerTVC.m in Sources */,
 				C9ACC7DB184E892400E5945D /* WineCell.m in Sources */,
+				C991FBAA1862740300C10B52 /* RatingsReusableView.m in Sources */,
 				C98DEFE8182312130038216C /* ManagedObjectHandler.m in Sources */,
 				C92DF1D018297A76009DCB2C /* WineUnit+CreateAndModify.m in Sources */,
 				C92932D8182B00D50035C93C /* BrandDataHelper.m in Sources */,
