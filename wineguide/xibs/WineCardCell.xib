@@ -24,12 +24,15 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOR-cO-S0M">
-                    <rect key="frame" x="20" y="430" width="50" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOR-cO-S0M">
+                    <rect key="frame" x="20" y="430" width="280" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Review">
+                    <state key="normal" title="Give an indepth review">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="presentReviewViewController:" destination="1" eventType="touchUpInside" id="IQU-W0-Guk"/>
+                    </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@ Les Zygomates" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEs-tG-4gU">
                     <rect key="frame" x="20" y="62" width="280" height="17"/>
@@ -45,27 +48,57 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate this wine" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2T-vo-ZHg">
+                    <rect key="frame" x="20" y="349" width="280" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KSf-K6-dnQ" customClass="CollectionViewWithIndex">
+                    <rect key="frame" x="20" y="378" width="280" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="AHY-0X-qBy"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="auP-K1-EVV">
+                        <size key="itemSize" width="30" height="44"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="j2T-vo-ZHg" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="5XC-Vn-PlY"/>
                 <constraint firstItem="b3u-V1-Ma7" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="8Ri-ON-xif"/>
+                <constraint firstAttribute="trailing" secondItem="QOR-cO-S0M" secondAttribute="trailing" constant="20" id="9w9-sw-7Td"/>
+                <constraint firstItem="QOR-cO-S0M" firstAttribute="top" secondItem="KSf-K6-dnQ" secondAttribute="bottom" constant="8" id="GGS-Ps-Mdp"/>
                 <constraint firstAttribute="trailing" secondItem="Kzp-V3-jOy" secondAttribute="trailing" constant="20" symbolic="YES" id="MOe-Og-lnz"/>
                 <constraint firstItem="b3u-V1-Ma7" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="Vde-eg-tjW"/>
+                <constraint firstAttribute="trailing" secondItem="KSf-K6-dnQ" secondAttribute="trailing" constant="20" id="W2j-WE-PmN"/>
+                <constraint firstItem="KSf-K6-dnQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="WyS-97-1XI"/>
                 <constraint firstItem="DEs-tG-4gU" firstAttribute="top" secondItem="ChM-Tf-Wrg" secondAttribute="bottom" id="X7m-UN-aNi"/>
                 <constraint firstAttribute="trailing" secondItem="ChM-Tf-Wrg" secondAttribute="trailing" constant="20" id="Yj5-ch-aUE"/>
+                <constraint firstItem="KSf-K6-dnQ" firstAttribute="top" secondItem="j2T-vo-ZHg" secondAttribute="bottom" constant="8" id="ZSx-SC-DRt"/>
                 <constraint firstItem="Kzp-V3-jOy" firstAttribute="top" secondItem="DEs-tG-4gU" secondAttribute="bottom" id="ZXM-td-nYc"/>
                 <constraint firstItem="ChM-Tf-Wrg" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="bW1-47-xx2"/>
                 <constraint firstAttribute="bottom" secondItem="QOR-cO-S0M" secondAttribute="bottom" constant="20" id="cBg-aB-50g"/>
                 <constraint firstAttribute="trailing" secondItem="DEs-tG-4gU" secondAttribute="trailing" constant="20" symbolic="YES" id="chV-Lh-0FT"/>
                 <constraint firstItem="Kzp-V3-jOy" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="f6d-Qd-YaN"/>
                 <constraint firstItem="ChM-Tf-Wrg" firstAttribute="top" secondItem="b3u-V1-Ma7" secondAttribute="bottom" id="fn9-WL-bR7"/>
+                <constraint firstAttribute="trailing" secondItem="j2T-vo-ZHg" secondAttribute="trailing" constant="20" id="iHf-zL-49i"/>
                 <constraint firstAttribute="trailing" secondItem="b3u-V1-Ma7" secondAttribute="trailing" constant="20" id="lO7-v5-bjM"/>
                 <constraint firstItem="QOR-cO-S0M" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="oy1-CQ-XCU"/>
                 <constraint firstItem="DEs-tG-4gU" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="vSr-hb-vjx"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <connections>
+                <outlet property="inDepthReviewButton" destination="QOR-cO-S0M" id="nl5-dF-895"/>
                 <outlet property="name" destination="b3u-V1-Ma7" id="sqJ-St-Tds"/>
+                <outlet property="userRatingCVLabel" destination="j2T-vo-ZHg" id="v1S-h2-1og"/>
+                <outlet property="userRatingCollectionView" destination="KSf-K6-dnQ" id="0IB-VY-0BA"/>
                 <outlet property="vintageAndVarietals" destination="ChM-Tf-Wrg" id="Dns-Q7-IXl"/>
             </connections>
         </view>

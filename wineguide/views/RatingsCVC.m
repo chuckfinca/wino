@@ -6,17 +6,17 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "RatingsReusableView.h"
+#import "RatingsCVC.h"
 #import <math.h>
 
-@interface RatingsReusableView ()
+@interface RatingsCVC ()
 
 @property (nonatomic, strong) UIImage *full;
 @property (nonatomic, strong) UIImage *half;
 @property (nonatomic, strong) UIImage *empty;
 
 @end
-@implementation RatingsReusableView
+@implementation RatingsCVC
 
 - (id)initWithFrame:(CGRect)frame
 {

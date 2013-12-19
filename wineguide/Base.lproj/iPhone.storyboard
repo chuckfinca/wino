@@ -168,70 +168,47 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="u9u-jo-qhx" kind="relationship" relationship="rootViewController" id="BBc-TX-KXW"/>
+                        <segue destination="1Nx-VO-Xqk" kind="relationship" relationship="rootViewController" id="gff-xF-VWc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nsz-fb-0vD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="505" y="1627"/>
         </scene>
-        <!--TimelineVC-->
-        <scene sceneID="jbQ-9A-p8i">
+        <!--TimelineCVC-->
+        <scene sceneID="m2g-0D-Vnk">
             <objects>
-                <viewController id="u9u-jo-qhx" customClass="TimelineVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Lht-eP-eiR"/>
-                        <viewControllerLayoutGuide type="bottom" id="ngN-Mm-iCv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Xe0-v5-ReW">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="1Nx-VO-Xqk" customClass="TimelineCVC" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="J7u-kx-2cH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nRe-NQ-PQM">
-                                <rect key="frame" x="0.0" y="159" width="320" height="250"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="G0v-cu-fhH"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MmN-tE-zFv">
-                                    <size key="itemSize" width="200" height="200"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WineCardCell" id="mGx-m2-g1K" customClass="WineCardCell">
-                                        <rect key="frame" x="0.0" y="114" width="150" height="150"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <size key="customSize" width="150" height="150"/>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="u9u-jo-qhx" id="oMT-yK-HhN"/>
-                                    <outlet property="delegate" destination="u9u-jo-qhx" id="f31-Zb-5Sv"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="nRe-NQ-PQM" secondAttribute="centerY" id="MXP-R2-w5w"/>
-                            <constraint firstAttribute="trailing" secondItem="nRe-NQ-PQM" secondAttribute="trailing" id="QGQ-DA-lFN"/>
-                            <constraint firstItem="nRe-NQ-PQM" firstAttribute="leading" secondItem="Xe0-v5-ReW" secondAttribute="leading" id="qLb-O3-p98"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="yO1-Ug-zTh"/>
-                    <connections>
-                        <outlet property="wineCardCollectionView" destination="nRe-NQ-PQM" id="qwx-4P-bA1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f8D-Zm-aak" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vzm-ke-cuj">
+                            <size key="itemSize" width="240" height="300"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WineCardCell" id="zzU-VN-7RN" customClass="WineCardCell">
+                                <rect key="frame" x="0.0" y="198" width="240" height="300"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="1Nx-VO-Xqk" id="VpI-70-Sll"/>
+                            <outlet property="delegate" destination="1Nx-VO-Xqk" id="77o-dv-2S1"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="bhx-Gk-L27"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZsH-kj-pL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="1627"/>
+            <point key="canvasLocation" x="1052" y="1627"/>
         </scene>
         <!--RestaurantCDTVC-->
         <scene sceneID="fQO-YH-hC5">

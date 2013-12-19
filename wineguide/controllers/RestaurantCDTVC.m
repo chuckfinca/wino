@@ -19,8 +19,8 @@
 #import "ColorSchemer.h"
 #import "WineCell.h"
 #import "CollectionViewWithIndex.h"
-#import "RatingsReusableView.h"
-#import "ReviewersReusableView.h"
+#import "RatingsCVC.h"
+#import "ReviewersCVC.h"
 
 #define JSON @"json"
 #define GROUP_ENTITY @"Group"
@@ -47,9 +47,6 @@ typedef enum {
 @property (nonatomic, strong) NSString *listName;
 @property (nonatomic, strong) NSFetchedResultsController *restaurantGroupsFRC;
 @property (nonatomic, strong) NSString *selectedGroupIdentifier;
-
-
-@property (nonatomic, strong) NSArray *tEMPORARYratings;
 
 @end
 
@@ -311,18 +308,19 @@ typedef enum {
     UICollectionViewCell *cell = nil;
     if(collectionView.tag == RatingsCollectionView){
         
-        RatingsReusableView *ratingsCell = (RatingsReusableView *)[collectionView dequeueReusableCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
+        RatingsCVC *ratingsCell = (RatingsCVC *)[collectionView dequeueReusableCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
         
         CollectionViewWithIndex *cvwi = (CollectionViewWithIndex *)collectionView;
-        float rating = [self.tEMPORARYratings[cvwi.index] floatValue];
-        NSLog(@"rating = %f",rating);
+        
+        float rating = arc4random_uniform(11) + 1;
+        rating = rating/2;
         
         [ratingsCell setupImageViewForGlassNumber:indexPath.row andRating:rating];
         
         cell = (UICollectionViewCell *)ratingsCell;
         
     } else if (collectionView.tag == ReviewersCollectionView){
-        ReviewersReusableView *reviewerCell = (ReviewersReusableView *)[collectionView dequeueReusableCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
+        ReviewersCVC *reviewerCell = (ReviewersCVC *)[collectionView dequeueReusableCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
         [reviewerCell.userAvatarButton setImage:[self randomAvatarGenerator] forState:UIControlStateNormal];
         reviewerCell.backgroundColor = [UIColor clearColor];
         
@@ -330,25 +328,6 @@ typedef enum {
     }
     
     return cell;
-}
-
--(NSArray *)tEMPORARYratings{
-    if(!_tEMPORARYratings) {
-        if([self.fetchedResultsController.fetchedObjects count] > 0){
-            
-            NSMutableArray *temporaryRatings = [[NSMutableArray alloc] init];
-            for(id obj in self.fetchedResultsController.fetchedObjects){
-                // temporary rating generator
-                float rating = arc4random_uniform(11) + 1;
-                rating = rating/2;
-                [temporaryRatings addObject:@(rating)];
-            }
-            _tEMPORARYratings = temporaryRatings;
-        } else {
-            return nil;
-        }
-    }
-    return _tEMPORARYratings;
 }
 
 -(UIImage *)randomAvatarGenerator

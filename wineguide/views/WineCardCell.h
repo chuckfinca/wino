@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Wine.h"
+#import "CollectionViewWithIndex.h"
 
 @interface WineCardCell : UICollectionViewCell
+
+@property (weak, nonatomic) IBOutlet CollectionViewWithIndex *userRatingCollectionView;
 
 -(void)setupCardWithWine:(Wine *)wine;
 

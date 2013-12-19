@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReviewersReusableView : UICollectionReusableView
+@interface ReviewersCVC : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *userAvatarButton;
 

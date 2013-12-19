@@ -101,9 +101,16 @@
 		C991FB9E186115CA00C10B52 /* user_derek.png in Resources */ = {isa = PBXBuildFile; fileRef = C991FB96186115CA00C10B52 /* user_derek.png */; };
 		C991FBA118625F3B00C10B52 /* CollectionViewWithIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBA018625F3B00C10B52 /* CollectionViewWithIndex.m */; };
 		C991FBA5186269C300C10B52 /* RatingsCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C991FBA4186269C300C10B52 /* RatingsCVC.xib */; };
-		C991FBA7186269D800C10B52 /* ReviewerCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C991FBA6186269D800C10B52 /* ReviewerCVC.xib */; };
-		C991FBAA1862740300C10B52 /* RatingsReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBA91862740300C10B52 /* RatingsReusableView.m */; };
-		C991FBAD1862BE6E00C10B52 /* ReviewersReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBAC1862BE6E00C10B52 /* ReviewersReusableView.m */; };
+		C991FBAA1862740300C10B52 /* RatingsCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBA91862740300C10B52 /* RatingsCVC.m */; };
+		C991FBAD1862BE6E00C10B52 /* ReviewersCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBAC1862BE6E00C10B52 /* ReviewersCVC.m */; };
+		C991FBB218639EB500C10B52 /* rating_unrated.png in Resources */ = {isa = PBXBuildFile; fileRef = C991FBAE18639EB500C10B52 /* rating_unrated.png */; };
+		C991FBB318639EB500C10B52 /* rating_unrated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C991FBAF18639EB500C10B52 /* rating_unrated@2x.png */; };
+		C991FBB418639EB500C10B52 /* rating_rated.png in Resources */ = {isa = PBXBuildFile; fileRef = C991FBB018639EB500C10B52 /* rating_rated.png */; };
+		C991FBB518639EB500C10B52 /* rating_rated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C991FBB118639EB500C10B52 /* rating_rated@2x.png */; };
+		C991FBB818639FE100C10B52 /* UserRatingCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBB718639FE100C10B52 /* UserRatingCVC.m */; };
+		C991FBBC1863A10E00C10B52 /* UserRatingCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C991FBBB1863A10E00C10B52 /* UserRatingCVC.xib */; };
+		C991FBBE1863A14700C10B52 /* ReviewerCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C991FBBD1863A14700C10B52 /* ReviewerCVC.xib */; };
+		C991FBC51863A7DE00C10B52 /* TimelineCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBC41863A7DE00C10B52 /* TimelineCVC.m */; };
 		C9ACC7D7184E72AB00E5945D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D5184E72AB00E5945D /* settings.png */; };
 		C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D6184E72AB00E5945D /* settings@2x.png */; };
 		C9ACC7DB184E892400E5945D /* WineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC7DA184E892400E5945D /* WineCell.m */; };
@@ -118,7 +125,6 @@
 		C9C6A20E1852B33A00CFBBD5 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A20D1852B33A00CFBBD5 /* Flight.m */; };
 		C9C6A21018568ABE00CFBBD5 /* brands.json in Resources */ = {isa = PBXBuildFile; fileRef = C9C6A20F18568ABE00CFBBD5 /* brands.json */; };
 		C9C6A21318569A9E00CFBBD5 /* AddGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A21218569A9E00CFBBD5 /* AddGroupCell.m */; };
-		C9C6A2161857DF1A00CFBBD5 /* TimelineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A2151857DF1A00CFBBD5 /* TimelineVC.m */; };
 		C9C6A21D18592AC300CFBBD5 /* WineCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A21C18592AC300CFBBD5 /* WineCardCell.m */; };
 		C9C6A21F18592AEF00CFBBD5 /* WineCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C6A21E18592AEF00CFBBD5 /* WineCardCell.xib */; };
 		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
@@ -302,11 +308,20 @@
 		C991FB9F18625F3B00C10B52 /* CollectionViewWithIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionViewWithIndex.h; path = views/CollectionViewWithIndex.h; sourceTree = "<group>"; };
 		C991FBA018625F3B00C10B52 /* CollectionViewWithIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionViewWithIndex.m; path = views/CollectionViewWithIndex.m; sourceTree = "<group>"; };
 		C991FBA4186269C300C10B52 /* RatingsCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingsCVC.xib; path = xibs/RatingsCVC.xib; sourceTree = "<group>"; };
-		C991FBA6186269D800C10B52 /* ReviewerCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewerCVC.xib; sourceTree = "<group>"; };
-		C991FBA81862740300C10B52 /* RatingsReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingsReusableView.h; path = views/RatingsReusableView.h; sourceTree = "<group>"; };
-		C991FBA91862740300C10B52 /* RatingsReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingsReusableView.m; path = views/RatingsReusableView.m; sourceTree = "<group>"; };
-		C991FBAB1862BE6E00C10B52 /* ReviewersReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewersReusableView.h; path = views/ReviewersReusableView.h; sourceTree = "<group>"; };
-		C991FBAC1862BE6E00C10B52 /* ReviewersReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewersReusableView.m; path = views/ReviewersReusableView.m; sourceTree = "<group>"; };
+		C991FBA81862740300C10B52 /* RatingsCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingsCVC.h; path = views/RatingsCVC.h; sourceTree = "<group>"; };
+		C991FBA91862740300C10B52 /* RatingsCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingsCVC.m; path = views/RatingsCVC.m; sourceTree = "<group>"; };
+		C991FBAB1862BE6E00C10B52 /* ReviewersCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewersCVC.h; path = views/ReviewersCVC.h; sourceTree = "<group>"; };
+		C991FBAC1862BE6E00C10B52 /* ReviewersCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewersCVC.m; path = views/ReviewersCVC.m; sourceTree = "<group>"; };
+		C991FBAE18639EB500C10B52 /* rating_unrated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rating_unrated.png; path = images/rating_unrated.png; sourceTree = "<group>"; };
+		C991FBAF18639EB500C10B52 /* rating_unrated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rating_unrated@2x.png"; path = "images/rating_unrated@2x.png"; sourceTree = "<group>"; };
+		C991FBB018639EB500C10B52 /* rating_rated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rating_rated.png; path = images/rating_rated.png; sourceTree = "<group>"; };
+		C991FBB118639EB500C10B52 /* rating_rated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rating_rated@2x.png"; path = "images/rating_rated@2x.png"; sourceTree = "<group>"; };
+		C991FBB618639FE100C10B52 /* UserRatingCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRatingCVC.h; path = views/UserRatingCVC.h; sourceTree = "<group>"; };
+		C991FBB718639FE100C10B52 /* UserRatingCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRatingCVC.m; path = views/UserRatingCVC.m; sourceTree = "<group>"; };
+		C991FBBB1863A10E00C10B52 /* UserRatingCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserRatingCVC.xib; path = xibs/UserRatingCVC.xib; sourceTree = "<group>"; };
+		C991FBBD1863A14700C10B52 /* ReviewerCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewerCVC.xib; path = xibs/ReviewerCVC.xib; sourceTree = "<group>"; };
+		C991FBC31863A7DE00C10B52 /* TimelineCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineCVC.h; path = controllers/TimelineCVC.h; sourceTree = "<group>"; };
+		C991FBC41863A7DE00C10B52 /* TimelineCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineCVC.m; path = controllers/TimelineCVC.m; sourceTree = "<group>"; };
 		C9ACC7D5184E72AB00E5945D /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = images/settings.png; sourceTree = "<group>"; };
 		C9ACC7D6184E72AB00E5945D /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "images/settings@2x.png"; sourceTree = "<group>"; };
 		C9ACC7D9184E892400E5945D /* WineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineCell.h; path = views/WineCell.h; sourceTree = "<group>"; };
@@ -333,8 +348,6 @@
 		C9C6A20F18568ABE00CFBBD5 /* brands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = brands.json; path = model/json/brands.json; sourceTree = "<group>"; };
 		C9C6A21118569A9E00CFBBD5 /* AddGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupCell.h; path = views/AddGroupCell.h; sourceTree = "<group>"; };
 		C9C6A21218569A9E00CFBBD5 /* AddGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddGroupCell.m; path = views/AddGroupCell.m; sourceTree = "<group>"; };
-		C9C6A2141857DF1A00CFBBD5 /* TimelineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineVC.h; path = controllers/TimelineVC.h; sourceTree = "<group>"; };
-		C9C6A2151857DF1A00CFBBD5 /* TimelineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineVC.m; path = controllers/TimelineVC.m; sourceTree = "<group>"; };
 		C9C6A21B18592AC300CFBBD5 /* WineCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineCardCell.h; path = views/WineCardCell.h; sourceTree = "<group>"; };
 		C9C6A21C18592AC300CFBBD5 /* WineCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineCardCell.m; path = views/WineCardCell.m; sourceTree = "<group>"; };
 		C9C6A21E18592AEF00CFBBD5 /* WineCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineCardCell.xib; path = xibs/WineCardCell.xib; sourceTree = "<group>"; };
@@ -532,8 +545,8 @@
 				C98DEFC61821DA790038216C /* CoreDataTableViewController.m */,
 				C9C7D62D184047EB00A2E955 /* FavoritesSCDTVC.h */,
 				C9C7D62E184047EB00A2E955 /* FavoritesSCDTVC.m */,
-				C9C6A2141857DF1A00CFBBD5 /* TimelineVC.h */,
-				C9C6A2151857DF1A00CFBBD5 /* TimelineVC.m */,
+				C991FBC31863A7DE00C10B52 /* TimelineCVC.h */,
+				C991FBC41863A7DE00C10B52 /* TimelineCVC.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -561,10 +574,12 @@
 				C9C7D5F1183FEA7E00A2E955 /* WineDetailsVHTV.m */,
 				C991FB9F18625F3B00C10B52 /* CollectionViewWithIndex.h */,
 				C991FBA018625F3B00C10B52 /* CollectionViewWithIndex.m */,
-				C991FBA81862740300C10B52 /* RatingsReusableView.h */,
-				C991FBA91862740300C10B52 /* RatingsReusableView.m */,
-				C991FBAB1862BE6E00C10B52 /* ReviewersReusableView.h */,
-				C991FBAC1862BE6E00C10B52 /* ReviewersReusableView.m */,
+				C991FBA81862740300C10B52 /* RatingsCVC.h */,
+				C991FBA91862740300C10B52 /* RatingsCVC.m */,
+				C991FBAB1862BE6E00C10B52 /* ReviewersCVC.h */,
+				C991FBAC1862BE6E00C10B52 /* ReviewersCVC.m */,
+				C991FBB618639FE100C10B52 /* UserRatingCVC.h */,
+				C991FBB718639FE100C10B52 /* UserRatingCVC.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -579,7 +594,8 @@
 				C9ACC7DC184E8C3600E5945D /* WineCell.xib */,
 				C9C6A21E18592AEF00CFBBD5 /* WineCardCell.xib */,
 				C991FBA4186269C300C10B52 /* RatingsCVC.xib */,
-				C991FBA6186269D800C10B52 /* ReviewerCVC.xib */,
+				C991FBBD1863A14700C10B52 /* ReviewerCVC.xib */,
+				C991FBBB1863A10E00C10B52 /* UserRatingCVC.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -587,6 +603,10 @@
 		C9061E4F181F3CC2003D8A55 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C991FBAE18639EB500C10B52 /* rating_unrated.png */,
+				C991FBAF18639EB500C10B52 /* rating_unrated@2x.png */,
+				C991FBB018639EB500C10B52 /* rating_rated.png */,
+				C991FBB118639EB500C10B52 /* rating_rated@2x.png */,
 				C95A2CC0185B80070043ECB0 /* visible.png */,
 				C95A2CC1185B80070043ECB0 /* visible@2x.png */,
 				C9C7D61618401F1700A2E955 /* tab_nearMe.png */,
@@ -836,6 +856,7 @@
 				C95A2CD2185BEC3B0043ECB0 /* button_triedIt@2x.png in Resources */,
 				C95A2CD1185BEC3B0043ECB0 /* button_triedIt.png in Resources */,
 				C991FB8E1861110200C10B52 /* glass_empty@2x.png in Resources */,
+				C991FBB518639EB500C10B52 /* rating_rated@2x.png in Resources */,
 				C9C7D63A1842AACD00A2E955 /* tutorial_logo@2x.png in Resources */,
 				C9C7D62B18403E0E00A2E955 /* tutorial_nearby.png in Resources */,
 				C9061E05181F07CE003D8A55 /* iPad.storyboard in Resources */,
@@ -855,6 +876,7 @@
 				C95A2CC2185B80070043ECB0 /* visible.png in Resources */,
 				C991FB99186115CA00C10B52 /* user_alan.png in Resources */,
 				C95A2CDD185C02300043ECB0 /* button_favorited@2x.png in Resources */,
+				C991FBB218639EB500C10B52 /* rating_unrated.png in Resources */,
 				C9C7D612184011D100A2E955 /* favorite_y@2x.png in Resources */,
 				C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */,
 				C9C7D62518402BBE00A2E955 /* Tutorial.xib in Resources */,
@@ -870,8 +892,11 @@
 				C991FB9E186115CA00C10B52 /* user_derek.png in Resources */,
 				C95A2CCE185BE4D30043ECB0 /* tab_timeline@2x.png in Resources */,
 				C9487D0C182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json in Resources */,
+				C991FBBE1863A14700C10B52 /* ReviewerCVC.xib in Resources */,
+				C991FBBC1863A10E00C10B52 /* UserRatingCVC.xib in Resources */,
 				C98DEFFE182329D30038216C /* restaurants.json in Resources */,
-				C991FBA7186269D800C10B52 /* ReviewerCVC.xib in Resources */,
+				C991FBB418639EB500C10B52 /* rating_rated.png in Resources */,
+				C991FBB318639EB500C10B52 /* rating_unrated@2x.png in Resources */,
 				C991FB8A1861110200C10B52 /* glass_full@2x.png in Resources */,
 				C95A2CCA185BDC0F0043ECB0 /* tutorial_triedIt@2x.png in Resources */,
 				C9C7D60F184011D100A2E955 /* favorite_n.png in Resources */,
@@ -940,12 +965,13 @@
 				C9061E3A181F216C003D8A55 /* RestaurantCDTVC.m in Sources */,
 				C91F59C5184581C900CF7F18 /* RestaurantGroupManagerTVC.m in Sources */,
 				C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */,
-				C991FBAD1862BE6E00C10B52 /* ReviewersReusableView.m in Sources */,
+				C991FBAD1862BE6E00C10B52 /* ReviewersCVC.m in Sources */,
 				C9C6A20B1852B33A00CFBBD5 /* TastingNote.m in Sources */,
 				C9328CC81849784400AF6DEA /* RestaurantWineListManagerTVC.m in Sources */,
 				C95A2CBF185A31980043ECB0 /* SpringyFlowLayout.m in Sources */,
 				C92DF04318247AB3009DCB2C /* Brand+CreateAndModify.m in Sources */,
 				C92DF00718247082009DCB2C /* NSDictionary+Helper.m in Sources */,
+				C991FBB818639FE100C10B52 /* UserRatingCVC.m in Sources */,
 				C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */,
 				C95A2CC6185B87930043ECB0 /* RestaurantGroupCell.m in Sources */,
 				C9C6A2021852B33A00CFBBD5 /* Brand.m in Sources */,
@@ -954,6 +980,7 @@
 				C9C7D62F184047EB00A2E955 /* FavoritesSCDTVC.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
 				C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */,
+				C991FBC51863A7DE00C10B52 /* TimelineCVC.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,
 				C9C6A2051852B33A00CFBBD5 /* Wine.m in Sources */,
 				C9C6A1FF1852B33A00CFBBD5 /* Group.m in Sources */,
@@ -965,11 +992,10 @@
 				C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */,
 				C9328CC518496B7500AF6DEA /* ListManagerTVC.m in Sources */,
 				C9ACC7DB184E892400E5945D /* WineCell.m in Sources */,
-				C991FBAA1862740300C10B52 /* RatingsReusableView.m in Sources */,
+				C991FBAA1862740300C10B52 /* RatingsCVC.m in Sources */,
 				C98DEFE8182312130038216C /* ManagedObjectHandler.m in Sources */,
 				C92DF1D018297A76009DCB2C /* WineUnit+CreateAndModify.m in Sources */,
 				C92932D8182B00D50035C93C /* BrandDataHelper.m in Sources */,
-				C9C6A2161857DF1A00CFBBD5 /* TimelineVC.m in Sources */,
 				C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */,
 				C92932D2182AD8E80035C93C /* GroupDataHelper.m in Sources */,
 				C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */,

@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "ReviewersReusableView.h"
+#import "ReviewersCVC.h"
 
-@implementation ReviewersReusableView
+@implementation ReviewersCVC
 
 - (id)initWithFrame:(CGRect)frame
 {

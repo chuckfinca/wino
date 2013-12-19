@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RatingsReusableView : UICollectionReusableView
+@interface RatingsCVC : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *glassImageView;
 

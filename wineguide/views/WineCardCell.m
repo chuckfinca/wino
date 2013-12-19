@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *vintageAndVarietals;
 @property (nonatomic, strong) Wine *wine;
+@property (weak, nonatomic) IBOutlet UILabel *userRatingCVLabel;
+@property (weak, nonatomic) IBOutlet UIButton *inDepthReviewButton;
 
 @end
 
@@ -40,8 +42,6 @@
     self.wine = wine;
     
     [self setupCard];
-    
-    NSLog(@"wine = %@",wine.name);
     
     self.backgroundColor = [UIColor whiteColor];
     
@@ -86,5 +86,9 @@
  // Drawing code
  }
  */
+- (IBAction)presentReviewViewController:(UIButton *)sender
+{
+    
+}
 
 @end

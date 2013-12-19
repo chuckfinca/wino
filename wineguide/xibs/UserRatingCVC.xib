@@ -6,25 +6,25 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="1" customClass="RatingsCVC">
-            <rect key="frame" x="0.0" y="0.0" width="15" height="20"/>
+        <view contentMode="scaleToFill" id="1" customClass="UserRatingCVC">
+            <rect key="frame" x="0.0" y="0.0" width="30" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8dX-TW-Qg8">
-                    <rect key="frame" x="0.0" y="0.0" width="15" height="20"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gXs-Fn-4Dx">
+                    <rect key="frame" x="0.0" y="0.0" width="30" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="8dX-TW-Qg8" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="b83-7h-eKB"/>
-                <constraint firstAttribute="bottom" secondItem="8dX-TW-Qg8" secondAttribute="bottom" id="cg5-3S-xlw"/>
-                <constraint firstItem="8dX-TW-Qg8" firstAttribute="top" secondItem="1" secondAttribute="top" id="f43-Y5-Q8e"/>
-                <constraint firstAttribute="trailing" secondItem="8dX-TW-Qg8" secondAttribute="trailing" id="k87-lM-ogn"/>
+                <constraint firstAttribute="bottom" secondItem="gXs-Fn-4Dx" secondAttribute="bottom" id="4eK-hJ-SHL"/>
+                <constraint firstAttribute="trailing" secondItem="gXs-Fn-4Dx" secondAttribute="trailing" id="9yn-Ks-eiw"/>
+                <constraint firstItem="gXs-Fn-4Dx" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="JSL-c6-cp0"/>
+                <constraint firstItem="gXs-Fn-4Dx" firstAttribute="top" secondItem="1" secondAttribute="top" id="xeG-uC-eZQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="glassImageView" destination="8dX-TW-Qg8" id="2Ca-g4-2fX"/>
+                <outlet property="ratingImageView" destination="gXs-Fn-4Dx" id="b8J-Ar-XXN"/>
             </connections>
         </view>
     </objects>
