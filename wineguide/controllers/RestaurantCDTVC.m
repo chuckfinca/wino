@@ -20,6 +20,7 @@
 #import "WineCell.h"
 #import "CollectionViewWithIndex.h"
 #import "RatingsReusableView.h"
+#import "ReviewersReusableView.h"
 
 #define JSON @"json"
 #define GROUP_ENTITY @"Group"
@@ -194,7 +195,7 @@ typedef enum {
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 300;
+    return 170;
 }
 
 /*
@@ -321,8 +322,11 @@ typedef enum {
         cell = (UICollectionViewCell *)ratingsCell;
         
     } else if (collectionView.tag == ReviewersCollectionView){
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor purpleColor];
+        ReviewersReusableView *reviewerCell = (ReviewersReusableView *)[collectionView dequeueReusableCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
+        [reviewerCell.userAvatarButton setImage:[self randomAvatarGenerator] forState:UIControlStateNormal];
+        reviewerCell.backgroundColor = [UIColor clearColor];
+        
+        cell = (UICollectionViewCell *)reviewerCell;
     }
     
     return cell;
@@ -340,12 +344,38 @@ typedef enum {
                 [temporaryRatings addObject:@(rating)];
             }
             _tEMPORARYratings = temporaryRatings;
-            NSLog(@"temporaryRatings = %@",temporaryRatings);
         } else {
             return nil;
         }
     }
     return _tEMPORARYratings;
+}
+
+-(UIImage *)randomAvatarGenerator
+{
+    UIImage *image;
+    
+    int number = arc4random_uniform(4);
+    NSLog(@"number = %i",number);
+    switch (number) {
+        case 0:
+            image = [UIImage imageNamed:@"user_alan.png"];
+            break;
+        case 1:
+            image = [UIImage imageNamed:@"user_derek.png"];
+            break;
+        case 2:
+            image = [UIImage imageNamed:@"user_lisa.png"];
+            break;
+        case 3:
+            image = [UIImage imageNamed:@"user_arturo.png"];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return image;
 }
 
 #pragma mark - UICollectionViewDelegate

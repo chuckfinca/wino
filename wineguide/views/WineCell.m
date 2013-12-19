@@ -48,13 +48,13 @@
 
 -(void)setupRatingsCollectionView
 {
-    self.ratingsCollectionView.backgroundColor = [UIColor redColor];
+    self.ratingsCollectionView.backgroundColor = [UIColor clearColor];
     self.ratingsCollectionView.tag = RatingsCollectionView;
 }
 
 -(void)setupReviewsCollectionView
 {
-    self.reviewersCollectionView.backgroundColor = [UIColor greenColor];
+    self.reviewersCollectionView.backgroundColor = [UIColor clearColor];
     self.reviewersCollectionView.tag = ReviewersCollectionView;
 }
 
