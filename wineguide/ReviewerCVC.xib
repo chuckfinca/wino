@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1" customClass="UICollectionReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_alan.png" translatesAutoresizingMaskIntoConstraints="NO" id="iOG-E9-MwN">
+                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="iOG-E9-MwN" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="OIv-xX-AaJ"/>
+                <constraint firstAttribute="trailing" secondItem="iOG-E9-MwN" secondAttribute="trailing" id="eWF-ju-Omt"/>
+                <constraint firstAttribute="bottom" secondItem="iOG-E9-MwN" secondAttribute="bottom" id="kgj-ux-0l8"/>
+                <constraint firstItem="iOG-E9-MwN" firstAttribute="top" secondItem="1" secondAttribute="top" id="zcH-Lv-GHs"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="user_alan.png" width="60" height="60"/>
+    </resources>
+</document>

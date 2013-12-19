@@ -18,11 +18,14 @@
 #import "TastingNote.h"
 #import "ColorSchemer.h"
 #import "WineCell.h"
+#import "CollectionViewWithIndex.h"
 
 #define JSON @"json"
 #define GROUP_ENTITY @"Group"
 #define WINE_ENTITY @"Wine"
 #define WINE_CELL @"WineCell"
+#define RATINGS_COLLECTION_VIEW_CELL @"RatingsCollectionViewCell"
+#define REVIEWS_COLLECTION_VIEW_CELL @"ReviewersCollectionViewCell"
 
 typedef enum {
     MostPopular,
@@ -33,7 +36,7 @@ typedef enum {
     RareFinds,
 } WineList;
 
-@interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource, RestaurantDetailsVC_WineSelectionDelegate>
+@interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, RestaurantDetailsVC_WineSelectionDelegate>
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
 @property (nonatomic, strong) Restaurant *restaurant;
@@ -42,7 +45,6 @@ typedef enum {
 @property (nonatomic, strong) NSString *listName;
 @property (nonatomic, strong) NSFetchedResultsController *restaurantGroupsFRC;
 @property (nonatomic, strong) NSString *selectedGroupIdentifier;
-
 
 @end
 
@@ -151,6 +153,16 @@ typedef enum {
 {
     WineCell *cell = [tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
     
+    cell.ratingsCollectionView.delegate = self;
+    cell.ratingsCollectionView.dataSource = self;
+    cell.ratingsCollectionView.index = indexPath.row;
+    [cell.ratingsCollectionView registerNib:[UINib nibWithNibName:@"RatingsCVC" bundle:nil] forCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL];
+    
+    cell.reviewersCollectionView.delegate = self;
+    cell.reviewersCollectionView.dataSource = self;
+    cell.reviewersCollectionView.index = indexPath.row;
+    [cell.reviewersCollectionView registerNib:[UINib nibWithNibName:@"ReviewerCVC" bundle:nil] forCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL];
+    
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [cell setupCellForWine:wine];
@@ -173,7 +185,7 @@ typedef enum {
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 150;
+    return 300;
 }
 
 /*
@@ -256,6 +268,53 @@ typedef enum {
 }
 
 
+#pragma mark - UICollectionViewDataSource
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    NSInteger numberOfItemsInSection = 0;
+    
+    if([collectionView isKindOfClass:[CollectionViewWithIndex class]]){
+        CollectionViewWithIndex *collectionViewWithIndex = (CollectionViewWithIndex *)collectionView;
+        
+        if(collectionViewWithIndex.tag == RatingsCollectionView){
+            NSLog(@"aaa");
+            numberOfItemsInSection = 6;
+            
+        } else if (collectionViewWithIndex.tag == ReviewersCollectionView){
+            NSLog(@"bbb");
+            
+            // the number below needs to be replaced with the number of friend reviews (up to 3 or 4) once we have users set up
+            numberOfItemsInSection = 3;
+            
+            
+        } else {
+            NSLog(@"unknown collection view with tag = %i is asking for numberOfItemsInSection",collectionViewWithIndex.tag);
+        }
+    } else {
+        NSLog(@"collection view asking for numberOfItemsInSection is not of class CollectionViewWithIndex");
+    }
+    
+    return numberOfItemsInSection;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = nil;
+    
+    if(collectionView.tag == RatingsCollectionView){
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor grayColor];
+        
+    } else if (collectionView.tag == ReviewersCollectionView){
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor purpleColor];
+    }
+    
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegate
 
 
 

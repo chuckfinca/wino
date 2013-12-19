@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1" customClass="UICollectionReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="16" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3y-eH-AOT">
+                    <rect key="frame" x="0.0" y="0.0" width="16" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="glass_empty.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="L3y-eH-AOT" firstAttribute="top" secondItem="1" secondAttribute="top" id="3XL-Ex-T1w"/>
+                <constraint firstItem="L3y-eH-AOT" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="TC9-dL-Zo8"/>
+                <constraint firstAttribute="bottom" secondItem="L3y-eH-AOT" secondAttribute="bottom" id="omL-Sd-QJ2"/>
+                <constraint firstAttribute="trailing" secondItem="L3y-eH-AOT" secondAttribute="trailing" id="sXe-9n-qyg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="glass_empty.png" width="15" height="20"/>
+    </resources>
+</document>

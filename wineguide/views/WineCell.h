@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WineUnit.h"
+#import "Wine.h"
+#import "CollectionViewWithIndex.h"
+
+typedef enum {
+    RatingsCollectionView,
+    ReviewersCollectionView
+} CollectionViewType;
 
 @interface WineCell : UITableViewCell
 
 @property (nonatomic) BOOL abridged;
+@property (weak, nonatomic) IBOutlet CollectionViewWithIndex *ratingsCollectionView;
+@property (weak, nonatomic) IBOutlet CollectionViewWithIndex *reviewersCollectionView;
 
 -(void)setupCellForWine:(Wine *)wine;
 

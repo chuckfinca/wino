@@ -15,11 +15,11 @@
 
 @interface WineCell ()
 
+@property (nonatomic, strong) Wine *wine;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *vintageAndVarietals;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfReviews;
 @property (weak, nonatomic) IBOutlet UILabel *tastingNotes;
-@property (nonatomic, strong) Wine *wine;
 @property (weak, nonatomic) IBOutlet UIImageView *star1;
 @property (weak, nonatomic) IBOutlet UIImageView *star2;
 @property (weak, nonatomic) IBOutlet UIImageView *star3;
@@ -46,15 +46,27 @@
     // Configure the view for the selected state
 }
 
--(void)setupCell
+-(void)setupRatingsCollectionView
 {
+    self.ratingsCollectionView.backgroundColor = [UIColor redColor];
+    self.ratingsCollectionView.tag = RatingsCollectionView;
     
+    NSLog(@"%i",self.ratingsCollectionView.tag);
+}
+
+-(void)setupReviewsCollectionView
+{
+    self.reviewersCollectionView.backgroundColor = [UIColor greenColor];
+    self.reviewersCollectionView.tag = ReviewersCollectionView;
+    UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout*)self.reviewersCollectionView.collectionViewLayout;
+    NSLog(@"%i",self.reviewersCollectionView.tag);
 }
 
 
 -(void)setupCellForWine:(Wine *)wine
 {
-    [self setupCell];
+    [self setupRatingsCollectionView];
+    [self setupReviewsCollectionView];
     
     self.wine = wine;
     
@@ -126,6 +138,8 @@
         [self.star3 removeFromSuperview];
         [self.star4 removeFromSuperview];
         [self.star5 removeFromSuperview];
+        [self.ratingsCollectionView removeFromSuperview];
+        [self.reviewersCollectionView removeFromSuperview];
     }
     
 }
