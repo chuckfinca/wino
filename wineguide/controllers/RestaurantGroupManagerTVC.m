@@ -113,6 +113,22 @@
 }
 
 
+
+#pragma mark - Editing
+
+
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    Group *group = (Group *)self.managedObjects[indexPath.row];
+    if([[group.name lowercaseString] isEqualToString:@"all"]){
+        return UITableViewCellEditingStyleNone;
+    } else {
+        return UITableViewCellEditingStyleDelete;
+    }
+}
+
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
     [super setEditing:editing animated:animated];
