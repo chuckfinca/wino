@@ -258,6 +258,7 @@ typedef enum {
     
     self.fetchedResultsController = nil;
     [self setupFetchedResultsController];
+    self.tEMPORARYratings = nil;
 }
 
 -(void)setSortOrderForGroups
