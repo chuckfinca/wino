@@ -138,13 +138,11 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    NSLog(@"numberOfSectionsInCollectionView");
     return 1;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSLog(@"numberOfSectionsInCollectionView");
     return 5;
 }
 
@@ -159,7 +157,22 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectItemAtIndexPath %i",indexPath.row);
+    switch (indexPath.row) {
+        case 1:
+            [self favoriteWine];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark - UserActions
+
+-(void)favoriteWine
+{
+    BOOL favorite = ![self.wine.favorite boolValue];
+    self.wine.favorite = @(favorite);
 }
 
 #pragma mark - UICollectionViewDelegate
