@@ -83,6 +83,8 @@
 		C95E2DC1186510050050DFAC /* tab_cellar.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBB186510050050DFAC /* tab_cellar.png */; };
 		C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBC186510050050DFAC /* tab_cellar@2x.png */; };
 		C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */; };
+		C95E2DC618651FF10050DFAC /* button_purchase.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DC418651FF10050DFAC /* button_purchase.png */; };
+		C95E2DC718651FF10050DFAC /* button_purchase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DC518651FF10050DFAC /* button_purchase@2x.png */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -291,6 +293,8 @@
 		C95E2DBB186510050050DFAC /* tab_cellar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_cellar.png; path = images/tab_cellar.png; sourceTree = "<group>"; };
 		C95E2DBC186510050050DFAC /* tab_cellar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_cellar@2x.png"; path = "images/tab_cellar@2x.png"; sourceTree = "<group>"; };
 		C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_triedIt@2x.png"; path = "images/userAction_triedIt@2x.png"; sourceTree = "<group>"; };
+		C95E2DC418651FF10050DFAC /* button_purchase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_purchase.png; path = images/button_purchase.png; sourceTree = "<group>"; };
+		C95E2DC518651FF10050DFAC /* button_purchase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_purchase@2x.png"; path = "images/button_purchase@2x.png"; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -659,6 +663,8 @@
 				C95A2CD4185BF11A0043ECB0 /* button_favorite@2x.png */,
 				C95A2CDA185C02300043ECB0 /* button_favorited.png */,
 				C95A2CDB185C02300043ECB0 /* button_favorited@2x.png */,
+				C95E2DC418651FF10050DFAC /* button_purchase.png */,
+				C95E2DC518651FF10050DFAC /* button_purchase@2x.png */,
 				C95A2CDE185C04DB0043ECB0 /* favoriteIndicator.png */,
 				C95A2CDF185C04DB0043ECB0 /* favoriteIndicator@2x.png */,
 				C991FB831861110200C10B52 /* glass_full.png */,
@@ -879,6 +885,7 @@
 				C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */,
 				C991FB9A186115CA00C10B52 /* user_alan@2x.png in Resources */,
 				C95A2CE0185C04DB0043ECB0 /* favoriteIndicator.png in Resources */,
+				C95E2DC718651FF10050DFAC /* button_purchase@2x.png in Resources */,
 				C95A2CD2185BEC3B0043ECB0 /* button_triedIt@2x.png in Resources */,
 				C95A2CD1185BEC3B0043ECB0 /* button_triedIt.png in Resources */,
 				C991FB8E1861110200C10B52 /* glass_empty@2x.png in Resources */,
@@ -893,6 +900,7 @@
 				C9C7D62C18403E0E00A2E955 /* tutorial_nearby@2x.png in Resources */,
 				C95E2DBF186510050050DFAC /* userAction_cellar.png in Resources */,
 				C991FB9D186115CA00C10B52 /* user_arturo@2x.png in Resources */,
+				C95E2DC618651FF10050DFAC /* button_purchase.png in Resources */,
 				C9ACC7D7184E72AB00E5945D /* settings.png in Resources */,
 				C9C7D6361841933900A2E955 /* tutorial_favorites@2x.png in Resources */,
 				C92CAE3418330CC700F29C9B /* group.restaurant.leszygomates.129southstreet.all.json in Resources */,
