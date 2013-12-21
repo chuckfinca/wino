@@ -51,29 +51,12 @@
         textViewString = [textViewString stringByAppendingString:[varietalsString capitalizedString]];
     }
     
-    if(wine.region){
-        textViewString = [textViewString stringByAppendingString:[wine.region capitalizedString]];
-    }
-    if(wine.country){
-        if(wine.region){
-            textViewString = [textViewString stringByAppendingString:@", "];
-        } else {
-            textViewString = [textViewString stringByAppendingString:@"\n"];
-        }
-        textViewString = [textViewString stringByAppendingString:[wine.country capitalizedString]];
-    }
-    if(wine.vineyard){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",[wine.vineyard capitalizedString]]];
-    }
-    if(wine.alcoholPercentage){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@%% alcohol",[wine.alcoholPercentage stringValue]]];
-    }
     if(restaurant){
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"restaurant.identifier = %@",restaurant.identifier];
         NSSet *wineUnits = [wine.wineUnits filteredSetUsingPredicate:predicate];
         if(wineUnits){
             
-            NSString * wineUnitsString = @"\n\n";
+            NSString * wineUnitsString = @"\n";
             for(WineUnit *wineUnit in wineUnits){
                 NSLog(@"wineUnit = %@",wineUnit.description);
                 NSLog(@"%@",wineUnit.price);
@@ -96,12 +79,12 @@
     [self.textStorage addAttribute:NSForegroundColorAttributeName
                              value:[ColorSchemer sharedInstance].textPrimary
                              range:NSMakeRange(0, [self.textStorage length])];
-    [self.textStorage addAttribute:NSForegroundColorAttributeName
-                             value:[ColorSchemer sharedInstance].textSecondary
-                             range:restaurantRange];
     [self.textStorage addAttribute:NSFontAttributeName
                              value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
                              range:nameRange];
+    [self.textStorage addAttribute:NSForegroundColorAttributeName
+                             value:[ColorSchemer sharedInstance].textSecondary
+                             range:restaurantRange];
     
     [self setHeightConstraintForAttributedText:self.textStorage andMinimumHeight:V_HEIGHT];
 }

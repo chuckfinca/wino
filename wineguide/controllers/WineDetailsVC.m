@@ -11,8 +11,11 @@
 #import "WineNameVHTV.h"
 #import "Brand.h"
 #import "ColorSchemer.h"
+#import "UserActionCVC.h"
 
-@interface WineDetailsVC ()
+#define USER_ACTION_CELL @"UserActionCell"
+
+@interface WineDetailsVC () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, weak) Wine *wine;
 @property (nonatomic, weak) Restaurant *restaurant;
@@ -21,6 +24,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *numReviewsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (weak, nonatomic) IBOutlet UILabel *numFriendsLabel;
+@property (weak, nonatomic) IBOutlet UICollectionView *userActionsCollectionView;
 
 @end
 
@@ -40,6 +44,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self.userActionsCollectionView registerNib:[UINib nibWithNibName:@"UserActionCell" bundle:nil] forCellWithReuseIdentifier:USER_ACTION_CELL];
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,6 +132,38 @@
     }
     [self.favoriteButton setNeedsDisplay];
 }
+
+
+#pragma mark - UICollectionViewDataSource
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    NSLog(@"numberOfSectionsInCollectionView");
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    NSLog(@"numberOfSectionsInCollectionView");
+    return 5;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UserActionCVC *cell = (UserActionCVC *)[collectionView dequeueReusableCellWithReuseIdentifier:USER_ACTION_CELL forIndexPath:indexPath];
+    
+    [cell setupCellAtIndex:indexPath.row];
+    
+    return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"didSelectItemAtIndexPath %i",indexPath.row);
+}
+
+#pragma mark - UICollectionViewDelegate
+
 
 
 

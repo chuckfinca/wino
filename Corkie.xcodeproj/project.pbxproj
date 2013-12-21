@@ -75,6 +75,14 @@
 		C95A2CDD185C02300043ECB0 /* button_favorited@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDB185C02300043ECB0 /* button_favorited@2x.png */; };
 		C95A2CE0185C04DB0043ECB0 /* favoriteIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDE185C04DB0043ECB0 /* favoriteIndicator.png */; };
 		C95A2CE1185C04DB0043ECB0 /* favoriteIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDF185C04DB0043ECB0 /* favoriteIndicator@2x.png */; };
+		C95E2DB4186501010050DFAC /* UserActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DB3186501010050DFAC /* UserActionCell.xib */; };
+		C95E2DB71865023C0050DFAC /* UserActionCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E2DB61865023C0050DFAC /* UserActionCVC.m */; };
+		C95E2DBE186510050050DFAC /* userAction_triedIt.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DB8186510050050DFAC /* userAction_triedIt.png */; };
+		C95E2DBF186510050050DFAC /* userAction_cellar.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DB9186510050050DFAC /* userAction_cellar.png */; };
+		C95E2DC0186510050050DFAC /* userAction_cellar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBA186510050050DFAC /* userAction_cellar@2x.png */; };
+		C95E2DC1186510050050DFAC /* tab_cellar.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBB186510050050DFAC /* tab_cellar.png */; };
+		C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBC186510050050DFAC /* tab_cellar@2x.png */; };
+		C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -274,6 +282,15 @@
 		C95A2CDB185C02300043ECB0 /* button_favorited@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_favorited@2x.png"; path = "images/button_favorited@2x.png"; sourceTree = "<group>"; };
 		C95A2CDE185C04DB0043ECB0 /* favoriteIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favoriteIndicator.png; path = images/favoriteIndicator.png; sourceTree = "<group>"; };
 		C95A2CDF185C04DB0043ECB0 /* favoriteIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favoriteIndicator@2x.png"; path = "images/favoriteIndicator@2x.png"; sourceTree = "<group>"; };
+		C95E2DB3186501010050DFAC /* UserActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserActionCell.xib; path = xibs/UserActionCell.xib; sourceTree = "<group>"; };
+		C95E2DB51865023C0050DFAC /* UserActionCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserActionCVC.h; path = views/UserActionCVC.h; sourceTree = "<group>"; };
+		C95E2DB61865023C0050DFAC /* UserActionCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserActionCVC.m; path = views/UserActionCVC.m; sourceTree = "<group>"; };
+		C95E2DB8186510050050DFAC /* userAction_triedIt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = userAction_triedIt.png; path = images/userAction_triedIt.png; sourceTree = "<group>"; };
+		C95E2DB9186510050050DFAC /* userAction_cellar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = userAction_cellar.png; path = images/userAction_cellar.png; sourceTree = "<group>"; };
+		C95E2DBA186510050050DFAC /* userAction_cellar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_cellar@2x.png"; path = "images/userAction_cellar@2x.png"; sourceTree = "<group>"; };
+		C95E2DBB186510050050DFAC /* tab_cellar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_cellar.png; path = images/tab_cellar.png; sourceTree = "<group>"; };
+		C95E2DBC186510050050DFAC /* tab_cellar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_cellar@2x.png"; path = "images/tab_cellar@2x.png"; sourceTree = "<group>"; };
+		C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_triedIt@2x.png"; path = "images/userAction_triedIt@2x.png"; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -580,6 +597,8 @@
 				C991FBAC1862BE6E00C10B52 /* ReviewersCVC.m */,
 				C991FBB618639FE100C10B52 /* UserRatingCVC.h */,
 				C991FBB718639FE100C10B52 /* UserRatingCVC.m */,
+				C95E2DB51865023C0050DFAC /* UserActionCVC.h */,
+				C95E2DB61865023C0050DFAC /* UserActionCVC.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -596,6 +615,7 @@
 				C991FBA4186269C300C10B52 /* RatingsCVC.xib */,
 				C991FBBD1863A14700C10B52 /* ReviewerCVC.xib */,
 				C991FBBB1863A10E00C10B52 /* UserRatingCVC.xib */,
+				C95E2DB3186501010050DFAC /* UserActionCell.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -603,6 +623,12 @@
 		C9061E4F181F3CC2003D8A55 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C95E2DB8186510050050DFAC /* userAction_triedIt.png */,
+				C95E2DB9186510050050DFAC /* userAction_cellar.png */,
+				C95E2DBA186510050050DFAC /* userAction_cellar@2x.png */,
+				C95E2DBB186510050050DFAC /* tab_cellar.png */,
+				C95E2DBC186510050050DFAC /* tab_cellar@2x.png */,
+				C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */,
 				C991FBAE18639EB500C10B52 /* rating_unrated.png */,
 				C991FBAF18639EB500C10B52 /* rating_unrated@2x.png */,
 				C991FBB018639EB500C10B52 /* rating_rated.png */,
@@ -857,19 +883,24 @@
 				C95A2CD1185BEC3B0043ECB0 /* button_triedIt.png in Resources */,
 				C991FB8E1861110200C10B52 /* glass_empty@2x.png in Resources */,
 				C991FBB518639EB500C10B52 /* rating_rated@2x.png in Resources */,
+				C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */,
 				C9C7D63A1842AACD00A2E955 /* tutorial_logo@2x.png in Resources */,
+				C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */,
 				C9C7D62B18403E0E00A2E955 /* tutorial_nearby.png in Resources */,
 				C9061E05181F07CE003D8A55 /* iPad.storyboard in Resources */,
 				C991FB9C186115CA00C10B52 /* user_arturo.png in Resources */,
 				C991FB8C1861110200C10B52 /* glass_half@2x.png in Resources */,
 				C9C7D62C18403E0E00A2E955 /* tutorial_nearby@2x.png in Resources */,
+				C95E2DBF186510050050DFAC /* userAction_cellar.png in Resources */,
 				C991FB9D186115CA00C10B52 /* user_arturo@2x.png in Resources */,
 				C9ACC7D7184E72AB00E5945D /* settings.png in Resources */,
 				C9C7D6361841933900A2E955 /* tutorial_favorites@2x.png in Resources */,
 				C92CAE3418330CC700F29C9B /* group.restaurant.leszygomates.129southstreet.all.json in Resources */,
 				C991FB9B186115CA00C10B52 /* user_derek@2x.png in Resources */,
+				C95E2DB4186501010050DFAC /* UserActionCell.xib in Resources */,
 				C991FB8D1861110200C10B52 /* glass_empty.png in Resources */,
 				C95A2CDC185C02300043ECB0 /* button_favorited.png in Resources */,
+				C95E2DBE186510050050DFAC /* userAction_triedIt.png in Resources */,
 				C91F59C218457EB800CF7F18 /* Restauranteur_iPhone.storyboard in Resources */,
 				C9C7D61918401F7100A2E955 /* tab_nearMe@2x.png in Resources */,
 				C991FBA5186269C300C10B52 /* RatingsCVC.xib in Resources */,
@@ -883,6 +914,7 @@
 				C9C7D6351841933900A2E955 /* tutorial_favorites.png in Resources */,
 				C9C6A21018568ABE00CFBBD5 /* brands.json in Resources */,
 				C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */,
+				C95E2DC0186510050050DFAC /* userAction_cellar@2x.png in Resources */,
 				C991FB97186115CA00C10B52 /* user_lisa.png in Resources */,
 				C991FB98186115CA00C10B52 /* user_lisa@2x.png in Resources */,
 				C9C7D6391842AACD00A2E955 /* tutorial_logo.png in Resources */,
@@ -906,6 +938,7 @@
 				C95A2CCD185BE4D30043ECB0 /* tab_timeline.png in Resources */,
 				C9061DF9181F07CE003D8A55 /* InfoPlist.strings in Resources */,
 				C9061E3C181F2767003D8A55 /* RestaurantDetails.xib in Resources */,
+				C95E2DC1186510050050DFAC /* tab_cellar.png in Resources */,
 				C92CAE3618330CC700F29C9B /* group.restaurant.tico.222berkeleystreet.all.json in Resources */,
 				C991FB8B1861110200C10B52 /* glass_half.png in Resources */,
 				C95A2CD5185BF11A0043ECB0 /* button_favorite.png in Resources */,
@@ -988,6 +1021,7 @@
 				C9D078421845252000F47851 /* PanelsContainerViewController.m in Sources */,
 				C9C6A21D18592AC300CFBBD5 /* WineCardCell.m in Sources */,
 				C991FBA118625F3B00C10B52 /* CollectionViewWithIndex.m in Sources */,
+				C95E2DB71865023C0050DFAC /* UserActionCVC.m in Sources */,
 				C9C6A2081852B33A00CFBBD5 /* WineUnit.m in Sources */,
 				C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */,
 				C9328CC518496B7500AF6DEA /* ListManagerTVC.m in Sources */,

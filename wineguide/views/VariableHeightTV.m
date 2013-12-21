@@ -18,7 +18,7 @@
 
 -(void)awakeFromNib
 {
-    self.textContainerInset = UIEdgeInsetsMake(0, 10, 0, 10);
+    //self.textContainerInset = UIEdgeInsetsMake(0, 10, 0, 10);
 }
 
 -(BOOL)resetHeight
@@ -33,7 +33,7 @@
         
         UITextView *tv = [[UITextView alloc] init];
         tv.attributedText = attributedText;
-        tv.textContainerInset = UIEdgeInsetsMake(0, 10, 0, 10);
+        //tv.textContainerInset = UIEdgeInsetsMake(0, 10, 0, 10);
         
         CGSize tvSize = [tv sizeThatFits:CGSizeMake(self.bounds.size.width, FLT_MAX)];
         

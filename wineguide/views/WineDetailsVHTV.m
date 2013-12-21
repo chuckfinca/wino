@@ -31,6 +31,24 @@
 {
     NSString *textViewString = @"";
     
+    if(wine.region){
+        textViewString = [textViewString stringByAppendingString:[wine.region capitalizedString]];
+        if(wine.country){
+            textViewString = [textViewString stringByAppendingString:@", "];
+        } else {
+            textViewString = [textViewString stringByAppendingString:@"\n"];
+        }
+    }
+    if(wine.country){
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[wine.country capitalizedString]]];
+    }
+    if(wine.vineyard){
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[wine.vineyard capitalizedString]]];
+    }
+    if(wine.alcoholPercentage){
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@%% alcohol\n",[wine.alcoholPercentage stringValue]]];
+    }
+    
     if(wine.tastingNotes){
         NSString *tastingNotesString = @"Tasting notes: ";
         NSArray *tastingNotes = [wine.tastingNotes sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
@@ -49,6 +67,7 @@
     [self.textStorage addAttribute:NSForegroundColorAttributeName
                              value:[ColorSchemer sharedInstance].textPrimary
                              range:NSMakeRange(0, [self.textStorage length])];
+    
     
     [self setHeightConstraintForAttributedText:self.textStorage andMinimumHeight:V_HEIGHT];
     

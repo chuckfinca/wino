@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1" customClass="UserActionCVC">
+            <rect key="frame" x="0.0" y="0.0" width="44" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zy-2g-GLn">
+                    <rect key="frame" x="0.0" y="35" width="44" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="XTw-yK-Krp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pv1-L6-gYg">
+                    <rect key="frame" x="0.0" y="0.0" width="44" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="pv1-L6-gYg" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="BPP-CF-SBh"/>
+                <constraint firstAttribute="trailing" secondItem="4Zy-2g-GLn" secondAttribute="trailing" id="MMS-e7-pLz"/>
+                <constraint firstItem="pv1-L6-gYg" firstAttribute="top" secondItem="1" secondAttribute="top" id="Tlq-tz-RXV"/>
+                <constraint firstItem="4Zy-2g-GLn" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="VYO-xG-Npc"/>
+                <constraint firstAttribute="trailing" secondItem="pv1-L6-gYg" secondAttribute="trailing" id="Vcm-hH-hii"/>
+                <constraint firstItem="4Zy-2g-GLn" firstAttribute="top" secondItem="pv1-L6-gYg" secondAttribute="bottom" id="lqf-Fq-ROk"/>
+                <constraint firstAttribute="bottom" secondItem="4Zy-2g-GLn" secondAttribute="bottom" id="z3t-yn-5Nt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="actionImageView" destination="pv1-L6-gYg" id="F1a-la-vdy"/>
+                <outlet property="actionTitle" destination="4Zy-2g-GLn" id="LJ7-tt-VVj"/>
+            </connections>
+        </view>
+    </objects>
+</document>
