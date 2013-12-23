@@ -8,6 +8,6 @@
 
 #import "SearchableCDTVC.h"
 
-@interface FavoritesSCDTVC : SearchableCDTVC
+@interface CellarSCDTVC : SearchableCDTVC
 
 @end

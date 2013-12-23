@@ -154,7 +154,7 @@
 		C9C7D62818402E0600A2E955 /* TutorialDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */; };
 		C9C7D62B18403E0E00A2E955 /* tutorial_nearby.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62918403E0E00A2E955 /* tutorial_nearby.png */; };
 		C9C7D62C18403E0E00A2E955 /* tutorial_nearby@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62A18403E0E00A2E955 /* tutorial_nearby@2x.png */; };
-		C9C7D62F184047EB00A2E955 /* FavoritesSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D62E184047EB00A2E955 /* FavoritesSCDTVC.m */; };
+		C9C7D62F184047EB00A2E955 /* CellarSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D62E184047EB00A2E955 /* CellarSCDTVC.m */; };
 		C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D63118417DED00A2E955 /* CustomNC.m */; };
 		C9C7D6351841933900A2E955 /* tutorial_favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6331841933900A2E955 /* tutorial_favorites.png */; };
 		C9C7D6361841933900A2E955 /* tutorial_favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6341841933900A2E955 /* tutorial_favorites@2x.png */; };
@@ -397,8 +397,8 @@
 		C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialDetailsVC.m; path = controllers/TutorialDetailsVC.m; sourceTree = "<group>"; };
 		C9C7D62918403E0E00A2E955 /* tutorial_nearby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_nearby.png; path = images/tutorial_nearby.png; sourceTree = "<group>"; };
 		C9C7D62A18403E0E00A2E955 /* tutorial_nearby@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorial_nearby@2x.png"; path = "images/tutorial_nearby@2x.png"; sourceTree = "<group>"; };
-		C9C7D62D184047EB00A2E955 /* FavoritesSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesSCDTVC.h; path = controllers/FavoritesSCDTVC.h; sourceTree = "<group>"; };
-		C9C7D62E184047EB00A2E955 /* FavoritesSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesSCDTVC.m; path = controllers/FavoritesSCDTVC.m; sourceTree = "<group>"; };
+		C9C7D62D184047EB00A2E955 /* CellarSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellarSCDTVC.h; path = controllers/CellarSCDTVC.h; sourceTree = "<group>"; };
+		C9C7D62E184047EB00A2E955 /* CellarSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellarSCDTVC.m; path = controllers/CellarSCDTVC.m; sourceTree = "<group>"; };
 		C9C7D63018417DED00A2E955 /* CustomNC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomNC.h; path = controllers/CustomNC.h; sourceTree = "<group>"; };
 		C9C7D63118417DED00A2E955 /* CustomNC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomNC.m; path = controllers/CustomNC.m; sourceTree = "<group>"; };
 		C9C7D6331841933900A2E955 /* tutorial_favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_favorites.png; path = images/tutorial_favorites.png; sourceTree = "<group>"; };
@@ -568,8 +568,8 @@
 				C9F47975181F4D940026A383 /* WineDetailsVC.m */,
 				C98DEFC51821DA790038216C /* CoreDataTableViewController.h */,
 				C98DEFC61821DA790038216C /* CoreDataTableViewController.m */,
-				C9C7D62D184047EB00A2E955 /* FavoritesSCDTVC.h */,
-				C9C7D62E184047EB00A2E955 /* FavoritesSCDTVC.m */,
+				C9C7D62D184047EB00A2E955 /* CellarSCDTVC.h */,
+				C9C7D62E184047EB00A2E955 /* CellarSCDTVC.m */,
 				C991FBC31863A7DE00C10B52 /* TimelineCVC.h */,
 				C991FBC41863A7DE00C10B52 /* TimelineCVC.m */,
 			);
@@ -1026,7 +1026,7 @@
 				C9C6A2021852B33A00CFBBD5 /* Brand.m in Sources */,
 				C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */,
 				C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */,
-				C9C7D62F184047EB00A2E955 /* FavoritesSCDTVC.m in Sources */,
+				C9C7D62F184047EB00A2E955 /* CellarSCDTVC.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
 				C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */,
 				C991FBC51863A7DE00C10B52 /* TimelineCVC.m in Sources */,

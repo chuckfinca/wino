@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "FavoritesSCDTVC.h"
+#import "CellarSCDTVC.h"
 #import "Wine.h"
 #import "ColorSchemer.h"
 #import "Varietal.h"
@@ -15,11 +15,11 @@
 
 #define WINE_ENTITY @"Wine"
 
-@interface FavoritesSCDTVC ()
+@interface CellarSCDTVC ()
 
 @end
 
-@implementation FavoritesSCDTVC
+@implementation CellarSCDTVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,7 +35,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self setupSearchBar];
-    self.title = @"Favorites";
+    self.title = @"Cellar";
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -61,7 +61,7 @@
 
 -(void)setupSearchBar
 {
-    self.searchBar.placeholder = @"Search favorites...";
+    self.searchBar.placeholder = @"Search your cellar...";
 }
 
 #pragma mark - SearchableCDTVC Required Methods

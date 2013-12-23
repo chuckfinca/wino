@@ -30,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" id="Dh4-27-ckg">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <textInputTraits key="textInputTraits"/>
@@ -41,7 +41,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantCell" textLabel="01t-RW-7gT" detailTextLabel="GdK-me-dVX" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="1aO-XF-FA9">
-                                <rect key="frame" x="0.0" y="130" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1aO-XF-FA9" id="9Ed-oS-YPl">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
@@ -90,23 +90,23 @@
             </objects>
             <point key="canvasLocation" x="1036" y="160"/>
         </scene>
-        <!--FavoritesSCDTVC - Root View Controller-->
+        <!--CellarSCDTVC - Root View Controller-->
         <scene sceneID="C06-0i-J9l">
             <objects>
-                <tableViewController id="9wT-c5-7MY" customClass="FavoritesSCDTVC" sceneMemberID="viewController">
+                <tableViewController id="9wT-c5-7MY" customClass="CellarSCDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="elj-G6-ORZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" id="X3k-J3-Opp">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WineCell" textLabel="xcF-6F-p6L" detailTextLabel="nnE-1P-3Jj" style="IBUITableViewCellStyleSubtitle" id="0yv-ml-192">
-                                <rect key="frame" x="0.0" y="130" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0yv-ml-192" id="RjZ-7D-tj2">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
@@ -190,7 +190,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WineCardCell" id="zzU-VN-7RN" customClass="WineCardCell">
-                                <rect key="frame" x="40" y="198" width="240" height="300"/>
+                                <rect key="frame" x="40" y="134" width="240" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
@@ -221,7 +221,7 @@
                         <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WineCell" rowHeight="80" id="C9f-WT-wKu" customClass="WineCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C9f-WT-wKu" id="mze-u4-vcf">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
@@ -255,7 +255,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WineCell" id="aiz-4V-Y9k">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aiz-4V-Y9k" id="91q-fc-RKo">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
