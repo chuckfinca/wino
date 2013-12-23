@@ -54,6 +54,8 @@
 		C9328CC518496B7500AF6DEA /* ListManagerTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9328CC418496B7500AF6DEA /* ListManagerTVC.m */; };
 		C9328CC81849784400AF6DEA /* RestaurantWineListManagerTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9328CC71849784400AF6DEA /* RestaurantWineListManagerTVC.m */; };
 		C9328CCB184ADCBC00AF6DEA /* RestaurantWineManagerSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9328CCA184ADCBC00AF6DEA /* RestaurantWineManagerSCDTVC.m */; };
+		C932F1121868EE6E0079680C /* userAction_cellared.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F1101868EE6E0079680C /* userAction_cellared.png */; };
+		C932F1131868EE6E0079680C /* userAction_cellared@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F1111868EE6E0079680C /* userAction_cellared@2x.png */; };
 		C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */; };
 		C9487D0C182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */; };
 		C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */; };
@@ -259,6 +261,8 @@
 		C9328CC71849784400AF6DEA /* RestaurantWineListManagerTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantWineListManagerTVC.m; path = controllers/RestaurantWineListManagerTVC.m; sourceTree = "<group>"; };
 		C9328CC9184ADCBC00AF6DEA /* RestaurantWineManagerSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantWineManagerSCDTVC.h; path = controllers/RestaurantWineManagerSCDTVC.h; sourceTree = "<group>"; };
 		C9328CCA184ADCBC00AF6DEA /* RestaurantWineManagerSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantWineManagerSCDTVC.m; path = controllers/RestaurantWineManagerSCDTVC.m; sourceTree = "<group>"; };
+		C932F1101868EE6E0079680C /* userAction_cellared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = userAction_cellared.png; path = images/userAction_cellared.png; sourceTree = "<group>"; };
+		C932F1111868EE6E0079680C /* userAction_cellared@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_cellared@2x.png"; path = "images/userAction_cellared@2x.png"; sourceTree = "<group>"; };
 		C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.leszygomates.129southstreet.json; path = model/json/restaurant.leszygomates.129southstreet.json; sourceTree = "<group>"; };
 		C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "restaurant.strega-waterfront.1marinaparkdrive.json"; path = "model/json/restaurant.strega-waterfront.1marinaparkdrive.json"; sourceTree = "<group>"; };
 		C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.tico.222berkeleystreet.json; path = model/json/restaurant.tico.222berkeleystreet.json; sourceTree = "<group>"; };
@@ -630,6 +634,8 @@
 				C95E2DB8186510050050DFAC /* userAction_triedIt.png */,
 				C95E2DB9186510050050DFAC /* userAction_cellar.png */,
 				C95E2DBA186510050050DFAC /* userAction_cellar@2x.png */,
+				C932F1101868EE6E0079680C /* userAction_cellared.png */,
+				C932F1111868EE6E0079680C /* userAction_cellared@2x.png */,
 				C95E2DBB186510050050DFAC /* tab_cellar.png */,
 				C95E2DBC186510050050DFAC /* tab_cellar@2x.png */,
 				C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */,
@@ -881,6 +887,7 @@
 				C95A2CE1185C04DB0043ECB0 /* favoriteIndicator@2x.png in Resources */,
 				C95A2CD6185BF11A0043ECB0 /* button_favorite@2x.png in Resources */,
 				C96D5FBC185005B60068093C /* varietals.json in Resources */,
+				C932F1121868EE6E0079680C /* userAction_cellared.png in Resources */,
 				C9C7D611184011D100A2E955 /* favorite_y.png in Resources */,
 				C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */,
 				C991FB9A186115CA00C10B52 /* user_alan@2x.png in Resources */,
@@ -938,6 +945,7 @@
 				C991FBB418639EB500C10B52 /* rating_rated.png in Resources */,
 				C991FBB318639EB500C10B52 /* rating_unrated@2x.png in Resources */,
 				C991FB8A1861110200C10B52 /* glass_full@2x.png in Resources */,
+				C932F1131868EE6E0079680C /* userAction_cellared@2x.png in Resources */,
 				C95A2CCA185BDC0F0043ECB0 /* tutorial_triedIt@2x.png in Resources */,
 				C9C7D60F184011D100A2E955 /* favorite_n.png in Resources */,
 				C991FB891861110200C10B52 /* glass_full.png in Resources */,

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Wine.h"
 
 @interface UserActionCVC : UICollectionViewCell
 
--(void)setupCellAtIndex:(int)index;
+-(void)setupCellForWine:(Wine *)wine atIndex:(int)index;
 
 @end

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *actionTitle;
 @property (nonatomic, strong) UIImage *triedItImage;
 @property (nonatomic, strong) UIImage *cellarImage;
+@property (nonatomic, strong) UIImage *cellaredImage;
 
 
 @end
@@ -35,7 +36,7 @@
 
 
 
--(void)setupCellAtIndex:(int)index
+-(void)setupCellForWine:(Wine *)wine atIndex:(int)index
 {
     UIImage *image;
     NSString *title = @"";
@@ -45,7 +46,11 @@
             title = @"Tried It";
             break;
         case 1:
-            image = self.cellarImage;
+            if([wine.favorite boolValue] == YES){
+                image = self.cellaredImage;
+            } else {
+                image = self.cellarImage;
+            }
             title = @"Cellar";
             break;
             
@@ -69,6 +74,12 @@
 {
     if(!_cellarImage) _cellarImage = [UIImage imageNamed:@"userAction_cellar.png"];
     return _cellarImage;
+}
+
+-(UIImage *)cellaredImage
+{
+    if(!_cellaredImage) _cellaredImage = [UIImage imageNamed:@"userAction_cellared.png"];
+    return _cellaredImage;
 }
 
 

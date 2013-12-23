@@ -59,13 +59,14 @@ static ColorSchemer *sharedInstance;
 }
 -(UIColor *)textLink
 {
-    if(!_textLink) _textLink = [UIColor colorWithRed:0.666667f green:0.470588f blue:0.650980f alpha:1.0];
+    if(!_textLink) _textLink = [UIColor colorWithRed:0.603922F green:0.803922F blue:0.388235F alpha:1.0F]; // light yellow green
+        //[UIColor colorWithRed:0.666667f green:0.470588f blue:0.650980f alpha:1.0]; // purple
     return _textLink;
 }
 
 -(UIColor *)customBackgroundColor
 {
-    if(!_customBackgroundColor) _customBackgroundColor = [UIColor whiteColor];
+    if(!_customBackgroundColor) _customBackgroundColor = [UIColor colorWithRed:0.986068F green:0.990000F blue:0.966170F alpha:1.0F];
         //[UIColor colorWithRed:1.000000F green:0.956722F blue:0.915948F alpha:1.0F];
         //[UIColor colorWithRed:0.968627F green:0.894118F blue:0.823529F alpha:1.0F];
     return _customBackgroundColor;

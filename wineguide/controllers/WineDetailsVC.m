@@ -22,7 +22,6 @@
 @property (nonatomic, weak) IBOutlet WineDetailsVHTV *wineDetailsVHTV;
 @property (nonatomic, weak) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (nonatomic, weak) IBOutlet UILabel *numReviewsLabel;
-@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (weak, nonatomic) IBOutlet UILabel *numFriendsLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *userActionsCollectionView;
 
@@ -62,7 +61,6 @@
     // [self logDetails];
     
     [self setupTextForWine:wine];
-    [self setupFavoriteButton];
     
     [self setupReviewsLabel];
     [self setupNumFriendsLabel];
@@ -107,33 +105,6 @@
 }
 
 
-#pragma mark - Favorites
-
--(void)setupFavoriteButton
-{
-    if([self.wine.favorite boolValue] == YES){
-        [self.favoriteButton setImage:[UIImage imageNamed:@"button_favorited.png"] forState:UIControlStateNormal];
-    } else {
-        [self.favoriteButton setImage:[UIImage imageNamed:@"button_favorite.png"] forState:UIControlStateNormal];
-    }
-}
-
-
-
-- (IBAction)favoriteWine:(UIButton *)sender
-{
-    if([self.wine.favorite boolValue] == YES){
-        self.wine.favorite = @NO;
-        [self.favoriteButton setImage:[UIImage imageNamed:@"button_favorite.png"] forState:UIControlStateNormal];
-        
-    } else {
-        self.wine.favorite = @YES;
-        [self.favoriteButton setImage:[UIImage imageNamed:@"button_favorited.png"] forState:UIControlStateNormal];
-    }
-    [self.favoriteButton setNeedsDisplay];
-}
-
-
 #pragma mark - UICollectionViewDataSource
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -150,7 +121,7 @@
 {
     UserActionCVC *cell = (UserActionCVC *)[collectionView dequeueReusableCellWithReuseIdentifier:USER_ACTION_CELL forIndexPath:indexPath];
     
-    [cell setupCellAtIndex:indexPath.row];
+    [cell setupCellForWine:self.wine atIndex:indexPath.row];
     
     return cell;
 }
@@ -160,6 +131,8 @@
     switch (indexPath.row) {
         case 1:
             [self favoriteWine];
+            [self.userActionsCollectionView reloadItemsAtIndexPaths:@[indexPath]];
+            [self setupNumFriendsLabel];
             break;
             
         default:
