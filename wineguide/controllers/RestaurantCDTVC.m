@@ -322,7 +322,6 @@ typedef enum {
         
         CollectionViewWithIndex *cvwi = (CollectionViewWithIndex *)collectionView;
         float rating = [self.tEMPORARYratings[cvwi.index] floatValue];
-        NSLog(@"rating = %f",rating);
         
         [ratingsCell setupImageViewForGlassNumber:indexPath.row andRating:rating];
         

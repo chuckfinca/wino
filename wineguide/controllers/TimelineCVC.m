@@ -174,23 +174,15 @@
         }
     } else if([collectionView isKindOfClass:[CollectionViewWithIndex class]]){
         
-        UserRatingCVC *cell = (UserRatingCVC *)[collectionView cellForItemAtIndexPath:indexPath];
-        
         int rating = indexPath.row;
         
         for(UserRatingCVC *glass in collectionView.visibleCells){
             if([collectionView indexPathForCell:glass].row <= rating){
-                
                 [glass glassIsEmpty:NO];
             } else {
                 [glass glassIsEmpty:YES];
             }
-            
         }
-        
-        
-        NSLog(@"yup");
-        NSLog(@"index = %@",indexPath);
     }
 }
 

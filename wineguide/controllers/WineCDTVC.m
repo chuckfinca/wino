@@ -10,6 +10,8 @@
 #import "WineDetailsVC.h"
 #import "ColorSchemer.h"
 
+#define WINE_CELL @"WineCell"
+
 @interface WineCDTVC ()
 
 @property (nonatomic, strong) WineDetailsVC *wineDetailsViewController;
@@ -110,8 +112,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"WineCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
     
     // Configure the cell...
     cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"review" attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];

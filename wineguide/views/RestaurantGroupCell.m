@@ -38,12 +38,9 @@
 {
     self.groupNameLabel.attributedText = [[NSAttributedString alloc] initWithString:[group.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     
-    NSLog(@"aaa");
     if(indexPath.row < 4){
-        NSLog(@"bbb");
         self.isVisibleImageView.hidden = NO;
     } else {
-        NSLog(@"ccc");
         self.isVisibleImageView.hidden = YES;
     }
     
