@@ -23,6 +23,18 @@
         
         if ([self.relatedObject class] == [Wine class]){
             varietal.wines = [self addRelationToSet:varietal.wines];
+            
+            Wine *wine = (Wine *)self.relatedObject;
+            if([wine.varietals count] == 1){
+                Varietal *v = (Varietal *)[wine.varietals anyObject];
+                wine.varietalCategory = [NSString stringWithFormat:@"%@-%@",[wine.color substringToIndex:1],v.name];
+            } else {
+                if([wine.color isEqualToString:@"red"]){
+                    wine.varietalCategory = @"r-red wine";
+                } else {
+                    wine.varietalCategory = @"w-white wine";
+                }
+            }
         }
     }
 }

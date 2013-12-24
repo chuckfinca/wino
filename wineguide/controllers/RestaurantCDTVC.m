@@ -73,6 +73,8 @@ typedef enum {
     self.title = @"Wine List";
     [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    
+    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeaderViewIdentifier"];
 }
 
 #pragma mark - Getters & Setters
@@ -130,9 +132,7 @@ typedef enum {
 -(void)setupFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"color"
-                                                              ascending:YES],
-                                [NSSortDescriptor sortDescriptorWithKey:@"varietalIdentifiers"
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"varietalCategory"
                                                               ascending:YES],
                                 [NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES]];
@@ -140,7 +140,7 @@ typedef enum {
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
-                                                                          sectionNameKeyPath:@"color"
+                                                                          sectionNameKeyPath:@"varietalCategory"
                                                                                    cacheName:nil];
 }
 
@@ -195,8 +195,13 @@ typedef enum {
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	id <NSFetchedResultsSectionInfo> theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
-	return [[theSection name] capitalizedString];
+    id <NSFetchedResultsSectionInfo> theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
+    
+    NSString *sectionTitle;
+    if([[theSection name] length] > 2){
+        sectionTitle = [[[theSection name] substringFromIndex:2] capitalizedString];
+    }
+    return sectionTitle;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -204,17 +209,35 @@ typedef enum {
     return 135;
 }
 
-/*
- - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
- {
- // if this method is used we need to register the appropriate class for use as a reuseable view (probably in viewDidLoad).
- // [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeaderViewIdentifier"];
- 
- UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeaderViewIdentifier"];
- sectionHeaderView.contentView.backgroundColor = [UIColor purpleColor];
- return sectionHeaderView;
- }
- */
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    // if this method is used we need to register the appropriate class for use as a reuseable view (probably in viewDidLoad).
+    //
+    Wine *wineFromSection = (Wine *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
+    NSLog(@"wineFromSection = %@",wineFromSection);
+    NSString *wineVarietalCategoryString = [wineFromSection.varietalCategory substringFromIndex:2];
+    
+    UIColor *wineColor;
+    if([wineFromSection.color isEqualToString:@"red"]){
+        wineColor = [ColorSchemer sharedInstance].redWine;
+    } else {
+        wineColor = [ColorSchemer sharedInstance].whiteWine;
+    }
+    
+    UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeaderViewIdentifier"];
+    sectionHeaderView.contentView.backgroundColor = wineColor;
+    if(wineVarietalCategoryString){
+        NSLog(@"-----------");
+        [sectionHeaderView.textLabel setTextColor:[ColorSchemer sharedInstance].textPrimary];
+        NSLog(@"sectionHeaderView text = %@",sectionHeaderView.textLabel.text);
+    }
+    return sectionHeaderView;
+}
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

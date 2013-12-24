@@ -98,6 +98,8 @@
             wine.vineyard = [dictionary sanitizedStringForKey:VINEYARD];
             wine.vintage = [dictionary sanitizedValueForKey:VINTAGE];
             
+            // wine.varietalCategories is set in WineDataHelper class
+            
             // store any information about relationships provided
             
             NSString *brandIdentifier = [dictionary sanitizedStringForKey:BRAND_IDENTIFIER];

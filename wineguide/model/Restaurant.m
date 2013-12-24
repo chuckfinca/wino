@@ -1,8 +1,8 @@
 //
 //  Restaurant.m
-//  Gimme
+//  Corkie
 //
-//  Created by Charles Feinn on 12/6/13.
+//  Created by Charles Feinn on 12/23/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -22,6 +22,7 @@
 @dynamic groupIdentifiers;
 @dynamic identifier;
 @dynamic isPlaceholderForFutureObject;
+@dynamic lastLocalUpdate;
 @dynamic lastServerUpdate;
 @dynamic latitude;
 @dynamic longitude;
@@ -29,9 +30,8 @@
 @dynamic name;
 @dynamic state;
 @dynamic versionNumber;
-@dynamic zip;
-@dynamic lastLocalUpdate;
 @dynamic wineUnitIdentifiers;
+@dynamic zip;
 @dynamic flights;
 @dynamic groups;
 @dynamic wineUnits;

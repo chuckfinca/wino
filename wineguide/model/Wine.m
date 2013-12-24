@@ -1,8 +1,8 @@
 //
 //  Wine.m
-//  Gimme
+//  Corkie
 //
-//  Created by Charles Feinn on 12/6/13.
+//  Created by Charles Feinn on 12/23/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -24,8 +24,11 @@
 @dynamic deletedEntity;
 @dynamic dessert;
 @dynamic favorite;
+@dynamic flightIdentifiers;
+@dynamic groupIdentifiers;
 @dynamic identifier;
 @dynamic isPlaceholderForFutureObject;
+@dynamic lastLocalUpdate;
 @dynamic lastServerUpdate;
 @dynamic name;
 @dynamic region;
@@ -37,14 +40,12 @@
 @dynamic vineyard;
 @dynamic vintage;
 @dynamic wineUnitIdentifiers;
-@dynamic lastLocalUpdate;
-@dynamic flightIdentifiers;
-@dynamic groupIdentifiers;
+@dynamic varietalCategory;
 @dynamic brand;
+@dynamic flights;
+@dynamic groups;
 @dynamic tastingNotes;
 @dynamic varietals;
 @dynamic wineUnits;
-@dynamic groups;
-@dynamic flights;
 
 @end

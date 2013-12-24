@@ -1,8 +1,8 @@
 //
 //  Varietal.m
-//  Gimme
+//  Corkie
 //
-//  Created by Charles Feinn on 12/6/13.
+//  Created by Charles Feinn on 12/23/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -16,11 +16,11 @@
 @dynamic deletedEntity;
 @dynamic identifier;
 @dynamic isPlaceholderForFutureObject;
+@dynamic lastLocalUpdate;
 @dynamic lastServerUpdate;
 @dynamic name;
 @dynamic versionNumber;
 @dynamic wineIdentifiers;
-@dynamic lastLocalUpdate;
 @dynamic wines;
 
 @end

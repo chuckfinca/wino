@@ -1,8 +1,8 @@
 //
 //  WineUnit.m
-//  Gimme
+//  Corkie
 //
-//  Created by Charles Feinn on 12/6/13.
+//  Created by Charles Feinn on 12/23/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -14,16 +14,16 @@
 @implementation WineUnit
 
 @dynamic deletedEntity;
-@dynamic restaurantIdentifier;
 @dynamic identifier;
 @dynamic isPlaceholderForFutureObject;
+@dynamic lastLocalUpdate;
 @dynamic lastServerUpdate;
 @dynamic price;
 @dynamic quantity;
+@dynamic restaurantIdentifier;
 @dynamic versionNumber;
 @dynamic wineIdentifier;
-@dynamic lastLocalUpdate;
-@dynamic wine;
 @dynamic restaurant;
+@dynamic wine;
 
 @end

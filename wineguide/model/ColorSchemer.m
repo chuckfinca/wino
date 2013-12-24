@@ -25,6 +25,9 @@
 
 @property (nonatomic, readwrite) UIColor *shadowColor;
 
+@property (nonatomic, readwrite) UIColor *redWine;
+@property (nonatomic, readwrite) UIColor *whiteWine;
+
 @end
 
 @implementation ColorSchemer
@@ -90,6 +93,20 @@ static ColorSchemer *sharedInstance;
 {
     if(!_shadowColor) _shadowColor = [UIColor colorWithRed:0.133333F green:0.133333F blue:0.133333F alpha:0.5F];
     return _shadowColor;
+}
+
+-(UIColor *)redWine
+{
+    if(!_redWine) _redWine = [UIColor colorWithRed:0.768627F green:0.419608F blue:0.545098F alpha:1.0F];
+        //[UIColor colorWithRed:0.364706F green:0.129412F blue:0.160784F alpha:1.0F];
+    return _redWine;
+}
+
+
+-(UIColor *)whiteWine
+{
+    if(!_whiteWine) _whiteWine = [UIColor colorWithRed:0.937255F green:0.913725F blue:0.749020F alpha:1.0F];
+    return _whiteWine;
 }
 
 

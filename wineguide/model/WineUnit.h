@@ -1,8 +1,8 @@
 //
 //  WineUnit.h
-//  Gimme
+//  Corkie
 //
-//  Created by Charles Feinn on 12/6/13.
+//  Created by Charles Feinn on 12/23/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
@@ -14,16 +14,16 @@
 @interface WineUnit : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * deletedEntity;
-@property (nonatomic, retain) NSString * restaurantIdentifier;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSNumber * isPlaceholderForFutureObject;
+@property (nonatomic, retain) NSDate * lastLocalUpdate;
 @property (nonatomic, retain) NSDate * lastServerUpdate;
 @property (nonatomic, retain) NSNumber * price;
 @property (nonatomic, retain) NSString * quantity;
+@property (nonatomic, retain) NSString * restaurantIdentifier;
 @property (nonatomic, retain) NSNumber * versionNumber;
 @property (nonatomic, retain) NSString * wineIdentifier;
-@property (nonatomic, retain) NSDate * lastLocalUpdate;
-@property (nonatomic, retain) Wine *wine;
 @property (nonatomic, retain) Restaurant *restaurant;
+@property (nonatomic, retain) Wine *wine;
 
 @end
