@@ -43,8 +43,6 @@
     
     [self setupCard];
     
-    self.backgroundColor = [UIColor whiteColor];
-    
     if(wine.name){
         self.name.attributedText = [[NSAttributedString alloc] initWithString:[wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     }
@@ -73,9 +71,11 @@
 {
     CALayer *layer = self.layer;
     [layer setCornerRadius:CORNER_RADIUS];
-    [layer setShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3].CGColor];
+    [layer setShadowColor:[ColorSchemer sharedInstance].shadowColor.CGColor];
     [layer setShadowOffset:CGSizeMake(0, 0)];
     [layer setShadowOpacity:0.5];
+    
+    self.backgroundColor = [ColorSchemer sharedInstance].customWhite;
 }
 
 /*

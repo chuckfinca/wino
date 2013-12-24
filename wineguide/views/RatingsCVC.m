@@ -8,6 +8,7 @@
 
 #import "RatingsCVC.h"
 #import <math.h>
+#import "ColorSchemer.h"
 
 @interface RatingsCVC ()
 
@@ -48,8 +49,6 @@
 -(void)setupImageViewForGlassNumber:(int)glassNumber andRating:(float)rating
 {
     UIImage *glass;
-    NSLog(@"glassNumber = %i",glassNumber);
-    NSLog(@"rating = %f",rating);
     if(rating - glassNumber >= 1){
         glass = self.full;
     } else if(rating - glassNumber > 0){
@@ -58,6 +57,7 @@
         glass = self.empty;
     }
     [self.glassImageView setImage:glass];
+    self.glassImageView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 /*

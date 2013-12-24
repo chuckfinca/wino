@@ -34,7 +34,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [ColorSchemer sharedInstance].menuBackgroundColor;
-    self.userNameLabel.attributedText = [[NSAttributedString alloc] initWithString:@"My Account" attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.userNameLabel.attributedText = [[NSAttributedString alloc] initWithString:@"My Account" attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].customWhite}];
 }
 
 - (void)didReceiveMemoryWarning

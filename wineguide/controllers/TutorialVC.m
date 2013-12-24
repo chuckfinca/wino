@@ -60,9 +60,9 @@
 -(void)setupPageControl
 {
     UIPageControl *pageControl = [UIPageControl appearance];
-    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.pageIndicatorTintColor = [ColorSchemer sharedInstance].textSecondary;
     pageControl.currentPageIndicatorTintColor = [ColorSchemer sharedInstance].baseColor;
-    pageControl.backgroundColor = [UIColor whiteColor];
+    pageControl.backgroundColor = [ColorSchemer sharedInstance].customWhite;
     
 }
 

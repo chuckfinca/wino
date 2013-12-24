@@ -18,10 +18,13 @@
 
 @property (nonatomic, readonly) UIColor *baseColor;
 
+@property (nonatomic, readonly) UIColor *customWhite;
+
 @property (nonatomic, readonly) UIColor *customBackgroundColor;
 @property (nonatomic, readonly) UIColor *menuBackgroundColor;
 
 @property (nonatomic, readonly) UIColor *shadowColor;
 
+-(void)mixItUp; // changes colors to identify what's what.
 
 @end

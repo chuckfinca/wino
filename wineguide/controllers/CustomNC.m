@@ -29,8 +29,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationBar.barTintColor = [ColorSchemer sharedInstance].baseColor;
-    self.navigationBar.tintColor = [UIColor whiteColor];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationBar.tintColor = [ColorSchemer sharedInstance].customWhite;
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].customWhite}];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 

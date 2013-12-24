@@ -43,6 +43,7 @@
     [self setupSearchBar];
     self.title = @"Add wine";
     [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
+    self.tableView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 -(void)viewWillAppear:(BOOL)animated
 {

@@ -60,6 +60,9 @@
     [self.actionImageView setImage:image];
     
     self.actionTitle.attributedText = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].baseColor}];
+    
+    self.actionImageView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.actionTitle.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 #pragma mark - Getters & Setters

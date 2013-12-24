@@ -64,6 +64,8 @@
     
     [self setupReviewsLabel];
     [self setupNumFriendsLabel];
+    
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)setupTextForWine:(Wine *)wine

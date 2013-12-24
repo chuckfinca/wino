@@ -7,6 +7,8 @@
 //
 
 #import "UserRatingCVC.h"
+#import "ColorSchemer.h"
+
 @interface UserRatingCVC ()
 
 @property (nonatomic, strong) UIImage *unrated;
@@ -70,6 +72,7 @@
         glass = self.rated;
     }
     [self.ratingImageView setImage:glass];
+    self.ratingImageView.backgroundColor = [ColorSchemer sharedInstance].customWhite;
 }
 
 @end

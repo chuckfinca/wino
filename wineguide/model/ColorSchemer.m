@@ -18,6 +18,8 @@
 @property (nonatomic, readwrite) UIColor *textSecondary;
 @property (nonatomic, readwrite) UIColor *textLink;
 
+@property (nonatomic, readwrite) UIColor *customWhite;
+
 @property (nonatomic, readwrite) UIColor *customBackgroundColor;
 @property (nonatomic, readwrite) UIColor *menuBackgroundColor;
 
@@ -64,6 +66,12 @@ static ColorSchemer *sharedInstance;
     return _textLink;
 }
 
+-(UIColor *)customWhite
+{
+    if(!_customWhite) _customWhite = [UIColor whiteColor];
+    return _customWhite;
+}
+
 -(UIColor *)customBackgroundColor
 {
     if(!_customBackgroundColor) _customBackgroundColor = [UIColor colorWithRed:0.952941F green:0.952941F blue:0.952941F alpha:1.0F];
@@ -84,5 +92,17 @@ static ColorSchemer *sharedInstance;
     return _shadowColor;
 }
 
+
+-(void)mixItUp
+{
+    self.baseColor = [UIColor orangeColor];
+    self.textPrimary = [UIColor redColor];
+    self.textSecondary = [UIColor greenColor];
+    self.textLink = [UIColor brownColor];
+    self.customWhite = [UIColor purpleColor];
+    self.customBackgroundColor = [UIColor blueColor];
+    self.menuBackgroundColor = [UIColor lightGrayColor];
+    self.shadowColor = [UIColor yellowColor];
+}
 
 @end

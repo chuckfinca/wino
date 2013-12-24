@@ -12,6 +12,7 @@
 #import "DocumentHandler.h"
 #import "Wine.h"
 #import "UserRatingCVC.h"
+#import "ColorSchemer.h"
 
 #define WINE_CARD_CELL @"WineCardCell"
 #define WINE_ENTITY @"Wine"
@@ -42,8 +43,8 @@
 	// Do any additional setup after loading the view.
     [self.collectionView registerNib:[UINib nibWithNibName:WINE_CARD_CELL bundle:nil] forCellWithReuseIdentifier:WINE_CARD_CELL];
     self.collectionView.showsHorizontalScrollIndicator = NO;
-    self.collectionView.backgroundColor = [UIColor whiteColor];
     self.title = @"Timeline";
+    self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
     [self refresh];
 }
@@ -130,7 +131,7 @@
         wineCardCell.userRatingCollectionView.dataSource = self;
         wineCardCell.userRatingCollectionView.delegate = self;
         [wineCardCell.userRatingCollectionView registerNib:[UINib nibWithNibName:@"UserRatingCVC" bundle:nil] forCellWithReuseIdentifier:USER_RATING_CELL];
-        wineCardCell.userRatingCollectionView.backgroundColor = [UIColor clearColor];
+        wineCardCell.userRatingCollectionView.backgroundColor = [ColorSchemer sharedInstance].customWhite;
         
         
         Wine *wine = [self.wines objectAtIndex:indexPath.row];

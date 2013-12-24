@@ -63,7 +63,7 @@
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     self.screenInstructionText.attributedText = attributedString;
     self.screenInstructionText.numberOfLines = 0;
-    self.view.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.97];
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
 }
 
 -(void)viewWillLayoutSubviews

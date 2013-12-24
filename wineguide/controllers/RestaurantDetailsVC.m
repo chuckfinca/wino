@@ -9,6 +9,7 @@
 #import "RestaurantDetailsVC.h"
 #import "RestaurantDetailsVHTV.h"
 #import "Group.h"
+#import "ColorSchemer.h"
 
 #define GROUP_ENTITY @"Group"
 
@@ -82,6 +83,7 @@
     [self.segmentedControl setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:10.0]} forState:UIControlStateNormal];
     [self.segmentedControl setSelectedSegmentIndex:0];
     [self.delegate loadWineList:[self.segmentedControl selectedSegmentIndex]];
+    self.segmentedControl.backgroundColor = [ColorSchemer sharedInstance].customWhite;
 }
 
 

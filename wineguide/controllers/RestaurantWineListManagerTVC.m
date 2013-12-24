@@ -114,6 +114,8 @@
         cell = wineCell;
     }
     
+    cell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    
     return cell;
 }
 

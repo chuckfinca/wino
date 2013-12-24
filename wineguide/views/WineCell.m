@@ -42,19 +42,20 @@
 
 -(void)setupRatingsCollectionView
 {
-    self.ratingsCollectionView.backgroundColor = [UIColor clearColor];
+    self.ratingsCollectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     self.ratingsCollectionView.tag = RatingsCollectionView;
 }
 
 -(void)setupReviewsCollectionView
 {
-    self.reviewersCollectionView.backgroundColor = [UIColor clearColor];
+    self.reviewersCollectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     self.reviewersCollectionView.tag = ReviewersCollectionView;
 }
 
 
 -(void)setupCellForWine:(Wine *)wine
 {
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     [self setupRatingsCollectionView];
     [self setupReviewsCollectionView];
     
@@ -84,7 +85,6 @@
     self.vintageAndVarietals.attributedText = [[NSAttributedString alloc] initWithString:vintageAndVarietals attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     
     if(!self.abridged){
-        NSLog(@"abridged");
         int r = arc4random_uniform(50) + 1;
         self.numberOfReviews.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%i reviews",r] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
         

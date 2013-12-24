@@ -12,6 +12,7 @@
 #import "RestaurantWineListManagerTVC.h"
 #import "AddGroupCell.h"
 #import "RestaurantGroupCell.h"
+#import "ColorSchemer.h"
 
 #define RESTAURANT_ENTITY @"Restaurant"
 #define GROUP_ENTITY @"Group"
@@ -108,6 +109,7 @@
     
         cell = restaurantGroupCell;
     }
+    cell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
     return cell;
 }
@@ -120,7 +122,6 @@
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     Group *group = (Group *)self.managedObjects[indexPath.row];
     if([[group.name lowercaseString] isEqualToString:@"all"]){
         return UITableViewCellEditingStyleNone;

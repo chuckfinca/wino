@@ -9,6 +9,7 @@
 #import "SearchableCDTVC.h"
 #import "MainTabBarController.h"
 #import "DocumentHandler.h"
+#import "ColorSchemer.h"
 
 @interface SearchableCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
 @end
@@ -29,7 +30,21 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self refresh];
+    
     self.searchBar.delegate = self;
+    
+    [self customizeSearchBar];
+}
+
+-(void)customizeSearchBar
+{
+    self.searchBar.barTintColor = [ColorSchemer sharedInstance].customWhite;
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
+    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self.searchBar setSearchFieldBackgroundImage:blank forState:UIControlStateNormal];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -70,6 +85,7 @@
 {
     //NSLog(@"searchText = %@",searchText);
     [self setupAndSearchFetchedResultsControllerWithText:searchText];
+    self.searchBar.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar

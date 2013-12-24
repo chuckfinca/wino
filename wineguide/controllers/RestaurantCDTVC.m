@@ -156,28 +156,34 @@ typedef enum {
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"indexPath = %@",indexPath);
-    NSLog(@"row = %i",indexPath.row);
     WineCell *cell = [tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
     
-    [cell.ratingsCollectionView resetCollectionView];
-    cell.ratingsCollectionView.delegate = self;
-    cell.ratingsCollectionView.dataSource = self;
-    cell.ratingsCollectionView.index = indexPath.row;
-    NSLog(@"index = %i",cell.ratingsCollectionView.index);
-    [cell.ratingsCollectionView registerNib:[UINib nibWithNibName:@"RatingsCVC" bundle:nil] forCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL];
-    
-    [cell.reviewersCollectionView resetCollectionView];
-    cell.reviewersCollectionView.delegate = self;
-    cell.reviewersCollectionView.dataSource = self;
-    cell.reviewersCollectionView.index = indexPath.row;
-    [cell.reviewersCollectionView registerNib:[UINib nibWithNibName:@"ReviewerCVC" bundle:nil] forCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL];
+    [self setupRatingsCollectionViewForCell:cell atIndexPath:indexPath];
+    [self setupReviewersCollectionViewForCell:cell atIndexPath:indexPath];
     
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [cell setupCellForWine:wine];
     
     return cell;
+}
+
+-(void)setupRatingsCollectionViewForCell:(WineCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    [cell.ratingsCollectionView resetCollectionView];
+    cell.ratingsCollectionView.delegate = self;
+    cell.ratingsCollectionView.dataSource = self;
+    cell.ratingsCollectionView.index = indexPath.row;
+    [cell.ratingsCollectionView registerNib:[UINib nibWithNibName:@"RatingsCVC" bundle:nil] forCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL];
+}
+
+-(void)setupReviewersCollectionViewForCell:(WineCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    [cell.reviewersCollectionView resetCollectionView];
+    cell.reviewersCollectionView.delegate = self;
+    cell.reviewersCollectionView.dataSource = self;
+    cell.reviewersCollectionView.index = indexPath.row;
+    [cell.reviewersCollectionView registerNib:[UINib nibWithNibName:@"ReviewerCVC" bundle:nil] forCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -325,7 +331,7 @@ typedef enum {
     } else if (collectionView.tag == ReviewersCollectionView){
         ReviewersCVC *reviewerCell = (ReviewersCVC *)[collectionView dequeueReusableCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
         [reviewerCell.userAvatarButton setImage:[self randomAvatarGenerator] forState:UIControlStateNormal];
-        reviewerCell.backgroundColor = [UIColor clearColor];
+        reviewerCell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
         
         cell = reviewerCell;
     }
