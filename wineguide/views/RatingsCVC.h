@@ -11,7 +11,9 @@
 @interface RatingsCVC : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *glassImageView;
+@property (nonatomic) BOOL isRedWine;
 
 -(void)setupImageViewForGlassNumber:(int)glassNumber andRating:(float)rating;
+-(void)resetCell;
 
 @end

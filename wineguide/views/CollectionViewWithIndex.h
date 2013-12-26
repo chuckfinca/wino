@@ -10,7 +10,7 @@
 
 @interface CollectionViewWithIndex : UICollectionView
 
-@property (nonatomic) int index;
+@property (nonatomic, strong) NSIndexPath *collectionViewIndexPath;
 
 -(void)resetCollectionView;
 

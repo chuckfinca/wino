@@ -127,7 +127,7 @@
     if(collectionView == self.collectionView){
         
         WineCardCell *wineCardCell = [collectionView dequeueReusableCellWithReuseIdentifier:WINE_CARD_CELL forIndexPath:indexPath];
-        wineCardCell.userRatingCollectionView.index = indexPath.row;
+        wineCardCell.userRatingCollectionView.collectionViewIndexPath = indexPath;
         wineCardCell.userRatingCollectionView.dataSource = self;
         wineCardCell.userRatingCollectionView.delegate = self;
         [wineCardCell.userRatingCollectionView registerNib:[UINib nibWithNibName:@"UserRatingCVC" bundle:nil] forCellWithReuseIdentifier:USER_RATING_CELL];
@@ -142,7 +142,7 @@
         
         CollectionViewWithIndex *cvwi = (CollectionViewWithIndex *)collectionView;
         
-        Wine *wine = self.wines[cvwi.index];
+        Wine *wine = self.wines[cvwi.collectionViewIndexPath.row];
         
         // display rating if the wine has been rated by the user.
         // user can edit their rating if they like

@@ -30,19 +30,37 @@
 
 -(UIImage *)full
 {
-    if(!_full) _full = [UIImage imageNamed:@"glass_full.png"];
+    if(!_full) {
+        if(self.isRedWine){
+            _full = [UIImage imageNamed:@"glass_full.png"];
+        } else {
+            _full = [UIImage imageNamed:@"glass_full_w.png"];
+        }
+    }
     return _full;
 }
 
 -(UIImage *)half
 {
-    if(!_half) _half = [UIImage imageNamed:@"glass_half.png"];
+    if(!_half) {
+        if(self.isRedWine){
+            _half = [UIImage imageNamed:@"glass_half.png"];
+        } else {
+            _half = [UIImage imageNamed:@"glass_half_w.png"];
+        }
+    }
     return _half;
 }
 
 -(UIImage *)empty
 {
-    if(!_empty) _empty = [UIImage imageNamed:@"glass_empty.png"];
+    if(!_empty) {
+        if(self.isRedWine){
+            _empty = [UIImage imageNamed:@"glass_empty.png"];
+        } else {
+            _empty = [UIImage imageNamed:@"glass_empty_w.png"];
+        }
+    }
     return _empty;
 }
 
@@ -52,7 +70,7 @@
     if(rating - glassNumber >= 1){
         glass = self.full;
     } else if(rating - glassNumber > 0){
-            glass = self.half;
+        glass = self.half;
     } else {
         glass = self.empty;
     }
@@ -60,13 +78,20 @@
     self.glassImageView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+-(void)resetCell
 {
-    // Drawing code
+    self.empty = nil;
+    self.half = nil;
+    self.full = nil;
 }
-*/
+
+/*
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 @end

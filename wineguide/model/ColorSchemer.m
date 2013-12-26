@@ -97,7 +97,8 @@ static ColorSchemer *sharedInstance;
 
 -(UIColor *)redWine
 {
-    if(!_redWine) _redWine = [UIColor colorWithRed:0.768627F green:0.419608F blue:0.545098F alpha:1.0F];
+    if(!_redWine) _redWine = [UIColor colorWithRed:0.400000F green:0.133333F blue:0.133333F alpha:1.0F];
+        //[UIColor colorWithRed:0.768627F green:0.419608F blue:0.545098F alpha:1.0F];
         //[UIColor colorWithRed:0.364706F green:0.129412F blue:0.160784F alpha:1.0F];
     return _redWine;
 }
@@ -105,7 +106,8 @@ static ColorSchemer *sharedInstance;
 
 -(UIColor *)whiteWine
 {
-    if(!_whiteWine) _whiteWine = [UIColor colorWithRed:0.937255F green:0.913725F blue:0.749020F alpha:1.0F];
+    if(!_whiteWine) _whiteWine = [UIColor colorWithRed:0.866667F green:0.733333F blue:0.466667F alpha:1.0F];
+    //[UIColor colorWithRed:0.937255F green:0.913725F blue:0.749020F alpha:1.0F];
     return _whiteWine;
 }
 

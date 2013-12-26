@@ -49,7 +49,7 @@ typedef enum {
 @property (nonatomic, strong) NSString *selectedGroupIdentifier;
 
 
-@property (nonatomic, strong) NSArray *tEMPORARYratings;
+@property (nonatomic, strong) NSMutableDictionary *tEMPORARYratings;
 
 @end
 
@@ -173,7 +173,7 @@ typedef enum {
     [cell.ratingsCollectionView resetCollectionView];
     cell.ratingsCollectionView.delegate = self;
     cell.ratingsCollectionView.dataSource = self;
-    cell.ratingsCollectionView.index = indexPath.row;
+    cell.ratingsCollectionView.collectionViewIndexPath = indexPath;
     [cell.ratingsCollectionView registerNib:[UINib nibWithNibName:@"RatingsCVC" bundle:nil] forCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL];
 }
 
@@ -182,7 +182,7 @@ typedef enum {
     [cell.reviewersCollectionView resetCollectionView];
     cell.reviewersCollectionView.delegate = self;
     cell.reviewersCollectionView.dataSource = self;
-    cell.reviewersCollectionView.index = indexPath.row;
+    cell.reviewersCollectionView.collectionViewIndexPath = indexPath;
     [cell.reviewersCollectionView registerNib:[UINib nibWithNibName:@"ReviewerCVC" bundle:nil] forCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL];
 }
 
@@ -211,7 +211,7 @@ typedef enum {
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30;
+    return 25;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -230,7 +230,7 @@ typedef enum {
     }
     
     UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeaderViewIdentifier"];
-    sectionHeaderView.contentView.backgroundColor = wineColor;
+    //sectionHeaderView.contentView.backgroundColor = wineColor;
     if(wineVarietalCategoryString){
         NSLog(@"-----------");
         [sectionHeaderView.textLabel setTextColor:[ColorSchemer sharedInstance].textPrimary];
@@ -342,10 +342,18 @@ typedef enum {
     if(collectionView.tag == RatingsCollectionView){
         
         RatingsCVC *ratingsCell = (RatingsCVC *)[collectionView dequeueReusableCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
+        [ratingsCell resetCell];
         
         CollectionViewWithIndex *cvwi = (CollectionViewWithIndex *)collectionView;
-        float rating = [self.tEMPORARYratings[cvwi.index] floatValue];
+        float rating = [self ratingForIndexPath:cvwi.collectionViewIndexPath];
+        NSLog(@"---------rating = %f",rating);
         
+        Wine *wine = (Wine *)[self.fetchedResultsController objectAtIndexPath:cvwi.collectionViewIndexPath];
+        if([wine.color isEqualToString:@"red"]){
+            ratingsCell.isRedWine = YES;
+        } else {
+            ratingsCell.isRedWine = NO;
+        }
         [ratingsCell setupImageViewForGlassNumber:indexPath.row andRating:rating];
         
         cell = ratingsCell;
@@ -361,23 +369,22 @@ typedef enum {
     return cell;
 }
 
--(NSArray *)tEMPORARYratings{
-    if(!_tEMPORARYratings) {
-        if([self.fetchedResultsController.fetchedObjects count] > 0){
-            
-            NSMutableArray *temporaryRatings = [[NSMutableArray alloc] init];
-            for(id obj in self.fetchedResultsController.fetchedObjects){
-                // temporary rating generator
-                float rating = arc4random_uniform(11) + 1;
-                rating = rating/2;
-                [temporaryRatings addObject:@(rating)];
-            }
-            _tEMPORARYratings = temporaryRatings;
-        } else {
-            return nil;
-        }
-    }
+-(NSMutableDictionary *)tEMPORARYratings{
+    if(!_tEMPORARYratings) _tEMPORARYratings = [[NSMutableDictionary alloc] init];
     return _tEMPORARYratings;
+}
+
+
+-(float)ratingForIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"indexPath = %@",indexPath);
+    float rating = [[self.tEMPORARYratings objectForKey:indexPath] floatValue];
+    if(!rating){
+        rating = arc4random_uniform(9) + 2;
+        rating = rating/2;
+        [self.tEMPORARYratings setObject:@(rating) forKey:indexPath];
+    }
+    return rating;
 }
 
 -(UIImage *)randomAvatarGenerator
