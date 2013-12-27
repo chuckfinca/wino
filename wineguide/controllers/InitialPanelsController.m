@@ -117,7 +117,6 @@
 
 -(void)dismissTutorial:(NSNotification *)notification
 {
-    NSLog(@"dismissTutorial notifcation received");
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.tutorialVC.view.alpha = 0;
     } completion:^(BOOL finished) {
@@ -139,7 +138,6 @@
 -(void)checkUserLocation
 {
     if(!self.locationServicesEnabled){
-        NSLog(@"locationServicesEnabled");
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enable location services?" message:@"Wine Guide would like to use your location." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
         alert.tintColor = [ColorSchemer sharedInstance].textLink;
         [alert show];

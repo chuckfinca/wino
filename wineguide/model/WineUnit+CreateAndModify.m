@@ -81,7 +81,7 @@
         [wineUnit updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
     }
     
-    [wineUnit logDetails];
+    //[wineUnit logDetails];
     
     return wineUnit;
 }

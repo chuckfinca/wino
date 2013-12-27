@@ -31,11 +31,7 @@
 -(UIImage *)full
 {
     if(!_full) {
-        if(self.isRedWine){
-            _full = [UIImage imageNamed:@"glass_full.png"];
-        } else {
-            _full = [UIImage imageNamed:@"glass_full_w.png"];
-        }
+        _full = [[UIImage imageNamed:@"glass_full.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     return _full;
 }
@@ -43,11 +39,7 @@
 -(UIImage *)half
 {
     if(!_half) {
-        if(self.isRedWine){
-            _half = [UIImage imageNamed:@"glass_half.png"];
-        } else {
-            _half = [UIImage imageNamed:@"glass_half_w.png"];
-        }
+        _half = [[UIImage imageNamed:@"glass_half.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     return _half;
 }
@@ -55,11 +47,7 @@
 -(UIImage *)empty
 {
     if(!_empty) {
-        if(self.isRedWine){
-            _empty = [UIImage imageNamed:@"glass_empty.png"];
-        } else {
-            _empty = [UIImage imageNamed:@"glass_empty_w.png"];
-        }
+        _empty = [[UIImage imageNamed:@"glass_empty.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     return _empty;
 }

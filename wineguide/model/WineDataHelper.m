@@ -31,7 +31,6 @@
 {
     if([managedObject isKindOfClass:[Wine class]]){
         Wine *wine = (Wine *)managedObject;
-        NSLog(@"relatedObject class = %@",[self.relatedObject class]);
         if([self.relatedObject class] == [Brand class]){
             wine.brand = (Brand *)self.relatedObject;
             

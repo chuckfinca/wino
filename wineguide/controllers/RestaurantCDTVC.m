@@ -219,7 +219,6 @@ typedef enum {
     // if this method is used we need to register the appropriate class for use as a reuseable view (probably in viewDidLoad).
     //
     Wine *wineFromSection = (Wine *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
-    NSLog(@"wineFromSection = %@",wineFromSection);
     NSString *wineVarietalCategoryString = [wineFromSection.varietalCategory substringFromIndex:2];
     
     UIColor *wineColor;
@@ -232,9 +231,7 @@ typedef enum {
     UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeaderViewIdentifier"];
     //sectionHeaderView.contentView.backgroundColor = wineColor;
     if(wineVarietalCategoryString){
-        NSLog(@"-----------");
         [sectionHeaderView.textLabel setTextColor:[ColorSchemer sharedInstance].textPrimary];
-        NSLog(@"sectionHeaderView text = %@",sectionHeaderView.textLabel.text);
     }
     return sectionHeaderView;
 }
@@ -346,14 +343,19 @@ typedef enum {
         
         CollectionViewWithIndex *cvwi = (CollectionViewWithIndex *)collectionView;
         float rating = [self ratingForIndexPath:cvwi.collectionViewIndexPath];
-        NSLog(@"---------rating = %f",rating);
         
         Wine *wine = (Wine *)[self.fetchedResultsController objectAtIndexPath:cvwi.collectionViewIndexPath];
         if([wine.color isEqualToString:@"red"]){
-            ratingsCell.isRedWine = YES;
+            ratingsCell.glassImageView.tintColor = [ColorSchemer sharedInstance].redWine;
+        } else if([wine.color isEqualToString:@"rose"]){
+            ratingsCell.glassImageView.tintColor = [ColorSchemer sharedInstance].roseWine;
+        } else if([wine.color isEqualToString:@"white"]){
+            ratingsCell.glassImageView.tintColor = [ColorSchemer sharedInstance].whiteWine;
         } else {
-            ratingsCell.isRedWine = NO;
+            NSLog(@"wine.color != red/rose/white");
         }
+        
+        
         [ratingsCell setupImageViewForGlassNumber:indexPath.row andRating:rating];
         
         cell = ratingsCell;
@@ -377,7 +379,6 @@ typedef enum {
 
 -(float)ratingForIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"indexPath = %@",indexPath);
     float rating = [[self.tEMPORARYratings objectForKey:indexPath] floatValue];
     if(!rating){
         rating = arc4random_uniform(9) + 2;
@@ -392,7 +393,6 @@ typedef enum {
     UIImage *image;
     
     int number = arc4random_uniform(4);
-    NSLog(@"number = %i",number);
     switch (number) {
         case 0:
             image = [UIImage imageNamed:@"user_alan.png"];

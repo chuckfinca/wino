@@ -26,7 +26,10 @@
 @property (nonatomic, readwrite) UIColor *shadowColor;
 
 @property (nonatomic, readwrite) UIColor *redWine;
+@property (nonatomic, readwrite) UIColor *roseWine;
 @property (nonatomic, readwrite) UIColor *whiteWine;
+
+@property (nonatomic, readwrite) UIColor *gray;
 
 @end
 
@@ -104,11 +107,25 @@ static ColorSchemer *sharedInstance;
 }
 
 
+-(UIColor *)roseWine
+{
+    if(!_roseWine) _roseWine = [UIColor colorWithRed:0.733333F green:0.533333F blue:0.466667F alpha:1.0F];
+    return _roseWine;
+}
+
+
 -(UIColor *)whiteWine
 {
     if(!_whiteWine) _whiteWine = [UIColor colorWithRed:0.866667F green:0.733333F blue:0.466667F alpha:1.0F];
     //[UIColor colorWithRed:0.937255F green:0.913725F blue:0.749020F alpha:1.0F];
     return _whiteWine;
+}
+
+
+-(UIColor *)gray
+{
+    if(!_gray) _gray = [UIColor colorWithRed:0.866667F green:0.866667F blue:0.866667F alpha:1.0F];
+    return _gray;
 }
 
 

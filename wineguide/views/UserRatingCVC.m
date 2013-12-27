@@ -52,13 +52,17 @@
 
 -(UIImage *)unrated
 {
-    if(!_unrated) _unrated = [UIImage imageNamed:@"rating_unrated.png"];
+    if(!_unrated) {
+        _unrated = [[UIImage imageNamed:@"glass_empty.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    }
     return _unrated;
 }
 
 -(UIImage *)rated
 {
-    if(!_rated) _rated = [UIImage imageNamed:@"rating_rated.png"];
+    if(!_rated) {
+        _rated = [[UIImage imageNamed:@"glass_full.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    };
     return _rated;
 }
 
@@ -68,8 +72,10 @@
     UIImage *glass;
     if(glassIsEmpty){
         glass = self.unrated;
+        self.ratingImageView.tintColor = [ColorSchemer sharedInstance].gray;
     } else {
         glass = self.rated;
+        self.ratingImageView.tintColor = [ColorSchemer sharedInstance].redWine;
     }
     [self.ratingImageView setImage:glass];
     self.ratingImageView.backgroundColor = [ColorSchemer sharedInstance].customWhite;

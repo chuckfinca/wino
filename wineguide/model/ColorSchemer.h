@@ -26,7 +26,10 @@
 @property (nonatomic, readonly) UIColor *shadowColor;
 
 @property (nonatomic, readonly) UIColor *redWine;
+@property (nonatomic, readonly) UIColor *roseWine;
 @property (nonatomic, readonly) UIColor *whiteWine;
+
+@property (nonatomic, readonly) UIColor *gray;
 
 -(void)mixItUp; // changes colors to identify what's what.
 
