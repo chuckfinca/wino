@@ -70,6 +70,7 @@
 		C932F13A186CC2110079680C /* glass_empty_w.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F134186CC2110079680C /* glass_empty_w.png */; };
 		C932F13B186CC2110079680C /* glass_empty_w@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F135186CC2110079680C /* glass_empty_w@2x.png */; };
 		C932F13C186CC2110079680C /* glass_full_w@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F136186CC2110079680C /* glass_full_w@2x.png */; };
+		C932F13E186D0ABC0079680C /* WineReview.xib in Resources */ = {isa = PBXBuildFile; fileRef = C932F13D186D0ABC0079680C /* WineReview.xib */; };
 		C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */; };
 		C9487D0C182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */; };
 		C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */; };
@@ -292,6 +293,7 @@
 		C932F134186CC2110079680C /* glass_empty_w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glass_empty_w.png; path = images/glass_empty_w.png; sourceTree = "<group>"; };
 		C932F135186CC2110079680C /* glass_empty_w@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glass_empty_w@2x.png"; path = "images/glass_empty_w@2x.png"; sourceTree = "<group>"; };
 		C932F136186CC2110079680C /* glass_full_w@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glass_full_w@2x.png"; path = "images/glass_full_w@2x.png"; sourceTree = "<group>"; };
+		C932F13D186D0ABC0079680C /* WineReview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineReview.xib; path = xibs/WineReview.xib; sourceTree = "<group>"; };
 		C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.leszygomates.129southstreet.json; path = model/json/restaurant.leszygomates.129southstreet.json; sourceTree = "<group>"; };
 		C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "restaurant.strega-waterfront.1marinaparkdrive.json"; path = "model/json/restaurant.strega-waterfront.1marinaparkdrive.json"; sourceTree = "<group>"; };
 		C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.tico.222berkeleystreet.json; path = model/json/restaurant.tico.222berkeleystreet.json; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 				C991FBBD1863A14700C10B52 /* ReviewerCVC.xib */,
 				C991FBBB1863A10E00C10B52 /* UserRatingCVC.xib */,
 				C95E2DB3186501010050DFAC /* UserActionCell.xib */,
+				C932F13D186D0ABC0079680C /* WineReview.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -970,6 +973,7 @@
 				C932F13C186CC2110079680C /* glass_full_w@2x.png in Resources */,
 				C991FB8A1861110200C10B52 /* glass_full@2x.png in Resources */,
 				C932F1131868EE6E0079680C /* userAction_cellared@2x.png in Resources */,
+				C932F13E186D0ABC0079680C /* WineReview.xib in Resources */,
 				C95A2CCA185BDC0F0043ECB0 /* tutorial_triedIt@2x.png in Resources */,
 				C9C7D60F184011D100A2E955 /* favorite_n.png in Resources */,
 				C991FB891861110200C10B52 /* glass_full.png in Resources */,
