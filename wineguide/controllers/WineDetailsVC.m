@@ -12,6 +12,7 @@
 #import "Brand.h"
 #import "ColorSchemer.h"
 #import "UserActionCVC.h"
+#import "ReviewersAndRatingsVC.h"
 
 #define USER_ACTION_CELL @"UserActionCell"
 
@@ -21,9 +22,9 @@
 @property (nonatomic, weak) Restaurant *restaurant;
 @property (nonatomic, weak) IBOutlet WineDetailsVHTV *wineDetailsVHTV;
 @property (nonatomic, weak) IBOutlet WineNameVHTV *wineNameVHTV;
-@property (nonatomic, weak) IBOutlet UILabel *numReviewsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *numFriendsLabel;
+@property (weak, nonatomic) IBOutlet UIView *ratingsAndReviewsView;
 @property (weak, nonatomic) IBOutlet UICollectionView *userActionsCollectionView;
+@property (nonatomic, strong) ReviewersAndRatingsVC *reviewersAndRatingsVC;
 
 @end
 
@@ -52,6 +53,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Getters & Setters
+
+-(ReviewersAndRatingsVC *)reviewersAndRatingsVC
+{
+    if(!_reviewersAndRatingsVC){
+        _reviewersAndRatingsVC = [[ReviewersAndRatingsVC alloc] initWithNibName:@"RatingsAndReviews" bundle:nil];
+    }
+    return _reviewersAndRatingsVC;
+}
+
+
+#pragma mark - Setup
 
 -(void)setupWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
 {
@@ -62,8 +75,9 @@
     
     [self setupTextForWine:wine];
     
-    [self setupReviewsLabel];
-    [self setupNumFriendsLabel];
+    [self.ratingsAndReviewsView addSubview:self.reviewersAndRatingsVC.view];
+    self.reviewersAndRatingsVC.favorite = [self.wine.favorite boolValue];
+    [self.reviewersAndRatingsVC setupForWine:self.wine];
     
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
@@ -72,38 +86,6 @@
 {
     [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:self.restaurant];
     [self.wineDetailsVHTV setupTextViewWithWine:wine fromRestaurant:self.restaurant];
-}
-
--(void)setupReviewsLabel
-{
-    NSString *reviewsText = @"11 reviews";
-    NSAttributedString *reviewsAS = [[NSAttributedString alloc] initWithString:reviewsText attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
-    self.numReviewsLabel.attributedText = reviewsAS;
-}
-
--(void)setupNumFriendsLabel
-{
-    NSString *youAndString = @"";
-    if([self.wine.favorite boolValue] == YES){
-        youAndString = @" you &";
-    }
-    
-    int r = arc4random_uniform(10) + 1;
-    NSMutableAttributedString *numFriendsAttributedText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"+%@ %i friends liked this",youAndString,r] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
-    
-    if([self.wine.favorite boolValue] == YES){
-        [numFriendsAttributedText addAttribute:NSForegroundColorAttributeName
-                                         value:[ColorSchemer sharedInstance].textLink
-                                         range:NSMakeRange(2, 3)];
-        
-        UIFontDescriptor *fontDesciptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleFootnote];
-        UIFontDescriptor *boldFontDescriptor = [fontDesciptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
-        
-        [numFriendsAttributedText addAttribute:NSFontAttributeName
-                                         value:[UIFont fontWithDescriptor:boldFontDescriptor size:0]
-                                         range:NSMakeRange(2, 3)];
-    }
-    self.numFriendsLabel.attributedText = numFriendsAttributedText;
 }
 
 
@@ -134,7 +116,8 @@
         case 1:
             [self favoriteWine];
             [self.userActionsCollectionView reloadItemsAtIndexPaths:@[indexPath]];
-            [self setupNumFriendsLabel];
+            self.reviewersAndRatingsVC.favorite = [self.wine.favorite boolValue];
+            [self.reviewersAndRatingsVC setupForWine:self.wine];
             break;
             
         default:

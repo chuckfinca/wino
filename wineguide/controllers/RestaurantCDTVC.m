@@ -221,15 +221,8 @@ typedef enum {
     Wine *wineFromSection = (Wine *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
     NSString *wineVarietalCategoryString = [wineFromSection.varietalCategory substringFromIndex:2];
     
-    UIColor *wineColor;
-    if([wineFromSection.color isEqualToString:@"red"]){
-        wineColor = [ColorSchemer sharedInstance].redWine;
-    } else {
-        wineColor = [ColorSchemer sharedInstance].whiteWine;
-    }
-    
     UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeaderViewIdentifier"];
-    //sectionHeaderView.contentView.backgroundColor = wineColor;
+    
     if(wineVarietalCategoryString){
         [sectionHeaderView.textLabel setTextColor:[ColorSchemer sharedInstance].textPrimary];
     }

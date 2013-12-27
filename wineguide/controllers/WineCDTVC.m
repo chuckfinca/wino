@@ -9,8 +9,10 @@
 #import "WineCDTVC.h"
 #import "WineDetailsVC.h"
 #import "ColorSchemer.h"
+#import "ReviewTVC.h"
 
 #define WINE_CELL @"WineCell"
+#define REVIEW_CELL @"ReviewCell"
 
 @interface WineCDTVC ()
 
@@ -37,6 +39,7 @@
 {
     [super viewDidLoad];
     self.tableView.tableHeaderView = self.wineDetailsViewController.view;
+    [self.tableView registerNib:[UINib nibWithNibName:@"WineReview" bundle:nil] forCellReuseIdentifier:REVIEW_CELL];
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,10 +115,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
+    ReviewTVC *cell = [tableView dequeueReusableCellWithIdentifier:REVIEW_CELL forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"review" attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+    [cell setupReview];
+    //cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"review" attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     
     return cell;
 }

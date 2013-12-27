@@ -65,6 +65,9 @@
 		C932F12918695D020079680C /* Varietal.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F12818695D020079680C /* Varietal.m */; };
 		C932F12C18695D020079680C /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F12B18695D020079680C /* Brand.m */; };
 		C932F13E186D0ABC0079680C /* WineReview.xib in Resources */ = {isa = PBXBuildFile; fileRef = C932F13D186D0ABC0079680C /* WineReview.xib */; };
+		C932F144186D3BE90079680C /* ReviewTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F143186D3BE90079680C /* ReviewTVC.m */; };
+		C932F14C186D4E5C0079680C /* RatingsAndReviews.xib in Resources */ = {isa = PBXBuildFile; fileRef = C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */; };
+		C932F14F186D52870079680C /* ReviewersAndRatingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F14E186D52870079680C /* ReviewersAndRatingsVC.m */; };
 		C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */; };
 		C9487D0C182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */; };
 		C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */; };
@@ -278,6 +281,11 @@
 		C932F12A18695D020079680C /* Brand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Brand.h; path = model/Brand.h; sourceTree = "<group>"; };
 		C932F12B18695D020079680C /* Brand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Brand.m; path = model/Brand.m; sourceTree = "<group>"; };
 		C932F13D186D0ABC0079680C /* WineReview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineReview.xib; path = xibs/WineReview.xib; sourceTree = "<group>"; };
+		C932F142186D3BE90079680C /* ReviewTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewTVC.h; path = views/ReviewTVC.h; sourceTree = "<group>"; };
+		C932F143186D3BE90079680C /* ReviewTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewTVC.m; path = views/ReviewTVC.m; sourceTree = "<group>"; };
+		C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingsAndReviews.xib; path = xibs/RatingsAndReviews.xib; sourceTree = "<group>"; };
+		C932F14D186D52870079680C /* ReviewersAndRatingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewersAndRatingsVC.h; path = controllers/ReviewersAndRatingsVC.h; sourceTree = "<group>"; };
+		C932F14E186D52870079680C /* ReviewersAndRatingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewersAndRatingsVC.m; path = controllers/ReviewersAndRatingsVC.m; sourceTree = "<group>"; };
 		C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.leszygomates.129southstreet.json; path = model/json/restaurant.leszygomates.129southstreet.json; sourceTree = "<group>"; };
 		C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "restaurant.strega-waterfront.1marinaparkdrive.json"; path = "model/json/restaurant.strega-waterfront.1marinaparkdrive.json"; sourceTree = "<group>"; };
 		C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.tico.222berkeleystreet.json; path = model/json/restaurant.tico.222berkeleystreet.json; sourceTree = "<group>"; };
@@ -567,6 +575,8 @@
 				C9C7D62E184047EB00A2E955 /* CellarSCDTVC.m */,
 				C991FBC31863A7DE00C10B52 /* TimelineCVC.h */,
 				C991FBC41863A7DE00C10B52 /* TimelineCVC.m */,
+				C932F14D186D52870079680C /* ReviewersAndRatingsVC.h */,
+				C932F14E186D52870079680C /* ReviewersAndRatingsVC.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -602,6 +612,8 @@
 				C991FBB718639FE100C10B52 /* UserRatingCVC.m */,
 				C95E2DB51865023C0050DFAC /* UserActionCVC.h */,
 				C95E2DB61865023C0050DFAC /* UserActionCVC.m */,
+				C932F142186D3BE90079680C /* ReviewTVC.h */,
+				C932F143186D3BE90079680C /* ReviewTVC.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -620,6 +632,7 @@
 				C991FBBB1863A10E00C10B52 /* UserRatingCVC.xib */,
 				C95E2DB3186501010050DFAC /* UserActionCell.xib */,
 				C932F13D186D0ABC0079680C /* WineReview.xib */,
+				C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -912,6 +925,7 @@
 				C991FBA5186269C300C10B52 /* RatingsCVC.xib in Resources */,
 				C95A2CC2185B80070043ECB0 /* visible.png in Resources */,
 				C991FB99186115CA00C10B52 /* user_alan.png in Resources */,
+				C932F14C186D4E5C0079680C /* RatingsAndReviews.xib in Resources */,
 				C95A2CDD185C02300043ECB0 /* button_favorited@2x.png in Resources */,
 				C9C7D612184011D100A2E955 /* favorite_y@2x.png in Resources */,
 				C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */,
@@ -989,6 +1003,7 @@
 				C9DDD08F182036D5000A6FD7 /* Model.xcdatamodeld in Sources */,
 				C92932DB182B02200035C93C /* VarietalDataHelper.m in Sources */,
 				C9328CCB184ADCBC00AF6DEA /* RestaurantWineManagerSCDTVC.m in Sources */,
+				C932F14F186D52870079680C /* ReviewersAndRatingsVC.m in Sources */,
 				C92DEFF218242D16009DCB2C /* Varietal+CreateAndModify.m in Sources */,
 				C9061DFF181F07CE003D8A55 /* AppDelegate.m in Sources */,
 				C9C6A21318569A9E00CFBBD5 /* AddGroupCell.m in Sources */,
@@ -1015,6 +1030,7 @@
 				C932F11A18695D020079680C /* Wine.m in Sources */,
 				C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */,
 				C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */,
+				C932F144186D3BE90079680C /* ReviewTVC.m in Sources */,
 				C9C7D62F184047EB00A2E955 /* CellarSCDTVC.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
 				C932F12018695D020079680C /* WineUnit.m in Sources */,
