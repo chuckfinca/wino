@@ -14,7 +14,7 @@
 #define WINE_CELL @"WineCell"
 #define REVIEW_CELL @"ReviewCell"
 
-@interface WineCDTVC ()
+@interface WineCDTVC () <WineDetailsVcDelegate>
 
 @property (nonatomic, strong) WineDetailsVC *wineDetailsViewController;
 @property (nonatomic, strong) Wine *wine;
@@ -54,6 +54,7 @@
 {
     if(!_wineDetailsViewController){
         _wineDetailsViewController = [[WineDetailsVC alloc] initWithNibName:@"WineDetails" bundle:nil];
+        _wineDetailsViewController.delegate = self;
     }
     return _wineDetailsViewController;
 }
@@ -133,6 +134,14 @@
     return view;
 }
 
+
+#pragma mark - WineDetailsVcDelegate
+
+-(void)performTriedItSegue
+{
+    NSLog(@"performTriedItSegue");
+    [self performSegueWithIdentifier:@"TriedIt" sender:self];
+}
 
 
 

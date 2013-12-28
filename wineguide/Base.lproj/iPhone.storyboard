@@ -249,10 +249,31 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Cml-bN-hJG"/>
+                    <connections>
+                        <segue destination="Wc7-bq-Hta" kind="custom" identifier="TriedIt" customClass="TriedItSegue" id="Xnr-bP-Wf7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xh-Jn-wIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1935" y="160"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fJY-2y-8As">
+            <objects>
+                <viewController id="Wc7-bq-Hta" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6yo-C3-6QV"/>
+                        <viewControllerLayoutGuide type="bottom" id="RR2-22-t40"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wky-ZP-U70">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.37094537789999998" green="0.18735637860000001" blue="0.40712041440000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cVd-X5-x9O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2343" y="160"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="tgd-B4-IlZ">

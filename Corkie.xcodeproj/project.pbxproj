@@ -68,6 +68,7 @@
 		C932F144186D3BE90079680C /* ReviewTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F143186D3BE90079680C /* ReviewTVC.m */; };
 		C932F14C186D4E5C0079680C /* RatingsAndReviews.xib in Resources */ = {isa = PBXBuildFile; fileRef = C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */; };
 		C932F14F186D52870079680C /* ReviewersAndRatingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F14E186D52870079680C /* ReviewersAndRatingsVC.m */; };
+		C932F153186E6E1A0079680C /* TriedItSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F152186E6E1A0079680C /* TriedItSegue.m */; };
 		C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */; };
 		C9487D0C182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */; };
 		C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */; };
@@ -286,6 +287,8 @@
 		C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingsAndReviews.xib; path = xibs/RatingsAndReviews.xib; sourceTree = "<group>"; };
 		C932F14D186D52870079680C /* ReviewersAndRatingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewersAndRatingsVC.h; path = controllers/ReviewersAndRatingsVC.h; sourceTree = "<group>"; };
 		C932F14E186D52870079680C /* ReviewersAndRatingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewersAndRatingsVC.m; path = controllers/ReviewersAndRatingsVC.m; sourceTree = "<group>"; };
+		C932F151186E6E1A0079680C /* TriedItSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TriedItSegue.h; path = segues/TriedItSegue.h; sourceTree = "<group>"; };
+		C932F152186E6E1A0079680C /* TriedItSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TriedItSegue.m; path = segues/TriedItSegue.m; sourceTree = "<group>"; };
 		C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.leszygomates.129southstreet.json; path = model/json/restaurant.leszygomates.129southstreet.json; sourceTree = "<group>"; };
 		C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "restaurant.strega-waterfront.1marinaparkdrive.json"; path = "model/json/restaurant.strega-waterfront.1marinaparkdrive.json"; sourceTree = "<group>"; };
 		C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.tico.222berkeleystreet.json; path = model/json/restaurant.tico.222berkeleystreet.json; sourceTree = "<group>"; };
@@ -482,6 +485,7 @@
 		C9061DF4181F07CE003D8A55 /* wineguide */ = {
 			isa = PBXGroup;
 			children = (
+				C932F150186E6DFA0079680C /* segues */,
 				C9D0784618452AF800F47851 /* Initial_iPhone.storyboard */,
 				C9061E00181F07CE003D8A55 /* iPhone.storyboard */,
 				C91F59C018457EB800CF7F18 /* Restauranteur_iPhone.storyboard */,
@@ -771,6 +775,15 @@
 			name = managedObjectCategories;
 			sourceTree = "<group>";
 		};
+		C932F150186E6DFA0079680C /* segues */ = {
+			isa = PBXGroup;
+			children = (
+				C932F151186E6E1A0079680C /* TriedItSegue.h */,
+				C932F152186E6E1A0079680C /* TriedItSegue.m */,
+			);
+			name = segues;
+			sourceTree = "<group>";
+		};
 		C98DEFF8182329C30038216C /* json */ = {
 			isa = PBXGroup;
 			children = (
@@ -1025,6 +1038,7 @@
 				C932F11D18695D020079680C /* Restaurant.m in Sources */,
 				C932F12318695D020079680C /* Group.m in Sources */,
 				C991FBB818639FE100C10B52 /* UserRatingCVC.m in Sources */,
+				C932F153186E6E1A0079680C /* TriedItSegue.m in Sources */,
 				C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */,
 				C95A2CC6185B87930043ECB0 /* RestaurantGroupCell.m in Sources */,
 				C932F11A18695D020079680C /* Wine.m in Sources */,

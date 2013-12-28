@@ -10,7 +10,15 @@
 #import "Wine.h"
 #import "Restaurant.h"
 
+@protocol WineDetailsVcDelegate
+
+- (void)performTriedItSegue;
+
+@end
+
 @interface WineDetailsVC : UIViewController
+
+@property (nonatomic, weak) id <WineDetailsVcDelegate> delegate;
 
 -(void)setupWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant;
 
