@@ -155,7 +155,7 @@
     [alert show];
     
     NSArray *arguments = @[@1,@1];
-    [alert performSelector:@selector(dismissWithClickedButtonIndex:animated:) withObject:arguments afterDelay:0.8f];
+    [alert performSelector:@selector(dismissWithClickedButtonIndex:animated:) withObject:arguments afterDelay:1.0f];
     
 }
 

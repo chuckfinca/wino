@@ -14,7 +14,7 @@
 {
     UIViewController *svc = self.sourceViewController;
     UIViewController *dvc = self.destinationViewController;
-    [UIView transitionWithView:svc.navigationController.view duration:0.2
+    [UIView transitionWithView:svc.navigationController.view duration:0.5
                        options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{
                         [svc.navigationController pushViewController:dvc animated:NO];
