@@ -21,5 +21,6 @@ typedef enum {
 @property (nonatomic) BOOL favorite;
 
 -(void)setupForWine:(Wine *)wine;
+-(void)reset;
 
 @end

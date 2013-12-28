@@ -40,10 +40,19 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    
+    [self.ratingsCollectionView registerNib:[UINib nibWithNibName:@"RatingsCVC" bundle:nil] forCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL];
+    self.ratingsCollectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.ratingsCollectionView.tag = RatingsCollectionView;
+    
+    [self.reviewersCollectionView registerNib:[UINib nibWithNibName:@"ReviewerCVC" bundle:nil] forCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL];
+    self.reviewersCollectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.reviewersCollectionView.tag = ReviewersCollectionView;
 }
 
 -(void)setupForWine:(Wine *)wine
 {
+    [self reset];
     [self setupRatingsLabel];
     [self setupReviewersLabel];
     [self setColorForWine:wine];
@@ -75,18 +84,12 @@
 {
     self.ratingsCollectionView.delegate = self;
     self.ratingsCollectionView.dataSource = self;
-    [self.ratingsCollectionView registerNib:[UINib nibWithNibName:@"RatingsCVC" bundle:nil] forCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL];
-    self.ratingsCollectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    self.ratingsCollectionView.tag = RatingsCollectionView;
 }
 
 -(void)setupReviewsCollectionView
 {
     self.reviewersCollectionView.delegate = self;
     self.reviewersCollectionView.dataSource = self;
-    [self.reviewersCollectionView registerNib:[UINib nibWithNibName:@"ReviewerCVC" bundle:nil] forCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL];
-    self.reviewersCollectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    self.reviewersCollectionView.tag = ReviewersCollectionView;
 }
 
 -(void)setupReviewersLabel
@@ -114,6 +117,13 @@
     self.reviewersLabel.attributedText = numFriendsAttributedText;
 }
 
+-(void)reset
+{
+    self.reviewersCollectionView.delegate = nil;
+    self.reviewersCollectionView.dataSource = nil;
+    self.ratingsCollectionView.delegate = nil;
+    self.ratingsCollectionView.dataSource = nil;
+}
 
 #pragma mark - UICollectionViewDataSource
 

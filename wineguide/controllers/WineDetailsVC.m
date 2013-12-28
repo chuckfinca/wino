@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIView *ratingsAndReviewsView;
 @property (weak, nonatomic) IBOutlet UICollectionView *userActionsCollectionView;
 @property (nonatomic, strong) ReviewersAndRatingsVC *reviewersAndRatingsVC;
+@property (nonatomic, strong) UILabel *cellarLabel;
 
 @end
 
@@ -113,16 +114,40 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.row) {
+        case 0:
+            NSLog(@"hola!");
+            break;
         case 1:
             [self favoriteWine];
             [self.userActionsCollectionView reloadItemsAtIndexPaths:@[indexPath]];
             self.reviewersAndRatingsVC.favorite = [self.wine.favorite boolValue];
             [self.reviewersAndRatingsVC setupForWine:self.wine];
+            
+            [self displayCellarMessage];
+            
             break;
             
         default:
             break;
     }
+}
+
+-(void)displayCellarMessage
+{
+    NSString *message;
+    
+    if([self.wine.favorite boolValue]){
+        message = @"Wine added to cellar";
+    } else {
+        message = @"Wine removed from cellar";
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:nil delegate:nil cancelButtonTitle:message otherButtonTitles: nil];
+    [alert show];
+    
+    NSArray *arguments = @[@1,@1];
+    [alert performSelector:@selector(dismissWithClickedButtonIndex:animated:) withObject:arguments afterDelay:0.8f];
+    
 }
 
 #pragma mark - UserActions

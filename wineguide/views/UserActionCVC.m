@@ -48,10 +48,11 @@
         case 1:
             if([wine.favorite boolValue] == YES){
                 image = self.cellaredImage;
+                title = @"Stored";
             } else {
                 image = self.cellarImage;
+                title = @"Cellar";
             }
-            title = @"Cellar";
             break;
             
         default:

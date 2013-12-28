@@ -58,11 +58,6 @@
             
             NSString * wineUnitsString = @"\n";
             for(WineUnit *wineUnit in wineUnits){
-                NSLog(@"wineUnit = %@",wineUnit.description);
-                NSLog(@"%@",wineUnit.price);
-                NSLog(@"%@",wineUnit.quantity);
-                NSLog(@"%@",wineUnit.wine);
-                NSLog(@"%@",wineUnit.restaurant);
                 wineUnitsString = [wineUnitsString stringByAppendingString:[NSString stringWithFormat:@"$%@ %@, ",[wineUnit.price stringValue],wineUnit.quantity]];
             }
             wineUnitsString = [wineUnitsString substringToIndex:[wineUnitsString length]-2];

@@ -38,7 +38,7 @@ typedef enum {
     RareFinds,
 } WineList;
 
-@interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, RestaurantDetailsVC_WineSelectionDelegate>
+@interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource, RestaurantDetailsVC_WineSelectionDelegate>
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
 @property (nonatomic, strong) Restaurant *restaurant;
@@ -47,9 +47,6 @@ typedef enum {
 @property (nonatomic, strong) NSString *listName;
 @property (nonatomic, strong) NSFetchedResultsController *restaurantGroupsFRC;
 @property (nonatomic, strong) NSString *selectedGroupIdentifier;
-
-
-@property (nonatomic, strong) NSMutableDictionary *tEMPORARYratings;
 
 @end
 
@@ -68,8 +65,6 @@ typedef enum {
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     self.title = @"Wine List";
     [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
@@ -157,34 +152,15 @@ typedef enum {
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WineCell *cell = [tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
-    
-    [self setupRatingsCollectionViewForCell:cell atIndexPath:indexPath];
-    [self setupReviewersCollectionViewForCell:cell atIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [cell setupCellForWine:wine];
     
     return cell;
 }
 
--(void)setupRatingsCollectionViewForCell:(WineCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    [cell.ratingsCollectionView resetCollectionView];
-    cell.ratingsCollectionView.delegate = self;
-    cell.ratingsCollectionView.dataSource = self;
-    cell.ratingsCollectionView.collectionViewIndexPath = indexPath;
-    [cell.ratingsCollectionView registerNib:[UINib nibWithNibName:@"RatingsCVC" bundle:nil] forCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL];
-}
 
--(void)setupReviewersCollectionViewForCell:(WineCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    [cell.reviewersCollectionView resetCollectionView];
-    cell.reviewersCollectionView.delegate = self;
-    cell.reviewersCollectionView.dataSource = self;
-    cell.reviewersCollectionView.collectionViewIndexPath = indexPath;
-    [cell.reviewersCollectionView registerNib:[UINib nibWithNibName:@"ReviewerCVC" bundle:nil] forCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL];
-}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -199,7 +175,7 @@ typedef enum {
     
     NSString *sectionTitle;
     if([[theSection name] length] > 2){
-        sectionTitle = [[[theSection name] substringFromIndex:2] capitalizedString];
+        sectionTitle = [[[theSection name] substringFromIndex:3] capitalizedString];
     }
     return sectionTitle;
 }
@@ -277,7 +253,6 @@ typedef enum {
     
     self.fetchedResultsController = nil;
     [self setupFetchedResultsController];
-    self.tEMPORARYratings = nil;
 }
 
 -(void)setSortOrderForGroups
@@ -297,117 +272,6 @@ typedef enum {
     [self loadWineList:0];
 }
 
-
-#pragma mark - UICollectionViewDataSource
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    NSInteger numberOfItemsInSection = 0;
-    
-    if([collectionView isKindOfClass:[CollectionViewWithIndex class]]){
-        CollectionViewWithIndex *collectionViewWithIndex = (CollectionViewWithIndex *)collectionView;
-        
-        if(collectionViewWithIndex.tag == RatingsCollectionView){
-            numberOfItemsInSection = 6;
-            
-        } else if (collectionViewWithIndex.tag == ReviewersCollectionView){
-            
-            // the number below needs to be replaced with the number of friend reviews (up to 3 or 4) once we have users set up
-            numberOfItemsInSection = 3;
-            
-            
-        } else {
-            NSLog(@"unknown collection view with tag = %i is asking for numberOfItemsInSection",collectionViewWithIndex.tag);
-        }
-    } else {
-        NSLog(@"collection view asking for numberOfItemsInSection is not of class CollectionViewWithIndex");
-    }
-    
-    return numberOfItemsInSection;
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewCell *cell = nil;
-    if(collectionView.tag == RatingsCollectionView){
-        
-        RatingsCVC *ratingsCell = (RatingsCVC *)[collectionView dequeueReusableCellWithReuseIdentifier:RATINGS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
-        [ratingsCell resetCell];
-        
-        CollectionViewWithIndex *cvwi = (CollectionViewWithIndex *)collectionView;
-        float rating = [self ratingForIndexPath:cvwi.collectionViewIndexPath];
-        
-        Wine *wine = (Wine *)[self.fetchedResultsController objectAtIndexPath:cvwi.collectionViewIndexPath];
-        if([wine.color isEqualToString:@"red"]){
-            ratingsCell.glassImageView.tintColor = [ColorSchemer sharedInstance].redWine;
-        } else if([wine.color isEqualToString:@"rose"]){
-            ratingsCell.glassImageView.tintColor = [ColorSchemer sharedInstance].roseWine;
-        } else if([wine.color isEqualToString:@"white"]){
-            ratingsCell.glassImageView.tintColor = [ColorSchemer sharedInstance].whiteWine;
-        } else {
-            NSLog(@"wine.color != red/rose/white");
-        }
-        
-        
-        [ratingsCell setupImageViewForGlassNumber:indexPath.row andRating:rating];
-        
-        cell = ratingsCell;
-        
-    } else if (collectionView.tag == ReviewersCollectionView){
-        ReviewersCVC *reviewerCell = (ReviewersCVC *)[collectionView dequeueReusableCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
-        [reviewerCell.userAvatarButton setImage:[self randomAvatarGenerator] forState:UIControlStateNormal];
-        reviewerCell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-        
-        cell = reviewerCell;
-    }
-    
-    return cell;
-}
-
--(NSMutableDictionary *)tEMPORARYratings{
-    if(!_tEMPORARYratings) _tEMPORARYratings = [[NSMutableDictionary alloc] init];
-    return _tEMPORARYratings;
-}
-
-
--(float)ratingForIndexPath:(NSIndexPath *)indexPath
-{
-    float rating = [[self.tEMPORARYratings objectForKey:indexPath] floatValue];
-    if(!rating){
-        rating = arc4random_uniform(9) + 2;
-        rating = rating/2;
-        [self.tEMPORARYratings setObject:@(rating) forKey:indexPath];
-    }
-    return rating;
-}
-
--(UIImage *)randomAvatarGenerator
-{
-    UIImage *image;
-    
-    int number = arc4random_uniform(4);
-    switch (number) {
-        case 0:
-            image = [UIImage imageNamed:@"user_alan.png"];
-            break;
-        case 1:
-            image = [UIImage imageNamed:@"user_derek.png"];
-            break;
-        case 2:
-            image = [UIImage imageNamed:@"user_lisa.png"];
-            break;
-        case 3:
-            image = [UIImage imageNamed:@"user_arturo.png"];
-            break;
-            
-        default:
-            break;
-    }
-    
-    return image;
-}
-
-#pragma mark - UICollectionViewDelegate
 
 
 

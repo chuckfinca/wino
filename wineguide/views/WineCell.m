@@ -18,8 +18,6 @@
 @property (nonatomic, strong) Wine *wine;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *vintageAndVarietals;
-@property (weak, nonatomic) IBOutlet UILabel *numberOfReviews;
-@property (weak, nonatomic) IBOutlet UILabel *numFriendsLabel;
 
 @end
 @implementation WineCell
@@ -40,26 +38,34 @@
     // Configure the view for the selected state
 }
 
--(void)setupRatingsCollectionView
-{
-    self.ratingsCollectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    self.ratingsCollectionView.tag = RatingsCollectionView;
-}
+#pragma mark - Getters & Setters
 
--(void)setupReviewsCollectionView
+-(ReviewersAndRatingsVC *)reviewersAndRatingsVC
 {
-    self.reviewersCollectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    self.reviewersCollectionView.tag = ReviewersCollectionView;
+    if(!_reviewersAndRatingsVC){
+        _reviewersAndRatingsVC = [[ReviewersAndRatingsVC alloc] initWithNibName:@"RatingsAndReviews" bundle:nil];
+    }
+    return _reviewersAndRatingsVC;
 }
-
 
 -(void)setupCellForWine:(Wine *)wine
 {
-    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    [self setupRatingsCollectionView];
-    [self setupReviewsCollectionView];
-    
     self.wine = wine;
+    
+    [self setupText];
+    
+    if(!self.abridged){
+        [self.ratingsAndReviewsView addSubview:self.reviewersAndRatingsVC.view];
+        [self.reviewersAndRatingsVC setupForWine:wine];
+    } else {
+        [self.ratingsAndReviewsView removeFromSuperview];
+    }
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+}
+
+-(void)setupText
+{
+    Wine *wine = self.wine;
     
     if(wine.name){
         self.name.attributedText = [[NSAttributedString alloc] initWithString:[wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
@@ -83,39 +89,6 @@
         vintageAndVarietals = [vintageAndVarietals stringByAppendingString:[NSString stringWithFormat:@"%@",[varietalsString capitalizedString]]];
     }
     self.vintageAndVarietals.attributedText = [[NSAttributedString alloc] initWithString:vintageAndVarietals attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
-    
-    if(!self.abridged){
-        int r = arc4random_uniform(50) + 1;
-        self.numberOfReviews.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%i reviews",r] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
-        
-        NSString *youAndString = @"";
-        if([self.wine.favorite boolValue] == YES){
-            youAndString = @" you &";
-        }
-        
-        r = arc4random_uniform(10) + 1;
-        NSMutableAttributedString *numFriendsAttributedText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"+%@ %i friends liked this",youAndString,r] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
-        
-        if([self.wine.favorite boolValue] == YES){
-            [numFriendsAttributedText addAttribute:NSForegroundColorAttributeName
-                                             value:[ColorSchemer sharedInstance].textLink
-                                             range:NSMakeRange(2, 3)];
-            
-            UIFontDescriptor *fontDesciptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleFootnote];
-            UIFontDescriptor *boldFontDescriptor = [fontDesciptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
-
-            [numFriendsAttributedText addAttribute:NSFontAttributeName
-                                             value:[UIFont fontWithDescriptor:boldFontDescriptor size:0]
-                                             range:NSMakeRange(2, 3)];
-        }
-        self.numFriendsLabel.attributedText = numFriendsAttributedText;
-        
-    } else {
-        [self.numberOfReviews removeFromSuperview];
-        [self.numFriendsLabel removeFromSuperview];
-        [self.ratingsCollectionView removeFromSuperview];
-        [self.reviewersCollectionView removeFromSuperview];
-    }
     
 }
 

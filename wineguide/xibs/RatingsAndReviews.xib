@@ -6,9 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReviewersAndRatingsVC">
             <connections>
-                <outlet property="ratingsCollectionView" destination="eqz-nd-SP9" id="Aq7-BL-tWu"/>
+                <outlet property="ratingsCollectionView" destination="eqz-nd-SP9" id="ulE-JS-u0P"/>
                 <outlet property="ratingsLabel" destination="1ia-N5-OyH" id="Ogj-28-IwK"/>
-                <outlet property="reviewersCollectionView" destination="VM6-4b-OrK" id="eCV-b4-N1O"/>
+                <outlet property="reviewersCollectionView" destination="VM6-4b-OrK" id="J1j-zD-6dB"/>
                 <outlet property="reviewersLabel" destination="vLB-td-xl6" id="0we-Tn-b4V"/>
                 <outlet property="view" destination="1" id="CSI-bx-h8D"/>
             </connections>
@@ -18,13 +18,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="VM6-4b-OrK" customClass="CollectionViewWithIndex">
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="VM6-4b-OrK" customClass="CollectionViewWithIndex">
                     <rect key="frame" x="0.0" y="0.0" width="102" height="30"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="6EL-Ys-SQ8"/>
-                        <constraint firstAttribute="width" constant="102" id="gnf-Mx-gF2"/>
-                    </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="2vs-D0-a0k">
                         <size key="itemSize" width="30" height="30"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -33,13 +29,9 @@
                     </collectionViewFlowLayout>
                     <cells/>
                 </collectionView>
-                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eqz-nd-SP9" customClass="CollectionViewWithIndex">
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eqz-nd-SP9" customClass="CollectionViewWithIndex">
                     <rect key="frame" x="0.0" y="38" width="75" height="20"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="DIx-rs-hhD"/>
-                        <constraint firstAttribute="width" constant="75" id="TYQ-EL-f23"/>
-                    </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="6" minimumInteritemSpacing="0.0" id="tWT-EM-waJ">
                         <size key="itemSize" width="15" height="20"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -48,14 +40,14 @@
                     </collectionViewFlowLayout>
                     <cells/>
                 </collectionView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ia-N5-OyH">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ia-N5-OyH">
                     <rect key="frame" x="83" y="37" width="237" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelzzz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLB-td-xl6">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Labelzzz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLB-td-xl6">
                     <rect key="frame" x="110" y="4" width="210" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -63,18 +55,6 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <constraints>
-                <constraint firstItem="VM6-4b-OrK" firstAttribute="top" secondItem="1" secondAttribute="top" id="6nP-5Q-qzC"/>
-                <constraint firstItem="1ia-N5-OyH" firstAttribute="leading" secondItem="eqz-nd-SP9" secondAttribute="trailing" constant="8" id="8eo-Mn-pl6"/>
-                <constraint firstItem="VM6-4b-OrK" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="GW1-DV-zAW"/>
-                <constraint firstAttribute="trailing" secondItem="1ia-N5-OyH" secondAttribute="trailing" id="Iaf-w5-Shr"/>
-                <constraint firstItem="VM6-4b-OrK" firstAttribute="centerY" secondItem="vLB-td-xl6" secondAttribute="centerY" constant="0.5" id="K9w-Dm-AnC"/>
-                <constraint firstItem="eqz-nd-SP9" firstAttribute="top" secondItem="VM6-4b-OrK" secondAttribute="bottom" constant="8" id="X9j-7d-sO9"/>
-                <constraint firstItem="vLB-td-xl6" firstAttribute="leading" secondItem="VM6-4b-OrK" secondAttribute="trailing" constant="8" id="gds-eM-5nm"/>
-                <constraint firstAttribute="trailing" secondItem="vLB-td-xl6" secondAttribute="trailing" id="isO-gg-yiU"/>
-                <constraint firstItem="eqz-nd-SP9" firstAttribute="centerY" secondItem="1ia-N5-OyH" secondAttribute="centerY" constant="0.5" id="ogc-lI-rIC"/>
-                <constraint firstItem="eqz-nd-SP9" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="wvl-XR-OIl"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
