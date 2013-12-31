@@ -250,17 +250,17 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Cml-bN-hJG"/>
                     <connections>
-                        <segue destination="Wc7-bq-Hta" kind="custom" identifier="TriedIt" customClass="TriedItSegue" id="Xnr-bP-Wf7"/>
+                        <segue destination="Wc7-bq-Hta" kind="push" identifier="TriedItSegue" id="Xnr-bP-Wf7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xh-Jn-wIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1935" y="160"/>
         </scene>
-        <!--View Controller-->
+        <!--Tried ItVC-->
         <scene sceneID="fJY-2y-8As">
             <objects>
-                <viewController id="Wc7-bq-Hta" sceneMemberID="viewController">
+                <viewController id="Wc7-bq-Hta" customClass="TriedItVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6yo-C3-6QV"/>
                         <viewControllerLayoutGuide type="bottom" id="RR2-22-t40"/>

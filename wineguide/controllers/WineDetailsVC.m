@@ -13,7 +13,7 @@
 #import "ColorSchemer.h"
 #import "UserActionCVC.h"
 #import "ReviewersAndRatingsVC.h"
-#import "TriedItSegue.h"
+#import "TriedItVC.h"
 
 #define USER_ACTION_CELL @"UserActionCell"
 
@@ -27,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *userActionsCollectionView;
 @property (nonatomic, strong) ReviewersAndRatingsVC *reviewersAndRatingsVC;
 @property (nonatomic, strong) UILabel *cellarLabel;
-@property (nonatomic, strong) UIViewController *triedItVC;
 
 @end
 
@@ -64,12 +63,6 @@
         _reviewersAndRatingsVC = [[ReviewersAndRatingsVC alloc] initWithNibName:@"RatingsAndReviews" bundle:nil];
     }
     return _reviewersAndRatingsVC;
-}
-
--(UIViewController *)triedItVC
-{
-    if(!_triedItVC) _triedItVC = [[UIViewController alloc] init];
-    return _triedItVC;
 }
 
 
@@ -123,7 +116,6 @@
 {
     switch (indexPath.row) {
         case 0:
-            NSLog(@"hola!");
             [self.delegate performTriedItSegue];
             break;
         case 1:
@@ -155,7 +147,7 @@
     [alert show];
     
     NSArray *arguments = @[@1,@1];
-    [alert performSelector:@selector(dismissWithClickedButtonIndex:animated:) withObject:arguments afterDelay:1.0f];
+    [alert performSelector:@selector(dismissWithClickedButtonIndex:animated:) withObject:arguments afterDelay:1.5f];
     
 }
 

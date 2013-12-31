@@ -68,7 +68,12 @@
 		C932F144186D3BE90079680C /* ReviewTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F143186D3BE90079680C /* ReviewTVC.m */; };
 		C932F14C186D4E5C0079680C /* RatingsAndReviews.xib in Resources */ = {isa = PBXBuildFile; fileRef = C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */; };
 		C932F14F186D52870079680C /* ReviewersAndRatingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F14E186D52870079680C /* ReviewersAndRatingsVC.m */; };
-		C932F153186E6E1A0079680C /* TriedItSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F152186E6E1A0079680C /* TriedItSegue.m */; };
+		C932F158187231C80079680C /* TriedItVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F157187231C80079680C /* TriedItVC.m */; };
+		C932F15A1872322F0079680C /* TriedIt.xib in Resources */ = {isa = PBXBuildFile; fileRef = C932F1591872322F0079680C /* TriedIt.xib */; };
+		C932F15D18728E250079680C /* bottle.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F15B18728E250079680C /* bottle.png */; };
+		C932F15E18728E250079680C /* bottle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F15C18728E250079680C /* bottle@2x.png */; };
+		C932F16118728F500079680C /* glass.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F15F18728F500079680C /* glass.png */; };
+		C932F16218728F500079680C /* glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F16018728F500079680C /* glass@2x.png */; };
 		C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */; };
 		C9487D0C182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */; };
 		C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */; };
@@ -287,8 +292,13 @@
 		C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingsAndReviews.xib; path = xibs/RatingsAndReviews.xib; sourceTree = "<group>"; };
 		C932F14D186D52870079680C /* ReviewersAndRatingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewersAndRatingsVC.h; path = controllers/ReviewersAndRatingsVC.h; sourceTree = "<group>"; };
 		C932F14E186D52870079680C /* ReviewersAndRatingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewersAndRatingsVC.m; path = controllers/ReviewersAndRatingsVC.m; sourceTree = "<group>"; };
-		C932F151186E6E1A0079680C /* TriedItSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TriedItSegue.h; path = segues/TriedItSegue.h; sourceTree = "<group>"; };
-		C932F152186E6E1A0079680C /* TriedItSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TriedItSegue.m; path = segues/TriedItSegue.m; sourceTree = "<group>"; };
+		C932F156187231C80079680C /* TriedItVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TriedItVC.h; path = controllers/TriedItVC.h; sourceTree = "<group>"; };
+		C932F157187231C80079680C /* TriedItVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TriedItVC.m; path = controllers/TriedItVC.m; sourceTree = "<group>"; };
+		C932F1591872322F0079680C /* TriedIt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TriedIt.xib; path = xibs/TriedIt.xib; sourceTree = "<group>"; };
+		C932F15B18728E250079680C /* bottle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bottle.png; path = images/bottle.png; sourceTree = "<group>"; };
+		C932F15C18728E250079680C /* bottle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottle@2x.png"; path = "images/bottle@2x.png"; sourceTree = "<group>"; };
+		C932F15F18728F500079680C /* glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glass.png; path = images/glass.png; sourceTree = "<group>"; };
+		C932F16018728F500079680C /* glass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glass@2x.png"; path = "images/glass@2x.png"; sourceTree = "<group>"; };
 		C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.leszygomates.129southstreet.json; path = model/json/restaurant.leszygomates.129southstreet.json; sourceTree = "<group>"; };
 		C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "restaurant.strega-waterfront.1marinaparkdrive.json"; path = "model/json/restaurant.strega-waterfront.1marinaparkdrive.json"; sourceTree = "<group>"; };
 		C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.tico.222berkeleystreet.json; path = model/json/restaurant.tico.222berkeleystreet.json; sourceTree = "<group>"; };
@@ -485,7 +495,6 @@
 		C9061DF4181F07CE003D8A55 /* wineguide */ = {
 			isa = PBXGroup;
 			children = (
-				C932F150186E6DFA0079680C /* segues */,
 				C9D0784618452AF800F47851 /* Initial_iPhone.storyboard */,
 				C9061E00181F07CE003D8A55 /* iPhone.storyboard */,
 				C91F59C018457EB800CF7F18 /* Restauranteur_iPhone.storyboard */,
@@ -581,6 +590,8 @@
 				C991FBC41863A7DE00C10B52 /* TimelineCVC.m */,
 				C932F14D186D52870079680C /* ReviewersAndRatingsVC.h */,
 				C932F14E186D52870079680C /* ReviewersAndRatingsVC.m */,
+				C932F156187231C80079680C /* TriedItVC.h */,
+				C932F157187231C80079680C /* TriedItVC.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -637,6 +648,7 @@
 				C95E2DB3186501010050DFAC /* UserActionCell.xib */,
 				C932F13D186D0ABC0079680C /* WineReview.xib */,
 				C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */,
+				C932F1591872322F0079680C /* TriedIt.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -696,6 +708,10 @@
 				C991FB94186115CA00C10B52 /* user_arturo.png */,
 				C991FB95186115CA00C10B52 /* user_arturo@2x.png */,
 				C991FB96186115CA00C10B52 /* user_derek.png */,
+				C932F15B18728E250079680C /* bottle.png */,
+				C932F15C18728E250079680C /* bottle@2x.png */,
+				C932F15F18728F500079680C /* glass.png */,
+				C932F16018728F500079680C /* glass@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -773,15 +789,6 @@
 				C92DEFF118242D16009DCB2C /* Varietal+CreateAndModify.m */,
 			);
 			name = managedObjectCategories;
-			sourceTree = "<group>";
-		};
-		C932F150186E6DFA0079680C /* segues */ = {
-			isa = PBXGroup;
-			children = (
-				C932F151186E6E1A0079680C /* TriedItSegue.h */,
-				C932F152186E6E1A0079680C /* TriedItSegue.m */,
-			);
-			name = segues;
 			sourceTree = "<group>";
 		};
 		C98DEFF8182329C30038216C /* json */ = {
@@ -912,22 +919,26 @@
 				C95A2CE0185C04DB0043ECB0 /* favoriteIndicator.png in Resources */,
 				C95E2DC718651FF10050DFAC /* button_purchase@2x.png in Resources */,
 				C95A2CD2185BEC3B0043ECB0 /* button_triedIt@2x.png in Resources */,
+				C932F16218728F500079680C /* glass@2x.png in Resources */,
 				C95A2CD1185BEC3B0043ECB0 /* button_triedIt.png in Resources */,
 				C991FB8E1861110200C10B52 /* glass_empty@2x.png in Resources */,
 				C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */,
 				C9C7D63A1842AACD00A2E955 /* tutorial_logo@2x.png in Resources */,
 				C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */,
 				C9C7D62B18403E0E00A2E955 /* tutorial_nearby.png in Resources */,
+				C932F16118728F500079680C /* glass.png in Resources */,
 				C9061E05181F07CE003D8A55 /* iPad.storyboard in Resources */,
 				C991FB9C186115CA00C10B52 /* user_arturo.png in Resources */,
 				C991FB8C1861110200C10B52 /* glass_half@2x.png in Resources */,
 				C9C7D62C18403E0E00A2E955 /* tutorial_nearby@2x.png in Resources */,
 				C95E2DBF186510050050DFAC /* userAction_cellar.png in Resources */,
+				C932F15D18728E250079680C /* bottle.png in Resources */,
 				C991FB9D186115CA00C10B52 /* user_arturo@2x.png in Resources */,
 				C95E2DC618651FF10050DFAC /* button_purchase.png in Resources */,
 				C9ACC7D7184E72AB00E5945D /* settings.png in Resources */,
 				C9C7D6361841933900A2E955 /* tutorial_favorites@2x.png in Resources */,
 				C92CAE3418330CC700F29C9B /* group.restaurant.leszygomates.129southstreet.all.json in Resources */,
+				C932F15E18728E250079680C /* bottle@2x.png in Resources */,
 				C991FB9B186115CA00C10B52 /* user_derek@2x.png in Resources */,
 				C95E2DB4186501010050DFAC /* UserActionCell.xib in Resources */,
 				C991FB8D1861110200C10B52 /* glass_empty.png in Resources */,
@@ -949,6 +960,7 @@
 				C95E2DC0186510050050DFAC /* userAction_cellar@2x.png in Resources */,
 				C991FB97186115CA00C10B52 /* user_lisa.png in Resources */,
 				C991FB98186115CA00C10B52 /* user_lisa@2x.png in Resources */,
+				C932F15A1872322F0079680C /* TriedIt.xib in Resources */,
 				C9C7D6391842AACD00A2E955 /* tutorial_logo.png in Resources */,
 				C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */,
 				C9061E0A181F07CE003D8A55 /* Images.xcassets in Resources */,
@@ -1024,6 +1036,7 @@
 				C92DF0471825B227009DCB2C /* WineCDTVC.m in Sources */,
 				C9061E43181F2865003D8A55 /* VariableHeightTV.m in Sources */,
 				C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */,
+				C932F158187231C80079680C /* TriedItVC.m in Sources */,
 				C932F12C18695D020079680C /* Brand.m in Sources */,
 				C9C7D6151840168700A2E955 /* SearchableCDTVC.m in Sources */,
 				C9061E3A181F216C003D8A55 /* RestaurantCDTVC.m in Sources */,
@@ -1038,7 +1051,6 @@
 				C932F11D18695D020079680C /* Restaurant.m in Sources */,
 				C932F12318695D020079680C /* Group.m in Sources */,
 				C991FBB818639FE100C10B52 /* UserRatingCVC.m in Sources */,
-				C932F153186E6E1A0079680C /* TriedItSegue.m in Sources */,
 				C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */,
 				C95A2CC6185B87930043ECB0 /* RestaurantGroupCell.m in Sources */,
 				C932F11A18695D020079680C /* Wine.m in Sources */,

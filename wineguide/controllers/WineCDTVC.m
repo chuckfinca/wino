@@ -10,6 +10,8 @@
 #import "WineDetailsVC.h"
 #import "ColorSchemer.h"
 #import "ReviewTVC.h"
+#import "TriedItVC.h"
+
 
 #define WINE_CELL @"WineCell"
 #define REVIEW_CELL @"ReviewCell"
@@ -17,10 +19,9 @@
 @interface WineCDTVC () <WineDetailsVcDelegate>
 
 @property (nonatomic, strong) WineDetailsVC *wineDetailsViewController;
+@property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) Wine *wine;
 @property (nonatomic, strong) Restaurant *restaurant;
-@property (nonatomic, strong) NSManagedObjectContext *context;
-
 
 @end
 
@@ -140,8 +141,15 @@
 -(void)performTriedItSegue
 {
     NSLog(@"performTriedItSegue");
-    [self performSegueWithIdentifier:@"TriedIt" sender:self];
+    
+    TriedItVC *triedItVC = [[TriedItVC alloc]initWithNibName:@"TriedIt" bundle:nil];
+    [triedItVC setupWithWine:self.wine andRestaurant:self.restaurant];
+    [self.navigationController pushViewController:triedItVC animated:YES];
 }
+
+
+
+
 
 
 
