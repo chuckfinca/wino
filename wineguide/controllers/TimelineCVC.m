@@ -22,7 +22,6 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSArray *wines;
-@property (nonatomic, strong) UIImageView *userRatingImageView;
 
 @end
 
@@ -56,16 +55,6 @@
     //self.collectionView.contentOffset = CGPointMake(0,0);
 }
 
-
-#pragma mark - Getters & Setters
-
--(UIImageView *)userRatingImageView
-{
-    if(!_userRatingImageView) {
-        _userRatingImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rating_unrated.png"] highlightedImage:[UIImage imageNamed:@"rating_rated.png"]];
-    }
-    return _userRatingImageView;
-}
 
 #pragma mark - Setup
 
@@ -149,7 +138,7 @@
         // display empty rating and are encouraged to rate
         
         UserRatingCVC *urCell = [collectionView dequeueReusableCellWithReuseIdentifier:USER_RATING_CELL forIndexPath:indexPath];
-        [urCell glassIsEmpty:YES];
+        [urCell glassColorString:wine.color isEmpty:YES];
         cell = urCell;
     }
     
@@ -178,9 +167,9 @@
         
         for(UserRatingCVC *glass in collectionView.visibleCells){
             if([collectionView indexPathForCell:glass].row <= rating){
-                [glass glassIsEmpty:NO];
+                [glass glassColorString:nil isEmpty:NO];
             } else {
-                [glass glassIsEmpty:YES];
+                [glass glassColorString:nil isEmpty:NO];
             }
         }
     }

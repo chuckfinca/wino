@@ -12,6 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *ratingImageView;
 
--(void)glassIsEmpty:(BOOL)glassIsEmpty;
+-(void)glassColorString:(NSString *)string isEmpty:(BOOL)glassIsEmpty;
 
 @end

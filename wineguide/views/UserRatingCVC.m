@@ -67,7 +67,7 @@
 }
 
 
--(void)glassIsEmpty:(BOOL)glassIsEmpty
+-(void)glassColorString:(NSString *)string isEmpty:(BOOL)glassIsEmpty
 {
     UIImage *glass;
     if(glassIsEmpty){
@@ -75,7 +75,13 @@
         self.ratingImageView.tintColor = [ColorSchemer sharedInstance].gray;
     } else {
         glass = self.rated;
-        self.ratingImageView.tintColor = [ColorSchemer sharedInstance].redWine;
+        if([string isEqualToString:@"red"]){
+            self.ratingImageView.tintColor = [ColorSchemer sharedInstance].redWine;
+        } else if([string isEqualToString:@"rose"]){
+            self.ratingImageView.tintColor = [ColorSchemer sharedInstance].roseWine;
+        } else if([string isEqualToString:@"white"]){
+            self.ratingImageView.tintColor = [ColorSchemer sharedInstance].whiteWine;
+        }
     }
     [self.ratingImageView setImage:glass];
     self.ratingImageView.backgroundColor = [ColorSchemer sharedInstance].customWhite;

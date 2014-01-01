@@ -112,6 +112,19 @@
             [self.setOfIdentifiersThatNeedToBeTurnedIntoObjects removeObject:mo.identifier];
         }
     }
+    
+    /*
+     Once the placeholder code is removed try and reinstitue the method below to take advantage of concurrent use of the cores and cut down on processing time. Requires that only atomic changes are made though.
+     
+     [managedObjectDictionariesArray enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+     if([obj isKindOfClass:[NSDictionary class]]){
+     NSDictionary *managedObjectDictionary = (NSDictionary *)obj;
+     NSManagedObject *mo = [self createOrModifyManagedObjectWithDictionary:managedObjectDictionary];
+     [self.setOfIdentifiersThatNeedToBeTurnedIntoObjects removeObject:mo.identifier];
+     }
+     }];
+     */
+    
     [self createPlaceholderForObjectInSet:self.setOfIdentifiersThatNeedToBeTurnedIntoObjects];
 }
 
@@ -174,6 +187,7 @@
 -(void)createPlaceholderForObjectInSet:(NSSet *)set
 {
     if([self.setOfIdentifiersThatNeedToBeTurnedIntoObjects count] > 0){
+        
         for(NSString *identifier in set){
             if([identifier length] > 0){
                 NSDictionary *managedObjectDictionary = @{IDENTIFIER : identifier, IS_PLACEHOLDER : @YES};

@@ -9,6 +9,7 @@
 #import "TriedItVC.h"
 #import "WineNameVHTV.h"
 #import "ColorSchemer.h"
+#import "UserRatingCVController.h"
 
 @interface TriedItVC ()
 
@@ -23,8 +24,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *changeDateButton;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 @property (weak, nonatomic) IBOutlet UIView *userRatingView;
+@property (weak, nonatomic) IBOutlet UILabel *ratingHeaderLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *glassOrBottleSegmentedControl;
+@property (weak, nonatomic) IBOutlet UILabel *segmentedControlLabel;
 @property (nonatomic, strong) Wine *wine;
 @property (nonatomic, strong) Restaurant *restaurant;
+@property (nonatomic, strong) UserRatingCVController *userRatingsController;
 @end
 
 @implementation TriedItVC
@@ -45,6 +50,27 @@
     [self setup];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.userRatingsController.wine = self.wine;
+    self.userRatingsController.collectionView.frame = self.userRatingView.bounds;
+    [self.userRatingView addSubview:self.userRatingsController.collectionView];
+}
+
+#pragma mark - Getters & Setters
+
+-(UserRatingCVController *)userRatingsController
+{
+    if(!_userRatingsController) {
+        _userRatingsController = [[UserRatingCVController alloc] initWithCollectionViewLayout:[[UICollectionViewLayout alloc] init]];
+    }
+    return _userRatingsController;
+}
+
+#pragma mark - Setup
+
 -(void)setupWithWine:(Wine *)wine andRestaurant:(Restaurant *)restaurant
 {
     self.wine = wine;
@@ -63,6 +89,7 @@
     [self setupDateLabel];
     [self setupCancelButton];
     [self setupCheckInButton];
+    [self setupSegmentedControlLabel];
     
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
@@ -71,6 +98,8 @@
 {
     NSDictionary *attributes = @{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary};
     self.wineHeaderLabel.attributedText = [[NSAttributedString alloc] initWithString:@"WINE" attributes:attributes];
+    
+    self.ratingHeaderLabel.attributedText = [[NSAttributedString alloc] initWithString:@"RATING" attributes:attributes];
     self.restaurantHeaderLabel.attributedText = [[NSAttributedString alloc] initWithString:@"RESTAURANT" attributes:attributes];
     self.dateHeaderLabel.attributedText = [[NSAttributedString alloc] initWithString:@"DATE" attributes:attributes];
 }
@@ -102,6 +131,19 @@
     self.dateLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Today" attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody]}];
 }
 
+-(void)setupSegmentedControlLabel
+{
+    int index = self.glassOrBottleSegmentedControl.selectedSegmentIndex;
+    
+    NSString *text;
+    if(index == 0){
+        text = @"glass";
+    } else {
+        text = @"bottle";
+    }
+    self.segmentedControlLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+}
+
 -(void)setupCancelButton
 {
     NSLog(@"setup cancel button");
@@ -126,6 +168,10 @@
     NSLog(@"wine checked in!");
 }
 
+- (IBAction)segmentedControlValueChanged:(id)sender
+{
+    [self setupSegmentedControlLabel];
+}
 
 
 
