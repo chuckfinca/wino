@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Wine.h"
 #import "CollectionViewWithIndex.h"
+#import "UserRatingCVController.h"
 
 @interface WineCardCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet CollectionViewWithIndex *userRatingCollectionView;
+@property (nonatomic, strong) UserRatingCVController *userRatingsController;
 
 -(void)setupCardWithWine:(Wine *)wine;
 

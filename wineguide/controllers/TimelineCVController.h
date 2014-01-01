@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimelineCVC : UICollectionViewController
+@interface TimelineCVController : UICollectionViewController
 
 @end

@@ -137,7 +137,7 @@
 		C991FBB818639FE100C10B52 /* UserRatingCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBB718639FE100C10B52 /* UserRatingCVC.m */; };
 		C991FBBC1863A10E00C10B52 /* UserRatingCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C991FBBB1863A10E00C10B52 /* UserRatingCVC.xib */; };
 		C991FBBE1863A14700C10B52 /* ReviewerCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C991FBBD1863A14700C10B52 /* ReviewerCVC.xib */; };
-		C991FBC51863A7DE00C10B52 /* TimelineCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBC41863A7DE00C10B52 /* TimelineCVC.m */; };
+		C991FBC51863A7DE00C10B52 /* TimelineCVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBC41863A7DE00C10B52 /* TimelineCVController.m */; };
 		C9ACC7D7184E72AB00E5945D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D5184E72AB00E5945D /* settings.png */; };
 		C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D6184E72AB00E5945D /* settings@2x.png */; };
 		C9ACC7DB184E892400E5945D /* WineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC7DA184E892400E5945D /* WineCell.m */; };
@@ -270,7 +270,7 @@
 		C9328CCA184ADCBC00AF6DEA /* RestaurantWineManagerSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantWineManagerSCDTVC.m; path = controllers/RestaurantWineManagerSCDTVC.m; sourceTree = "<group>"; };
 		C932F1101868EE6E0079680C /* userAction_cellared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = userAction_cellared.png; path = images/userAction_cellared.png; sourceTree = "<group>"; };
 		C932F1111868EE6E0079680C /* userAction_cellared@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_cellared@2x.png"; path = "images/userAction_cellared@2x.png"; sourceTree = "<group>"; };
-		C932F11418695C5C0079680C /* Model 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 7.xcdatamodel"; sourceTree = "<group>"; };
+		C932F11418695C5C0079680C /* Model 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 7.xcdatamodel"; sourceTree = "<group>"; };
 		C932F11518695D010079680C /* TastingNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingNote.h; path = model/TastingNote.h; sourceTree = "<group>"; };
 		C932F11618695D010079680C /* TastingNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingNote.m; path = model/TastingNote.m; sourceTree = "<group>"; };
 		C932F11818695D020079680C /* Wine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wine.h; path = model/Wine.h; sourceTree = "<group>"; };
@@ -380,8 +380,8 @@
 		C991FBB718639FE100C10B52 /* UserRatingCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRatingCVC.m; path = views/UserRatingCVC.m; sourceTree = "<group>"; };
 		C991FBBB1863A10E00C10B52 /* UserRatingCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserRatingCVC.xib; path = xibs/UserRatingCVC.xib; sourceTree = "<group>"; };
 		C991FBBD1863A14700C10B52 /* ReviewerCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewerCVC.xib; path = xibs/ReviewerCVC.xib; sourceTree = "<group>"; };
-		C991FBC31863A7DE00C10B52 /* TimelineCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineCVC.h; path = controllers/TimelineCVC.h; sourceTree = "<group>"; };
-		C991FBC41863A7DE00C10B52 /* TimelineCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineCVC.m; path = controllers/TimelineCVC.m; sourceTree = "<group>"; };
+		C991FBC31863A7DE00C10B52 /* TimelineCVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineCVController.h; path = controllers/TimelineCVController.h; sourceTree = "<group>"; };
+		C991FBC41863A7DE00C10B52 /* TimelineCVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineCVController.m; path = controllers/TimelineCVController.m; sourceTree = "<group>"; };
 		C9ACC7D5184E72AB00E5945D /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = images/settings.png; sourceTree = "<group>"; };
 		C9ACC7D6184E72AB00E5945D /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "images/settings@2x.png"; sourceTree = "<group>"; };
 		C9ACC7D9184E892400E5945D /* WineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineCell.h; path = views/WineCell.h; sourceTree = "<group>"; };
@@ -589,8 +589,8 @@
 				C98DEFC61821DA790038216C /* CoreDataTableViewController.m */,
 				C9C7D62D184047EB00A2E955 /* CellarSCDTVC.h */,
 				C9C7D62E184047EB00A2E955 /* CellarSCDTVC.m */,
-				C991FBC31863A7DE00C10B52 /* TimelineCVC.h */,
-				C991FBC41863A7DE00C10B52 /* TimelineCVC.m */,
+				C991FBC31863A7DE00C10B52 /* TimelineCVController.h */,
+				C991FBC41863A7DE00C10B52 /* TimelineCVController.m */,
 				C932F14D186D52870079680C /* ReviewersAndRatingsVC.h */,
 				C932F14E186D52870079680C /* ReviewersAndRatingsVC.m */,
 				C932F156187231C80079680C /* TriedItVC.h */,
@@ -1067,7 +1067,7 @@
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
 				C932F12018695D020079680C /* WineUnit.m in Sources */,
 				C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */,
-				C991FBC51863A7DE00C10B52 /* TimelineCVC.m in Sources */,
+				C991FBC51863A7DE00C10B52 /* TimelineCVController.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,
 				C98DEFB018217BE70038216C /* RestaurantDataHelper.m in Sources */,
 				C9D078421845252000F47851 /* PanelsContainerViewController.m in Sources */,

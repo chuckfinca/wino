@@ -6,26 +6,27 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "TimelineCVC.h"
+#import "TimelineCVController.h"
 #import "WineCardCell.h"
 #import <CoreData/CoreData.h>
 #import "DocumentHandler.h"
 #import "Wine.h"
 #import "UserRatingCVC.h"
 #import "ColorSchemer.h"
+#import "UserRatingCVController.h"
 
 #define WINE_CARD_CELL @"WineCardCell"
 #define WINE_ENTITY @"Wine"
 #define USER_RATING_CELL @"UserRatingCell"
 
-@interface TimelineCVC ()
+@interface TimelineCVController ()
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSArray *wines;
 
 @end
 
-@implementation TimelineCVC
+@implementation TimelineCVController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,7 +55,6 @@
     [self.collectionView.collectionViewLayout invalidateLayout];
     //self.collectionView.contentOffset = CGPointMake(0,0);
 }
-
 
 #pragma mark - Setup
 
@@ -100,49 +100,17 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if(collectionView == self.collectionView){
-        return [self.wines count];
-    } else if([collectionView isKindOfClass:[CollectionViewWithIndex class]]){
-        return 5;
-    } else {
-        return 0;
-    }
+    return [self.wines count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell;
+    WineCardCell *wineCardCell = [collectionView dequeueReusableCellWithReuseIdentifier:WINE_CARD_CELL forIndexPath:indexPath];
     
-    if(collectionView == self.collectionView){
-        
-        WineCardCell *wineCardCell = [collectionView dequeueReusableCellWithReuseIdentifier:WINE_CARD_CELL forIndexPath:indexPath];
-        wineCardCell.userRatingCollectionView.collectionViewIndexPath = indexPath;
-        wineCardCell.userRatingCollectionView.dataSource = self;
-        wineCardCell.userRatingCollectionView.delegate = self;
-        [wineCardCell.userRatingCollectionView registerNib:[UINib nibWithNibName:@"UserRatingCVC" bundle:nil] forCellWithReuseIdentifier:USER_RATING_CELL];
-        wineCardCell.userRatingCollectionView.backgroundColor = [ColorSchemer sharedInstance].customWhite;
-        
-        
-        Wine *wine = [self.wines objectAtIndex:indexPath.row];
-        [wineCardCell setupCardWithWine:wine];
-        
-        cell = wineCardCell;
-    } else if([collectionView isKindOfClass:[CollectionViewWithIndex class]]){
-        
-        CollectionViewWithIndex *cvwi = (CollectionViewWithIndex *)collectionView;
-        
-        Wine *wine = self.wines[cvwi.collectionViewIndexPath.row];
-        
-        // display rating if the wine has been rated by the user.
-        // user can edit their rating if they like
-        // display empty rating and are encouraged to rate
-        
-        UserRatingCVC *urCell = [collectionView dequeueReusableCellWithReuseIdentifier:USER_RATING_CELL forIndexPath:indexPath];
-        [urCell glassColorString:wine.color isEmpty:YES];
-        cell = urCell;
-    }
+    Wine *wine = [self.wines objectAtIndex:indexPath.row];
+    [wineCardCell setupCardWithWine:wine];
     
-    return cell;
+    return wineCardCell;
 }
 
 
@@ -150,27 +118,14 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(collectionView == self.collectionView){
-        WineCardCell *wineCardCell = (WineCardCell *)[collectionView cellForItemAtIndexPath:indexPath];
-        for(UICollectionViewCell *userRatingCell in wineCardCell.userRatingCollectionView.visibleCells){
-            
-            CGPoint touchLocationInWineCardCell = [collectionView.panGestureRecognizer locationInView:wineCardCell.userRatingCollectionView];
-            
-            if(CGRectContainsPoint(userRatingCell.frame, touchLocationInWineCardCell)){
-                [self collectionView:wineCardCell.userRatingCollectionView didSelectItemAtIndexPath:[wineCardCell.userRatingCollectionView indexPathForCell:userRatingCell]];
-                
-            }
-        }
-    } else if([collectionView isKindOfClass:[CollectionViewWithIndex class]]){
+    WineCardCell *wineCardCell = (WineCardCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    for(UserRatingCVC *userRatingCell in wineCardCell.userRatingsController.collectionView.visibleCells){
         
-        int rating = indexPath.row;
+        CGPoint touchLocationInWineCardCell = [collectionView.panGestureRecognizer locationInView:wineCardCell.userRatingsController.collectionView];
         
-        for(UserRatingCVC *glass in collectionView.visibleCells){
-            if([collectionView indexPathForCell:glass].row <= rating){
-                [glass glassColorString:nil isEmpty:NO];
-            } else {
-                [glass glassColorString:nil isEmpty:NO];
-            }
+        if(CGRectContainsPoint(userRatingCell.frame, touchLocationInWineCardCell)){
+            [wineCardCell.userRatingsController collectionView:wineCardCell.userRatingsController.collectionView didSelectItemAtIndexPath:[wineCardCell.userRatingsController.collectionView indexPathForCell:userRatingCell]];
         }
     }
 }

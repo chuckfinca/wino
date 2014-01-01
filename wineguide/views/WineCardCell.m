@@ -20,6 +20,7 @@
 @property (nonatomic, strong) Wine *wine;
 @property (weak, nonatomic) IBOutlet UILabel *userRatingCVLabel;
 @property (weak, nonatomic) IBOutlet UIButton *inDepthReviewButton;
+@property (weak, nonatomic) IBOutlet UIView *userRatingContainerView;
 
 @end
 
@@ -34,12 +35,27 @@
     return self;
 }
 
+#pragma mark - Getters & Setters
+
+-(UserRatingCVController *)userRatingsController
+{
+    if(!_userRatingsController) {
+        _userRatingsController = [[UserRatingCVController alloc] initWithCollectionViewLayout:[[UICollectionViewLayout alloc] init]];
+        _userRatingsController.wine = self.wine;
+    }
+    return _userRatingsController;
+}
+
 
 #pragma mark - Setup
 
 -(void)setupCardWithWine:(Wine *)wine
 {
     self.wine = wine;
+    
+    self.userRatingsController.wine = self.wine;
+    self.userRatingsController.collectionView.frame = self.userRatingContainerView.bounds;
+    [self.userRatingContainerView addSubview:self.userRatingsController.collectionView];
     
     [self setupCard];
     

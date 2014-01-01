@@ -84,6 +84,7 @@
     NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"Full Review" attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textLink, NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote]}];
     
     [reviewButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
+    reviewButton.titleLabel.numberOfLines = 0;
     
     return reviewButton;
 }
@@ -110,7 +111,7 @@
     float y = 44*GLASS_SCALE_RATIO;
     
     if(indexPath.row == 5){
-        return CGSizeMake(100, y);
+        return CGSizeMake(50, y);
     } else {
         return CGSizeMake(30*GLASS_SCALE_RATIO, y);
     }
