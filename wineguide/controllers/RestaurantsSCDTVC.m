@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
     [self setupSearchBar];
-    self.title = @"Nearby";
+    self.navigationItem.title = @"Restaurants Nearby";
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
@@ -59,7 +59,7 @@
 
 -(void)setupSearchBar
 {
-    self.searchBar.placeholder = @"Search restaurants...";
+    self.searchBar.placeholder = @"Search...";
 }
 
 -(void)setupTextForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath

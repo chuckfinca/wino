@@ -107,6 +107,7 @@
 		C969342A1875EF290071EF41 /* IterationCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934271875EF290071EF41 /* IterationCounter.m */; };
 		C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934291875EF290071EF41 /* NSDictionary+Helper.m */; };
 		C969342E1875EF520071EF41 /* MotionEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C969342D1875EF520071EF41 /* MotionEffects.m */; };
+		C969343B187781EA0071EF41 /* WineReviewVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C969343A187781EA0071EF41 /* WineReviewVHTV.m */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -341,6 +342,8 @@
 		C96934291875EF290071EF41 /* NSDictionary+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Helper.m"; path = "supportingClasses/NSDictionary+Helper.m"; sourceTree = "<group>"; };
 		C969342C1875EF520071EF41 /* MotionEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotionEffects.h; path = supportingClasses/MotionEffects.h; sourceTree = "<group>"; };
 		C969342D1875EF520071EF41 /* MotionEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MotionEffects.m; path = supportingClasses/MotionEffects.m; sourceTree = "<group>"; };
+		C9693439187781EA0071EF41 /* WineReviewVHTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineReviewVHTV.h; path = views/WineReviewVHTV.h; sourceTree = "<group>"; };
+		C969343A187781EA0071EF41 /* WineReviewVHTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineReviewVHTV.m; path = views/WineReviewVHTV.m; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -634,6 +637,8 @@
 				C95E2DB61865023C0050DFAC /* UserActionCVC.m */,
 				C932F142186D3BE90079680C /* ReviewTVC.h */,
 				C932F143186D3BE90079680C /* ReviewTVC.m */,
+				C9693439187781EA0071EF41 /* WineReviewVHTV.h */,
+				C969343A187781EA0071EF41 /* WineReviewVHTV.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1076,6 +1081,7 @@
 				C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */,
 				C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */,
 				C932F144186D3BE90079680C /* ReviewTVC.m in Sources */,
+				C969343B187781EA0071EF41 /* WineReviewVHTV.m in Sources */,
 				C9C7D62F184047EB00A2E955 /* CellarSCDTVC.m in Sources */,
 				C969342A1875EF290071EF41 /* IterationCounter.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,

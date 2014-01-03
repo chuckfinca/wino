@@ -10,4 +10,6 @@
 
 @interface WineReviewVHTV : VariableHeightTV
 
+-(void)setupWithReview;
+
 @end

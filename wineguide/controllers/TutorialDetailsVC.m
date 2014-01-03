@@ -37,7 +37,7 @@
     
     switch (self.index) {
         case 0:
-            text = @"The best way to find the perfect wine a that menu.";
+            text = @"The best way to find the perfect wine off a restaurant's menu.";
             self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_logo.png"];
             self.dismissTutorialButton.hidden = YES;
             break;
@@ -47,12 +47,12 @@
             self.dismissTutorialButton.hidden = YES;
             break;
         case 2:
-            text = @"The Corkie community breaks wine reviews into essential points (star ratings, tasting notes, food pairings, and indepth reviews)";
+            text = @"The Corkie community makes choosing a wine simple by showing you what your friends like, community ratings and indepth reviews.";
             self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_favorites.png"];
             self.dismissTutorialButton.hidden = YES;
             break;
         case 3:
-            text = @"As you try wines check them in to your timeline with the Tried It button.";
+            text = @"As you try wines share them with your friends by checking them into your timeline using the Tried It button.";
             self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_triedIt.png"];
             self.dismissTutorialButton.hidden = NO;
             break;

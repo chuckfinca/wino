@@ -7,6 +7,7 @@
 //
 
 #import "WineReviewVHTV.h"
+#import "ColorSchemer.h"
 
 @implementation WineReviewVHTV
 
@@ -19,13 +20,11 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+-(void)setupWithReview
 {
-    // Drawing code
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    
+    
 }
-*/
 
 @end

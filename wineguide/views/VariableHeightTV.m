@@ -16,11 +16,6 @@
 
 @implementation VariableHeightTV
 
--(void)awakeFromNib
-{
-    //self.textContainerInset = UIEdgeInsetsMake(0, 10, 0, 10);
-}
-
 -(BOOL)resetHeight
 {
     if(!_resetHeight) _resetHeight = YES;
