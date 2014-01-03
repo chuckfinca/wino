@@ -7,6 +7,7 @@
 //
 
 #import "ReviewTVC.h"
+#import "ColorSchemer.h"
 
 @interface ReviewTVC ()
 
@@ -38,6 +39,7 @@
 -(void)setupReview
 {
     // the view should just take the review object from the view controller and display it accordingly
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
     UIImage *profileImage = [UIImage imageNamed:@"user_derek.png"];
     [self.profilePhotoImageView setImage:profileImage];

@@ -40,6 +40,8 @@
 
 - (void)viewDidLoad
 {
+    // [[ColorSchemer sharedInstance] mixItUp]; // use to check that colors are being set by ColorSchemer throughout the app
+    
     [self setupViewControllers];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.

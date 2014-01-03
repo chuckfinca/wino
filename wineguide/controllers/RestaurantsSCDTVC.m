@@ -93,6 +93,7 @@
 {
     // NSLog(@"cellForRowAtIndexPath...");
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantCell" forIndexPath:indexPath];
+    cell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
     // Configure the cell...
     [self setupTextForCell:cell atIndexPath:indexPath];

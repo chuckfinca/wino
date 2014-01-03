@@ -38,16 +38,6 @@
 */
 
 
--(void)awakeFromNib
-{
-    [self setup];
-}
-
--(void)setup
-{
-    
-}
-
 #pragma mark - Getters & Setters
 
 -(UIImage *)unrated
@@ -84,7 +74,7 @@
         }
     }
     [self.ratingImageView setImage:glass];
-    self.ratingImageView.backgroundColor = [ColorSchemer sharedInstance].customWhite;
+    self.ratingImageView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 @end
