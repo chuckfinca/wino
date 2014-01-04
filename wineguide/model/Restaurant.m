@@ -9,6 +9,8 @@
 #import "Restaurant.h"
 #import "Flight.h"
 #import "Group.h"
+#import "Review.h"
+#import "TastingRecord.h"
 #import "WineUnit.h"
 
 

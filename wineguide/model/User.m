@@ -20,6 +20,7 @@
 @dynamic lastLocalUpdate;
 @dynamic lastServerUpdate;
 @dynamic blurb;
+@dynamic identifier;
 @dynamic reviews;
 @dynamic tastingRecords;
 @dynamic following;

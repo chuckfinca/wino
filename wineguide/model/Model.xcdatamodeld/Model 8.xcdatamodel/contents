@@ -72,6 +72,8 @@
         <attribute name="dateAdded" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="deletedEntity" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastLocalUpdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastServerUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="reviewText" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="reviews" inverseEntity="Restaurant" syncable="YES"/>
@@ -93,6 +95,9 @@
     <entity name="TastingRecord" representedClassName="TastingRecord" syncable="YES">
         <attribute name="addedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="deletedEntity" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastLocalUpdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastServerUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="tastingDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="tastingRecords" inverseEntity="Restaurant" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tastingRecords" inverseEntity="User" syncable="YES"/>
@@ -101,6 +106,7 @@
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="blurb" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="deletedEntity" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastLocalUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="lastServerUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -177,8 +183,8 @@
         <element name="Varietal" positionX="340" positionY="857" width="128" height="178"/>
         <element name="Wine" positionX="117" positionY="234" width="128" height="508"/>
         <element name="WineUnit" positionX="-65" positionY="747" width="128" height="223"/>
-        <element name="Review" positionX="-612" positionY="467" width="128" height="163"/>
-        <element name="User" positionX="-857" positionY="684" width="128" height="193"/>
-        <element name="TastingRecord" positionX="-596" positionY="756" width="128" height="133"/>
+        <element name="Review" positionX="-612" positionY="467" width="128" height="193"/>
+        <element name="User" positionX="-857" positionY="684" width="128" height="208"/>
+        <element name="TastingRecord" positionX="-596" positionY="756" width="128" height="178"/>
     </elements>
 </model>

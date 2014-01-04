@@ -14,15 +14,16 @@
 #import "UserRatingCVC.h"
 #import "ColorSchemer.h"
 #import "UserRatingCVController.h"
+#import "TastingRecord.h"
 
 #define WINE_CARD_CELL @"WineCardCell"
-#define WINE_ENTITY @"Wine"
+#define TASTING_RECORD_ENTITY @"TastingRecord"
 #define USER_RATING_CELL @"UserRatingCell"
 
 @interface TimelineCVController ()
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic, strong) NSArray *wines;
+@property (nonatomic, strong) NSArray *tastingRecords;
 
 @end
 
@@ -79,7 +80,7 @@
 -(void)setupFetchedResultsController
 {
     //NSLog(@"Timeline setupFetchedResultsController...");
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TASTING_RECORD_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier"
                                                               ascending:YES
                                                                selector:@selector(localizedCaseInsensitiveCompare:)]];
@@ -87,7 +88,7 @@
     request.predicate = nil;
     
     NSError *error;
-    self.wines = [self.context executeFetchRequest:request error:&error];
+    self.tastingRecords = [self.context executeFetchRequest:request error:&error];
 }
 
 
@@ -100,15 +101,15 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.wines count];
+    return [self.tastingRecords count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     WineCardCell *wineCardCell = [collectionView dequeueReusableCellWithReuseIdentifier:WINE_CARD_CELL forIndexPath:indexPath];
     
-    Wine *wine = [self.wines objectAtIndex:indexPath.row];
-    [wineCardCell setupCardWithWine:wine];
+    TastingRecord *tr = [self.tastingRecords objectAtIndex:indexPath.row];
+    [wineCardCell setupCardWithWine:tr.wine];
     
     return wineCardCell;
 }

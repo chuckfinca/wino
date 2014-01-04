@@ -10,7 +10,9 @@
 #import "Brand.h"
 #import "Flight.h"
 #import "Group.h"
+#import "Review.h"
 #import "TastingNote.h"
+#import "TastingRecord.h"
 #import "Varietal.h"
 #import "WineUnit.h"
 

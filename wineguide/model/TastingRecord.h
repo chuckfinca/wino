@@ -9,14 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Restaurant, Wine;
+@class Restaurant, User, Wine;
 
 @interface TastingRecord : NSManagedObject
 
 @property (nonatomic, retain) NSDate * addedDate;
 @property (nonatomic, retain) NSDate * tastingDate;
 @property (nonatomic, retain) NSNumber * deletedEntity;
-@property (nonatomic, retain) NSManagedObject *user;
+@property (nonatomic, retain) NSDate * lastLocalUpdate;
+@property (nonatomic, retain) NSDate * lastServerUpdate;
+@property (nonatomic, retain) NSString * identifier;
+@property (nonatomic, retain) User *user;
 @property (nonatomic, retain) Wine *wine;
 @property (nonatomic, retain) Restaurant *restaurant;
 

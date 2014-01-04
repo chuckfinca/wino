@@ -8,6 +8,7 @@
 
 #import "TastingRecord.h"
 #import "Restaurant.h"
+#import "User.h"
 #import "Wine.h"
 
 
@@ -16,6 +17,9 @@
 @dynamic addedDate;
 @dynamic tastingDate;
 @dynamic deletedEntity;
+@dynamic lastLocalUpdate;
+@dynamic lastServerUpdate;
+@dynamic identifier;
 @dynamic user;
 @dynamic wine;
 @dynamic restaurant;

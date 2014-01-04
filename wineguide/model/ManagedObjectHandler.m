@@ -9,7 +9,6 @@
 #import "ManagedObjectHandler.h"
 
 #define IDENTIFIER @"identifier"
-#define NAME @"name"
 #define DELETED_ENTITY @"deletedEntity"
 
 @implementation ManagedObjectHandler

@@ -10,6 +10,8 @@
 #import "WineNameVHTV.h"
 #import "ColorSchemer.h"
 #import "UserRatingCVController.h"
+#import "ManagedObjectHandler.h"
+#import "TastingRecord.h"
 
 @interface TriedItVC ()
 
@@ -163,10 +165,32 @@
     }];
 }
 
+
+
+
+
+#define IDENTIFIER @"identifier"
+#define DELETED_ENTITY @"deletedEntity"
+
 - (IBAction)checkWineIntoTimeline:(UIButton *)sender
 {
     NSLog(@"wine checked in!");
+    
+    NSNumber *randomNumber = @(arc4random_uniform(37109) + 1);
+    NSString *predicateString = [NSString stringWithFormat:@"identifier = %@",[randomNumber stringValue]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
+    
+    TastingRecord *tastingRecord = (TastingRecord *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:@"TastingRecord" usingPredicate:predicate inContext:self.wine.managedObjectContext usingDictionary:@{IDENTIFIER : predicateString, DELETED_ENTITY : @0}];
+    tastingRecord.wine = self.wine;
+    tastingRecord.restaurant = self.restaurant;
+    tastingRecord.addedDate = [NSDate date];
+    tastingRecord.tastingDate = [NSDate date];
+    
+    NSLog(@"tastingRecord = %@",tastingRecord);
+    
 }
+
+
 
 - (IBAction)segmentedControlValueChanged:(id)sender
 {

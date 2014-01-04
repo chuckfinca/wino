@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSDate * lastLocalUpdate;
 @property (nonatomic, retain) NSDate * lastServerUpdate;
 @property (nonatomic, retain) NSString * blurb;
+@property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSSet *reviews;
 @property (nonatomic, retain) NSSet *tastingRecords;
 @property (nonatomic, retain) NSSet *following;

@@ -149,6 +149,9 @@
                                 <constraint firstAttribute="height" constant="44" id="Rhh-RA-TZg"/>
                             </constraints>
                             <state key="normal" title="Check Into Timeline"/>
+                            <connections>
+                                <action selector="checkWineIntoTimeline:" destination="-1" eventType="touchUpInside" id="Rc3-tM-ELn"/>
+                            </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="glass" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXl-YW-GaQ">
                             <rect key="frame" x="117" y="76" width="183" height="21"/>

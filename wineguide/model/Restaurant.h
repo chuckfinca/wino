@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Flight, Group, WineUnit;
+@class Flight, Group, Review, TastingRecord, WineUnit;
 
 @interface Restaurant : NSManagedObject
 
@@ -56,13 +56,13 @@
 - (void)addWineUnits:(NSSet *)values;
 - (void)removeWineUnits:(NSSet *)values;
 
-- (void)addTastingRecordsObject:(NSManagedObject *)value;
-- (void)removeTastingRecordsObject:(NSManagedObject *)value;
+- (void)addTastingRecordsObject:(TastingRecord *)value;
+- (void)removeTastingRecordsObject:(TastingRecord *)value;
 - (void)addTastingRecords:(NSSet *)values;
 - (void)removeTastingRecords:(NSSet *)values;
 
-- (void)addReviewsObject:(NSManagedObject *)value;
-- (void)removeReviewsObject:(NSManagedObject *)value;
+- (void)addReviewsObject:(Review *)value;
+- (void)removeReviewsObject:(Review *)value;
 - (void)addReviews:(NSSet *)values;
 - (void)removeReviews:(NSSet *)values;
 

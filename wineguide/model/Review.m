@@ -8,6 +8,7 @@
 
 #import "Review.h"
 #import "Restaurant.h"
+#import "User.h"
 #import "Wine.h"
 
 
@@ -18,6 +19,8 @@
 @dynamic identifier;
 @dynamic deletedEntity;
 @dynamic rating;
+@dynamic lastLocalUpdate;
+@dynamic lastServerUpdate;
 @dynamic wine;
 @dynamic user;
 @dynamic restaurant;
