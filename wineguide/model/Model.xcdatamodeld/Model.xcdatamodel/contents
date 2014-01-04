@@ -53,10 +53,5 @@
         <relationship name="varietals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Varietal" inverseName="wines" inverseEntity="Varietal" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Brand" positionX="45" positionY="71" width="128" height="133"/>
-        <element name="Restaurant" positionX="-198" positionY="153" width="128" height="208"/>
-        <element name="TastingNote" positionX="439" positionY="423" width="128" height="103"/>
-        <element name="Varietal" positionX="18" positionY="434" width="128" height="103"/>
-        <element name="Wine" positionX="252" positionY="149" width="128" height="298"/>
     </elements>
 </model>
