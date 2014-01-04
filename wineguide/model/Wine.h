@@ -42,6 +42,8 @@
 @property (nonatomic, retain) NSSet *tastingNotes;
 @property (nonatomic, retain) NSSet *varietals;
 @property (nonatomic, retain) NSSet *wineUnits;
+@property (nonatomic, retain) NSSet *reviews;
+@property (nonatomic, retain) NSSet *tastingRecords;
 @end
 
 @interface Wine (CoreDataGeneratedAccessors)
@@ -70,5 +72,15 @@
 - (void)removeWineUnitsObject:(WineUnit *)value;
 - (void)addWineUnits:(NSSet *)values;
 - (void)removeWineUnits:(NSSet *)values;
+
+- (void)addReviewsObject:(NSManagedObject *)value;
+- (void)removeReviewsObject:(NSManagedObject *)value;
+- (void)addReviews:(NSSet *)values;
+- (void)removeReviews:(NSSet *)values;
+
+- (void)addTastingRecordsObject:(NSManagedObject *)value;
+- (void)removeTastingRecordsObject:(NSManagedObject *)value;
+- (void)addTastingRecords:(NSSet *)values;
+- (void)removeTastingRecords:(NSSet *)values;
 
 @end

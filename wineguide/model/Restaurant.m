@@ -36,5 +36,7 @@
 @dynamic flights;
 @dynamic groups;
 @dynamic wineUnits;
+@dynamic tastingRecords;
+@dynamic reviews;
 
 @end

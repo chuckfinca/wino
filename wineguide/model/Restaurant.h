@@ -35,6 +35,8 @@
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
 @property (nonatomic, retain) NSSet *wineUnits;
+@property (nonatomic, retain) NSSet *tastingRecords;
+@property (nonatomic, retain) NSSet *reviews;
 @end
 
 @interface Restaurant (CoreDataGeneratedAccessors)
@@ -53,5 +55,15 @@
 - (void)removeWineUnitsObject:(WineUnit *)value;
 - (void)addWineUnits:(NSSet *)values;
 - (void)removeWineUnits:(NSSet *)values;
+
+- (void)addTastingRecordsObject:(NSManagedObject *)value;
+- (void)removeTastingRecordsObject:(NSManagedObject *)value;
+- (void)addTastingRecords:(NSSet *)values;
+- (void)removeTastingRecords:(NSSet *)values;
+
+- (void)addReviewsObject:(NSManagedObject *)value;
+- (void)removeReviewsObject:(NSManagedObject *)value;
+- (void)addReviews:(NSSet *)values;
+- (void)removeReviews:(NSSet *)values;
 
 @end

@@ -46,5 +46,7 @@
 @dynamic tastingNotes;
 @dynamic varietals;
 @dynamic wineUnits;
+@dynamic reviews;
+@dynamic tastingRecords;
 
 @end
