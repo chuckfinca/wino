@@ -281,7 +281,9 @@ typedef enum {
 {
     NSLog(@"----------------------------------------");
     NSLog(@"identifier = %@",self.restaurant.identifier);
+    NSLog(@"added date = %@",self.restaurant.addedDate);
     NSLog(@"address = %@",self.restaurant.address);
+    NSLog(@"address 2 = %@",self.restaurant.address2);
     NSLog(@"city = %@",self.restaurant.city);
     NSLog(@"country = %@",self.restaurant.country);
     NSLog(@"lastServerUpdate = %@",self.restaurant.lastServerUpdate);
@@ -291,7 +293,6 @@ typedef enum {
     NSLog(@"menuNeedsUpdating = %@",self.restaurant.menuNeedsUpdating);
     NSLog(@"name = %@",self.restaurant.name);
     NSLog(@"state = %@",self.restaurant.state);
-    NSLog(@"versionNumber = %@",self.restaurant.versionNumber);
     NSLog(@"zip = %@",self.restaurant.zip);
     NSLog(@"flightIdentifiers = %@",self.restaurant.flightIdentifiers);
     NSLog(@"groupIdentifiers = %@",self.restaurant.groupIdentifiers);

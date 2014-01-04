@@ -17,13 +17,13 @@
 #define FLIGHT_ENTITY @"Flight"
 
 #define ABOUT @"about"
+#define ADDED_DATE @"addedDate"
 #define IDENTIFIER @"identifier"
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
 #define LAST_SERVER_UPDATE @"lastServerUpdate"
 #define DELETED_ENTITY @"deletedEntity"
 #define NAME @"name"
 #define PRICE @"price"
-#define VERSION_NUMBER @"versionNumber"
 #define WINE_IDENTIFIERS @"wineIdentifiers"
 #define RESTAURANT_IDENTIFIER @"restaurantIdentifier"
 
@@ -48,6 +48,7 @@
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == NO){
             
             // ATTRIBUTES
+            flight.addedDate = [dictionary sanitizedStringForKey:ADDED_DATE];
             flight.about = [dictionary sanitizedStringForKey:ABOUT];
             flight.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
             flight.isPlaceholderForFutureObject = @NO;
@@ -55,7 +56,6 @@
             flight.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             flight.name = [dictionary sanitizedStringForKey:NAME];
             flight.price = [dictionary sanitizedValueForKey:PRICE];
-            flight.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
             
             // store any information about relationships provided
             
@@ -103,15 +103,15 @@
 -(void)logDetails
 {
     NSLog(@"----------------------------------------");
+    NSLog(@"added date = %@",self.addedDate);
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
-    NSLog(@"address = %@",self.about);
+    NSLog(@"about = %@",self.about);
     NSLog(@"lastLocalUpdate = %@",self.lastLocalUpdate);
     NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);
     NSLog(@"price = %@",self.price);
-    NSLog(@"versionNumber = %@",self.versionNumber);
     NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
     
     NSLog(@"restaurant = %@",self.restaurant.description);

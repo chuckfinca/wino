@@ -2,8 +2,8 @@
 //  Restaurant.m
 //  Corkie
 //
-//  Created by Charles Feinn on 12/23/13.
-//  Copyright (c) 2013 AppSimple. All rights reserved.
+//  Created by Charles Feinn on 1/3/14.
+//  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import "Restaurant.h"
@@ -29,9 +29,10 @@
 @dynamic menuNeedsUpdating;
 @dynamic name;
 @dynamic state;
-@dynamic versionNumber;
 @dynamic wineUnitIdentifiers;
 @dynamic zip;
+@dynamic address2;
+@dynamic addedDate;
 @dynamic flights;
 @dynamic groups;
 @dynamic wineUnits;

@@ -2,8 +2,8 @@
 //  Group.h
 //  Corkie
 //
-//  Created by Charles Feinn on 12/23/13.
-//  Copyright (c) 2013 AppSimple. All rights reserved.
+//  Created by Charles Feinn on 1/3/14.
+//  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -22,8 +22,8 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * restaurantIdentifier;
 @property (nonatomic, retain) NSNumber * sortOrder;
-@property (nonatomic, retain) NSNumber * versionNumber;
 @property (nonatomic, retain) NSString * wineIdentifiers;
+@property (nonatomic, retain) NSDate * addedDate;
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) NSSet *wines;
 @end

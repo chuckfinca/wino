@@ -2,8 +2,8 @@
 //  Wine.h
 //  Corkie
 //
-//  Created by Charles Feinn on 12/23/13.
-//  Copyright (c) 2013 AppSimple. All rights reserved.
+//  Created by Charles Feinn on 1/3/14.
+//  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -31,12 +31,11 @@
 @property (nonatomic, retain) NSNumber * sparkling;
 @property (nonatomic, retain) NSString * state;
 @property (nonatomic, retain) NSString * tastingNoteIdentifers;
+@property (nonatomic, retain) NSString * varietalCategory;
 @property (nonatomic, retain) NSString * varietalIdentifiers;
-@property (nonatomic, retain) NSNumber * versionNumber;
 @property (nonatomic, retain) NSString * vineyard;
 @property (nonatomic, retain) NSNumber * vintage;
 @property (nonatomic, retain) NSString * wineUnitIdentifiers;
-@property (nonatomic, retain) NSString * varietalCategory;
 @property (nonatomic, retain) Brand *brand;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;

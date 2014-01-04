@@ -2,8 +2,8 @@
 //  TastingNote.m
 //  Corkie
 //
-//  Created by Charles Feinn on 12/23/13.
-//  Copyright (c) 2013 AppSimple. All rights reserved.
+//  Created by Charles Feinn on 1/3/14.
+//  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import "TastingNote.h"
@@ -20,7 +20,6 @@
 @dynamic lastServerUpdate;
 @dynamic name;
 @dynamic tastingStage;
-@dynamic versionNumber;
 @dynamic wineIdentifiers;
 @dynamic wines;
 

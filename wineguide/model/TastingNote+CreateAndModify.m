@@ -23,7 +23,6 @@
 #define DELETED_ENTITY @"deletedEntity"
 #define NAME @"name"
 #define TASTING_STAGE @"tastingStage"
-#define VERSION_NUMBER @"versionNumber"
 #define WINE_IDENTIFIERS @"wineIdentifiers"
 #define WINES @"wines"
 
@@ -51,7 +50,6 @@
             tastingNote.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             tastingNote.name = [dictionary sanitizedStringForKey:NAME];
             tastingNote.tastingStage = [dictionary sanitizedStringForKey:TASTING_STAGE]; // appearance, in glass, in mouth, finish
-            tastingNote.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
             
             // store any information about relationships provided
             
@@ -100,7 +98,6 @@
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);
     NSLog(@"tastingStage = %@",self.tastingStage);
-    NSLog(@"versionNumber = %@",self.versionNumber);
     NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
     
     NSLog(@"wines count = %lu",(unsigned long)[self.wines count]);

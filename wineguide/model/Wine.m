@@ -2,8 +2,8 @@
 //  Wine.m
 //  Corkie
 //
-//  Created by Charles Feinn on 12/23/13.
-//  Copyright (c) 2013 AppSimple. All rights reserved.
+//  Created by Charles Feinn on 1/3/14.
+//  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import "Wine.h"
@@ -35,12 +35,11 @@
 @dynamic sparkling;
 @dynamic state;
 @dynamic tastingNoteIdentifers;
+@dynamic varietalCategory;
 @dynamic varietalIdentifiers;
-@dynamic versionNumber;
 @dynamic vineyard;
 @dynamic vintage;
 @dynamic wineUnitIdentifiers;
-@dynamic varietalCategory;
 @dynamic brand;
 @dynamic flights;
 @dynamic groups;

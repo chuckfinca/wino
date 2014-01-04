@@ -17,7 +17,9 @@
 
 #define RESTAURANT_ENTITY @"Restaurant"
 
+#define ADDED_DATE @"addedDate"
 #define ADDRESS @"address"
+#define ADDRESS_2 @"address2"
 #define CITY @"city"
 #define COUNTRY @"country"
 #define IDENTIFIER @"identifier"
@@ -28,7 +30,6 @@
 #define DELETED_ENTITY @"deletedEntity"
 #define NAME @"name"
 #define STATE @"state"
-#define VERSION_NUMBER @"versionNumber"
 #define ZIP @"zip"
 
 #define FLIGHT_IDENTIFIERS @"flightIdentifiers"
@@ -62,7 +63,9 @@
         if([[dictionary sanitizedValueForKey:IS_PLACEHOLDER] boolValue] == NO){
             
             // ATTRIBUTES
+            restaurant.addedDate = [dictionary sanitizedStringForKey:ADDED_DATE];
             restaurant.address = [dictionary sanitizedStringForKey:ADDRESS];
+            restaurant.address2 = [dictionary sanitizedStringForKey:ADDRESS_2];
             restaurant.city = [dictionary sanitizedStringForKey:CITY];
             restaurant.country = [dictionary sanitizedStringForKey:COUNTRY];
             restaurant.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
@@ -74,7 +77,6 @@
             // restaurant.menuNeedsUpdating - used to notify server that we need to update a specific restaurant's menu.
             restaurant.name = [dictionary sanitizedStringForKey:NAME];
             restaurant.state = [dictionary sanitizedStringForKey:STATE];
-            restaurant.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
             restaurant.zip = [[dictionary sanitizedValueForKey:ZIP] stringValue];
             
             // store any information about relationships provided
@@ -132,7 +134,9 @@
     NSLog(@"----------------------------------------");
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
+    NSLog(@"added date = %@",self.addedDate);
     NSLog(@"address = %@",self.address);
+    NSLog(@"address 2 = %@",self.address2);
     NSLog(@"city = %@",self.city);
     NSLog(@"country = %@",self.country);
     NSLog(@"lastLocalUpdate = %@",self.lastLocalUpdate);
@@ -143,7 +147,6 @@
     NSLog(@"menuNeedsUpdating = %@",self.menuNeedsUpdating);
     NSLog(@"name = %@",self.name);
     NSLog(@"state = %@",self.state);
-    NSLog(@"versionNumber = %@",self.versionNumber);
     NSLog(@"zip = %@",self.zip);
     NSLog(@"flightIdentifiers = %@",self.flightIdentifiers);
     NSLog(@"groupIdentifiers = %@",self.groupIdentifiers);

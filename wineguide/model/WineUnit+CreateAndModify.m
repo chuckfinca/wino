@@ -15,13 +15,14 @@
 
 #define WINE_UNIT_ENTITY @"WineUnit"
 
+#define ADDED_DATE @"addedDate"
 #define IDENTIFIER @"identifier"
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
 #define LAST_SERVER_UPDATE @"lastServerUpdate"
 #define DELETED_ENTITY @"deletedEntity"
 #define PRICE @"price"
 #define QUANTITY @"quantity"
-#define VERSION_NUMBER @"versionNumber"
+
 
 #define RESTAURANT_IDENTIFIER @"restaurantIdentifier"
 #define WINE_IDENTIFIER @"wineIdentifier"
@@ -49,18 +50,17 @@
             // ATTRIBUTES
             
             // wineUnit.lastAccessed
+            wineUnit.addedDate = [dictionary sanitizedStringForKey:ADDED_DATE];
             wineUnit.identifier = [dictionary sanitizedValueForKey:IDENTIFIER];
             wineUnit.isPlaceholderForFutureObject = @NO;
             wineUnit.lastServerUpdate = dictionaryLastUpdatedDate;
             wineUnit.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             wineUnit.price = [dictionary sanitizedValueForKey:PRICE];
             wineUnit.quantity = [dictionary sanitizedStringForKey:QUANTITY];
-            wineUnit.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
             
             // store any information about relationships provided
             
             NSString *restaurantIdentifier = [dictionary sanitizedStringForKey:RESTAURANT_IDENTIFIER];
-            NSLog(@"restaurantIdentifier = %@",restaurantIdentifier);
             wineUnit.restaurantIdentifier = restaurantIdentifier;
             if(restaurantIdentifier) [identifiers setObject:restaurantIdentifier forKey:RESTAURANT_IDENTIFIER];
             
@@ -101,6 +101,7 @@
 -(void)logDetails
 {
     NSLog(@"----------------------------------------");
+    NSLog(@"added date = %@",self.addedDate);
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"lastLocalUpdate = %@",self.lastLocalUpdate);
@@ -108,7 +109,6 @@
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"price = %@",self.price);
     NSLog(@"quantity = %@",self.quantity);
-    NSLog(@"versionNumber = %@",self.versionNumber);
     NSLog(@"wineIdentifier = %@",self.wineIdentifier);
     
     NSLog(@"restaurant = %@",self.restaurant);

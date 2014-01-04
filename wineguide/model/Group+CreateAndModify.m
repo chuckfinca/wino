@@ -23,9 +23,9 @@
 #define LAST_SERVER_UPDATE @"lastServerUpdate"
 #define DELETED_ENTITY @"deletedEntity"
 #define NAME @"name"
-#define VERSION_NUMBER @"versionNumber"
 #define WINE_IDENTIFIERS @"wineIdentifiers"
 #define RESTAURANT_IDENTIFIER @"restaurantIdentifier"
+#define ADDED_DATE @"addedDate"
 
 #define WINES @"wines"
 
@@ -49,12 +49,12 @@
             
             // ATTRIBUTES
             group.about = [dictionary sanitizedStringForKey:ABOUT];
+            group.addedDate = [dictionary sanitizedStringForKey:ADDED_DATE];
             group.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
             group.isPlaceholderForFutureObject = @NO;
             group.lastServerUpdate = dictionaryLastUpdatedDate;
             group.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             group.name = [dictionary sanitizedStringForKey:NAME];
-            group.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
             
             // store any information about relationships provided
             
@@ -102,6 +102,7 @@
 -(void)logDetails
 {
     NSLog(@"----------------------------------------");
+    NSLog(@"added date = %@",self.addedDate);
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"isPlaceholderForFutureObject = %@",self.isPlaceholderForFutureObject);
     NSLog(@"address = %@",self.about);
@@ -109,7 +110,6 @@
     NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);
-    NSLog(@"versionNumber = %@",self.versionNumber);
     NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
     
     NSLog(@"restaurant = %@",self.restaurant.description);

@@ -19,7 +19,6 @@
 #define IS_PLACEHOLDER @"isPlaceholderForFutureObject"
 #define LAST_SERVER_UPDATE @"lastServerUpdate"
 #define DELETED_ENTITY @"deletedEntity"
-#define VERSION_NUMBER @"versionNumber"
 #define NAME @"name"
 #define WINE_IDENTIFIERS @"wineIdentifiers"
 #define WINES @"wines"
@@ -49,7 +48,6 @@
             varietal.lastServerUpdate = dictionaryLastUpdatedDate;
             varietal.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             varietal.name = [dictionary sanitizedStringForKey:NAME];
-            varietal.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
             
             // store any information about relationships provided
             
@@ -98,7 +96,6 @@
     NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     NSLog(@"name = %@",self.name);
-    NSLog(@"versionNumber = %@",self.versionNumber);
     NSLog(@"wineIdentifiers = %@",self.wineIdentifiers);
     
     NSLog(@"wines count = %lu",(unsigned long)[self.wines count]);

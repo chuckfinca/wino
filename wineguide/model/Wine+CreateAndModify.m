@@ -38,7 +38,6 @@
 #define SPARKLING @"sparkling"
 #define STATE_GEO @"state"
 #define VARIETALS @"varietals"
-#define VERSION_NUMBER @"versionNumber"
 #define VINEYARD @"vineyard"
 
 #define VINTAGE @"vintage"
@@ -94,7 +93,6 @@
             wine.region = [dictionary sanitizedStringForKey:REGION];
             wine.sparkling = [dictionary sanitizedValueForKey:SPARKLING];
             wine.state = [dictionary sanitizedStringForKey:STATE_GEO];
-            wine.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
             wine.vineyard = [dictionary sanitizedStringForKey:VINEYARD];
             wine.vintage = [dictionary sanitizedValueForKey:VINTAGE];
             
@@ -190,7 +188,6 @@
     NSLog(@"region = %@",self.region);
     NSLog(@"sparkling = %@",self.sparkling);
     NSLog(@"state = %@",self.state);
-    NSLog(@"versionNumber = %@",self.versionNumber);
     NSLog(@"vineyard = %@",self.vineyard);
     NSLog(@"vintage = %@",self.vintage);
     

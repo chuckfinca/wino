@@ -22,7 +22,6 @@
 #define LAST_SERVER_UPDATE @"lastServerUpdate"
 #define DELETED_ENTITY @"deletedEntity"
 #define NAME @"name"
-#define VERSION_NUMBER @"versionNumber"
 #define WEBSITE @"website"
 #define WINE_IDENTIFIERS @"wineIdentifiers"
 #define WINES @"wines"
@@ -50,7 +49,6 @@
             brand.lastServerUpdate = dictionaryLastUpdatedDate;
             brand.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
             brand.name = [dictionary sanitizedStringForKey:NAME];
-            brand.versionNumber = [dictionary sanitizedValueForKey:VERSION_NUMBER];
             brand.website = [dictionary sanitizedStringForKey:WEBSITE];
             
             // store any information about relationships provided
