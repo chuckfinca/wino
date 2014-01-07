@@ -85,6 +85,7 @@
 -(void)setup
 {
     self.title = @"Tried It";
+    [self.checkInButton setTitleColor:[ColorSchemer sharedInstance].customWhite forState: UIControlStateNormal];
     [self setupHeaderLabels];
     [self setupEditButtons];
     [self setupWineNameLabel];

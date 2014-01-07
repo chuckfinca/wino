@@ -32,6 +32,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self.dismissTutorialButton setTitleColor:[ColorSchemer sharedInstance].customWhite forState:UIControlStateNormal];
     
     NSString *text;
     

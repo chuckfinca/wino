@@ -115,6 +115,7 @@
 		C9693525187BD5160071EF41 /* Wine.m in Sources */ = {isa = PBXBuildFile; fileRef = C9693524187BD5160071EF41 /* Wine.m */; };
 		C9693528187BD5160071EF41 /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = C9693527187BD5160071EF41 /* Brand.m */; };
 		C969352B187BD5160071EF41 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = C969352A187BD5160071EF41 /* Review.m */; };
+		C969352E187CAF8A0071EF41 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C969352D187CAF8A0071EF41 /* RoundedRectButton.m */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -365,6 +366,8 @@
 		C9693527187BD5160071EF41 /* Brand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Brand.m; path = model/Brand.m; sourceTree = "<group>"; };
 		C9693529187BD5160071EF41 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Review.h; path = model/Review.h; sourceTree = "<group>"; };
 		C969352A187BD5160071EF41 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Review.m; path = model/Review.m; sourceTree = "<group>"; };
+		C969352C187CAF8A0071EF41 /* RoundedRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoundedRectButton.h; path = views/RoundedRectButton.h; sourceTree = "<group>"; };
+		C969352D187CAF8A0071EF41 /* RoundedRectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoundedRectButton.m; path = views/RoundedRectButton.m; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -662,6 +665,8 @@
 				C969343A187781EA0071EF41 /* WineReviewVHTV.m */,
 				C96934BD187B85E10071EF41 /* TastingRecordCVCell.h */,
 				C96934BE187B85E10071EF41 /* TastingRecordCVCell.m */,
+				C969352C187CAF8A0071EF41 /* RoundedRectButton.h */,
+				C969352D187CAF8A0071EF41 /* RoundedRectButton.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1125,6 +1130,7 @@
 				C9C7D62F184047EB00A2E955 /* CellarSCDTVC.m in Sources */,
 				C969342A1875EF290071EF41 /* IterationCounter.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
+				C969352E187CAF8A0071EF41 /* RoundedRectButton.m in Sources */,
 				C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */,
 				C991FBC51863A7DE00C10B52 /* TimelineCVController.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,

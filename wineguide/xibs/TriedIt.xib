@@ -9,6 +9,7 @@
                 <outlet property="changeDateButton" destination="5WO-73-rAf" id="kz4-M3-cXJ"/>
                 <outlet property="changeRestaurantButton" destination="Mov-sP-sGK" id="sDP-eO-BPb"/>
                 <outlet property="changeWineButton" destination="Az7-kH-7Au" id="9xn-Vf-pcY"/>
+                <outlet property="checkInButton" destination="rue-Ql-7pb" id="OEd-gG-lul"/>
                 <outlet property="dateHeaderLabel" destination="erg-bK-xcn" id="b4w-ML-1fI"/>
                 <outlet property="dateLabel" destination="Ofw-rT-pE2" id="giS-D6-Z6i"/>
                 <outlet property="glassOrBottleSegmentedControl" destination="6G3-Wq-PcV" id="17y-bO-MTA"/>
@@ -142,7 +143,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rue-Ql-7pb">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rue-Ql-7pb" customClass="RoundedRectButton">
                             <rect key="frame" x="20" y="311" width="280" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
