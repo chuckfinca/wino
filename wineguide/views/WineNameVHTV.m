@@ -55,15 +55,22 @@
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"restaurant.identifier = %@",restaurant.identifier];
         NSSet *wineUnits = [wine.wineUnits filteredSetUsingPredicate:predicate];
         if([wineUnits count] > 0){
-            NSString *wineUnitsString = @"";
+            
+            NSString *wineUnitsString = @"\n";
             for(WineUnit *wineUnit in wineUnits){
-                NSLog(@"wineUnit = %@",wineUnit);
-                wineUnitsString = [wineUnitsString stringByAppendingString:[NSString stringWithFormat:@"$%@ %@, ",[wineUnit.price stringValue],wineUnit.quantity]];
+                if(wineUnit.price && wineUnit.quantity){
+                    wineUnitsString = [wineUnitsString stringByAppendingString:[NSString stringWithFormat:@"$%@ %@, ",[wineUnit.price stringValue],wineUnit.quantity]];
+                }
             }
-            wineUnitsString = [wineUnitsString substringToIndex:[wineUnitsString length]-2];
+            if([wineUnitsString length] > 1){
+                wineUnitsString = [wineUnitsString substringToIndex:[wineUnitsString length]-2];
+            }
             textViewString = [textViewString stringByAppendingString:wineUnitsString];
-            restaurantRange = NSMakeRange([textViewString length], [restaurant.name length]+3);
-            textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@" @ %@",[restaurant.name capitalizedString]]];
+            
+            if(restaurant){
+                restaurantRange = NSMakeRange([textViewString length], [restaurant.name length]+3);
+                textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@" @ %@",[restaurant.name capitalizedString]]];
+            }
         }
     }
     
