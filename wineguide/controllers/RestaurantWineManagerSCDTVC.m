@@ -162,7 +162,7 @@
         NSMutableSet *wines = [self.group.wines mutableCopy];
         [wines addObject:wine];
         self.group.wines = wines;
-        
+        self.group.lastLocalUpdate = [NSDate date];
     }
     
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:GROUP_ENTITY];
@@ -177,6 +177,7 @@
         NSMutableSet *aGWines = [allGroup.wines mutableCopy];
         [aGWines addObject:wine];
         allGroup.wines = aGWines;
+        allGroup.lastLocalUpdate = [NSDate date];
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"need to create wine unit!" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
     [alert show];

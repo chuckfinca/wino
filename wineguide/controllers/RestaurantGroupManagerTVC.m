@@ -226,7 +226,7 @@
         group.deletedEntity = @YES;
         group.restaurantIdentifier = nil;
         group.restaurant = nil;
-        group.lastServerUpdate = [NSDate date];
+        group.lastLocalUpdate = [NSDate date];
         
         // Delete restaurant relationship and mark as deleted
         NSMutableSet *groups = [self.restaurant.groups mutableCopy];

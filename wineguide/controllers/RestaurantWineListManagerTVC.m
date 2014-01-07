@@ -203,7 +203,7 @@
         groupIdentifiers = [groupIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
         w.groupIdentifiers = groupIdentifiers;
         
-        w.lastServerUpdate = [NSDate date];
+        w.lastLocalUpdate = [NSDate date];
         
         
         // remove the WineUnit from the Group
@@ -215,7 +215,7 @@
         wineIdentifiers = [wineIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
         self.group.wineIdentifiers = wineIdentifiers;
         
-        self.group.lastServerUpdate = [NSDate date];
+        self.group.lastLocalUpdate = [NSDate date];
     }
     
     [self refreshTableView];
