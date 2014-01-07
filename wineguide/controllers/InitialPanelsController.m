@@ -141,7 +141,7 @@
 -(void)checkUserLocation
 {
     if(!self.locationServicesEnabled){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enable location services?" message:@"Wine Guide would like to use your location." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Corkie would like to use your location." message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
         alert.tintColor = [ColorSchemer sharedInstance].textLink;
         
         MotionEffects *motionEffects = [[MotionEffects alloc] init];
