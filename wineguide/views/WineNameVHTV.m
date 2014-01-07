@@ -54,10 +54,10 @@
     if(restaurant){
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"restaurant.identifier = %@",restaurant.identifier];
         NSSet *wineUnits = [wine.wineUnits filteredSetUsingPredicate:predicate];
-        if(wineUnits){
-            
-            NSString * wineUnitsString = @"\n";
+        if([wineUnits count] > 0){
+            NSString *wineUnitsString = @"";
             for(WineUnit *wineUnit in wineUnits){
+                NSLog(@"wineUnit = %@",wineUnit);
                 wineUnitsString = [wineUnitsString stringByAppendingString:[NSString stringWithFormat:@"$%@ %@, ",[wineUnit.price stringValue],wineUnit.quantity]];
             }
             wineUnitsString = [wineUnitsString substringToIndex:[wineUnitsString length]-2];

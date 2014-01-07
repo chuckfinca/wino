@@ -45,15 +45,21 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.title = @"Timeline";
     self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    
     [self refresh];
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    [self.collectionView.collectionViewLayout invalidateLayout];
-    //self.collectionView.contentOffset = CGPointMake(0,0);
+    [super viewWillAppear:animated];
+    
+    [self setupFetchedResultsController];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.tastingRecords = nil;
+    [self.collectionView reloadData];
 }
 
 #pragma mark - Setup
