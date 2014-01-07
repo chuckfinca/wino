@@ -7,16 +7,15 @@
 //
 
 #import "TimelineCVController.h"
-#import "WineCardCell.h"
 #import <CoreData/CoreData.h>
 #import "DocumentHandler.h"
 #import "Wine.h"
 #import "UserRatingCVC.h"
 #import "ColorSchemer.h"
-#import "UserRatingCVController.h"
 #import "TastingRecord.h"
+#import "TastingRecordCVCell.h"
 
-#define WINE_CARD_CELL @"WineCardCell"
+#define TASTING_RECORD_CELL @"TastingRecordCVCell"
 #define TASTING_RECORD_ENTITY @"TastingRecord"
 #define USER_RATING_CELL @"UserRatingCell"
 
@@ -42,7 +41,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.collectionView registerNib:[UINib nibWithNibName:WINE_CARD_CELL bundle:nil] forCellWithReuseIdentifier:WINE_CARD_CELL];
+    [self.collectionView registerNib:[UINib nibWithNibName:TASTING_RECORD_CELL bundle:nil] forCellWithReuseIdentifier:TASTING_RECORD_CELL];
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.title = @"Timeline";
     self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
@@ -81,9 +80,10 @@
 {
     //NSLog(@"Timeline setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TASTING_RECORD_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier"
-                                                              ascending:YES
-                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tastingDate"
+                                                              ascending:NO],
+                                 [NSSortDescriptor sortDescriptorWithKey:@"identifier"
+                                                              ascending:YES]];
     
     request.predicate = nil;
     
@@ -106,17 +106,17 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    WineCardCell *wineCardCell = [collectionView dequeueReusableCellWithReuseIdentifier:WINE_CARD_CELL forIndexPath:indexPath];
+    TastingRecordCVCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
     
-    TastingRecord *tr = [self.tastingRecords objectAtIndex:indexPath.row];
-    [wineCardCell setupCardWithWine:tr.wine];
+    TastingRecord *tastingRecord = [self.tastingRecords objectAtIndex:indexPath.row];
+    [cell setupCellWithTastingRecord:tastingRecord];
     
-    return wineCardCell;
+    return cell;
 }
 
 
 #pragma mark - UICollectionViewDelegate
-
+/*
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     WineCardCell *wineCardCell = (WineCardCell *)[collectionView cellForItemAtIndexPath:indexPath];
@@ -130,6 +130,7 @@
         }
     }
 }
+ */
 
 
 #pragma mark - Listen for Notifications

@@ -112,6 +112,8 @@
 		C96934B41877A86E0071EF41 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934B31877A86E0071EF41 /* Flight.m */; };
 		C96934B71877A86E0071EF41 /* WineUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934B61877A86E0071EF41 /* WineUnit.m */; };
 		C96934BA1877A86E0071EF41 /* TastingRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934B91877A86E0071EF41 /* TastingRecord.m */; };
+		C96934BC187B7F540071EF41 /* TastingRecordCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96934BB187B7F540071EF41 /* TastingRecordCVCell.xib */; };
+		C96934BF187B85E10071EF41 /* TastingRecordCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934BE187B85E10071EF41 /* TastingRecordCVCell.m */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -357,6 +359,9 @@
 		C96934B61877A86E0071EF41 /* WineUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineUnit.m; path = model/WineUnit.m; sourceTree = "<group>"; };
 		C96934B81877A86E0071EF41 /* TastingRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingRecord.h; path = model/TastingRecord.h; sourceTree = "<group>"; };
 		C96934B91877A86E0071EF41 /* TastingRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingRecord.m; path = model/TastingRecord.m; sourceTree = "<group>"; };
+		C96934BB187B7F540071EF41 /* TastingRecordCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TastingRecordCVCell.xib; path = xibs/TastingRecordCVCell.xib; sourceTree = "<group>"; };
+		C96934BD187B85E10071EF41 /* TastingRecordCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingRecordCVCell.h; path = views/TastingRecordCVCell.h; sourceTree = "<group>"; };
+		C96934BE187B85E10071EF41 /* TastingRecordCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingRecordCVCell.m; path = views/TastingRecordCVCell.m; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -652,6 +657,8 @@
 				C932F143186D3BE90079680C /* ReviewTVC.m */,
 				C9693439187781EA0071EF41 /* WineReviewVHTV.h */,
 				C969343A187781EA0071EF41 /* WineReviewVHTV.m */,
+				C96934BD187B85E10071EF41 /* TastingRecordCVCell.h */,
+				C96934BE187B85E10071EF41 /* TastingRecordCVCell.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -672,6 +679,7 @@
 				C932F13D186D0ABC0079680C /* WineReview.xib */,
 				C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */,
 				C932F1591872322F0079680C /* TriedIt.xib */,
+				C96934BB187B7F540071EF41 /* TastingRecordCVCell.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -995,6 +1003,7 @@
 				C991FB99186115CA00C10B52 /* user_alan.png in Resources */,
 				C932F14C186D4E5C0079680C /* RatingsAndReviews.xib in Resources */,
 				C95A2CDD185C02300043ECB0 /* button_favorited@2x.png in Resources */,
+				C96934BC187B7F540071EF41 /* TastingRecordCVCell.xib in Resources */,
 				C9C7D612184011D100A2E955 /* favorite_y@2x.png in Resources */,
 				C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */,
 				C9C7D62518402BBE00A2E955 /* Tutorial.xib in Resources */,
@@ -1133,6 +1142,7 @@
 				C969347818779F1B0071EF41 /* TastingRecord+CreateAndModify.m in Sources */,
 				C96934A81877A86E0071EF41 /* Varietal.m in Sources */,
 				C92932D5182AD9040035C93C /* WineUnitDataHelper.m in Sources */,
+				C96934BF187B85E10071EF41 /* TastingRecordCVCell.m in Sources */,
 				C91F59BA184562E600CF7F18 /* InitialPanelsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

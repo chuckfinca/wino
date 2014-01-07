@@ -42,6 +42,17 @@
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="groups" inverseEntity="Restaurant" syncable="YES"/>
         <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine" inverseName="groups" inverseEntity="Wine" syncable="YES"/>
     </entity>
+    <entity name="Rating" syncable="YES">
+        <attribute name="lastLocalUpdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastServerUpdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="num1StarRatings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="num2StarRatings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="num3StarRatings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="num4StarRatings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="num5StarRatings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="wine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine" inverseName="rating" inverseEntity="Wine" syncable="YES"/>
+    </entity>
     <entity name="Restaurant" representedClassName="Restaurant" syncable="YES">
         <attribute name="addedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -77,6 +88,7 @@
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="reviewText" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="reviews" inverseEntity="Restaurant" syncable="YES"/>
+        <relationship name="tastingRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TastingRecord" inverseName="review" inverseEntity="TastingRecord" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="reviews" inverseEntity="User" syncable="YES"/>
         <relationship name="wine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine" inverseName="reviews" inverseEntity="Wine" syncable="YES"/>
     </entity>
@@ -100,6 +112,7 @@
         <attribute name="lastServerUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="tastingDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="tastingRecords" inverseEntity="Restaurant" syncable="YES"/>
+        <relationship name="review" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Review" inverseName="tastingRecord" inverseEntity="Review" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tastingRecords" inverseEntity="User" syncable="YES"/>
         <relationship name="wine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine" inverseName="tastingRecords" inverseEntity="Wine" syncable="YES"/>
     </entity>
@@ -154,6 +167,7 @@
         <relationship name="brand" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Brand" inverseName="wines" inverseEntity="Brand" syncable="YES"/>
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="wines" inverseEntity="Flight" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="wines" inverseEntity="Group" syncable="YES"/>
+        <relationship name="rating" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Rating" inverseName="wine" inverseEntity="Rating" syncable="YES"/>
         <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review" inverseName="wine" inverseEntity="Review" syncable="YES"/>
         <relationship name="tastingNotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TastingNote" inverseName="wines" inverseEntity="TastingNote" syncable="YES"/>
         <relationship name="tastingRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TastingRecord" inverseName="wine" inverseEntity="TastingRecord" syncable="YES"/>
@@ -181,10 +195,11 @@
         <element name="Restaurant" positionX="-360" positionY="198" width="128" height="403"/>
         <element name="TastingNote" positionX="358" positionY="617" width="128" height="193"/>
         <element name="Varietal" positionX="340" positionY="857" width="128" height="178"/>
-        <element name="Wine" positionX="117" positionY="234" width="128" height="508"/>
+        <element name="Wine" positionX="117" positionY="234" width="128" height="523"/>
         <element name="WineUnit" positionX="-65" positionY="747" width="128" height="223"/>
-        <element name="Review" positionX="-612" positionY="467" width="128" height="193"/>
+        <element name="Review" positionX="-612" positionY="467" width="128" height="208"/>
         <element name="User" positionX="-857" positionY="684" width="128" height="208"/>
-        <element name="TastingRecord" positionX="-596" positionY="756" width="128" height="178"/>
+        <element name="TastingRecord" positionX="-596" positionY="756" width="128" height="193"/>
+        <element name="Rating" positionX="-396" positionY="677" width="128" height="178"/>
     </elements>
 </model>
