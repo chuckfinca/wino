@@ -12,5 +12,6 @@
 @interface UserRatingCVController : UICollectionViewController
 
 @property (nonatomic, strong) Wine *wine;
+@property (nonatomic) int rating;
 
 @end

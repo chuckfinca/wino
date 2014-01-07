@@ -2,14 +2,14 @@
 //  Restaurant.h
 //  Corkie
 //
-//  Created by Charles Feinn on 1/3/14.
+//  Created by Charles Feinn on 1/6/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Flight, Group, Review, TastingRecord, WineUnit;
+@class Flight, Group, Review, WineUnit;
 
 @interface Restaurant : NSManagedObject
 
@@ -35,7 +35,6 @@
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
 @property (nonatomic, retain) NSSet *wineUnits;
-@property (nonatomic, retain) NSSet *tastingRecords;
 @property (nonatomic, retain) NSSet *reviews;
 @end
 
@@ -55,11 +54,6 @@
 - (void)removeWineUnitsObject:(WineUnit *)value;
 - (void)addWineUnits:(NSSet *)values;
 - (void)removeWineUnits:(NSSet *)values;
-
-- (void)addTastingRecordsObject:(TastingRecord *)value;
-- (void)removeTastingRecordsObject:(TastingRecord *)value;
-- (void)addTastingRecords:(NSSet *)values;
-- (void)removeTastingRecords:(NSSet *)values;
 
 - (void)addReviewsObject:(Review *)value;
 - (void)removeReviewsObject:(Review *)value;

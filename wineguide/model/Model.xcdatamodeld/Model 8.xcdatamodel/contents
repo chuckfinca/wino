@@ -42,7 +42,7 @@
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="groups" inverseEntity="Restaurant" syncable="YES"/>
         <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine" inverseName="groups" inverseEntity="Wine" syncable="YES"/>
     </entity>
-    <entity name="Rating" syncable="YES">
+    <entity name="Rating" representedClassName="Rating" syncable="YES">
         <attribute name="lastLocalUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="lastServerUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="num1StarRatings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -76,7 +76,6 @@
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="restaurant" inverseEntity="Flight" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="restaurant" inverseEntity="Group" syncable="YES"/>
         <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review" inverseName="restaurant" inverseEntity="Review" syncable="YES"/>
-        <relationship name="tastingRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TastingRecord" inverseName="restaurant" inverseEntity="TastingRecord" syncable="YES"/>
         <relationship name="wineUnits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WineUnit" inverseName="restaurant" inverseEntity="WineUnit" syncable="YES"/>
     </entity>
     <entity name="Review" representedClassName="Review" syncable="YES">
@@ -111,10 +110,8 @@
         <attribute name="lastLocalUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="lastServerUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="tastingDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="tastingRecords" inverseEntity="Restaurant" syncable="YES"/>
         <relationship name="review" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Review" inverseName="tastingRecord" inverseEntity="Review" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tastingRecords" inverseEntity="User" syncable="YES"/>
-        <relationship name="wine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine" inverseName="tastingRecords" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="blurb" optional="YES" attributeType="String" syncable="YES"/>
@@ -170,7 +167,6 @@
         <relationship name="rating" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Rating" inverseName="wine" inverseEntity="Rating" syncable="YES"/>
         <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review" inverseName="wine" inverseEntity="Review" syncable="YES"/>
         <relationship name="tastingNotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TastingNote" inverseName="wines" inverseEntity="TastingNote" syncable="YES"/>
-        <relationship name="tastingRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TastingRecord" inverseName="wine" inverseEntity="TastingRecord" syncable="YES"/>
         <relationship name="varietals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Varietal" inverseName="wines" inverseEntity="Varietal" syncable="YES"/>
         <relationship name="wineUnits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WineUnit" inverseName="wine" inverseEntity="WineUnit" syncable="YES"/>
     </entity>
@@ -192,14 +188,14 @@
         <element name="Brand" positionX="306" positionY="396" width="128" height="193"/>
         <element name="Flight" positionX="-108" positionY="36" width="128" height="238"/>
         <element name="Group" positionX="-128" positionY="324" width="128" height="238"/>
-        <element name="Restaurant" positionX="-360" positionY="198" width="128" height="403"/>
+        <element name="Restaurant" positionX="-360" positionY="198" width="128" height="388"/>
         <element name="TastingNote" positionX="358" positionY="617" width="128" height="193"/>
         <element name="Varietal" positionX="340" positionY="857" width="128" height="178"/>
-        <element name="Wine" positionX="117" positionY="234" width="128" height="523"/>
+        <element name="Wine" positionX="117" positionY="234" width="128" height="508"/>
         <element name="WineUnit" positionX="-65" positionY="747" width="128" height="223"/>
         <element name="Review" positionX="-612" positionY="467" width="128" height="208"/>
         <element name="User" positionX="-857" positionY="684" width="128" height="208"/>
-        <element name="TastingRecord" positionX="-596" positionY="756" width="128" height="193"/>
-        <element name="Rating" positionX="-396" positionY="677" width="128" height="178"/>
+        <element name="TastingRecord" positionX="-569" positionY="782" width="128" height="163"/>
+        <element name="Rating" positionX="-405" positionY="686" width="128" height="178"/>
     </elements>
 </model>

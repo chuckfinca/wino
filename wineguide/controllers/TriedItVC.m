@@ -12,6 +12,7 @@
 #import "UserRatingCVController.h"
 #import "ManagedObjectHandler.h"
 #import "TastingRecord.h"
+#import "Review.h"
 
 @interface TriedItVC ()
 
@@ -174,23 +175,56 @@
 
 - (IBAction)checkWineIntoTimeline:(UIButton *)sender
 {
-    NSLog(@"wine checked in!");
+    // need to add user identifier!!!!
     
-    NSNumber *randomNumber = @(arc4random_uniform(37109) + 1);
-    NSString *predicateString = [NSString stringWithFormat:@"identifier = %@",[randomNumber stringValue]];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
-    
-    TastingRecord *tastingRecord = (TastingRecord *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:@"TastingRecord" usingPredicate:predicate inContext:self.wine.managedObjectContext usingDictionary:@{IDENTIFIER : predicateString, DELETED_ENTITY : @0}];
-    tastingRecord.wine = self.wine;
-    tastingRecord.restaurant = self.restaurant;
-    tastingRecord.addedDate = [NSDate date];
-    tastingRecord.tastingDate = [NSDate date];
-    
-    NSLog(@"tastingRecord = %@",tastingRecord);
-    
+    Review *review = [self createReview];
+    [self createTastingRecordWithReview:review];
 }
 
+-(Review *)createReview
+{
+    NSDate *date = [NSDate date];
+    NSString *dateString = [date.description stringByReplacingOccurrencesOfString:@" " withString:@"" ];
+    
+    // need to add user identifier!!!!
+    
+    NSString *reviewIdentifier = @"userName";
+    reviewIdentifier = [reviewIdentifier stringByAppendingString:self.wine.identifier];
+    reviewIdentifier = [reviewIdentifier stringByAppendingString:dateString];
+    
+    NSPredicate *reviewPredicate = [NSPredicate predicateWithFormat:@"identifier == %@",reviewIdentifier];
+    
+    Review *review = (Review *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:@"Review" usingPredicate:reviewPredicate inContext:self.wine.managedObjectContext usingDictionary:@{IDENTIFIER : reviewIdentifier, DELETED_ENTITY : @0}];
+    review.rating = @(self.userRatingsController.rating);
+    review.lastLocalUpdate = date;
+    review.wine = self.wine;
+    review.restaurant = self.restaurant;
+    
+    NSLog(@"review = %@",review.identifier);
+    
+    return review;
+}
 
+-(void)createTastingRecordWithReview:(Review *)review
+{
+    NSDate *date = [NSDate date];
+    NSString *dateString = [date.description stringByReplacingOccurrencesOfString:@" " withString:@"" ];
+    
+    // need to add user identifier!!!!
+    
+    NSString *tastingRecordIdentifier = @"userName";
+    tastingRecordIdentifier = [tastingRecordIdentifier stringByAppendingString:dateString];
+    tastingRecordIdentifier = [tastingRecordIdentifier stringByAppendingString:self.wine.identifier];
+    
+    NSPredicate *tastingRecordPredicate = [NSPredicate predicateWithFormat:@"identifier == %@",tastingRecordIdentifier];
+    
+    TastingRecord *tastingRecord = (TastingRecord *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:@"TastingRecord" usingPredicate:tastingRecordPredicate inContext:self.wine.managedObjectContext usingDictionary:@{IDENTIFIER : tastingRecordIdentifier, DELETED_ENTITY : @0}];
+    tastingRecord.addedDate = [NSDate date];
+    tastingRecord.tastingDate = [NSDate date];
+    tastingRecord.review = review;
+    
+    NSLog(@"tastingRecord = %@",tastingRecord.identifier);
+}
 
 - (IBAction)segmentedControlValueChanged:(id)sender
 {

@@ -93,6 +93,8 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.rating = indexPath.row + 1;
+    
     for(id cell in collectionView.visibleCells){
         if([cell isKindOfClass:[UserRatingCVC class]]){
             UserRatingCVC *glass = (UserRatingCVC *)cell;

@@ -92,9 +92,6 @@
     NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
     
-    NSLog(@"restaurant = %@",self.restaurant.description);
-    NSLog(@"wine = %@",self.wine.name);
-    
         
     NSLog(@"\n\n\n");
 }

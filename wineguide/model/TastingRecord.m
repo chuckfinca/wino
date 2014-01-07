@@ -2,14 +2,13 @@
 //  TastingRecord.m
 //  Corkie
 //
-//  Created by Charles Feinn on 1/3/14.
+//  Created by Charles Feinn on 1/6/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import "TastingRecord.h"
-#import "Restaurant.h"
+#import "Review.h"
 #import "User.h"
-#import "Wine.h"
 
 
 @implementation TastingRecord
@@ -21,7 +20,6 @@
 @dynamic lastServerUpdate;
 @dynamic identifier;
 @dynamic user;
-@dynamic wine;
-@dynamic restaurant;
+@dynamic review;
 
 @end

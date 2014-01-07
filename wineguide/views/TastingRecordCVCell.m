@@ -10,6 +10,7 @@
 #import "UserRatingCVController.h"
 #import "WineNameVHTV.h"
 #import "VariableHeightTV.h"
+#import "Review.h"
 
 @interface TastingRecordCVCell ()
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *userRatingView;
 @property (nonatomic, strong) UserRatingCVController *userRatingsController;
 @property (nonatomic, strong) TastingRecord *tastingRecord;
+@property (nonatomic, strong) Review *review;
 
 @end
 
@@ -31,7 +33,7 @@
 {
     if(!_userRatingsController) {
         _userRatingsController = [[UserRatingCVController alloc] initWithCollectionViewLayout:[[UICollectionViewLayout alloc] init]];
-        _userRatingsController.wine = self.tastingRecord.wine;
+        _userRatingsController.wine = self.tastingRecord.review.wine;
     }
     return _userRatingsController;
 }
@@ -39,18 +41,21 @@
 -(void)setupCellWithTastingRecord:(TastingRecord *)tastingRecord
 {
     self.tastingRecord = tastingRecord;
+    Review *review = tastingRecord.review;
+    NSLog(@"tastingRecord = %@",tastingRecord);
+    NSLog(@"review = %@",review);
     
     [self setupDateLabel];
-    [self.wineNameVHTV setupTextViewWithWine:self.tastingRecord.wine fromRestaurant:self.tastingRecord.restaurant];
+    [self.wineNameVHTV setupTextViewWithWine:review.wine fromRestaurant:review.restaurant];
     
-    self.restaurantLabel.text = self.tastingRecord.restaurant.name;
+    self.restaurantLabel.text = review.restaurant.name;
     
     [self setupUserRatingView];
 }
 
 -(void)setupUserRatingView
 {
-    self.userRatingsController.wine = self.tastingRecord.wine;
+    self.userRatingsController.wine = self.tastingRecord.review.wine;
     self.userRatingsController.collectionView.frame = self.userRatingView.bounds;
     [self.userRatingView addSubview:self.userRatingsController.collectionView];
 }

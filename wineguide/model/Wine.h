@@ -2,14 +2,14 @@
 //  Wine.h
 //  Corkie
 //
-//  Created by Charles Feinn on 1/3/14.
+//  Created by Charles Feinn on 1/6/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Brand, Flight, Group, Review, TastingNote, TastingRecord, Varietal, WineUnit;
+@class Brand, Flight, Group, Rating, Review, TastingNote, Varietal, WineUnit;
 
 @interface Wine : NSManagedObject
 
@@ -43,7 +43,7 @@
 @property (nonatomic, retain) NSSet *varietals;
 @property (nonatomic, retain) NSSet *wineUnits;
 @property (nonatomic, retain) NSSet *reviews;
-@property (nonatomic, retain) NSSet *tastingRecords;
+@property (nonatomic, retain) Rating *rating;
 @end
 
 @interface Wine (CoreDataGeneratedAccessors)
@@ -77,10 +77,5 @@
 - (void)removeReviewsObject:(Review *)value;
 - (void)addReviews:(NSSet *)values;
 - (void)removeReviews:(NSSet *)values;
-
-- (void)addTastingRecordsObject:(TastingRecord *)value;
-- (void)removeTastingRecordsObject:(TastingRecord *)value;
-- (void)addTastingRecords:(NSSet *)values;
-- (void)removeTastingRecords:(NSSet *)values;
 
 @end
