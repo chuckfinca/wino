@@ -12,10 +12,15 @@
 #import "VariableHeightTV.h"
 #import "Review.h"
 #import "ColorSchemer.h"
+#import "FontThemer.h"
 
 #define MAJOR_SPACING 20
 #define MINOR_SPACING 8
 #define CORNER_RADIUS 4
+
+#define SECONDS_IN_A_WEEK 604800
+#define SECONDS_IN_A_DAY 86400
+#define SECONDS_IN_20_MINUTES 1200
 
 @interface TastingRecordCVCell ()
 
@@ -77,11 +82,40 @@
 
 -(void)setupDateLabel
 {
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    dateFormatter.dateFormat = @"EEE, dd/MM/yyyy HH:mm:ss zzz"; // 
+    NSDate *tastingRecordDate = self.tastingRecord.tastingDate;
     
-    NSString *localDateString = [dateFormatter stringFromDate:self.tastingRecord.tastingDate];
-    self.dateLabel.text = localDateString;
+    NSTimeInterval timeSinceTasting = [[NSDate date] timeIntervalSinceDate:tastingRecordDate];
+    
+    NSString *localDateString;
+    
+    if(timeSinceTasting > SECONDS_IN_A_WEEK){
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+        dateFormatter.dateFormat = @"MM/dd/YY";
+        localDateString = [dateFormatter stringFromDate:self.tastingRecord.tastingDate];
+        
+        NSRange dayZero = NSMakeRange(3, 1);
+        if([[localDateString substringWithRange:dayZero] isEqualToString:@"0"]){
+            localDateString = [localDateString stringByReplacingCharactersInRange:dayZero withString:@""];
+        }
+        if([[localDateString substringToIndex:1] isEqualToString:@"0"]){
+            localDateString = [localDateString substringFromIndex:1];
+        }
+        
+    } else if(timeSinceTasting > SECONDS_IN_A_DAY){
+        int daysSinceTasting = timeSinceTasting/86400;
+        localDateString = [NSString stringWithFormat:@"%@h",@(daysSinceTasting)];
+        
+    } else if(timeSinceTasting > SECONDS_IN_20_MINUTES){
+        int hoursSinceTasting = timeSinceTasting/3600;
+        localDateString = [NSString stringWithFormat:@"%@h",@(hoursSinceTasting)];
+        
+    } else {
+        int minutesSinceTasting = timeSinceTasting/60;
+        localDateString = [NSString stringWithFormat:@"%@m",@(minutesSinceTasting)];
+        
+    }
+    
+    self.dateLabel.attributedText = [[NSAttributedString alloc] initWithString:localDateString attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption2, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
 }
 
 - (float)cellHeight
@@ -93,8 +127,8 @@
     float userNoteTVHeight = self.userNoteVHTV.bounds.size.height;
     float userReviewViewHeight = self.userRatingView.bounds.size.height;
     
-    cellHeight = dateLabelHeight + wineTVHeight + userNoteTVHeight + userReviewViewHeight + 3*MAJOR_SPACING + 2*MINOR_SPACING;
-
+    cellHeight = dateLabelHeight + wineTVHeight + userNoteTVHeight + userReviewViewHeight + 2*MAJOR_SPACING + 2*MINOR_SPACING;
+    
     return cellHeight;
 }
 
