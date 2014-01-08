@@ -28,8 +28,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 @property (weak, nonatomic) IBOutlet UIView *userRatingView;
 @property (weak, nonatomic) IBOutlet UILabel *ratingHeaderLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *glassOrBottleSegmentedControl;
-@property (weak, nonatomic) IBOutlet UILabel *segmentedControlLabel;
 @property (nonatomic, strong) Wine *wine;
 @property (nonatomic, strong) Restaurant *restaurant;
 @property (nonatomic, strong) UserRatingCVController *userRatingsController;
@@ -68,6 +66,7 @@
 {
     if(!_userRatingsController) {
         _userRatingsController = [[UserRatingCVController alloc] initWithCollectionViewLayout:[[UICollectionViewLayout alloc] init]];
+        _userRatingsController.userCanEdit = YES;
     }
     return _userRatingsController;
 }
@@ -93,7 +92,6 @@
     [self setupDateLabel];
     [self setupCancelButton];
     [self setupCheckInButton];
-    [self setupSegmentedControlLabel];
     
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
@@ -133,19 +131,6 @@
 -(void)setupDateLabel
 {
     self.dateLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Today" attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody]}];
-}
-
--(void)setupSegmentedControlLabel
-{
-    int index = self.glassOrBottleSegmentedControl.selectedSegmentIndex;
-    
-    NSString *text;
-    if(index == 0){
-        text = @"glass";
-    } else {
-        text = @"bottle";
-    }
-    self.segmentedControlLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
 }
 
 -(void)setupCancelButton
@@ -195,7 +180,9 @@
     
     NSPredicate *reviewPredicate = [NSPredicate predicateWithFormat:@"identifier == %@",reviewIdentifier];
     
-    Review *review = (Review *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:@"Review" usingPredicate:reviewPredicate inContext:self.wine.managedObjectContext usingDictionary:@{IDENTIFIER : reviewIdentifier, DELETED_ENTITY : @0}];
+    Review *review = nil;
+    review = (Review *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:@"Review" usingPredicate:reviewPredicate inContext:self.wine.managedObjectContext usingDictionary:@{IDENTIFIER : reviewIdentifier, DELETED_ENTITY : @0}];
+    review.identifier = reviewIdentifier;
     review.rating = @(self.userRatingsController.rating);
     review.lastLocalUpdate = date;
     review.wine = self.wine;
@@ -219,17 +206,14 @@
     
     NSPredicate *tastingRecordPredicate = [NSPredicate predicateWithFormat:@"identifier == %@",tastingRecordIdentifier];
     
-    TastingRecord *tastingRecord = (TastingRecord *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:@"TastingRecord" usingPredicate:tastingRecordPredicate inContext:self.wine.managedObjectContext usingDictionary:@{IDENTIFIER : tastingRecordIdentifier, DELETED_ENTITY : @0}];
+    TastingRecord *tastingRecord = nil;
+    tastingRecord = (TastingRecord *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:@"TastingRecord" usingPredicate:tastingRecordPredicate inContext:self.wine.managedObjectContext usingDictionary:@{IDENTIFIER : tastingRecordIdentifier, DELETED_ENTITY : @0}];
+    tastingRecord.identifier = tastingRecordIdentifier;
     tastingRecord.addedDate = [NSDate date];
     tastingRecord.tastingDate = [NSDate date];
     tastingRecord.review = review;
     
     NSLog(@"tastingRecord = %@",tastingRecord.identifier);
-}
-
-- (IBAction)segmentedControlValueChanged:(id)sender
-{
-    [self setupSegmentedControlLabel];
 }
 
 

@@ -38,10 +38,9 @@
 
 -(CGSize)collectionViewContentSize
 {
-    
     NSLog(@"contentSize height = %f",self.collectionView.contentSize.height);
     NSLog(@"contentSize width = %f",self.collectionView.contentSize.width);
-    return CGSizeMake(7000, 250);
+    return CGSizeMake(250, 7000);
 }
 
 -(void)prepareLayout
@@ -63,7 +62,7 @@
     CGRect originalRect = CGRectMake(self.collectionView.bounds.origin.x, self.collectionView.bounds.origin.x, self.collectionView.frame.size.width, self.collectionView.frame.size.height);
     NSLog(@"originalRect height = %f",originalRect.size.height);
     NSLog(@"originalRect width = %f",originalRect.size.width);
-    CGRect visibleRect = CGRectInset(originalRect, -500, 0);
+    CGRect visibleRect = CGRectInset(originalRect, 0, -500);
     
     NSArray *itemsInVisibleRectArray = [super layoutAttributesForElementsInRect:visibleRect];
     NSLog(@"itemsInVisibleRectArray count = %i",[itemsInVisibleRectArray count]);
@@ -110,7 +109,7 @@
         spring.frequency = 0.8;
         
         if(!CGPointEqualToPoint(CGPointZero, touchLocation)){
-            CGFloat scrollDelta = fabsf(touchLocation.x - spring.anchorPoint.x);
+            CGFloat scrollDelta = fabsf(touchLocation.y - spring.anchorPoint.y);
             [self addBehavior:spring forTouchLocation:touchLocation andScrollDelta:scrollDelta];
         }
         [self.dynamicAnimator addBehavior:spring];
@@ -131,7 +130,7 @@
 -(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
     UIScrollView *scrollView = self.collectionView;
-    CGFloat scrollDelta = newBounds.origin.x - scrollView.bounds.origin.x;
+    CGFloat scrollDelta = newBounds.origin.y - scrollView.bounds.origin.y;
     
     // the user's touch point on the screen
     CGPoint touchLocation = [scrollView.panGestureRecognizer locationInView:scrollView];
@@ -148,7 +147,7 @@
 -(UICollectionViewLayoutAttributes *)addBehavior:(UIAttachmentBehavior *)behavior forTouchLocation:(CGPoint)touchLocation andScrollDelta:(CGFloat)scrollDelta
 {
     CGPoint anchorPoint = behavior.anchorPoint;
-    CGFloat distanceFromTouch = fabsf(anchorPoint.x - touchLocation.x);
+    CGFloat distanceFromTouch = fabsf(anchorPoint.y - touchLocation.y);
     
     CGFloat scrollResistance = distanceFromTouch * SCROLL_RESISTANCE_COEFFICIENT;
     
@@ -158,9 +157,9 @@
     // if the scrollResistance was larger than the scrollDelta the cell would move in the opposite direction of the users finger
     
     if(self.latestDelta < 0){
-        center.x += MAX(self.latestDelta, self.latestDelta*scrollResistance);
+        center.y += MAX(self.latestDelta, self.latestDelta*scrollResistance);
     } else {
-        center.x += MIN(self.latestDelta, self.latestDelta*scrollResistance);
+        center.y += MIN(self.latestDelta, self.latestDelta*scrollResistance);
     }
     item.center = center;
     

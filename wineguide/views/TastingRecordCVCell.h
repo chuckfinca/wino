@@ -12,5 +12,6 @@
 @interface TastingRecordCVCell : UICollectionViewCell
 
 -(void)setupCellWithTastingRecord:(TastingRecord *)tastingRecord;
+-(float)cellHeight;
 
 @end

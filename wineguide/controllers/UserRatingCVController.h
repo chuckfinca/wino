@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) Wine *wine;
 @property (nonatomic) int rating;
+@property (nonatomic) BOOL userCanEdit;
 
 @end

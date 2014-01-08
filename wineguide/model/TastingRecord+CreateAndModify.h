@@ -10,4 +10,7 @@
 
 @interface TastingRecord (CreateAndModify)
 
++(TastingRecord *)tastingRecordFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary;
+
+
 @end

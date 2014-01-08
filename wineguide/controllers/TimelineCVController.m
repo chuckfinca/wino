@@ -14,15 +14,17 @@
 #import "ColorSchemer.h"
 #import "TastingRecord.h"
 #import "TastingRecordCVCell.h"
+#import "Review.h"
 
 #define TASTING_RECORD_CELL @"TastingRecordCVCell"
 #define TASTING_RECORD_ENTITY @"TastingRecord"
 #define USER_RATING_CELL @"UserRatingCell"
 
-@interface TimelineCVController ()
+@interface TimelineCVController () <UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSArray *tastingRecords;
+@property (nonatomic, strong) TastingRecordCVCell *sizingCell;
 
 @end
 
@@ -45,6 +47,9 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.title = @"Timeline";
     self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    
+    [self setupSizingCell];
+    
     [self refresh];
 }
 
@@ -82,19 +87,44 @@
     }
 }
 
+-(void)setupSizingCell
+{
+    UINib *sizingCellNib = [UINib nibWithNibName:TASTING_RECORD_CELL bundle:nil];
+    [self.collectionView registerNib:sizingCellNib forCellWithReuseIdentifier:TASTING_RECORD_CELL];
+    
+    // get a cell as template for sizing
+    self.sizingCell = [[sizingCellNib instantiateWithOwner:nil options:nil] objectAtIndex:0];
+}
+
 -(void)setupFetchedResultsController
 {
     //NSLog(@"Timeline setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TASTING_RECORD_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tastingDate"
                                                               ascending:NO],
-                                 [NSSortDescriptor sortDescriptorWithKey:@"identifier"
+                                [NSSortDescriptor sortDescriptorWithKey:@"identifier"
                                                               ascending:YES]];
     
     request.predicate = nil;
     
     NSError *error;
     self.tastingRecords = [self.context executeFetchRequest:request error:&error];
+}
+
+-(void)logDetailsOfTastingRecord:(TastingRecord *)tastingRecord
+{
+    NSLog(@"----------------------------------------");
+    NSLog(@"identifier = %@",tastingRecord.identifier);
+    NSLog(@"added date = %@",tastingRecord.addedDate);
+    NSLog(@"tasting Date = %@",tastingRecord.tastingDate);
+    NSLog(@"lastLocalUpdate = %@",tastingRecord.lastLocalUpdate);
+    NSLog(@"lastServerUpdate = %@",tastingRecord.lastServerUpdate);
+    NSLog(@"deletedEntity = %@",tastingRecord.deletedEntity);
+    NSLog(@"review = %@",tastingRecord.review);
+    NSLog(@"rating = %@",tastingRecord.review.rating);
+    
+    
+    NSLog(@"\n\n\n");
 }
 
 
@@ -123,20 +153,33 @@
 
 #pragma mark - UICollectionViewDelegate
 /*
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    WineCardCell *wineCardCell = (WineCardCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    
-    for(UserRatingCVC *userRatingCell in wineCardCell.userRatingsController.collectionView.visibleCells){
-        
-        CGPoint touchLocationInWineCardCell = [collectionView.panGestureRecognizer locationInView:wineCardCell.userRatingsController.collectionView];
-        
-        if(CGRectContainsPoint(userRatingCell.frame, touchLocationInWineCardCell)){
-            [wineCardCell.userRatingsController collectionView:wineCardCell.userRatingsController.collectionView didSelectItemAtIndexPath:[wineCardCell.userRatingsController.collectionView indexPathForCell:userRatingCell]];
-        }
-    }
-}
+ -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+ {
+ WineCardCell *wineCardCell = (WineCardCell *)[collectionView cellForItemAtIndexPath:indexPath];
+ 
+ for(UserRatingCVC *userRatingCell in wineCardCell.userRatingsController.collectionView.visibleCells){
+ 
+ CGPoint touchLocationInWineCardCell = [collectionView.panGestureRecognizer locationInView:wineCardCell.userRatingsController.collectionView];
+ 
+ if(CGRectContainsPoint(userRatingCell.frame, touchLocationInWineCardCell)){
+ [wineCardCell.userRatingsController collectionView:wineCardCell.userRatingsController.collectionView didSelectItemAtIndexPath:[wineCardCell.userRatingsController.collectionView indexPathForCell:userRatingCell]];
+ }
+ }
+ }
  */
+
+
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TastingRecord *tastingRecord = [self.tastingRecords objectAtIndex:indexPath.row];
+    [self.sizingCell setupCellWithTastingRecord:tastingRecord];
+    
+    return CGSizeMake(self.sizingCell.bounds.size.width-20, [self.sizingCell cellHeight]);
+}
+
 
 
 #pragma mark - Listen for Notifications

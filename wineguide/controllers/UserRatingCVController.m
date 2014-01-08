@@ -69,9 +69,17 @@
         
     } else {
         UserRatingCVC *urCell = [collectionView dequeueReusableCellWithReuseIdentifier:USER_RATING_CELL forIndexPath:indexPath];
-        [urCell glassColorString:self.wine.color isEmpty:YES];
-        
+        [urCell glassColorString:self.wine.color isEmpty:[self glassIsEmptyAtIndexPath:indexPath]];
         return urCell;
+    }
+}
+
+-(BOOL)glassIsEmptyAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row < self.rating){
+        return NO;
+    } else {
+        return YES;
     }
 }
 
@@ -93,16 +101,18 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.rating = indexPath.row + 1;
-    
-    for(id cell in collectionView.visibleCells){
-        if([cell isKindOfClass:[UserRatingCVC class]]){
-            UserRatingCVC *glass = (UserRatingCVC *)cell;
-            int rating = indexPath.row;
-            if([collectionView indexPathForCell:glass].row <= rating){
-                [glass glassColorString:self.wine.color isEmpty:NO];
-            } else {
-                [glass glassColorString:self.wine.color isEmpty:YES];
+    if(self.userCanEdit){
+        self.rating = indexPath.row + 1;
+        
+        for(id cell in collectionView.visibleCells){
+            if([cell isKindOfClass:[UserRatingCVC class]]){
+                UserRatingCVC *glass = (UserRatingCVC *)cell;
+                int rating = indexPath.row;
+                if([collectionView indexPathForCell:glass].row <= rating){
+                    [glass glassColorString:self.wine.color isEmpty:NO];
+                } else {
+                    [glass glassColorString:self.wine.color isEmpty:YES];
+                }
             }
         }
     }
