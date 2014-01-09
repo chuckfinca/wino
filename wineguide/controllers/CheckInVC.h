@@ -10,6 +10,6 @@
 
 @interface CheckInVC : UIViewController
 
-
+-(void)setupWithWine:(Wine *)wine andRestaurant:(Restaurant *)restaurant;
 
 @end
