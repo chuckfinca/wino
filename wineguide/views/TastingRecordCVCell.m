@@ -103,16 +103,18 @@
         
     } else if(timeSinceTasting > SECONDS_IN_A_DAY){
         int daysSinceTasting = timeSinceTasting/86400;
-        localDateString = [NSString stringWithFormat:@"%@h",@(daysSinceTasting)];
+        localDateString = [NSString stringWithFormat:@"%@d",@(daysSinceTasting)];
         
     } else if(timeSinceTasting > SECONDS_IN_20_MINUTES){
         int hoursSinceTasting = timeSinceTasting/3600;
         localDateString = [NSString stringWithFormat:@"%@h",@(hoursSinceTasting)];
         
-    } else {
+    } else  if(timeSinceTasting > 60){
         int minutesSinceTasting = timeSinceTasting/60;
         localDateString = [NSString stringWithFormat:@"%@m",@(minutesSinceTasting)];
         
+    } else {
+        localDateString = @"now";
     }
     
     self.dateLabel.attributedText = [[NSAttributedString alloc] initWithString:localDateString attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption2, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
