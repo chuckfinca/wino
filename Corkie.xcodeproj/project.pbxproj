@@ -117,6 +117,8 @@
 		C969352B187BD5160071EF41 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = C969352A187BD5160071EF41 /* Review.m */; };
 		C969352E187CAF8A0071EF41 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C969352D187CAF8A0071EF41 /* RoundedRectButton.m */; };
 		C9693534187D18BF0071EF41 /* FontThemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9693533187D18BF0071EF41 /* FontThemer.m */; };
+		C9693536187E364B0071EF41 /* CheckIn.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9693535187E364B0071EF41 /* CheckIn.xib */; };
+		C9693539187E39FE0071EF41 /* CheckInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9693538187E39FE0071EF41 /* CheckInVC.m */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -371,6 +373,9 @@
 		C969352D187CAF8A0071EF41 /* RoundedRectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoundedRectButton.m; path = views/RoundedRectButton.m; sourceTree = "<group>"; };
 		C9693532187D18BF0071EF41 /* FontThemer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontThemer.h; path = model/FontThemer.h; sourceTree = "<group>"; };
 		C9693533187D18BF0071EF41 /* FontThemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontThemer.m; path = model/FontThemer.m; sourceTree = "<group>"; };
+		C9693535187E364B0071EF41 /* CheckIn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CheckIn.xib; path = xibs/CheckIn.xib; sourceTree = "<group>"; };
+		C9693537187E39FE0071EF41 /* CheckInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckInVC.h; path = controllers/CheckInVC.h; sourceTree = "<group>"; };
+		C9693538187E39FE0071EF41 /* CheckInVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckInVC.m; path = controllers/CheckInVC.m; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -627,6 +632,8 @@
 				C932F157187231C80079680C /* TriedItVC.m */,
 				C932F16318734E670079680C /* UserRatingCVController.h */,
 				C932F16418734E670079680C /* UserRatingCVController.m */,
+				C9693537187E39FE0071EF41 /* CheckInVC.h */,
+				C9693538187E39FE0071EF41 /* CheckInVC.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -691,6 +698,7 @@
 				C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */,
 				C932F1591872322F0079680C /* TriedIt.xib */,
 				C96934BB187B7F540071EF41 /* TastingRecordCVCell.xib */,
+				C9693535187E364B0071EF41 /* CheckIn.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -986,6 +994,7 @@
 				C95A2CE0185C04DB0043ECB0 /* favoriteIndicator.png in Resources */,
 				C95E2DC718651FF10050DFAC /* button_purchase@2x.png in Resources */,
 				C95A2CD2185BEC3B0043ECB0 /* button_triedIt@2x.png in Resources */,
+				C9693536187E364B0071EF41 /* CheckIn.xib in Resources */,
 				C932F16218728F500079680C /* glass@2x.png in Resources */,
 				C95A2CD1185BEC3B0043ECB0 /* button_triedIt.png in Resources */,
 				C991FB8E1861110200C10B52 /* glass_empty@2x.png in Resources */,
@@ -1101,6 +1110,7 @@
 				C9DDD08F182036D5000A6FD7 /* Model.xcdatamodeld in Sources */,
 				C932F16518734E670079680C /* UserRatingCVController.m in Sources */,
 				C92932DB182B02200035C93C /* VarietalDataHelper.m in Sources */,
+				C9693539187E39FE0071EF41 /* CheckInVC.m in Sources */,
 				C9693519187BD5160071EF41 /* Restaurant.m in Sources */,
 				C9328CCB184ADCBC00AF6DEA /* RestaurantWineManagerSCDTVC.m in Sources */,
 				C932F14F186D52870079680C /* ReviewersAndRatingsVC.m in Sources */,
