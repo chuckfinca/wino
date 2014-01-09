@@ -123,7 +123,7 @@
     float y = 44*GLASS_SCALE_RATIO;
     
     if(indexPath.row == 5){
-        return CGSizeMake(50, y);
+        return CGSizeMake(110, y);
     } else {
         return CGSizeMake(30*GLASS_SCALE_RATIO, y);
     }

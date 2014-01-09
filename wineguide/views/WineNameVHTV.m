@@ -24,9 +24,6 @@
     return self;
 }
 
-
-#define V_HEIGHT 20
-
 -(void)setupTextViewWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
 {
     NSString *textViewString = @"";
@@ -88,7 +85,7 @@
                              value:[ColorSchemer sharedInstance].textSecondary
                              range:restaurantRange];
     
-    [self setHeightConstraintForAttributedText:self.textStorage andMinimumHeight:V_HEIGHT];
+    [self setHeightConstraintForAttributedText:self.textStorage andWidth:self.bounds.size.width];
 }
 
 @end

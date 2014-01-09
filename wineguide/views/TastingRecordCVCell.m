@@ -20,7 +20,7 @@
 
 #define SECONDS_IN_A_WEEK 604800
 #define SECONDS_IN_A_DAY 86400
-#define SECONDS_IN_20_MINUTES 1200
+#define SECONDS_IN_30_MINUTES 1800
 
 @interface TastingRecordCVCell ()
 
@@ -105,8 +105,11 @@
         int daysSinceTasting = timeSinceTasting/86400;
         localDateString = [NSString stringWithFormat:@"%@d",@(daysSinceTasting)];
         
-    } else if(timeSinceTasting > SECONDS_IN_20_MINUTES){
+    } else if(timeSinceTasting > SECONDS_IN_30_MINUTES){
         int hoursSinceTasting = timeSinceTasting/3600;
+        if(hoursSinceTasting == 0){
+            hoursSinceTasting++;
+        }
         localDateString = [NSString stringWithFormat:@"%@h",@(hoursSinceTasting)];
         
     } else  if(timeSinceTasting > 60){
@@ -114,10 +117,11 @@
         localDateString = [NSString stringWithFormat:@"%@m",@(minutesSinceTasting)];
         
     } else {
-        localDateString = @"now";
+        localDateString = @"just now";
     }
     
     self.dateLabel.attributedText = [[NSAttributedString alloc] initWithString:localDateString attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption2, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+    [self bringSubviewToFront:self.dateLabel];
 }
 
 - (float)cellHeight

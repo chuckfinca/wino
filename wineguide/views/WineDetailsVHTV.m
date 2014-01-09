@@ -25,7 +25,7 @@
 }
 
 
-#define V_HEIGHT 20
+#define V_WIDTH 20
 
 -(void)setupTextViewWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
 {
@@ -69,7 +69,7 @@
                              range:NSMakeRange(0, [self.textStorage length])];
     
     
-    [self setHeightConstraintForAttributedText:self.textStorage andMinimumHeight:V_HEIGHT];
+    [self setHeightConstraintForAttributedText:self.textStorage andWidth:self.bounds.size.width];
     
 }
 

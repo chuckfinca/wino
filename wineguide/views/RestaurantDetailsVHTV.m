@@ -20,8 +20,6 @@
     return self;
 }
 
-#define V_HEIGHT 20
-
 -(void)setupTextViewWithRestaurant:(Restaurant *)restaurant
 {
     NSString *textViewString = @"";
@@ -56,7 +54,7 @@
                                                  value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
                                                  range:nameRange];
     
-    [self setHeightConstraintForAttributedText:attributedText andMinimumHeight:V_HEIGHT];
+    [self setHeightConstraintForAttributedText:attributedText andWidth:self.bounds.size.width];
     
 }
 

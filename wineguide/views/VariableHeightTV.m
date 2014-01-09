@@ -22,25 +22,24 @@
     return _resetHeight;
 }
 
--(void)setHeightConstraintForAttributedText:(NSAttributedString *)attributedText andMinimumHeight:(int)minimumHeight
+-(void)setHeightConstraintForAttributedText:(NSAttributedString *)attributedText andWidth:(float)width
 {
+    self.textContainerInset = UIEdgeInsetsZero;
+    
     if([self.text length]){
         
         UITextView *tv = [[UITextView alloc] init];
         tv.attributedText = attributedText;
-        //tv.textContainerInset = UIEdgeInsetsMake(0, 10, 0, 10);
         
-        CGSize tvSize = [tv sizeThatFits:CGSizeMake(self.bounds.size.width, FLT_MAX)];
+        CGSize tvSize = [tv sizeThatFits:CGSizeMake(width, FLT_MAX)];
         
-        float height = tvSize.height > minimumHeight ? tvSize.height : minimumHeight;
+        float height = tvSize.height;
         
         //if(height != minimumHeight) height += height/10;
         
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
         
         [self updateConstraints];
-    } else {
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, minimumHeight);
     }
 }
 
