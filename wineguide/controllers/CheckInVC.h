@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Wine.h"
+#import "Restaurant.h"
 
 @interface CheckInVC : UIViewController
 

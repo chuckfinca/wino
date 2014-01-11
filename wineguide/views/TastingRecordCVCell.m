@@ -14,7 +14,7 @@
 #import "ColorSchemer.h"
 #import "FontThemer.h"
 
-#define MAJOR_SPACING 20
+#define MAJOR_SPACING 18
 #define MINOR_SPACING 8
 #define CORNER_RADIUS 4
 
@@ -58,6 +58,7 @@
     [self setupDateLabel];
     [self.wineNameVHTV setupTextViewWithWine:review.wine fromRestaurant:review.restaurant];
     
+    [self setupUserNote];
     [self setupUserRatingView];
     [self setupCellBackground];
 }
@@ -71,6 +72,17 @@
     [layer setShadowOpacity:0.5];
     
     self.backgroundColor = [ColorSchemer sharedInstance].customWhite;
+}
+
+-(void)setupUserNote
+{
+    if(self.tastingRecord.review.reviewText){
+        self.userNoteVHTV.attributedText = [[NSAttributedString alloc] initWithString:self.tastingRecord.review.reviewText attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];;
+        
+        [self.userNoteVHTV setHeightConstraintForAttributedText:self.userNoteVHTV.attributedText andWidth:self.userNoteVHTV.bounds.size.width];
+    } else {
+        self.userNoteVHTV.text = @"";
+    }
 }
 
 -(void)setupUserRatingView
@@ -133,7 +145,7 @@
     float userNoteTVHeight = self.userNoteVHTV.bounds.size.height;
     float userReviewViewHeight = self.userRatingView.bounds.size.height;
     
-    cellHeight = dateLabelHeight + wineTVHeight + userNoteTVHeight + userReviewViewHeight + 2*MAJOR_SPACING + 2*MINOR_SPACING;
+    cellHeight = dateLabelHeight + wineTVHeight + userNoteTVHeight + userReviewViewHeight + 2*MAJOR_SPACING;
     
     return cellHeight;
 }

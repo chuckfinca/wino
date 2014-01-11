@@ -13,7 +13,6 @@
 #import "ColorSchemer.h"
 #import "UserActionCVC.h"
 #import "ReviewersAndRatingsVC.h"
-#import "TriedItVC.h"
 
 #define USER_ACTION_CELL @"UserActionCell"
 

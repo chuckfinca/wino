@@ -10,13 +10,14 @@
 #import "WineDetailsVC.h"
 #import "ColorSchemer.h"
 #import "ReviewTVC.h"
-#import "TriedItVC.h"
+#import "CheckInVC.h"
+#import "TransitionAnimator_CheckInVC.h"
 
 
 #define WINE_CELL @"WineCell"
 #define REVIEW_CELL @"ReviewCell"
 
-@interface WineCDTVC () <WineDetailsVcDelegate>
+@interface WineCDTVC () <WineDetailsVcDelegate, UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) WineDetailsVC *wineDetailsViewController;
 @property (nonatomic, strong) NSManagedObjectContext *context;
@@ -142,16 +143,40 @@
 {
     NSLog(@"performTriedItSegue");
     
-    TriedItVC *triedItVC = [[TriedItVC alloc]initWithNibName:@"TriedIt" bundle:nil];
-    [triedItVC setupWithWine:self.wine andRestaurant:self.restaurant];
-    [self.navigationController pushViewController:triedItVC animated:YES];
+    [self performSegueWithIdentifier:@"CheckInSegue" sender:self];
 }
 
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"prepareForSegue");
+    [super prepareForSegue:segue sender:sender];
+    
+    CheckInVC *checkInVC = segue.destinationViewController;
+    [checkInVC setupWithWine:self.wine andRestaurant:self.restaurant];
+    checkInVC.transitioningDelegate = self;
+    checkInVC.modalPresentationStyle = UIModalPresentationCustom;
+}
+#pragma mark - UIViewControllerTransitioningDelegate
 
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                 presentingController:(UIViewController *)presenting
+                                                                     sourceController:(UIViewController *)source
+{
+    TransitionAnimator_CheckInVC *animator = [TransitionAnimator_CheckInVC new];
+    animator.presenting = YES;
+    return animator;
+}
 
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return [TransitionAnimator_CheckInVC new];
+}
 
-
+-(IBAction)dismissCheckInVC:(UIStoryboardSegue *)unwindSegue
+{
+    [self dismissViewControllerAnimated:YES completion:^{}];
+}
 
 
 @end

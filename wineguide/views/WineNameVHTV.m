@@ -86,7 +86,6 @@
                              range:restaurantRange];
     
     [self setHeightConstraintForAttributedText:self.textStorage andWidth:self.bounds.size.width];
-    self.backgroundColor = [UIColor orangeColor];
 }
 
 @end

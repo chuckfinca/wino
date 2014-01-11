@@ -145,6 +145,7 @@
     TastingRecordCVCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
     
     TastingRecord *tastingRecord = [self.tastingRecords objectAtIndex:indexPath.row];
+    NSLog(@"tastingRecord.reviewText = %@",tastingRecord.review.reviewText);
     [cell setupCellWithTastingRecord:tastingRecord];
     
     return cell;

@@ -7,20 +7,22 @@
 //
 
 #import "CheckInVC.h"
-#import "UserRatingCVController.m"
+#import "UserRatingCVController.h"
 #import "ManagedObjectHandler.h"
 #import "FontThemer.h"
 #import "ColorSchemer.h"
-#import "Wine.h"
-#import "Restaurant.h"
 #import "Review.h"
 #import "TastingRecord.h"
 
-@interface CheckInVC ()
+#define CORNER_RADIUS 4
+#define CHECK_IN_VC_VIEW_HEIGHT 230
+
+@interface CheckInVC () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *cancelCheckInButton;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 @property (weak, nonatomic) IBOutlet UIView *headerBackgroundView;
+@property (weak, nonatomic) IBOutlet UILabel *promptLabel;
 @property (weak, nonatomic) IBOutlet UITextView *noteTV;
 @property (weak, nonatomic) IBOutlet UIView *userRatingView;
 @property (weak, nonatomic) IBOutlet UIView *userRatingViewContainerView;
@@ -51,7 +53,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"CheckInVC viewDidLoad...");
 	// Do any additional setup after loading the view.
+    [self setup];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -59,6 +63,8 @@
     [super viewWillAppear:animated];
     
     [self setupUserRatingsController];
+    [self.noteTV becomeFirstResponder];
+    self.noteTV.delegate = self;
 }
 
 
@@ -81,44 +87,48 @@
 {
     self.wine = wine;
     self.restaurant = restaurant;
-    [self setup];
+    
+    [self setupBackground];
+}
+
+-(void)setupBackground
+{
+    CALayer *layer = self.view.layer;
+    [layer setCornerRadius:CORNER_RADIUS];
+    [layer setShadowColor:[ColorSchemer sharedInstance].shadowColor.CGColor];
+    [layer setShadowOffset:CGSizeMake(0, 0)];
+    [layer setShadowOpacity:0.5];
+    
+    CAShapeLayer * maskLayer = [CAShapeLayer layer];
+    maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 300, CHECK_IN_VC_VIEW_HEIGHT)
+                                           byRoundingCorners: (UIRectCornerTopLeft | UIRectCornerTopRight)
+                                                 cornerRadii: (CGSize){CORNER_RADIUS, CORNER_RADIUS}].CGPath;
+    self.headerBackgroundView.layer.mask = maskLayer;
+    
+    self.view.backgroundColor = [UIColor lightGrayColor];//[ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)setup
 {
+    NSLog(@"asdfasdfasdfasdasdfasd");
     self.title = @"Tried It";
     [self.checkInButton setTitleColor:[ColorSchemer sharedInstance].customWhite forState: UIControlStateNormal];
 
 
-
+    [self setupPrompt];
     [self setupRestaurantButton];
     [self setupDateButton];
     [self setupCancelButton];
     [self setupCheckInButton];
     
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 
 
-
-
-
-
-/*
- 
- @property (weak, nonatomic) IBOutlet UIButton *cancelCheckInButton;
- @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
- @property (weak, nonatomic) IBOutlet UIView *headerBackgroundView;
- @property (weak, nonatomic) IBOutlet UIView *userRatingView;
- @property (weak, nonatomic) IBOutlet UIView *userRatingViewContainerView;
- */
-
--(void)setupNoteTV
+-(void)setupPrompt
 {
-    NSString *text = [NSString stringWithFormat:@"What did you think about the %@?",self.wine.name];
-    NSAttributedString *attributed = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
-    self.noteTV.attributedText = attributed;
+    NSString *text = [NSString stringWithFormat:@"What did you think about the %@?",[self.wine.name capitalizedString]];
+    self.promptLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
 }
 
 -(void)setupRestaurantButton
@@ -189,8 +199,10 @@
     review.lastLocalUpdate = date;
     review.wine = self.wine;
     review.restaurant = self.restaurant;
+    review.reviewText = self.noteTV.text;
     
     NSLog(@"review = %@",review.identifier);
+    NSLog(@"reviewText = %@",review.reviewText);
     
     return review;
 }
@@ -219,22 +231,33 @@
 }
 
 
-
-
-- (IBAction)cancelCheckIn:(UIButton *)sender
-{
-    NSLog(@"cancelCheckIn...");
-}
-
 - (IBAction)segueToDateAndRestaurantEditVC:(id)sender
 {
     NSLog(@"segueToDateAndRestaurantEditVC...");
 }
+
+#pragma mark
+
+- (void)textViewDidChange:(UITextView *)txtView
+{
+    self.promptLabel.hidden = ([txtView.text length] > 0);
+}
+
+- (void)textViewDidEndEditing:(UITextView *)txtView
+{
+    self.promptLabel.hidden = ([txtView.text length] > 0);
+}
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 
 @end

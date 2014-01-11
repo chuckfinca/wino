@@ -7,7 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1" customClass="TastingRecordCVCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 6, 2014" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksc-uy-hZt">
@@ -21,11 +21,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Am-ho-mNv" customClass="WineNameVHTV">
-                    <rect key="frame" x="20" y="37" width="280" height="40"/>
+                    <rect key="frame" x="20" y="57" width="280" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" placeholder="YES" id="WLy-f3-lly"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" placeholder="YES" id="WLy-f3-lly"/>
                     </constraints>
                     <string key="text">Beringer - 2002
 Cabernet Sauvignon </string>
@@ -33,17 +32,16 @@ Cabernet Sauvignon </string>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Deliciously fruity and delightful. Great with steak!" translatesAutoresizingMaskIntoConstraints="NO" id="xzp-xI-tTj" customClass="VariableHeightTV">
-                    <rect key="frame" x="20" y="85" width="280" height="40"/>
+                    <rect key="frame" x="20" y="37" width="280" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" placeholder="YES" id="MCk-hl-lNK"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" placeholder="YES" id="MCk-hl-lNK"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iij-Wd-6HZ">
-                    <rect key="frame" x="20" y="145" width="280" height="33"/>
+                    <rect key="frame" x="20" y="77" width="280" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.37094537789999998" green="0.18735637860000001" blue="0.40712041440000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -58,14 +56,14 @@ Cabernet Sauvignon </string>
                 <constraint firstItem="ksc-uy-hZt" firstAttribute="top" secondItem="1" secondAttribute="top" constant="16" id="QHN-Gk-Gxl"/>
                 <constraint firstItem="2Am-ho-mNv" firstAttribute="leading" secondItem="iij-Wd-6HZ" secondAttribute="leading" id="QwY-m0-IxY"/>
                 <constraint firstItem="2Am-ho-mNv" firstAttribute="trailing" secondItem="xzp-xI-tTj" secondAttribute="trailing" id="VFx-qU-RMn"/>
+                <constraint firstItem="iij-Wd-6HZ" firstAttribute="top" secondItem="2Am-ho-mNv" secondAttribute="bottom" id="Xd9-eH-59F"/>
                 <constraint firstAttribute="trailing" secondItem="ksc-uy-hZt" secondAttribute="trailing" constant="20" id="bHy-wU-XMC"/>
-                <constraint firstItem="iij-Wd-6HZ" firstAttribute="top" secondItem="xzp-xI-tTj" secondAttribute="bottom" constant="20" id="gFz-YO-AAa"/>
-                <constraint firstAttribute="bottom" secondItem="iij-Wd-6HZ" secondAttribute="bottom" priority="1" constant="20" id="iVt-ry-Pz7"/>
-                <constraint firstItem="2Am-ho-mNv" firstAttribute="top" secondItem="ksc-uy-hZt" secondAttribute="bottom" id="mUh-5h-mzi"/>
+                <constraint firstItem="xzp-xI-tTj" firstAttribute="top" secondItem="ksc-uy-hZt" secondAttribute="bottom" id="feB-n4-phd"/>
                 <constraint firstItem="2Am-ho-mNv" firstAttribute="leading" secondItem="xzp-xI-tTj" secondAttribute="leading" id="nJP-pi-uhQ"/>
                 <constraint firstItem="2Am-ho-mNv" firstAttribute="trailing" secondItem="iij-Wd-6HZ" secondAttribute="trailing" id="pD1-VD-Mpq"/>
                 <constraint firstItem="2Am-ho-mNv" firstAttribute="leading" secondItem="ksc-uy-hZt" secondAttribute="leading" id="uxY-zq-qD9"/>
-                <constraint firstItem="xzp-xI-tTj" firstAttribute="top" secondItem="2Am-ho-mNv" secondAttribute="bottom" constant="8" id="wTI-eK-YKM"/>
+                <constraint firstAttribute="bottom" secondItem="iij-Wd-6HZ" secondAttribute="bottom" constant="20" id="vdP-ta-tjO"/>
+                <constraint firstItem="2Am-ho-mNv" firstAttribute="top" secondItem="xzp-xI-tTj" secondAttribute="bottom" id="wIC-g1-3hE"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
