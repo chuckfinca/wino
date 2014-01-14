@@ -69,7 +69,10 @@
     [layer setCornerRadius:CORNER_RADIUS];
     [layer setShadowColor:[ColorSchemer sharedInstance].shadowColor.CGColor];
     [layer setShadowOffset:CGSizeMake(0, 0)];
-    [layer setShadowOpacity:0.5];
+    [layer setShadowOpacity:0.2];
+    
+    [layer setBorderColor:[ColorSchemer sharedInstance].baseColor.CGColor];
+    [layer setBorderWidth:0.25];
     
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }

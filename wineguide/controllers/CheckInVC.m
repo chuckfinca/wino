@@ -97,7 +97,10 @@
     [layer setCornerRadius:CORNER_RADIUS];
     [layer setShadowColor:[ColorSchemer sharedInstance].shadowColor.CGColor];
     [layer setShadowOffset:CGSizeMake(0, 0)];
-    [layer setShadowOpacity:0.5];
+    [layer setShadowOpacity:0.2];
+    
+    [layer setBorderColor:[ColorSchemer sharedInstance].baseColor.CGColor];
+    [layer setBorderWidth:0.25];
     
     CAShapeLayer * maskLayer = [CAShapeLayer layer];
     maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 300, CHECK_IN_VC_VIEW_HEIGHT)
@@ -105,7 +108,7 @@
                                                  cornerRadii: (CGSize){CORNER_RADIUS, CORNER_RADIUS}].CGPath;
     self.headerBackgroundView.layer.mask = maskLayer;
     
-    self.view.backgroundColor = [UIColor lightGrayColor];//[ColorSchemer sharedInstance].customBackgroundColor;
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)setup

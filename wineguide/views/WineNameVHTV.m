@@ -65,8 +65,8 @@
             textViewString = [textViewString stringByAppendingString:wineUnitsString];
             
             if(restaurant){
-                restaurantRange = NSMakeRange([textViewString length], [restaurant.name length]+3);
-                textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@" @ %@",[restaurant.name capitalizedString]]];
+                restaurantRange = NSMakeRange([textViewString length], [restaurant.name length]+2);
+                textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"@ %@",[restaurant.name capitalizedString]]];
             }
         }
     }
