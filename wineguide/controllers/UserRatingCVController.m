@@ -36,7 +36,7 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"UserRatingCVC" bundle:nil] forCellWithReuseIdentifier:USER_RATING_CELL];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:REVIEW_CELL];
     
-    self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.collectionView.backgroundColor = [UIColor clearColor];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumInteritemSpacing = 6;

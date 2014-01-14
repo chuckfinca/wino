@@ -14,6 +14,7 @@
 
 @property (nonatomic, readonly) UIColor *textPrimary;
 @property (nonatomic, readonly) UIColor *textSecondary;
+@property (nonatomic, readonly) UIColor *textPlaceholder;
 @property (nonatomic, readonly) UIColor *textLink;
 
 @property (nonatomic, readonly) UIColor *baseColor;

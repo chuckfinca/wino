@@ -13,6 +13,7 @@
 #import "ColorSchemer.h"
 #import "Review.h"
 #import "TastingRecord.h"
+#import "MotionEffects.h"
 
 #define CORNER_RADIUS 4
 #define CHECK_IN_VC_VIEW_HEIGHT 230
@@ -50,12 +51,17 @@
     return self;
 }
 
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self setup];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     NSLog(@"CheckInVC viewDidLoad...");
 	// Do any additional setup after loading the view.
-    [self setup];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -88,7 +94,27 @@
     self.wine = wine;
     self.restaurant = restaurant;
     
+    [self setupPrompt];
+    [self setupRestaurantText];
+}
+
+
+
+-(void)setup
+{
+    self.title = @"Tried It";
+    [self.checkInButton setTitleColor:[ColorSchemer sharedInstance].customWhite forState: UIControlStateNormal];
+
+    
     [self setupBackground];
+    [self setupHeaderView];
+    [self setupUserRatingView];
+
+    [self setupRestaurantButton];
+    [self setupDateButton];
+    [self setupCancelButton];
+    [self setupCheckInButton];
+    
 }
 
 -(void)setupBackground
@@ -99,57 +125,64 @@
     [layer setShadowOffset:CGSizeMake(0, 0)];
     [layer setShadowOpacity:0.2];
     
-    [layer setBorderColor:[ColorSchemer sharedInstance].baseColor.CGColor];
-    [layer setBorderWidth:0.25];
+    [self addBorderToLayer:layer];
     
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
+}
+
+-(void)setupHeaderView
+{
     CAShapeLayer * maskLayer = [CAShapeLayer layer];
     maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 300, CHECK_IN_VC_VIEW_HEIGHT)
                                            byRoundingCorners: (UIRectCornerTopLeft | UIRectCornerTopRight)
                                                  cornerRadii: (CGSize){CORNER_RADIUS, CORNER_RADIUS}].CGPath;
     self.headerBackgroundView.layer.mask = maskLayer;
-    
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.headerBackgroundView.backgroundColor = [ColorSchemer sharedInstance].baseColor;
 }
 
--(void)setup
+-(void)setupUserRatingView
 {
-    NSLog(@"asdfasdfasdfasdasdfasd");
-    self.title = @"Tried It";
-    [self.checkInButton setTitleColor:[ColorSchemer sharedInstance].customWhite forState: UIControlStateNormal];
-
-
-    [self setupPrompt];
-    [self setupRestaurantButton];
-    [self setupDateButton];
-    [self setupCancelButton];
-    [self setupCheckInButton];
-    
+    self.userRatingViewContainerView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.userRatingView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
-
-
 
 -(void)setupPrompt
 {
     NSString *text = [NSString stringWithFormat:@"What did you think about the %@?",[self.wine.name capitalizedString]];
-    self.promptLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+    self.promptLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPlaceholder}];
 }
 
 -(void)setupRestaurantButton
 {
+    self.restaurantButton.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    [self addBorderToLayer:self.restaurantButton.layer];
+}
+
+-(void)setupRestaurantText
+{
     NSString *text;
     if(self.restaurant.name){
-        text = [self.restaurant.name capitalizedString];
+        text = [NSString stringWithFormat:@"@ %@",[self.restaurant.name capitalizedString]];
     } else {
         text = @"Select Restaurant";
     }
-    NSAttributedString *attributed = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body}];
+    NSAttributedString *attributed = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     [self.restaurantButton setAttributedTitle:attributed forState:UIControlStateNormal];
+}
+
+-(void)addBorderToLayer:(CALayer *)layer
+{
+    [layer setBorderColor:[ColorSchemer sharedInstance].baseColor.CGColor];
+    [layer setBorderWidth:0.25];
 }
 
 -(void)setupDateButton
 {
-    NSAttributedString *attributed = [[NSAttributedString alloc] initWithString:@"Now" attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body}];
+    NSAttributedString *attributed = [[NSAttributedString alloc] initWithString:@"Now" attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     [self.dateButton setAttributedTitle:attributed forState:UIControlStateNormal];
+    
+    self.dateButton.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    [self addBorderToLayer:self.dateButton.layer];
 }
 
 -(void)setupCancelButton
@@ -167,6 +200,7 @@
     self.userRatingsController.wine = self.wine;
     self.userRatingsController.collectionView.frame = self.userRatingView.bounds;
     [self.userRatingView addSubview:self.userRatingsController.collectionView];
+    [self addBorderToLayer:self.userRatingViewContainerView.layer];
 }
 
 
@@ -174,9 +208,21 @@
 
 - (IBAction)createTastingRecord:(UIButton *)sender
 {
-    NSLog(@"createTastingRecord...");
-    Review *review = [self createReview];
-    [self createTastingRecordWithReview:review];
+    if(self.userRatingsController.rating > 0){
+        NSLog(@"createTastingRecord...");
+        Review *review = [self createReview];
+        [self createTastingRecordWithReview:review];
+        
+        [self.delegate dismissAfterTastingRecordCreation];
+        
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please provide a wine glass rating." message:nil delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+        alert.tintColor = [ColorSchemer sharedInstance].textLink;
+        
+        MotionEffects *motionEffects = [[MotionEffects alloc] init];
+        [alert addMotionEffect:[motionEffects groupedMotionEffect]];
+        [alert show];
+    }
 }
 
 #define IDENTIFIER @"identifier"
@@ -204,9 +250,6 @@
     review.restaurant = self.restaurant;
     review.reviewText = self.noteTV.text;
     
-    NSLog(@"review = %@",review.identifier);
-    NSLog(@"reviewText = %@",review.reviewText);
-    
     return review;
 }
 
@@ -229,8 +272,6 @@
     tastingRecord.addedDate = [NSDate date];
     tastingRecord.tastingDate = [NSDate date];
     tastingRecord.review = review;
-    
-    NSLog(@"tastingRecord = %@",tastingRecord.identifier);
 }
 
 

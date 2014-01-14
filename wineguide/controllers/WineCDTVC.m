@@ -12,12 +12,13 @@
 #import "ReviewTVC.h"
 #import "CheckInVC.h"
 #import "TransitionAnimator_CheckInVC.h"
+#import "MotionEffects.h"
 
 
 #define WINE_CELL @"WineCell"
 #define REVIEW_CELL @"ReviewCell"
 
-@interface WineCDTVC () <WineDetailsVcDelegate, UIViewControllerTransitioningDelegate>
+@interface WineCDTVC () <WineDetailsVcDelegate, UIViewControllerTransitioningDelegate, CheckInVcDelegate>
 
 @property (nonatomic, strong) WineDetailsVC *wineDetailsViewController;
 @property (nonatomic, strong) NSManagedObjectContext *context;
@@ -156,7 +157,26 @@
     [checkInVC setupWithWine:self.wine andRestaurant:self.restaurant];
     checkInVC.transitioningDelegate = self;
     checkInVC.modalPresentationStyle = UIModalPresentationCustom;
+    checkInVC.delegate = self;
 }
+
+
+#pragma mark - CheckInVcDelegate
+
+-(void)dismissAfterTastingRecordCreation
+{
+    [self dismissViewControllerAnimated:YES completion:^{}];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wine has been added to your timeline!" message:nil delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+    alert.tintColor = [ColorSchemer sharedInstance].textLink;
+    
+    MotionEffects *motionEffects = [[MotionEffects alloc] init];
+    [alert addMotionEffect:[motionEffects groupedMotionEffect]];
+    [alert show];
+}
+
+
+
 #pragma mark - UIViewControllerTransitioningDelegate
 
 -(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented

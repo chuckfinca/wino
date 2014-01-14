@@ -93,6 +93,7 @@
     self.userRatingsController.wine = self.tastingRecord.review.wine;
     self.userRatingsController.collectionView.frame = self.userRatingView.bounds;
     [self.userRatingView addSubview:self.userRatingsController.collectionView];
+    self.userRatingView.backgroundColor = [UIColor clearColor];
 }
 
 -(void)setupDateLabel

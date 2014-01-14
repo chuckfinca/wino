@@ -10,7 +10,15 @@
 #import "Wine.h"
 #import "Restaurant.h"
 
+@protocol CheckInVcDelegate
+
+-(void)dismissAfterTastingRecordCreation;
+
+@end
+
 @interface CheckInVC : UIViewController
+
+@property (nonatomic, weak) id <CheckInVcDelegate> delegate;
 
 -(void)setupWithWine:(Wine *)wine andRestaurant:(Restaurant *)restaurant;
 

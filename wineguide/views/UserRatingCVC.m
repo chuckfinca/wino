@@ -74,7 +74,7 @@
         }
     }
     [self.ratingImageView setImage:glass];
-    self.ratingImageView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.backgroundColor = [UIColor clearColor];
 }
 
 @end

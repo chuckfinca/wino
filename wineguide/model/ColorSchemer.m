@@ -16,6 +16,7 @@
 
 @property (nonatomic, readwrite) UIColor *textPrimary;
 @property (nonatomic, readwrite) UIColor *textSecondary;
+@property (nonatomic, readwrite) UIColor *textPlaceholder;
 @property (nonatomic, readwrite) UIColor *textLink;
 
 @property (nonatomic, readwrite) UIColor *customWhite;
@@ -61,11 +62,19 @@ static ColorSchemer *sharedInstance;
     if(!_textPrimary) _textPrimary = [UIColor colorWithRed:0.133333F green:0.133333F blue:0.133333F alpha:1.0F];
     return _textPrimary;
 }
+
 -(UIColor *)textSecondary
 {
     if(!_textSecondary) _textSecondary = [UIColor colorWithRed:0.533333F green:0.533333F blue:0.533333F alpha:1.0F];
     return _textSecondary;
 }
+
+-(UIColor *)textPlaceholder
+{
+    if(!_textPlaceholder) _textPlaceholder = [UIColor colorWithRed:0.800000F green:0.800000F blue:0.800000F alpha:1.0F];
+    return _textPlaceholder;
+}
+
 -(UIColor *)textLink
 {
     if(!_textLink) _textLink = [UIColor colorWithRed:0.603922F green:0.803922F blue:0.388235F alpha:1.0F]; // light yellow green

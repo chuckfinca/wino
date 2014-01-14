@@ -270,10 +270,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGy-El-0mw">
-                                <rect key="frame" x="0.0" y="186" width="100" height="44"/>
+                                <rect key="frame" x="0.0" y="180" width="100" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="XzI-66-Vyg"/>
+                                    <constraint firstAttribute="height" constant="50" id="XzI-66-Vyg"/>
                                     <constraint firstAttribute="width" constant="100" id="sck-R8-Xq9"/>
                                 </constraints>
                                 <state key="normal" title="Just Now">
@@ -317,11 +317,11 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rD-oz-Z7Y">
-                                <rect key="frame" x="0.0" y="142" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="130" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZp-aU-OoJ">
-                                        <rect key="frame" x="20" y="5" width="280" height="33"/>
+                                        <rect key="frame" x="20" y="9" width="280" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.37094537789999998" green="0.18735637860000001" blue="0.40712041440000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -332,15 +332,15 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="MZp-aU-OoJ" secondAttribute="trailing" constant="20" id="HUj-5w-nD4"/>
                                     <constraint firstAttribute="centerY" secondItem="MZp-aU-OoJ" secondAttribute="centerY" id="QBl-5c-04R"/>
-                                    <constraint firstAttribute="height" constant="44" id="ffD-PV-2Rn"/>
+                                    <constraint firstAttribute="height" constant="50" id="ffD-PV-2Rn"/>
                                     <constraint firstItem="MZp-aU-OoJ" firstAttribute="leading" secondItem="0rD-oz-Z7Y" secondAttribute="leading" constant="20" id="hcf-Fo-49O"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRF-RK-1lp">
-                                <rect key="frame" x="108" y="186" width="212" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRF-RK-1lp">
+                                <rect key="frame" x="100" y="180" width="220" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="srt-NM-efn"/>
+                                    <constraint firstAttribute="height" constant="50" id="srt-NM-efn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -348,10 +348,9 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgd-j5-Tr2">
-                                <rect key="frame" x="8" y="48" width="304" height="86"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgd-j5-Tr2" customClass="VariableHeightTV">
+                                <rect key="frame" x="8" y="48" width="304" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="CI1-3r-5UV"/>
                                 </constraints>
@@ -371,15 +370,15 @@
                             <constraint firstItem="Zgd-j5-Tr2" firstAttribute="top" secondItem="hXU-jX-OQm" secondAttribute="top" constant="-8" id="6VE-Kb-qrw"/>
                             <constraint firstItem="RR2-22-t40" firstAttribute="top" secondItem="MGy-El-0mw" secondAttribute="bottom" id="FEe-X6-5P8"/>
                             <constraint firstAttribute="trailing" secondItem="0rD-oz-Z7Y" secondAttribute="trailing" id="Mmv-y1-Mc6"/>
+                            <constraint firstItem="MGy-El-0mw" firstAttribute="top" secondItem="0rD-oz-Z7Y" secondAttribute="bottom" id="O2A-Q1-W2L"/>
                             <constraint firstAttribute="trailing" secondItem="zRF-RK-1lp" secondAttribute="trailing" id="S5H-My-uTp"/>
                             <constraint firstAttribute="trailing" secondItem="Zgd-j5-Tr2" secondAttribute="trailing" constant="8" id="TZ9-BI-7x6"/>
-                            <constraint firstItem="MGy-El-0mw" firstAttribute="top" secondItem="0rD-oz-Z7Y" secondAttribute="bottom" id="Uh2-wn-oX5"/>
                             <constraint firstItem="MGy-El-0mw" firstAttribute="leading" secondItem="wky-ZP-U70" secondAttribute="leading" id="WxZ-gH-fbl"/>
-                            <constraint firstItem="zRF-RK-1lp" firstAttribute="top" secondItem="0rD-oz-Z7Y" secondAttribute="bottom" id="ZAn-MF-W3J"/>
                             <constraint firstItem="6yo-C3-6QV" firstAttribute="top" secondItem="Rkj-3d-bZA" secondAttribute="bottom" constant="-40" id="apu-5q-qX4"/>
+                            <constraint firstItem="zRF-RK-1lp" firstAttribute="top" secondItem="0rD-oz-Z7Y" secondAttribute="bottom" id="b96-zL-1aI"/>
                             <constraint firstItem="Zgd-j5-Tr2" firstAttribute="top" secondItem="Rkj-3d-bZA" secondAttribute="bottom" constant="8" id="cxP-ED-272"/>
-                            <constraint firstItem="0rD-oz-Z7Y" firstAttribute="top" secondItem="Zgd-j5-Tr2" secondAttribute="bottom" constant="8" id="eCm-Sg-6XJ"/>
-                            <constraint firstItem="zRF-RK-1lp" firstAttribute="leading" secondItem="MGy-El-0mw" secondAttribute="trailing" constant="8" id="iXg-xV-odh"/>
+                            <constraint firstItem="0rD-oz-Z7Y" firstAttribute="top" secondItem="Zgd-j5-Tr2" secondAttribute="bottom" constant="8" id="i3F-A4-9Yd"/>
+                            <constraint firstItem="zRF-RK-1lp" firstAttribute="leading" secondItem="MGy-El-0mw" secondAttribute="trailing" id="iXg-xV-odh"/>
                             <constraint firstItem="Rkj-3d-bZA" firstAttribute="leading" secondItem="wky-ZP-U70" secondAttribute="leading" id="ouo-tL-aHl"/>
                             <constraint firstItem="0rD-oz-Z7Y" firstAttribute="leading" secondItem="wky-ZP-U70" secondAttribute="leading" id="qWj-kx-gsP"/>
                             <constraint firstItem="Zgd-j5-Tr2" firstAttribute="trailing" secondItem="hXU-jX-OQm" secondAttribute="trailing" id="v5i-vO-XsI"/>
@@ -398,6 +397,7 @@
                         <outlet property="restaurantButton" destination="zRF-RK-1lp" id="UWb-Hz-UDh"/>
                         <outlet property="userRatingView" destination="MZp-aU-OoJ" id="0xY-Uh-MQG"/>
                         <outlet property="userRatingViewContainerView" destination="0rD-oz-Z7Y" id="YYb-1O-EJZ"/>
+                        <segue destination="kE4-oF-kEg" kind="unwind" identifier="DismissAfterTastingRecordCreation" unwindAction="dismissCheckInVC:" id="POo-Jz-lZm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVd-X5-x9O" userLabel="First Responder" sceneMemberID="firstResponder"/>
