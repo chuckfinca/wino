@@ -10,7 +10,20 @@
 
 #define MAX_MOVEMENT 40
 
+@interface MotionEffects ()
+
+@property (nonatomic, strong) UIInterpolatingMotionEffect *xAxisMotionEffect;
+@property (nonatomic, strong) UIInterpolatingMotionEffect *yAxisMotionEffect;
+
+@end
+
 @implementation MotionEffects
+
++(void)addMotionEffectsToView:(UIView *)view
+{
+    MotionEffects *motionEffects = [[MotionEffects alloc] init];
+    [view addMotionEffect:[motionEffects groupedMotionEffect]];
+}
 
 -(UIInterpolatingMotionEffect *)xAxisMotionEffect
 {

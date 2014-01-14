@@ -10,9 +10,6 @@
 
 @interface MotionEffects : NSObject
 
-@property (nonatomic, strong) UIInterpolatingMotionEffect *xAxisMotionEffect;
-@property (nonatomic, strong) UIInterpolatingMotionEffect *yAxisMotionEffect;
-
--(UIMotionEffectGroup *)groupedMotionEffect;
++(void)addMotionEffectsToView:(UIView *)view;
 
 @end

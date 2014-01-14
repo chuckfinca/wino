@@ -144,9 +144,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Corkie would like to use your location." message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
         alert.tintColor = [ColorSchemer sharedInstance].textLink;
         
-        MotionEffects *motionEffects = [[MotionEffects alloc] init];
-        [alert addMotionEffect:[motionEffects groupedMotionEffect]];
-        [alert show];
+        [MotionEffects addMotionEffectsToView:alert];
     }
 }
 

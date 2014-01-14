@@ -13,6 +13,7 @@
 #import "ColorSchemer.h"
 #import "UserActionCVC.h"
 #import "ReviewersAndRatingsVC.h"
+#import "MotionEffects.h"
 
 #define USER_ACTION_CELL @"UserActionCell"
 
@@ -26,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *userActionsCollectionView;
 @property (nonatomic, strong) ReviewersAndRatingsVC *reviewersAndRatingsVC;
 @property (nonatomic, strong) UILabel *cellarLabel;
+@property (weak, nonatomic) IBOutlet UIButton *purchaseButton;
 
 @end
 
@@ -143,6 +145,8 @@
     }
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:nil delegate:nil cancelButtonTitle:message otherButtonTitles: nil];
+    
+    [MotionEffects addMotionEffectsToView:alert];
     [alert show];
     
     NSArray *arguments = @[@1,@1];
@@ -158,6 +162,12 @@
     self.wine.favorite = @(favorite);
 }
 
+- (IBAction)purchaseWine:(UIButton *)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Coming soon!" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"Ok",nil];
+    [MotionEffects addMotionEffectsToView:alert];
+    [alert show];
+}
 
 
 

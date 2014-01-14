@@ -170,8 +170,7 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wine has been added to your timeline!" message:nil delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
     alert.tintColor = [ColorSchemer sharedInstance].textLink;
     
-    MotionEffects *motionEffects = [[MotionEffects alloc] init];
-    [alert addMotionEffect:[motionEffects groupedMotionEffect]];
+    [MotionEffects addMotionEffectsToView:alert];
     [alert show];
 }
 

@@ -397,7 +397,6 @@
                         <outlet property="restaurantButton" destination="zRF-RK-1lp" id="UWb-Hz-UDh"/>
                         <outlet property="userRatingView" destination="MZp-aU-OoJ" id="0xY-Uh-MQG"/>
                         <outlet property="userRatingViewContainerView" destination="0rD-oz-Z7Y" id="YYb-1O-EJZ"/>
-                        <segue destination="kE4-oF-kEg" kind="unwind" identifier="DismissAfterTastingRecordCreation" unwindAction="dismissCheckInVC:" id="POo-Jz-lZm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVd-X5-x9O" userLabel="First Responder" sceneMemberID="firstResponder"/>

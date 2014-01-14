@@ -219,8 +219,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please provide a wine glass rating." message:nil delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
         alert.tintColor = [ColorSchemer sharedInstance].textLink;
         
-        MotionEffects *motionEffects = [[MotionEffects alloc] init];
-        [alert addMotionEffect:[motionEffects groupedMotionEffect]];
+        [MotionEffects addMotionEffectsToView:alert];
         [alert show];
     }
 }
