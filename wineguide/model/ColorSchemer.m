@@ -21,6 +21,7 @@
 @property (nonatomic, readwrite) UIColor *customWhite;
 
 @property (nonatomic, readwrite) UIColor *customBackgroundColor;
+@property (nonatomic, readwrite) UIColor *customDarkBackgroundColor;
 @property (nonatomic, readwrite) UIColor *menuBackgroundColor;
 
 @property (nonatomic, readwrite) UIColor *shadowColor;
@@ -84,6 +85,12 @@ static ColorSchemer *sharedInstance;
         //[UIColor colorWithRed:1.000000F green:0.956722F blue:0.915948F alpha:1.0F];
         //[UIColor colorWithRed:0.968627F green:0.894118F blue:0.823529F alpha:1.0F];
     return _customBackgroundColor;
+}
+
+-(UIColor *)customDarkBackgroundColor
+{
+    if(!_customDarkBackgroundColor) _customDarkBackgroundColor = [UIColor colorWithRed:0.800000F green:0.800000F blue:0.800000F alpha:1.0F];
+    return _customDarkBackgroundColor;
 }
 
 -(UIColor *)menuBackgroundColor

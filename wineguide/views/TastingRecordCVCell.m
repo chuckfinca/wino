@@ -71,7 +71,7 @@
     [layer setShadowOffset:CGSizeMake(0, 0)];
     [layer setShadowOpacity:0.5];
     
-    self.backgroundColor = [ColorSchemer sharedInstance].customWhite;
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)setupUserNote
