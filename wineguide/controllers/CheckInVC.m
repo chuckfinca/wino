@@ -247,7 +247,10 @@
     review.lastLocalUpdate = date;
     review.wine = self.wine;
     review.restaurant = self.restaurant;
-    review.reviewText = self.noteTV.text;
+    
+    if([[self.noteTV.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] > 0){
+        review.reviewText = self.noteTV.text;
+    }
     
     return review;
 }

@@ -149,6 +149,7 @@
 		C991FBBC1863A10E00C10B52 /* UserRatingCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C991FBBB1863A10E00C10B52 /* UserRatingCVC.xib */; };
 		C991FBBE1863A14700C10B52 /* ReviewerCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C991FBBD1863A14700C10B52 /* ReviewerCVC.xib */; };
 		C991FBC51863A7DE00C10B52 /* TimelineCVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBC41863A7DE00C10B52 /* TimelineCVController.m */; };
+		C9A337EB18861E810089D020 /* DateStringFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A337EA18861E810089D020 /* DateStringFormatter.m */; };
 		C9ACC7D7184E72AB00E5945D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D5184E72AB00E5945D /* settings.png */; };
 		C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D6184E72AB00E5945D /* settings@2x.png */; };
 		C9ACC7DB184E892400E5945D /* WineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC7DA184E892400E5945D /* WineCell.m */; };
@@ -416,6 +417,8 @@
 		C991FBBD1863A14700C10B52 /* ReviewerCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewerCVC.xib; path = xibs/ReviewerCVC.xib; sourceTree = "<group>"; };
 		C991FBC31863A7DE00C10B52 /* TimelineCVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineCVController.h; path = controllers/TimelineCVController.h; sourceTree = "<group>"; };
 		C991FBC41863A7DE00C10B52 /* TimelineCVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineCVController.m; path = controllers/TimelineCVController.m; sourceTree = "<group>"; };
+		C9A337E918861E810089D020 /* DateStringFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateStringFormatter.h; path = supportingClasses/DateStringFormatter.h; sourceTree = "<group>"; };
+		C9A337EA18861E810089D020 /* DateStringFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateStringFormatter.m; path = supportingClasses/DateStringFormatter.m; sourceTree = "<group>"; };
 		C9ACC7D5184E72AB00E5945D /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = images/settings.png; sourceTree = "<group>"; };
 		C9ACC7D6184E72AB00E5945D /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "images/settings@2x.png"; sourceTree = "<group>"; };
 		C9ACC7D9184E892400E5945D /* WineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineCell.h; path = views/WineCell.h; sourceTree = "<group>"; };
@@ -854,6 +857,8 @@
 				C969342D1875EF520071EF41 /* MotionEffects.m */,
 				C969353A187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.h */,
 				C969353B187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.m */,
+				C9A337E918861E810089D020 /* DateStringFormatter.h */,
+				C9A337EA18861E810089D020 /* DateStringFormatter.m */,
 			);
 			name = "supporting classes";
 			sourceTree = "<group>";
@@ -1118,6 +1123,7 @@
 				C9C7D6151840168700A2E955 /* SearchableCDTVC.m in Sources */,
 				C9693528187BD5160071EF41 /* Brand.m in Sources */,
 				C9061E3A181F216C003D8A55 /* RestaurantCDTVC.m in Sources */,
+				C9A337EB18861E810089D020 /* DateStringFormatter.m in Sources */,
 				C91F59C5184581C900CF7F18 /* RestaurantGroupManagerTVC.m in Sources */,
 				C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */,
 				C991FBAD1862BE6E00C10B52 /* ReviewersCVC.m in Sources */,
