@@ -9,6 +9,7 @@
 #import "UserRatingCVController.h"
 #import "UserRatingCVC.h"
 #import "ColorSchemer.h"
+#import "MotionEffects.h"
 
 #define USER_RATING_CELL @"UserRatingCell"
 #define REVIEW_CELL @"ReviewCell"
@@ -136,6 +137,10 @@
 -(void)launchFullReviewVC
 {
     NSLog(@"launchFullReviewVC");
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Coming soon!" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"Ok",nil];
+    [MotionEffects addMotionEffectsToView:alert];
+    [alert show];
 }
 
 

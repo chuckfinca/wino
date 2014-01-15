@@ -45,7 +45,7 @@
 	// Do any additional setup after loading the view.
     [self.collectionView registerNib:[UINib nibWithNibName:TASTING_RECORD_CELL bundle:nil] forCellWithReuseIdentifier:TASTING_RECORD_CELL];
     self.collectionView.showsHorizontalScrollIndicator = NO;
-    self.title = @"Timeline";
+    self.title = @"My Timeline";
     self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
     
     [self setupSizingCell];
