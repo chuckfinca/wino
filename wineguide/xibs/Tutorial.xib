@@ -33,7 +33,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24F-T8-sNi" customClass="RoundedRectButton">
-                    <rect key="frame" x="20" y="267" width="280" height="44"/>
+                    <rect key="frame" x="20" y="289" width="280" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="DUA-8w-bqu"/>
@@ -55,7 +55,7 @@
                 <constraint firstItem="0Vb-DW-1wc" firstAttribute="centerX" secondItem="MF3-GY-a5y" secondAttribute="centerX" id="Ztx-5n-buJ"/>
                 <constraint firstAttribute="trailing" secondItem="24F-T8-sNi" secondAttribute="trailing" constant="20" id="gFy-f5-zam"/>
                 <constraint firstItem="24F-T8-sNi" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="iYY-DA-wMb"/>
-                <constraint firstItem="24F-T8-sNi" firstAttribute="top" secondItem="0Vb-DW-1wc" secondAttribute="bottom" constant="8" id="qEb-1P-nPD"/>
+                <constraint firstItem="24F-T8-sNi" firstAttribute="top" secondItem="0Vb-DW-1wc" secondAttribute="bottom" constant="30" id="qEb-1P-nPD"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

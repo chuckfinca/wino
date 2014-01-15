@@ -76,7 +76,7 @@
         self.topSpaceLayoutConstraint.constant = 0;
     }
     
-    [self.view setNeedsLayout];
+    [self.view setNeedsUpdateConstraints];
 }
 
 - (void)didReceiveMemoryWarning
