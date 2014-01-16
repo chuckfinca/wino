@@ -111,8 +111,6 @@
     NSError *error;
     self.tastingRecords = [self.context executeFetchRequest:request error:&error];
     
-    NSLog(@"%@",self.tastingRecords);
-    
     if([self.tastingRecords count] == 0){
         /*
         InstructionsVC *instructions = [[InstructionsVC alloc] init];
@@ -166,15 +164,13 @@
 
  -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
  {
-     NSLog(@"aaa");
      TastingRecordCVCell *cell = (TastingRecordCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
      
      for(UserRatingCVC *userRatingCell in cell.userRatingsController.collectionView.visibleCells){
  
-         CGPoint touchLocationInWineCardCell = [collectionView.panGestureRecognizer locationInView:cell.userRatingsController.collectionView];
+         CGPoint touchLocation = [collectionView.panGestureRecognizer locationInView:cell.userRatingsController.collectionView];
  
-         if(CGRectContainsPoint(userRatingCell.frame, touchLocationInWineCardCell)){
-             NSLog(@"bbb");
+         if(CGRectContainsPoint(userRatingCell.frame, touchLocation)){
              [cell.userRatingsController collectionView:cell.userRatingsController.collectionView didSelectItemAtIndexPath:[cell.userRatingsController.collectionView indexPathForCell:userRatingCell]];
          }
      }

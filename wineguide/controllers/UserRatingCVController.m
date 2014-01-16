@@ -142,7 +142,7 @@
 {
     NSLog(@"launchFullReviewVC");
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Coming soon!" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"Ok",nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"In-depth reviews coming soon!" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"Ok",nil];
     [MotionEffects addMotionEffectsToView:alert];
     [alert show];
 }
