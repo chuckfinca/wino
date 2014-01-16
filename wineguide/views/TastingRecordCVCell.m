@@ -7,7 +7,6 @@
 //
 
 #import "TastingRecordCVCell.h"
-#import "UserRatingCVController.h"
 #import "WineNameVHTV.h"
 #import "VariableHeightTV.h"
 #import "Review.h"
@@ -25,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (weak, nonatomic) IBOutlet VariableHeightTV *userNoteVHTV;
 @property (weak, nonatomic) IBOutlet UIView *userRatingView;
-@property (nonatomic, strong) UserRatingCVController *userRatingsController;
 @property (nonatomic, strong) TastingRecord *tastingRecord;
 @property (nonatomic, strong) Review *review;
 @end

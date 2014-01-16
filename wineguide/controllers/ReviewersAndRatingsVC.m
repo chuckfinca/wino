@@ -173,8 +173,10 @@
         
     } else if (collectionView.tag == ReviewersCollectionView){
         ReviewersCVC *reviewerCell = (ReviewersCVC *)[collectionView dequeueReusableCellWithReuseIdentifier:REVIEWS_COLLECTION_VIEW_CELL forIndexPath:indexPath];
-        [reviewerCell.userAvatarButton setImage:[self randomAvatarGenerator] forState:UIControlStateNormal];
-        reviewerCell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+        if(!reviewerCell.userAvatarButton.imageView.image){
+            [reviewerCell.userAvatarButton setImage:[self randomAvatarGenerator] forState:UIControlStateNormal];
+            reviewerCell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+        }
         
         cell = reviewerCell;
     }
@@ -204,44 +206,45 @@
     }
 }
 
-    -(UIImage *)randomAvatarGenerator
-    {
-        UIImage *image;
-        
-        int number = arc4random_uniform(4);
-        switch (number) {
-            case 0:
-                image = [UIImage imageNamed:@"user_alan.png"];
-                break;
-            case 1:
-                image = [UIImage imageNamed:@"user_derek.png"];
-                break;
-            case 2:
-                image = [UIImage imageNamed:@"user_lisa.png"];
-                break;
-            case 3:
-                image = [UIImage imageNamed:@"user_arturo.png"];
-                break;
-                
-            default:
-                break;
-        }
-        
-        return image;
+
+-(UIImage *)randomAvatarGenerator
+{
+    UIImage *image;
+    
+    int number = arc4random_uniform(4);
+    switch (number) {
+        case 0:
+            image = [UIImage imageNamed:@"user_alan.png"];
+            break;
+        case 1:
+            image = [UIImage imageNamed:@"user_derek.png"];
+            break;
+        case 2:
+            image = [UIImage imageNamed:@"user_lisa.png"];
+            break;
+        case 3:
+            image = [UIImage imageNamed:@"user_arturo.png"];
+            break;
+            
+        default:
+            break;
     }
     
+    return image;
+}
+
 #pragma mark - UICollectionViewDelegate
-    
-    
-    
-    
-    
-    
-    
-    - (void)didReceiveMemoryWarning
-    {
-        [super didReceiveMemoryWarning];
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @end
+
+
+
+
+
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end

@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "TastingRecord.h"
+#import "UserRatingCVController.h"
 
 @interface TastingRecordCVCell : UICollectionViewCell
+
+@property (nonatomic, strong) UserRatingCVController *userRatingsController;
 
 -(void)setupCellWithTastingRecord:(TastingRecord *)tastingRecord;
 -(float)cellHeight;

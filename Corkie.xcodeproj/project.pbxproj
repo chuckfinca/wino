@@ -150,13 +150,13 @@
 		C991FBBE1863A14700C10B52 /* ReviewerCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C991FBBD1863A14700C10B52 /* ReviewerCVC.xib */; };
 		C991FBC51863A7DE00C10B52 /* TimelineCVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C991FBC41863A7DE00C10B52 /* TimelineCVController.m */; };
 		C9A337EB18861E810089D020 /* DateStringFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A337EA18861E810089D020 /* DateStringFormatter.m */; };
+		C9A337EE1886FD8B0089D020 /* InstructionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A337ED1886FD8B0089D020 /* InstructionsVC.m */; };
 		C9ACC7D7184E72AB00E5945D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D5184E72AB00E5945D /* settings.png */; };
 		C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D6184E72AB00E5945D /* settings@2x.png */; };
 		C9ACC7DB184E892400E5945D /* WineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC7DA184E892400E5945D /* WineCell.m */; };
 		C9ACC7DD184E8C3600E5945D /* WineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7DC184E8C3600E5945D /* WineCell.xib */; };
 		C9C6A21018568ABE00CFBBD5 /* brands.json in Resources */ = {isa = PBXBuildFile; fileRef = C9C6A20F18568ABE00CFBBD5 /* brands.json */; };
 		C9C6A21318569A9E00CFBBD5 /* AddGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A21218569A9E00CFBBD5 /* AddGroupCell.m */; };
-		C9C6A21D18592AC300CFBBD5 /* WineCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A21C18592AC300CFBBD5 /* WineCardCell.m */; };
 		C9C6A21F18592AEF00CFBBD5 /* WineCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C6A21E18592AEF00CFBBD5 /* WineCardCell.xib */; };
 		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
 		C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EE183FE6E400A2E955 /* RestaurantDetailsVHTV.m */; };
@@ -419,6 +419,8 @@
 		C991FBC41863A7DE00C10B52 /* TimelineCVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineCVController.m; path = controllers/TimelineCVController.m; sourceTree = "<group>"; };
 		C9A337E918861E810089D020 /* DateStringFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateStringFormatter.h; path = supportingClasses/DateStringFormatter.h; sourceTree = "<group>"; };
 		C9A337EA18861E810089D020 /* DateStringFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateStringFormatter.m; path = supportingClasses/DateStringFormatter.m; sourceTree = "<group>"; };
+		C9A337EC1886FD8B0089D020 /* InstructionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsVC.h; path = controllers/InstructionsVC.h; sourceTree = "<group>"; };
+		C9A337ED1886FD8B0089D020 /* InstructionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsVC.m; path = controllers/InstructionsVC.m; sourceTree = "<group>"; };
 		C9ACC7D5184E72AB00E5945D /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = images/settings.png; sourceTree = "<group>"; };
 		C9ACC7D6184E72AB00E5945D /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "images/settings@2x.png"; sourceTree = "<group>"; };
 		C9ACC7D9184E892400E5945D /* WineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineCell.h; path = views/WineCell.h; sourceTree = "<group>"; };
@@ -429,8 +431,6 @@
 		C9C6A20F18568ABE00CFBBD5 /* brands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = brands.json; path = model/json/brands.json; sourceTree = "<group>"; };
 		C9C6A21118569A9E00CFBBD5 /* AddGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupCell.h; path = views/AddGroupCell.h; sourceTree = "<group>"; };
 		C9C6A21218569A9E00CFBBD5 /* AddGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddGroupCell.m; path = views/AddGroupCell.m; sourceTree = "<group>"; };
-		C9C6A21B18592AC300CFBBD5 /* WineCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineCardCell.h; path = views/WineCardCell.h; sourceTree = "<group>"; };
-		C9C6A21C18592AC300CFBBD5 /* WineCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineCardCell.m; path = views/WineCardCell.m; sourceTree = "<group>"; };
 		C9C6A21E18592AEF00CFBBD5 /* WineCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineCardCell.xib; path = xibs/WineCardCell.xib; sourceTree = "<group>"; };
 		C9C7D5EA183FDE5600A2E955 /* ColorSchemer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSchemer.h; path = model/ColorSchemer.h; sourceTree = "<group>"; };
 		C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSchemer.m; path = model/ColorSchemer.m; sourceTree = "<group>"; };
@@ -631,6 +631,8 @@
 				C932F16418734E670079680C /* UserRatingCVController.m */,
 				C9693537187E39FE0071EF41 /* CheckInVC.h */,
 				C9693538187E39FE0071EF41 /* CheckInVC.m */,
+				C9A337EC1886FD8B0089D020 /* InstructionsVC.h */,
+				C9A337ED1886FD8B0089D020 /* InstructionsVC.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -646,8 +648,6 @@
 				C9ACC7DA184E892400E5945D /* WineCell.m */,
 				C9C6A21118569A9E00CFBBD5 /* AddGroupCell.h */,
 				C9C6A21218569A9E00CFBBD5 /* AddGroupCell.m */,
-				C9C6A21B18592AC300CFBBD5 /* WineCardCell.h */,
-				C9C6A21C18592AC300CFBBD5 /* WineCardCell.m */,
 				C95A2CBD185A31980043ECB0 /* SpringyFlowLayout.h */,
 				C95A2CBE185A31980043ECB0 /* SpringyFlowLayout.m */,
 				C95A2CC4185B87930043ECB0 /* RestaurantGroupCell.h */,
@@ -1150,7 +1150,6 @@
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,
 				C98DEFB018217BE70038216C /* RestaurantDataHelper.m in Sources */,
 				C9D078421845252000F47851 /* PanelsContainerViewController.m in Sources */,
-				C9C6A21D18592AC300CFBBD5 /* WineCardCell.m in Sources */,
 				C991FBA118625F3B00C10B52 /* CollectionViewWithIndex.m in Sources */,
 				C95E2DB71865023C0050DFAC /* UserActionCVC.m in Sources */,
 				C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */,
@@ -1165,6 +1164,7 @@
 				C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */,
 				C92932D2182AD8E80035C93C /* GroupDataHelper.m in Sources */,
 				C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */,
+				C9A337EE1886FD8B0089D020 /* InstructionsVC.m in Sources */,
 				C9061DFB181F07CE003D8A55 /* main.m in Sources */,
 				C969347818779F1B0071EF41 /* TastingRecord+CreateAndModify.m in Sources */,
 				C92932D5182AD9040035C93C /* WineUnitDataHelper.m in Sources */,

@@ -15,6 +15,7 @@
 #import "TastingRecord.h"
 #import "TastingRecordCVCell.h"
 #import "Review.h"
+#import "InstructionsVC.h"
 
 #define TASTING_RECORD_CELL @"TastingRecordCVCell"
 #define TASTING_RECORD_ENTITY @"TastingRecord"
@@ -45,7 +46,7 @@
 	// Do any additional setup after loading the view.
     [self.collectionView registerNib:[UINib nibWithNibName:TASTING_RECORD_CELL bundle:nil] forCellWithReuseIdentifier:TASTING_RECORD_CELL];
     self.collectionView.showsHorizontalScrollIndicator = NO;
-    self.title = @"My Timeline";
+    self.navigationItem.title = @"My Timeline";
     self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
     
     [self setupSizingCell];
@@ -109,6 +110,16 @@
     
     NSError *error;
     self.tastingRecords = [self.context executeFetchRequest:request error:&error];
+    
+    NSLog(@"%@",self.tastingRecords);
+    
+    if([self.tastingRecords count] == 0){
+        /*
+        InstructionsVC *instructions = [[InstructionsVC alloc] init];
+        instructions.view.frame = self.collectionView.frame;
+        [self.view addSubview:instructions.view];
+         */
+    }
 }
 
 -(void)logDetailsOfTastingRecord:(TastingRecord *)tastingRecord
@@ -152,21 +163,23 @@
 
 
 #pragma mark - UICollectionViewDelegate
-/*
+
  -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
  {
- WineCardCell *wineCardCell = (WineCardCell *)[collectionView cellForItemAtIndexPath:indexPath];
+     NSLog(@"aaa");
+     TastingRecordCVCell *cell = (TastingRecordCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
+     
+     for(UserRatingCVC *userRatingCell in cell.userRatingsController.collectionView.visibleCells){
  
- for(UserRatingCVC *userRatingCell in wineCardCell.userRatingsController.collectionView.visibleCells){
+         CGPoint touchLocationInWineCardCell = [collectionView.panGestureRecognizer locationInView:cell.userRatingsController.collectionView];
  
- CGPoint touchLocationInWineCardCell = [collectionView.panGestureRecognizer locationInView:wineCardCell.userRatingsController.collectionView];
- 
- if(CGRectContainsPoint(userRatingCell.frame, touchLocationInWineCardCell)){
- [wineCardCell.userRatingsController collectionView:wineCardCell.userRatingsController.collectionView didSelectItemAtIndexPath:[wineCardCell.userRatingsController.collectionView indexPathForCell:userRatingCell]];
+         if(CGRectContainsPoint(userRatingCell.frame, touchLocationInWineCardCell)){
+             NSLog(@"bbb");
+             [cell.userRatingsController collectionView:cell.userRatingsController.collectionView didSelectItemAtIndexPath:[cell.userRatingsController.collectionView indexPathForCell:userRatingCell]];
+         }
+     }
  }
- }
- }
- */
+
 
 
 

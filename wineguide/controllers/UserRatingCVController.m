@@ -116,6 +116,10 @@
                 }
             }
         }
+    } else if(indexPath.row == 5){
+        
+        NSLog(@"ccc");
+        [self launchFullReviewVC];
     }
 }
 

@@ -122,7 +122,19 @@
     ReviewTVC *cell = [tableView dequeueReusableCellWithIdentifier:REVIEW_CELL forIndexPath:indexPath];
     
     // Configure the cell...
-    [cell setupReview];
+    [cell setupReviewForWineColor:self.wine.color];
+    
+    [cell.userImageButton addTarget:self action:@selector(userProfileButton:) forControlEvents:UIControlEventTouchUpInside];
+    cell.userImageButton.tag = indexPath.row;
+    
+    [cell.userNameButton addTarget:self action:@selector(userProfileButton:) forControlEvents:UIControlEventTouchUpInside];
+    cell.userNameButton.tag = indexPath.row;
+    
+    [cell.followUserButton addTarget:self action:@selector(followUser:) forControlEvents:UIControlEventTouchUpInside];
+    cell.userNameButton.tag = indexPath.row;
+    
+    
+    
     //cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"review" attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     
     return cell;
@@ -167,7 +179,7 @@
 {
     [self dismissViewControllerAnimated:YES completion:^{}];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wine has been added to your timeline!" message:nil delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Wine has been added to your timeline!" delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
     alert.tintColor = [ColorSchemer sharedInstance].textLink;
     
     [MotionEffects addMotionEffectsToView:alert];
@@ -196,6 +208,23 @@
 {
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
+
+
+#pragma mark - Target Action
+
+-(IBAction)userProfileButton:(UIButton *)sender
+{
+    NSLog(@"userProfileButton");
+    NSLog(@"button tag = %ld",(long)sender.tag);
+}
+
+-(IBAction)followUser:(UIButton *)sender
+{
+    NSLog(@"followUser");
+    NSLog(@"button tag = %ld",(long)sender.tag);
+}
+
+
 
 
 @end

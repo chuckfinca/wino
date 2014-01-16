@@ -60,7 +60,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"CheckInVC viewDidLoad...");
 	// Do any additional setup after loading the view.
 }
 
@@ -216,7 +215,7 @@
         [self.delegate dismissAfterTastingRecordCreation];
         
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please provide a wine glass rating." message:nil delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please provide a wine glass rating." delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
         alert.tintColor = [ColorSchemer sharedInstance].textLink;
         
         [MotionEffects addMotionEffectsToView:alert];

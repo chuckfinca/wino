@@ -10,6 +10,10 @@
 
 @interface ReviewTVC : UITableViewCell
 
--(void)setupReview;
+@property (weak, nonatomic) IBOutlet UIButton *userImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *userNameButton;
+@property (weak, nonatomic) IBOutlet UIButton *followUserButton;
+
+-(void)setupReviewForWineColor:(NSString *)wineColor;
 
 @end
