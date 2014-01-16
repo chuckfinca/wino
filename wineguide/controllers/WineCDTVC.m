@@ -149,6 +149,30 @@
     return view;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ReviewTVC *cell = (ReviewTVC *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    CGPoint touchLocation = [tableView.panGestureRecognizer locationInView:cell];
+    //[tableView.panGestureRecognizer locationInView:cell.userRatingsController.collectionView];
+    
+    if(CGRectContainsPoint(cell.userImageButton.frame, touchLocation) || CGRectContainsPoint(cell.userNameButton.frame, touchLocation)){
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"User profiles coming soon!" delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+        alert.tintColor = [ColorSchemer sharedInstance].textLink;
+        
+        [MotionEffects addMotionEffectsToView:alert];
+        [alert show];
+    } else if(CGRectContainsPoint(cell.followUserButton.frame, touchLocation)){
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Following/followers coming soon!" delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+        alert.tintColor = [ColorSchemer sharedInstance].textLink;
+        
+        [MotionEffects addMotionEffectsToView:alert];
+        [alert show];
+    }
+}
+
 
 #pragma mark - WineDetailsVcDelegate
 

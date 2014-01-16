@@ -113,9 +113,9 @@
     
     if([self.tastingRecords count] == 0){
         /*
-        InstructionsVC *instructions = [[InstructionsVC alloc] init];
-        instructions.view.frame = self.collectionView.frame;
-        [self.view addSubview:instructions.view];
+         InstructionsVC *instructions = [[InstructionsVC alloc] init];
+         instructions.view.frame = self.collectionView.frame;
+         [self.view addSubview:instructions.view];
          */
     }
 }
@@ -162,19 +162,19 @@
 
 #pragma mark - UICollectionViewDelegate
 
- -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
- {
-     TastingRecordCVCell *cell = (TastingRecordCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
-     
-     for(UserRatingCVC *userRatingCell in cell.userRatingsController.collectionView.visibleCells){
- 
-         CGPoint touchLocation = [collectionView.panGestureRecognizer locationInView:cell.userRatingsController.collectionView];
- 
-         if(CGRectContainsPoint(userRatingCell.frame, touchLocation)){
-             [cell.userRatingsController collectionView:cell.userRatingsController.collectionView didSelectItemAtIndexPath:[cell.userRatingsController.collectionView indexPathForCell:userRatingCell]];
-         }
-     }
- }
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TastingRecordCVCell *cell = (TastingRecordCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    for(UserRatingCVC *userRatingCell in cell.userRatingsController.collectionView.visibleCells){
+        
+        CGPoint touchLocation = [collectionView.panGestureRecognizer locationInView:cell.userRatingsController.collectionView];
+        
+        if(CGRectContainsPoint(userRatingCell.frame, touchLocation)){
+            [cell.userRatingsController collectionView:cell.userRatingsController.collectionView didSelectItemAtIndexPath:[cell.userRatingsController.collectionView indexPathForCell:userRatingCell]];
+        }
+    }
+}
 
 
 

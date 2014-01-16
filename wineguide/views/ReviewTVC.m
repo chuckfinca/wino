@@ -55,6 +55,7 @@
 {
     // the view should just take the review object from the view controller and display it accordingly
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self setWineColorFromString:wineColor];
     
     UIImage *profileImage = [self randomAvatarGenerator];
