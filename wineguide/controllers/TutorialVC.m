@@ -43,13 +43,20 @@
     self.pageController.dataSource = self;
     [self.pageController.view setFrame:self.view.bounds];
     
-    TutorialDetailsVC *initialViewController = [self viewControllerAtIndex:0];
+    [self setupPageForIndex:0 animated:NO];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveToNextPage) name:@"Continue To Next Page" object:nil];
+}
+
+-(void)setupPageForIndex:(int)index animated:(BOOL)animated
+{
+    TutorialDetailsVC *initialViewController = [self viewControllerAtIndex:index];
     
     NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
     
     [self.pageController setViewControllers:viewControllers
                                   direction:UIPageViewControllerNavigationDirectionForward
-                                   animated:NO
+                                   animated:animated
                                  completion:nil];
     
     [self addChildViewController:self.pageController];
@@ -117,5 +124,10 @@
     return 0;
 }
 
+
+-(void)moveToNextPage
+{
+    [self setupPageForIndex:1 animated:YES];
+}
 
 @end
