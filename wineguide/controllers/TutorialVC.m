@@ -33,7 +33,6 @@
 	// Do any additional setup after loading the view.
     
     
-    
     [self setupPageControl];
     
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
@@ -46,6 +45,12 @@
     [self setupPageForIndex:0 animated:NO];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveToNextPage) name:@"Continue To Next Page" object:nil];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 
 -(void)setupPageForIndex:(int)index animated:(BOOL)animated

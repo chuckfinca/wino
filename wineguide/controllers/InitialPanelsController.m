@@ -120,6 +120,7 @@
 
 -(void)dismissTutorial:(NSNotification *)notification
 {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.tutorialVC.view.alpha = 0;
     } completion:^(BOOL finished) {
