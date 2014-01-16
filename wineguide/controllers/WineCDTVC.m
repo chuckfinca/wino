@@ -159,14 +159,14 @@
     if(CGRectContainsPoint(cell.userImageButton.frame, touchLocation) || CGRectContainsPoint(cell.userNameButton.frame, touchLocation)){
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"User profiles coming soon!" delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
-        alert.tintColor = [ColorSchemer sharedInstance].textLink;
+        alert.tintColor = [ColorSchemer sharedInstance].clickable;
         
         [MotionEffects addMotionEffectsToView:alert];
         [alert show];
     } else if(CGRectContainsPoint(cell.followUserButton.frame, touchLocation)){
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Following/followers coming soon!" delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
-        alert.tintColor = [ColorSchemer sharedInstance].textLink;
+        alert.tintColor = [ColorSchemer sharedInstance].clickable;
         
         [MotionEffects addMotionEffectsToView:alert];
         [alert show];
@@ -204,7 +204,7 @@
     [self dismissViewControllerAnimated:YES completion:^{}];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Wine has been added to your timeline!" delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
-    alert.tintColor = [ColorSchemer sharedInstance].textLink;
+    alert.tintColor = [ColorSchemer sharedInstance].clickable;
     
     [MotionEffects addMotionEffectsToView:alert];
     [alert show];

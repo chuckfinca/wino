@@ -61,7 +61,8 @@
     UIImage *profileImage = [self randomAvatarGenerator];
     profileImage = [profileImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [self.userImageButton setImage:profileImage forState:UIControlStateNormal];
-    self.userImageButton.tintColor = [UIColor orangeColor];
+    self.userNameButton.tintColor = [ColorSchemer sharedInstance].clickable;
+    self.followUserButton.tintColor = [ColorSchemer sharedInstance].clickable;
     [self randomRatingGenerator];
     
 }

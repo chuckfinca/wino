@@ -90,7 +90,7 @@
     reviewButton.frame = rect;
     [reviewButton addTarget:self action:@selector(launchFullReviewVC) forControlEvents:UIControlEventTouchUpInside];
     
-    NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"Review" attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textLink, NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote]}];
+    NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"Review" attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].clickable, NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote]}];
     
     [reviewButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
     reviewButton.titleLabel.numberOfLines = 0;

@@ -17,7 +17,7 @@
 @property (nonatomic, readwrite) UIColor *textPrimary;
 @property (nonatomic, readwrite) UIColor *textSecondary;
 @property (nonatomic, readwrite) UIColor *textPlaceholder;
-@property (nonatomic, readwrite) UIColor *textLink;
+@property (nonatomic, readwrite) UIColor *clickable;
 
 @property (nonatomic, readwrite) UIColor *customWhite;
 
@@ -75,11 +75,12 @@ static ColorSchemer *sharedInstance;
     return _textPlaceholder;
 }
 
--(UIColor *)textLink
+-(UIColor *)clickable
 {
-    if(!_textLink) _textLink = [UIColor colorWithRed:0.603922F green:0.803922F blue:0.388235F alpha:1.0F]; // light yellow green
+    if(!_clickable) _clickable = [UIColor colorWithRed:0.149020F green:0.505882F blue:0.745098F alpha:1.0F]; // light blue
+        //[UIColor colorWithRed:0.603922F green:0.803922F blue:0.388235F alpha:1.0F]; // light yellow green
         //[UIColor colorWithRed:0.666667f green:0.470588f blue:0.650980f alpha:1.0]; // purple
-    return _textLink;
+    return _clickable;
 }
 
 -(UIColor *)customWhite
@@ -150,7 +151,7 @@ static ColorSchemer *sharedInstance;
     self.baseColor = [UIColor orangeColor];
     self.textPrimary = [UIColor redColor];
     self.textSecondary = [UIColor greenColor];
-    self.textLink = [UIColor brownColor];
+    self.clickable = [UIColor brownColor];
     self.customWhite = [UIColor purpleColor];
     self.customBackgroundColor = [UIColor blueColor];
     self.menuBackgroundColor = [UIColor lightGrayColor];

@@ -27,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *userActionsCollectionView;
 @property (nonatomic, strong) ReviewersAndRatingsVC *reviewersAndRatingsVC;
 @property (nonatomic, strong) UILabel *cellarLabel;
-@property (weak, nonatomic) IBOutlet UIButton *purchaseButton;
 
 @end
 
@@ -128,6 +127,8 @@
             [self displayCellarMessage];
             
             break;
+        case 2:
+            [self purchaseWine];
             
         default:
             break;
@@ -162,7 +163,7 @@
     self.wine.favorite = @(favorite);
 }
 
-- (IBAction)purchaseWine:(UIButton *)sender
+- (void)purchaseWine
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Bottle purchases coming soon!" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"Ok",nil];
     [MotionEffects addMotionEffectsToView:alert];

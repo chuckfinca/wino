@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.view.tintColor = [ColorSchemer sharedInstance].baseColor;
+    self.view.tintColor = [ColorSchemer sharedInstance].clickable;
     self.selectedIndex = 1;
 }
 

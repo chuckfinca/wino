@@ -143,7 +143,7 @@
 {
     if(!self.locationServicesEnabled){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Corkie would like to use your location." message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
-        alert.tintColor = [ColorSchemer sharedInstance].textLink;
+        alert.tintColor = [ColorSchemer sharedInstance].clickable;
         
         [MotionEffects addMotionEffectsToView:alert];
     }

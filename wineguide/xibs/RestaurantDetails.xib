@@ -42,6 +42,7 @@
                         <segment title=""/>
                         <segment title=""/>
                     </segments>
+                    <color key="tintColor" red="0.14901961389999999" green="0.50588238240000005" blue="0.74509805439999999" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <action selector="refreshList:" destination="-1" eventType="valueChanged" id="3jG-Y5-23Q"/>
                     </connections>

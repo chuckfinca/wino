@@ -63,6 +63,8 @@
 		C932F16118728F500079680C /* glass.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F15F18728F500079680C /* glass.png */; };
 		C932F16218728F500079680C /* glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F16018728F500079680C /* glass@2x.png */; };
 		C932F16518734E670079680C /* UserRatingCVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F16418734E670079680C /* UserRatingCVController.m */; };
+		C947F06D1888A18700123B69 /* userAction_purchase.png in Resources */ = {isa = PBXBuildFile; fileRef = C947F06B1888A18700123B69 /* userAction_purchase.png */; };
+		C947F06E1888A18700123B69 /* userAction_purchase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C947F06C1888A18700123B69 /* userAction_purchase@2x.png */; };
 		C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */; };
 		C9487D0C182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */; };
 		C9487D0D182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */; };
@@ -291,6 +293,8 @@
 		C932F16018728F500079680C /* glass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glass@2x.png"; path = "images/glass@2x.png"; sourceTree = "<group>"; };
 		C932F16318734E670079680C /* UserRatingCVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRatingCVController.h; path = controllers/UserRatingCVController.h; sourceTree = "<group>"; };
 		C932F16418734E670079680C /* UserRatingCVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRatingCVController.m; path = controllers/UserRatingCVController.m; sourceTree = "<group>"; };
+		C947F06B1888A18700123B69 /* userAction_purchase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = userAction_purchase.png; path = images/userAction_purchase.png; sourceTree = "<group>"; };
+		C947F06C1888A18700123B69 /* userAction_purchase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_purchase@2x.png"; path = "images/userAction_purchase@2x.png"; sourceTree = "<group>"; };
 		C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.leszygomates.129southstreet.json; path = model/json/restaurant.leszygomates.129southstreet.json; sourceTree = "<group>"; };
 		C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "restaurant.strega-waterfront.1marinaparkdrive.json"; path = "model/json/restaurant.strega-waterfront.1marinaparkdrive.json"; sourceTree = "<group>"; };
 		C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.tico.222berkeleystreet.json; path = model/json/restaurant.tico.222berkeleystreet.json; sourceTree = "<group>"; };
@@ -706,6 +710,8 @@
 				C95E2DBA186510050050DFAC /* userAction_cellar@2x.png */,
 				C932F1101868EE6E0079680C /* userAction_cellared.png */,
 				C932F1111868EE6E0079680C /* userAction_cellared@2x.png */,
+				C947F06B1888A18700123B69 /* userAction_purchase.png */,
+				C947F06C1888A18700123B69 /* userAction_purchase@2x.png */,
 				C95E2DBB186510050050DFAC /* tab_cellar.png */,
 				C95E2DBC186510050050DFAC /* tab_cellar@2x.png */,
 				C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */,
@@ -1012,8 +1018,10 @@
 				C9ACC7D7184E72AB00E5945D /* settings.png in Resources */,
 				C9C7D6361841933900A2E955 /* tutorial_favorites@2x.png in Resources */,
 				C92CAE3418330CC700F29C9B /* group.restaurant.leszygomates.129southstreet.all.json in Resources */,
+				C947F06E1888A18700123B69 /* userAction_purchase@2x.png in Resources */,
 				C932F15E18728E250079680C /* bottle@2x.png in Resources */,
 				C991FB9B186115CA00C10B52 /* user_derek@2x.png in Resources */,
+				C947F06D1888A18700123B69 /* userAction_purchase.png in Resources */,
 				C95E2DB4186501010050DFAC /* UserActionCell.xib in Resources */,
 				C991FB8D1861110200C10B52 /* glass_empty.png in Resources */,
 				C95A2CDC185C02300043ECB0 /* button_favorited.png in Resources */,

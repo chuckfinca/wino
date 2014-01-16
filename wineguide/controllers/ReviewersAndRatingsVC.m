@@ -104,7 +104,7 @@
     
     if(self.favorite){
         [numFriendsAttributedText addAttribute:NSForegroundColorAttributeName
-                                         value:[ColorSchemer sharedInstance].textLink
+                                         value:[ColorSchemer sharedInstance].clickable
                                          range:NSMakeRange(2, 3)];
         
         UIFontDescriptor *fontDesciptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleFootnote];

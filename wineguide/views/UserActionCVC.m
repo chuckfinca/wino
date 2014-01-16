@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UIImage *triedItImage;
 @property (nonatomic, strong) UIImage *cellarImage;
 @property (nonatomic, strong) UIImage *cellaredImage;
+@property (nonatomic, strong) UIImage *purchaseImage;
 
 
 @end
@@ -54,15 +55,20 @@
                 title = @"Cellar";
             }
             break;
+        case 2:
+            image = self.purchaseImage;
+            title = @"Buy";
+            break;
             
         default:
             break;
     }
     [self.actionImageView setImage:image];
     
-    self.actionTitle.attributedText = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].baseColor}];
+    self.actionTitle.attributedText = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].clickable}];
     
     self.actionImageView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.actionImageView.tintColor = [ColorSchemer sharedInstance].clickable;
     self.actionTitle.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
@@ -70,22 +76,27 @@
 
 -(UIImage *)triedItImage
 {
-    if(!_triedItImage) _triedItImage = [UIImage imageNamed:@"userAction_triedIt.png"];
+    if(!_triedItImage) _triedItImage = [[UIImage imageNamed:@"userAction_triedIt.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     return _triedItImage;
 }
 
 -(UIImage *)cellarImage
 {
-    if(!_cellarImage) _cellarImage = [UIImage imageNamed:@"userAction_cellar.png"];
+    if(!_cellarImage) _cellarImage = [[UIImage imageNamed:@"userAction_cellar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     return _cellarImage;
 }
 
 -(UIImage *)cellaredImage
 {
-    if(!_cellaredImage) _cellaredImage = [UIImage imageNamed:@"userAction_cellared.png"];
+    if(!_cellaredImage) _cellaredImage = [[UIImage imageNamed:@"userAction_cellared.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     return _cellaredImage;
 }
 
+-(UIImage *)purchaseImage
+{
+    if(!_purchaseImage) _purchaseImage = [[UIImage imageNamed:@"userAction_purchase.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    return _purchaseImage;
+}
 
 /*
  // Only override drawRect: if you perform custom drawing.
