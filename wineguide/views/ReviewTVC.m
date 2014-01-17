@@ -64,6 +64,7 @@
     self.userNameButton.tintColor = [ColorSchemer sharedInstance].textSecondary;
     self.followUserButton.tintColor = [ColorSchemer sharedInstance].clickable;
     [self randomRatingGenerator];
+    self.reviewTextView.textContainerInset = UIEdgeInsetsZero;
     
 }
 
