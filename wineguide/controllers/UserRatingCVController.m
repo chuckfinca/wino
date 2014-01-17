@@ -88,9 +88,11 @@
 {
     UIButton *reviewButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     reviewButton.frame = rect;
+    reviewButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    reviewButton.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [reviewButton addTarget:self action:@selector(launchFullReviewVC) forControlEvents:UIControlEventTouchUpInside];
     
-    NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"Review" attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].clickable, NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote]}];
+    NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"Review" attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote]}];
     
     [reviewButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
     reviewButton.titleLabel.numberOfLines = 0;
@@ -142,7 +144,7 @@
 {
     NSLog(@"launchFullReviewVC");
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"In-depth reviews coming soon!" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"Ok",nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"In-depth reviews coming soon." delegate:nil cancelButtonTitle:nil otherButtonTitles: @"Ok",nil];
     [MotionEffects addMotionEffectsToView:alert];
     [alert show];
 }

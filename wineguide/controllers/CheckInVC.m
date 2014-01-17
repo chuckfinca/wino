@@ -101,19 +101,13 @@
 
 -(void)setup
 {
-    self.title = @"Tried It";
-    [self.checkInButton setTitleColor:[ColorSchemer sharedInstance].customWhite forState: UIControlStateNormal];
-
-    
     [self setupBackground];
     [self setupHeaderView];
     [self setupUserRatingView];
-
     [self setupRestaurantButton];
     [self setupDateButton];
     [self setupCancelButton];
     [self setupCheckInButton];
-    
 }
 
 -(void)setupBackground
@@ -223,6 +217,23 @@
     }
 }
 
+- (IBAction)changeDate:(UIButton *)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Date changing coming soon." delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+    alert.tintColor = [ColorSchemer sharedInstance].clickable;
+    
+    [MotionEffects addMotionEffectsToView:alert];
+    [alert show];}
+
+- (IBAction)changeRestaurant:(UIButton *)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Restaurant changing coming soon." delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+    alert.tintColor = [ColorSchemer sharedInstance].clickable;
+    
+    [MotionEffects addMotionEffectsToView:alert];
+    [alert show];
+}
+
 #define IDENTIFIER @"identifier"
 #define DELETED_ENTITY @"deletedEntity"
 
@@ -281,7 +292,7 @@
     NSLog(@"segueToDateAndRestaurantEditVC...");
 }
 
-#pragma mark
+#pragma mark - UITextViewDelegate
 
 - (void)textViewDidChange:(UITextView *)txtView
 {
