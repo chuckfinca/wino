@@ -11,7 +11,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8x-Qx-jgM" customClass="VariableHeightTV">
-                    <rect key="frame" x="67" y="48" width="233" height="91"/>
+                    <rect key="frame" x="72" y="48" width="228" height="91"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -30,7 +30,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlB-9d-y0G">
-                    <rect key="frame" x="72" y="28" width="129" height="20"/>
+                    <rect key="frame" x="77" y="28" width="124" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="93n-bR-Rrt"/>
@@ -97,10 +97,10 @@
                 <constraint firstItem="1rN-AO-MMb" firstAttribute="top" secondItem="FUf-Uj-9LB" secondAttribute="top" id="8Mi-1Q-4kW"/>
                 <constraint firstItem="1rN-AO-MMb" firstAttribute="top" secondItem="oPa-rI-xXu" secondAttribute="top" id="KSb-El-7UK"/>
                 <constraint firstItem="E8x-Qx-jgM" firstAttribute="top" secondItem="PlB-9d-y0G" secondAttribute="bottom" id="LeX-Un-ECo"/>
-                <constraint firstItem="E8x-Qx-jgM" firstAttribute="leading" secondItem="enK-an-PFf" secondAttribute="trailing" constant="3" id="O8j-jq-APh"/>
+                <constraint firstItem="E8x-Qx-jgM" firstAttribute="leading" secondItem="enK-an-PFf" secondAttribute="trailing" constant="8" id="O8j-jq-APh"/>
                 <constraint firstItem="FUf-Uj-9LB" firstAttribute="leading" secondItem="1rN-AO-MMb" secondAttribute="trailing" constant="4" id="TD3-Xr-F0r"/>
                 <constraint firstItem="1rN-AO-MMb" firstAttribute="leading" secondItem="oPa-rI-xXu" secondAttribute="trailing" constant="4" id="VFW-R5-0Dt"/>
-                <constraint firstItem="PlB-9d-y0G" firstAttribute="leading" secondItem="RQG-gv-0QI" secondAttribute="trailing" constant="8" id="W8S-HF-Ku6"/>
+                <constraint firstItem="PlB-9d-y0G" firstAttribute="leading" secondItem="RQG-gv-0QI" secondAttribute="trailing" constant="13" id="W8S-HF-Ku6"/>
                 <constraint firstAttribute="trailing" secondItem="E8x-Qx-jgM" secondAttribute="trailing" constant="20" id="WAx-wK-jOZ"/>
                 <constraint firstItem="RQG-gv-0QI" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="Xc0-uE-RFc"/>
                 <constraint firstAttribute="bottom" secondItem="E8x-Qx-jgM" secondAttribute="bottom" constant="20" id="b6f-7J-4Wb"/>
