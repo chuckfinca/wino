@@ -84,6 +84,7 @@
     [self.segmentedControl setSelectedSegmentIndex:0];
     [self.delegate loadWineList:[self.segmentedControl selectedSegmentIndex]];
     self.segmentedControl.backgroundColor = [ColorSchemer sharedInstance].customWhite;
+    self.segmentedControl.tintColor = [ColorSchemer sharedInstance].clickable;
 }
 
 
