@@ -228,6 +228,7 @@
     return [TransitionAnimator_CheckInVC new];
 }
 
+
 -(IBAction)dismissCheckInVC:(UIStoryboardSegue *)unwindSegue
 {
     [self dismissViewControllerAnimated:YES completion:^{}];

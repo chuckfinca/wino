@@ -39,7 +39,7 @@
         toViewController.view.alpha = 0.0;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-            fromViewController.view.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
+            fromViewController.view.alpha = 0.5;
             toViewController.view.frame = endFrame;
             toViewController.view.alpha = 1.0;
         } completion:^(BOOL finished) {
@@ -55,7 +55,7 @@
         endFrame.origin.y += 500;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            toViewController.view.tintAdjustmentMode = UIViewTintAdjustmentModeAutomatic;
+            toViewController.view.alpha = 1.0;
             fromViewController.view.frame = endFrame;
         } completion:^(BOOL finished) {
             

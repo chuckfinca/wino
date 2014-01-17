@@ -77,7 +77,7 @@ static ColorSchemer *sharedInstance;
 
 -(UIColor *)clickable
 {
-    if(!_clickable) _clickable = [UIColor colorWithRed:0.149020F green:0.505882F blue:0.745098F alpha:1.0F]; // light blue
+    if(!_clickable) _clickable = [UIColor colorWithRed:0.207843F green:0.505882F blue:1.000000F alpha:1.0F]; // light blue
         //[UIColor colorWithRed:0.603922F green:0.803922F blue:0.388235F alpha:1.0F]; // light yellow green
         //[UIColor colorWithRed:0.666667f green:0.470588f blue:0.650980f alpha:1.0]; // purple
     return _clickable;
