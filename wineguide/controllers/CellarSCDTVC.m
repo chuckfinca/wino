@@ -17,6 +17,9 @@
 #define WINE_ENTITY @"Wine"
 #define WINE_CELL @"WineCell"
 
+#define HEADER_HEIGHT 120
+#define SEARCH_BAR_HEIGHT 44
+
 @interface CellarSCDTVC ()
 
 @end
@@ -36,10 +39,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self setupSearchBar];
     self.title = @"Cellar";
     [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
     self.tableView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    
+    [self setupHeader];
+
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -62,6 +67,17 @@
 
 
 #pragma mark - Setup
+
+-(void)setupHeader
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, HEADER_HEIGHT)];
+    self.searchBar.frame = CGRectMake(0, HEADER_HEIGHT-SEARCH_BAR_HEIGHT, 320, SEARCH_BAR_HEIGHT);
+    self.tableView.tableHeaderView = view;
+    [view addSubview:self.searchBar];
+    [self setupSearchBar];
+    
+    view.backgroundColor = [UIColor orangeColor];
+}
 
 -(void)setupSearchBar
 {
