@@ -383,5 +383,27 @@
     "versionNumber":"0",
     "wineIdentifiers":"",
     "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.bonarda",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"bonarda",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.chablis",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
   }
 ]

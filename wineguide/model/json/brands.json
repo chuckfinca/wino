@@ -818,5 +818,45 @@
     "website":"",
     "wineIdentifiers":"",
     "wines":""
+  },
+  {
+    "about":"",
+    "identifier":"brand.nietosenetiner",
+    "markForDeletion":"0",
+    "name":"nieto senetiner",
+    "version":"0",
+    "website":"",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "identifier":"brand.lightsout",
+    "markForDeletion":"0",
+    "name":"lights out",
+    "version":"0",
+    "website":"",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "identifier":"brand.pommier",
+    "markForDeletion":"0",
+    "name":"pommier",
+    "version":"0",
+    "website":"",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "identifier":"brand.decoy",
+    "markForDeletion":"0",
+    "name":"decoy",
+    "version":"0",
+    "website":"",
+    "wineIdentifiers":"",
+    "wines":""
   }
 ]

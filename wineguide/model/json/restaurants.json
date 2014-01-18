@@ -64,5 +64,27 @@
     "flights":"0",
     "groups":"0",
     "wineUnits":"0"
+  },
+  {
+    "address":"1 park lane",
+    "city":"boston",
+    "country":"united states of america",
+    "deletedEntity":"0",
+    "flightIdentifiers":"flight.restaurant.hinojosa.1parklane.niner",
+    "groupIdentifiers":"group.restaurant.hinojosa.1parklane.all/group.restaurant.hinojosa.1parklane.bestvalue/group.restaurant.hinojosa.1parklane.mostpopular/group.restaurant.hinojosa.1parklane.highestrated/group.restaurant.hinojosa.1parklane.recommended/group.restaurant.hinojosa.1parklane.rarefinds/group.restaurant.hinojosa.1parklane.excellentvintages",
+    "identifier":"restaurant.hinojosa.1parklane",
+    "lastLocalUpdate":"0",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "latitude":42.30603,
+    "longitude":-71.11497,
+    "menuNeedsUpdating":"0",
+    "name":"hinojosa",
+    "state":"massachusetts",
+    "versionNumber":"0",
+    "wineUnitIdentifiers":"wineunit.restaurant.hinojosa.1parklane.wine.brand.nietosenetiner.varietal.bonarda.2010.glass/wineunit.restaurant.hinojosa.1parklane.wine.brand.pauldolan.varietal.cabernetsauvignon.2010.glass/wineunit.restaurant.hinojosa.1parklane.wine.brand.lightsout.varietal.shiraz.2010.glass/wineunit.restaurant.hinojosa.1parklane.wine.brand.santamargherita.varietal.pinotgrigio.2012.glass/wineunit.restaurant.hinojosa.1parklane.wine.brand.chablis.varietal.chablis.2008.glass/wineunit.restaurant.hinojosa.1parklane.wine.brand.decoy.varietal.pinotnoir.2012.glass",
+    "zip":"0",
+    "flights":"0",
+    "groups":"0",
+    "wineUnits":"0"
   }
 ]

@@ -802,5 +802,29 @@
     "versionNumber":"0",
     "wineIdentifiers":"",
     "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"0",
+    "identifier":"tastingnote.anise",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"anise",
+    "tastingStage":"",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"0",
+    "identifier":"tastingnote.redcurrant",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"red currant",
+    "tastingStage":"",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
   }
 ]
