@@ -228,7 +228,7 @@ NSString * const LeftSideBoundary = @"LeftSideBoundary";
         [panGesture.view bringSubviewToFront:[panGesture view]];
     }
     
-    if([panGesture state] == UIGestureRecognizerStateChanged){
+    if([panGesture state] == UIGestureRecognizerStateChanged && velocity.x > 0){
         translatedPoint = [panGesture translationInView:self.view];
         float newX = panGesture.view.center.x + translatedPoint.x;
         panGesture.view.center = CGPointMake(newX, panGesture.view.center.y);
