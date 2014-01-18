@@ -13,14 +13,18 @@
 #import "TastingNote.h"
 #import "WineCDTVC.h"
 #import "WineCell.h"
+#import "FontThemer.h"
 
 #define WINE_ENTITY @"Wine"
 #define WINE_CELL @"WineCell"
 
 #define HEADER_HEIGHT 120
-#define SEARCH_BAR_HEIGHT 44
+#define MIN_SIDE_LENGTH 44
+#define OFFSET 10
 
 @interface CellarSCDTVC ()
+
+@property (nonatomic) BOOL firstTime;
 
 @end
 
@@ -42,14 +46,14 @@
     self.title = @"Cellar";
     [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
     self.tableView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    
-    [self setupHeader];
-
+    self.firstTime = YES;
 }
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self setupAndSearchFetchedResultsControllerWithText:nil];
+    [self setupHeader];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,13 +74,57 @@
 
 -(void)setupHeader
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, HEADER_HEIGHT)];
-    self.searchBar.frame = CGRectMake(0, HEADER_HEIGHT-SEARCH_BAR_HEIGHT, 320, SEARCH_BAR_HEIGHT);
+    UITextView *prompt = [self setupPromptTextView];
+    CGSize promptSize = [prompt sizeThatFits:CGSizeMake(self.view.bounds.size.width, FLT_MAX)];
+    prompt.frame = CGRectMake(0, OFFSET*2, self.view.bounds.size.width, promptSize.height);
+    
+    UIImageView *cellarIV = [[UIImageView alloc] initWithFrame:CGRectMake(OFFSET, prompt.frame.size.height+3*OFFSET, MIN_SIDE_LENGTH, MIN_SIDE_LENGTH)];
+    cellarIV.image = [[UIImage imageNamed:@"tab_cellar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    cellarIV.tintColor = [ColorSchemer sharedInstance].baseColor;
+    
+    UILabel *label = [[UILabel alloc] init];
+    NSNumber *winesInCellar = [NSNumber numberWithInt:[self.fetchedResultsController.fetchedObjects count]];
+    NSNumber *percent = [NSNumber numberWithFloat:[winesInCellar floatValue]/12*100];
+    int slotsLeft = 12 - [winesInCellar intValue];
+    NSString *labelString = [NSString stringWithFormat:@"%i%% full\n%i slots available", [percent intValue],slotsLeft];
+    label.attributedText = [[NSAttributedString alloc] initWithString:labelString attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : [FontThemer sharedInstance].footnote}];
+    label.numberOfLines = 0;
+    [label sizeToFit];
+    label.frame = CGRectMake(cellarIV.frame.origin.x+cellarIV.frame.size.width+OFFSET/2, prompt.frame.size.height+OFFSET*3.5, label.bounds.size.width, label.bounds.size.height);
+    
+    
+    
+    float viewHeight = promptSize.height+MIN_SIDE_LENGTH*2+4*OFFSET;
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, viewHeight)];
+    [view addSubview:prompt];
+    [view addSubview:cellarIV];
+    [view addSubview:label];
+    view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.searchBar.frame = CGRectMake(0, viewHeight-MIN_SIDE_LENGTH, 320, MIN_SIDE_LENGTH);
     self.tableView.tableHeaderView = view;
     [view addSubview:self.searchBar];
     [self setupSearchBar];
+}
+
+-(UITextView *)setupPromptTextView
+{
+    NSArray *prompts = @[@"Welcome! Your Cellar is the place for your favorite wines. Look around the app for ways to increase how many you can store.", @"TRY IT - check a wine into your timeline using the 'Tried It' button on a wine details page", @"TRY IT - Add a wine to your cellar using the 'Cellar' button"];
     
-    view.backgroundColor = [UIColor orangeColor];
+    int number;
+    if(self.firstTime){
+        number = 0;
+        self.firstTime = NO;
+    } else {
+        number = arc4random_uniform(2) + 1;
+    }
+    NSString *string = prompts[number];
+    
+    UITextView *tv = [[UITextView alloc] init];
+    tv.attributedText = [[NSAttributedString alloc] initWithString:string attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : [FontThemer sharedInstance].body}];
+    tv.textContainerInset = UIEdgeInsetsMake(0, OFFSET, 0, OFFSET);
+    tv.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    return tv;
 }
 
 -(void)setupSearchBar
@@ -91,11 +139,7 @@
 {
     // NSLog(@"Favorites setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"color"
-                                                              ascending:YES],
-                                [NSSortDescriptor sortDescriptorWithKey:@"varietalIdentifiers"
-                                                              ascending:YES],
-                                [NSSortDescriptor sortDescriptorWithKey:@"name"
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES]];
     
     if(text){
@@ -108,7 +152,7 @@
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
-                                                                          sectionNameKeyPath:@"color"
+                                                                          sectionNameKeyPath:nil
                                                                                    cacheName:nil];
 }
 

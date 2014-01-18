@@ -79,13 +79,7 @@
 		C95A2CCE185BE4D30043ECB0 /* tab_timeline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CCC185BE4D30043ECB0 /* tab_timeline@2x.png */; };
 		C95A2CD1185BEC3B0043ECB0 /* button_triedIt.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CCF185BEC3B0043ECB0 /* button_triedIt.png */; };
 		C95A2CD2185BEC3B0043ECB0 /* button_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CD0185BEC3B0043ECB0 /* button_triedIt@2x.png */; };
-		C95A2CD5185BF11A0043ECB0 /* button_favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CD3185BF11A0043ECB0 /* button_favorite.png */; };
-		C95A2CD6185BF11A0043ECB0 /* button_favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CD4185BF11A0043ECB0 /* button_favorite@2x.png */; };
 		C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A2CD8185BF8360043ECB0 /* WineNameVHTV.m */; };
-		C95A2CDC185C02300043ECB0 /* button_favorited.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDA185C02300043ECB0 /* button_favorited.png */; };
-		C95A2CDD185C02300043ECB0 /* button_favorited@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDB185C02300043ECB0 /* button_favorited@2x.png */; };
-		C95A2CE0185C04DB0043ECB0 /* favoriteIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDE185C04DB0043ECB0 /* favoriteIndicator.png */; };
-		C95A2CE1185C04DB0043ECB0 /* favoriteIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CDF185C04DB0043ECB0 /* favoriteIndicator@2x.png */; };
 		C95E2DB4186501010050DFAC /* UserActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DB3186501010050DFAC /* UserActionCell.xib */; };
 		C95E2DB71865023C0050DFAC /* UserActionCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E2DB61865023C0050DFAC /* UserActionCVC.m */; };
 		C95E2DBE186510050050DFAC /* userAction_triedIt.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DB8186510050050DFAC /* userAction_triedIt.png */; };
@@ -312,14 +306,8 @@
 		C95A2CCC185BE4D30043ECB0 /* tab_timeline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_timeline@2x.png"; path = "images/tab_timeline@2x.png"; sourceTree = "<group>"; };
 		C95A2CCF185BEC3B0043ECB0 /* button_triedIt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_triedIt.png; path = images/button_triedIt.png; sourceTree = "<group>"; };
 		C95A2CD0185BEC3B0043ECB0 /* button_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_triedIt@2x.png"; path = "images/button_triedIt@2x.png"; sourceTree = "<group>"; };
-		C95A2CD3185BF11A0043ECB0 /* button_favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_favorite.png; path = images/button_favorite.png; sourceTree = "<group>"; };
-		C95A2CD4185BF11A0043ECB0 /* button_favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_favorite@2x.png"; path = "images/button_favorite@2x.png"; sourceTree = "<group>"; };
 		C95A2CD7185BF8360043ECB0 /* WineNameVHTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineNameVHTV.h; path = views/WineNameVHTV.h; sourceTree = "<group>"; };
 		C95A2CD8185BF8360043ECB0 /* WineNameVHTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineNameVHTV.m; path = views/WineNameVHTV.m; sourceTree = "<group>"; };
-		C95A2CDA185C02300043ECB0 /* button_favorited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_favorited.png; path = images/button_favorited.png; sourceTree = "<group>"; };
-		C95A2CDB185C02300043ECB0 /* button_favorited@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_favorited@2x.png"; path = "images/button_favorited@2x.png"; sourceTree = "<group>"; };
-		C95A2CDE185C04DB0043ECB0 /* favoriteIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favoriteIndicator.png; path = images/favoriteIndicator.png; sourceTree = "<group>"; };
-		C95A2CDF185C04DB0043ECB0 /* favoriteIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favoriteIndicator@2x.png"; path = "images/favoriteIndicator@2x.png"; sourceTree = "<group>"; };
 		C95E2DB3186501010050DFAC /* UserActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserActionCell.xib; path = xibs/UserActionCell.xib; sourceTree = "<group>"; };
 		C95E2DB51865023C0050DFAC /* UserActionCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserActionCVC.h; path = views/UserActionCVC.h; sourceTree = "<group>"; };
 		C95E2DB61865023C0050DFAC /* UserActionCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserActionCVC.m; path = views/UserActionCVC.m; sourceTree = "<group>"; };
@@ -737,14 +725,8 @@
 				C9ACC7D6184E72AB00E5945D /* settings@2x.png */,
 				C95A2CCF185BEC3B0043ECB0 /* button_triedIt.png */,
 				C95A2CD0185BEC3B0043ECB0 /* button_triedIt@2x.png */,
-				C95A2CD3185BF11A0043ECB0 /* button_favorite.png */,
-				C95A2CD4185BF11A0043ECB0 /* button_favorite@2x.png */,
-				C95A2CDA185C02300043ECB0 /* button_favorited.png */,
-				C95A2CDB185C02300043ECB0 /* button_favorited@2x.png */,
 				C95E2DC418651FF10050DFAC /* button_purchase.png */,
 				C95E2DC518651FF10050DFAC /* button_purchase@2x.png */,
-				C95A2CDE185C04DB0043ECB0 /* favoriteIndicator.png */,
-				C95A2CDF185C04DB0043ECB0 /* favoriteIndicator@2x.png */,
 				C991FB831861110200C10B52 /* glass_full.png */,
 				C991FB841861110200C10B52 /* glass_full@2x.png */,
 				C991FB851861110200C10B52 /* glass_half.png */,
@@ -989,14 +971,11 @@
 			files = (
 				C9ACC7DD184E8C3600E5945D /* WineCell.xib in Resources */,
 				C95A2CC3185B80070043ECB0 /* visible@2x.png in Resources */,
-				C95A2CE1185C04DB0043ECB0 /* favoriteIndicator@2x.png in Resources */,
-				C95A2CD6185BF11A0043ECB0 /* button_favorite@2x.png in Resources */,
 				C96D5FBC185005B60068093C /* varietals.json in Resources */,
 				C932F1121868EE6E0079680C /* userAction_cellared.png in Resources */,
 				C9C7D611184011D100A2E955 /* favorite_y.png in Resources */,
 				C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */,
 				C991FB9A186115CA00C10B52 /* user_alan@2x.png in Resources */,
-				C95A2CE0185C04DB0043ECB0 /* favoriteIndicator.png in Resources */,
 				C95E2DC718651FF10050DFAC /* button_purchase@2x.png in Resources */,
 				C95A2CD2185BEC3B0043ECB0 /* button_triedIt@2x.png in Resources */,
 				C932F16218728F500079680C /* glass@2x.png in Resources */,
@@ -1024,7 +1003,6 @@
 				C947F06D1888A18700123B69 /* userAction_purchase.png in Resources */,
 				C95E2DB4186501010050DFAC /* UserActionCell.xib in Resources */,
 				C991FB8D1861110200C10B52 /* glass_empty.png in Resources */,
-				C95A2CDC185C02300043ECB0 /* button_favorited.png in Resources */,
 				C95E2DBE186510050050DFAC /* userAction_triedIt.png in Resources */,
 				C91F59C218457EB800CF7F18 /* Restauranteur_iPhone.storyboard in Resources */,
 				C9C7D61918401F7100A2E955 /* tab_nearMe@2x.png in Resources */,
@@ -1032,7 +1010,6 @@
 				C95A2CC2185B80070043ECB0 /* visible.png in Resources */,
 				C991FB99186115CA00C10B52 /* user_alan.png in Resources */,
 				C932F14C186D4E5C0079680C /* RatingsAndReviews.xib in Resources */,
-				C95A2CDD185C02300043ECB0 /* button_favorited@2x.png in Resources */,
 				C96934BC187B7F540071EF41 /* TastingRecordCVCell.xib in Resources */,
 				C9C7D612184011D100A2E955 /* favorite_y@2x.png in Resources */,
 				C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */,
@@ -1067,7 +1044,6 @@
 				C95E2DC1186510050050DFAC /* tab_cellar.png in Resources */,
 				C92CAE3618330CC700F29C9B /* group.restaurant.tico.222berkeleystreet.all.json in Resources */,
 				C991FB8B1861110200C10B52 /* glass_half.png in Resources */,
-				C95A2CD5185BF11A0043ECB0 /* button_favorite.png in Resources */,
 				C96D5FBB185005B60068093C /* tastingnotes.json in Resources */,
 				C9D0784818452AF800F47851 /* Initial_iPhone.storyboard in Resources */,
 				C92CAE3518330CC700F29C9B /* group.restaurant.strega-waterfront.1marinaparkdrive.all.json in Resources */,

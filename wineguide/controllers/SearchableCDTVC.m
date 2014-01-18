@@ -45,6 +45,9 @@
     UIGraphicsEndImageContext();
     
     [self.searchBar setSearchFieldBackgroundImage:blank forState:UIControlStateNormal];
+    
+    [self.searchBar.layer setBorderColor:[ColorSchemer sharedInstance].lightGray.CGColor];
+    [self.searchBar.layer setBorderWidth:1];
 }
 
 -(void)viewWillAppear:(BOOL)animated

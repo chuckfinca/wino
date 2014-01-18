@@ -32,6 +32,7 @@
 @property (nonatomic, readwrite) UIColor *whiteWine;
 
 @property (nonatomic, readwrite) UIColor *gray;
+@property (nonatomic, readwrite) UIColor *lightGray;
 
 @end
 
@@ -143,6 +144,12 @@ static ColorSchemer *sharedInstance;
 {
     if(!_gray) _gray = [UIColor colorWithRed:0.866667F green:0.866667F blue:0.866667F alpha:1.0F];
     return _gray;
+}
+
+-(UIColor *)lightGray
+{
+    if(!_lightGray) _lightGray = [UIColor colorWithRed:0.933333F green:0.933333F blue:0.933333F alpha:1.0F]; // #EEEEEE
+    return _lightGray;
 }
 
 
