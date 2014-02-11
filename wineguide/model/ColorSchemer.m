@@ -136,7 +136,44 @@ static ColorSchemer *sharedInstance;
 {
     if(!_whiteWine) _whiteWine = [UIColor colorWithRed:0.866667F green:0.733333F blue:0.466667F alpha:1.0F];
     //[UIColor colorWithRed:0.937255F green:0.913725F blue:0.749020F alpha:1.0F];
+    
     return _whiteWine;
+    
+    /*
+    NSArray *array = @[
+                       // lightest
+                       [UIColor colorWithRed:0.968627F green:0.913725F blue:0.831373F alpha:1.0F],
+                       [UIColor colorWithRed:0.968627F green:0.898039F blue:0.784314F alpha:1.0F],
+                       [UIColor colorWithRed:0.960784F green:0.882353F blue:0.745098F alpha:1.0F],
+                       [UIColor colorWithRed:0.960784F green:0.870588F blue:0.694118F alpha:1.0F],
+                       [UIColor colorWithRed:0.956863F green:0.850980F blue:0.650980F alpha:1.0F],
+                       [UIColor colorWithRed:0.952941F green:0.839216F blue:0.611765F alpha:1.0F],
+                       [UIColor colorWithRed:0.949020F green:0.815686F blue:0.552941F alpha:1.0F],
+                       [UIColor colorWithRed:0.945098F green:0.800000F blue:0.501961F alpha:1.0F],
+                       [UIColor colorWithRed:0.945098F green:0.780392F blue:0.458824F alpha:1.0F],
+                       [UIColor colorWithRed:0.941176F green:0.768627F blue:0.423529F alpha:1.0F],
+                       [UIColor colorWithRed:0.937255F green:0.749020F blue:0.411765F alpha:1.0F],
+                       [UIColor colorWithRed:0.933333F green:0.733333F blue:0.349020F alpha:1.0F],
+                       [UIColor colorWithRed:0.933333F green:0.721569F blue:0.313725F alpha:1.0F],
+                       [UIColor colorWithRed:0.929412F green:0.709804F blue:0.274510F alpha:1.0F],
+                       [UIColor colorWithRed:0.929412F green:0.690196F blue:0.247059F alpha:1.0F],
+                       [UIColor colorWithRed:0.925490F green:0.682353F blue:0.215686F alpha:1.0F],
+                       [UIColor colorWithRed:0.925490F green:0.666667F blue:0.192157F alpha:1.0F],
+                       [UIColor colorWithRed:0.925490F green:0.654902F blue:0.164706F alpha:1.0F],
+                       [UIColor colorWithRed:0.921569F green:0.643137F blue:0.145098F alpha:1.0F],
+                       [UIColor colorWithRed:0.921569F green:0.635294F blue:0.129412F alpha:1.0F],
+                       [UIColor colorWithRed:0.917647F green:0.623529F blue:0.105882F alpha:1.0F],
+                       [UIColor colorWithRed:0.917647F green:0.611765F blue:0.090196F alpha:1.0F],
+                       [UIColor colorWithRed:0.913725F green:0.603922F blue:0.078431F alpha:1.0F],
+                       [UIColor colorWithRed:0.913725F green:0.596078F blue:0.058824F alpha:1.0F],
+                       [UIColor colorWithRed:0.909804F green:0.580392F blue:0.050980F alpha:1.0F],
+                       [UIColor colorWithRed:0.909804F green:0.572549F blue:0.035294F alpha:1.0F]
+                       // darkest
+                       ];
+    int num = arc4random_uniform(26);
+    return array[num];
+     
+     */
 }
 
 

@@ -86,5 +86,27 @@
     "flights":"0",
     "groups":"0",
     "wineUnits":"0"
+  },
+  {
+    "address":"139 south b street",
+    "city":"san mateo",
+    "country":"united states of america",
+    "deletedEntity":"0",
+    "flightIdentifiers":"flight.restaurant.osteriacoppa.139southbstreet.default",
+    "groupIdentifiers":"group.restaurant.osteriacoppa.139southbstreet.all/group.restaurant.osteriacoppa.139southbstreet.bestvalue/group.restaurant.osteriacoppa.139southbstreet.mostpopular/group.restaurant.osteriacoppa.139southbstreet.highestrated/group.restaurant.osteriacoppa.139southbstreet.recommended/group.restaurant.osteriacoppa.139southbstreet.rarefinds/group.restaurant.osteriacoppa.139southbstreet.excellentvintages",
+    "identifier":"restaurant.osteriacoppa.139southbstreet",
+    "lastLocalUpdate":"0",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "latitude":"0",
+    "longitude":"0",
+    "menuNeedsUpdating":"0",
+    "name":"osteria coppa",
+    "state":"california",
+    "versionNumber":"0",
+    "wineUnitIdentifiers":"0",
+    "zip":"0",
+    "flights":"0",
+    "groups":"0",
+    "wineUnits":"0"
   }
 ]

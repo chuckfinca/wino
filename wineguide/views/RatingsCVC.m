@@ -52,7 +52,7 @@
     return _empty;
 }
 
--(void)setupImageViewForGlassNumber:(int)glassNumber andRating:(float)rating
+-(void)setupImageViewForGlassNumber:(NSInteger)glassNumber andRating:(float)rating
 {
     UIImage *glass;
     if(rating - glassNumber >= 1){

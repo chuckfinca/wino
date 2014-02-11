@@ -110,7 +110,7 @@
         for(id cell in collectionView.visibleCells){
             if([cell isKindOfClass:[UserRatingCVC class]]){
                 UserRatingCVC *glass = (UserRatingCVC *)cell;
-                int rating = indexPath.row;
+                NSInteger rating = indexPath.row;
                 if([collectionView indexPathForCell:glass].row <= rating){
                     [glass glassColorString:self.wine.color isEmpty:NO];
                 } else {

@@ -51,6 +51,7 @@
     
     NSRange tastingNoteTitleText;
     if(wine.tastingNotes){
+        NSLog(@"%@",wine.tastingNotes);
         NSString *tastingNotesString = @"Tasting notes: ";
         tastingNoteTitleText = NSMakeRange([textViewString length], [tastingNotesString length]);
         NSArray *tastingNotes = [wine.tastingNotes sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
@@ -69,9 +70,12 @@
     [self.textStorage addAttribute:NSForegroundColorAttributeName
                              value:[ColorSchemer sharedInstance].textPrimary
                              range:NSMakeRange(0, [self.textStorage length])];
-    [self.textStorage addAttribute:NSForegroundColorAttributeName
-                             value:[ColorSchemer sharedInstance].textSecondary
-                             range:tastingNoteTitleText];
+    
+    if(tastingNoteTitleText.length > 15){
+        [self.textStorage addAttribute:NSForegroundColorAttributeName
+                                 value:[ColorSchemer sharedInstance].textSecondary
+                                 range:tastingNoteTitleText];
+    }
     
     
     [self setHeightConstraintForAttributedText:self.textStorage andWidth:self.bounds.size.width];

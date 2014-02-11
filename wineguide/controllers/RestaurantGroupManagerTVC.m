@@ -45,7 +45,7 @@
 -(void)loadRestaurant
 {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:RESTAURANT_ENTITY];
-    request.predicate = [NSPredicate predicateWithFormat:@"identifier = %@",@"restaurant.leszygomates.129southstreet"];
+    request.predicate = [NSPredicate predicateWithFormat:@"identifier = %@",@"restaurant.hinojosa.1parklane"];
     
     NSError *error;
     NSArray *match = [self.context executeFetchRequest:request error:&error];

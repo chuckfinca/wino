@@ -106,7 +106,7 @@
     return [self viewControllerAtIndex:index];
 }
 
-#define NUM_TUTORIAL_SCREENS 4
+#define NUM_TUTORIAL_SCREENS 3
 
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {

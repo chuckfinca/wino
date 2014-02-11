@@ -137,6 +137,7 @@ typedef enum {
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"varietalCategory"
                                                                                    cacheName:nil];
+    NSLog(@"%@",self.fetchedResultsController.fetchedObjects);
 }
 
 -(void)logFetchResultsForController:(NSFetchedResultsController *)frc

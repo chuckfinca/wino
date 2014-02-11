@@ -184,6 +184,8 @@
 		C9DDD08C1820307D000A6FD7 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08B1820307D000A6FD7 /* MainTabBarController.m */; };
 		C9DDD08F182036D5000A6FD7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08D182036D5000A6FD7 /* Model.xcdatamodeld */; };
 		C9DDD0A11820885C000A6FD7 /* Restaurant+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD0A01820885C000A6FD7 /* Restaurant+CreateAndModify.m */; };
+		C9DF590A189B38EE005050E5 /* restaurant.osteriacoppa.139southbstreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9DF5908189B38EE005050E5 /* restaurant.osteriacoppa.139southbstreet.json */; };
+		C9DF590B189B38EE005050E5 /* group.restaurant.osteriacoppa.139southbstreet.all.json in Resources */ = {isa = PBXBuildFile; fileRef = C9DF5909189B38EE005050E5 /* group.restaurant.osteriacoppa.139southbstreet.all.json */; };
 		C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F47975181F4D940026A383 /* WineDetailsVC.m */; };
 /* End PBXBuildFile section */
 
@@ -468,6 +470,8 @@
 		C9DDD08E182036D5000A6FD7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C9DDD09F1820885C000A6FD7 /* Restaurant+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CreateAndModify.h"; path = "model/Restaurant+CreateAndModify.h"; sourceTree = "<group>"; };
 		C9DDD0A01820885C000A6FD7 /* Restaurant+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CreateAndModify.m"; path = "model/Restaurant+CreateAndModify.m"; sourceTree = "<group>"; };
+		C9DF5908189B38EE005050E5 /* restaurant.osteriacoppa.139southbstreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.osteriacoppa.139southbstreet.json; path = model/json/restaurant.osteriacoppa.139southbstreet.json; sourceTree = "<group>"; };
+		C9DF5909189B38EE005050E5 /* group.restaurant.osteriacoppa.139southbstreet.all.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = group.restaurant.osteriacoppa.139southbstreet.all.json; path = model/json/group.restaurant.osteriacoppa.139southbstreet.all.json; sourceTree = "<group>"; };
 		C9F47974181F4D940026A383 /* WineDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineDetailsVC.h; path = controllers/WineDetailsVC.h; sourceTree = "<group>"; };
 		C9F47975181F4D940026A383 /* WineDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineDetailsVC.m; path = controllers/WineDetailsVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -862,6 +866,8 @@
 				C95CF7B0188A250200E14E03 /* group.restaurant.hinojosa.1parklane.all.json */,
 				C95CF7B1188A250200E14E03 /* restaurant.hinojosa.1parklane.json */,
 				C9487D08182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json */,
+				C9DF5908189B38EE005050E5 /* restaurant.osteriacoppa.139southbstreet.json */,
+				C9DF5909189B38EE005050E5 /* group.restaurant.osteriacoppa.139southbstreet.all.json */,
 				C9487D09182C6660007F7E19 /* restaurant.strega-waterfront.1marinaparkdrive.json */,
 				C9487D0A182C6660007F7E19 /* restaurant.tico.222berkeleystreet.json */,
 				C92CAE3118330CC700F29C9B /* group.restaurant.leszygomates.129southstreet.all.json */,
@@ -983,6 +989,7 @@
 				C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */,
 				C991FB9A186115CA00C10B52 /* user_alan@2x.png in Resources */,
 				C95E2DC718651FF10050DFAC /* button_purchase@2x.png in Resources */,
+				C9DF590A189B38EE005050E5 /* restaurant.osteriacoppa.139southbstreet.json in Resources */,
 				C95A2CD2185BEC3B0043ECB0 /* button_triedIt@2x.png in Resources */,
 				C932F16218728F500079680C /* glass@2x.png in Resources */,
 				C95A2CD1185BEC3B0043ECB0 /* button_triedIt.png in Resources */,
@@ -1051,6 +1058,7 @@
 				C9061E3C181F2767003D8A55 /* RestaurantDetails.xib in Resources */,
 				C95E2DC1186510050050DFAC /* tab_cellar.png in Resources */,
 				C92CAE3618330CC700F29C9B /* group.restaurant.tico.222berkeleystreet.all.json in Resources */,
+				C9DF590B189B38EE005050E5 /* group.restaurant.osteriacoppa.139southbstreet.all.json in Resources */,
 				C991FB8B1861110200C10B52 /* glass_half.png in Resources */,
 				C96D5FBB185005B60068093C /* tastingnotes.json in Resources */,
 				C9D0784818452AF800F47851 /* Initial_iPhone.storyboard in Resources */,

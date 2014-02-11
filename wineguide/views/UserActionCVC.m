@@ -37,7 +37,7 @@
 
 
 
--(void)setupCellForWine:(Wine *)wine atIndex:(int)index
+-(void)setupCellForWine:(Wine *)wine atIndex:(NSInteger)index
 {
     UIImage *image;
     NSString *title = @"";

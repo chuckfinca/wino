@@ -11,6 +11,6 @@
 
 @interface UserActionCVC : UICollectionViewCell
 
--(void)setupCellForWine:(Wine *)wine atIndex:(int)index;
+-(void)setupCellForWine:(Wine *)wine atIndex:(NSInteger)index;
 
 @end

@@ -405,5 +405,137 @@
     "versionNumber":"0",
     "wineIdentifiers":"",
     "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.verdicchio",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.kerner",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.friulano",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.vermentino",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.soave",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.grechetto",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.arneis",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.montepulciano",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.nebbiolo",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.dolcetto",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.calabrese",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
+  },
+  {
+    "about":"",
+    "deletedEntity":"",
+    "identifier":"varietal.amarone",
+    "lastLocalUpdate":"",
+    "lastServerUpdate":"2013-12-05 00:17:54 +0000",
+    "name":"chablis",
+    "versionNumber":"0",
+    "wineIdentifiers":"",
+    "wines":""
   }
 ]

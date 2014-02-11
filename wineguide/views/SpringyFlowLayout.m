@@ -65,7 +65,7 @@
     CGRect visibleRect = CGRectInset(originalRect, 0, -500);
     
     NSArray *itemsInVisibleRectArray = [super layoutAttributesForElementsInRect:visibleRect];
-    NSLog(@"itemsInVisibleRectArray count = %i",[itemsInVisibleRectArray count]);
+    NSLog(@"itemsInVisibleRectArray count = %lu",(unsigned long)[itemsInVisibleRectArray count]);
     
     for(UICollectionViewLayoutAttributes *item in itemsInVisibleRectArray){
         NSLog(@"item height = %f",item.frame.size.height);

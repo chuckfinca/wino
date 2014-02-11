@@ -33,7 +33,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24F-T8-sNi" customClass="RoundedRectButton">
-                    <rect key="frame" x="48" y="289" width="225" height="44"/>
+                    <rect key="frame" x="48" y="279" width="225" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="DUA-8w-bqu"/>
@@ -50,7 +50,7 @@
                         <constraint firstAttribute="height" constant="30" id="JjF-pi-1Hl"/>
                         <constraint firstAttribute="width" constant="30" id="pjG-Xp-qdY"/>
                     </constraints>
-                    <state key="normal" title="x">
+                    <state key="normal" title="skip">
                         <color key="titleColor" white="0.89799647177419351" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -69,9 +69,8 @@
                 <constraint firstItem="0Vb-DW-1wc" firstAttribute="top" secondItem="MF3-GY-a5y" secondAttribute="bottom" constant="8" id="UBp-pc-8zX"/>
                 <constraint firstAttribute="trailing" secondItem="G2P-yv-lzZ" secondAttribute="trailing" constant="20" id="WCX-wi-3Ae"/>
                 <constraint firstItem="0Vb-DW-1wc" firstAttribute="centerX" secondItem="MF3-GY-a5y" secondAttribute="centerX" id="Ztx-5n-buJ"/>
-                <constraint firstItem="24F-T8-sNi" firstAttribute="top" secondItem="0Vb-DW-1wc" secondAttribute="bottom" constant="30" id="qEb-1P-nPD"/>
+                <constraint firstItem="24F-T8-sNi" firstAttribute="top" secondItem="0Vb-DW-1wc" secondAttribute="bottom" constant="20" id="qEb-1P-nPD"/>
             </constraints>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

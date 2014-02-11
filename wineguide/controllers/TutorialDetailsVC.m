@@ -8,6 +8,7 @@
 
 #import "TutorialDetailsVC.h"
 #import "ColorSchemer.h"
+#import "FontThemer.h"
 
 @interface TutorialDetailsVC ()
 
@@ -35,27 +36,29 @@
     [self.mainButton setTitleColor:[ColorSchemer sharedInstance].customWhite forState:UIControlStateNormal];
     
     NSString *text;
+    NSRange title = NSMakeRange(0, 0);
     
     switch (self.index) {
         case 0:
-            text = @"The best way to find the perfect wine off a restaurant's menu.";
+            text = @"Wine made easy.\n\n\n";
+            // @"The best way to find the perfect wine off a restaurant's menu.";
             self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_logo.png"];
             self.mainButton.hidden = NO;
             [self.mainButton addTarget:self action:@selector(continueToNextPage:) forControlEvents:UIControlEventTouchUpInside];
-            [self.mainButton setTitle:@"Swipe to see why -❯" forState:UIControlStateNormal];
+            [self.mainButton setTitle:@"Learn more -❯" forState:UIControlStateNormal];
             break;
         case 1:
-            text = @"Within a few taps you'll be browsing the wine list of the restaurant your at, no typing required.";
+            text = @"Discover";
+            title = NSMakeRange(0, [text length]);
+            text = [text stringByAppendingString:@"\n\nView summarized wine lists and recommendations from your friends and experts"];
+            // @"Within a few taps you'll be browsing the wine list of the restaurant your at, no typing required.";
             self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_nearby.png"];
             self.mainButton.hidden = YES;
             break;
         case 2:
-            text = @"The Corkie community makes choosing a wine simple by showing you what your friends like, community ratings and indepth reviews.";
-            self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_favorites.png"];
-            self.mainButton.hidden = YES;
-            break;
-        case 3:
-            text = @"As you try wines share them with your friends by checking them into your timeline using the Tried It button.";
+            text = @"Track";
+            title = NSMakeRange(0, [text length]);
+            text = [text stringByAppendingString:@"\n\nCreate a timeline of wines you try and save your favorites to your cellar"];
             self.tutorialImageView.image = [UIImage imageNamed:@"tutorial_triedIt.png"];
             self.mainButton.hidden = NO;
             [self.mainButton addTarget:self action:@selector(dismissTutorial:) forControlEvents:UIControlEventTouchUpInside];
@@ -65,6 +68,7 @@
     }
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+    [attributedString addAttributes:@{NSFontAttributeName : [FontThemer sharedInstance].headline} range:title];
     self.screenInstructionText.attributedText = attributedString;
     self.screenInstructionText.numberOfLines = 0;
     self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
@@ -74,7 +78,7 @@
 {
     [super viewWillLayoutSubviews];
     if([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait){
-        self.topSpaceLayoutConstraint.constant = 100;
+        self.topSpaceLayoutConstraint.constant = 70;
     } else {
         self.topSpaceLayoutConstraint.constant = 0;
     }

@@ -144,7 +144,7 @@
             
             
         } else {
-            NSLog(@"unknown collection view with tag = %i is asking for numberOfItemsInSection",collectionViewWithIndex.tag);
+            NSLog(@"unknown collection view with tag = %li is asking for numberOfItemsInSection",(long)collectionViewWithIndex.tag);
         }
     } else {
         NSLog(@"collection view asking for numberOfItemsInSection is not of class CollectionViewWithIndex");

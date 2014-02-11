@@ -134,7 +134,6 @@
     cell.userNameButton.tag = indexPath.row;
     
     
-    
     //cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"review" attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     
     return cell;

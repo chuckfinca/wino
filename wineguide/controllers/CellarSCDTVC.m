@@ -83,7 +83,7 @@
     cellarIV.tintColor = [ColorSchemer sharedInstance].baseColor;
     
     UILabel *label = [[UILabel alloc] init];
-    NSNumber *winesInCellar = [NSNumber numberWithInt:[self.fetchedResultsController.fetchedObjects count]];
+    NSNumber *winesInCellar = [NSNumber numberWithInteger:[self.fetchedResultsController.fetchedObjects count]];
     NSNumber *percent = [NSNumber numberWithFloat:[winesInCellar floatValue]/12*100];
     int slotsLeft = 12 - [winesInCellar intValue];
     NSString *labelString = [NSString stringWithFormat:@"%i%% full\n%i slots available", [percent intValue],slotsLeft];
