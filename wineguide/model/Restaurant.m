@@ -2,7 +2,7 @@
 //  Restaurant.m
 //  Corkie
 //
-//  Created by Charles Feinn on 1/6/14.
+//  Created by Charles Feinn on 2/17/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -15,7 +15,9 @@
 
 @implementation Restaurant
 
+@dynamic addedDate;
 @dynamic address;
+@dynamic address2;
 @dynamic city;
 @dynamic country;
 @dynamic deletedEntity;
@@ -30,13 +32,12 @@
 @dynamic menuNeedsUpdating;
 @dynamic name;
 @dynamic state;
+@dynamic updatedDate;
 @dynamic wineUnitIdentifiers;
 @dynamic zip;
-@dynamic address2;
-@dynamic addedDate;
 @dynamic flights;
 @dynamic groups;
-@dynamic wineUnits;
 @dynamic reviews;
+@dynamic wineUnits;
 
 @end

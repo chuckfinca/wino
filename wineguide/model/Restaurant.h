@@ -2,7 +2,7 @@
 //  Restaurant.h
 //  Corkie
 //
-//  Created by Charles Feinn on 1/6/14.
+//  Created by Charles Feinn on 2/17/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -13,7 +13,9 @@
 
 @interface Restaurant : NSManagedObject
 
+@property (nonatomic, retain) NSDate * addedDate;
 @property (nonatomic, retain) NSString * address;
+@property (nonatomic, retain) NSString * address2;
 @property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSString * country;
 @property (nonatomic, retain) NSNumber * deletedEntity;
@@ -28,14 +30,13 @@
 @property (nonatomic, retain) NSNumber * menuNeedsUpdating;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * state;
+@property (nonatomic, retain) NSDate * updatedDate;
 @property (nonatomic, retain) NSString * wineUnitIdentifiers;
 @property (nonatomic, retain) NSString * zip;
-@property (nonatomic, retain) NSString * address2;
-@property (nonatomic, retain) NSDate * addedDate;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
-@property (nonatomic, retain) NSSet *wineUnits;
 @property (nonatomic, retain) NSSet *reviews;
+@property (nonatomic, retain) NSSet *wineUnits;
 @end
 
 @interface Restaurant (CoreDataGeneratedAccessors)
@@ -50,14 +51,14 @@
 - (void)addGroups:(NSSet *)values;
 - (void)removeGroups:(NSSet *)values;
 
-- (void)addWineUnitsObject:(WineUnit *)value;
-- (void)removeWineUnitsObject:(WineUnit *)value;
-- (void)addWineUnits:(NSSet *)values;
-- (void)removeWineUnits:(NSSet *)values;
-
 - (void)addReviewsObject:(Review *)value;
 - (void)removeReviewsObject:(Review *)value;
 - (void)addReviews:(NSSet *)values;
 - (void)removeReviews:(NSSet *)values;
+
+- (void)addWineUnitsObject:(WineUnit *)value;
+- (void)removeWineUnitsObject:(WineUnit *)value;
+- (void)addWineUnits:(NSSet *)values;
+- (void)removeWineUnits:(NSSet *)values;
 
 @end

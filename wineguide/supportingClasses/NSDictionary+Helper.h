@@ -13,6 +13,7 @@
 -(id)sanitizedValueForKey:(id)key;
 -(id)sanitizedStringForKey:(id)key;
 
+-(NSDate *)dateAtKey:(id)key;
 -(NSDate *)dateFromString:(NSString *)stringDate;
 
 @end

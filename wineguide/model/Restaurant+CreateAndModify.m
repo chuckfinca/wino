@@ -42,6 +42,30 @@
 
 #define DIVIDER @"/"
 
+
+
+
+
+
+#define RESTAURANT_ADDED_AT @"created_at"
+#define RESTAURANT_ADDRESS @"restaurant_street_1"
+#define RESTAURANT_ADDRESS_2 @"restaurant_street_2"
+#define RESTAURANT_CITY @"restaurant_city"
+#define RESTAURANT_COUNTRY @"restaurant_country"
+#define RESTAURANT_ID @"id"
+#define RESTAURANT_LATITUDE @"restaurant_lat"
+#define RESTAURANT_LONGITUDE @"restaurant_lon"
+#define RESTAURANT_NAME @"restaurant_name"
+#define RESTAURANT_STATE @"restaurant_state"
+#define RESTAURANT_ZIP @"restaurant_zip"
+#define RESTAURANT_UPDATED_AT @"updated_at"
+
+
+#define RESTAURANT_IS_PLACEHOLDER @"isPlaceholderForFutureObject"
+#define RESTAURANT_LAST_SERVER_UPDATE @"lastServerUpdate"
+#define RESTAURANT_DELETED_ENTITY @"deletedEntity"
+
+
 @implementation Restaurant (CreateAndModify)
 
 +(Restaurant *)restaurantFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
@@ -127,6 +151,41 @@
     // WineUnits
     WineUnitDataHelper *wudh = [[WineUnitDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_UNIT_IDENTIFIERS]];
     [wudh updateNestedManagedObjectsLocatedAtKey:WINE_UNITS inDictionary:dictionary];
+}
+
++(Restaurant *)restaurantFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withAttributes:(NSDictionary *)attributesDictionary
+{
+    NSLog(@"attributesDictionary------------------------\n = %@", [attributesDictionary allKeys]);
+    Restaurant *restaurant = nil;
+    
+    restaurant = (Restaurant *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:RESTAURANT_ENTITY usingPredicate:predicate inContext:context usingDictionary:attributesDictionary];
+    
+    
+    
+    // ATTRIBUTES
+    restaurant.addedDate = [attributesDictionary dateAtKey:RESTAURANT_ADDED_AT];
+    restaurant.address = [attributesDictionary sanitizedStringForKey:RESTAURANT_ADDRESS];
+    restaurant.address2 = [attributesDictionary sanitizedStringForKey:RESTAURANT_ADDRESS_2];
+    restaurant.city = [attributesDictionary sanitizedStringForKey:RESTAURANT_CITY];
+    restaurant.country = [attributesDictionary sanitizedStringForKey:RESTAURANT_COUNTRY];
+    NSLog(@"id string = %@",[attributesDictionary sanitizedStringForKey:RESTAURANT_ID]);
+    NSLog(@"id = %@",[attributesDictionary sanitizedValueForKey:RESTAURANT_ID]);
+    
+    restaurant.identifier = [attributesDictionary sanitizedStringForKey:RESTAURANT_ID];
+    //restaurant.identifier = [[attributesDictionary sanitizedValueForKey:RESTAURANT_ID] stringValue];
+    NSLog(@"identifier = %@",restaurant.identifier);
+    
+    restaurant.isPlaceholderForFutureObject = @NO;
+    restaurant.latitude = [NSNumber numberWithDouble:[[attributesDictionary sanitizedValueForKey:RESTAURANT_LATITUDE] doubleValue]];
+    restaurant.longitude = [NSNumber numberWithDouble:[[attributesDictionary sanitizedValueForKey:RESTAURANT_LONGITUDE] doubleValue]];
+    restaurant.deletedEntity = [attributesDictionary sanitizedValueForKey:DELETED_ENTITY];
+    // restaurant.menuNeedsUpdating - used to notify server that we need to update a specific restaurant's menu.
+    restaurant.name = [attributesDictionary sanitizedStringForKey:RESTAURANT_NAME];
+    restaurant.state = [attributesDictionary sanitizedStringForKey:RESTAURANT_STATE];
+    restaurant.zip = [attributesDictionary sanitizedValueForKey:RESTAURANT_ZIP];
+    
+    return restaurant;
+    
 }
 
 -(void)logDetails

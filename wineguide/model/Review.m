@@ -2,7 +2,7 @@
 //  Review.m
 //  Corkie
 //
-//  Created by Charles Feinn on 1/6/14.
+//  Created by Charles Feinn on 2/17/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -15,16 +15,17 @@
 
 @implementation Review
 
-@dynamic dateAdded;
-@dynamic reviewText;
-@dynamic identifier;
+@dynamic addedDate;
 @dynamic deletedEntity;
-@dynamic rating;
+@dynamic identifier;
 @dynamic lastLocalUpdate;
 @dynamic lastServerUpdate;
-@dynamic wine;
-@dynamic user;
+@dynamic rating;
+@dynamic reviewText;
+@dynamic updatedDate;
 @dynamic restaurant;
 @dynamic tastingRecord;
+@dynamic user;
+@dynamic wine;
 
 @end

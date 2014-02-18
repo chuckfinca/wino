@@ -93,7 +93,7 @@ typedef enum {
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
     self.tableView.tableHeaderView = self.restaurantDetailsViewController.view;
     
-    // [self logDetails];
+    [self logDetails];
     
     [self refreshWineList];
     self.title = nil;
@@ -109,19 +109,22 @@ typedef enum {
 
 -(void)getWineList
 {
-    // ask for a restaurant specific info inncluding groupings and flights
-    NSURL *restaurantUrl = [[NSBundle mainBundle] URLForResource:self.restaurant.identifier withExtension:JSON];
-    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
-    [rdh updateCoreDataWithJSONFromURL:restaurantUrl];
-    
-    // grouping.identifiers should be restaurant.identifies with the amended group name, that way I can assume I know the all group identifier to make the appropriate call.
-    // call the server and ask for the all group, including all wineUnits, wines and brands
-    
-    
-    NSString *urlString = [NSString stringWithFormat:@"group.%@.all",self.restaurant.identifier];
-    NSURL *allGroupUrl = [[NSBundle mainBundle] URLForResource:urlString withExtension:JSON];
-    GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
-    [gdh updateCoreDataWithJSONFromURL:allGroupUrl];
+    if(self.restaurant.identifier){
+        // ask for a restaurant specific info inncluding groupings and flights
+        NSURL *restaurantUrl = [[NSBundle mainBundle] URLForResource:self.restaurant.identifier withExtension:JSON];
+        NSLog(@"self.restaurant.identifier = %@",self.restaurant.identifier);
+        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
+        [rdh updateCoreDataWithJSONFromURL:restaurantUrl];
+        
+        // grouping.identifiers should be restaurant.identifies with the amended group name, that way I can assume I know the all group identifier to make the appropriate call.
+        // call the server and ask for the all group, including all wineUnits, wines and brands
+        
+        
+        NSString *urlString = [NSString stringWithFormat:@"group.%@.all",self.restaurant.identifier];
+        NSURL *allGroupUrl = [[NSBundle mainBundle] URLForResource:urlString withExtension:JSON];
+        GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
+        [gdh updateCoreDataWithJSONFromURL:allGroupUrl];
+    }
 }
 
 -(void)setupFetchedResultsController
@@ -233,23 +236,25 @@ typedef enum {
 
 -(void)loadWineList:(NSUInteger)listNumber
 {
-    NSNumber *sortOrder = [NSNumber numberWithInteger:listNumber];
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:GROUP_ENTITY];
-    request.predicate = [NSPredicate predicateWithFormat:@"restaurantIdentifier = %@ AND sortOrder = %@",self.restaurant.identifier,sortOrder];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-    
-    NSError *error;
-    NSArray *match = [self.context executeFetchRequest:request error:&error];
-    
-    if([match count] == 1){
-        Group *group = (Group *)[match firstObject];
-        self.selectedGroupIdentifier = group.identifier;
-    } else if([match count] > 1){
-        [self setSortOrderForGroups];
-    } else {
-        NSLog(@"Restaurant's wine list Group not found");
-        self.selectedGroupIdentifier = nil;
+    if(self.restaurant.identifier){
+        NSNumber *sortOrder = [NSNumber numberWithInteger:listNumber];
+        
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:GROUP_ENTITY];
+        request.predicate = [NSPredicate predicateWithFormat:@"restaurantIdentifier = %@ AND sortOrder = %@",self.restaurant.identifier,sortOrder];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
+        
+        NSError *error;
+        NSArray *match = [self.context executeFetchRequest:request error:&error];
+        
+        if([match count] == 1){
+            Group *group = (Group *)[match firstObject];
+            self.selectedGroupIdentifier = group.identifier;
+        } else if([match count] > 1){
+            [self setSortOrderForGroups];
+        } else {
+            NSLog(@"Restaurant's wine list Group not found");
+            self.selectedGroupIdentifier = nil;
+        }
     }
     
     self.fetchedResultsController = nil;

@@ -2,7 +2,7 @@
 //  User.h
 //  Corkie
 //
-//  Created by Charles Feinn on 1/6/14.
+//  Created by Charles Feinn on 2/17/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -13,20 +13,32 @@
 
 @interface User : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSData * profileImage;
+@property (nonatomic, retain) NSString * addedDate;
+@property (nonatomic, retain) NSString * blurb;
 @property (nonatomic, retain) NSNumber * deletedEntity;
+@property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSDate * lastLocalUpdate;
 @property (nonatomic, retain) NSDate * lastServerUpdate;
-@property (nonatomic, retain) NSString * blurb;
-@property (nonatomic, retain) NSString * identifier;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSData * profileImage;
+@property (nonatomic, retain) NSDate * updatedDate;
+@property (nonatomic, retain) NSSet *followedBy;
+@property (nonatomic, retain) NSSet *following;
 @property (nonatomic, retain) NSSet *reviews;
 @property (nonatomic, retain) NSSet *tastingRecords;
-@property (nonatomic, retain) NSSet *following;
-@property (nonatomic, retain) NSSet *followedBy;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
+
+- (void)addFollowedByObject:(User *)value;
+- (void)removeFollowedByObject:(User *)value;
+- (void)addFollowedBy:(NSSet *)values;
+- (void)removeFollowedBy:(NSSet *)values;
+
+- (void)addFollowingObject:(User *)value;
+- (void)removeFollowingObject:(User *)value;
+- (void)addFollowing:(NSSet *)values;
+- (void)removeFollowing:(NSSet *)values;
 
 - (void)addReviewsObject:(Review *)value;
 - (void)removeReviewsObject:(Review *)value;
@@ -37,15 +49,5 @@
 - (void)removeTastingRecordsObject:(TastingRecord *)value;
 - (void)addTastingRecords:(NSSet *)values;
 - (void)removeTastingRecords:(NSSet *)values;
-
-- (void)addFollowingObject:(User *)value;
-- (void)removeFollowingObject:(User *)value;
-- (void)addFollowing:(NSSet *)values;
-- (void)removeFollowing:(NSSet *)values;
-
-- (void)addFollowedByObject:(User *)value;
-- (void)removeFollowedByObject:(User *)value;
-- (void)addFollowedBy:(NSSet *)values;
-- (void)removeFollowedBy:(NSSet *)values;
 
 @end

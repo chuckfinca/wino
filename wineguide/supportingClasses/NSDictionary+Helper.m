@@ -36,7 +36,23 @@
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyy-MM-dd HH:mm:ss Z"];
-    return [dateFormatter dateFromString:stringDate];
+    NSDate *date = [dateFormatter dateFromString:stringDate];
+    return date;
+}
+
+-(NSDate *)dateAtKey:(id)key
+{
+    NSDate *date = nil;
+    
+    id object = [self objectForKey:key];
+    if([object isKindOfClass:[NSString class]]){
+        NSString *stringDate = (NSString *)object;
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyy-MM-dd HH:mm:ss Z"];
+        date = [dateFormatter dateFromString:stringDate];
+    }
+    return date;
 }
 
 @end

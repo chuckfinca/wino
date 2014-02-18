@@ -2,7 +2,7 @@
 //  Wine.h
 //  Corkie
 //
-//  Created by Charles Feinn on 1/6/14.
+//  Created by Charles Feinn on 2/17/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 
 @interface Wine : NSManagedObject
 
+@property (nonatomic, retain) NSDate * addedDate;
 @property (nonatomic, retain) NSNumber * alcoholPercentage;
 @property (nonatomic, retain) NSString * brandIdentifier;
 @property (nonatomic, retain) NSString * color;
@@ -31,6 +32,7 @@
 @property (nonatomic, retain) NSNumber * sparkling;
 @property (nonatomic, retain) NSString * state;
 @property (nonatomic, retain) NSString * tastingNoteIdentifers;
+@property (nonatomic, retain) NSDate * updatedDate;
 @property (nonatomic, retain) NSString * varietalCategory;
 @property (nonatomic, retain) NSString * varietalIdentifiers;
 @property (nonatomic, retain) NSString * vineyard;
@@ -39,11 +41,11 @@
 @property (nonatomic, retain) Brand *brand;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
+@property (nonatomic, retain) Rating *rating;
+@property (nonatomic, retain) NSSet *reviews;
 @property (nonatomic, retain) NSSet *tastingNotes;
 @property (nonatomic, retain) NSSet *varietals;
 @property (nonatomic, retain) NSSet *wineUnits;
-@property (nonatomic, retain) NSSet *reviews;
-@property (nonatomic, retain) Rating *rating;
 @end
 
 @interface Wine (CoreDataGeneratedAccessors)
@@ -57,6 +59,11 @@
 - (void)removeGroupsObject:(Group *)value;
 - (void)addGroups:(NSSet *)values;
 - (void)removeGroups:(NSSet *)values;
+
+- (void)addReviewsObject:(Review *)value;
+- (void)removeReviewsObject:(Review *)value;
+- (void)addReviews:(NSSet *)values;
+- (void)removeReviews:(NSSet *)values;
 
 - (void)addTastingNotesObject:(TastingNote *)value;
 - (void)removeTastingNotesObject:(TastingNote *)value;
@@ -72,10 +79,5 @@
 - (void)removeWineUnitsObject:(WineUnit *)value;
 - (void)addWineUnits:(NSSet *)values;
 - (void)removeWineUnits:(NSSet *)values;
-
-- (void)addReviewsObject:(Review *)value;
-- (void)removeReviewsObject:(Review *)value;
-- (void)addReviews:(NSSet *)values;
-- (void)removeReviews:(NSSet *)values;
 
 @end

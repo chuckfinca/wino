@@ -99,7 +99,8 @@
     //NSLog(@"input = %@",input);
     
     if([self.fetchedResultsController.fetchedObjects count] == 0){
-        [self getMoreResultsFromTheServer];
+        
+        // get more results from the server
     }
     
 }

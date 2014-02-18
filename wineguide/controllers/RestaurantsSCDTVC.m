@@ -11,6 +11,7 @@
 #import "RestaurantDataHelper.h"
 #import "Restaurant.h"
 #import "ColorSchemer.h"
+#import "RestaurantHelper.h"
 
 #define RESTAURANT_ENTITY @"Restaurant"
 
@@ -117,6 +118,7 @@
                 
                 // Pass the selected object to the new view controller.
                 Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
+                NSLog(@"restaurant name = %@",restaurant.name);
                 [restaurantCDTVC setupWithRestaurant:restaurant];
             }
         }
@@ -145,6 +147,7 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
+    NSLog(@"--------- count = %i",[self.fetchedResultsController.fetchedObjects count]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -164,6 +167,11 @@
     
     RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
     [rdh updateCoreDataWithJSONFromURL:url];
+    
+    
+    // call Corkie server and get restaurant json
+    RestaurantHelper *restaurantHelper = [[RestaurantHelper alloc] init];
+    [restaurantHelper getDataAtUrl:@"http://wappbeta.herokuapp.com/restaurantjson"];
 }
 
 #pragma mark - Target Action
