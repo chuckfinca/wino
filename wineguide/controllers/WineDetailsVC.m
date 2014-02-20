@@ -28,6 +28,15 @@
 @property (nonatomic, strong) ReviewersAndRatingsVC *reviewersAndRatingsVC;
 @property (nonatomic, strong) UILabel *cellarLabel;
 
+// Vertical spacing constraints
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToNameConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameToRatingConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingToDetailsConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *detailsToUserActionConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userActionToBottomConstraint;
+
+
+
 @end
 
 @implementation WineDetailsVC
@@ -37,7 +46,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 300);
     }
     return self;
 }
@@ -46,13 +54,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.userActionsCollectionView registerNib:[UINib nibWithNibName:@"UserActionCell" bundle:nil] forCellWithReuseIdentifier:USER_ACTION_CELL];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self setup];
 }
 
 #pragma mark - Getters & Setters
@@ -74,20 +76,42 @@
     self.restaurant = restaurant;
     
     // [self logDetails];
+}
+
+-(void)setup
+{
+    [self.wineNameVHTV setupTextViewWithWine:self.wine fromRestaurant:self.restaurant];
+    [self.wineNameVHTV setHeight];
     
-    [self setupTextForWine:wine];
+    [self.wineDetailsVHTV setupTextViewWithWine:self.wine fromRestaurant:self.restaurant];
+    [self.wineDetailsVHTV setHeight];
     
     [self.ratingsAndReviewsView addSubview:self.reviewersAndRatingsVC.view];
     self.reviewersAndRatingsVC.favorite = [self.wine.favorite boolValue];
     [self.reviewersAndRatingsVC setupForWine:self.wine];
     
+    [self.userActionsCollectionView registerNib:[UINib nibWithNibName:@"UserActionCell" bundle:nil] forCellWithReuseIdentifier:USER_ACTION_CELL];
+    
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    
+    [self setViewHeight];
 }
 
--(void)setupTextForWine:(Wine *)wine
+-(void)setViewHeight
 {
-    [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:self.restaurant];
-    [self.wineDetailsVHTV setupTextViewWithWine:wine fromRestaurant:self.restaurant];
+    CGFloat height = 0;
+    
+    height += self.wineNameVHTV.bounds.size.height;
+    height += self.ratingsAndReviewsView.bounds.size.height;
+    height += self.wineDetailsVHTV.bounds.size.height;
+    height += self.userActionsCollectionView.bounds.size.height;
+    height += self.topToNameConstraint.constant;
+    height += self.nameToRatingConstraint.constant;
+    height += self.ratingToDetailsConstraint.constant;
+    height += self.detailsToUserActionConstraint.constant;
+    height += self.userActionToBottomConstraint.constant;
+    
+    self.view.bounds = CGRectMake(0, 0, self.view.bounds.size.width, height);
 }
 
 
@@ -214,6 +238,25 @@
     }
     NSLog(@"\n\n\n");
 }
+
+
+
+
+
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+
+
+
+
+
 
 
 @end

@@ -10,6 +10,8 @@
 
 @interface VariableHeightTV : UITextView
 
--(void)setHeightConstraintForAttributedText:(NSAttributedString *)attributedText andWidth:(float)width;
+@property (nonatomic) float minimumHeight;
+
+-(void)setHeight;
 
 @end

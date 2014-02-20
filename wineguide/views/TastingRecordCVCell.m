@@ -32,17 +32,6 @@
 
 #pragma mark - Getters & Setters
 
--(void)updateConstraints
-{
-    if(!self.tastingRecord.review.reviewText){
-        NSLayoutConstraint *c = [self.userNoteVHTV.constraints firstObject];
-        
-        // set view height to zero
-        c.constant = 0;
-    }
-    [super updateConstraints];
-}
-
 -(UserRatingCVController *)userRatingsController
 {
     if(!_userRatingsController) {
@@ -85,9 +74,7 @@
 -(void)setupUserNote
 {
     if(self.tastingRecord.review.reviewText){
-        self.userNoteVHTV.attributedText = [[NSAttributedString alloc] initWithString:self.tastingRecord.review.reviewText attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];;
-        
-        [self.userNoteVHTV setHeightConstraintForAttributedText:self.userNoteVHTV.attributedText andWidth:self.userNoteVHTV.bounds.size.width];
+        self.userNoteVHTV.attributedText = [[NSAttributedString alloc] initWithString:self.tastingRecord.review.reviewText attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     } else {
         self.userNoteVHTV.text = @"";
         

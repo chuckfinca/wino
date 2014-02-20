@@ -19,6 +19,16 @@
 @property (weak, nonatomic) IBOutlet UIImageView *glass4;
 @property (weak, nonatomic) IBOutlet UIImageView *glass5;
 @property (nonatomic, strong) NSArray *glasses;
+
+
+// Vertical constraints
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToReviewerNameConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewerNameToReviewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewToBottomConstraint;
+
+
+
+
 @end
 
 
@@ -53,6 +63,10 @@
 
 -(void)setupReviewForWineColor:(NSString *)wineColor
 {
+    self.reviewTextView.text = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident...";
+    [self.reviewTextView setHeight];
+    
+    
     // the view should just take the review object from the view controller and display it accordingly
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -64,8 +78,26 @@
     self.userNameButton.tintColor = [ColorSchemer sharedInstance].textSecondary;
     self.followUserButton.tintColor = [ColorSchemer sharedInstance].clickable;
     [self randomRatingGenerator];
-    self.reviewTextView.textContainerInset = UIEdgeInsetsZero;
     
+    
+    [self setViewHeight];
+}
+
+-(void)setViewHeight
+{
+    // scrolling appears to need to be disabled inorder for constraints to be setup correctly. Seems to be a bug.
+    self.reviewTextView.scrollEnabled = NO;
+    [self.reviewTextView setHeight];
+    
+    CGFloat height = 0;
+    
+    height += self.userNameButton.bounds.size.height;
+    height += self.reviewTextView.bounds.size.height;
+    height += self.topToReviewerNameConstraint.constant;
+    height += self.reviewerNameToReviewConstraint.constant;
+    height += self.reviewToBottomConstraint.constant;
+    
+    self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }
 
 -(void)setWineColorFromString:(NSString *)wineColorString

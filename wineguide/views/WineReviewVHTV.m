@@ -23,7 +23,7 @@
 -(void)setupWithReview
 {
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    
+    NSLog(@"setupWithReview");
     
 }
 

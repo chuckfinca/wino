@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) Wine *wine;
 @property (nonatomic, strong) Restaurant *restaurant;
+@property (nonatomic, strong) ReviewTVC *reviewTvcSizingCell;
 
 @end
 
@@ -43,6 +44,9 @@
     [super viewDidLoad];
     self.tableView.tableHeaderView = self.wineDetailsViewController.view;
     [self.tableView registerNib:[UINib nibWithNibName:@"WineReview" bundle:nil] forCellReuseIdentifier:REVIEW_CELL];
+    
+    // allows the tableview to load faster
+    self.tableView.estimatedRowHeight = 200;
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,6 +64,14 @@
         _wineDetailsViewController.delegate = self;
     }
     return _wineDetailsViewController;
+}
+
+-(ReviewTVC *)reviewTvcSizingCell
+{
+    if(!_reviewTvcSizingCell){
+        _reviewTvcSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"WineReview" owner:self options:nil] firstObject];
+    }
+    return _reviewTvcSizingCell;
 }
 
 #pragma mark - Setup
@@ -133,9 +145,6 @@
     [cell.followUserButton addTarget:self action:@selector(followUser:) forControlEvents:UIControlEventTouchUpInside];
     cell.userNameButton.tag = indexPath.row;
     
-    
-    //cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"review" attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
-    
     return cell;
 }
 
@@ -146,6 +155,12 @@
 {
     UIView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"WineSectionHeader"];
     return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.reviewTvcSizingCell setupReviewForWineColor:self.wine.color];
+    return self.reviewTvcSizingCell.bounds.size.height;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -177,15 +192,12 @@
 
 -(void)performTriedItSegue
 {
-    NSLog(@"performTriedItSegue");
-    
     [self performSegueWithIdentifier:@"CheckInSegue" sender:self];
 }
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"prepareForSegue");
     [super prepareForSegue:segue sender:sender];
     
     CheckInVC *checkInVC = segue.destinationViewController;

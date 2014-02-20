@@ -147,7 +147,6 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
-    NSLog(@"--------- count = %i",[self.fetchedResultsController.fetchedObjects count]);
 }
 
 - (void)didReceiveMemoryWarning

@@ -5,48 +5,27 @@
 //  Created by Charles Feinn on 9/10/13.
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
-
 #import "VariableHeightTV.h"
+
+#define MIN_HEIGHT 70
+
 @interface VariableHeightTV ()
 
-@property (nonatomic) BOOL resetHeight;
 @property (nonatomic, strong) NSLayoutConstraint *heightConstraint;
+
 
 @end
 
 @implementation VariableHeightTV
 
--(BOOL)resetHeight
+-(void)setHeight
 {
-    if(!_resetHeight) _resetHeight = YES;
-    return _resetHeight;
-}
-
--(void)setHeightConstraintForAttributedText:(NSAttributedString *)attributedText andWidth:(float)width
-{
-    self.textContainerInset = UIEdgeInsetsZero;
-    
-    if([self.text length]){
-        
-        UITextView *tv = [[UITextView alloc] init];
-        tv.attributedText = attributedText;
-        
-        CGSize tvSize = [tv sizeThatFits:CGSizeMake(width, FLT_MAX)];
-        
-        float height = tvSize.height;
-        
-        //if(height != minimumHeight) height += height/10;
-        
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
-        
-        [self updateConstraints];
-    }
+    CGSize size = [self sizeThatFits:CGSizeMake(self.bounds.size.width, FLT_MAX)];
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, size.height);
 }
 
 -(void)updateConstraints
 {
-    [super updateConstraints];
-    
     [self removeConstraint:self.heightConstraint];
     self.heightConstraint = nil;
     
@@ -58,7 +37,8 @@
                                                         multiplier:1.0f
                                                           constant:self.frame.size.height];
     [self addConstraint:self.heightConstraint];
-
+    
+    [super updateConstraints];
 }
 
 

@@ -85,7 +85,7 @@
                              value:[ColorSchemer sharedInstance].textSecondary
                              range:restaurantRange];
     
-    [self setHeightConstraintForAttributedText:self.textStorage andWidth:self.bounds.size.width];
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 @end

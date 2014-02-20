@@ -13,12 +13,7 @@
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    NSLog(@"%@", [dictionary allKeys]);
-    NSPredicate *p = [self predicateForDicitonary:dictionary];
-    NSLog(@"p = %@",p.description);
-    Restaurant *r = [Restaurant restaurantFoundUsingPredicate:p inContext:self.context withAttributes:dictionary];
-    
-    NSLog(@"--%@", r);
+    Restaurant *r = [Restaurant restaurantFoundUsingPredicate:[self predicateForDicitonary:dictionary] inContext:self.context withAttributes:dictionary];
     
     return r;
 }

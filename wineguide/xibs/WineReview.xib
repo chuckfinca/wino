@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8x-Qx-jgM" customClass="VariableHeightTV">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8x-Qx-jgM" customClass="VariableHeightTV">
                     <rect key="frame" x="72" y="48" width="228" height="91"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -124,6 +124,9 @@
                 <outlet property="glass4" destination="xR7-4q-MRJ" id="q4i-gj-5yU"/>
                 <outlet property="glass5" destination="u9Y-5z-PJb" id="2FZ-x2-8f9"/>
                 <outlet property="reviewTextView" destination="E8x-Qx-jgM" id="eav-5K-9Ej"/>
+                <outlet property="reviewToBottomConstraint" destination="b6f-7J-4Wb" id="36v-KH-l4Q"/>
+                <outlet property="reviewerNameToReviewConstraint" destination="LeX-Un-ECo" id="Eh3-uZ-M0J"/>
+                <outlet property="topToReviewerNameConstraint" destination="cQb-Ha-BV3" id="eWm-nx-Arw"/>
                 <outlet property="userImageButton" destination="RQG-gv-0QI" id="3hu-fp-Nu3"/>
                 <outlet property="userNameButton" destination="PlB-9d-y0G" id="nxW-mU-wPm"/>
             </connections>

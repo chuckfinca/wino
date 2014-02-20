@@ -1,34 +1,31 @@
 //
-//  TimelineCVC.m
+//  TimelineSCDTVC.m
 //  Corkie
 //
-//  Created by Charles Feinn on 12/19/13.
-//  Copyright (c) 2013 AppSimple. All rights reserved.
+//  Created by Charles Feinn on 2/19/14.
+//  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "TimelineCVController.h"
+#import "TimelineSCDTVC.h"
 #import <CoreData/CoreData.h>
-#import "DocumentHandler.h"
-#import "Wine.h"
-#import "UserRatingCVC.h"
-#import "ColorSchemer.h"
 #import "TastingRecord.h"
-#import "TastingRecordCVCell.h"
-#import "Review.h"
-#import "InstructionsVC.h"
+#import "ColorSchemer.h"
+#import "DocumentHandler.h"
+#import "TastingRecordTVCell.h"
 
-#define TASTING_RECORD_CELL @"TastingRecordCVCell"
 #define TASTING_RECORD_ENTITY @"TastingRecord"
-#define USER_RATING_CELL @"UserRatingCell"
 
-@interface TimelineCVController () <UICollectionViewDelegateFlowLayout>
+#define TASTING_RECORD_CELL @"TastingRecordCell"
+
+@interface TimelineSCDTVC ()
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSArray *tastingRecords;
+@property (nonatomic, strong) TastingRecordTVCell *tastingRecordSizingCell;
 
 @end
 
-@implementation TimelineCVController
+@implementation TimelineSCDTVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,26 +40,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.collectionView registerNib:[UINib nibWithNibName:TASTING_RECORD_CELL bundle:nil] forCellWithReuseIdentifier:TASTING_RECORD_CELL];
-    self.collectionView.showsHorizontalScrollIndicator = NO;
     self.navigationItem.title = @"My Timeline";
-    self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
+    self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
     
-    [self refresh];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"TastingRecordTVCell" bundle:nil] forCellReuseIdentifier:TASTING_RECORD_CELL];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [self setupFetchedResultsController];
-}
 
--(void)viewDidDisappear:(BOOL)animated
+#pragma mark - Getters & Setters
+
+-(TastingRecordTVCell *)tastingRecordSizingCell
 {
-    [super viewDidDisappear:animated];
-    self.tastingRecords = nil;
-    [self.collectionView reloadData];
+    if(!_tastingRecordSizingCell){
+        _tastingRecordSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"TastingRecordTVCell" owner:self options:nil] firstObject];
+    }
+    return _tastingRecordSizingCell;
 }
 
 #pragma mark - Setup
@@ -73,6 +66,12 @@
     if (self.context){
         [self setupFetchedResultsController];
     }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setupFetchedResultsController];
 }
 
 -(void)getManagedObjectContext
@@ -96,8 +95,10 @@
     
     request.predicate = nil;
     
-    NSError *error;
-    self.tastingRecords = [self.context executeFetchRequest:request error:&error];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.context
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
     
     if([self.tastingRecords count] == 0){
         /*
@@ -118,51 +119,38 @@
     NSLog(@"lastServerUpdate = %@",tastingRecord.lastServerUpdate);
     NSLog(@"deletedEntity = %@",tastingRecord.deletedEntity);
     NSLog(@"review = %@",tastingRecord.review);
-    NSLog(@"rating = %@",tastingRecord.review.rating);
+    // NSLog(@"rating = %@",tastingRecord.review.rating);
     
     
     NSLog(@"\n\n\n");
 }
 
+#pragma mark - UITableViewDataSource
 
-#pragma mark - UICollectionViewDataSource
-
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 1;
-}
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return [self.tastingRecords count];
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    TastingRecordCVCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
+    TastingRecordTVCell *cell = (TastingRecordTVCell *)[tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    TastingRecord *tastingRecord = [self.tastingRecords objectAtIndex:indexPath.row];
+    TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell setupCellWithTastingRecord:tastingRecord];
+    
+    [cell setNeedsLayout];
     
     return cell;
 }
 
 
-#pragma mark - UICollectionViewDelegate
+#pragma mark - UITableViewDelegate
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TastingRecordCVCell *cell = (TastingRecordCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    TastingRecord *tr = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.tastingRecordSizingCell setupCellWithTastingRecord:tr];
     
-    for(UserRatingCVC *userRatingCell in cell.userRatingsController.collectionView.visibleCells){
-        
-        CGPoint touchLocation = [collectionView.panGestureRecognizer locationInView:cell.userRatingsController.collectionView];
-        
-        if(CGRectContainsPoint(userRatingCell.frame, touchLocation)){
-            [cell.userRatingsController collectionView:cell.userRatingsController.collectionView didSelectItemAtIndexPath:[cell.userRatingsController.collectionView indexPathForCell:userRatingCell]];
-        }
-    }
+    return self.tastingRecordSizingCell.bounds.size.height;
 }
+
 
 
 
@@ -184,12 +172,13 @@
 
 
 
+
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
 @end
-

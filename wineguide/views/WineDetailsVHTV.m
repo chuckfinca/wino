@@ -24,9 +24,6 @@
     return self;
 }
 
-
-#define V_WIDTH 20
-
 -(void)setupTextViewWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
 {
     NSString *textViewString = @"";
@@ -77,9 +74,7 @@
                                  range:tastingNoteTitleText];
     }
     
-    
-    [self setHeightConstraintForAttributedText:self.textStorage andWidth:self.bounds.size.width];
-    
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 

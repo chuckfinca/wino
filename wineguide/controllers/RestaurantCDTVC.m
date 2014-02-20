@@ -70,6 +70,9 @@ typedef enum {
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeaderViewIdentifier"];
+    
+    // allows the tableview to load faster
+    self.tableView.estimatedRowHeight = 100;
 }
 
 #pragma mark - Getters & Setters

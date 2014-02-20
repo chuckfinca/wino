@@ -53,18 +53,6 @@
     [self.textStorage addAttribute:NSFontAttributeName
                                                  value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
                                                  range:nameRange];
-    
-    [self setHeightConstraintForAttributedText:attributedText andWidth:self.bounds.size.width];
-    
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

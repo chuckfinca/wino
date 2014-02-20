@@ -20,6 +20,10 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToRestaurantInfoConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *RestaurantInfoToSegmentedControlConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *SegmentedControlToBottomConstraint;
+
 @end
 
 @implementation RestaurantDetailsVC
@@ -38,6 +42,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+-(void)setViewHeight
+{
+    CGFloat height = 0;
+    
+    height += self.restaurantDetailsVHTV.bounds.size.height;
+    height += self.segmentedControl.bounds.size.height;
+    height += self.topToRestaurantInfoConstraint.constant;
+    height += self.RestaurantInfoToSegmentedControlConstraint.constant;
+    height += self.SegmentedControlToBottomConstraint.constant;
+    
+    self.view.bounds = CGRectMake(0, 0, self.view.bounds.size.width, height);
 }
 
 -(void)setupFetchedResultsController
@@ -108,6 +125,10 @@
     self.restaurant = restaurant;
     [self setupFetchedResultsController];
     [self setupSegmentedControl];
+    
+    
+    [self.restaurantDetailsVHTV setHeight];
+    [self setViewHeight];
 }
 
 
