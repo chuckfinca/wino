@@ -72,7 +72,7 @@ typedef enum {
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeaderViewIdentifier"];
     
     // allows the tableview to load faster
-    self.tableView.estimatedRowHeight = 100;
+    self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
 }
 
 #pragma mark - Getters & Setters
