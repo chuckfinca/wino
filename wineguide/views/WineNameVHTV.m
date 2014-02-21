@@ -26,6 +26,9 @@
 
 -(void)setupTextViewWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
 {
+    
+    self.scrollEnabled = NO;
+    
     NSString *textViewString = @"";
     NSRange nameRange = NSMakeRange(0, 0);
     NSRange restaurantRange = NSMakeRange(0, 0);
