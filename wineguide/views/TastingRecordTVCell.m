@@ -18,38 +18,33 @@
 @interface TastingRecordTVCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet VariableHeightTV *reviewVHTV;
+@property (weak, nonatomic) IBOutlet UITextView *reviewVHTV;
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineVHTV;
 @property (weak, nonatomic) IBOutlet UIView *ratingContainerView;
 @property (nonatomic, strong) TastingRecord *tastingRecord;
 @property (nonatomic, strong) Review *review;
-
-
-// vertical spacing constraints
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToDateConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dateToReviewConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewToWineConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineToRatingConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingToBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewTvHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameTvHeightConstraint;
 
 @end
 
 @implementation TastingRecordTVCell
 
-
 -(void)updateConstraints
 {
-    if(!self.tastingRecord.review.reviewText){
-        NSLayoutConstraint *c = [self.reviewVHTV.constraints firstObject];
-        
-        // set view height to zero
-        c.constant = 0;
-    }
-    [super updateConstraints];
+    NSLog(@"TastingRecordTVCell updateConstraints...");
+        [super updateConstraints];
+}
+
+-(void)layoutSubviews
+{
+    NSLog(@"TastingRecordTVCell layoutSubviews...");
 }
 
 -(void)setupCellWithTastingRecord:(TastingRecord *)tastingRecord
 {
+    NSLog(@"setupCellWithTastingRecord");
+    
     self.userRatingsController = nil;
     
     self.tastingRecord = tastingRecord;
@@ -59,30 +54,28 @@
     [self setupDateLabel];
     [self.wineVHTV setupTextViewWithWine:review.wine fromRestaurant:review.restaurant];
     
+    self.wineVHTV.backgroundColor = [UIColor orangeColor];
+    self.dateLabel.backgroundColor = [UIColor greenColor];
+    
     [self setupUserRatingView];
     
-    [self setViewHeight];
+    self.wineNameTvHeightConstraint.constant = [self heightOfTextView:self.wineVHTV];
+    self.reviewTvHeightConstraint.constant = [self heightOfTextView:self.reviewVHTV];
+    
+    NSLog(@"wText = %@",self.wineVHTV.text);
+    NSLog(@"rText = %@",self.reviewVHTV.text);
 }
 
--(void)setViewHeight
+-(float)heightOfTextView:(UITextView *)textView
 {
-    // scrolling appears to need to be disabled inorder for constraints to be setup correctly. Seems to be a bug.
-    self.reviewVHTV.scrollEnabled = NO;
-    [self.reviewVHTV setHeight];
+    if(!textView.text || [textView.text length] < 1){
+        return 0;
+    }
     
-    CGFloat height = 0;
-    
-    height += self.dateLabel.bounds.size.height;
-    height += self.reviewVHTV.bounds.size.height;
-    height += self.wineVHTV.bounds.size.height;
-    height += self.ratingContainerView.bounds.size.height;
-    height += self.topToDateConstraint.constant;
-    height += self.dateToReviewConstraint.constant;
-    height += self.reviewToWineConstraint.constant;
-    height += self.wineToRatingConstraint.constant;
-    height += self.ratingToBottomConstraint.constant;
-    
-    self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
+    UITextView *tv = [[UITextView alloc] init];
+    [tv setAttributedText:textView.textStorage];
+    CGSize size = [tv sizeThatFits:CGSizeMake(textView.bounds.size.width, FLT_MAX)];
+    return size.height;
 }
 
 -(void)setupUserNote
@@ -95,6 +88,8 @@
         // update height of userNoteTV
         [self setNeedsUpdateConstraints];
     }
+    
+    self.reviewVHTV.backgroundColor = [UIColor orangeColor];
 }
 
 -(void)setupUserRatingView
@@ -102,7 +97,7 @@
     self.userRatingsController.wine = self.tastingRecord.review.wine;
     self.userRatingsController.collectionView.frame = self.ratingContainerView.bounds;
     [self.ratingContainerView addSubview:self.userRatingsController.collectionView];
-    self.ratingContainerView.backgroundColor = [UIColor clearColor];
+    self.ratingContainerView.backgroundColor = [UIColor blueColor];
 }
 
 -(void)setupDateLabel
@@ -110,24 +105,6 @@
     NSString *localDateString = [DateStringFormatter formatStringForDate:self.tastingRecord.tastingDate];
     self.dateLabel.attributedText = [[NSAttributedString alloc] initWithString:localDateString attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption2, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     [self bringSubviewToFront:self.dateLabel];
-}
-
--(float)cellHeight
-{
-    float cellHeight;
-    
-    float dateLabelHeight = self.dateLabel.bounds.size.height;
-    float wineTVHeight = self.wineVHTV.bounds.size.height;
-    float userNoteTVHeight = self.reviewVHTV.bounds.size.height;
-    float userReviewViewHeight = self.ratingContainerView.bounds.size.height;
-    
-    cellHeight = dateLabelHeight + wineTVHeight + userReviewViewHeight + 2*MAJOR_SPACING;
-    
-    if(self.tastingRecord.review.reviewText){
-        cellHeight += userNoteTVHeight;
-    }
-    
-    return cellHeight;
 }
 
 @end

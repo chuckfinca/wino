@@ -17,12 +17,12 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Review" translatesAutoresizingMaskIntoConstraints="NO" id="ZEj-Hy-cPL" customClass="VariableHeightTV">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Review" translatesAutoresizingMaskIntoConstraints="NO" id="ZEj-Hy-cPL">
                     <rect key="frame" x="20" y="56" width="280" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="33" placeholder="YES" id="i2K-gg-600"/>
+                        <constraint firstAttribute="height" constant="33" id="i2K-gg-600"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -32,7 +32,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="33" placeholder="YES" id="28n-XC-93s"/>
+                        <constraint firstAttribute="height" constant="33" id="28n-XC-93s"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -48,30 +48,27 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="7ZV-ow-32W" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="1Vs-aH-HWV"/>
-                <constraint firstAttribute="trailing" secondItem="7ZV-ow-32W" secondAttribute="trailing" constant="20" id="4W2-Od-h7L"/>
-                <constraint firstAttribute="bottom" secondItem="7ZV-ow-32W" secondAttribute="bottom" constant="20" id="4x6-GI-LH9"/>
-                <constraint firstItem="vLK-jE-Pnt" firstAttribute="trailing" secondItem="L0u-e5-87Q" secondAttribute="trailing" id="APs-uS-PMD"/>
+                <constraint firstItem="7ZV-ow-32W" firstAttribute="leading" secondItem="vLK-jE-Pnt" secondAttribute="leading" id="0MN-9L-IDX"/>
+                <constraint firstItem="7ZV-ow-32W" firstAttribute="top" secondItem="vLK-jE-Pnt" secondAttribute="bottom" constant="8" id="8SW-dV-3kT"/>
+                <constraint firstItem="ZEj-Hy-cPL" firstAttribute="trailing" secondItem="L0u-e5-87Q" secondAttribute="trailing" id="9iC-gc-Egt"/>
+                <constraint firstAttribute="bottom" secondItem="7ZV-ow-32W" secondAttribute="bottom" constant="20" id="BcI-0e-tVC"/>
                 <constraint firstItem="vLK-jE-Pnt" firstAttribute="leading" secondItem="ZEj-Hy-cPL" secondAttribute="leading" id="BwP-KC-VjT"/>
-                <constraint firstItem="ZEj-Hy-cPL" firstAttribute="top" secondItem="L0u-e5-87Q" secondAttribute="bottom" constant="8" id="LxR-aP-iIY"/>
-                <constraint firstItem="7ZV-ow-32W" firstAttribute="top" secondItem="vLK-jE-Pnt" secondAttribute="bottom" constant="8" id="Mwq-C9-0Oz"/>
+                <constraint firstItem="ZEj-Hy-cPL" firstAttribute="leading" secondItem="L0u-e5-87Q" secondAttribute="leading" id="Dqk-t6-fif"/>
+                <constraint firstItem="vLK-jE-Pnt" firstAttribute="top" secondItem="ZEj-Hy-cPL" secondAttribute="bottom" constant="8" id="Ecg-3N-hOd"/>
                 <constraint firstAttribute="trailing" secondItem="L0u-e5-87Q" secondAttribute="trailing" constant="20" id="VWE-Jf-Bp4"/>
-                <constraint firstItem="L0u-e5-87Q" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="Ziy-td-OqZ"/>
-                <constraint firstItem="vLK-jE-Pnt" firstAttribute="leading" secondItem="L0u-e5-87Q" secondAttribute="leading" id="fZh-GF-1Tx"/>
+                <constraint firstItem="L0u-e5-87Q" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="XD0-F9-Uop"/>
+                <constraint firstItem="ZEj-Hy-cPL" firstAttribute="top" secondItem="L0u-e5-87Q" secondAttribute="bottom" constant="8" id="XY7-QS-X4U"/>
                 <constraint firstItem="L0u-e5-87Q" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="h9y-HP-42b"/>
+                <constraint firstItem="7ZV-ow-32W" firstAttribute="trailing" secondItem="vLK-jE-Pnt" secondAttribute="trailing" id="oTh-Ro-ReT"/>
                 <constraint firstItem="vLK-jE-Pnt" firstAttribute="trailing" secondItem="ZEj-Hy-cPL" secondAttribute="trailing" id="pUX-yL-OGI"/>
-                <constraint firstItem="vLK-jE-Pnt" firstAttribute="top" secondItem="ZEj-Hy-cPL" secondAttribute="bottom" constant="8" id="rx1-Ib-xpy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="dateLabel" destination="L0u-e5-87Q" id="921-ny-5gZ"/>
-                <outlet property="dateToReviewConstraint" destination="LxR-aP-iIY" id="eDx-De-oKy"/>
                 <outlet property="ratingContainerView" destination="7ZV-ow-32W" id="O6r-Ku-U5P"/>
-                <outlet property="ratingToBottomConstraint" destination="4x6-GI-LH9" id="L66-y7-l86"/>
-                <outlet property="reviewToWineConstraint" destination="rx1-Ib-xpy" id="3X0-IW-kRb"/>
+                <outlet property="reviewTvHeightConstraint" destination="i2K-gg-600" id="ZRh-DA-2jF"/>
                 <outlet property="reviewVHTV" destination="ZEj-Hy-cPL" id="o2c-Um-56f"/>
-                <outlet property="topToDateConstraint" destination="Ziy-td-OqZ" id="Cav-xG-dqp"/>
-                <outlet property="wineToRatingConstraint" destination="Mwq-C9-0Oz" id="acM-CC-ptr"/>
+                <outlet property="wineNameTvHeightConstraint" destination="28n-XC-93s" id="9OB-bP-eGm"/>
                 <outlet property="wineVHTV" destination="vLK-jE-Pnt" id="CYP-Ws-j4f"/>
             </connections>
         </view>

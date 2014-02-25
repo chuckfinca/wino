@@ -25,7 +25,6 @@
 		C9061E30181F1C9C003D8A55 /* RestaurantsSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E2F181F1C9C003D8A55 /* RestaurantsSCDTVC.m */; };
 		C9061E3A181F216C003D8A55 /* RestaurantCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E39181F216C003D8A55 /* RestaurantCDTVC.m */; };
 		C9061E3C181F2767003D8A55 /* RestaurantDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9061E3B181F2767003D8A55 /* RestaurantDetails.xib */; };
-		C9061E43181F2865003D8A55 /* VariableHeightTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E41181F2865003D8A55 /* VariableHeightTV.m */; };
 		C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */; };
 		C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9061E4D181F36BE003D8A55 /* WineDetails.xib */; };
 		C913BA9118B2D58600B8BE85 /* Rating.m in Sources */ = {isa = PBXBuildFile; fileRef = C913BA9018B2D58600B8BE85 /* Rating.m */; };
@@ -230,8 +229,6 @@
 		C9061E38181F216C003D8A55 /* RestaurantCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantCDTVC.h; path = controllers/RestaurantCDTVC.h; sourceTree = "<group>"; };
 		C9061E39181F216C003D8A55 /* RestaurantCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantCDTVC.m; path = controllers/RestaurantCDTVC.m; sourceTree = "<group>"; };
 		C9061E3B181F2767003D8A55 /* RestaurantDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RestaurantDetails.xib; path = xibs/RestaurantDetails.xib; sourceTree = "<group>"; };
-		C9061E41181F2865003D8A55 /* VariableHeightTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VariableHeightTV.m; path = views/VariableHeightTV.m; sourceTree = "<group>"; };
-		C9061E42181F2865003D8A55 /* VariableHeightTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VariableHeightTV.h; path = views/VariableHeightTV.h; sourceTree = "<group>"; };
 		C9061E44181F2BF2003D8A55 /* RestaurantDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantDetailsVC.h; path = controllers/RestaurantDetailsVC.h; sourceTree = "<group>"; };
 		C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantDetailsVC.m; path = controllers/RestaurantDetailsVC.m; sourceTree = "<group>"; };
 		C9061E4D181F36BE003D8A55 /* WineDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineDetails.xib; path = xibs/WineDetails.xib; sourceTree = "<group>"; };
@@ -660,8 +657,6 @@
 		C9061E31181F1E13003D8A55 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				C9061E42181F2865003D8A55 /* VariableHeightTV.h */,
-				C9061E41181F2865003D8A55 /* VariableHeightTV.m */,
 				C9C7D5ED183FE6E400A2E955 /* RestaurantDetailsVHTV.h */,
 				C9C7D5EE183FE6E400A2E955 /* RestaurantDetailsVHTV.m */,
 				C9C6A21118569A9E00CFBBD5 /* AddGroupCell.h */,
@@ -1187,7 +1182,6 @@
 				C9AD69F518AD90EB00F48E48 /* ServerHelper.m in Sources */,
 				C96D249B18B5843100460860 /* TastingRecordTVCell.m in Sources */,
 				C92DF0471825B227009DCB2C /* WineCDTVC.m in Sources */,
-				C9061E43181F2865003D8A55 /* VariableHeightTV.m in Sources */,
 				C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */,
 				C9C7D6151840168700A2E955 /* SearchableCDTVC.m in Sources */,
 				C9061E3A181F216C003D8A55 /* RestaurantCDTVC.m in Sources */,

@@ -6,11 +6,10 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "VariableHeightTV.h"
 #import "Wine.h"
 #import "Restaurant.h"
 
-@interface WineNameVHTV : VariableHeightTV
+@interface WineNameVHTV : UITextView
 
 -(void)setupTextViewWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant;
 

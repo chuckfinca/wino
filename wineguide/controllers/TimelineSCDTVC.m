@@ -36,15 +36,20 @@
     return self;
 }
 
+-(void)awakeFromNib
+{
+    NSLog(@"awakeFromNib...");
+    [self.tableView registerNib:[UINib nibWithNibName:@"TastingRecordTVCell" bundle:nil] forCellReuseIdentifier:TASTING_RECORD_CELL];
+}
+
 - (void)viewDidLoad
 {
+    NSLog(@"viewDidLoad...");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationItem.title = @"My Timeline";
     self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
     
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"TastingRecordTVCell" bundle:nil] forCellReuseIdentifier:TASTING_RECORD_CELL];
 }
 
 
@@ -53,7 +58,7 @@
 -(TastingRecordTVCell *)tastingRecordSizingCell
 {
     if(!_tastingRecordSizingCell){
-        _tastingRecordSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"TastingRecordTVCell" owner:self options:nil] firstObject];
+        _tastingRecordSizingCell = [self.tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL];
     }
     return _tastingRecordSizingCell;
 }
@@ -129,13 +134,12 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"cellForRowAtIndexPath...");
     TastingRecordTVCell *cell = (TastingRecordTVCell *)[tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell setupCellWithTastingRecord:tastingRecord];
-    
-    [cell setNeedsLayout];
     
     return cell;
 }
@@ -145,12 +149,19 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"heightForRowAtIndexPath...");
+    return [self cellHeightAtIndexPath:indexPath];
+}
+
+-(float)cellHeightAtIndexPath:(NSIndexPath *)indexPath
+{
     TastingRecord *tr = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.tastingRecordSizingCell setupCellWithTastingRecord:tr];
     
-    return self.tastingRecordSizingCell.bounds.size.height;
+    CGSize size = [self.tastingRecordSizingCell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    
+    return size.height;
 }
-
 
 
 

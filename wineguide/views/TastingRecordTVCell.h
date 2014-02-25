@@ -15,6 +15,5 @@
 @property (nonatomic, strong) UserRatingCVController *userRatingsController;
 
 -(void)setupCellWithTastingRecord:(TastingRecord *)tastingRecord;
--(float)cellHeight;
 
 @end

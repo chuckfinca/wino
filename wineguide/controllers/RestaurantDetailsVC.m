@@ -126,8 +126,6 @@
     [self setupFetchedResultsController];
     [self setupSegmentedControl];
     
-    
-    [self.restaurantDetailsVHTV setHeight];
     [self setViewHeight];
 }
 

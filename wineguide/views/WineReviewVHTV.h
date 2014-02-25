@@ -6,9 +6,8 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "VariableHeightTV.h"
 
-@interface WineReviewVHTV : VariableHeightTV
+@interface WineReviewVHTV : UITextView
 
 -(void)setupWithReview;
 

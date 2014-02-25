@@ -8,7 +8,6 @@
 
 #import "TastingRecordCVCell.h"
 #import "WineNameVHTV.h"
-#import "VariableHeightTV.h"
 #import "Review.h"
 #import "ColorSchemer.h"
 #import "FontThemer.h"
@@ -22,7 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
-@property (weak, nonatomic) IBOutlet VariableHeightTV *userNoteVHTV;
+@property (weak, nonatomic) IBOutlet UITextView *userNoteVHTV;
 @property (weak, nonatomic) IBOutlet UIView *userRatingView;
 @property (nonatomic, strong) TastingRecord *tastingRecord;
 @property (nonatomic, strong) Review *review;

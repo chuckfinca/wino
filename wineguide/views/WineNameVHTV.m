@@ -24,6 +24,17 @@
     return self;
 }
 
+-(void)updateConstraints
+{
+    NSLog(@"WineNameVHTV updateConstraints...");
+    [super updateConstraints];
+}
+
+-(void)layoutSubviews
+{
+    NSLog(@"WineNameVHTV layoutSubviews...");
+}
+
 -(void)setupTextViewWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
 {
     

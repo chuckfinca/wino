@@ -8,11 +8,10 @@
 
 #import "ReviewTVC.h"
 #import "ColorSchemer.h"
-#import "VariableHeightTV.h"
 
 @interface ReviewTVC ()
 
-@property (weak, nonatomic) IBOutlet VariableHeightTV *reviewTextView;
+@property (weak, nonatomic) IBOutlet UITextView *reviewTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *glass1;
 @property (weak, nonatomic) IBOutlet UIImageView *glass2;
 @property (weak, nonatomic) IBOutlet UIImageView *glass3;
@@ -64,7 +63,6 @@
 -(void)setupReviewForWineColor:(NSString *)wineColor
 {
     self.reviewTextView.text = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident...";
-    [self.reviewTextView setHeight];
     
     
     // the view should just take the review object from the view controller and display it accordingly
@@ -87,7 +85,6 @@
 {
     // scrolling appears to need to be disabled inorder for constraints to be setup correctly. Seems to be a bug.
     self.reviewTextView.scrollEnabled = NO;
-    [self.reviewTextView setHeight];
     
     CGFloat height = 0;
     

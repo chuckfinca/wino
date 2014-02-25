@@ -81,10 +81,8 @@
 -(void)setup
 {
     [self.wineNameVHTV setupTextViewWithWine:self.wine fromRestaurant:self.restaurant];
-    [self.wineNameVHTV setHeight];
     
     [self.wineDetailsVHTV setupTextViewWithWine:self.wine fromRestaurant:self.restaurant];
-    [self.wineDetailsVHTV setHeight];
     
     [self.ratingsAndReviewsView addSubview:self.reviewersAndRatingsVC.view];
     self.reviewersAndRatingsVC.favorite = [self.wine.favorite boolValue];
