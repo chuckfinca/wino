@@ -12,13 +12,14 @@
 #import "FontThemer.h"
 #import "ColorSchemer.h"
 #import "DateStringFormatter.h"
+#import "VariableHeightTV.h"
 
 #define MAJOR_SPACING 18
 
 @interface TastingRecordTVCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UITextView *reviewVHTV;
+@property (weak, nonatomic) IBOutlet VariableHeightTV *reviewVHTV;
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineVHTV;
 @property (weak, nonatomic) IBOutlet UIView *ratingContainerView;
 @property (nonatomic, strong) TastingRecord *tastingRecord;
@@ -46,20 +47,8 @@
     
     [self setupUserRatingView];
     
-    self.wineNameTvHeightConstraint.constant = [self heightOfTextView:self.wineVHTV];
-    self.reviewTvHeightConstraint.constant = [self heightOfTextView:self.reviewVHTV];
-}
-
--(float)heightOfTextView:(UITextView *)textView
-{
-    if(!textView.text || [textView.text length] < 1){
-        return 0;
-    }
-    
-    UITextView *tv = [[UITextView alloc] init];
-    [tv setAttributedText:textView.textStorage];
-    CGSize size = [tv sizeThatFits:CGSizeMake(textView.bounds.size.width, FLT_MAX)];
-    return size.height;
+    self.wineNameTvHeightConstraint.constant = [self.wineVHTV height];
+    self.reviewTvHeightConstraint.constant = [self.reviewVHTV height];
 }
 
 -(void)setupUserNote

@@ -21,8 +21,8 @@
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToRestaurantInfoConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *RestaurantInfoToSegmentedControlConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *SegmentedControlToBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *restaurantInfoToSegmentedControlConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *segmentedControlToBottomConstraint;
 
 @end
 
@@ -30,10 +30,10 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    NSLog(@"initWithNibName...");
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 141);
     }
     return self;
 }
@@ -42,19 +42,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self.restaurantDetailsVHTV setupTextViewWithRestaurant:self.restaurant];
+    [self setViewHeight];
 }
-
 -(void)setViewHeight
 {
     CGFloat height = 0;
     
-    height += self.restaurantDetailsVHTV.bounds.size.height;
+    height += [self.restaurantDetailsVHTV height];
     height += self.segmentedControl.bounds.size.height;
     height += self.topToRestaurantInfoConstraint.constant;
-    height += self.RestaurantInfoToSegmentedControlConstraint.constant;
-    height += self.SegmentedControlToBottomConstraint.constant;
+    height += self.restaurantInfoToSegmentedControlConstraint.constant;
+    height += self.segmentedControlToBottomConstraint.constant;
     
-    self.view.bounds = CGRectMake(0, 0, self.view.bounds.size.width, height);
+    self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, height);
 }
 
 -(void)setupFetchedResultsController
@@ -121,12 +123,10 @@
 
 -(void)setupWithRestaurant:(Restaurant *)restaurant
 {
-    [self.restaurantDetailsVHTV setupTextViewWithRestaurant:restaurant];
+    NSLog(@"setupWithRestaurant... %@",restaurant.name);
     self.restaurant = restaurant;
     [self setupFetchedResultsController];
     [self setupSegmentedControl];
-    
-    [self setViewHeight];
 }
 
 

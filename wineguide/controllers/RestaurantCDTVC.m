@@ -96,7 +96,7 @@ typedef enum {
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
     self.tableView.tableHeaderView = self.restaurantDetailsViewController.view;
     
-    [self logDetails];
+    //[self logDetails];
     
     [self refreshWineList];
     self.title = nil;
@@ -115,7 +115,7 @@ typedef enum {
     if(self.restaurant.identifier){
         // ask for a restaurant specific info inncluding groupings and flights
         NSURL *restaurantUrl = [[NSBundle mainBundle] URLForResource:self.restaurant.identifier withExtension:JSON];
-        NSLog(@"self.restaurant.identifier = %@",self.restaurant.identifier);
+        
         RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
         [rdh updateCoreDataWithJSONFromURL:restaurantUrl];
         
@@ -143,7 +143,7 @@ typedef enum {
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"varietalCategory"
                                                                                    cacheName:nil];
-    NSLog(@"%@",self.fetchedResultsController.fetchedObjects);
+    // NSLog(@"%@",self.fetchedResultsController.fetchedObjects);
 }
 
 -(void)logFetchResultsForController:(NSFetchedResultsController *)frc

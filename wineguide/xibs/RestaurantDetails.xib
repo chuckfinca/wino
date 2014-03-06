@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantDetailsVC">
             <connections>
-                <outlet property="RestaurantInfoToSegmentedControlConstraint" destination="g0f-pn-zpV" id="3B0-vq-jm5"/>
-                <outlet property="SegmentedControlToBottomConstraint" destination="qsb-Pm-Ep7" id="lDi-GG-rmo"/>
                 <outlet property="restaurantDetailsVHTV" destination="AMh-ir-cDL" id="RQM-4d-fFJ"/>
+                <outlet property="restaurantInfoToSegmentedControlConstraint" destination="g0f-pn-zpV" id="hGh-HN-moQ"/>
                 <outlet property="segmentedControl" destination="1uM-lx-Ch0" id="3Ha-cI-BL8"/>
+                <outlet property="segmentedControlToBottomConstraint" destination="qsb-Pm-Ep7" id="7iG-kc-4oc"/>
                 <outlet property="topToRestaurantInfoConstraint" destination="GfJ-is-pub" id="WUG-A4-ODD"/>
                 <outlet property="view" destination="1" id="DBb-2J-Vxe"/>
             </connections>

@@ -99,9 +99,9 @@
 {
     CGFloat height = 0;
     
-    height += self.wineNameVHTV.bounds.size.height;
+    height += [self.wineNameVHTV height];
     height += self.ratingsAndReviewsView.bounds.size.height;
-    height += self.wineDetailsVHTV.bounds.size.height;
+    height += [self.wineDetailsVHTV height];
     height += self.userActionsCollectionView.bounds.size.height;
     height += self.topToNameConstraint.constant;
     height += self.nameToRatingConstraint.constant;

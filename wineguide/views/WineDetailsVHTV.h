@@ -8,8 +8,9 @@
 
 #import "Wine.h"
 #import "Restaurant.h"
+#import "VariableHeightTV.h"
 
-@interface WineDetailsVHTV : UITextView
+@interface WineDetailsVHTV : VariableHeightTV
 
 -(void)setupTextViewWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant;
 
