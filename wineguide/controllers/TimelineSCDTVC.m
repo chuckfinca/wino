@@ -134,7 +134,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"cellForRowAtIndexPath...");
+    // NSLog(@"cellForRowAtIndexPath...");
     TastingRecordTVCell *cell = (TastingRecordTVCell *)[tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -148,12 +148,6 @@
 #pragma mark - UITableViewDelegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"heightForRowAtIndexPath...");
-    return [self cellHeightAtIndexPath:indexPath];
-}
-
--(float)cellHeightAtIndexPath:(NSIndexPath *)indexPath
 {
     TastingRecord *tr = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.tastingRecordSizingCell setupCellWithTastingRecord:tr];

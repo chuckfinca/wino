@@ -30,21 +30,8 @@
 
 @implementation TastingRecordTVCell
 
--(void)updateConstraints
-{
-    NSLog(@"TastingRecordTVCell updateConstraints...");
-        [super updateConstraints];
-}
-
--(void)layoutSubviews
-{
-    NSLog(@"TastingRecordTVCell layoutSubviews...");
-}
-
 -(void)setupCellWithTastingRecord:(TastingRecord *)tastingRecord
 {
-    NSLog(@"setupCellWithTastingRecord");
-    
     self.userRatingsController = nil;
     
     self.tastingRecord = tastingRecord;
@@ -61,9 +48,6 @@
     
     self.wineNameTvHeightConstraint.constant = [self heightOfTextView:self.wineVHTV];
     self.reviewTvHeightConstraint.constant = [self heightOfTextView:self.reviewVHTV];
-    
-    NSLog(@"wText = %@",self.wineVHTV.text);
-    NSLog(@"rText = %@",self.reviewVHTV.text);
 }
 
 -(float)heightOfTextView:(UITextView *)textView
