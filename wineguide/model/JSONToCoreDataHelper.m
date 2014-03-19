@@ -10,6 +10,7 @@
 #import "NSDictionary+Helper.h"
 #import "NSManagedObject+Helper.h"
 #import "IterationCounter.h"
+#import "DocumentHandler.h"
 
 
 #define IDENTIFIER @"identifier"
@@ -61,7 +62,13 @@
     return [self.predicate predicateWithSubstitutionVariables:variables];
 }
 
-
+-(NSManagedObjectContext *)context
+{
+    if(!_context){
+        _context = [DocumentHandler sharedDocumentHandler].document.managedObjectContext;
+    }
+    return _context;
+}
 
 #pragma mark - Server interaction
 

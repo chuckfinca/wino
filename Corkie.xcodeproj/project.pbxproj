@@ -37,7 +37,6 @@
 		C913BAA618B2D58700B8BE85 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = C913BAA518B2D58700B8BE85 /* Group.m */; };
 		C913BAA918B2D58700B8BE85 /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = C913BAA818B2D58700B8BE85 /* Brand.m */; };
 		C913BAAC18B2D58700B8BE85 /* TastingNote.m in Sources */ = {isa = PBXBuildFile; fileRef = C913BAAB18B2D58700B8BE85 /* TastingNote.m */; };
-		C913BAAF18B2D58700B8BE85 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C913BAAE18B2D58700B8BE85 /* User.m */; };
 		C913BAB218B2D58700B8BE85 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = C913BAB118B2D58700B8BE85 /* Flight.m */; };
 		C91F59BA184562E600CF7F18 /* InitialPanelsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C91F59B9184562E600CF7F18 /* InitialPanelsController.m */; };
 		C91F59BC18456A2100CF7F18 /* UserMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91F59BB18456A2100CF7F18 /* UserMenu.xib */; };
@@ -158,6 +157,11 @@
 		C9ACC7DD184E8C3600E5945D /* WineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7DC184E8C3600E5945D /* WineCell.xib */; };
 		C9AD69F518AD90EB00F48E48 /* ServerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD69F418AD90EB00F48E48 /* ServerHelper.m */; };
 		C9AD69F818ADA9FC00F48E48 /* RestaurantHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD69F718ADA9FC00F48E48 /* RestaurantHelper.m */; };
+		C9B6B26018D7ACA3007406DC /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B25F18D7ACA3007406DC /* ProfileVC.m */; };
+		C9B6B26918D8ED8E007406DC /* FacebookSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */; };
+		C9B6B26C18D8FF75007406DC /* User+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26B18D8FF75007406DC /* User+CreateAndModify.m */; };
+		C9B6B26F18D9078C007406DC /* UserDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26E18D9078C007406DC /* UserDataHelper.m */; };
+		C9B6B27818D919E7007406DC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B27718D919E7007406DC /* User.m */; };
 		C9C6A21018568ABE00CFBBD5 /* brands.json in Resources */ = {isa = PBXBuildFile; fileRef = C9C6A20F18568ABE00CFBBD5 /* brands.json */; };
 		C9C6A21318569A9E00CFBBD5 /* AddGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A21218569A9E00CFBBD5 /* AddGroupCell.m */; };
 		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
@@ -255,8 +259,6 @@
 		C913BAA818B2D58700B8BE85 /* Brand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Brand.m; path = model/Brand.m; sourceTree = "<group>"; };
 		C913BAAA18B2D58700B8BE85 /* TastingNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingNote.h; path = model/TastingNote.h; sourceTree = "<group>"; };
 		C913BAAB18B2D58700B8BE85 /* TastingNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingNote.m; path = model/TastingNote.m; sourceTree = "<group>"; };
-		C913BAAD18B2D58700B8BE85 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = model/User.h; sourceTree = "<group>"; };
-		C913BAAE18B2D58700B8BE85 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = model/User.m; sourceTree = "<group>"; };
 		C913BAB018B2D58700B8BE85 /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flight.h; path = model/Flight.h; sourceTree = "<group>"; };
 		C913BAB118B2D58700B8BE85 /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Flight.m; path = model/Flight.m; sourceTree = "<group>"; };
 		C91F59B8184562E600CF7F18 /* InitialPanelsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialPanelsController.h; path = controllers/InitialPanelsController.h; sourceTree = "<group>"; };
@@ -440,6 +442,16 @@
 		C9AD69F618ADA9FC00F48E48 /* RestaurantHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantHelper.h; path = model/RestaurantHelper.h; sourceTree = "<group>"; };
 		C9AD69F718ADA9FC00F48E48 /* RestaurantHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantHelper.m; path = model/RestaurantHelper.m; sourceTree = "<group>"; };
 		C9AD6A1D18AE887000F48E48 /* Model 9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 9.xcdatamodel"; sourceTree = "<group>"; };
+		C9B6B25E18D7ACA3007406DC /* ProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileVC.h; path = controllers/ProfileVC.h; sourceTree = "<group>"; };
+		C9B6B25F18D7ACA3007406DC /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileVC.m; path = controllers/ProfileVC.m; sourceTree = "<group>"; };
+		C9B6B26718D8ED8E007406DC /* FacebookSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookSessionManager.h; path = model/FacebookSessionManager.h; sourceTree = "<group>"; };
+		C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookSessionManager.m; path = model/FacebookSessionManager.m; sourceTree = "<group>"; };
+		C9B6B26A18D8FF75007406DC /* User+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CreateAndModify.h"; path = "model/User+CreateAndModify.h"; sourceTree = "<group>"; };
+		C9B6B26B18D8FF75007406DC /* User+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CreateAndModify.m"; path = "model/User+CreateAndModify.m"; sourceTree = "<group>"; };
+		C9B6B26D18D9078C007406DC /* UserDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDataHelper.h; path = model/UserDataHelper.h; sourceTree = "<group>"; };
+		C9B6B26E18D9078C007406DC /* UserDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDataHelper.m; path = model/UserDataHelper.m; sourceTree = "<group>"; };
+		C9B6B27618D919E7007406DC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = model/User.h; sourceTree = "<group>"; };
+		C9B6B27718D919E7007406DC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = model/User.m; sourceTree = "<group>"; };
 		C9C6A1C61852AAF700CFBBD5 /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
 		C9C6A20F18568ABE00CFBBD5 /* brands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = brands.json; path = model/json/brands.json; sourceTree = "<group>"; };
 		C9C6A21118569A9E00CFBBD5 /* AddGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupCell.h; path = views/AddGroupCell.h; sourceTree = "<group>"; };
@@ -653,6 +665,8 @@
 				C9A337ED1886FD8B0089D020 /* InstructionsVC.m */,
 				C96D249C18B58A4000460860 /* TimelineSCDTVC.h */,
 				C96D249D18B58A4000460860 /* TimelineSCDTVC.m */,
+				C9B6B25E18D7ACA3007406DC /* ProfileVC.h */,
+				C9B6B25F18D7ACA3007406DC /* ProfileVC.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -779,10 +793,10 @@
 		C90B6F9818241A5B0012FE5F /* managedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				C9B6B27618D919E7007406DC /* User.h */,
+				C9B6B27718D919E7007406DC /* User.m */,
 				C913BAB018B2D58700B8BE85 /* Flight.h */,
 				C913BAB118B2D58700B8BE85 /* Flight.m */,
-				C913BAAD18B2D58700B8BE85 /* User.h */,
-				C913BAAE18B2D58700B8BE85 /* User.m */,
 				C913BAAA18B2D58700B8BE85 /* TastingNote.h */,
 				C913BAAB18B2D58700B8BE85 /* TastingNote.m */,
 				C913BAA718B2D58700B8BE85 /* Brand.h */,
@@ -848,6 +862,8 @@
 				C9AD69F418AD90EB00F48E48 /* ServerHelper.m */,
 				C9AD69F618ADA9FC00F48E48 /* RestaurantHelper.h */,
 				C9AD69F718ADA9FC00F48E48 /* RestaurantHelper.m */,
+				C9B6B26D18D9078C007406DC /* UserDataHelper.h */,
+				C9B6B26E18D9078C007406DC /* UserDataHelper.m */,
 			);
 			name = managedObjectHelpers;
 			sourceTree = "<group>";
@@ -873,6 +889,8 @@
 				C92DEFF118242D16009DCB2C /* Varietal+CreateAndModify.m */,
 				C969347618779F1B0071EF41 /* TastingRecord+CreateAndModify.h */,
 				C969347718779F1B0071EF41 /* TastingRecord+CreateAndModify.m */,
+				C9B6B26A18D8FF75007406DC /* User+CreateAndModify.h */,
+				C9B6B26B18D8FF75007406DC /* User+CreateAndModify.m */,
 			);
 			name = managedObjectCategories;
 			sourceTree = "<group>";
@@ -933,6 +951,8 @@
 				C986B022184677CD006CF318 /* LocalObjectUpdater.m */,
 				C9693532187D18BF0071EF41 /* FontThemer.h */,
 				C9693533187D18BF0071EF41 /* FontThemer.m */,
+				C9B6B26718D8ED8E007406DC /* FacebookSessionManager.h */,
+				C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1156,11 +1176,13 @@
 			files = (
 				C9C7D62818402E0600A2E955 /* TutorialDetailsVC.m in Sources */,
 				C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */,
+				C9B6B26918D8ED8E007406DC /* FacebookSessionManager.m in Sources */,
 				C9C7D5F2183FEA7E00A2E955 /* WineDetailsVHTV.m in Sources */,
 				C9693534187D18BF0071EF41 /* FontThemer.m in Sources */,
 				C913BA9418B2D58600B8BE85 /* Restaurant.m in Sources */,
 				C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */,
 				C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */,
+				C9B6B27818D919E7007406DC /* User.m in Sources */,
 				C9DDD08C1820307D000A6FD7 /* MainTabBarController.m in Sources */,
 				C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */,
 				C9061E30181F1C9C003D8A55 /* RestaurantsSCDTVC.m in Sources */,
@@ -1182,6 +1204,7 @@
 				C932F14F186D52870079680C /* ReviewersAndRatingsVC.m in Sources */,
 				C92DEFF218242D16009DCB2C /* Varietal+CreateAndModify.m in Sources */,
 				C9061DFF181F07CE003D8A55 /* AppDelegate.m in Sources */,
+				C9B6B26018D7ACA3007406DC /* ProfileVC.m in Sources */,
 				C9C6A21318569A9E00CFBBD5 /* AddGroupCell.m in Sources */,
 				C92CAE3018330BFB00F29C9B /* Group+CreateAndModify.m in Sources */,
 				C9AD69F518AD90EB00F48E48 /* ServerHelper.m in Sources */,
@@ -1209,7 +1232,6 @@
 				C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */,
 				C932F144186D3BE90079680C /* ReviewTVC.m in Sources */,
 				C913BAA618B2D58700B8BE85 /* Group.m in Sources */,
-				C913BAAF18B2D58700B8BE85 /* User.m in Sources */,
 				C969343B187781EA0071EF41 /* WineReviewVHTV.m in Sources */,
 				C9C7D62F184047EB00A2E955 /* CellarSCDTVC.m in Sources */,
 				C969342A1875EF290071EF41 /* IterationCounter.m in Sources */,
@@ -1234,11 +1256,13 @@
 				C98DEFE8182312130038216C /* ManagedObjectHandler.m in Sources */,
 				C92DF1D018297A76009DCB2C /* WineUnit+CreateAndModify.m in Sources */,
 				C92932D8182B00D50035C93C /* BrandDataHelper.m in Sources */,
+				C9B6B26F18D9078C007406DC /* UserDataHelper.m in Sources */,
 				C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */,
 				C92932D2182AD8E80035C93C /* GroupDataHelper.m in Sources */,
 				C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */,
 				C9A337EE1886FD8B0089D020 /* InstructionsVC.m in Sources */,
 				C9061DFB181F07CE003D8A55 /* main.m in Sources */,
+				C9B6B26C18D8FF75007406DC /* User+CreateAndModify.m in Sources */,
 				C969347818779F1B0071EF41 /* TastingRecord+CreateAndModify.m in Sources */,
 				C92932D5182AD9040035C93C /* WineUnitDataHelper.m in Sources */,
 				C913BA9A18B2D58600B8BE85 /* Varietal.m in Sources */,
