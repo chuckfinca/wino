@@ -10,11 +10,17 @@
 #import <FBError.h>
 #import <FBErrorUtility.h>
 #import <FBSession.h>
+#import <FBRequest.h>
 #import <FBRequestConnection.h>
 #import <FBGraphObject.h>
+#import <FBGraphUser.h>
 #import "UserDataHelper.h"
+#import "DocumentHandler.h"
 
 @interface FacebookSessionManager ()
+
+@property (nonatomic, strong) NSArray *friends; // of NSDictionaries
+@property (nonatomic, strong) NSManagedObjectContext *context;
 
 @end
 
@@ -30,6 +36,16 @@ static FacebookSessionManager *sharedInstance;
         sharedInstance = [[self alloc] init];
     });
     return sharedInstance;
+}
+
+#pragma mark - Getters & Setters
+
+-(NSManagedObjectContext *)context
+{
+    if(!_context){
+        _context = [DocumentHandler sharedDocumentHandler].document.managedObjectContext;
+    }
+    return _context;
 }
 
 -(void)checkToken
@@ -170,11 +186,11 @@ static FacebookSessionManager *sharedInstance;
             // Success! Include your code to handle the results here
             if([result isKindOfClass:[FBGraphObject class]]){
                 FBGraphObject *graphObject = (FBGraphObject *)result;
-                [graphObject enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                    NSLog(@"%@ : %@",key,obj);
-                }];
+                
+                [graphObject setObject:@YES forKey:@"registered"];
                 
                 UserDataHelper *udh = [[UserDataHelper alloc] init];
+                udh.context = self.context;
                 [udh updateManagedObjectWithDictionary:graphObject];
             }
         } else {
@@ -198,7 +214,24 @@ static FacebookSessionManager *sharedInstance;
                           }];
 }
 
-
+-(void)getFacebookFriends
+{
+    if(!self.friends){
+        
+        FBRequest *friendsRequest = [FBRequest requestForMyFriends];
+        [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                      NSDictionary* result,
+                                                      NSError *error) {
+            self.friends = [result objectForKey:@"data"];
+            NSLog(@"Found: %i friends", self.friends.count);
+            for (NSDictionary<FBGraphUser>* friend in _friends) {
+                UserDataHelper *udh = [[UserDataHelper alloc] init];
+                udh.context = self.context;
+                [udh updateManagedObjectWithDictionary:friend];
+            }
+        }];
+    }
+}
 
 
 

@@ -18,5 +18,6 @@
 -(void)getUserInfo;
 -(void)handleError:(NSError *)error;
 -(void)getFacebookInfoAtGraphPath:(NSString *)path;
+-(void)getFacebookFriends;
 
 @end

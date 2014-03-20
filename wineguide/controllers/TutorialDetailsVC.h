@@ -10,7 +10,7 @@
 
 @interface TutorialDetailsVC : UIViewController
 
-@property (assign, nonatomic) int index;
+@property (assign, nonatomic) NSInteger index;
 @property (strong, nonatomic) IBOutlet UILabel *screenInstructionText;
 
 @end

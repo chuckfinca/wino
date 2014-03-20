@@ -20,7 +20,6 @@
     
     User *u = [User userFoundUsingPredicate:predicate inContext:self.context withEntityInfo:dictionary];
     
-    
     return u;
 }
 

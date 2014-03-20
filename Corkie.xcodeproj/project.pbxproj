@@ -157,11 +157,12 @@
 		C9ACC7DD184E8C3600E5945D /* WineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7DC184E8C3600E5945D /* WineCell.xib */; };
 		C9AD69F518AD90EB00F48E48 /* ServerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD69F418AD90EB00F48E48 /* ServerHelper.m */; };
 		C9AD69F818ADA9FC00F48E48 /* RestaurantHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD69F718ADA9FC00F48E48 /* RestaurantHelper.m */; };
+		C9AEC73018DA6B6B00B4074B /* FriendListSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AEC72F18DA6B6B00B4074B /* FriendListSCDTVC.m */; };
+		C9AEC73618DA753500B4074B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AEC73518DA753500B4074B /* User.m */; };
 		C9B6B26018D7ACA3007406DC /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B25F18D7ACA3007406DC /* ProfileVC.m */; };
 		C9B6B26918D8ED8E007406DC /* FacebookSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */; };
 		C9B6B26C18D8FF75007406DC /* User+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26B18D8FF75007406DC /* User+CreateAndModify.m */; };
 		C9B6B26F18D9078C007406DC /* UserDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26E18D9078C007406DC /* UserDataHelper.m */; };
-		C9B6B27818D919E7007406DC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B27718D919E7007406DC /* User.m */; };
 		C9C6A21018568ABE00CFBBD5 /* brands.json in Resources */ = {isa = PBXBuildFile; fileRef = C9C6A20F18568ABE00CFBBD5 /* brands.json */; };
 		C9C6A21318569A9E00CFBBD5 /* AddGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A21218569A9E00CFBBD5 /* AddGroupCell.m */; };
 		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
@@ -442,6 +443,10 @@
 		C9AD69F618ADA9FC00F48E48 /* RestaurantHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantHelper.h; path = model/RestaurantHelper.h; sourceTree = "<group>"; };
 		C9AD69F718ADA9FC00F48E48 /* RestaurantHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantHelper.m; path = model/RestaurantHelper.m; sourceTree = "<group>"; };
 		C9AD6A1D18AE887000F48E48 /* Model 9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 9.xcdatamodel"; sourceTree = "<group>"; };
+		C9AEC72E18DA6B6B00B4074B /* FriendListSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListSCDTVC.h; path = controllers/FriendListSCDTVC.h; sourceTree = "<group>"; };
+		C9AEC72F18DA6B6B00B4074B /* FriendListSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListSCDTVC.m; path = controllers/FriendListSCDTVC.m; sourceTree = "<group>"; };
+		C9AEC73418DA753500B4074B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = model/User.h; sourceTree = "<group>"; };
+		C9AEC73518DA753500B4074B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = model/User.m; sourceTree = "<group>"; };
 		C9B6B25E18D7ACA3007406DC /* ProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileVC.h; path = controllers/ProfileVC.h; sourceTree = "<group>"; };
 		C9B6B25F18D7ACA3007406DC /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileVC.m; path = controllers/ProfileVC.m; sourceTree = "<group>"; };
 		C9B6B26718D8ED8E007406DC /* FacebookSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookSessionManager.h; path = model/FacebookSessionManager.h; sourceTree = "<group>"; };
@@ -450,8 +455,6 @@
 		C9B6B26B18D8FF75007406DC /* User+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CreateAndModify.m"; path = "model/User+CreateAndModify.m"; sourceTree = "<group>"; };
 		C9B6B26D18D9078C007406DC /* UserDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDataHelper.h; path = model/UserDataHelper.h; sourceTree = "<group>"; };
 		C9B6B26E18D9078C007406DC /* UserDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDataHelper.m; path = model/UserDataHelper.m; sourceTree = "<group>"; };
-		C9B6B27618D919E7007406DC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = model/User.h; sourceTree = "<group>"; };
-		C9B6B27718D919E7007406DC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = model/User.m; sourceTree = "<group>"; };
 		C9C6A1C61852AAF700CFBBD5 /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
 		C9C6A20F18568ABE00CFBBD5 /* brands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = brands.json; path = model/json/brands.json; sourceTree = "<group>"; };
 		C9C6A21118569A9E00CFBBD5 /* AddGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupCell.h; path = views/AddGroupCell.h; sourceTree = "<group>"; };
@@ -667,6 +670,8 @@
 				C96D249D18B58A4000460860 /* TimelineSCDTVC.m */,
 				C9B6B25E18D7ACA3007406DC /* ProfileVC.h */,
 				C9B6B25F18D7ACA3007406DC /* ProfileVC.m */,
+				C9AEC72E18DA6B6B00B4074B /* FriendListSCDTVC.h */,
+				C9AEC72F18DA6B6B00B4074B /* FriendListSCDTVC.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -793,8 +798,8 @@
 		C90B6F9818241A5B0012FE5F /* managedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				C9B6B27618D919E7007406DC /* User.h */,
-				C9B6B27718D919E7007406DC /* User.m */,
+				C9AEC73418DA753500B4074B /* User.h */,
+				C9AEC73518DA753500B4074B /* User.m */,
 				C913BAB018B2D58700B8BE85 /* Flight.h */,
 				C913BAB118B2D58700B8BE85 /* Flight.m */,
 				C913BAAA18B2D58700B8BE85 /* TastingNote.h */,
@@ -842,6 +847,8 @@
 				C98DEFE7182312130038216C /* ManagedObjectHandler.m */,
 				C92932B5182AD5F90035C93C /* JSONToCoreDataHelper.h */,
 				C92932B6182AD5F90035C93C /* JSONToCoreDataHelper.m */,
+				C9AD69F318AD90EB00F48E48 /* ServerHelper.h */,
+				C9AD69F418AD90EB00F48E48 /* ServerHelper.m */,
 				C98DEFAE18217BE70038216C /* RestaurantDataHelper.h */,
 				C98DEFAF18217BE70038216C /* RestaurantDataHelper.m */,
 				C98DEFDA1822DADC0038216C /* WineDataHelper.h */,
@@ -858,8 +865,6 @@
 				C92DF235182AD376009DCB2C /* TastingNoteDataHelper.m */,
 				C92932D9182B02200035C93C /* VarietalDataHelper.h */,
 				C92932DA182B02200035C93C /* VarietalDataHelper.m */,
-				C9AD69F318AD90EB00F48E48 /* ServerHelper.h */,
-				C9AD69F418AD90EB00F48E48 /* ServerHelper.m */,
 				C9AD69F618ADA9FC00F48E48 /* RestaurantHelper.h */,
 				C9AD69F718ADA9FC00F48E48 /* RestaurantHelper.m */,
 				C9B6B26D18D9078C007406DC /* UserDataHelper.h */,
@@ -1182,7 +1187,6 @@
 				C913BA9418B2D58600B8BE85 /* Restaurant.m in Sources */,
 				C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */,
 				C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */,
-				C9B6B27818D919E7007406DC /* User.m in Sources */,
 				C9DDD08C1820307D000A6FD7 /* MainTabBarController.m in Sources */,
 				C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */,
 				C9061E30181F1C9C003D8A55 /* RestaurantsSCDTVC.m in Sources */,
@@ -1190,6 +1194,7 @@
 				C9DDD0A11820885C000A6FD7 /* Restaurant+CreateAndModify.m in Sources */,
 				C92DF236182AD376009DCB2C /* TastingNoteDataHelper.m in Sources */,
 				C91F59BF18457AE800CF7F18 /* UserMenuVC.m in Sources */,
+				C9AEC73618DA753500B4074B /* User.m in Sources */,
 				C969353C187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.m in Sources */,
 				C96D249E18B58A4000460860 /* TimelineSCDTVC.m in Sources */,
 				C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */,
@@ -1228,6 +1233,7 @@
 				C969342E1875EF520071EF41 /* MotionEffects.m in Sources */,
 				C98DB3C118B2F44300AAEDB5 /* WineCell.m in Sources */,
 				C9AD69F818ADA9FC00F48E48 /* RestaurantHelper.m in Sources */,
+				C9AEC73018DA6B6B00B4074B /* FriendListSCDTVC.m in Sources */,
 				C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */,
 				C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */,
 				C932F144186D3BE90079680C /* ReviewTVC.m in Sources */,

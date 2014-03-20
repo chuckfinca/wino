@@ -27,7 +27,18 @@
     NSString *dateString = [dictionary objectForKey:@"updated_time"];
     NSDate *date = [df dateFromString:dateString];
     
+    if(!date){
+        date = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:0];
+    }
+    
+    
     if(!user.updatedDate || [user.updatedDate laterDate:date] == date){
+        
+        NSLog(@"date = %@",date);
+        NSLog(@"user.updatedDate = %@",user.updatedDate);
+        NSLog(@"user.updatedDate doesn't exist = %@",!user.updatedDate ? @"y" : @"n");
+        NSLog(@"user doesn't exist = %@",!user ? @"y" : @"n");
+        
         if(!user.updatedDate){
             user.addedDate = date;
         }
@@ -36,14 +47,21 @@
         user.identifier = [dictionary objectForKey:@"id"];
         // user.lastLocalUpdate
         // user.lastServerUpdate = date;
-        user.name = [NSString stringWithFormat:@"%@ %@",[dictionary objectForKey:@"first_name"],[dictionary objectForKey:@"last_name"]];
+        user.nameFirst = [dictionary objectForKey:@"first_name"];
         
+        NSString *lastName = [dictionary objectForKey:@"last_name"];
+        user.nameLast = lastName;
+        user.nameLastInitial = [lastName substringToIndex:1];
         
-        NSString *userImageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [dictionary objectForKey:@"username"]];
         // user.profileImage
-        user.updatedDate = date;
+        user.registered = [dictionary objectForKey:@"registered"];
         
-        [user setHomeCoordinatesFromDictionary:[dictionary objectForKey:@"location"]];
+        if([user.registered boolValue] == YES){
+            [user getAndSetUserProfilePicFromStringUrl:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [dictionary objectForKey:@"username"]]];
+            [user setHomeCoordinatesFromDictionary:[dictionary objectForKey:@"location"]];
+        }
+        
+        user.updatedDate = date;
         
         user.locale = [dictionary objectForKey:@"locale"];
         // user.birthday =
@@ -54,7 +72,7 @@
     
     /* make the API call */
     
-    [user logDetails];
+    //[user logDetails];
     
     return user;
 }
@@ -78,6 +96,39 @@
                           }];
 }
 
+-(void)getAndSetUserProfilePicFromStringUrl:(NSString *)stringUrl
+{
+    NSURL *URL = [NSURL URLWithString:stringUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               // You have it.
+                               if(!error){
+                                   self.profileImage = data;
+                                   NSLog(@"data.bytes = %lu",(unsigned long)data.length);
+                               } else {
+                                   NSLog(@"Error downloading user profile image - %@ - error code %li",error.localizedDescription, (long)error.code);
+                               }
+                           }];
+     
+     /*
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURL *URL = [NSURL URLWithString:stringUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        NSURL *documentsDirectoryPath = [NSURL fileURLWithPath:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]];
+        return [documentsDirectoryPath URLByAppendingPathComponent:[response suggestedFilename]];
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        NSLog(@"File downloaded to: %@", filePath);
+    }];
+    [downloadTask resume];
+      */
+}
+
 -(void)logDetails
 {
     NSLog(@"blurb = %@",self.blurb);
@@ -85,9 +136,11 @@
     NSLog(@"identifier = %@",self.identifier);
     NSLog(@"lastLocalUpdate = %@",self.lastLocalUpdate);
     NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
-    NSLog(@"name = %@",self.name);
-    NSLog(@"profileImage = %@",self.profileImage);
+    NSLog(@"first name = %@",self.nameFirst);
+    NSLog(@"last name = %@",self.nameLast);
+    NSLog(@"profileImage bytes = %lu",(unsigned long)self.profileImage.length);
     NSLog(@"updatedDate = %@",self.updatedDate);
+    NSLog(@"registered = %@",self.registered);
     NSLog(@"homeLongitude = %@",self.homeLongitude);
     NSLog(@"homeLatitude = %@",self.homeLatitude);
     NSLog(@"locale = %@",self.locale);

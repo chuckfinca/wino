@@ -96,7 +96,7 @@
 
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    int index = [(TutorialDetailsVC *)viewController index];
+    NSInteger index = [(TutorialDetailsVC *)viewController index];
     
     if (index == 0) {
         return nil;
@@ -110,7 +110,7 @@
 
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
-    int index = [(TutorialDetailsVC *)viewController index];
+    NSInteger index = [(TutorialDetailsVC *)viewController index];
     index++;
     
     if (index == NUM_TUTORIAL_SCREENS) {

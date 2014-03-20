@@ -2,7 +2,7 @@
 //  User.h
 //  Corkie
 //
-//  Created by Charles Feinn on 3/18/14.
+//  Created by Charles Feinn on 3/19/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -14,20 +14,23 @@
 @interface User : NSManagedObject
 
 @property (nonatomic, retain) NSDate * addedDate;
+@property (nonatomic, retain) NSDate * birthday;
 @property (nonatomic, retain) NSString * blurb;
 @property (nonatomic, retain) NSNumber * deletedEntity;
+@property (nonatomic, retain) NSString * email;
+@property (nonatomic, retain) NSString * gender;
+@property (nonatomic, retain) NSNumber * homeLatitude;
+@property (nonatomic, retain) NSNumber * homeLongitude;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSDate * lastLocalUpdate;
 @property (nonatomic, retain) NSDate * lastServerUpdate;
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * locale;
+@property (nonatomic, retain) NSString * nameFirst;
 @property (nonatomic, retain) NSData * profileImage;
 @property (nonatomic, retain) NSDate * updatedDate;
-@property (nonatomic, retain) NSNumber * homeLatitude;
-@property (nonatomic, retain) NSNumber * homeLongitude;
-@property (nonatomic, retain) NSString * locale;
-@property (nonatomic, retain) NSDate * birthday;
-@property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSString * gender;
+@property (nonatomic, retain) NSNumber * registered;
+@property (nonatomic, retain) NSString * nameLast;
+@property (nonatomic, retain) NSString * nameLastInitial;
 @property (nonatomic, retain) NSSet *followedBy;
 @property (nonatomic, retain) NSSet *following;
 @property (nonatomic, retain) NSSet *reviews;
