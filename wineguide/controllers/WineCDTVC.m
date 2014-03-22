@@ -200,7 +200,7 @@
 {
     [super prepareForSegue:segue sender:sender];
     
-    CheckInVC *checkInVC = segue.destinationViewController;
+    CheckInVC *checkInVC = (CheckInVC *)segue.destinationViewController;
     [checkInVC setupWithWine:self.wine andRestaurant:self.restaurant];
     checkInVC.transitioningDelegate = self;
     checkInVC.modalPresentationStyle = UIModalPresentationCustom;

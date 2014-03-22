@@ -104,6 +104,9 @@
 		C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */; };
 		C95E2DC618651FF10050DFAC /* button_purchase.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DC418651FF10050DFAC /* button_purchase.png */; };
 		C95E2DC718651FF10050DFAC /* button_purchase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DC518651FF10050DFAC /* button_purchase@2x.png */; };
+		C96928CD18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928CC18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m */; };
+		C96928CF18DCE673006ADCC4 /* FriendsListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96928CE18DCE673006ADCC4 /* FriendsListHeaderView.xib */; };
+		C96928D518DCEEBC006ADCC4 /* FriendListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D418DCEEBC006ADCC4 /* FriendListVC.m */; };
 		C969342A1875EF290071EF41 /* IterationCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934271875EF290071EF41 /* IterationCounter.m */; };
 		C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934291875EF290071EF41 /* NSDictionary+Helper.m */; };
 		C969342E1875EF520071EF41 /* MotionEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C969342D1875EF520071EF41 /* MotionEffects.m */; };
@@ -358,6 +361,11 @@
 		C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_triedIt@2x.png"; path = "images/userAction_triedIt@2x.png"; sourceTree = "<group>"; };
 		C95E2DC418651FF10050DFAC /* button_purchase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_purchase.png; path = images/button_purchase.png; sourceTree = "<group>"; };
 		C95E2DC518651FF10050DFAC /* button_purchase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_purchase@2x.png"; path = "images/button_purchase@2x.png"; sourceTree = "<group>"; };
+		C96928CB18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionAnimator_CheckInFriends.h; path = supportingClasses/TransitionAnimator_CheckInFriends.h; sourceTree = "<group>"; };
+		C96928CC18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionAnimator_CheckInFriends.m; path = supportingClasses/TransitionAnimator_CheckInFriends.m; sourceTree = "<group>"; };
+		C96928CE18DCE673006ADCC4 /* FriendsListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendsListHeaderView.xib; path = xibs/FriendsListHeaderView.xib; sourceTree = "<group>"; };
+		C96928D318DCEEBC006ADCC4 /* FriendListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListVC.h; path = controllers/FriendListVC.h; sourceTree = "<group>"; };
+		C96928D418DCEEBC006ADCC4 /* FriendListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListVC.m; path = controllers/FriendListVC.m; sourceTree = "<group>"; };
 		C96934261875EF290071EF41 /* IterationCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IterationCounter.h; path = supportingClasses/IterationCounter.h; sourceTree = "<group>"; };
 		C96934271875EF290071EF41 /* IterationCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IterationCounter.m; path = supportingClasses/IterationCounter.m; sourceTree = "<group>"; };
 		C96934281875EF290071EF41 /* NSDictionary+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Helper.h"; path = "supportingClasses/NSDictionary+Helper.h"; sourceTree = "<group>"; };
@@ -672,6 +680,8 @@
 				C9B6B25F18D7ACA3007406DC /* ProfileVC.m */,
 				C9AEC72E18DA6B6B00B4074B /* FriendListSCDTVC.h */,
 				C9AEC72F18DA6B6B00B4074B /* FriendListSCDTVC.m */,
+				C96928D318DCEEBC006ADCC4 /* FriendListVC.h */,
+				C96928D418DCEEBC006ADCC4 /* FriendListVC.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -732,6 +742,7 @@
 				C932F13D186D0ABC0079680C /* WineReview.xib */,
 				C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */,
 				C923680C18B5B2910018027D /* TastingRecordTVCell.xib */,
+				C96928CE18DCE673006ADCC4 /* FriendsListHeaderView.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -913,6 +924,8 @@
 				C969353B187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.m */,
 				C9A337E918861E810089D020 /* DateStringFormatter.h */,
 				C9A337EA18861E810089D020 /* DateStringFormatter.m */,
+				C96928CB18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.h */,
+				C96928CC18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m */,
 			);
 			name = "supporting classes";
 			sourceTree = "<group>";
@@ -1056,6 +1069,7 @@
 				C932F16218728F500079680C /* glass@2x.png in Resources */,
 				C95A2CD1185BEC3B0043ECB0 /* button_triedIt.png in Resources */,
 				C991FB8E1861110200C10B52 /* glass_empty@2x.png in Resources */,
+				C96928CF18DCE673006ADCC4 /* FriendsListHeaderView.xib in Resources */,
 				C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */,
 				C9C7D63A1842AACD00A2E955 /* tutorial_logo@2x.png in Resources */,
 				C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */,
@@ -1215,6 +1229,7 @@
 				C9AD69F518AD90EB00F48E48 /* ServerHelper.m in Sources */,
 				C96D249B18B5843100460860 /* TastingRecordTVCell.m in Sources */,
 				C92DF0471825B227009DCB2C /* WineCDTVC.m in Sources */,
+				C96928CD18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m in Sources */,
 				C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */,
 				C9C7D6151840168700A2E955 /* SearchableCDTVC.m in Sources */,
 				C9061E3A181F216C003D8A55 /* RestaurantCDTVC.m in Sources */,
@@ -1243,6 +1258,7 @@
 				C969342A1875EF290071EF41 /* IterationCounter.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
 				C969352E187CAF8A0071EF41 /* RoundedRectButton.m in Sources */,
+				C96928D518DCEEBC006ADCC4 /* FriendListVC.m in Sources */,
 				C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */,
 				C991FBC51863A7DE00C10B52 /* TimelineCVController.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,

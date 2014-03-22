@@ -14,11 +14,13 @@
 #import "Review.h"
 #import "TastingRecord.h"
 #import "MotionEffects.h"
+#import "FriendListVC.h"
+#import "TransitionAnimator_CheckInFriends.h"
 
 #define CORNER_RADIUS 4
 #define CHECK_IN_VC_VIEW_HEIGHT 230
 
-@interface CheckInVC () <UITextViewDelegate>
+@interface CheckInVC () <UITextViewDelegate, UIViewControllerTransitioningDelegate, FriendListVcDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *cancelCheckInButton;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
@@ -61,6 +63,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.noteTV.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -69,9 +72,7 @@
     
     [self setupUserRatingsController];
     [self.noteTV becomeFirstResponder];
-    self.noteTV.delegate = self;
 }
-
 
 #pragma mark - Getters & Setters
 
@@ -101,8 +102,9 @@
 
 -(void)setup
 {
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
+    self.headerBackgroundView.backgroundColor = [ColorSchemer sharedInstance].baseColor;
     [self setupBackground];
-    [self setupHeaderView];
     [self setupUserRatingView];
     [self setupRestaurantButton];
     [self setupDateButton];
@@ -120,17 +122,6 @@
     
     [self addBorderToLayer:layer];
     
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
-}
-
--(void)setupHeaderView
-{
-    CAShapeLayer * maskLayer = [CAShapeLayer layer];
-    maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 300, CHECK_IN_VC_VIEW_HEIGHT)
-                                           byRoundingCorners: (UIRectCornerTopLeft | UIRectCornerTopRight)
-                                                 cornerRadii: (CGSize){CORNER_RADIUS, CORNER_RADIUS}].CGPath;
-    self.headerBackgroundView.layer.mask = maskLayer;
-    self.headerBackgroundView.backgroundColor = [ColorSchemer sharedInstance].baseColor;
 }
 
 -(void)setupUserRatingView
@@ -195,6 +186,18 @@
     [self.userRatingView addSubview:self.userRatingsController.collectionView];
     [self addBorderToLayer:self.userRatingViewContainerView.layer];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier  isEqual: @"AddFriends"]){
+        NSLog(@"Add friends segue");
+        FriendListVC *friendListVC = segue.destinationViewController;
+        friendListVC.transitioningDelegate = self;
+        friendListVC.modalTransitionStyle = UIModalPresentationCustom;
+        friendListVC.delegate = self;
+    }
+}
+
 
 
 #pragma mark - Target Action
@@ -305,6 +308,21 @@
 }
 
 
+#pragma mark - UIViewControllerTransitioningDelegate
+
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                 presentingController:(UIViewController *)presenting
+                                                                     sourceController:(UIViewController *)source
+{
+    TransitionAnimator_CheckInFriends *animator = [TransitionAnimator_CheckInFriends new];
+    animator.presenting = YES;
+    return animator;
+}
+
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return [TransitionAnimator_CheckInFriends new];
+}
 
 
 - (void)didReceiveMemoryWarning
@@ -313,6 +331,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - FriendListVcDelegate
+
+-(void)checkIn
+{
+    NSLog(@"checkIn...");
+}
+
+-(void)backFromVC:(UIViewController *)dismissed
+{
+    NSLog(@"backToDetails...");
+    [self dismissViewControllerAnimated:YES completion:^{}];
+}
 
 
 

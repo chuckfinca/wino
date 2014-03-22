@@ -68,6 +68,7 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"nameLastInitial"
                                                                                    cacheName:nil];
+    
     [self logFetchResults];
 }
 
@@ -98,7 +99,7 @@
     return cell;
 }
 
-#pragma mark UITableViewDelegate
+#pragma mark - UITableViewDelegate
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     return [self.fetchedResultsController sectionIndexTitles];
@@ -108,17 +109,27 @@
     return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
 }
 
+#pragma mark - FriendsListHeaderViewDelegate
 
-/*
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)checkIn
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSLog(@"checkIn...");
 }
-*/
+
+-(void)backToCheckInDetails
+{
+    NSLog(@"backToCheckInDetails...");
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @end
