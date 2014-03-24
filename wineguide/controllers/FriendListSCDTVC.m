@@ -9,6 +9,7 @@
 #import "FriendListSCDTVC.h"
 #import "User.h"
 #import <UIImageView+AFNetworking.h>
+#import "ColorSchemer.h"
 
 #define USER_ENTITY @"User"
 
@@ -35,11 +36,9 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+
+
 
 #pragma mark - Getters & Setters
 
@@ -63,13 +62,18 @@
                                                               ascending:YES],
                                 [NSSortDescriptor sortDescriptorWithKey:@"nameFirst"
                                                               ascending:YES]];
+    if([text length] > 0){
+        request.predicate = [NSPredicate predicateWithFormat:@"nameFirst CONTAINS[cd] %@ || nameLast CONTAINS[cd] %@",[text lowercaseString],[text lowercaseString]];
+    } else {
+        request.predicate = self.fetchPredicate;
+    }
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"nameLastInitial"
                                                                                    cacheName:nil];
     
-    [self logFetchResults];
+    //[self logFetchResults];
 }
 
 -(void)logFetchResults
@@ -127,6 +131,13 @@
 
 
 
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 
 

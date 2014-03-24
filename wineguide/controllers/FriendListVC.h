@@ -18,5 +18,6 @@
 @interface FriendListVC : UIViewController
 
 @property (nonatomic, weak) id <FriendListVcDelegate> delegate;
+@property (nonatomic, strong) NSString *wineName;
 
 @end

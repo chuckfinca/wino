@@ -195,6 +195,7 @@
         friendListVC.transitioningDelegate = self;
         friendListVC.modalTransitionStyle = UIModalPresentationCustom;
         friendListVC.delegate = self;
+        friendListVC.wineName = [self.wine.name capitalizedString];
     }
 }
 
