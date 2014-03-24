@@ -7,7 +7,17 @@
 //
 
 #import "SearchableCDTVC.h"
+#import "User.h"
+
+@protocol FriendSelectionDelegate
+
+-(void)addUser:(User *)user;
+-(void)removeUser:(User *)user;
+
+@end
 
 @interface FriendListSCDTVC : SearchableCDTVC
+
+@property (nonatomic, weak) id <FriendSelectionDelegate> delegate;
 
 @end

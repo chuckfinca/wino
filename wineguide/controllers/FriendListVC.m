@@ -8,14 +8,17 @@
 
 #import "FriendListVC.h"
 #import "ColorSchemer.h"
+#import "FriendListSCDTVC.h"
 
 #define CORNER_RADIUS 4
 
-@interface FriendListVC ()
+@interface FriendListVC () <FriendSelectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *selectedFriendsTextView;
 @property (nonatomic, strong) UIImage *placeHolderImage;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (nonatomic, strong) FriendListSCDTVC *friendListSCDTVC;
+@property (nonatomic, strong) NSMutableArray *selectedFriends;
 
 @end
 
@@ -49,6 +52,14 @@
     return _placeHolderImage;
 }
 
+-(NSMutableArray *)selectedFriends
+{
+    if(!_selectedFriends){
+        _selectedFriends = [[NSMutableArray alloc] init];
+    }
+    return _selectedFriends;
+}
+
 
 #pragma mark - Setup
 
@@ -63,10 +74,37 @@
     self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
 }
 
+-(void)setupTextView
+{
+    NSString *text;
+    
+    NSLog(@"text = %@",text);
+    for(User *u in self.selectedFriends){
+        
+        if(!text) {
+            NSLog(@"aaa");
+            text = @"";
+        } else {
+            NSLog(@"bbb");
+            text = [text stringByAppendingString:@", "];
+        }
+        NSString *name = [NSString stringWithFormat:@"%@ %@",u.nameFirst, u.nameLast];
+        NSLog(@"name = %@",name);
+        text = [text stringByAppendingString:name];
+    }
+    self.selectedFriendsTextView.attributedText = [[NSAttributedString alloc] initWithString:text];
+    NSLog(@"text = %@",text);
+    NSLog(@"friends = %i",[self.selectedFriends count]);
+    [self.selectedFriendsTextView setNeedsDisplay];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"EmbeddedFriendList"]){
-        NSLog(@"EmbeddedFriendList");
+        if([segue.destinationViewController isKindOfClass:[FriendListSCDTVC class]]){
+            self.friendListSCDTVC = (FriendListSCDTVC *)segue.destinationViewController;
+            self.friendListSCDTVC.delegate = self;
+        }
     }
 }
 
@@ -82,6 +120,21 @@
     [self.delegate checkIn];
 }
 
+#pragma mark - FriendSelectionDelegate
+
+-(void)addUser:(User *)user
+{
+    [self.selectedFriends addObject:user];
+    [self setupTextView];
+}
+
+-(void)removeUser:(User *)user
+{
+    [self.selectedFriends removeObject:user];
+    [self setupTextView];
+}
+
+
 
 
 
@@ -90,6 +143,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 
 
 

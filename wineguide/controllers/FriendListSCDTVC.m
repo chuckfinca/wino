@@ -109,16 +109,18 @@
     return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
 }
 
-#pragma mark - FriendsListHeaderViewDelegate
-
--(void)checkIn
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"checkIn...");
+    NSLog(@"didSelectRowAtIndexPath...");
+    User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.delegate addUser:user];
 }
 
--(void)backToCheckInDetails
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"backToCheckInDetails...");
+    NSLog(@"didDeselectRowAtIndexPath...");
+    User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.delegate removeUser:user];
 }
 
 
