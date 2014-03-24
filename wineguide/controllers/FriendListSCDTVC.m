@@ -117,15 +117,16 @@
 {
     NSLog(@"didSelectRowAtIndexPath...");
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self.delegate addUser:user];
+    [self.delegate addOrRemoveUser:user];
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"didDeselectRowAtIndexPath...");
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self.delegate removeUser:user];
+    [self.delegate addOrRemoveUser:user];
 }
+
 
 
 

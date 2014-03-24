@@ -41,16 +41,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     self.headerView.backgroundColor = [ColorSchemer sharedInstance].baseColor;
     
     [self setupBackground];
     [self setupTextView];
     
     
-    self.searchBar.delegate = self;
-    self.searchBar.placeholder = @" Search friends...";
-    self.searchBar.spellCheckingType = UITextSpellCheckingTypeNo;
     [self customizeSearchBar];
 }
 
@@ -59,10 +56,20 @@
     [self listenForKeyboardNotifcations];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Setup
 
 -(void)customizeSearchBar
 {
+    self.searchBar.delegate = self;
+    self.searchBar.placeholder = @" Search friends...";
+    self.searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+    
     self.searchBar.barTintColor = [ColorSchemer sharedInstance].customWhite;
     
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
@@ -170,28 +177,22 @@
 
 #pragma mark - FriendSelectionDelegate
 
--(void)addUser:(User *)user
+-(void)addOrRemoveUser:(User *)user
 {
-    [self.selectedFriends addObject:user];
+    if([self.selectedFriends containsObject:user]){
+        [self.selectedFriends removeObject:user];
+    } else {
+        [self.selectedFriends addObject:user];
+    }
     [self setupTextView];
 }
 
--(void)removeUser:(User *)user
-{
-    [self.selectedFriends removeObject:user];
-    [self setupTextView];
-}
 
 
 
 
 
 
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
 
 

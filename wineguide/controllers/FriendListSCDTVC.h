@@ -11,8 +11,7 @@
 
 @protocol FriendSelectionDelegate
 
--(void)addUser:(User *)user;
--(void)removeUser:(User *)user;
+-(void)addOrRemoveUser:(User *)user;
 
 @end
 
