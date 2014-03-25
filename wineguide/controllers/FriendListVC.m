@@ -10,6 +10,7 @@
 #import "ColorSchemer.h"
 #import "FriendListSCDTVC.h"
 #import "FontThemer.h"
+#import "FriendListSearchBar.h"
 
 #define CORNER_RADIUS 4
 
@@ -20,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (nonatomic, strong) FriendListSCDTVC *friendListSCDTVC;
 @property (nonatomic, strong) NSMutableArray *selectedFriends;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet FriendListSearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 
@@ -41,7 +42,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     self.headerView.backgroundColor = [ColorSchemer sharedInstance].baseColor;
     
     [self setupBackground];
@@ -80,6 +80,8 @@
     
     [self.searchBar.layer setBorderColor:[ColorSchemer sharedInstance].lightGray.CGColor];
     [self.searchBar.layer setBorderWidth:1];
+    
+    [[UIBarButtonItem appearanceWhenContainedIn:[FriendListSearchBar class], nil] setTitle:@"Done"];
 }
 
 #pragma mark - Getters & Setters
@@ -111,7 +113,7 @@
     [layer setShadowOffset:CGSizeMake(0, 0)];
     [layer setShadowOpacity:0.2];
     
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)setupTextView
@@ -186,6 +188,8 @@
     }
     [self setupTextView];
 }
+
+
 
 
 

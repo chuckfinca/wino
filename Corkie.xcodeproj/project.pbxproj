@@ -166,6 +166,7 @@
 		C9B6B26918D8ED8E007406DC /* FacebookSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */; };
 		C9B6B26C18D8FF75007406DC /* User+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26B18D8FF75007406DC /* User+CreateAndModify.m */; };
 		C9B6B26F18D9078C007406DC /* UserDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26E18D9078C007406DC /* UserDataHelper.m */; };
+		C9BAE96A18E228E5009B8C76 /* FriendListSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BAE96918E228E5009B8C76 /* FriendListSearchBar.m */; };
 		C9C6A21018568ABE00CFBBD5 /* brands.json in Resources */ = {isa = PBXBuildFile; fileRef = C9C6A20F18568ABE00CFBBD5 /* brands.json */; };
 		C9C6A21318569A9E00CFBBD5 /* AddGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A21218569A9E00CFBBD5 /* AddGroupCell.m */; };
 		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
@@ -463,6 +464,8 @@
 		C9B6B26B18D8FF75007406DC /* User+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CreateAndModify.m"; path = "model/User+CreateAndModify.m"; sourceTree = "<group>"; };
 		C9B6B26D18D9078C007406DC /* UserDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDataHelper.h; path = model/UserDataHelper.h; sourceTree = "<group>"; };
 		C9B6B26E18D9078C007406DC /* UserDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDataHelper.m; path = model/UserDataHelper.m; sourceTree = "<group>"; };
+		C9BAE96818E228E5009B8C76 /* FriendListSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListSearchBar.h; path = views/FriendListSearchBar.h; sourceTree = "<group>"; };
+		C9BAE96918E228E5009B8C76 /* FriendListSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListSearchBar.m; path = views/FriendListSearchBar.m; sourceTree = "<group>"; };
 		C9C6A1C61852AAF700CFBBD5 /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
 		C9C6A20F18568ABE00CFBBD5 /* brands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = brands.json; path = model/json/brands.json; sourceTree = "<group>"; };
 		C9C6A21118569A9E00CFBBD5 /* AddGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupCell.h; path = views/AddGroupCell.h; sourceTree = "<group>"; };
@@ -723,6 +726,8 @@
 				C969352D187CAF8A0071EF41 /* RoundedRectButton.m */,
 				C96D249918B5843100460860 /* TastingRecordTVCell.h */,
 				C96D249A18B5843100460860 /* TastingRecordTVCell.m */,
+				C9BAE96818E228E5009B8C76 /* FriendListSearchBar.h */,
+				C9BAE96918E228E5009B8C76 /* FriendListSearchBar.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1240,6 +1245,7 @@
 				C991FBAD1862BE6E00C10B52 /* ReviewersCVC.m in Sources */,
 				C9328CC81849784400AF6DEA /* RestaurantWineListManagerTVC.m in Sources */,
 				C95A2CBF185A31980043ECB0 /* SpringyFlowLayout.m in Sources */,
+				C9BAE96A18E228E5009B8C76 /* FriendListSearchBar.m in Sources */,
 				C92DF04318247AB3009DCB2C /* Brand+CreateAndModify.m in Sources */,
 				C913BA9118B2D58600B8BE85 /* Rating.m in Sources */,
 				C991FBB818639FE100C10B52 /* UserRatingCVC.m in Sources */,

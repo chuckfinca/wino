@@ -10,6 +10,7 @@
 #import "User.h"
 #import <UIImageView+AFNetworking.h>
 #import "ColorSchemer.h"
+#import "FontThemer.h"
 
 #define USER_ENTITY @"User"
 
@@ -91,11 +92,16 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserCell" forIndexPath:indexPath];
     
-    
-    
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",user.nameFirst, user.nameLast];
+    NSString *name = [NSString stringWithFormat:@"%@ ",user.nameFirst];
+    NSInteger firstNameLength = [name length];
+    name = [name stringByAppendingString:user.nameLast];
+    
+    NSMutableAttributedString *attributedName = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body}];
+    [attributedName addAttribute:NSFontAttributeName value:[FontThemer sharedInstance].headline range: NSMakeRange(firstNameLength, [user.nameLast length])];
+    
+    cell.textLabel.attributedText = attributedName;
     
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", user.identifier]];
     [cell.imageView setImageWithURL:URL placeholderImage:self.placeHolderImage];

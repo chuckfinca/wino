@@ -602,7 +602,7 @@
                                     <segue destination="qhk-0F-ve9" kind="embed" identifier="EmbeddedFriendList" id="IEd-Oo-rwj"/>
                                 </connections>
                             </containerView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="LOU-bf-MKL">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="LOU-bf-MKL" customClass="FriendListSearchBar">
                                 <rect key="frame" x="0.0" y="114" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>

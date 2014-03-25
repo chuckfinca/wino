@@ -34,11 +34,6 @@
     
     if(!user.updatedDate || [user.updatedDate laterDate:date] == date){
         
-        NSLog(@"date = %@",date);
-        NSLog(@"user.updatedDate = %@",user.updatedDate);
-        NSLog(@"user.updatedDate doesn't exist = %@",!user.updatedDate ? @"y" : @"n");
-        NSLog(@"user doesn't exist = %@",!user ? @"y" : @"n");
-        
         if(!user.updatedDate){
             user.addedDate = date;
         }
@@ -51,7 +46,7 @@
         
         NSString *lastName = [dictionary objectForKey:@"last_name"];
         user.nameLast = lastName;
-        user.nameLastInitial = [lastName substringToIndex:1];
+        user.nameLastInitial = [[lastName uppercaseString] substringToIndex:1];
         
         // user.profileImage
         user.registered = [dictionary objectForKey:@"registered"];
