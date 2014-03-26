@@ -15,11 +15,13 @@
 #import <FBGraphUser.h>
 #import "UserDataHelper.h"
 #import "DocumentHandler.h"
+#import "User.h"
 
 @interface FacebookSessionManager ()
 
 @property (nonatomic, strong) NSArray *friends; // of NSDictionaries
 @property (nonatomic, strong) NSManagedObjectContext *context;
+@property (nonatomic, strong) User *user;
 
 @end
 
@@ -65,8 +67,6 @@ static FacebookSessionManager *sharedInstance;
         [self closeAndClearSession];
     }
 }
-
-
 
 -(void)logInWithCompletion:(void (^)(BOOL loggedIn))completion
 {
@@ -232,7 +232,8 @@ static FacebookSessionManager *sharedInstance;
                 
                 UserDataHelper *udh = [[UserDataHelper alloc] init];
                 udh.context = self.context;
-                [udh updateManagedObjectWithDictionary:graphObject];
+                self.user = (User *)[udh updateManagedObjectWithDictionary:graphObject];
+                self.user.isMe = @YES;
             }
         } else {
             // An error occurred, we need to handle the error
@@ -265,6 +266,7 @@ static FacebookSessionManager *sharedInstance;
                                                       NSError *error) {
             self.friends = [result objectForKey:@"data"];
             NSLog(@"Found: %i friends", self.friends.count);
+            
             for (NSDictionary<FBGraphUser>* friend in _friends) {
                 UserDataHelper *udh = [[UserDataHelper alloc] init];
                 udh.context = self.context;

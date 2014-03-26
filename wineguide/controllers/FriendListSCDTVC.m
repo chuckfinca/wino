@@ -65,6 +65,10 @@
                                                               ascending:YES]];
     if([text length] > 0){
         request.predicate = [NSPredicate predicateWithFormat:@"nameFirst CONTAINS[cd] %@ || nameLast CONTAINS[cd] %@",[text lowercaseString],[text lowercaseString]];
+        
+        //need to add full name property to users and filter out the user that isMe
+        
+        
     } else {
         request.predicate = self.fetchPredicate;
     }

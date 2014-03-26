@@ -2,7 +2,7 @@
 //  User.h
 //  Corkie
 //
-//  Created by Charles Feinn on 3/19/14.
+//  Created by Charles Feinn on 3/25/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -26,11 +26,12 @@
 @property (nonatomic, retain) NSDate * lastServerUpdate;
 @property (nonatomic, retain) NSString * locale;
 @property (nonatomic, retain) NSString * nameFirst;
-@property (nonatomic, retain) NSData * profileImage;
-@property (nonatomic, retain) NSDate * updatedDate;
-@property (nonatomic, retain) NSNumber * registered;
 @property (nonatomic, retain) NSString * nameLast;
 @property (nonatomic, retain) NSString * nameLastInitial;
+@property (nonatomic, retain) NSData * profileImage;
+@property (nonatomic, retain) NSNumber * registered;
+@property (nonatomic, retain) NSDate * updatedDate;
+@property (nonatomic, retain) NSNumber * isMe;
 @property (nonatomic, retain) NSSet *followedBy;
 @property (nonatomic, retain) NSSet *following;
 @property (nonatomic, retain) NSSet *reviews;

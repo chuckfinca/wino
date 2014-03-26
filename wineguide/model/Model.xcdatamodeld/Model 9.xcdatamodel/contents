@@ -132,6 +132,7 @@
         <attribute name="homeLatitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="homeLongitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isMe" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastLocalUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="lastServerUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="locale" optional="YES" attributeType="String" syncable="YES"/>
@@ -218,7 +219,7 @@
         <element name="Review" positionX="-612" positionY="467" width="128" height="223"/>
         <element name="TastingNote" positionX="358" positionY="594" width="128" height="223"/>
         <element name="TastingRecord" positionX="-569" positionY="782" width="128" height="178"/>
-        <element name="User" positionX="-920" positionY="693" width="128" height="373"/>
+        <element name="User" positionX="-920" positionY="693" width="128" height="388"/>
         <element name="Varietal" positionX="340" positionY="857" width="128" height="208"/>
         <element name="Wine" positionX="117" positionY="234" width="128" height="538"/>
         <element name="WineUnit" positionX="-108" positionY="747" width="128" height="238"/>
