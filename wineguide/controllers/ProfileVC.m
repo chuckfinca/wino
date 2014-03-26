@@ -65,6 +65,7 @@
 -(void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
 {
     NSLog(@"FBLoginViewDelegate - There was a communication or authorization error - %@.",error.localizedDescription);
+    [[FacebookSessionManager sharedInstance] sessionStateChanged:nil state:0 error:error];
 }
 
 @end

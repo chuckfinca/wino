@@ -14,7 +14,6 @@
 #import "TutorialVC.h"
 #import "UserMenuVC.h"
 #import "MotionEffects.h"
-#import "FacebookSessionManager.h"
 
 #define SUPRESS_TUTORIAL @"ShowTutorial"
 
@@ -51,8 +50,6 @@
     if(self.supressTutorial == NO) {
         [self setupTutorial];
     }
-    
-    [[FacebookSessionManager sharedInstance] checkToken];
 }
 
 #pragma mark - Getters & Setters

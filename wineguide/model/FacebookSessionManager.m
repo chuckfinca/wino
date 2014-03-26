@@ -62,9 +62,11 @@ static FacebookSessionManager *sharedInstance;
         }
     } else {
         NSLog(@"cached token does not exist");
-        self.sessionActive = NO;
+        [self closeAndClearSession];
     }
 }
+
+
 
 -(void)logInWithCompletion:(void (^)(BOOL loggedIn))completion
 {
@@ -127,12 +129,12 @@ static FacebookSessionManager *sharedInstance;
             
         case FBSessionStateClosed:
             NSLog(@"FBSessionStateClosed");
-            self.sessionActive = NO;
+            [self closeAndClearSession];
             break;
             
         case FBSessionStateClosedLoginFailed:
             NSLog(@"FBSessionStateClosedLoginFailed");
-            self.sessionActive = NO;
+            [self closeAndClearSession];
             break;
             
         case FBSessionStateCreatedOpening:
@@ -190,6 +192,12 @@ static FacebookSessionManager *sharedInstance;
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
     }
+}
+
+-(void)closeAndClearSession
+{
+    self.sessionActive = NO;
+    [[FBSession activeSession] closeAndClearTokenInformation];
 }
 
 
