@@ -42,11 +42,14 @@
         user.identifier = [dictionary objectForKey:@"id"];
         // user.lastLocalUpdate
         // user.lastServerUpdate = date;
-        user.nameFirst = [dictionary objectForKey:@"first_name"];
+        
+        NSString *firstName = [dictionary objectForKey:@"first_name"];
+        user.nameFirst = firstName;
         
         NSString *lastName = [dictionary objectForKey:@"last_name"];
         user.nameLast = lastName;
         user.nameLastInitial = [[lastName uppercaseString] substringToIndex:1];
+        user.nameFull = [NSString stringWithFormat:@"%@ %@",firstName, lastName];
         
         // user.profileImage
         user.registered = [dictionary objectForKey:@"registered"];

@@ -166,7 +166,7 @@
 		C9B6B26C18D8FF75007406DC /* User+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26B18D8FF75007406DC /* User+CreateAndModify.m */; };
 		C9B6B26F18D9078C007406DC /* UserDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26E18D9078C007406DC /* UserDataHelper.m */; };
 		C9BAE96A18E228E5009B8C76 /* FriendListSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BAE96918E228E5009B8C76 /* FriendListSearchBar.m */; };
-		C9BAE96D18E261D2009B8C76 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BAE96C18E261D2009B8C76 /* User.m */; };
+		C9BAE97018E36DBB009B8C76 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BAE96F18E36DBB009B8C76 /* User.m */; };
 		C9C6A21018568ABE00CFBBD5 /* brands.json in Resources */ = {isa = PBXBuildFile; fileRef = C9C6A20F18568ABE00CFBBD5 /* brands.json */; };
 		C9C6A21318569A9E00CFBBD5 /* AddGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A21218569A9E00CFBBD5 /* AddGroupCell.m */; };
 		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
@@ -464,8 +464,8 @@
 		C9B6B26E18D9078C007406DC /* UserDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDataHelper.m; path = model/UserDataHelper.m; sourceTree = "<group>"; };
 		C9BAE96818E228E5009B8C76 /* FriendListSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListSearchBar.h; path = views/FriendListSearchBar.h; sourceTree = "<group>"; };
 		C9BAE96918E228E5009B8C76 /* FriendListSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListSearchBar.m; path = views/FriendListSearchBar.m; sourceTree = "<group>"; };
-		C9BAE96B18E261D2009B8C76 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = model/User.h; sourceTree = "<group>"; };
-		C9BAE96C18E261D2009B8C76 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = model/User.m; sourceTree = "<group>"; };
+		C9BAE96E18E36DBB009B8C76 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = model/User.h; sourceTree = "<group>"; };
+		C9BAE96F18E36DBB009B8C76 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = model/User.m; sourceTree = "<group>"; };
 		C9C6A1C61852AAF700CFBBD5 /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
 		C9C6A20F18568ABE00CFBBD5 /* brands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = brands.json; path = model/json/brands.json; sourceTree = "<group>"; };
 		C9C6A21118569A9E00CFBBD5 /* AddGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupCell.h; path = views/AddGroupCell.h; sourceTree = "<group>"; };
@@ -814,8 +814,8 @@
 		C90B6F9818241A5B0012FE5F /* managedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				C9BAE96B18E261D2009B8C76 /* User.h */,
-				C9BAE96C18E261D2009B8C76 /* User.m */,
+				C9BAE96E18E36DBB009B8C76 /* User.h */,
+				C9BAE96F18E36DBB009B8C76 /* User.m */,
 				C913BAB018B2D58700B8BE85 /* Flight.h */,
 				C913BAB118B2D58700B8BE85 /* Flight.m */,
 				C913BAAA18B2D58700B8BE85 /* TastingNote.h */,
@@ -1234,7 +1234,7 @@
 				C9AD69F518AD90EB00F48E48 /* ServerHelper.m in Sources */,
 				C96D249B18B5843100460860 /* TastingRecordTVCell.m in Sources */,
 				C92DF0471825B227009DCB2C /* WineCDTVC.m in Sources */,
-				C9BAE96D18E261D2009B8C76 /* User.m in Sources */,
+				C9BAE97018E36DBB009B8C76 /* User.m in Sources */,
 				C96928CD18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m in Sources */,
 				C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */,
 				C9C7D6151840168700A2E955 /* SearchableCDTVC.m in Sources */,

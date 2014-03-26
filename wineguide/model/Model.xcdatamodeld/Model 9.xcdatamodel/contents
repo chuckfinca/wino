@@ -137,6 +137,7 @@
         <attribute name="lastServerUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="locale" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nameFirst" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nameFull" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nameLast" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nameLastInitial" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profileImage" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -219,7 +220,7 @@
         <element name="Review" positionX="-612" positionY="467" width="128" height="223"/>
         <element name="TastingNote" positionX="358" positionY="594" width="128" height="223"/>
         <element name="TastingRecord" positionX="-569" positionY="782" width="128" height="178"/>
-        <element name="User" positionX="-920" positionY="693" width="128" height="388"/>
+        <element name="User" positionX="-920" positionY="693" width="128" height="403"/>
         <element name="Varietal" positionX="340" positionY="857" width="128" height="208"/>
         <element name="Wine" positionX="117" positionY="234" width="128" height="538"/>
         <element name="WineUnit" positionX="-108" positionY="747" width="128" height="238"/>
