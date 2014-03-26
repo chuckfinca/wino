@@ -23,7 +23,7 @@
 @interface CheckInVC () <UITextViewDelegate, UIViewControllerTransitioningDelegate, FriendListVcDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *cancelCheckInButton;
-@property (weak, nonatomic) IBOutlet UIButton *checkInButton;
+@property (weak, nonatomic) IBOutlet UIButton *continueButton;
 @property (weak, nonatomic) IBOutlet UIView *headerBackgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *promptLabel;
 @property (weak, nonatomic) IBOutlet UITextView *noteTV;
@@ -31,10 +31,14 @@
 @property (weak, nonatomic) IBOutlet UIView *userRatingViewContainerView;
 @property (weak, nonatomic) IBOutlet UIButton *dateButton;
 @property (weak, nonatomic) IBOutlet UIButton *restaurantButton;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @property (nonatomic, strong) Wine *wine;
 @property (nonatomic, strong) Restaurant *restaurant;
 @property (nonatomic, strong) UserRatingCVController *userRatingsController;
+@property (nonatomic, strong) NSArray *selectedFriends;
+@property (nonatomic) BOOL datePickerVisible;
+@property (nonatomic, strong) NSDate *selectedDate;
 
 @end
 
@@ -109,7 +113,7 @@
     [self setupRestaurantButton];
     [self setupDateButton];
     [self setupCancelButton];
-    [self setupCheckInButton];
+    [self setupContinueButton];
 }
 
 -(void)setupBackground
@@ -119,9 +123,6 @@
     [layer setShadowColor:[ColorSchemer sharedInstance].shadowColor.CGColor];
     [layer setShadowOffset:CGSizeMake(0, 0)];
     [layer setShadowOpacity:0.2];
-    
-    [self addBorderToLayer:layer];
-    
 }
 
 -(void)setupUserRatingView
@@ -144,25 +145,51 @@
 
 -(void)setupRestaurantText
 {
+    NSAttributedString *attributed;
+    
     NSString *text;
     if(self.restaurant.name){
         text = [NSString stringWithFormat:@"@ %@",[self.restaurant.name capitalizedString]];
     } else {
         text = @"Select Restaurant";
     }
-    NSAttributedString *attributed = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+    attributed = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+    
     [self.restaurantButton setAttributedTitle:attributed forState:UIControlStateNormal];
 }
 
 -(void)addBorderToLayer:(CALayer *)layer
 {
-    [layer setBorderColor:[ColorSchemer sharedInstance].baseColor.CGColor];
+    [layer setBorderColor:[ColorSchemer sharedInstance].gray.CGColor];
     [layer setBorderWidth:0.25];
 }
 
 -(void)setupDateButton
 {
-    NSAttributedString *attributed = [[NSAttributedString alloc] initWithString:@"Now" attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+    NSAttributedString *attributed;
+    
+    if(self.datePickerVisible){
+        attributed  = [[NSAttributedString alloc] initWithString:@"Save" attributes:@{NSFontAttributeName : [FontThemer sharedInstance].headline, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].clickable}];
+    } else {
+        if(self.selectedDate){
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"MMM dd, yy"];
+            NSString *newDate = [formatter stringFromDate:self.selectedDate];
+            
+            if([[formatter stringFromDate:[NSDate date]] isEqualToString:newDate]){
+                attributed  = [[NSAttributedString alloc] initWithString:@"Now" attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+                
+            } else {
+                attributed  = [[NSAttributedString alloc] initWithString:newDate attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+            }
+            
+            
+        } else {
+            attributed  = [[NSAttributedString alloc] initWithString:@"Now" attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+        }
+    }
+    
     [self.dateButton setAttributedTitle:attributed forState:UIControlStateNormal];
     
     self.dateButton.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
@@ -174,9 +201,10 @@
     NSLog(@"setup cancel button");
 }
 
--(void)setupCheckInButton
+-(void)setupContinueButton
 {
-    NSLog(@"setup check in button");
+    NSLog(@"setup continue button");
+    [self.continueButton setAttributedTitle:[[NSAttributedString alloc] initWithString:self.continueButton.titleLabel.text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].headline}] forState:UIControlStateNormal];
 }
 
 -(void)setupUserRatingsController
@@ -187,15 +215,30 @@
     [self addBorderToLayer:self.userRatingViewContainerView.layer];
 }
 
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if([identifier isEqual:@"CancelCheckIn"]){
+        if(self.datePickerVisible){
+            [self showHideDatePicker];
+            return NO;
+        }
+    }
+    return YES;
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier  isEqual: @"AddFriends"]){
+    NSLog(@"prepareForSegue...");
+    
+    if([segue.identifier isEqual: @"AddFriends"]){
         NSLog(@"Add friends segue");
         FriendListVC *friendListVC = segue.destinationViewController;
         friendListVC.transitioningDelegate = self;
         friendListVC.modalTransitionStyle = UIModalPresentationCustom;
+        
         friendListVC.delegate = self;
         friendListVC.wineName = [self.wine.name capitalizedString];
+        friendListVC.selectedFriends = [self.selectedFriends mutableCopy];
     }
 }
 
@@ -223,31 +266,122 @@
 
 - (IBAction)changeDate:(UIButton *)sender
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Date changing coming soon." delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
-    alert.tintColor = [ColorSchemer sharedInstance].clickable;
+    if(self.datePickerVisible){
+        // Save the new date
+        self.selectedDate = self.datePicker.date;
+    }
     
-    [MotionEffects addMotionEffectsToView:alert];
-    [alert show];}
+    [self showHideDatePicker];
+}
+
+-(void)showHideDatePicker
+{
+    float animationTime = 0.3;
+    NSInteger viewHeightAdjustment = 200;
+    
+    if(self.datePickerVisible){
+        self.datePickerVisible = NO;
+        [UIView animateWithDuration:animationTime animations:^{
+            self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height-viewHeightAdjustment);
+            [self.noteTV becomeFirstResponder];
+            [self setupDateButton];
+            [self setupRestaurantButton];
+            
+            self.continueButton.enabled = YES;
+            self.continueButton.alpha = 1.0;
+            
+        }];
+    } else {
+        self.datePickerVisible = YES;
+        [UIView animateWithDuration:animationTime animations:^{
+            self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height+viewHeightAdjustment);
+            [self.noteTV resignFirstResponder];
+            [self setupDateButton];
+            [self setupRestaurantButton];
+            
+            self.continueButton.enabled = NO;
+            self.continueButton.alpha = 0.5;
+        }];
+    }
+}
+
+
+
 
 - (IBAction)changeRestaurant:(UIButton *)sender
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Restaurant changing coming soon." delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
-    alert.tintColor = [ColorSchemer sharedInstance].clickable;
-    
-    [MotionEffects addMotionEffectsToView:alert];
-    [alert show];
+    NSLog(@"change restaurant");
 }
+
+
+
+- (IBAction)segueToDateAndRestaurantEditVC:(id)sender
+{
+    NSLog(@"segueToDateAndRestaurantEditVC...");
+}
+
+#pragma mark - UITextViewDelegate
+
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if(self.datePickerVisible){
+        [self showHideDatePicker];
+    }
+}
+
+- (void)textViewDidChange:(UITextView *)txtView
+{
+    self.promptLabel.hidden = ([txtView.text length] > 0);
+}
+
+- (void)textViewDidEndEditing:(UITextView *)txtView
+{
+    self.promptLabel.hidden = ([txtView.text length] > 0);
+}
+
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                 presentingController:(UIViewController *)presenting
+                                                                     sourceController:(UIViewController *)source
+{
+    TransitionAnimator_CheckInFriends *animator = [TransitionAnimator_CheckInFriends new];
+    animator.presenting = YES;
+    return animator;
+}
+
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return [TransitionAnimator_CheckInFriends new];
+}
+
+
+
+
+#pragma mark - FriendListVcDelegate
+
+-(void)backFromVC:(UIViewController *)dismissed withFriends:(NSArray *)selectedFriendsArray
+{
+    NSLog(@"backToDetails...");
+    [self dismissViewControllerAnimated:YES completion:^{}];
+    self.selectedFriends = selectedFriendsArray;
+}
+
+-(void)checkInWithFriends:(NSArray *)selectedFriendsArray
+{
+    NSLog(@"checkInWithFriends...");
+    self.selectedFriends = selectedFriendsArray;
+    [self createReview];
+    
+}
+
 
 #define IDENTIFIER @"identifier"
 #define DELETED_ENTITY @"deletedEntity"
 
 -(Review *)createReview
 {
-    NSDate *date = [NSDate date];
-    NSString *dateString = [date.description stringByReplacingOccurrencesOfString:@" " withString:@"" ];
-    
-    // need to add user identifier!!!!
-    
     NSString *reviewIdentifier = @"userName";
     reviewIdentifier = [reviewIdentifier stringByAppendingString:self.wine.identifier];
     reviewIdentifier = [reviewIdentifier stringByAppendingString:dateString];
@@ -291,39 +425,8 @@
 }
 
 
-- (IBAction)segueToDateAndRestaurantEditVC:(id)sender
-{
-    NSLog(@"segueToDateAndRestaurantEditVC...");
-}
-
-#pragma mark - UITextViewDelegate
-
-- (void)textViewDidChange:(UITextView *)txtView
-{
-    self.promptLabel.hidden = ([txtView.text length] > 0);
-}
-
-- (void)textViewDidEndEditing:(UITextView *)txtView
-{
-    self.promptLabel.hidden = ([txtView.text length] > 0);
-}
 
 
-#pragma mark - UIViewControllerTransitioningDelegate
-
--(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
-                                                                 presentingController:(UIViewController *)presenting
-                                                                     sourceController:(UIViewController *)source
-{
-    TransitionAnimator_CheckInFriends *animator = [TransitionAnimator_CheckInFriends new];
-    animator.presenting = YES;
-    return animator;
-}
-
--(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
-{
-    return [TransitionAnimator_CheckInFriends new];
-}
 
 
 - (void)didReceiveMemoryWarning
@@ -333,18 +436,8 @@
 }
 
 
-#pragma mark - FriendListVcDelegate
 
--(void)checkIn
-{
-    NSLog(@"checkIn...");
-}
 
--(void)backFromVC:(UIViewController *)dismissed
-{
-    NSLog(@"backToDetails...");
-    [self dismissViewControllerAnimated:YES completion:^{}];
-}
 
 
 

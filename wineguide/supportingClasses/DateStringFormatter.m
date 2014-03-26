@@ -14,7 +14,7 @@
 
 @implementation DateStringFormatter
 
-+(NSString *)formatStringForDate:(NSDate *)date
++(NSString *)formatStringForTimelineDate:(NSDate *)date
 {
     NSTimeInterval timeSinceTasting = [[NSDate date] timeIntervalSinceDate:date];
     

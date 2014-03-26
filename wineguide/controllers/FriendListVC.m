@@ -20,7 +20,6 @@
 @property (nonatomic, strong) UIImage *placeHolderImage;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (nonatomic, strong) FriendListSCDTVC *friendListSCDTVC;
-@property (nonatomic, strong) NSMutableArray *selectedFriends;
 @property (weak, nonatomic) IBOutlet FriendListSearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
@@ -47,6 +46,7 @@
     [self setupBackground];
     [self setupTextView];
     
+    [self.checkInButton setAttributedTitle:[[NSAttributedString alloc] initWithString:self.checkInButton.titleLabel.text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].headline}] forState:UIControlStateNormal];
     
     [self customizeSearchBar];
 }
@@ -170,11 +170,11 @@
 
 -(IBAction)backToDetails:(id)sender
 {
-    [self.delegate backFromVC:self];
+    [self.delegate backFromVC:self withFriends:self.selectedFriends];
 }
 -(IBAction)checkIn:(id)sender
 {
-    [self.delegate checkIn];
+    [self.delegate checkInWithFriends:self.selectedFriends];
 }
 
 #pragma mark - FriendSelectionDelegate

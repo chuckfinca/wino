@@ -10,14 +10,16 @@
 
 @protocol FriendListVcDelegate
 
--(void)checkIn;
--(void)backFromVC:(UIViewController *)dismissed;
+-(void)checkInWithFriends:(NSArray *)selectedFriendsArray;
+-(void)backFromVC:(UIViewController *)dismissed withFriends:(NSArray *)selectedFriendsArray;
 
 @end
 
 @interface FriendListVC : UIViewController
 
 @property (nonatomic, weak) id <FriendListVcDelegate> delegate;
+
 @property (nonatomic, strong) NSString *wineName;
+@property (nonatomic, strong) NSMutableArray *selectedFriends;
 
 @end

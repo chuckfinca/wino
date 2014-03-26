@@ -10,6 +10,6 @@
 
 @interface DateStringFormatter : NSObject
 
-+(NSString *)formatStringForDate:(NSDate *)date;
++(NSString *)formatStringForTimelineDate:(NSDate *)date;
 
 @end

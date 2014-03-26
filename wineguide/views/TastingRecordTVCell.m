@@ -75,7 +75,7 @@
 
 -(void)setupDateLabel
 {
-    NSString *localDateString = [DateStringFormatter formatStringForDate:self.tastingRecord.tastingDate];
+    NSString *localDateString = [DateStringFormatter formatStringForTimelineDate:self.tastingRecord.tastingDate];
     self.dateLabel.attributedText = [[NSAttributedString alloc] initWithString:localDateString attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption2, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     [self bringSubviewToFront:self.dateLabel];
 }
