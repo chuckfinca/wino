@@ -13,6 +13,7 @@
 #import "CheckInVC.h"
 #import "TransitionAnimator_CheckInVC.h"
 #import "MotionEffects.h"
+#import "FacebookSessionManager.h"
 
 
 #define WINE_CELL @"WineCell"
@@ -192,8 +193,22 @@
 
 -(void)performTriedItSegue
 {
-    [self performSegueWithIdentifier:@"CheckInSegue" sender:self];
+    if([FacebookSessionManager sharedInstance].sessionActive){
+        [self performSegueWithIdentifier:@"CheckInSegue" sender:self];
+    } else {
+        __weak WineCDTVC *weakSelf = self;
+        [[FacebookSessionManager sharedInstance] logInWithCompletion:^(BOOL loggedIn) {
+            NSLog(@"logged in? %@",loggedIn == YES ? @"y" : @"n");
+            if(loggedIn){
+                [weakSelf performSegueWithIdentifier:@"CheckInSegue" sender:self];
+            } else {
+                NSLog(@"LOGIN FAILED");
+            }
+        }];
+    }
 }
+
+
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

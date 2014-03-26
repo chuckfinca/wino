@@ -34,12 +34,6 @@
     // Do any additional setup after loading the view.
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [[FacebookSessionManager sharedInstance] getFacebookFriends];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -56,7 +50,6 @@
     NSLog(@"loginView is now in logged in mode");
     NSLog(@"user.id = %@",user.id);
     NSLog(@"user.name = %@",user.name);
-    [[FacebookSessionManager sharedInstance] getUserInfo];
 }
 
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
@@ -72,7 +65,6 @@
 -(void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
 {
     NSLog(@"FBLoginViewDelegate - There was a communication or authorization error - %@.",error.localizedDescription);
-    [[FacebookSessionManager sharedInstance] handleError:error];
 }
 
 @end

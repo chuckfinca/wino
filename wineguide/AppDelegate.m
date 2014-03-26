@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <FBLoginView.h>
 #import <FBAppCall.h>
+#import "FacebookSessionManager.h"
 
 @implementation AppDelegate
 
@@ -39,6 +40,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBAppCall handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -48,10 +50,12 @@
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
+    [[FBSession activeSession] setStateChangeHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+        [[FacebookSessionManager sharedInstance] sessionStateChanged:session state:status error:error];
+    }];
+    
     // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
-    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
-
-    return wasHandled;
+    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
 }
 
 @end

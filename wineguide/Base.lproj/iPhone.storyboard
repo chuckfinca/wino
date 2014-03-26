@@ -178,16 +178,6 @@
                                     <outlet property="delegate" destination="6r5-VD-Zyq" id="NW5-ZG-rqc"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ud-Ax-Qg5">
-                                <rect key="frame" x="137" y="221" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="NIn-DV-cwN" kind="modal" modalTransitionStyle="flipHorizontal" id="SRx-9z-807"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -204,35 +194,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8K-6S-qFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="505" y="2412"/>
-        </scene>
-        <!--Friend ListSCDTVC-->
-        <scene sceneID="Wim-e2-78q">
-            <objects>
-                <tableViewController id="NIn-DV-cwN" customClass="FriendListSCDTVC" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="c58-FB-r2m">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserCell" id="qGn-AS-a6p">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qGn-AS-a6p" id="WKa-iW-V6J">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="NIn-DV-cwN" id="NpH-oA-XMB"/>
-                            <outlet property="delegate" destination="NIn-DV-cwN" id="aHg-ic-cHs"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="zwg-n4-asp"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DJs-cC-hI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1036" y="2412"/>
         </scene>
         <!--TimelineSCDTVC-->
         <scene sceneID="me6-qe-NNA">

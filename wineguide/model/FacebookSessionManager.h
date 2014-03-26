@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FBSession.h>
 
 @interface FacebookSessionManager : NSObject
 
@@ -14,10 +15,10 @@
 
 @property (nonatomic) BOOL sessionActive;
 
--(void)checkToken;
--(void)getUserInfo;
--(void)handleError:(NSError *)error;
--(void)getFacebookInfoAtGraphPath:(NSString *)path;
--(void)getFacebookFriends;
+-(void)checkToken; // Silent, on app load
+
+-(void)logInWithCompletion:(void (^)(BOOL loggedIn))completion;
+
+-(void)sessionStateChanged:(FBSession *)session state:(FBSessionState)state error:(NSError *)error;
 
 @end

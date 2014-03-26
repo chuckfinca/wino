@@ -9,7 +9,6 @@
 #import "FacebookSessionManager.h"
 #import <FBError.h>
 #import <FBErrorUtility.h>
-#import <FBSession.h>
 #import <FBRequest.h>
 #import <FBRequestConnection.h>
 #import <FBGraphObject.h>
@@ -50,29 +49,63 @@ static FacebookSessionManager *sharedInstance;
 
 -(void)checkToken
 {
-    BOOL cachedTokenExists = [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:NO completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-        
-        [self handleStatus:status];
-        
-        if(error){
-            [self handleError:error];
+    if([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded){
+        BOOL cachedTokenExists = [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
+                                                                    allowLoginUI:NO
+                                                               completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                                                                   [self sessionStateChanged:session state:status error:error];
+                                                               }];
+        if(cachedTokenExists){
+            NSLog(@"Success! Facebook session is open, a cached token exists");
+            self.sessionActive = YES;
+            [self updateBasicInformation];
         }
-    }];
-    
-    if(cachedTokenExists){
-        NSLog(@"Success! Facebook session opened - cached token exists");
-        self.sessionActive = YES;
-        [self checkPermissions];
-        [self getUserInfo];
-        
     } else {
         NSLog(@"cached token does not exist");
         self.sessionActive = NO;
     }
 }
 
+-(void)logInWithCompletion:(void (^)(BOOL loggedIn))completion
+{
+    if([FBSession activeSession].state != FBSessionStateOpen || [FBSession activeSession].state != FBSessionStateOpenTokenExtended){
+        // Open a session showing the user the login UI
+        [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
+                                           allowLoginUI:YES
+                                      completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                                          if(status == FBSessionStateOpen || status == FBSessionStateOpenTokenExtended){
+                                              self.sessionActive = YES;
+                                              [self updateBasicInformation];
+                                              completion(YES);
+                                              
+                                          } else {
+                                              completion(NO);
+                                          }
+                                          
+                                          [self sessionStateChanged:session state:status error:error];
+                                      }];
+    } else {
+        completion(YES);
+    }
+}
 
--(void)handleStatus:(FBSessionState)status
+-(void)updateBasicInformation
+{
+    [self checkPermissions];
+    [self getUserInfo];
+    [self getFacebookFriends];
+}
+
+-(void)sessionStateChanged:(FBSession *)session state:(FBSessionState)state error:(NSError *)error
+{
+    // Called EVERY time the session state changes
+    [self handleStateChange:state];
+    if(error){
+        [self handleError:error];
+    }
+}
+
+-(void)handleStateChange:(FBSessionState)status
 {
     switch (status) {
             
@@ -209,7 +242,7 @@ static FacebookSessionManager *sharedInstance;
                                   NSLog(@"user events: %@", result);
                               } else {
                                   // An error occurred, we need to handle the error
-                                  // See: https://developers.facebook.com/docs/ios/errors   
+                                  // See: https://developers.facebook.com/docs/ios/errors
                               }
                           }];
 }
