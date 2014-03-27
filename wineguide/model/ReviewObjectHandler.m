@@ -16,8 +16,11 @@
 
 @implementation ReviewObjectHandler
 
-+(Review *)createReviewWithIdentifier:(NSString *)identifier rating:(NSNumber *)rating date:(NSDate *)date wine:(Wine *)wine ReviewText:(NSString *)reviewText andUser:(User *)user whoHasClaimedTheReview:(BOOL)hasClaimed
++(Review *)createClaimed:(BOOL)claimed reviewWithDate:(NSDate *)date user:(User *)user wine:(Wine *)wine rating:(NSNumber *)rating andReviewText:(NSString *)reviewText
 {
+    NSString *dateString = [date.description stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *userIdentifier = user.identifier;
+    NSString *identifier = [NSString stringWithFormat:@"%@%@",dateString,userIdentifier];
     NSPredicate *reviewPredicate = [NSPredicate predicateWithFormat:@"identifier == %@",identifier];
     
     Review *review = nil;
@@ -30,17 +33,16 @@
     review.reviewText = reviewText;
     
     review.user = user;
-    review.claimedByUser = @(hasClaimed);
+    review.claimedByUser = @(claimed);
     
     return review;
 }
 
-+(NSString *)reviewIdentifierFromUser:(User *)user andDate:(NSDate *)date
-{
-    NSString *dateString = [date.description stringByReplacingOccurrencesOfString:@" " withString:@"" ];
-    NSString *userIdentifier = user.identifier;
-    
-    return [NSString stringWithFormat:@"%@%@",dateString,userIdentifier];
-}
+
+
+
+
+
+
 
 @end

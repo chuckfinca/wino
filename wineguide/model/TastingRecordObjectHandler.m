@@ -9,6 +9,7 @@
 #import "TastingRecordObjectHandler.h"
 #import "ReviewObjectHandler.h"
 #import "User.h"
+#import "Wine.h"
 
 #define IDENTIFIER @"identifier"
 #define DELETED_ENTITY @"deletedEntity"
@@ -31,8 +32,8 @@
     tastingRecord.reviews = reviews;
     
     for(User *friend in friendsArray){
-        Review *review = [ReviewObjectHandler createReviewWithIdentifier:[ReviewObjectHandler reviewIdentifierFromUser:friend andDate:tastingDate] rating:nil date:tastingDate wine:review.wine ReviewText:nil andUser:friend whoHasClaimedTheReview:NO];
-        review.tastingRecord = tastingRecord;
+        Review *friendReview = [ReviewObjectHandler createClaimed:NO reviewWithDate:tastingDate user:friend wine:review.wine rating:nil andReviewText:nil];
+        friendReview.tastingRecord = tastingRecord;
     }
     
     return tastingRecord;

@@ -361,7 +361,8 @@
 -(void)backFromVC:(UIViewController *)dismissed withFriends:(NSArray *)selectedFriendsArray
 {
     NSLog(@"backToDetails...");
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
     self.selectedFriends = selectedFriendsArray;
 }
 
@@ -372,25 +373,10 @@
     Review *review = [self createReview];
     [self createTastingRecordWithReview:review];
     
-    [self.delegate dismissAfterTastingRecordCreation];
-}
-
-- (IBAction)createTastingRecord:(UIButton *)sender
-{
-    if(self.userRatingsController.rating > 0){
-        NSLog(@"createTastingRecord...");
-        Review *review = [self createReview];
-        [self createTastingRecordWithReview:review];
-        
+    [self dismissViewControllerAnimated:NO completion:^{
+        [self.noteTV resignFirstResponder];
         [self.delegate dismissAfterTastingRecordCreation];
-        
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please provide a wine glass rating." delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
-        alert.tintColor = [ColorSchemer sharedInstance].clickable;
-        
-        [MotionEffects addMotionEffectsToView:alert];
-        [alert show];
-    }
+    }];
 }
 
 #define IDENTIFIER @"identifier"
@@ -404,14 +390,12 @@
     
     User *user = [FacebookSessionManager sharedInstance].user;
     
-    NSString *reviewIdentifier = [ReviewObjectHandler reviewIdentifierFromUser:user andDate:self.selectedDate];
-    
     NSString *reviewText;
     if([[self.noteTV.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] > 0){
         reviewText = self.noteTV.text;
     }
     
-    Review *review = (Review *)[ReviewObjectHandler createReviewWithIdentifier:reviewIdentifier rating:@(self.userRatingsController.rating) date:self.selectedDate wine:self.wine ReviewText:reviewText andUser:user whoHasClaimedTheReview:YES];
+    Review *review = (Review *)[ReviewObjectHandler createClaimed:YES reviewWithDate:self.selectedDate user:user wine:self.wine rating:@(self.userRatingsController.rating) andReviewText:reviewText];
     
     return review;
 }

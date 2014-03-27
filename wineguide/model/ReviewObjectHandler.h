@@ -11,8 +11,6 @@
 
 @interface ReviewObjectHandler : ManagedObjectHandler
 
-+(Review *)createReviewWithIdentifier:(NSString *)identifier rating:(NSNumber *)rating date:(NSDate *)date wine:(Wine *)wine ReviewText:(NSString *)reviewText andUser:(User *)user whoHasClaimedTheReview:(BOOL)hasClaimed;
-
-+(NSString *)reviewIdentifierFromUser:(User *)user andDate:(NSDate *)date;
++(Review *)createClaimed:(BOOL)claimed reviewWithDate:(NSDate *)date user:(User *)user wine:(Wine *)wine rating:(NSNumber *)rating andReviewText:(NSString *)reviewText;
 
 @end
