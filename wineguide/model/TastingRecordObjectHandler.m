@@ -26,6 +26,7 @@
     tastingRecord.identifier = identifier;
     tastingRecord.addedDate = tastingDate;
     tastingRecord.tastingDate = tastingDate;
+    tastingRecord.restaurant = restaurant;
     
     NSMutableSet *reviews = [tastingRecord.reviews mutableCopy];
     [reviews addObject:review];

@@ -206,7 +206,6 @@
 
 -(void)setupContinueButton
 {
-    NSLog(@"setup continue button");
     [self.continueButton setAttributedTitle:[[NSAttributedString alloc] initWithString:self.continueButton.titleLabel.text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].headline}] forState:UIControlStateNormal];
 }
 
@@ -243,8 +242,6 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"prepareForSegue...");
-    
     if([segue.identifier isEqual: @"AddFriends"]){
         NSLog(@"Add friends segue");
         FriendListVC *friendListVC = segue.destinationViewController;
@@ -312,11 +309,6 @@
 
 
 
-- (IBAction)segueToDateAndRestaurantEditVC:(id)sender
-{
-    NSLog(@"segueToDateAndRestaurantEditVC...");
-}
-
 #pragma mark - UITextViewDelegate
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
@@ -360,7 +352,6 @@
 
 -(void)backFromVC:(UIViewController *)dismissed withFriends:(NSArray *)selectedFriendsArray
 {
-    NSLog(@"backToDetails...");
     [self dismissViewControllerAnimated:YES completion:^{
     }];
     self.selectedFriends = selectedFriendsArray;
@@ -368,7 +359,6 @@
 
 -(void)checkInWithFriends:(NSArray *)selectedFriendsArray
 {
-    NSLog(@"checkInWithFriends...");
     self.selectedFriends = selectedFriendsArray;
     Review *review = [self createReview];
     [self createTastingRecordWithReview:review];

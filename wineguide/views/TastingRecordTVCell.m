@@ -42,18 +42,13 @@
     for(Review *r in tastingRecord.reviews){
         if(r.user == user){
             self.review = r;
-            break;
+            //break;
         }
     }
     
     [self setupUserNote];
-    
     [self setupDateLabel];
     [self.wineVHTV setupTextViewWithWine:self.review.wine fromRestaurant:tastingRecord.restaurant];
-    
-    self.wineVHTV.backgroundColor = [UIColor orangeColor];
-    self.dateLabel.backgroundColor = [UIColor greenColor];
-    
     [self setupUserRatingView];
     
     self.wineNameTvHeightConstraint.constant = [self.wineVHTV height];
@@ -71,7 +66,6 @@
         [self setNeedsUpdateConstraints];
     }
     
-    self.reviewVHTV.backgroundColor = [UIColor orangeColor];
 }
 
 -(void)setupUserRatingView
@@ -79,7 +73,6 @@
     self.userRatingsController.wine = self.review.wine;
     self.userRatingsController.collectionView.frame = self.ratingContainerView.bounds;
     [self.ratingContainerView addSubview:self.userRatingsController.collectionView];
-    self.ratingContainerView.backgroundColor = [UIColor blueColor];
 }
 
 -(void)setupDateLabel
