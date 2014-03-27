@@ -123,7 +123,10 @@
     NSLog(@"lastLocalUpdate = %@",tastingRecord.lastLocalUpdate);
     NSLog(@"lastServerUpdate = %@",tastingRecord.lastServerUpdate);
     NSLog(@"deletedEntity = %@",tastingRecord.deletedEntity);
-    NSLog(@"review = %@",tastingRecord.review);
+    
+    for(Review *r in tastingRecord.reviews){
+        NSLog(@"review = %@",r);
+    }
     // NSLog(@"rating = %@",tastingRecord.review.rating);
     
     

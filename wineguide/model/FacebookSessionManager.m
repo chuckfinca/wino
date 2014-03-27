@@ -15,13 +15,11 @@
 #import <FBGraphUser.h>
 #import "UserDataHelper.h"
 #import "DocumentHandler.h"
-#import "User.h"
 
 @interface FacebookSessionManager ()
 
 @property (nonatomic, strong) NSArray *friends; // of NSDictionaries
 @property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic, strong) User *user;
 
 @end
 

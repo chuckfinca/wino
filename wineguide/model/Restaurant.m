@@ -2,14 +2,14 @@
 //  Restaurant.m
 //  Corkie
 //
-//  Created by Charles Feinn on 2/17/14.
+//  Created by Charles Feinn on 3/26/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import "Restaurant.h"
 #import "Flight.h"
 #import "Group.h"
-#import "Review.h"
+#import "TastingRecord.h"
 #import "WineUnit.h"
 
 
@@ -37,7 +37,7 @@
 @dynamic zip;
 @dynamic flights;
 @dynamic groups;
-@dynamic reviews;
 @dynamic wineUnits;
+@dynamic tastingRecords;
 
 @end

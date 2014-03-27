@@ -2,14 +2,14 @@
 //  Restaurant.h
 //  Corkie
 //
-//  Created by Charles Feinn on 2/17/14.
+//  Created by Charles Feinn on 3/26/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Flight, Group, Review, WineUnit;
+@class Flight, Group, TastingRecord, WineUnit;
 
 @interface Restaurant : NSManagedObject
 
@@ -35,8 +35,8 @@
 @property (nonatomic, retain) NSString * zip;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
-@property (nonatomic, retain) NSSet *reviews;
 @property (nonatomic, retain) NSSet *wineUnits;
+@property (nonatomic, retain) NSSet *tastingRecords;
 @end
 
 @interface Restaurant (CoreDataGeneratedAccessors)
@@ -51,14 +51,14 @@
 - (void)addGroups:(NSSet *)values;
 - (void)removeGroups:(NSSet *)values;
 
-- (void)addReviewsObject:(Review *)value;
-- (void)removeReviewsObject:(Review *)value;
-- (void)addReviews:(NSSet *)values;
-- (void)removeReviews:(NSSet *)values;
-
 - (void)addWineUnitsObject:(WineUnit *)value;
 - (void)removeWineUnitsObject:(WineUnit *)value;
 - (void)addWineUnits:(NSSet *)values;
 - (void)removeWineUnits:(NSSet *)values;
+
+- (void)addTastingRecordsObject:(TastingRecord *)value;
+- (void)removeTastingRecordsObject:(TastingRecord *)value;
+- (void)addTastingRecords:(NSSet *)values;
+- (void)removeTastingRecords:(NSSet *)values;
 
 @end

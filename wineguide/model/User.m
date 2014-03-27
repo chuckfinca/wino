@@ -8,7 +8,6 @@
 
 #import "User.h"
 #import "Review.h"
-#import "TastingRecord.h"
 #import "User.h"
 
 
@@ -37,6 +36,5 @@
 @dynamic followedBy;
 @dynamic following;
 @dynamic reviews;
-@dynamic tastingRecords;
 
 @end

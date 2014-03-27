@@ -12,6 +12,7 @@
 #import "ColorSchemer.h"
 #import "FontThemer.h"
 #import "DateStringFormatter.h"
+#import "FacebookSessionManager.h"
 
 #define MAJOR_SPACING 18
 #define MINOR_SPACING 8
@@ -35,8 +36,8 @@
 {
     if(!_userRatingsController) {
         _userRatingsController = [[UserRatingCVController alloc] initWithCollectionViewLayout:[[UICollectionViewLayout alloc] init]];
-        _userRatingsController.rating = [self.tastingRecord.review.rating intValue];
-        _userRatingsController.wine = self.tastingRecord.review.wine;
+        _userRatingsController.rating = [self.review.rating intValue];
+        _userRatingsController.wine = self.review.wine;
     }
     return _userRatingsController;
 }
@@ -46,11 +47,19 @@
     self.userRatingsController = nil;
     
     self.tastingRecord = tastingRecord;
-    Review *review = tastingRecord.review;
+    
+    User *user = [FacebookSessionManager sharedInstance].user;
+    for(Review *r in tastingRecord.reviews){
+        if(r.user == user){
+            self.review = r;
+            break;
+        }
+    }
+    
     [self setupUserNote];
     
     [self setupDateLabel];
-    [self.wineNameVHTV setupTextViewWithWine:review.wine fromRestaurant:review.restaurant];
+    [self.wineNameVHTV setupTextViewWithWine:self.review.wine fromRestaurant:tastingRecord.restaurant];
     
     [self setupUserRatingView];
     [self setupCellBackground];
@@ -72,8 +81,8 @@
 
 -(void)setupUserNote
 {
-    if(self.tastingRecord.review.reviewText){
-        self.userNoteVHTV.attributedText = [[NSAttributedString alloc] initWithString:self.tastingRecord.review.reviewText attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+    if(self.review.reviewText){
+        self.userNoteVHTV.attributedText = [[NSAttributedString alloc] initWithString:self.review.reviewText attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     } else {
         self.userNoteVHTV.text = @"";
         
@@ -84,7 +93,7 @@
 
 -(void)setupUserRatingView
 {
-    self.userRatingsController.wine = self.tastingRecord.review.wine;
+    self.userRatingsController.wine = self.review.wine;
     self.userRatingsController.collectionView.frame = self.userRatingView.bounds;
     [self.userRatingView addSubview:self.userRatingsController.collectionView];
     self.userRatingView.backgroundColor = [UIColor clearColor];
@@ -108,7 +117,7 @@
     
     cellHeight = dateLabelHeight + wineTVHeight + userReviewViewHeight + 2*MAJOR_SPACING;
     
-    if(self.tastingRecord.review.reviewText){
+    if(self.review.reviewText){
         cellHeight += userNoteTVHeight;
     }
     

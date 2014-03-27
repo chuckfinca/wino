@@ -117,8 +117,11 @@
     NSLog(@"lastLocalUpdate = %@",tastingRecord.lastLocalUpdate);
     NSLog(@"lastServerUpdate = %@",tastingRecord.lastServerUpdate);
     NSLog(@"deletedEntity = %@",tastingRecord.deletedEntity);
-    NSLog(@"review = %@",tastingRecord.review);
-    NSLog(@"rating = %@",tastingRecord.review.rating);
+    
+    for(Review *r in tastingRecord.reviews){
+        NSLog(@"review = %@",r);
+        NSLog(@"rating = %@",r.rating);
+    }
     
     
     NSLog(@"\n\n\n");

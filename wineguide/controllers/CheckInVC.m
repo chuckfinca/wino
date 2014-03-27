@@ -16,6 +16,9 @@
 #import "MotionEffects.h"
 #import "FriendListVC.h"
 #import "TransitionAnimator_CheckInFriends.h"
+#import "FacebookSessionManager.h"
+#import "ReviewObjectHandler.h"
+#import "TastingRecordObjectHandler.h"
 
 #define CORNER_RADIUS 4
 #define CHECK_IN_VC_VIEW_HEIGHT 230
@@ -223,6 +226,18 @@
             return NO;
         }
     }
+    
+    if([identifier isEqualToString:@"AddFriends"]){
+        if(!self.userRatingsController.rating){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please provide a wine glass rating." delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+            alert.tintColor = [ColorSchemer sharedInstance].clickable;
+            
+            [MotionEffects addMotionEffectsToView:alert];
+            [alert show];
+            return NO;
+        }
+    }
+    
     return YES;
 }
 
@@ -245,24 +260,6 @@
 
 
 #pragma mark - Target Action
-
-- (IBAction)createTastingRecord:(UIButton *)sender
-{
-    if(self.userRatingsController.rating > 0){
-        NSLog(@"createTastingRecord...");
-        Review *review = [self createReview];
-        [self createTastingRecordWithReview:review];
-        
-        [self.delegate dismissAfterTastingRecordCreation];
-        
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please provide a wine glass rating." delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
-        alert.tintColor = [ColorSchemer sharedInstance].clickable;
-        
-        [MotionEffects addMotionEffectsToView:alert];
-        [alert show];
-    }
-}
 
 - (IBAction)changeDate:(UIButton *)sender
 {
@@ -372,56 +369,57 @@
 {
     NSLog(@"checkInWithFriends...");
     self.selectedFriends = selectedFriendsArray;
-    [self createReview];
+    Review *review = [self createReview];
+    [self createTastingRecordWithReview:review];
     
+    [self.delegate dismissAfterTastingRecordCreation];
 }
 
+- (IBAction)createTastingRecord:(UIButton *)sender
+{
+    if(self.userRatingsController.rating > 0){
+        NSLog(@"createTastingRecord...");
+        Review *review = [self createReview];
+        [self createTastingRecordWithReview:review];
+        
+        [self.delegate dismissAfterTastingRecordCreation];
+        
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please provide a wine glass rating." delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+        alert.tintColor = [ColorSchemer sharedInstance].clickable;
+        
+        [MotionEffects addMotionEffectsToView:alert];
+        [alert show];
+    }
+}
 
 #define IDENTIFIER @"identifier"
 #define DELETED_ENTITY @"deletedEntity"
 
 -(Review *)createReview
 {
-    NSString *reviewIdentifier = @"userName";
-    reviewIdentifier = [reviewIdentifier stringByAppendingString:self.wine.identifier];
-    reviewIdentifier = [reviewIdentifier stringByAppendingString:dateString];
-    
-    NSPredicate *reviewPredicate = [NSPredicate predicateWithFormat:@"identifier == %@",reviewIdentifier];
-    
-    Review *review = nil;
-    review = (Review *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:@"Review" usingPredicate:reviewPredicate inContext:self.wine.managedObjectContext usingDictionary:@{IDENTIFIER : reviewIdentifier, DELETED_ENTITY : @0}];
-    review.identifier = reviewIdentifier;
-    review.rating = @(self.userRatingsController.rating);
-    review.lastLocalUpdate = date;
-    review.wine = self.wine;
-    review.restaurant = self.restaurant;
-    
-    if([[self.noteTV.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] > 0){
-        review.reviewText = self.noteTV.text;
+    if(!self.selectedDate){
+        self.selectedDate = [NSDate date];
     }
+    
+    User *user = [FacebookSessionManager sharedInstance].user;
+    
+    NSString *reviewIdentifier = [ReviewObjectHandler reviewIdentifierFromUser:user andDate:self.selectedDate];
+    
+    NSString *reviewText;
+    if([[self.noteTV.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] > 0){
+        reviewText = self.noteTV.text;
+    }
+    
+    Review *review = (Review *)[ReviewObjectHandler createReviewWithIdentifier:reviewIdentifier rating:@(self.userRatingsController.rating) date:self.selectedDate wine:self.wine ReviewText:reviewText andUser:user whoHasClaimedTheReview:YES];
     
     return review;
 }
 
 -(void)createTastingRecordWithReview:(Review *)review
 {
-    NSDate *date = [NSDate date];
-    NSString *dateString = [date.description stringByReplacingOccurrencesOfString:@" " withString:@"" ];
-    
-    // need to add user identifier!!!!
-    
-    NSString *tastingRecordIdentifier = @"userName";
-    tastingRecordIdentifier = [tastingRecordIdentifier stringByAppendingString:dateString];
-    tastingRecordIdentifier = [tastingRecordIdentifier stringByAppendingString:self.wine.identifier];
-    
-    NSPredicate *tastingRecordPredicate = [NSPredicate predicateWithFormat:@"identifier == %@",tastingRecordIdentifier];
-    
-    TastingRecord *tastingRecord = nil;
-    tastingRecord = (TastingRecord *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:@"TastingRecord" usingPredicate:tastingRecordPredicate inContext:self.wine.managedObjectContext usingDictionary:@{IDENTIFIER : tastingRecordIdentifier, DELETED_ENTITY : @0}];
-    tastingRecord.identifier = tastingRecordIdentifier;
-    tastingRecord.addedDate = [NSDate date];
-    tastingRecord.tastingDate = [NSDate date];
-    tastingRecord.review = review;
+    NSString *identifier = [NSString stringWithFormat:@"%@%@",review.identifier, self.restaurant.identifier];
+    [TastingRecordObjectHandler createTastingRecordWithIdentifier:identifier tastingDate:self.selectedDate review:review restaurant:self.restaurant andFriends:self.selectedFriends];
 }
 
 

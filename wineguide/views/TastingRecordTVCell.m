@@ -13,6 +13,7 @@
 #import "ColorSchemer.h"
 #import "DateStringFormatter.h"
 #import "VariableHeightTV.h"
+#import "FacebookSessionManager.h"
 
 #define MAJOR_SPACING 18
 
@@ -36,11 +37,19 @@
     self.userRatingsController = nil;
     
     self.tastingRecord = tastingRecord;
-    Review *review = tastingRecord.review;
+    
+    User *user = [FacebookSessionManager sharedInstance].user;
+    for(Review *r in tastingRecord.reviews){
+        if(r.user == user){
+            self.review = r;
+            break;
+        }
+    }
+    
     [self setupUserNote];
     
     [self setupDateLabel];
-    [self.wineVHTV setupTextViewWithWine:review.wine fromRestaurant:review.restaurant];
+    [self.wineVHTV setupTextViewWithWine:self.review.wine fromRestaurant:tastingRecord.restaurant];
     
     self.wineVHTV.backgroundColor = [UIColor orangeColor];
     self.dateLabel.backgroundColor = [UIColor greenColor];
@@ -53,8 +62,8 @@
 
 -(void)setupUserNote
 {
-    if(self.tastingRecord.review.reviewText){
-        self.reviewVHTV.attributedText = [[NSAttributedString alloc] initWithString:self.tastingRecord.review.reviewText attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+    if(self.review.reviewText){
+        self.reviewVHTV.attributedText = [[NSAttributedString alloc] initWithString:self.review.reviewText attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     } else {
         self.reviewVHTV.text = @"";
         
@@ -67,7 +76,7 @@
 
 -(void)setupUserRatingView
 {
-    self.userRatingsController.wine = self.tastingRecord.review.wine;
+    self.userRatingsController.wine = self.review.wine;
     self.userRatingsController.collectionView.frame = self.ratingContainerView.bounds;
     [self.ratingContainerView addSubview:self.userRatingsController.collectionView];
     self.ratingContainerView.backgroundColor = [UIColor blueColor];

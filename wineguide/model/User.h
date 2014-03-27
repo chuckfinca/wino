@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Review, TastingRecord, User;
+@class Review, User;
 
 @interface User : NSManagedObject
 
@@ -36,7 +36,6 @@
 @property (nonatomic, retain) NSSet *followedBy;
 @property (nonatomic, retain) NSSet *following;
 @property (nonatomic, retain) NSSet *reviews;
-@property (nonatomic, retain) NSSet *tastingRecords;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
@@ -55,10 +54,5 @@
 - (void)removeReviewsObject:(Review *)value;
 - (void)addReviews:(NSSet *)values;
 - (void)removeReviews:(NSSet *)values;
-
-- (void)addTastingRecordsObject:(TastingRecord *)value;
-- (void)removeTastingRecordsObject:(TastingRecord *)value;
-- (void)addTastingRecords:(NSSet *)values;
-- (void)removeTastingRecords:(NSSet *)values;
 
 @end

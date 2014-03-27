@@ -2,14 +2,14 @@
 //  Review.h
 //  Corkie
 //
-//  Created by Charles Feinn on 2/17/14.
+//  Created by Charles Feinn on 3/26/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Restaurant, TastingRecord, User, Wine;
+@class TastingRecord, User, Wine;
 
 @interface Review : NSManagedObject
 
@@ -21,7 +21,7 @@
 @property (nonatomic, retain) NSNumber * rating;
 @property (nonatomic, retain) NSString * reviewText;
 @property (nonatomic, retain) NSDate * updatedDate;
-@property (nonatomic, retain) Restaurant *restaurant;
+@property (nonatomic, retain) NSNumber * claimedByUser;
 @property (nonatomic, retain) TastingRecord *tastingRecord;
 @property (nonatomic, retain) User *user;
 @property (nonatomic, retain) Wine *wine;
