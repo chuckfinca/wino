@@ -12,8 +12,6 @@
 
 @interface TastingRecordTVCell : UITableViewCell
 
-@property (nonatomic, strong) UserRatingCVController *userRatingsController;
-
 -(void)setupCellWithTastingRecord:(TastingRecord *)tastingRecord;
 
 @end

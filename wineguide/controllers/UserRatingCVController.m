@@ -60,6 +60,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"rating = %i",self.rating);
     if(indexPath.row == 5){
         UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:REVIEW_CELL forIndexPath:indexPath];
         

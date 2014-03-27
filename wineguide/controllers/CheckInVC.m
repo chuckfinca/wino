@@ -363,7 +363,7 @@
     Review *review = [self createReview];
     [self createTastingRecordWithReview:review];
     
-    [self dismissViewControllerAnimated:NO completion:^{
+    [self dismissViewControllerAnimated:YES completion:^{
         [self.noteTV resignFirstResponder];
         [self.delegate dismissAfterTastingRecordCreation];
     }];

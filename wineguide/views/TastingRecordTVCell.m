@@ -28,9 +28,24 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewTvHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameTvHeightConstraint;
 
+@property (nonatomic, strong) UserRatingCVController *userRatingsController;
+
 @end
 
 @implementation TastingRecordTVCell
+
+#pragma mark - Getters & Setters
+
+-(UserRatingCVController *)userRatingsController
+{
+    if(!_userRatingsController){
+        _userRatingsController = [[UserRatingCVController alloc] initWithCollectionViewLayout:[[UICollectionViewLayout alloc] init]];
+        _userRatingsController.rating = [self.review.rating integerValue];
+    }
+    return _userRatingsController;
+}
+
+#pragma mark - Setup
 
 -(void)setupCellWithTastingRecord:(TastingRecord *)tastingRecord
 {
@@ -68,6 +83,7 @@
     
 }
 
+
 -(void)setupUserRatingView
 {
     self.userRatingsController.wine = self.review.wine;
@@ -78,6 +94,7 @@
 -(void)setupDateLabel
 {
     NSString *localDateString = [DateStringFormatter formatStringForTimelineDate:self.tastingRecord.tastingDate];
+    NSLog(@"localDateString = %@",localDateString);
     self.dateLabel.attributedText = [[NSAttributedString alloc] initWithString:localDateString attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption2, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     [self bringSubviewToFront:self.dateLabel];
 }
