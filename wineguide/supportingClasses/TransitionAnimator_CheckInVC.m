@@ -49,9 +49,11 @@
         [transitionContext.containerView addSubview:toViewController.view];
         [transitionContext.containerView addSubview:fromViewController.view];
         
+        endFrame.origin.y += 500;
+        
         [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            fromViewController.view.frame = endFrame;
             toViewController.view.alpha = 1.0;
-            fromViewController.view.alpha = 0.0;
         } completion:^(BOOL finished) {
             
             [transitionContext completeTransition:YES];
