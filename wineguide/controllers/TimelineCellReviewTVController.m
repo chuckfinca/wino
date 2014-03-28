@@ -9,10 +9,19 @@
 #import "TimelineCellReviewTVController.h"
 #import "Review.h"
 #import "User.h"
+#import "TimelineCellHeaderView.h"
+#import "WineDetailsVHTV.h"
+#import "TastingRecord.h"
+#import "DateStringFormatter.h"
+#import "FontThemer.h"
+#import "ColorSchemer.h"
 
 @interface TimelineCellReviewTVController ()
 
-@property (nonatomic, strong) NSSet *reviews;
+@property (nonatomic, strong) TastingRecord *tastingRecord;
+@property (strong, nonatomic) IBOutlet TimelineCellHeaderView *headerView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet WineDetailsVHTV *wineNameTV;
 
 @end
 
@@ -30,29 +39,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.tableHeaderView = self.headerView;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+#pragma mark - Getters & Setters
+
 
 
 #pragma mark - Setup
 
--(void)setupWithReviewSet:(NSSet *)reviews
+-(void)setupWithTastingRecord:(TastingRecord *)tastingRecord
 {
-    self.reviews = reviews;
+    self.tastingRecord = tastingRecord;
+    
+    Review *randomReview = [tastingRecord.reviews anyObject];
+    [self.wineNameTV setupTextViewWithWine:randomReview.wine fromRestaurant:self.tastingRecord.restaurant];
+    
+    [self setupDateLabel];
 }
 
-
+-(void)setupDateLabel
+{
+    NSString *localDateString = [DateStringFormatter formatStringForTimelineDate:self.tastingRecord.tastingDate];
+    NSLog(@"localDateString = %@",localDateString);
+    self.dateLabel.attributedText = [[NSAttributedString alloc] initWithString:localDateString attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption2, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+}
 
 
 #pragma mark - Table view data source
@@ -64,7 +76,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.reviews count];
+    return [self.tastingRecord.reviews count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,43 +88,8 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation
@@ -124,5 +101,23 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+
+
+
+
+
 
 @end

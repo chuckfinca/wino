@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TastingRecord.h"
 
 @interface TimelineCellReviewTVController : UITableViewController
 
--(void)setupWithReviewSet:(NSSet *)reviews;
+-(void)setupWithTastingRecord:(TastingRecord *)tastingRecord;
 
 @end

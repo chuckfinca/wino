@@ -168,6 +168,7 @@
 		C9BAE99D18E3AB19009B8C76 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BAE99C18E3AB19009B8C76 /* Review.m */; };
 		C9BAE99F18E4F7A2009B8C76 /* TimelineTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9BAE99E18E4F7A2009B8C76 /* TimelineTVCell.xib */; };
 		C9BAE9A218E4F98D009B8C76 /* TimelineCellReviewTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BAE9A118E4F98D009B8C76 /* TimelineCellReviewTVController.m */; };
+		C9BAE9AA18E500E2009B8C76 /* TimelineCellHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BAE9A918E500E2009B8C76 /* TimelineCellHeaderView.m */; };
 		C9C6A21018568ABE00CFBBD5 /* brands.json in Resources */ = {isa = PBXBuildFile; fileRef = C9C6A20F18568ABE00CFBBD5 /* brands.json */; };
 		C9C6A21318569A9E00CFBBD5 /* AddGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C6A21218569A9E00CFBBD5 /* AddGroupCell.m */; };
 		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
@@ -469,6 +470,8 @@
 		C9BAE99E18E4F7A2009B8C76 /* TimelineTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimelineTVCell.xib; path = xibs/TimelineTVCell.xib; sourceTree = "<group>"; };
 		C9BAE9A018E4F98D009B8C76 /* TimelineCellReviewTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineCellReviewTVController.h; path = controllers/TimelineCellReviewTVController.h; sourceTree = "<group>"; };
 		C9BAE9A118E4F98D009B8C76 /* TimelineCellReviewTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineCellReviewTVController.m; path = controllers/TimelineCellReviewTVController.m; sourceTree = "<group>"; };
+		C9BAE9A818E500E2009B8C76 /* TimelineCellHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineCellHeaderView.h; path = views/TimelineCellHeaderView.h; sourceTree = "<group>"; };
+		C9BAE9A918E500E2009B8C76 /* TimelineCellHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineCellHeaderView.m; path = views/TimelineCellHeaderView.m; sourceTree = "<group>"; };
 		C9C6A1C61852AAF700CFBBD5 /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
 		C9C6A20F18568ABE00CFBBD5 /* brands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = brands.json; path = model/json/brands.json; sourceTree = "<group>"; };
 		C9C6A21118569A9E00CFBBD5 /* AddGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupCell.h; path = views/AddGroupCell.h; sourceTree = "<group>"; };
@@ -732,6 +735,8 @@
 				C96D249A18B5843100460860 /* TastingRecordTVCell.m */,
 				C9BAE96818E228E5009B8C76 /* FriendListSearchBar.h */,
 				C9BAE96918E228E5009B8C76 /* FriendListSearchBar.m */,
+				C9BAE9A818E500E2009B8C76 /* TimelineCellHeaderView.h */,
+				C9BAE9A918E500E2009B8C76 /* TimelineCellHeaderView.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1213,6 +1218,7 @@
 				C92DF236182AD376009DCB2C /* TastingNoteDataHelper.m in Sources */,
 				C91F59BF18457AE800CF7F18 /* UserMenuVC.m in Sources */,
 				C969353C187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.m in Sources */,
+				C9BAE9AA18E500E2009B8C76 /* TimelineCellHeaderView.m in Sources */,
 				C96D249E18B58A4000460860 /* TimelineSCDTVC.m in Sources */,
 				C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */,
 				C98DEFDC1822DADC0038216C /* WineDataHelper.m in Sources */,
