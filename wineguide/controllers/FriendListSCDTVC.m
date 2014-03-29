@@ -103,8 +103,22 @@
     
     cell.textLabel.attributedText = attributedName;
     
-    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", user.identifier]];
-    [cell.imageView setImageWithURL:URL placeholderImage:self.placeHolderImage];
+    if(user.profileImage){
+        [cell.imageView setImage:[UIImage imageWithData:user.profileImage]];
+        
+    } else {
+        __weak UITableView *weakTableView = self.tableView;
+        
+        NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", user.identifier]];
+        NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:URL];
+        [cell.imageView setImageWithURLRequest:urlRequest placeholderImage:self.placeHolderImage success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            user.profileImage = UIImagePNGRepresentation(image);
+            [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            NSLog(@"failed to download profile image");
+        }];
+    }
     
     return cell;
 }
