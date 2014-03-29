@@ -2,7 +2,7 @@
 //  User.m
 //  Corkie
 //
-//  Created by Charles Feinn on 3/26/14.
+//  Created by Charles Feinn on 3/29/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -22,17 +22,17 @@
 @dynamic homeLatitude;
 @dynamic homeLongitude;
 @dynamic identifier;
+@dynamic isMe;
 @dynamic lastLocalUpdate;
 @dynamic lastServerUpdate;
 @dynamic locale;
 @dynamic nameFirst;
+@dynamic nameFull;
 @dynamic nameLast;
 @dynamic nameLastInitial;
 @dynamic profileImage;
 @dynamic registered;
 @dynamic updatedDate;
-@dynamic isMe;
-@dynamic nameFull;
 @dynamic followedBy;
 @dynamic following;
 @dynamic reviews;

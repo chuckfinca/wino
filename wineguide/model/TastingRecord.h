@@ -2,7 +2,7 @@
 //  TastingRecord.h
 //  Corkie
 //
-//  Created by Charles Feinn on 3/26/14.
+//  Created by Charles Feinn on 3/29/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -20,8 +20,8 @@
 @property (nonatomic, retain) NSDate * lastServerUpdate;
 @property (nonatomic, retain) NSDate * tastingDate;
 @property (nonatomic, retain) NSString * updatedDate;
-@property (nonatomic, retain) NSSet *reviews;
 @property (nonatomic, retain) Restaurant *restaurant;
+@property (nonatomic, retain) NSSet *reviews;
 @end
 
 @interface TastingRecord (CoreDataGeneratedAccessors)
