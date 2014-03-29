@@ -47,14 +47,15 @@
         <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine" inverseName="groups" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <entity name="RatingHistory" representedClassName="Rating" syncable="YES">
-        <attribute name="lastLocalUpdate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="lastServerUpdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="addedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="averageRating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="num1StarRatings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="num2StarRatings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="num3StarRatings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="num4StarRatings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="num5StarRatings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalRatings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updatedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="wine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine" inverseName="rating" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <entity name="Restaurant" representedClassName="Restaurant" syncable="YES">
@@ -182,7 +183,6 @@
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tastingNoteIdentifers" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="varietalCategory" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="varietalIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="vineyard" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="vintage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -212,17 +212,17 @@
         <relationship name="wine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine" inverseName="wineUnits" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Brand" positionX="313" positionY="126" width="128" height="223"/>
-        <element name="Flight" positionX="-108" positionY="45" width="128" height="253"/>
-        <element name="Group" positionX="-110" positionY="351" width="128" height="253"/>
-        <element name="RatingHistory" positionX="358" positionY="378" width="128" height="178"/>
-        <element name="Restaurant" positionX="-360" positionY="198" width="128" height="403"/>
-        <element name="Review" positionX="-612" positionY="494" width="128" height="223"/>
-        <element name="TastingNote" positionX="358" positionY="594" width="128" height="223"/>
-        <element name="TastingRecord" positionX="-594" positionY="243" width="128" height="178"/>
-        <element name="User" positionX="-819" positionY="279" width="128" height="388"/>
-        <element name="Varietal" positionX="340" positionY="857" width="128" height="223"/>
-        <element name="Wine" positionX="117" positionY="234" width="128" height="538"/>
-        <element name="WineUnit" positionX="-117" positionY="675" width="128" height="238"/>
+        <element name="Brand" positionX="124" positionY="-27" width="128" height="225"/>
+        <element name="Flight" positionX="-254" positionY="60" width="128" height="255"/>
+        <element name="Group" positionX="-254" positionY="330" width="128" height="255"/>
+        <element name="RatingHistory" positionX="144" positionY="210" width="128" height="195"/>
+        <element name="Restaurant" positionX="-450" positionY="189" width="128" height="405"/>
+        <element name="Review" positionX="-648" positionY="468" width="128" height="225"/>
+        <element name="TastingNote" positionX="142" positionY="414" width="128" height="225"/>
+        <element name="TastingRecord" positionX="-639" positionY="243" width="128" height="180"/>
+        <element name="User" positionX="-837" positionY="231" width="128" height="390"/>
+        <element name="Varietal" positionX="126" positionY="648" width="128" height="225"/>
+        <element name="Wine" positionX="-72" positionY="135" width="128" height="525"/>
+        <element name="WineUnit" positionX="-252" positionY="621" width="128" height="240"/>
     </elements>
 </model>
