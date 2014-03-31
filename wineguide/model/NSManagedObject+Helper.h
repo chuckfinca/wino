@@ -14,5 +14,6 @@
 
 -(NSString *)addIdentifiers:(NSString *)newIdentifiers toCurrentIdentifiers:(NSString *)currentIdentifiers;
 -(NSDate *)lastUpdatedDateFromDictionary:(NSDictionary *)dictionary;
+-(NSDate *)dateFromObj:(id)obj;
 
 @end

@@ -6,12 +6,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ReviewView">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ReviewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="173"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="acK-ri-rjH">
-                    <rect key="frame" x="285" y="30" width="15" height="20"/>
+                    <rect key="frame" x="285" y="25" width="15" height="20"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="ZZG-yQ-nJg"/>
@@ -19,7 +19,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E8h-98-hIJ">
-                    <rect key="frame" x="268" y="30" width="15" height="20"/>
+                    <rect key="frame" x="268" y="25" width="15" height="20"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Qqz-kz-AvY"/>
@@ -27,7 +27,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IGr-qi-NwR">
-                    <rect key="frame" x="251" y="30" width="15" height="20"/>
+                    <rect key="frame" x="251" y="25" width="15" height="20"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="Ric-Ge-U1H"/>
@@ -35,7 +35,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="92X-rO-Bn8">
-                    <rect key="frame" x="234" y="30" width="15" height="20"/>
+                    <rect key="frame" x="234" y="25" width="15" height="20"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="NEz-49-Rnp"/>
@@ -43,7 +43,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHE-CI-y7k">
-                    <rect key="frame" x="217" y="30" width="15" height="20"/>
+                    <rect key="frame" x="217" y="25" width="15" height="20"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="1Ee-U8-d1J"/>
@@ -80,7 +80,6 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="E8h-98-hIJ" firstAttribute="top" secondItem="92X-rO-Bn8" secondAttribute="top" id="53m-PC-rVH"/>
-                <constraint firstItem="Ett-JN-Wg3" firstAttribute="bottom" secondItem="tHE-CI-y7k" secondAttribute="bottom" id="BbX-Du-2Ze"/>
                 <constraint firstItem="IGr-qi-NwR" firstAttribute="leading" secondItem="92X-rO-Bn8" secondAttribute="trailing" constant="2" id="Hrj-t6-NCN"/>
                 <constraint firstItem="E8h-98-hIJ" firstAttribute="top" secondItem="acK-ri-rjH" secondAttribute="top" id="IuH-iN-qn0"/>
                 <constraint firstAttribute="bottom" secondItem="RCE-ib-ogV" secondAttribute="bottom" constant="20" id="JMN-SA-dYt"/>
@@ -95,22 +94,25 @@
                 <constraint firstItem="Ett-JN-Wg3" firstAttribute="bottom" secondItem="FH5-mw-hpF" secondAttribute="bottom" id="iLi-8R-QD7"/>
                 <constraint firstItem="FH5-mw-hpF" firstAttribute="leading" secondItem="RCE-ib-ogV" secondAttribute="leading" id="lWg-Jo-rFQ"/>
                 <constraint firstAttribute="trailing" secondItem="acK-ri-rjH" secondAttribute="trailing" constant="20" id="mH0-UJ-Eqy"/>
+                <constraint firstItem="tHE-CI-y7k" firstAttribute="centerY" secondItem="FH5-mw-hpF" secondAttribute="centerY" id="q0J-48-xlJ"/>
                 <constraint firstItem="92X-rO-Bn8" firstAttribute="leading" secondItem="tHE-CI-y7k" secondAttribute="trailing" constant="2" id="vVZ-sG-v4g"/>
                 <constraint firstItem="FH5-mw-hpF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="zz4-fF-Um2"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="reviewTV" destination="RCE-ib-ogV" id="7lT-dP-pNK"/>
-                <outlet property="reviewTextToBottomConstraint" destination="JMN-SA-dYt" id="bDU-Is-6XU"/>
-                <outlet property="topToUserImageButtonConstraint" destination="Qv4-ga-MWf" id="k9L-lO-Te6"/>
-                <outlet property="userImageButton" destination="FH5-mw-hpF" id="Fv2-wa-7cD"/>
-                <outlet property="userImageButtonToReviewTextConstraint" destination="eC0-pn-EPI" id="tFj-K1-dh3"/>
-                <outlet property="userNameButton" destination="Ett-JN-Wg3" id="x16-Y1-b5s"/>
+                <outlet property="reviewTV" destination="RCE-ib-ogV" id="d8q-Cp-I7q"/>
+                <outlet property="userImageButton" destination="FH5-mw-hpF" id="YIz-Qa-s1P"/>
+                <outlet property="userNameButton" destination="Ett-JN-Wg3" id="c42-Ec-vAV"/>
                 <outletCollection property="ratingGlassArray" destination="IGr-qi-NwR" id="s8B-F0-zPz"/>
                 <outletCollection property="ratingGlassArray" destination="acK-ri-rjH" id="vk0-yD-jZH"/>
                 <outletCollection property="ratingGlassArray" destination="E8h-98-hIJ" id="xJ3-Il-Kn4"/>
                 <outletCollection property="ratingGlassArray" destination="tHE-CI-y7k" id="fsX-Hw-eJn"/>
                 <outletCollection property="ratingGlassArray" destination="92X-rO-Bn8" id="sgE-rR-TNl"/>
+                <outletCollection property="ratingGlassArray" destination="tHE-CI-y7k" id="QQ8-UA-cXY"/>
+                <outletCollection property="ratingGlassArray" destination="92X-rO-Bn8" id="RMl-8g-CEA"/>
+                <outletCollection property="ratingGlassArray" destination="IGr-qi-NwR" id="xc4-8V-ISq"/>
+                <outletCollection property="ratingGlassArray" destination="E8h-98-hIJ" id="NXj-7h-fJe"/>
+                <outletCollection property="ratingGlassArray" destination="acK-ri-rjH" id="ukM-rb-Duo"/>
             </connections>
         </view>
     </objects>

@@ -2,22 +2,29 @@
 //  TastingRecordCell.m
 //  Corkie
 //
-//  Created by Charles Feinn on 3/29/14.
+//  Created by Charles Feinn on 3/30/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import "TastingRecordCell.h"
 #import "WineNameVHTV.h"
-#import "ReviewView.h"
 #import "FontThemer.h"
 #import "ColorSchemer.h"
+#import "DateStringFormatter.h"
+#import "Review.h"
+#import "User.h"
 
 @interface TastingRecordCell ()
 
-@property (nonatomic, strong) UILabel *dateLabel;
-@property (nonatomic, strong) WineNameVHTV *wineNameVHTV;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *ratingImageViewArray;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *usersImageViewArray;
+
+@property (nonatomic, strong) UIImage *placeHolderImage;
 
 @end
+
 
 @implementation TastingRecordCell
 
@@ -30,97 +37,100 @@
     return self;
 }
 
-#pragma mark - Getters & setters
-
--(UILabel *)dateLabel
+- (void)awakeFromNib
 {
-    if(!_dateLabel){
-        _dateLabel = [[UILabel alloc] init];
-        _dateLabel.textAlignment = NSTextAlignmentRight;
-        _dateLabel.backgroundColor = [UIColor blueColor];
-        [self addSubview:_dateLabel];
+    // Initialization code
+}
+
+-(UIImage *)placeHolderImage
+{
+    if(!_placeHolderImage){
+        _placeHolderImage = [[UIImage alloc] init];
     }
-    return _dateLabel;
+    return _placeHolderImage;
 }
 
--(WineNameVHTV *)wineNameVHTV
+-(void)setupWithTastingRecord:(TastingRecord *)tastingRecord
 {
-    if(!_wineNameVHTV){
-        _wineNameVHTV = [[WineNameVHTV alloc] init];
-        _wineNameVHTV.backgroundColor = [UIColor orangeColor];
-        [self addSubview:_wineNameVHTV];
-    }
-    return _wineNameVHTV;
-}
-
--(ReviewView *)addReviewFromDictionary:(NSDictionary *)reviewDictionary
-{
-    ReviewView *review = [[[NSBundle mainBundle] loadNibNamed:@"Review" owner:self options:nil] firstObject];
+    self.dateLabel.attributedText = [[NSAttributedString alloc] initWithString:[DateStringFormatter formatStringForTimelineDate:tastingRecord.tastingDate] attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption2, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     
-    [review setupReviewWithUserName:[reviewDictionary objectForKey:@"userName"]
-                          userImage:[reviewDictionary objectForKey:@"userImage"]
-                         reviewText:[reviewDictionary objectForKey:@"reviewText"]
-                          wineColor:[reviewDictionary objectForKey:@"wineColor"]
-                          andRating:[[reviewDictionary objectForKey:@"rating"] integerValue]];
-    return review;
     
-}
-
--(void)setupWithDateString:(NSString *)dateString wine:(Wine *)wine restaurant:(Restaurant *)restaurant andReviewsArray:(NSArray *)reviewsArray
-{
-    self.dateLabel.attributedText = [[NSAttributedString alloc] initWithString:dateString attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption2, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+    Wine *wine;
+    NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:YES]]];
     
-    [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:restaurant];
+    float rating = 0;
+    NSInteger numberOfRatings = 0;
     
-    for(NSDictionary *review in reviewsArray){
-        [self addReviewFromDictionary:review];
-    }
-    
-    [self setupVerticalConstraints];
-}
-
--(void)setupVerticalConstraints
-{
-    NSMutableArray *newVerticalConstraints = [NSMutableArray array];
-    
-    UIView *firstView = nil;
-    UIView *secondView = nil;
-    
-    [newVerticalConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[firstView]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(firstView)]];
-    
-    for(NSInteger i = 1; i < [self.subviews count]; i++){
-        secondView = self.subviews[i];
-        [newVerticalConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[firstView-10-[secondView]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(firstView, secondView)]];
-        firstView = secondView;
+    for(NSInteger indexNum = 0; indexNum < 5; indexNum++){
+        UIImage *image;
+        
+        Review *review;
+        
+        if(indexNum < [reviewsArray count]){
+            review = reviewsArray[indexNum];
+            image = [UIImage imageWithData:review.user.profileImage];
+            
+            if(review.rating){
+                rating += [review.rating floatValue];
+                numberOfRatings++;
+            }
+        } else {
+            image = self.placeHolderImage;
+        }
+        
+        UIImageView *iv = self.usersImageViewArray[indexNum];
+        [iv setImage:image];
+        
+        if(!wine && review.wine){
+            wine = review.wine;
+        }
     }
     
-    [newVerticalConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[firstView]-12-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(firstView)]];
-}
-
--(float)height
-{
-    float height = 0;
-    height += 8;
-    height += ([self.subviews count] - 1)*10;
-    height += 12;
+    [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:tastingRecord.restaurant];
     
-    for(UIView *v in self.subviews){
-        height += v.frame.size.height;
-    }
-    return height;
+    [self setupRating:(rating/numberOfRatings)];
+    [self setWineColorFromString:wine.color];
 }
 
+-(void)setWineColorFromString:(NSString *)wineColorString
+{
+    NSLog(@"color = %@",wineColorString);
+    UIColor *wineColor;
+    if([wineColorString isEqualToString:@"red"]){
+        wineColor = [ColorSchemer sharedInstance].redWine;
+    } else if([wineColorString isEqualToString:@"rose"]){
+        wineColor = [ColorSchemer sharedInstance].roseWine;
+    } else if([wineColorString isEqualToString:@"white"]){
+        wineColor = [ColorSchemer sharedInstance].whiteWine;
+    } else {
+        NSLog(@"wine.color != red/rose/white");
+    }
+    for(UIImageView *iv in self.ratingImageViewArray){
+        iv.tintColor = wineColor;
+    }
+}
+
+-(void)setupRating:(NSInteger)rating
+{
+    for(UIImageView *iv in self.ratingImageViewArray){
+        if([self.ratingImageViewArray indexOfObject:iv] > rating){
+            [iv setImage:[[UIImage imageNamed:@"glass_empty.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+        } else if ([self.ratingImageViewArray indexOfObject:iv]+1 > rating){
+            [iv setImage:[[UIImage imageNamed:@"glass_half.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+        } else {
+            [iv setImage:[[UIImage imageNamed:@"glass_full.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+        }
+        [self addSubview:iv];
+    }
+}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
-
-
-
 
 
 

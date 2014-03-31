@@ -47,12 +47,16 @@
 -(NSDate *)lastUpdatedDateFromDictionary:(NSDictionary *)dictionary
 {
     NSDate *dictionaryUpdatedDate;
+    
     if([dictionary[LAST_UPDATED] isKindOfClass:[NSString class]]){
         dictionaryUpdatedDate = [dictionary dateFromString:dictionary[LAST_UPDATED]];
+        
     } else if([dictionary[LAST_UPDATED] isKindOfClass:[NSDate class]]){
         dictionaryUpdatedDate = dictionary[LAST_UPDATED];
+        
     } else if(!dictionary[LAST_UPDATED]){
-        dictionaryUpdatedDate = [dictionary dateFromString:INITIAL_DATE];
+        dictionaryUpdatedDate = [NSDate date];
+        
     } else {
         NSLog(@"ERROR - dictionary[LAST_UPDATED] isn't a NSString or NSDate");
         NSLog(@"it's %@",dictionary[LAST_UPDATED]);
@@ -61,5 +65,30 @@
     // NSLog(@"dictionaryLastUpdatedDate = %@",dictionaryUpdatedDate);
     return dictionaryUpdatedDate;
 }
+
+
+-(NSDate *)dateFromObj:(id)obj
+{
+    NSDate *date;
+    
+    if([obj isKindOfClass:[NSDate class]]){
+        date = (NSDate *)obj;
+    } else if([obj isKindOfClass:[NSString class]]){
+        NSDictionary *dictionary;
+        date = [dictionary dateFromString:(NSString *)obj];
+    }
+    return date;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @end

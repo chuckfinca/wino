@@ -24,6 +24,7 @@
         if ([self.relatedObject class] == [Wine class]){
             varietal.wines = [self addRelationToSet:varietal.wines];
             
+            /*
             Wine *wine = (Wine *)self.relatedObject;
             if([wine.varietals count] == 1){
                 Varietal *v = (Varietal *)[wine.varietals anyObject];
@@ -39,6 +40,7 @@
                     wine.varietalCategory = @"";
                 }
             }
+            */
         }
     }
 }

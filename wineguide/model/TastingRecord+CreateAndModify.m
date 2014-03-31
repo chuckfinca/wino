@@ -32,67 +32,52 @@
 
 @implementation TastingRecord (CreateAndModify)
 
-+(TastingRecord *)tastingRecordFoundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
++(TastingRecord *)foundUsingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withEntityInfo:(NSDictionary *)dictionary
 {
-    TastingRecord *tastingRecord = nil;
+    TastingRecord *tastingRecord;
     
     tastingRecord = (TastingRecord *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:TASTING_RECORD_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
     
-    NSMutableDictionary *identifiers = [[NSMutableDictionary alloc] init];
+    NSDate *updatedDate = [tastingRecord lastUpdatedDateFromDictionary:dictionary];
     
-    NSDate *dictionaryLastUpdatedDate = [tastingRecord lastUpdatedDateFromDictionary:dictionary];
-    
-    if(!tastingRecord.lastServerUpdate || [tastingRecord.lastServerUpdate laterDate:dictionaryLastUpdatedDate] == dictionaryLastUpdatedDate){
-        
-        // EXEPTION: user updates a restaurant group on their iPhone and a restaurant flight on their iPad
-        // in that case we need to make sure that the server processes the first change first, then the second, and that the device only hears from the server after it's own changes have been registered.
-        
+    if(!tastingRecord.addedDate || [tastingRecord.updatedDate laterDate:updatedDate] == updatedDate){
         
         // ATTRIBUTES
-        tastingRecord.addedDate = [dictionary sanitizedStringForKey:ADDED_DATE];
-        tastingRecord.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
-        //restaurant.isPlaceholderForFutureObject = @NO;
-        tastingRecord.lastServerUpdate = dictionaryLastUpdatedDate;
+        
+        NSDate *addedDate = [tastingRecord dateFromObj:dictionary[ADDED_DATE]];
+        if(addedDate){
+            tastingRecord.addedDate = addedDate;
+        } else {
+            tastingRecord.addedDate = updatedDate;
+        }
+        
         tastingRecord.deletedEntity = [dictionary sanitizedValueForKey:DELETED_ENTITY];
-        // restaurant.menuNeedsUpdating - used to notify server that we need to update a specific restaurant's menu.
+        tastingRecord.identifier = [dictionary sanitizedStringForKey:IDENTIFIER];
         
-        [tastingRecord updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
+        NSDate *tastingDate = [tastingRecord dateFromObj:dictionary[TASTING_DATE]];
+        if(tastingDate){
+            tastingRecord.tastingDate = tastingDate;
+        } else if(!tastingRecord.tastingDate){
+            tastingDate = updatedDate;
+        }
         
-    } else if([tastingRecord.lastServerUpdate isEqualToDate:dictionaryLastUpdatedDate]){
-        [tastingRecord updateRelationshipsUsingDictionary:dictionary identifiersDictionary:identifiers andContext:context];
-    }
-    
-    //[restaurant logDetails];
-    
-    return tastingRecord;
-}
-
--(void)updateRelationshipsUsingDictionary:(NSDictionary *)dictionary identifiersDictionary:(NSDictionary *)identifiers andContext:(NSManagedObjectContext *)context
-{
-    // RELATIONSHIPS
-    // The JSON may or may not have returned a nested JSON for the following relationships. If it did then update these items with the nested JSON, if not then update the appropriate relationshipIdentifiers attribute
-    /*
-    // Restaurants
-    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[RESTAURANT_IDENTIFIER]];
-    [rdh updateNestedManagedObjectsLocatedAtKey:RESTAURANT_IDENTIFIER inDictionary:dictionary];
-    
-    // Wines
-    WineDataHelper *wdh = [[WineDataHelper alloc] initWithContext:context andRelatedObject:self andNeededManagedObjectIdentifiersString:identifiers[WINE_IDENTIFIERS]];
-    [wdh updateNestedManagedObjectsLocatedAtKey:WINES inDictionary:dictionary];
-     */
+        tastingRecord.updatedDate = updatedDate;
+        
+        [tastingRecord logDetails];
+        
+    }    return tastingRecord;
 }
 
 -(void)logDetails
 {
     NSLog(@"----------------------------------------");
-    NSLog(@"identifier = %@",self.identifier);
     NSLog(@"added date = %@",self.addedDate);
-    NSLog(@"tasting Date = %@",self.tastingDate);
-    NSLog(@"lastLocalUpdate = %@",self.lastLocalUpdate);
-    NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);
+    NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"tasting Date = %@",self.tastingDate);
+    NSLog(@"updatedDate = %@",self.updatedDate);
     
-        
+    
     NSLog(@"\n\n\n");
 }
 

@@ -18,10 +18,7 @@
     
     UITextView *tv = [[UITextView alloc] init];
     [tv setAttributedText:self.textStorage];
-    NSLog(@"tv = %@",tv.text);
     CGSize size = [tv sizeThatFits:CGSizeMake(self.bounds.size.width, FLT_MAX)];
-    NSLog(@"size.height = %f",size.height);
-    NSLog(@"self.bounds.size.width = %f",self.bounds.size.width);
     return size.height;
 }
 

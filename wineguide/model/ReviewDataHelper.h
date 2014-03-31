@@ -1,13 +1,13 @@
 //
-//  TimelineSCDTVC.h
+//  ReviewDataHelper.h
 //  Corkie
 //
 //  Created by Charles Feinn on 3/30/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "SearchableCDTVC.h"
+#import "JSONToCoreDataHelper.h"
 
-@interface TimelineSCDTVC : SearchableCDTVC
+@interface ReviewDataHelper : JSONToCoreDataHelper
 
 @end

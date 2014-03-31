@@ -14,7 +14,6 @@
 -(NSManagedObject *)updateManagedObjectWithDictionary:(NSDictionary *)dictionary
 {
     NSString *identifier = [dictionary objectForKey:@"id"];
-    NSLog(@"- identifer = %@",identifier);
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",identifier];
     

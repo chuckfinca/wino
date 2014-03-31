@@ -49,6 +49,7 @@
         } else if ([self.relatedObject class] == [Varietal class]){
             wine.varietals = [self addRelationToSet:wine.varietals];
             
+            /*
             if([wine.varietals count] == 1){
                 Varietal *v = (Varietal *)[wine.varietals anyObject];
                 wine.varietalCategory = [NSString stringWithFormat:@"%@-%@",[wine.color substringToIndex:2],v.name];
@@ -63,6 +64,7 @@
                     wine.varietalCategory = @"";
                 }
             }
+             */
         }
     }
 }

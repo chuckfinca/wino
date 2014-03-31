@@ -133,7 +133,7 @@ typedef enum {
 -(void)setupFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"varietalCategory"
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"color"
                                                               ascending:YES],
                                 [NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES]];
@@ -141,7 +141,7 @@ typedef enum {
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
-                                                                          sectionNameKeyPath:@"varietalCategory"
+                                                                          sectionNameKeyPath:@"color"
                                                                                    cacheName:nil];
     // NSLog(@"%@",self.fetchedResultsController.fetchedObjects);
 }
@@ -179,12 +179,7 @@ typedef enum {
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     id <NSFetchedResultsSectionInfo> theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
-    
-    NSString *sectionTitle;
-    if([[theSection name] length] > 2){
-        sectionTitle = [[[theSection name] substringFromIndex:3] capitalizedString];
-    }
-    return sectionTitle;
+    return [[theSection name] capitalizedString];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -200,13 +195,11 @@ typedef enum {
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     // if this method is used we need to register the appropriate class for use as a reuseable view (probably in viewDidLoad).
-    //
-    Wine *wineFromSection = (Wine *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
-    NSString *wineVarietalCategoryString = [wineFromSection.varietalCategory substringFromIndex:2];
+    Wine *wine = (Wine *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
     
     UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeaderViewIdentifier"];
     
-    if(wineVarietalCategoryString){
+    if(wine.color){
         [sectionHeaderView.textLabel setTextColor:[ColorSchemer sharedInstance].textPrimary];
     }
     return sectionHeaderView;

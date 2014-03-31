@@ -2,16 +2,20 @@
 //  TimelineSCDTVC.m
 //  Corkie
 //
-//  Created by Charles Feinn on 2/19/14.
+//  Created by Charles Feinn on 3/30/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import "TimelineSCDTVC.h"
 #import <CoreData/CoreData.h>
-#import "TastingRecord.h"
 #import "ColorSchemer.h"
 #import "DocumentHandler.h"
-#import "TastingRecordTVCell.h"
+#import "TastingRecordCell.h"
+#import "TastingRecord.h"
+#import "Review.h"
+#import "User.h"
+#import "DateStringFormatter.h"
+#import "ReviewsTVController.h"
 
 #define TASTING_RECORD_ENTITY @"TastingRecord"
 
@@ -20,8 +24,7 @@
 @interface TimelineSCDTVC ()
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic, strong) NSArray *tastingRecords;
-@property (nonatomic, strong) TastingRecordTVCell *tastingRecordSizingCell;
+@property (nonatomic, strong) TastingRecordCell *tastingRecordSizingCell;
 
 @end
 
@@ -38,24 +41,21 @@
 
 -(void)awakeFromNib
 {
-    NSLog(@"awakeFromNib...");
-    [self.tableView registerNib:[UINib nibWithNibName:@"TastingRecordTVCell" bundle:nil] forCellReuseIdentifier:TASTING_RECORD_CELL];
+    [self.tableView registerNib:[UINib nibWithNibName:@"TastingRecordCell" bundle:nil] forCellReuseIdentifier:TASTING_RECORD_CELL];
+    self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
 }
 
 - (void)viewDidLoad
 {
-    NSLog(@"viewDidLoad...");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationItem.title = @"My Timeline";
-    self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
-    
 }
 
 
 #pragma mark - Getters & Setters
 
--(TastingRecordTVCell *)tastingRecordSizingCell
+-(TastingRecordCell *)tastingRecordSizingCell
 {
     if(!_tastingRecordSizingCell){
         _tastingRecordSizingCell = [self.tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL];
@@ -105,7 +105,7 @@
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
     
-    if([self.tastingRecords count] == 0){
+    if([self.fetchedResultsController.fetchedObjects count] == 0){
         /*
          InstructionsVC *instructions = [[InstructionsVC alloc] init];
          instructions.view.frame = self.collectionView.frame;
@@ -135,32 +135,62 @@
 
 #pragma mark - UITableViewDataSource
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if(tableView == self.tableView){
+        return [[self.fetchedResultsController sections] count];
+    } else {
+        return 1;
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(tableView == self.tableView){
+        return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+    } else {
+        TastingRecord *tr = self.fetchedResultsController.fetchedObjects[tableView.tag];
+        return [tr.reviews count];
+    }
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // NSLog(@"cellForRowAtIndexPath...");
-    TastingRecordTVCell *cell = (TastingRecordTVCell *)[tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
+    TastingRecordCell *trCell = (TastingRecordCell *)[tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
     TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [cell setupCellWithTastingRecord:tastingRecord];
+    [trCell setupWithTastingRecord:tastingRecord];
     
-    return cell;
+    return trCell;
 }
+
 
 
 #pragma mark - UITableViewDelegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TastingRecord *tr = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self.tastingRecordSizingCell setupCellWithTastingRecord:tr];
-    
-    CGSize size = [self.tastingRecordSizingCell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    
-    return size.height;
+    TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.tastingRecordSizingCell setupWithTastingRecord:tastingRecord];
+    return self.tastingRecordSizingCell.bounds.size.height;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"indexPath = %@",indexPath);
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"ReviewsSegue" sender:cell];
+}
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"segue.id = %@",segue.identifier);
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender];
+    
+    ReviewsTVController *reviewTVC = (ReviewsTVController *)segue.destinationViewController;
+    
+    [reviewTVC setupFromTastingRecord:(TastingRecord *)self.fetchedResultsController.fetchedObjects[indexPath.row]];
+    
+}
 
 #pragma mark - Listen for Notifications
 
@@ -188,5 +218,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+
 
 @end

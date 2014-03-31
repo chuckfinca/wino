@@ -1,5 +1,5 @@
 //
-//  TastingRecordCell.h
+//  ReviewsTVController.h
 //  Corkie
 //
 //  Created by Charles Feinn on 3/30/14.
@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "TastingRecord.h"
 
-@interface TastingRecordCell : UITableViewCell
+@interface ReviewsTVController : UITableViewController
 
--(void)setupWithTastingRecord:(TastingRecord *)tastingRecord;
+-(void)setupFromTastingRecord:(TastingRecord *)tastingRecord;
 
 @end

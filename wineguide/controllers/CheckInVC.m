@@ -17,11 +17,23 @@
 #import "FriendListVC.h"
 #import "TransitionAnimator_CheckInFriends.h"
 #import "FacebookSessionManager.h"
-#import "ReviewObjectHandler.h"
-#import "TastingRecordObjectHandler.h"
+#import "ReviewDataHelper.h"
+#import "TastingRecordDataHelper.h"
 
 #define CORNER_RADIUS 4
 #define CHECK_IN_VC_VIEW_HEIGHT 230
+
+#define ADDED_DATE @"addedDate"
+#define CLAIMED_BY_USER @"claimedByUser"
+#define DELETED_ENTITY @"deletedEntity"
+#define IDENTIFIER @"identifier"
+#define RATING @"rating"
+#define REVIEW_TEXT @"reviewText"
+#define REVIEW_DATE @"reviewDate"
+#define UPDATED_DATE @"updatedDate"
+#define RESTAURANT @"restaurant"
+
+#define TASTING_DATE @"tastingDate"
 
 @interface CheckInVC () <UITextViewDelegate, UIViewControllerTransitioningDelegate, FriendListVcDelegate>
 
@@ -361,8 +373,7 @@
 -(void)checkInWithFriends:(NSArray *)selectedFriendsArray
 {
     self.selectedFriends = selectedFriendsArray;
-    Review *review = [self createReview];
-    [self createTastingRecordWithReview:review];
+    [self createTastingRecord];
     
     [self dismissViewControllerAnimated:YES completion:^{
         [self.noteTV resignFirstResponder];
@@ -370,31 +381,76 @@
     }];
 }
 
-#define IDENTIFIER @"identifier"
-#define DELETED_ENTITY @"deletedEntity"
-
--(Review *)createReview
+-(void)createTastingRecord
 {
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    
+    NSDate *now = [NSDate date];
+    
     if(!self.selectedDate){
-        self.selectedDate = [NSDate date];
+        self.selectedDate = now;
     }
     
+    NSString *dateString = [now.description stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *identifier = [NSString stringWithFormat:@"%@%@",self.restaurant.identifier,dateString];
+    
+    [dictionary setObject:now forKey:ADDED_DATE];
+    [dictionary setObject:@NO forKey:DELETED_ENTITY];
+    [dictionary setObject:identifier forKey:IDENTIFIER];
+    [dictionary setObject:self.selectedDate forKey:TASTING_DATE];
+    [dictionary setObject:now forKey:UPDATED_DATE];
+    
+    TastingRecordDataHelper *trdh = [[TastingRecordDataHelper alloc] init];
+    TastingRecord *tastingRecord = (TastingRecord *)[trdh updateManagedObjectWithDictionary:dictionary];
+    
+    tastingRecord.restaurant = self.restaurant;
+    
+    NSMutableSet *reviews = [[NSMutableSet alloc] init];
     User *user = [FacebookSessionManager sharedInstance].user;
+    Review *userReview = [self createClaimed:YES reviewForUser:user];
+    [reviews addObject:userReview];
     
-    NSString *reviewText;
-    if([[self.noteTV.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] > 0){
-        reviewText = self.noteTV.text;
+    if(self.selectedFriends){
+        for(User *friend in self.selectedFriends){
+            Review *friendReview = [self createClaimed:NO reviewForUser:friend];
+            [reviews addObject:friendReview];
+        }
+        tastingRecord.reviews = reviews;
     }
-    
-    Review *review = (Review *)[ReviewObjectHandler createClaimed:YES reviewWithDate:self.selectedDate user:user wine:self.wine rating:@(self.userRatingsController.rating) andReviewText:reviewText];
-    
-    return review;
 }
 
--(void)createTastingRecordWithReview:(Review *)review
+-(Review *)createClaimed:(BOOL)claimed reviewForUser:(User *)user
 {
-    NSString *identifier = [NSString stringWithFormat:@"%@%@",review.identifier, self.restaurant.identifier];
-    [TastingRecordObjectHandler createTastingRecordWithIdentifier:identifier tastingDate:self.selectedDate review:review restaurant:self.restaurant andFriends:self.selectedFriends];
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    
+    NSString *dateString = [self.selectedDate.description stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *identifier = [NSString stringWithFormat:@"%@%@",dateString,user.identifier];
+    
+    [dictionary setObject:self.selectedDate forKey:ADDED_DATE];
+    [dictionary setObject:@(claimed) forKey:CLAIMED_BY_USER];
+    [dictionary setObject:@NO forKey:DELETED_ENTITY];
+    [dictionary setObject:identifier forKey:IDENTIFIER];
+    
+    if(claimed){
+        
+        [dictionary setObject:@(self.userRatingsController.rating) forKey:RATING];
+        NSString *reviewText;
+        if([[self.noteTV.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] > 0){
+            reviewText = self.noteTV.text;
+            [dictionary setObject:reviewText forKey:REVIEW_TEXT];
+        }
+        
+        [dictionary setObject:self.selectedDate forKey:REVIEW_DATE];
+    }
+    
+    [dictionary setObject:self.selectedDate forKey:UPDATED_DATE];
+    
+    ReviewDataHelper *rdh = [[ReviewDataHelper alloc] init];
+    Review *review = (Review *)[rdh updateManagedObjectWithDictionary:dictionary];
+    review.wine = self.wine;
+    review.user = user;
+    
+    return review;
 }
 
 
