@@ -761,9 +761,9 @@
 				C932F13D186D0ABC0079680C /* WineReview.xib */,
 				C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */,
 				C96928CE18DCE673006ADCC4 /* FriendsListHeaderView.xib */,
-				C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */,
 				C96BA8F518E8CE5200E0F990 /* TastingRecordCell.xib */,
 				C95CAAD018EA2A3D00E210D0 /* ReviewsTVControllerHeaderView.xib */,
+				C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";

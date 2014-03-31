@@ -87,11 +87,12 @@
     Review *review = self.reviews[indexPath.row];
     User *user = review.user;
     
-    [cell setupReviewWithUserName:[NSString stringWithFormat:@"%@ %@.",user.nameFirst, user.nameLastInitial]
-                        userImage:[UIImage imageWithData:user.profileImage]
-                       reviewText:review.reviewText
-                        wineColor:review.wine.color
-                        andRating:review.rating];
+    [cell setupClaimed:[review.claimedByUser boolValue]
+    reviewWithUserName:[NSString stringWithFormat:@"%@ %@.",user.nameFirst, user.nameLastInitial]
+             userImage:[UIImage imageWithData:user.profileImage]
+            reviewText:review.reviewText
+             wineColor:review.wine.color
+             andRating:review.rating];
     
     return cell;
 }
@@ -103,7 +104,7 @@
 {
     Review *review = self.reviews[indexPath.row];
     
-    [self.sizingCell setupReviewWithUserName:nil userImage:nil reviewText:review.reviewText wineColor:nil andRating:nil];
+    [self.sizingCell setupClaimed:NO reviewWithUserName:nil userImage:nil reviewText:review.reviewText wineColor:nil andRating:nil];
     return self.sizingCell.bounds.size.height;
 }
 

@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 @interface ReviewCell : UITableViewCell
 
--(void)setupReviewWithUserName:(NSString *)userName
-                     userImage:(UIImage *)userImage
-                    reviewText:(NSString *)reviewText
-                     wineColor:(NSString *)wineColor
-                     andRating:(NSNumber *)rating;
+-(void)setupClaimed:(BOOL)claimed
+ reviewWithUserName:(NSString *)userName
+          userImage:(UIImage *)userImage
+         reviewText:(NSString *)reviewText
+          wineColor:(NSString *)wineColor
+          andRating:(NSNumber *)rating;
 
 @end

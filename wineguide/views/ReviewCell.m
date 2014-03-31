@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *userNameButton;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *ratingGlassArray;
 @property (weak, nonatomic) IBOutlet VariableHeightTV *reviewTV;
+@property (weak, nonatomic) IBOutlet UIButton *reviewButton;
 
 // Vertical constraints
 
@@ -43,20 +44,32 @@
 
 #pragma mark - Setup
 
--(void)setupReviewWithUserName:(NSString *)userName userImage:(UIImage *)userImage reviewText:(NSString *)reviewText wineColor:(NSString *)wineColor andRating:(NSNumber *)rating
+-(void)setupClaimed:(BOOL)claimed reviewWithUserName:(NSString *)userName userImage:(UIImage *)userImage reviewText:(NSString *)reviewText wineColor:(NSString *)wineColor andRating:(NSNumber *)rating
 {
-    if(reviewText){
-        self.reviewTV.attributedText = [[NSAttributedString alloc] initWithString:reviewText attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+    if(claimed){
+        if(reviewText){
+            self.reviewTV.attributedText = [[NSAttributedString alloc] initWithString:reviewText attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+        } else {
+            self.reviewTV.attributedText = nil;
+            self.reviewTV.frame = CGRectMake(self.reviewTV.frame.origin.x, self.reviewTV.frame.origin.y, self.reviewTV.frame.size.width, 1);
+        }
+        
+        [self setWineColorFromString:wineColor];
+        [self setupRating:[rating integerValue]];
+        
+        self.reviewButton.hidden = YES;
     } else {
-        self.reviewTV.attributedText = nil;
-        self.reviewTV.frame = CGRectMake(self.reviewTV.frame.origin.x, self.reviewTV.frame.origin.y, self.reviewTV.frame.size.width, 1);
+        for(UIView *iv in self.ratingGlassArray){
+            iv.hidden = YES;
+        }
+        self.reviewButton.hidden = NO;
+        [self.reviewButton setTitle:@"REVIEW" forState:UIControlStateNormal];
     }
-    [self.reviewTV height];
+    
     
     
     // the view should just take the review object from the view controller and display it accordingly
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    [self setWineColorFromString:wineColor];
     
     userImage = [userImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [self.userImageButton setImage:userImage forState:UIControlStateNormal];
@@ -64,10 +77,6 @@
     [self.userNameButton setTitle:userName forState:UIControlStateNormal];
     self.userNameButton.tintColor = [ColorSchemer sharedInstance].textSecondary;
     self.userNameButton.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
-    
-    [self setupRating:[rating integerValue]];
-    
-    [self setNeedsDisplay];
     
     [self setViewHeight];
 }
