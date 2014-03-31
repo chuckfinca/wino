@@ -49,7 +49,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.navigationItem.title = @"My Timeline";
 }
 
 
@@ -178,14 +177,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"indexPath = %@",indexPath);
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [self performSegueWithIdentifier:@"ReviewsSegue" sender:cell];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"segue.id = %@",segue.identifier);
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender];
     
     ReviewsTVController *reviewTVC = (ReviewsTVController *)segue.destinationViewController;

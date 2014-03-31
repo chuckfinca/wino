@@ -80,6 +80,7 @@
 		C95A2CD1185BEC3B0043ECB0 /* button_triedIt.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CCF185BEC3B0043ECB0 /* button_triedIt.png */; };
 		C95A2CD2185BEC3B0043ECB0 /* button_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CD0185BEC3B0043ECB0 /* button_triedIt@2x.png */; };
 		C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A2CD8185BF8360043ECB0 /* WineNameVHTV.m */; };
+		C95CAAD118EA2A3D00E210D0 /* ReviewsTVControllerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95CAAD018EA2A3D00E210D0 /* ReviewsTVControllerHeaderView.xib */; };
 		C95CF7B2188A250200E14E03 /* group.restaurant.hinojosa.1parklane.all.json in Resources */ = {isa = PBXBuildFile; fileRef = C95CF7B0188A250200E14E03 /* group.restaurant.hinojosa.1parklane.all.json */; };
 		C95CF7B3188A250200E14E03 /* restaurant.hinojosa.1parklane.json in Resources */ = {isa = PBXBuildFile; fileRef = C95CF7B1188A250200E14E03 /* restaurant.hinojosa.1parklane.json */; };
 		C95E2DB4186501010050DFAC /* UserActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DB3186501010050DFAC /* UserActionCell.xib */; };
@@ -328,6 +329,7 @@
 		C95A2CD0185BEC3B0043ECB0 /* button_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_triedIt@2x.png"; path = "images/button_triedIt@2x.png"; sourceTree = "<group>"; };
 		C95A2CD7185BF8360043ECB0 /* WineNameVHTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineNameVHTV.h; path = views/WineNameVHTV.h; sourceTree = "<group>"; };
 		C95A2CD8185BF8360043ECB0 /* WineNameVHTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineNameVHTV.m; path = views/WineNameVHTV.m; sourceTree = "<group>"; };
+		C95CAAD018EA2A3D00E210D0 /* ReviewsTVControllerHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewsTVControllerHeaderView.xib; path = xibs/ReviewsTVControllerHeaderView.xib; sourceTree = "<group>"; };
 		C95CF7B0188A250200E14E03 /* group.restaurant.hinojosa.1parklane.all.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = group.restaurant.hinojosa.1parklane.all.json; path = model/json/group.restaurant.hinojosa.1parklane.all.json; sourceTree = "<group>"; };
 		C95CF7B1188A250200E14E03 /* restaurant.hinojosa.1parklane.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.hinojosa.1parklane.json; path = model/json/restaurant.hinojosa.1parklane.json; sourceTree = "<group>"; };
 		C95E2DB3186501010050DFAC /* UserActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserActionCell.xib; path = xibs/UserActionCell.xib; sourceTree = "<group>"; };
@@ -761,6 +763,7 @@
 				C96928CE18DCE673006ADCC4 /* FriendsListHeaderView.xib */,
 				C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */,
 				C96BA8F518E8CE5200E0F990 /* TastingRecordCell.xib */,
+				C95CAAD018EA2A3D00E210D0 /* ReviewsTVControllerHeaderView.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -1109,6 +1112,7 @@
 				C95E2DBE186510050050DFAC /* userAction_triedIt.png in Resources */,
 				C91F59C218457EB800CF7F18 /* Restauranteur_iPhone.storyboard in Resources */,
 				C9C7D61918401F7100A2E955 /* tab_nearMe@2x.png in Resources */,
+				C95CAAD118EA2A3D00E210D0 /* ReviewsTVControllerHeaderView.xib in Resources */,
 				C991FBA5186269C300C10B52 /* RatingsCVC.xib in Resources */,
 				C95A2CC2185B80070043ECB0 /* visible.png in Resources */,
 				C991FB99186115CA00C10B52 /* user_alan.png in Resources */,

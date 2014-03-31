@@ -52,7 +52,7 @@
 
 -(void)setupWithTastingRecord:(TastingRecord *)tastingRecord
 {
-    self.dateLabel.attributedText = [[NSAttributedString alloc] initWithString:[DateStringFormatter formatStringForTimelineDate:tastingRecord.tastingDate] attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption2, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+    self.dateLabel.attributedText = [DateStringFormatter attributedStringFromDate:tastingRecord.tastingDate];
     
     
     Wine *wine;

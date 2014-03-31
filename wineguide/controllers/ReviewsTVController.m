@@ -11,6 +11,8 @@
 #import "ReviewCell.h"
 #import "User.h"
 #import "Wine.h"
+#import "WineNameVHTV.h"
+#import "DateStringFormatter.h"
 
 #define REVIEW_CELL @"ReviewCell"
 
@@ -18,6 +20,9 @@
 
 @property (nonatomic, strong) NSArray *reviews;
 @property (nonatomic, strong) ReviewCell *sizingCell;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
+
 
 @end
 
@@ -37,11 +42,19 @@
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"ReviewCell" bundle:nil] forCellReuseIdentifier:REVIEW_CELL];
     self.tableView.allowsSelection = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
 }
 
 -(void)setupFromTastingRecord:(TastingRecord *)tastingRecord
 {
     self.reviews = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:NO]]];
+    
+    self.tableView.tableHeaderView = [[[NSBundle mainBundle] loadNibNamed:@"ReviewsTVControllerHeaderView" owner:self options:nil] firstObject];
+    
+    Review *review = (Review *)self.reviews[0];
+    self.dateLabel.attributedText = [DateStringFormatter attributedStringFromDate:tastingRecord.tastingDate];
+    [self.wineNameVHTV setupTextViewWithWine:review.wine fromRestaurant:tastingRecord.restaurant];
 }
 
 
@@ -54,7 +67,6 @@
     }
     return _sizingCell;
 }
-
 
 #pragma mark - UITableViewDataSource
 
@@ -75,7 +87,11 @@
     Review *review = self.reviews[indexPath.row];
     User *user = review.user;
     
-    [cell setupReviewWithUserName:user.nameFull userImage:[UIImage imageWithData:user.profileImage] reviewText:review.reviewText wineColor:review.wine.color andRating:review.rating];
+    [cell setupReviewWithUserName:[NSString stringWithFormat:@"%@ %@.",user.nameFirst, user.nameLastInitial]
+                        userImage:[UIImage imageWithData:user.profileImage]
+                       reviewText:review.reviewText
+                        wineColor:review.wine.color
+                        andRating:review.rating];
     
     return cell;
 }
@@ -86,9 +102,8 @@
 -(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Review *review = self.reviews[indexPath.row];
-    User *user = review.user;
     
-    [self.sizingCell setupReviewWithUserName:user.nameFull userImage:nil reviewText:review.reviewText wineColor:review.wine.color andRating:review.rating];
+    [self.sizingCell setupReviewWithUserName:nil userImage:nil reviewText:review.reviewText wineColor:nil andRating:nil];
     return self.sizingCell.bounds.size.height;
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "DateStringFormatter.h"
+#import "ColorSchemer.h"
+#import "FontThemer.h"
 
 #define SECONDS_IN_A_WEEK 604800
 #define SECONDS_IN_A_DAY 86400
@@ -53,6 +55,11 @@
     }
 
     return localDateString;
+}
+
++(NSAttributedString *)attributedStringFromDate:(NSDate *)date
+{
+    return [[NSAttributedString alloc] initWithString:[DateStringFormatter formatStringForTimelineDate:date] attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption2, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
 }
 
 @end

@@ -87,8 +87,6 @@
     [self.textStorage addAttribute:NSForegroundColorAttributeName
                              value:[ColorSchemer sharedInstance].textSecondary
                              range:restaurantRange];
-    
-    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 @end

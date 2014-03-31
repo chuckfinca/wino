@@ -10,6 +10,7 @@
 #import "VariableHeightTV.h"
 #import "ColorSchemer.h"
 #import "FontThemer.h"
+#import "WineNameVHTV.h"
 
 @interface ReviewCell ()
 
@@ -62,6 +63,7 @@
     
     [self.userNameButton setTitle:userName forState:UIControlStateNormal];
     self.userNameButton.tintColor = [ColorSchemer sharedInstance].textSecondary;
+    self.userNameButton.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
     
     [self setupRating:[rating integerValue]];
     
@@ -81,6 +83,7 @@
     height += self.userImageToReviewTextConstraint.constant;
     height += [self.reviewTV height];
     height += self.reviewTextToBottomConstraint.constant;
+    
     self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }
 
@@ -94,7 +97,7 @@
     } else if([wineColorString isEqualToString:@"white"]){
         wineColor = [ColorSchemer sharedInstance].whiteWine;
     } else {
-        NSLog(@"wine.color != red/rose/white");
+        // NSLog(@"wine.color != red/rose/white");
     }
     for(UIImageView *iv in self.ratingGlassArray){
         iv.tintColor = wineColor;
