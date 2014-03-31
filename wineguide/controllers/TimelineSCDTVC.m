@@ -157,6 +157,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TastingRecordCell *trCell = (TastingRecordCell *)[tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
+    trCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [trCell setupWithTastingRecord:tastingRecord];
     
