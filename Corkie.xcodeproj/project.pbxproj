@@ -194,6 +194,7 @@
 		C9DAB85118E8F05600BB0E2A /* TastingRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85018E8F05600BB0E2A /* TastingRecord.m */; };
 		C9DAB85418E90FE800BB0E2A /* TimelineSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85318E90FE800BB0E2A /* TimelineSCDTVC.m */; };
 		C9DAB85718E91D3900BB0E2A /* ReviewsTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85618E91D3900BB0E2A /* ReviewsTVController.m */; };
+		C9DAB85D18EA025000BB0E2A /* ReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85C18EA025000BB0E2A /* ReviewCell.m */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
 		C9DDD08918201F0C000A6FD7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DDD08818201F0C000A6FD7 /* CoreData.framework */; };
 		C9DDD08C1820307D000A6FD7 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08B1820307D000A6FD7 /* MainTabBarController.m */; };
@@ -508,6 +509,8 @@
 		C9DAB85318E90FE800BB0E2A /* TimelineSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineSCDTVC.m; path = controllers/TimelineSCDTVC.m; sourceTree = "<group>"; };
 		C9DAB85518E91D3900BB0E2A /* ReviewsTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewsTVController.h; path = controllers/ReviewsTVController.h; sourceTree = "<group>"; };
 		C9DAB85618E91D3900BB0E2A /* ReviewsTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewsTVController.m; path = controllers/ReviewsTVController.m; sourceTree = "<group>"; };
+		C9DAB85B18EA025000BB0E2A /* ReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewCell.h; path = views/ReviewCell.h; sourceTree = "<group>"; };
+		C9DAB85C18EA025000BB0E2A /* ReviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewCell.m; path = views/ReviewCell.m; sourceTree = "<group>"; };
 		C9DDD08518201EEC000A6FD7 /* DocumentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentHandler.h; path = model/DocumentHandler.h; sourceTree = "<group>"; };
 		C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentHandler.m; path = model/DocumentHandler.m; sourceTree = "<group>"; };
 		C9DDD08818201F0C000A6FD7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -735,6 +738,8 @@
 				C9BAE96918E228E5009B8C76 /* FriendListSearchBar.m */,
 				C96BA8F718E8D1AE00E0F990 /* TastingRecordCell.h */,
 				C96BA8F818E8D1AE00E0F990 /* TastingRecordCell.m */,
+				C9DAB85B18EA025000BB0E2A /* ReviewCell.h */,
+				C9DAB85C18EA025000BB0E2A /* ReviewCell.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1298,6 +1303,7 @@
 				C9DAB82D18E8D6AC00BB0E2A /* Flight.m in Sources */,
 				C9B6B26C18D8FF75007406DC /* User+CreateAndModify.m in Sources */,
 				C969347818779F1B0071EF41 /* TastingRecord+CreateAndModify.m in Sources */,
+				C9DAB85D18EA025000BB0E2A /* ReviewCell.m in Sources */,
 				C92932D5182AD9040035C93C /* WineUnitDataHelper.m in Sources */,
 				C91F59BA184562E600CF7F18 /* InitialPanelsController.m in Sources */,
 			);

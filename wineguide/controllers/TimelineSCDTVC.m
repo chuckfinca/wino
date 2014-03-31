@@ -58,7 +58,7 @@
 -(TastingRecordCell *)tastingRecordSizingCell
 {
     if(!_tastingRecordSizingCell){
-        _tastingRecordSizingCell = [self.tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL];
+        _tastingRecordSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"TastingRecordCell" owner:self options:nil] firstObject];
     }
     return _tastingRecordSizingCell;
 }
