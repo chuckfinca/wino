@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet VariableHeightTV *reviewTV;
 @property (weak, nonatomic) IBOutlet UIButton *reviewButton;
 
+@property (nonatomic, strong) UIImage *placeHolderImage;
+
 // Vertical constraints
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToUserImageConstraint;
@@ -41,6 +43,13 @@
 
 #pragma mark - Getters & setters
 
+-(UIImage *)placeHolderImage
+{
+    if(!_placeHolderImage){
+        _placeHolderImage = [[UIImage imageNamed:@"user_default.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    }
+    return _placeHolderImage;
+}
 
 #pragma mark - Setup
 
@@ -71,7 +80,12 @@
     // the view should just take the review object from the view controller and display it accordingly
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
-    userImage = [userImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    if(userImage){
+        userImage = [userImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    } else {
+        userImage = self.placeHolderImage;
+    }
     [self.userImageButton setImage:userImage forState:UIControlStateNormal];
     
     [self.userNameButton setTitle:userName forState:UIControlStateNormal];
