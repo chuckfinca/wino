@@ -90,7 +90,6 @@
     
     [self.userNameButton setTitle:userName forState:UIControlStateNormal];
     self.userNameButton.tintColor = [ColorSchemer sharedInstance].textSecondary;
-    self.userNameButton.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
     
     [self setViewHeight];
 }

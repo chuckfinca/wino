@@ -13,6 +13,7 @@
 #import "Wine.h"
 #import "WineNameVHTV.h"
 #import "DateStringFormatter.h"
+#import "ColorSchemer.h"
 
 #define REVIEW_CELL @"ReviewCell"
 
@@ -44,6 +45,7 @@
     self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)setupFromTastingRecord:(TastingRecord *)tastingRecord
@@ -51,6 +53,7 @@
     self.reviews = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:NO]]];
     
     self.tableView.tableHeaderView = [[[NSBundle mainBundle] loadNibNamed:@"ReviewsTVControllerHeaderView" owner:self options:nil] firstObject];
+    self.tableView.tableHeaderView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
     Review *review = (Review *)self.reviews[0];
     self.dateLabel.attributedText = [DateStringFormatter attributedStringFromDate:tastingRecord.tastingDate];

@@ -7,8 +7,14 @@
 //
 
 #import "VariableHeightTV.h"
+#import "ColorSchemer.h"
 
 @implementation VariableHeightTV
+
+-(void)awakeFromNib
+{
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+}
 
 -(float)height
 {

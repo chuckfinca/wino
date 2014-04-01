@@ -103,6 +103,8 @@
     [self setWineColorFromString:wine.color];
     
     [self setHeight];
+    
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)setHeight

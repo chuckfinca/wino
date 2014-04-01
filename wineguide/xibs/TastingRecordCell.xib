@@ -17,8 +17,8 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8c2-IA-lRy" customClass="WineNameVHTV">
-                    <rect key="frame" x="20" y="48" width="280" height="62"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8c2-IA-lRy" customClass="WineNameVHTV">
+                    <rect key="frame" x="20" y="40" width="280" height="78"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -142,9 +142,9 @@
                 <constraint firstItem="rty-gE-BiK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ieG-rz-8Ag"/>
                 <constraint firstItem="e7j-0y-iYY" firstAttribute="leading" secondItem="mSF-TY-plo" secondAttribute="trailing" constant="8" id="lYE-pB-akg"/>
                 <constraint firstItem="VTX-Tn-txX" firstAttribute="bottom" secondItem="rty-gE-BiK" secondAttribute="bottom" id="pou-QD-qsJ"/>
-                <constraint firstItem="DXX-w5-9CP" firstAttribute="top" secondItem="8c2-IA-lRy" secondAttribute="bottom" constant="8" id="qAA-q6-rvc"/>
+                <constraint firstItem="DXX-w5-9CP" firstAttribute="top" secondItem="8c2-IA-lRy" secondAttribute="bottom" id="qAA-q6-rvc"/>
                 <constraint firstItem="mSF-TY-plo" firstAttribute="leading" secondItem="uEE-4g-X78" secondAttribute="trailing" constant="8" id="tAH-fX-4K4"/>
-                <constraint firstItem="8c2-IA-lRy" firstAttribute="top" secondItem="rty-gE-BiK" secondAttribute="bottom" constant="8" id="xga-Jk-mr9"/>
+                <constraint firstItem="8c2-IA-lRy" firstAttribute="top" secondItem="rty-gE-BiK" secondAttribute="bottom" id="xga-Jk-mr9"/>
                 <constraint firstItem="EsZ-LR-q6y" firstAttribute="leading" secondItem="VTX-Tn-txX" secondAttribute="trailing" constant="2" id="xvM-cL-bBF"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
