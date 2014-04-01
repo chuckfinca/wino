@@ -19,7 +19,7 @@
 #define WINE_CELL @"WineCell"
 #define REVIEW_CELL @"ReviewCell"
 
-@interface WineCDTVC () <WineDetailsVcDelegate, UIViewControllerTransitioningDelegate, CheckInVcDelegate>
+@interface WineCDTVC () <WineDetailsVcDelegate, UIViewControllerTransitioningDelegate, CheckInVcDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) WineDetailsVC *wineDetailsViewController;
 @property (nonatomic, strong) NSManagedObjectContext *context;
@@ -173,14 +173,14 @@
     
     if(CGRectContainsPoint(cell.userImageButton.frame, touchLocation) || CGRectContainsPoint(cell.userNameButton.frame, touchLocation)){
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"User profiles coming soon!" delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"User profiles coming soon!" delegate:nil cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
         alert.tintColor = [ColorSchemer sharedInstance].clickable;
         
         [MotionEffects addMotionEffectsToView:alert];
         [alert show];
     } else if(CGRectContainsPoint(cell.followUserButton.frame, touchLocation)){
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Following/followers coming soon!" delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Following/followers coming soon!" delegate:nil cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
         alert.tintColor = [ColorSchemer sharedInstance].clickable;
         
         [MotionEffects addMotionEffectsToView:alert];
@@ -196,15 +196,8 @@
     if([FacebookSessionManager sharedInstance].sessionActive){
         [self performSegueWithIdentifier:@"CheckInSegue" sender:self];
     } else {
-        __weak WineCDTVC *weakSelf = self;
-        [[FacebookSessionManager sharedInstance] logInWithCompletion:^(BOOL loggedIn) {
-            NSLog(@"logged in? %@",loggedIn == YES ? @"y" : @"n");
-            if(loggedIn){
-                [weakSelf performSegueWithIdentifier:@"CheckInSegue" sender:self];
-            } else {
-                NSLog(@"LOGIN FAILED");
-            }
-        }];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connect with Facebook" message:@"Corkie needs to be connected to Facebook for you to check wines into your timeline." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Connect", nil];
+        [alert show];
     }
 }
 
@@ -229,13 +222,30 @@
 {
     [self dismissViewControllerAnimated:YES completion:^{}];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Wine has been added to your timeline!" delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Wine has been added to your timeline!" delegate:nil cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
     alert.tintColor = [ColorSchemer sharedInstance].clickable;
     
     [MotionEffects addMotionEffectsToView:alert];
     [alert show];
 }
 
+
+#pragma mark - UIAlertViewDelegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1){
+        __weak WineCDTVC *weakSelf = self;
+        [[FacebookSessionManager sharedInstance] logInWithCompletion:^(BOOL loggedIn) {
+            NSLog(@"logged in? %@",loggedIn == YES ? @"y" : @"n");
+            if(loggedIn){
+                [weakSelf performSegueWithIdentifier:@"CheckInSegue" sender:self];
+            } else {
+                NSLog(@"LOGIN FAILED");
+            }
+        }];
+    }
+}
 
 
 #pragma mark - UIViewControllerTransitioningDelegate
