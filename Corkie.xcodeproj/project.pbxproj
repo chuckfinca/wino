@@ -79,6 +79,7 @@
 		C95CAAD518EB701D00E210D0 /* tab_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = C95CAAD318EB701D00E210D0 /* tab_Profile.png */; };
 		C95CAAD818EB750900E210D0 /* user_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95CAAD618EB750900E210D0 /* user_default@2x.png */; };
 		C95CAAD918EB750900E210D0 /* user_default.png in Resources */ = {isa = PBXBuildFile; fileRef = C95CAAD718EB750900E210D0 /* user_default.png */; };
+		C95CAADC18EB843E00E210D0 /* RatingImageGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CAADB18EB843E00E210D0 /* RatingImageGenerator.m */; };
 		C95CF7B2188A250200E14E03 /* group.restaurant.hinojosa.1parklane.all.json in Resources */ = {isa = PBXBuildFile; fileRef = C95CF7B0188A250200E14E03 /* group.restaurant.hinojosa.1parklane.all.json */; };
 		C95CF7B3188A250200E14E03 /* restaurant.hinojosa.1parklane.json in Resources */ = {isa = PBXBuildFile; fileRef = C95CF7B1188A250200E14E03 /* restaurant.hinojosa.1parklane.json */; };
 		C95E2DB4186501010050DFAC /* UserActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DB3186501010050DFAC /* UserActionCell.xib */; };
@@ -318,6 +319,8 @@
 		C95CAAD318EB701D00E210D0 /* tab_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_Profile.png; path = images/tab_Profile.png; sourceTree = "<group>"; };
 		C95CAAD618EB750900E210D0 /* user_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user_default@2x.png"; path = "images/user_default@2x.png"; sourceTree = "<group>"; };
 		C95CAAD718EB750900E210D0 /* user_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user_default.png; path = images/user_default.png; sourceTree = "<group>"; };
+		C95CAADA18EB843E00E210D0 /* RatingImageGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingImageGenerator.h; path = supportingClasses/RatingImageGenerator.h; sourceTree = "<group>"; };
+		C95CAADB18EB843E00E210D0 /* RatingImageGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingImageGenerator.m; path = supportingClasses/RatingImageGenerator.m; sourceTree = "<group>"; };
 		C95CF7B0188A250200E14E03 /* group.restaurant.hinojosa.1parklane.all.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = group.restaurant.hinojosa.1parklane.all.json; path = model/json/group.restaurant.hinojosa.1parklane.all.json; sourceTree = "<group>"; };
 		C95CF7B1188A250200E14E03 /* restaurant.hinojosa.1parklane.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.hinojosa.1parklane.json; path = model/json/restaurant.hinojosa.1parklane.json; sourceTree = "<group>"; };
 		C95E2DB3186501010050DFAC /* UserActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserActionCell.xib; path = xibs/UserActionCell.xib; sourceTree = "<group>"; };
@@ -911,6 +914,8 @@
 				C9A337EA18861E810089D020 /* DateStringFormatter.m */,
 				C96928CB18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.h */,
 				C96928CC18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m */,
+				C95CAADA18EB843E00E210D0 /* RatingImageGenerator.h */,
+				C95CAADB18EB843E00E210D0 /* RatingImageGenerator.m */,
 			);
 			name = "supporting classes";
 			sourceTree = "<group>";
@@ -1193,6 +1198,7 @@
 				C91F59BF18457AE800CF7F18 /* UserMenuVC.m in Sources */,
 				C969353C187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.m in Sources */,
 				C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */,
+				C95CAADC18EB843E00E210D0 /* RatingImageGenerator.m in Sources */,
 				C98DEFDC1822DADC0038216C /* WineDataHelper.m in Sources */,
 				C9487D9A182EF119007F7E19 /* NSManagedObject+Helper.m in Sources */,
 				C9DDD08F182036D5000A6FD7 /* Model.xcdatamodeld in Sources */,

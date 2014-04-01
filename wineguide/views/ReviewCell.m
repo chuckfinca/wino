@@ -11,6 +11,7 @@
 #import "ColorSchemer.h"
 #import "FontThemer.h"
 #import "WineNameVHTV.h"
+#import "RatingImageGenerator.h"
 
 @interface ReviewCell ()
 
@@ -63,8 +64,8 @@
             self.reviewTV.frame = CGRectMake(self.reviewTV.frame.origin.x, self.reviewTV.frame.origin.y, self.reviewTV.frame.size.width, 1);
         }
         
+        [RatingImageGenerator setupRating:[rating floatValue] inImageViewArray:self.ratingGlassArray];
         [self setWineColorFromString:wineColor];
-        [self setupRating:[rating integerValue]];
         
         self.reviewButton.hidden = YES;
     } else {
@@ -126,18 +127,10 @@
     }
 }
 
--(void)setupRating:(NSInteger)rating
-{
-    for(UIImageView *iv in self.ratingGlassArray){
-        if([self.ratingGlassArray indexOfObject:iv] > rating){
-            [iv setImage:[[UIImage imageNamed:@"glass_empty.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-        } else if ([self.ratingGlassArray indexOfObject:iv]+1 > rating){
-            [iv setImage:[[UIImage imageNamed:@"glass_half.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-        } else {
-            [iv setImage:[[UIImage imageNamed:@"glass_full.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-        }
-        [self addSubview:iv];
-    }
-}
+
+
+
+
+
 
 @end

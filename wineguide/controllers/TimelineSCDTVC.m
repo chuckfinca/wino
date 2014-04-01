@@ -162,7 +162,6 @@
     TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [trCell setupWithTastingRecord:tastingRecord];
     
-    NSLog(@"trCell actual height = %f",trCell.bounds.size.height);
     return trCell;
 }
 
@@ -175,7 +174,6 @@
     TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.tastingRecordSizingCell setupWithTastingRecord:tastingRecord];
     
-    NSLog(@"sizing cell height = %f",self.tastingRecordSizingCell.bounds.size.height);
     return self.tastingRecordSizingCell.bounds.size.height;
 }
 

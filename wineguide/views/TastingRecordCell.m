@@ -13,6 +13,7 @@
 #import "DateStringFormatter.h"
 #import "Review.h"
 #import "User.h"
+#import "RatingImageGenerator.h"
 
 @interface TastingRecordCell ()
 
@@ -99,7 +100,7 @@
     
     [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:tastingRecord.restaurant];
     
-    [self setupRating:(rating/numberOfRatings)];
+    [RatingImageGenerator setupRating:(rating/numberOfRatings) inImageViewArray:self.ratingImageViewArray];
     [self setWineColorFromString:wine.color];
     
     [self setHeight];
@@ -141,20 +142,6 @@
     }
     for(UIImageView *iv in self.ratingImageViewArray){
         iv.tintColor = wineColor;
-    }
-}
-
--(void)setupRating:(NSInteger)rating
-{
-    for(UIImageView *iv in self.ratingImageViewArray){
-        if([self.ratingImageViewArray indexOfObject:iv] > rating){
-            [iv setImage:[[UIImage imageNamed:@"glass_empty.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-        } else if ([self.ratingImageViewArray indexOfObject:iv]+1 > rating){
-            [iv setImage:[[UIImage imageNamed:@"glass_half.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-        } else {
-            [iv setImage:[[UIImage imageNamed:@"glass_full.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-        }
-        [self addSubview:iv];
     }
 }
 
