@@ -186,7 +186,7 @@
                             <constraint firstItem="Cca-tU-fRW" firstAttribute="leading" secondItem="g1i-yx-CaJ" secondAttribute="leading" constant="20" id="ePr-iI-2pb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="L4d-WB-pGs"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="tab_Profile.png" id="L4d-WB-pGs"/>
                     <connections>
                         <outlet property="loginView" destination="Cca-tU-fRW" id="Xh7-tw-Q2b"/>
                     </connections>
@@ -669,6 +669,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </scenes>
     <resources>
         <image name="settings.png" width="36" height="36"/>
+        <image name="tab_Profile.png" width="30" height="30"/>
         <image name="tab_cellar.png" width="30" height="30"/>
         <image name="tab_nearMe.png" width="30" height="30"/>
         <image name="tab_timeline.png" width="30" height="30"/>

@@ -45,7 +45,7 @@
 -(UIImage *)placeHolderImage
 {
     if(!_placeHolderImage){
-        _placeHolderImage = [[UIImage alloc] init];
+        _placeHolderImage = [[UIImage imageNamed:@"user_default.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     return _placeHolderImage;
 }
@@ -68,18 +68,25 @@
         
         if(indexNum < [reviewsArray count]){
             review = reviewsArray[indexNum];
-            image = [UIImage imageWithData:review.user.profileImage];
+            
+            if(review.user.profileImage){
+                image = [UIImage imageWithData:review.user.profileImage];
+            } else {
+                image = self.placeHolderImage;
+            }
             
             if(review.rating){
                 rating += [review.rating floatValue];
                 numberOfRatings++;
             }
+            
+            UIImageView *iv = self.usersImageViewArray[indexNum];
+            [iv setImage:image];
+            
         } else {
-            image = self.placeHolderImage;
+            UIImageView *iv = self.usersImageViewArray[indexNum];
+            iv.hidden = YES;
         }
-        
-        UIImageView *iv = self.usersImageViewArray[indexNum];
-        [iv setImage:image];
         
         if(!wine && review.wine){
             wine = review.wine;
