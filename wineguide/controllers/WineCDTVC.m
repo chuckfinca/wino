@@ -235,6 +235,8 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1){
+        [self performSegueWithIdentifier:@"CheckInSegue" sender:self];
+        /*
         __weak WineCDTVC *weakSelf = self;
         [[FacebookSessionManager sharedInstance] logInWithCompletion:^(BOOL loggedIn) {
             NSLog(@"logged in? %@",loggedIn == YES ? @"y" : @"n");
@@ -243,7 +245,8 @@
             } else {
                 NSLog(@"LOGIN FAILED");
             }
-        }];
+     }];
+     */
     }
 }
 

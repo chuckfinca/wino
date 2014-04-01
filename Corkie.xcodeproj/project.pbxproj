@@ -81,6 +81,8 @@
 		C95A2CD2185BEC3B0043ECB0 /* button_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CD0185BEC3B0043ECB0 /* button_triedIt@2x.png */; };
 		C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A2CD8185BF8360043ECB0 /* WineNameVHTV.m */; };
 		C95CAAD118EA2A3D00E210D0 /* ReviewsTVControllerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95CAAD018EA2A3D00E210D0 /* ReviewsTVControllerHeaderView.xib */; };
+		C95CAAD418EB701D00E210D0 /* tab_Profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95CAAD218EB701D00E210D0 /* tab_Profile@2x.png */; };
+		C95CAAD518EB701D00E210D0 /* tab_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = C95CAAD318EB701D00E210D0 /* tab_Profile.png */; };
 		C95CF7B2188A250200E14E03 /* group.restaurant.hinojosa.1parklane.all.json in Resources */ = {isa = PBXBuildFile; fileRef = C95CF7B0188A250200E14E03 /* group.restaurant.hinojosa.1parklane.all.json */; };
 		C95CF7B3188A250200E14E03 /* restaurant.hinojosa.1parklane.json in Resources */ = {isa = PBXBuildFile; fileRef = C95CF7B1188A250200E14E03 /* restaurant.hinojosa.1parklane.json */; };
 		C95E2DB4186501010050DFAC /* UserActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DB3186501010050DFAC /* UserActionCell.xib */; };
@@ -330,6 +332,8 @@
 		C95A2CD7185BF8360043ECB0 /* WineNameVHTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineNameVHTV.h; path = views/WineNameVHTV.h; sourceTree = "<group>"; };
 		C95A2CD8185BF8360043ECB0 /* WineNameVHTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineNameVHTV.m; path = views/WineNameVHTV.m; sourceTree = "<group>"; };
 		C95CAAD018EA2A3D00E210D0 /* ReviewsTVControllerHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewsTVControllerHeaderView.xib; path = xibs/ReviewsTVControllerHeaderView.xib; sourceTree = "<group>"; };
+		C95CAAD218EB701D00E210D0 /* tab_Profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_Profile@2x.png"; path = "images/tab_Profile@2x.png"; sourceTree = "<group>"; };
+		C95CAAD318EB701D00E210D0 /* tab_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_Profile.png; path = images/tab_Profile.png; sourceTree = "<group>"; };
 		C95CF7B0188A250200E14E03 /* group.restaurant.hinojosa.1parklane.all.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = group.restaurant.hinojosa.1parklane.all.json; path = model/json/group.restaurant.hinojosa.1parklane.all.json; sourceTree = "<group>"; };
 		C95CF7B1188A250200E14E03 /* restaurant.hinojosa.1parklane.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.hinojosa.1parklane.json; path = model/json/restaurant.hinojosa.1parklane.json; sourceTree = "<group>"; };
 		C95E2DB3186501010050DFAC /* UserActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserActionCell.xib; path = xibs/UserActionCell.xib; sourceTree = "<group>"; };
@@ -787,6 +791,8 @@
 				C9C7D61818401F7100A2E955 /* tab_nearMe@2x.png */,
 				C95A2CCB185BE4D30043ECB0 /* tab_timeline.png */,
 				C95A2CCC185BE4D30043ECB0 /* tab_timeline@2x.png */,
+				C95CAAD218EB701D00E210D0 /* tab_Profile@2x.png */,
+				C95CAAD318EB701D00E210D0 /* tab_Profile.png */,
 				C9C7D60B184011D100A2E955 /* favorite_n.png */,
 				C9C7D60C184011D100A2E955 /* favorite_n@2x.png */,
 				C9C7D60D184011D100A2E955 /* favorite_y.png */,
@@ -1093,12 +1099,14 @@
 				C95CF7B3188A250200E14E03 /* restaurant.hinojosa.1parklane.json in Resources */,
 				C9061E05181F07CE003D8A55 /* iPad.storyboard in Resources */,
 				C991FB9C186115CA00C10B52 /* user_arturo.png in Resources */,
+				C95CAAD418EB701D00E210D0 /* tab_Profile@2x.png in Resources */,
 				C991FB8C1861110200C10B52 /* glass_half@2x.png in Resources */,
 				C9C7D62C18403E0E00A2E955 /* tutorial_nearby@2x.png in Resources */,
 				C95E2DBF186510050050DFAC /* userAction_cellar.png in Resources */,
 				C932F15D18728E250079680C /* bottle.png in Resources */,
 				C991FB9D186115CA00C10B52 /* user_arturo@2x.png in Resources */,
 				C93E4F8D18E7672300D8C2DD /* ReviewCell.xib in Resources */,
+				C95CAAD518EB701D00E210D0 /* tab_Profile.png in Resources */,
 				C95E2DC618651FF10050DFAC /* button_purchase.png in Resources */,
 				C9ACC7D7184E72AB00E5945D /* settings.png in Resources */,
 				C9C7D6361841933900A2E955 /* tutorial_favorites@2x.png in Resources */,
