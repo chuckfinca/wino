@@ -150,6 +150,10 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="dateLabel" destination="4H7-5G-2SL" id="JSE-sU-lud"/>
+                <outlet property="ratingImageViewArrayToWineNameConstraint" destination="xga-Jk-mr9" id="C2V-Ck-DO8"/>
+                <outlet property="topToRatingImageViewArrayConstraint" destination="9Wa-wo-nhe" id="WdO-zX-y9g"/>
+                <outlet property="userImagesToBottomConstraint" destination="8LI-2q-A7e" id="MK2-v2-F6g"/>
+                <outlet property="wineNameToUserImagesConstraint" destination="qAA-q6-rvc" id="bTA-1K-ijM"/>
                 <outlet property="wineNameVHTV" destination="8c2-IA-lRy" id="ZNA-R6-t35"/>
                 <outletCollection property="usersImageViewArray" destination="DXX-w5-9CP" id="I3d-V8-z1n"/>
                 <outletCollection property="usersImageViewArray" destination="eUl-5k-hOi" id="fJC-Nb-9RV"/>

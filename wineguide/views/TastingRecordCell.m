@@ -23,6 +23,10 @@
 
 @property (nonatomic, strong) UIImage *placeHolderImage;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToRatingImageViewArrayConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingImageViewArrayToWineNameConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameToUserImagesConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userImagesToBottomConstraint;
 @end
 
 
@@ -97,6 +101,27 @@
     
     [self setupRating:(rating/numberOfRatings)];
     [self setWineColorFromString:wine.color];
+    
+    [self setHeight];
+}
+
+-(void)setHeight
+{
+    float height = 0;
+    
+    height += self.topToRatingImageViewArrayConstraint.constant;
+    
+    UIImageView *ratingIv = [self.ratingImageViewArray firstObject];
+    height += ratingIv.bounds.size.height;
+    height += self.ratingImageViewArrayToWineNameConstraint.constant;
+    height += [self.wineNameVHTV height];
+    height += self.wineNameToUserImagesConstraint.constant;
+    
+    UIImageView *userIv = [self.usersImageViewArray firstObject];
+    height += userIv.bounds.size.height;
+    height += self.userImagesToBottomConstraint.constant;
+    
+    self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }
 
 -(void)setWineColorFromString:(NSString *)wineColorString
