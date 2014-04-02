@@ -24,21 +24,17 @@
 @property (nonatomic, weak) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (weak, nonatomic) IBOutlet UIView *ratingsAndReviewsView;
 @property (nonatomic, strong) ReviewersAndRatingsVC *reviewersAndRatingsVC;
-@property (weak, nonatomic) IBOutlet UIButton *cellarImageButton;
-@property (weak, nonatomic) IBOutlet UIButton *cellarTitleButton;
-@property (weak, nonatomic) IBOutlet UIButton *triedItImageButton;
-@property (weak, nonatomic) IBOutlet UIButton *triedItTitleButton;
-@property (weak, nonatomic) IBOutlet UIButton *purchaseImageButton;
-@property (weak, nonatomic) IBOutlet UIButton *purchaseTitleButton;
+@property (weak, nonatomic) IBOutlet UIButton *cellarButton;
+@property (weak, nonatomic) IBOutlet UIButton *triedItButton;
+@property (weak, nonatomic) IBOutlet UIButton *purchaseButton;
 @property (nonatomic, strong) NSDictionary *buttonTextAttributesDictionary;
 
 // Vertical spacing constraints
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToNameConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameToRatingConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingToDetailsConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineDetailsToTriedItButtonConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *triedItImageButtonToTriedItTitleButtonConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *triedItTitleButtonToBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameVHTVConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVTHVToRatingsAndReviewsViewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingsAndReviewsViewToWineDetailsVHTVConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineDetailsVHTVToTriedItButtonConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *triedItButtonToBottomConstraint;
 
 
 
@@ -107,11 +103,11 @@
 
 -(void)setupUserActionButtons
 {
-    [self.triedItImageButton setImage:[[UIImage imageNamed:@"button_triedIt.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    [self.triedItTitleButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Tried It" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
+    [self.triedItButton setBackgroundImage:[[UIImage imageNamed:@"button_triedIt.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self.triedItButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Tried It" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
     
-    [self.purchaseImageButton setImage:[[UIImage imageNamed:@"button_purchase.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    [self.purchaseTitleButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Purchase" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
+    [self.purchaseButton setBackgroundImage:[[UIImage imageNamed:@"button_purchase.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self.purchaseButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Purchase" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
     
     [self setupCellarButton];
 }
@@ -121,29 +117,28 @@
     UIImage *image;
     if([self.wine.favorite boolValue] == YES){
         image = [UIImage imageNamed:@"button_cellar.png"];
-        [self.cellarTitleButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Stored" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
+        [self.cellarButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Stored" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
     } else {
         image = [UIImage imageNamed:@"button_cellarUnstored.png"];
-        [self.cellarTitleButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Cellar" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
+        [self.cellarButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Cellar" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
     }
-    [self.cellarImageButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self.cellarButton setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    
 }
 
 -(void)setViewHeight
 {
     CGFloat height = 0;
     
-    height += self.topToNameConstraint.constant;
+    height += self.topToWineNameVHTVConstraint.constant;
     height += [self.wineNameVHTV height];
-    height += self.nameToRatingConstraint.constant;
+    height += self.wineNameVTHVToRatingsAndReviewsViewConstraint.constant;
     height += self.ratingsAndReviewsView.bounds.size.height;
-    height += self.ratingToDetailsConstraint.constant;
+    height += self.ratingsAndReviewsViewToWineDetailsVHTVConstraint.constant;
     height += [self.wineDetailsVHTV height];
-    height += self.wineDetailsToTriedItButtonConstraint.constant;
-    height += self.triedItImageButton.bounds.size.height;
-    height += self.triedItImageButtonToTriedItTitleButtonConstraint.constant;
-    height += self.triedItTitleButton.bounds.size.height;
-    height += self.triedItTitleButtonToBottomConstraint.constant;
+    height += self.wineDetailsVHTVToTriedItButtonConstraint.constant;
+    height += self.triedItButton.bounds.size.height;
+    height += self.triedItButtonToBottomConstraint.constant;
     
     self.view.bounds = CGRectMake(0, 0, self.view.bounds.size.width, height);
 }
