@@ -127,7 +127,12 @@
     }
 }
 
+#pragma mark - Target action
 
+- (IBAction)sendToUserProfile:(id)sender
+{
+    [self.delegate pushUserProfileVcForReviewerNumber:self.tag];
+}
 
 
 

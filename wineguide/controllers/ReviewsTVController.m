@@ -17,7 +17,7 @@
 
 #define REVIEW_CELL @"ReviewCell"
 
-@interface ReviewsTVController ()
+@interface ReviewsTVController () <ReviewCellDelegate>
 
 @property (nonatomic, strong) NSArray *reviews;
 @property (nonatomic, strong) ReviewCell *sizingCell;
@@ -87,6 +87,7 @@
 {
     ReviewCell *cell = (ReviewCell *)[tableView dequeueReusableCellWithIdentifier:REVIEW_CELL forIndexPath:indexPath];
     
+    cell.tag = indexPath.row;
     Review *review = self.reviews[indexPath.row];
     User *user = review.user;
     
@@ -96,6 +97,10 @@
             reviewText:review.reviewText
              wineColor:review.wine.color
              andRating:review.rating];
+    
+    // the content view covers the ReviewCell view so it neeeds to be hidden inorder for the ReviewCell view to record touches
+    cell.contentView.hidden = YES;
+    cell.delegate = self;
     
     return cell;
 }
@@ -113,6 +118,13 @@
 
 
 
+
+#pragma mark - ReviewCellDelegate
+
+-(void)pushUserProfileVcForReviewerNumber:(NSInteger)reviewCellTag
+{
+    NSLog(@"tag = %i",reviewCellTag);
+}
 
 
 

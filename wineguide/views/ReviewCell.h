@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+
+@protocol ReviewCellDelegate <NSObject>
+
+-(void)pushUserProfileVcForReviewerNumber:(NSInteger)reviewCellTag;
+
+@end
+
 @interface ReviewCell : UITableViewCell
+
+@property (nonatomic, weak) id <ReviewCellDelegate> delegate;
 
 -(void)setupClaimed:(BOOL)claimed
  reviewWithUserName:(NSString *)userName
