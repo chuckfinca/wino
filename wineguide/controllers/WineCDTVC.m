@@ -12,7 +12,6 @@
 #import "ReviewTVC.h"
 #import "CheckInVC.h"
 #import "TransitionAnimator_CheckInVC.h"
-#import "MotionEffects.h"
 #import "FacebookSessionManager.h"
 
 
@@ -176,14 +175,12 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"User profiles coming soon!" delegate:nil cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
         alert.tintColor = [ColorSchemer sharedInstance].clickable;
         
-        [MotionEffects addMotionEffectsToView:alert];
         [alert show];
     } else if(CGRectContainsPoint(cell.followUserButton.frame, touchLocation)){
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Following/followers coming soon!" delegate:nil cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
         alert.tintColor = [ColorSchemer sharedInstance].clickable;
         
-        [MotionEffects addMotionEffectsToView:alert];
         [alert show];
     }
 }
@@ -225,7 +222,6 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Wine has been added to your timeline!" delegate:nil cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
     alert.tintColor = [ColorSchemer sharedInstance].clickable;
     
-    [MotionEffects addMotionEffectsToView:alert];
     [alert show];
 }
 

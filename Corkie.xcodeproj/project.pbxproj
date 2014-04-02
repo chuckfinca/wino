@@ -102,7 +102,6 @@
 		C96928D818E0E069006ADCC4 /* RestaurantCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D718E0E069006ADCC4 /* RestaurantCDTVC.m */; };
 		C969342A1875EF290071EF41 /* IterationCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934271875EF290071EF41 /* IterationCounter.m */; };
 		C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934291875EF290071EF41 /* NSDictionary+Helper.m */; };
-		C969342E1875EF520071EF41 /* MotionEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C969342D1875EF520071EF41 /* MotionEffects.m */; };
 		C969343B187781EA0071EF41 /* WineReviewVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C969343A187781EA0071EF41 /* WineReviewVHTV.m */; };
 		C969347818779F1B0071EF41 /* TastingRecord+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C969347718779F1B0071EF41 /* TastingRecord+CreateAndModify.m */; };
 		C969352E187CAF8A0071EF41 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C969352D187CAF8A0071EF41 /* RoundedRectButton.m */; };
@@ -354,8 +353,6 @@
 		C96934271875EF290071EF41 /* IterationCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IterationCounter.m; path = supportingClasses/IterationCounter.m; sourceTree = "<group>"; };
 		C96934281875EF290071EF41 /* NSDictionary+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Helper.h"; path = "supportingClasses/NSDictionary+Helper.h"; sourceTree = "<group>"; };
 		C96934291875EF290071EF41 /* NSDictionary+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Helper.m"; path = "supportingClasses/NSDictionary+Helper.m"; sourceTree = "<group>"; };
-		C969342C1875EF520071EF41 /* MotionEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotionEffects.h; path = supportingClasses/MotionEffects.h; sourceTree = "<group>"; };
-		C969342D1875EF520071EF41 /* MotionEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MotionEffects.m; path = supportingClasses/MotionEffects.m; sourceTree = "<group>"; };
 		C9693439187781EA0071EF41 /* WineReviewVHTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineReviewVHTV.h; path = views/WineReviewVHTV.h; sourceTree = "<group>"; };
 		C969343A187781EA0071EF41 /* WineReviewVHTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineReviewVHTV.m; path = views/WineReviewVHTV.m; sourceTree = "<group>"; };
 		C969343C18778BA40071EF41 /* Model 8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 8.xcdatamodel"; sourceTree = "<group>"; };
@@ -922,8 +919,6 @@
 				C96934271875EF290071EF41 /* IterationCounter.m */,
 				C96934281875EF290071EF41 /* NSDictionary+Helper.h */,
 				C96934291875EF290071EF41 /* NSDictionary+Helper.m */,
-				C969342C1875EF520071EF41 /* MotionEffects.h */,
-				C969342D1875EF520071EF41 /* MotionEffects.m */,
 				C969353A187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.h */,
 				C969353B187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.m */,
 				C9A337E918861E810089D020 /* DateStringFormatter.h */,
@@ -1254,7 +1249,6 @@
 				C991FBB818639FE100C10B52 /* UserRatingCVC.m in Sources */,
 				C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */,
 				C95A2CC6185B87930043ECB0 /* RestaurantGroupCell.m in Sources */,
-				C969342E1875EF520071EF41 /* MotionEffects.m in Sources */,
 				C98DB3C118B2F44300AAEDB5 /* WineCell.m in Sources */,
 				C9AD69F818ADA9FC00F48E48 /* RestaurantHelper.m in Sources */,
 				C9AEC73018DA6B6B00B4074B /* FriendListSCDTVC.m in Sources */,

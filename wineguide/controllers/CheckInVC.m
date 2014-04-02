@@ -13,7 +13,6 @@
 #import "ColorSchemer.h"
 #import "Review.h"
 #import "TastingRecord.h"
-#import "MotionEffects.h"
 #import "FriendListVC.h"
 #import "TransitionAnimator_CheckInFriends.h"
 #import "FacebookSessionManager.h"
@@ -243,7 +242,6 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please provide a wine glass rating." delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
             alert.tintColor = [ColorSchemer sharedInstance].clickable;
             
-            [MotionEffects addMotionEffectsToView:alert];
             [alert show];
             return NO;
         }

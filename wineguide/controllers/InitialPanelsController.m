@@ -13,7 +13,6 @@
 #import "ColorSchemer.h"
 #import "TutorialVC.h"
 #import "UserMenuVC.h"
-#import "MotionEffects.h"
 
 #define SUPRESS_TUTORIAL @"ShowTutorial"
 
@@ -145,7 +144,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Corkie would like to use your location." message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
         alert.tintColor = [ColorSchemer sharedInstance].clickable;
         
-        [MotionEffects addMotionEffectsToView:alert];
     }
 }
 

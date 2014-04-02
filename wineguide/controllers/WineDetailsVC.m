@@ -12,7 +12,6 @@
 #import "Brand.h"
 #import "ColorSchemer.h"
 #import "ReviewersAndRatingsVC.h"
-#import "MotionEffects.h"
 #import "FontThemer.h"
 
 
@@ -157,7 +156,6 @@
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:nil delegate:nil cancelButtonTitle:message otherButtonTitles: nil];
     
-    [MotionEffects addMotionEffectsToView:alert];
     [alert show];
     
     NSArray *arguments = @[@1,@1];
@@ -199,7 +197,6 @@
 - (void)purchaseWine
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Bottle purchases coming soon!" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"Ok",nil];
-    [MotionEffects addMotionEffectsToView:alert];
     [alert show];
 }
 

@@ -9,7 +9,6 @@
 #import "UserRatingCVController.h"
 #import "UserRatingCVC.h"
 #import "ColorSchemer.h"
-#import "MotionEffects.h"
 
 #define USER_RATING_CELL @"UserRatingCell"
 #define REVIEW_CELL @"ReviewCell"
@@ -60,7 +59,6 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"rating = %i",self.rating);
     if(indexPath.row == 5){
         UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:REVIEW_CELL forIndexPath:indexPath];
         
@@ -120,8 +118,6 @@
             }
         }
     } else if(indexPath.row == 5){
-        
-        NSLog(@"ccc");
         [self launchFullReviewVC];
     }
 }
@@ -143,10 +139,7 @@
 
 -(void)launchFullReviewVC
 {
-    NSLog(@"launchFullReviewVC");
-    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"In-depth reviews coming soon." delegate:nil cancelButtonTitle:nil otherButtonTitles: @"Ok",nil];
-    [MotionEffects addMotionEffectsToView:alert];
     [alert show];
 }
 

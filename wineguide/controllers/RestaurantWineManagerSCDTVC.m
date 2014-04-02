@@ -14,7 +14,6 @@
 #import "WineUnitDataHelper.h"
 #import "Restaurant.h"
 #import "WineCell.h"
-#import "MotionEffects.h"
 
 #define WINE_ENTITY @"Wine"
 #define GROUP_ENTITY @"Group"
@@ -137,7 +136,6 @@
                                                    delegate:self
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:@"Add wine", nil];
-    [MotionEffects addMotionEffectsToView:alert];
     [alert show];
 }
 
@@ -182,7 +180,6 @@
         allGroup.lastLocalUpdate = [NSDate date];
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"need to create wine unit!" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
-    [MotionEffects addMotionEffectsToView:alert];
     [alert show];
     
 }
