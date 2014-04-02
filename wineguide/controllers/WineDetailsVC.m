@@ -11,29 +11,34 @@
 #import "WineNameVHTV.h"
 #import "Brand.h"
 #import "ColorSchemer.h"
-#import "UserActionCVC.h"
 #import "ReviewersAndRatingsVC.h"
 #import "MotionEffects.h"
+#import "FontThemer.h"
 
-#define USER_ACTION_CELL @"UserActionCell"
 
-@interface WineDetailsVC () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface WineDetailsVC ()
 
 @property (nonatomic, weak) Wine *wine;
 @property (nonatomic, weak) Restaurant *restaurant;
 @property (nonatomic, weak) IBOutlet WineDetailsVHTV *wineDetailsVHTV;
 @property (nonatomic, weak) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (weak, nonatomic) IBOutlet UIView *ratingsAndReviewsView;
-@property (weak, nonatomic) IBOutlet UICollectionView *userActionsCollectionView;
 @property (nonatomic, strong) ReviewersAndRatingsVC *reviewersAndRatingsVC;
-@property (nonatomic, strong) UILabel *cellarLabel;
+@property (weak, nonatomic) IBOutlet UIButton *cellarImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *cellarTitleButton;
+@property (weak, nonatomic) IBOutlet UIButton *triedItImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *triedItTitleButton;
+@property (weak, nonatomic) IBOutlet UIButton *purchaseImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *purchaseTitleButton;
+@property (nonatomic, strong) NSDictionary *buttonTextAttributesDictionary;
 
 // Vertical spacing constraints
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToNameConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameToRatingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingToDetailsConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *detailsToUserActionConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userActionToBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineDetailsToTriedItButtonConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *triedItImageButtonToTriedItTitleButtonConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *triedItTitleButtonToBottomConstraint;
 
 
 
@@ -67,6 +72,11 @@
     return _reviewersAndRatingsVC;
 }
 
+-(NSDictionary *)buttonTextAttributesDictionary
+{
+    return @{NSFontAttributeName : [FontThemer sharedInstance].caption1, NSForegroundColorAttributeName : self.view.tintColor};
+}
+
 
 #pragma mark - Setup
 
@@ -88,74 +98,57 @@
     self.reviewersAndRatingsVC.favorite = [self.wine.favorite boolValue];
     [self.reviewersAndRatingsVC setupForWine:self.wine];
     
-    [self.userActionsCollectionView registerNib:[UINib nibWithNibName:@"UserActionCell" bundle:nil] forCellWithReuseIdentifier:USER_ACTION_CELL];
-    
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
+    [self setupUserActionButtons];
+    
     [self setViewHeight];
+}
+
+-(void)setupUserActionButtons
+{
+    [self.triedItImageButton setImage:[[UIImage imageNamed:@"button_triedIt.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self.triedItTitleButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Tried It" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
+    
+    [self.purchaseImageButton setImage:[[UIImage imageNamed:@"button_purchase.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self.purchaseTitleButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Purchase" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
+    
+    [self setupCellarButton];
+}
+
+-(void)setupCellarButton
+{
+    UIImage *image;
+    if([self.wine.favorite boolValue] == YES){
+        image = [UIImage imageNamed:@"button_cellar.png"];
+        [self.cellarTitleButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Stored" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
+    } else {
+        image = [UIImage imageNamed:@"button_cellarUnstored.png"];
+        [self.cellarTitleButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Cellar" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
+    }
+    [self.cellarImageButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
 }
 
 -(void)setViewHeight
 {
     CGFloat height = 0;
     
-    height += [self.wineNameVHTV height];
-    height += self.ratingsAndReviewsView.bounds.size.height;
-    height += [self.wineDetailsVHTV height];
-    height += self.userActionsCollectionView.bounds.size.height;
     height += self.topToNameConstraint.constant;
+    height += [self.wineNameVHTV height];
     height += self.nameToRatingConstraint.constant;
+    height += self.ratingsAndReviewsView.bounds.size.height;
     height += self.ratingToDetailsConstraint.constant;
-    height += self.detailsToUserActionConstraint.constant;
-    height += self.userActionToBottomConstraint.constant;
+    height += [self.wineDetailsVHTV height];
+    height += self.wineDetailsToTriedItButtonConstraint.constant;
+    height += self.triedItImageButton.bounds.size.height;
+    height += self.triedItImageButtonToTriedItTitleButtonConstraint.constant;
+    height += self.triedItTitleButton.bounds.size.height;
+    height += self.triedItTitleButtonToBottomConstraint.constant;
     
     self.view.bounds = CGRectMake(0, 0, self.view.bounds.size.width, height);
 }
 
 
-#pragma mark - UICollectionViewDataSource
-
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return 5;
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    UserActionCVC *cell = (UserActionCVC *)[collectionView dequeueReusableCellWithReuseIdentifier:USER_ACTION_CELL forIndexPath:indexPath];
-    
-    [cell setupCellForWine:self.wine atIndex:indexPath.row];
-    
-    return cell;
-}
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    switch (indexPath.row) {
-        case 0:
-            [self.delegate performTriedItSegue];
-            break;
-        case 1:
-            [self favoriteWine];
-            [self.userActionsCollectionView reloadItemsAtIndexPaths:@[indexPath]];
-            self.reviewersAndRatingsVC.favorite = [self.wine.favorite boolValue];
-            [self.reviewersAndRatingsVC setupForWine:self.wine];
-            
-            [self displayCellarMessage];
-            
-            break;
-        case 2:
-            [self purchaseWine];
-            
-        default:
-            break;
-    }
-}
 
 -(void)displayCellarMessage
 {
@@ -177,12 +170,35 @@
     
 }
 
+
+#pragma mark - Target action
+
+-(IBAction)cellarPressed:(id)sender
+{
+    [self favoriteWine];
+    self.reviewersAndRatingsVC.favorite = [self.wine.favorite boolValue];
+    [self.reviewersAndRatingsVC setupForWine:self.wine];
+    
+    [self displayCellarMessage];
+}
+
+-(IBAction)triedItPressed:(id)sender
+{
+    [self.delegate performTriedItSegue];
+}
+
+-(IBAction)purchasePressed:(id)sender
+{
+    [self purchaseWine];
+}
+
 #pragma mark - UserActions
 
 -(void)favoriteWine
 {
     BOOL favorite = ![self.wine.favorite boolValue];
     self.wine.favorite = @(favorite);
+    [self setupCellarButton];
 }
 
 - (void)purchaseWine
