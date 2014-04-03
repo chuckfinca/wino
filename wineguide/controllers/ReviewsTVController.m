@@ -102,6 +102,8 @@
     cell.contentView.hidden = YES;
     cell.delegate = self;
     
+    NSLog(@"Cell = %f",cell.bounds.size.height);
+    NSLog(@"attributedText = %@",review.reviewText);
     return cell;
 }
 
@@ -112,7 +114,8 @@
 {
     Review *review = self.reviews[indexPath.row];
     
-    [self.sizingCell setupClaimed:NO reviewWithUserName:nil userImage:nil reviewText:review.reviewText wineColor:nil andRating:nil];
+    [self.sizingCell setupClaimed:[review.claimedByUser boolValue] reviewWithUserName:nil userImage:nil reviewText:review.reviewText wineColor:nil andRating:nil];
+    NSLog(@"sizingCell = %f",self.sizingCell.bounds.size.height);
     return self.sizingCell.bounds.size.height;
 }
 

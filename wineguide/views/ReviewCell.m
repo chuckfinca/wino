@@ -61,7 +61,6 @@
             self.reviewTV.attributedText = [[NSAttributedString alloc] initWithString:reviewText attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
         } else {
             self.reviewTV.attributedText = nil;
-            self.reviewTV.frame = CGRectMake(self.reviewTV.frame.origin.x, self.reviewTV.frame.origin.y, self.reviewTV.frame.size.width, 1);
         }
         
         [RatingImageGenerator setupRating:[rating floatValue] inImageViewArray:self.ratingGlassArray];
@@ -74,6 +73,7 @@
         }
         self.reviewButton.hidden = NO;
         [self.reviewButton setTitle:@"REVIEW" forState:UIControlStateNormal];
+        self.reviewTV.attributedText = nil;
     }
     
     
@@ -100,6 +100,8 @@
 -(void)setViewHeight
 {
     CGFloat height = 0;
+    
+    NSLog(@"[self.reviewTV height] = %f",[self.reviewTV height]);
     
     height += self.topToUserImageConstraint.constant;
     height += self.userImageButton.bounds.size.height;
