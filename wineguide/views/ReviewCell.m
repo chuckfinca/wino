@@ -101,8 +101,6 @@
 {
     CGFloat height = 0;
     
-    NSLog(@"[self.reviewTV height] = %f",[self.reviewTV height]);
-    
     height += self.topToUserImageConstraint.constant;
     height += self.userImageButton.bounds.size.height;
     height += self.userImageToReviewTextConstraint.constant;
