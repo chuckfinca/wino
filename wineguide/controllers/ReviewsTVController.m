@@ -124,6 +124,9 @@
 -(void)pushUserProfileVcForReviewerNumber:(NSInteger)reviewCellTag
 {
     NSLog(@"tag = %i",reviewCellTag);
+    Review *review = self.reviews[reviewCellTag];
+    User *user = review.user;
+    NSLog(@"name = %@",user.nameFull);
 }
 
 
