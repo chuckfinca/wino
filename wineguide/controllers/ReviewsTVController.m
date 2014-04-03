@@ -44,6 +44,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ReviewCell" bundle:nil] forCellReuseIdentifier:REVIEW_CELL];
     self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.title = @"Tasting Record";
     
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
