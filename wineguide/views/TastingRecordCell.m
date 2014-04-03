@@ -100,7 +100,6 @@
     
     [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:tastingRecord.restaurant];
     
-    NSLog(@"rating/numberOfRatings = %f",rating/numberOfRatings);
     [RatingImageGenerator setupRating:(rating/numberOfRatings) inImageViewArray:self.ratingImageViewArray];
     [self setWineColorFromString:wine.color];
     
