@@ -122,20 +122,16 @@
 
 -(void)pushUserProfileVcForReviewerNumber:(NSInteger)reviewCellTag
 {
-    NSLog(@"pushUserProfileVcForReviewerNumber...");
-    NSLog(@"tag = %i",reviewCellTag);
     Review *review = self.reviews[reviewCellTag];
     User *user = review.user;
-    NSLog(@"name = %@",user.nameFull);
+    NSLog(@"push profile for = %@",user.nameFull);
 }
 
 -(void)pushUserReviewVcForReviewerNumber:(NSInteger)reviewCellTag
 {
-    NSLog(@"pushUserReviewVcForReviewerNumber...");
-    NSLog(@"tag = %i",reviewCellTag);
     Review *review = self.reviews[reviewCellTag];
     User *user = review.user;
-    NSLog(@"name = %@",user.nameFull);
+    NSLog(@"push reviewVC for = %@",user.nameFull);
 }
 
 
