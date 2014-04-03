@@ -12,17 +12,24 @@
 
 +(void)setupRating:(float)rating inImageViewArray:(NSArray *)imageViewArray
 {
-    for(UIImageView *iv in imageViewArray){
-        NSInteger glassIndex = iv.tag;
-        UIImage *image;
-        if(glassIndex + 1 > rating){
-            image = [UIImage imageNamed:@"glass_empty.png"];
-        } else if(glassIndex + 1 <= rating) {
-            image = [UIImage imageNamed:@"glass_full.png"];
-        } else {
-            image = [UIImage imageNamed:@"glass_half.png"];
+    if(rating && rating > 0){
+        for(UIImageView *iv in imageViewArray){
+            iv.hidden = NO;
+            NSInteger glassIndex = iv.tag;
+            UIImage *image;
+            if(glassIndex + 1 > rating){
+                image = [UIImage imageNamed:@"glass_empty.png"];
+            } else if(glassIndex + 1 <= rating) {
+                image = [UIImage imageNamed:@"glass_full.png"];
+            } else {
+                image = [UIImage imageNamed:@"glass_half.png"];
+            }
+            [iv setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
         }
-        [iv setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    } else {
+        for(UIImageView *iv in imageViewArray){
+            iv.hidden = YES;
+        }
     }
 }
 
