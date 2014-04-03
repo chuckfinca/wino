@@ -129,7 +129,6 @@
 
 -(void)setWineColorFromString:(NSString *)wineColorString
 {
-    NSLog(@"color = %@",wineColorString);
     UIColor *wineColor;
     if([wineColorString isEqualToString:@"red"]){
         wineColor = [ColorSchemer sharedInstance].redWine;
