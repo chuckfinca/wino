@@ -134,6 +134,10 @@
     [self.delegate pushUserProfileVcForReviewerNumber:self.tag];
 }
 
+- (IBAction)sendToUserReviewVC:(id)sender
+{
+    [self.delegate pushUserReviewVcForReviewerNumber:self.tag];
+}
 
 
 
