@@ -57,7 +57,6 @@ static FacebookSessionManager *sharedInstance;
                                                                }];
         if(cachedTokenExists){
             NSLog(@"Success! Facebook session is open, a cached token exists");
-            self.sessionActive = YES;
             [self updateBasicInformation];
         }
     } else {
@@ -74,7 +73,6 @@ static FacebookSessionManager *sharedInstance;
                                            allowLoginUI:YES
                                       completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
                                           if(status == FBSessionStateOpen || status == FBSessionStateOpenTokenExtended){
-                                              self.sessionActive = YES;
                                               [self updateBasicInformation];
                                               completion(YES);
                                               
@@ -165,7 +163,7 @@ static FacebookSessionManager *sharedInstance;
         // https://developers.facebook.com/docs/ios/errors
     } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryAuthenticationReopenSession) {
         alertTitle = @"Session Error";
-        alertMessage = @"Your current session is no longer valid. Please log in again.";
+        alertMessage = @"Your current session is no longer valid. Please connect with Facebook again.";
         
         // If the user has cancelled a login, we will do nothing.
         // You can also choose to show the user a message if cancelling login will result in
@@ -180,7 +178,46 @@ static FacebookSessionManager *sharedInstance;
     } else {
         alertTitle  = @"Something went wrong";
         alertMessage = @"Please try again later.";
-        NSLog(@"Unexpected error:%@", error);
+        
+        NSString *errorString;
+        switch ([FBErrorUtility errorCategoryForError:error]) {
+            case 0:
+                /*! Indicates that the error category is invalid and likely represents an error that
+                 is unrelated to Facebook or the Facebook SDK */
+                errorString = @"FBErrorCategoryInvalid";
+                break;
+            case 1:
+                /*! Indicates that the error may be authentication related but the application should retry the operation.
+                 This case may involve user action that must be taken, and so the application should also test
+                 the fberrorShouldNotifyUser property and if YES display fberrorUserMessage to the user before retrying.*/
+                errorString = @"FBErrorCategoryRetry";
+                break;
+            case 3:
+                /*! Indicates that the error is permission related */
+                errorString = @"FBErrorCategoryPermissions";
+                break;
+            case 4:
+                /*! Indicates that the error implies that the server had an unexpected failure or may be temporarily down */
+                errorString = @"FBErrorCategoryServer";
+                break;
+            case 5:
+                /*! Indicates that the error results from the server throttling the client */
+                errorString = @"FBErrorCategoryFacebookOther";
+                break;
+            case -1:
+                /*! Indicates that the error is Facebook-related but is uncategorizable, and likely newer than the
+                 current version of the SDK */
+                errorString = @"FBErrorCategoryInvalid";
+                break;
+            case -2:
+                /*! Indicates that the error is an application error resulting in a bad or malformed request to the server. */
+                errorString = @"FBErrorCategoryBadRequest";
+                break;
+                
+            default:
+                NSLog(@"Unexpected error:%@", error);
+                break;
+        }
     }
     
     if (alertMessage) {
@@ -194,7 +231,6 @@ static FacebookSessionManager *sharedInstance;
 
 -(void)closeAndClearSession
 {
-    self.sessionActive = NO;
     [[FBSession activeSession] closeAndClearTokenInformation];
 }
 

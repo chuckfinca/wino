@@ -90,6 +90,7 @@
     
     [self setupUserRatingsController];
     [self.noteTV becomeFirstResponder];
+    
 }
 
 #pragma mark - Getters & Setters

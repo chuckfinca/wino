@@ -190,7 +190,14 @@
 
 -(void)performTriedItSegue
 {
-    if([FacebookSessionManager sharedInstance].sessionActive){
+    // Check to make sure we know which user is about to make the Tasting Record
+    if([[FacebookSessionManager sharedInstance].user.isMe boolValue]){
+        
+        // WHEN DO I CHECK IF INTERNET IS AVAILABLE??
+            // probably should wait until the check in is made
+            // then send to to the 'outbox' script
+            // and then notify the user that the message will be sent when internet becomes available (if necessary)
+        
         [self performSegueWithIdentifier:@"CheckInSegue" sender:self];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connect with Facebook" message:@"Corkie needs to be connected to Facebook for you to check wines into your timeline." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Connect", nil];

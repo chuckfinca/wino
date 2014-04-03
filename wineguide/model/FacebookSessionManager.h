@@ -14,7 +14,6 @@
 
 +(FacebookSessionManager *)sharedInstance;
 
-@property (nonatomic) BOOL sessionActive;
 @property (nonatomic, strong) User *user;
 
 -(void)checkToken; // Silent, on app load
