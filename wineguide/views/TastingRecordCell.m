@@ -20,14 +20,13 @@
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *ratingImageViewArray;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
-@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *usersImageViewArray;
 
 @property (nonatomic, strong) UIImage *placeHolderImage;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToRatingImageViewArrayConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingImageViewArrayToWineNameConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameToUserImagesConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userImagesToBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameToUserImageButtonsConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userImageButtonsToBottomConstraint;
 @end
 
 
@@ -69,6 +68,7 @@
     for(NSInteger indexNum = 0; indexNum < 5; indexNum++){
         UIImage *image;
         
+        UIButton *button;
         Review *review;
         
         if(indexNum < [reviewsArray count]){
@@ -85,12 +85,13 @@
                 numberOfRatings++;
             }
             
-            UIImageView *iv = self.usersImageViewArray[indexNum];
-            [iv setImage:image];
+            button = self.userImageButtonArray[indexNum];
+            button.hidden = NO;
+            [button setImage:image forState:UIControlStateNormal];
             
         } else {
-            UIImageView *iv = self.usersImageViewArray[indexNum];
-            iv.hidden = YES;
+            button = self.userImageButtonArray[indexNum];
+            button.hidden = YES;
         }
         
         if(!wine && review.wine){
@@ -118,11 +119,11 @@
     height += ratingIv.bounds.size.height;
     height += self.ratingImageViewArrayToWineNameConstraint.constant;
     height += [self.wineNameVHTV height];
-    height += self.wineNameToUserImagesConstraint.constant;
+    height += self.wineNameToUserImageButtonsConstraint.constant;
     
-    UIImageView *userIv = [self.usersImageViewArray firstObject];
-    height += userIv.bounds.size.height;
-    height += self.userImagesToBottomConstraint.constant;
+    UIButton *button = [self.userImageButtonArray firstObject];
+    height += button.bounds.size.height;
+    height += self.userImageButtonsToBottomConstraint.constant;
     
     self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }
@@ -152,6 +153,10 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)pushUserProfileVC:(UIButton *)sender
+{
+    NSLog(@"tag = %i",sender.tag);
+}
 
 
 

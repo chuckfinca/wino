@@ -21,10 +21,11 @@
 
 #define TASTING_RECORD_CELL @"TastingRecordCell"
 
-@interface TimelineSCDTVC ()
+@interface TimelineSCDTVC () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) TastingRecordCell *tastingRecordSizingCell;
+@property (nonatomic) CGPoint touchLocation;
 
 @end
 
@@ -43,7 +44,6 @@
 {
     [self.tableView registerNib:[UINib nibWithNibName:@"TastingRecordCell" bundle:nil] forCellReuseIdentifier:TASTING_RECORD_CELL];
     self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
-    
 }
 
 - (void)viewDidLoad
@@ -51,6 +51,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationItem.title = @"Tasting Timeline";
+    
+    UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    gr.delegate = self;
+    gr.numberOfTouchesRequired = 1;
+    gr.numberOfTapsRequired = 1;
+    [self.tableView addGestureRecognizer:gr];
 }
 
 
@@ -180,8 +186,80 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"ReviewsSegue" sender:cell];
+    NSLog(@"didSelectRowAtIndexPath");
+    TastingRecordCell *cell = (TastingRecordCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    //NSLog(@"# grs = %i",[tableView.gestureRecognizers count]);
+    for(UIGestureRecognizer *gr in tableView.gestureRecognizers){
+        //NSLog(@"class = %@",[gr class]);
+        CGPoint touchLocation = [gr locationInView:cell];
+        //NSLog(@"x = %f    y = %f",touchLocation.x, touchLocation.y);
+    }
+    UIGestureRecognizer *gr = (UIGestureRecognizer *)tableView.gestureRecognizers[1];
+    //NSLog(@"class = %@",[gr class]);
+    //NSLog(@"pan GR? %@",[gr isKindOfClass:[UIPanGestureRecognizer class]] ? @"y" : @"n");
+    CGPoint touchLocation = [gr locationInView:cell];
+    
+    for(UIButton *userProfileImageButton in cell.userImageButtonArray){
+        if(CGRectContainsPoint(userProfileImageButton.frame, touchLocation)){
+            //NSLog(@"touched number %i",userProfileImageButton.tag);
+        }
+    }
+    
+    // [self performSegueWithIdentifier:@"ReviewsSegue" sender:cell];
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    UITableView *tableView = (UITableView *)gestureRecognizer.view;
+    self.touchLocation = [touch locationInView:tableView];
+    
+    if ([tableView indexPathForRowAtPoint:self.touchLocation]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return YES;
+}
+
+
+-(void)handleTap:(UIGestureRecognizer *)tap
+{
+    if (UIGestureRecognizerStateEnded == tap.state) {
+        UITableView *tableView = (UITableView *)tap.view;
+        
+        NSIndexPath* indexPath = [tableView indexPathForRowAtPoint:self.touchLocation];
+        
+        TastingRecordCell *cell = (TastingRecordCell *)[tableView cellForRowAtIndexPath:indexPath];
+        
+        CGPoint cellTouchLocation = [tap locationInView:cell];
+        
+        BOOL pushUserProfileVC = NO;
+        
+        for(UIButton *button in cell.userImageButtonArray){
+            if(CGRectContainsPoint(button.frame, cellTouchLocation) && !button.hidden){
+                
+                TastingRecord *tastingRecord = self.fetchedResultsController.fetchedObjects[indexPath.row];
+                NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:YES]]];
+                Review *review = reviewsArray[button.tag];
+                NSLog(@"pushUserProfileVC for = %@",review.user.nameFull);
+                pushUserProfileVC = YES;
+                break;
+            }
+        }
+        
+        if(pushUserProfileVC){
+            [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        } else {
+            [self performSegueWithIdentifier:@"ReviewsSegue" sender:cell];
+        }
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -191,8 +269,8 @@
     ReviewsTVController *reviewTVC = (ReviewsTVController *)segue.destinationViewController;
     
     [reviewTVC setupFromTastingRecord:(TastingRecord *)self.fetchedResultsController.fetchedObjects[indexPath.row]];
-    
 }
+
 
 #pragma mark - Listen for Notifications
 

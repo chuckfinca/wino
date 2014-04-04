@@ -11,6 +11,8 @@
 
 @interface TastingRecordCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *userImageButtonArray;
+
 -(void)setupWithTastingRecord:(TastingRecord *)tastingRecord;
 
 @end
