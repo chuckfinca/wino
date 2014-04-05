@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
-@interface ProfileVC : UIViewController
+@interface UserProfileTVController : UITableViewController
+
+-(id)initWithUser:(User *)user;
 
 @end

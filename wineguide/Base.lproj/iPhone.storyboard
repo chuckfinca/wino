@@ -155,45 +155,50 @@
             </objects>
             <point key="canvasLocation" x="505" y="1627"/>
         </scene>
-        <!--ProfileVC - Profile-->
-        <scene sceneID="KMM-OE-mI3">
+        <!--User ProfileTV Controller-->
+        <scene sceneID="bBj-6x-7jx">
             <objects>
-                <viewController id="6r5-VD-Zyq" customClass="ProfileVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pPM-O5-O21"/>
-                        <viewControllerLayoutGuide type="bottom" id="PWW-aO-I5j"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="g1i-yx-CaJ">
+                <tableViewController id="1JF-0l-vIp" customClass="UserProfileTVController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="osD-wZ-yhF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cca-tU-fRW" customClass="FBLoginView">
-                                <rect key="frame" x="20" y="259" width="280" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="C9n-t2-IqA"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="6r5-VD-Zyq" id="NW5-ZG-rqc"/>
-                                </connections>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="Cca-tU-fRW" secondAttribute="centerY" id="2Rx-ku-tAH"/>
-                            <constraint firstAttribute="trailing" secondItem="Cca-tU-fRW" secondAttribute="trailing" constant="20" id="Ssx-vh-Cmi"/>
-                            <constraint firstItem="Cca-tU-fRW" firstAttribute="leading" secondItem="g1i-yx-CaJ" secondAttribute="leading" constant="20" id="ePr-iI-2pb"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="tab_Profile.png" id="L4d-WB-pGs"/>
-                    <connections>
-                        <outlet property="loginView" destination="Cca-tU-fRW" id="Xh7-tw-Q2b"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r8K-6S-qFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserCell" id="iVJ-Jc-j3E">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iVJ-Jc-j3E" id="Atj-h8-zkw">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1JF-0l-vIp" id="G8k-k9-zgc"/>
+                            <outlet property="delegate" destination="1JF-0l-vIp" id="LlR-Ld-Zv3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="f1r-x5-H9N"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G7m-9u-tcy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="505" y="2412"/>
+            <point key="canvasLocation" x="1039" y="2363"/>
+        </scene>
+        <!--CustomNC - Profile-->
+        <scene sceneID="8gG-gy-D8n">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="neV-jH-Be3" customClass="CustomNC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="tab_Profile.png" id="uWf-t0-auh"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aUK-zI-gZc">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1JF-0l-vIp" kind="relationship" relationship="rootViewController" id="BOP-9V-z2o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Afj-j5-OpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="2363"/>
         </scene>
         <!--TimelineSCDTVC-->
         <scene sceneID="me6-qe-NNA">
@@ -557,7 +562,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <segue destination="HWg-27-Udv" kind="relationship" relationship="viewControllers" id="cFK-Qi-phC"/>
                         <segue destination="OV2-Hf-2fH" kind="relationship" relationship="viewControllers" id="xQj-lU-CVU"/>
                         <segue destination="mww-Ib-My5" kind="relationship" relationship="viewControllers" id="eny-gd-Xkk"/>
-                        <segue destination="6r5-VD-Zyq" kind="relationship" relationship="viewControllers" id="JR3-Qn-LTy"/>
+                        <segue destination="neV-jH-Be3" kind="relationship" relationship="viewControllers" id="bcb-Rv-f1z"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHW-Tz-hvD" userLabel="First Responder" sceneMemberID="firstResponder"/>

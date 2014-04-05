@@ -58,6 +58,7 @@
 		C932F14C186D4E5C0079680C /* RatingsAndReviews.xib in Resources */ = {isa = PBXBuildFile; fileRef = C932F14B186D4E5C0079680C /* RatingsAndReviews.xib */; };
 		C932F14F186D52870079680C /* ReviewersAndRatingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F14E186D52870079680C /* ReviewersAndRatingsVC.m */; };
 		C932F16518734E670079680C /* UserRatingCVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F16418734E670079680C /* UserRatingCVController.m */; };
+		C93A739E18EF5A59000E0B56 /* UserDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93A739D18EF5A59000E0B56 /* UserDetails.xib */; };
 		C93E4F8D18E7672300D8C2DD /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */; };
 		C947F06D1888A18700123B69 /* userAction_purchase.png in Resources */ = {isa = PBXBuildFile; fileRef = C947F06B1888A18700123B69 /* userAction_purchase.png */; };
 		C947F06E1888A18700123B69 /* userAction_purchase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C947F06C1888A18700123B69 /* userAction_purchase@2x.png */; };
@@ -150,7 +151,7 @@
 		C9AD69F518AD90EB00F48E48 /* ServerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD69F418AD90EB00F48E48 /* ServerHelper.m */; };
 		C9AD69F818ADA9FC00F48E48 /* RestaurantHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD69F718ADA9FC00F48E48 /* RestaurantHelper.m */; };
 		C9AEC73018DA6B6B00B4074B /* FriendListSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AEC72F18DA6B6B00B4074B /* FriendListSCDTVC.m */; };
-		C9B6B26018D7ACA3007406DC /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B25F18D7ACA3007406DC /* ProfileVC.m */; };
+		C9B6B26018D7ACA3007406DC /* UserProfileTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B25F18D7ACA3007406DC /* UserProfileTVController.m */; };
 		C9B6B26918D8ED8E007406DC /* FacebookSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */; };
 		C9B6B26C18D8FF75007406DC /* User+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26B18D8FF75007406DC /* User+CreateAndModify.m */; };
 		C9B6B26F18D9078C007406DC /* UserDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26E18D9078C007406DC /* UserDataHelper.m */; };
@@ -299,6 +300,7 @@
 		C932F14E186D52870079680C /* ReviewersAndRatingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewersAndRatingsVC.m; path = controllers/ReviewersAndRatingsVC.m; sourceTree = "<group>"; };
 		C932F16318734E670079680C /* UserRatingCVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRatingCVController.h; path = controllers/UserRatingCVController.h; sourceTree = "<group>"; };
 		C932F16418734E670079680C /* UserRatingCVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRatingCVController.m; path = controllers/UserRatingCVController.m; sourceTree = "<group>"; };
+		C93A739D18EF5A59000E0B56 /* UserDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserDetails.xib; path = xibs/UserDetails.xib; sourceTree = "<group>"; };
 		C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewCell.xib; path = xibs/ReviewCell.xib; sourceTree = "<group>"; };
 		C947F06B1888A18700123B69 /* userAction_purchase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = userAction_purchase.png; path = images/userAction_purchase.png; sourceTree = "<group>"; };
 		C947F06C1888A18700123B69 /* userAction_purchase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_purchase@2x.png"; path = "images/userAction_purchase@2x.png"; sourceTree = "<group>"; };
@@ -428,8 +430,8 @@
 		C9AD6A1D18AE887000F48E48 /* Model 9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 9.xcdatamodel"; sourceTree = "<group>"; };
 		C9AEC72E18DA6B6B00B4074B /* FriendListSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListSCDTVC.h; path = controllers/FriendListSCDTVC.h; sourceTree = "<group>"; };
 		C9AEC72F18DA6B6B00B4074B /* FriendListSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListSCDTVC.m; path = controllers/FriendListSCDTVC.m; sourceTree = "<group>"; };
-		C9B6B25E18D7ACA3007406DC /* ProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileVC.h; path = controllers/ProfileVC.h; sourceTree = "<group>"; };
-		C9B6B25F18D7ACA3007406DC /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileVC.m; path = controllers/ProfileVC.m; sourceTree = "<group>"; };
+		C9B6B25E18D7ACA3007406DC /* UserProfileTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfileTVController.h; path = controllers/UserProfileTVController.h; sourceTree = "<group>"; };
+		C9B6B25F18D7ACA3007406DC /* UserProfileTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfileTVController.m; path = controllers/UserProfileTVController.m; sourceTree = "<group>"; };
 		C9B6B26718D8ED8E007406DC /* FacebookSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookSessionManager.h; path = model/FacebookSessionManager.h; sourceTree = "<group>"; };
 		C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookSessionManager.m; path = model/FacebookSessionManager.m; sourceTree = "<group>"; };
 		C9B6B26A18D8FF75007406DC /* User+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CreateAndModify.h"; path = "model/User+CreateAndModify.h"; sourceTree = "<group>"; };
@@ -676,8 +678,8 @@
 				C932F16418734E670079680C /* UserRatingCVController.m */,
 				C9A337EC1886FD8B0089D020 /* InstructionsVC.h */,
 				C9A337ED1886FD8B0089D020 /* InstructionsVC.m */,
-				C9B6B25E18D7ACA3007406DC /* ProfileVC.h */,
-				C9B6B25F18D7ACA3007406DC /* ProfileVC.m */,
+				C9B6B25E18D7ACA3007406DC /* UserProfileTVController.h */,
+				C9B6B25F18D7ACA3007406DC /* UserProfileTVController.m */,
 				C9693537187E39FE0071EF41 /* CheckInVC.h */,
 				C9693538187E39FE0071EF41 /* CheckInVC.m */,
 				C96928D318DCEEBC006ADCC4 /* FriendListVC.h */,
@@ -752,6 +754,7 @@
 				C96BA8F518E8CE5200E0F990 /* TastingRecordCell.xib */,
 				C95CAAD018EA2A3D00E210D0 /* ReviewsTVControllerHeaderView.xib */,
 				C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */,
+				C93A739D18EF5A59000E0B56 /* UserDetails.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -1122,6 +1125,7 @@
 				C991FB8A1861110200C10B52 /* glass_full@2x.png in Resources */,
 				C932F1131868EE6E0079680C /* userAction_cellared@2x.png in Resources */,
 				C932F13E186D0ABC0079680C /* WineReview.xib in Resources */,
+				C93A739E18EF5A59000E0B56 /* UserDetails.xib in Resources */,
 				C95A2CCA185BDC0F0043ECB0 /* tutorial_triedIt@2x.png in Resources */,
 				C991FB891861110200C10B52 /* glass_full.png in Resources */,
 				C9061E02181F07CE003D8A55 /* iPhone.storyboard in Resources */,
@@ -1229,7 +1233,7 @@
 				C92DEFF218242D16009DCB2C /* Varietal+CreateAndModify.m in Sources */,
 				C9061DFF181F07CE003D8A55 /* AppDelegate.m in Sources */,
 				C9DAB85718E91D3900BB0E2A /* ReviewsTVController.m in Sources */,
-				C9B6B26018D7ACA3007406DC /* ProfileVC.m in Sources */,
+				C9B6B26018D7ACA3007406DC /* UserProfileTVController.m in Sources */,
 				C9C6A21318569A9E00CFBBD5 /* AddGroupCell.m in Sources */,
 				C92CAE3018330BFB00F29C9B /* Group+CreateAndModify.m in Sources */,
 				C9AD69F518AD90EB00F48E48 /* ServerHelper.m in Sources */,

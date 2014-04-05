@@ -16,10 +16,11 @@
 #import "User.h"
 #import "DateStringFormatter.h"
 #import "ReviewsTVController.h"
+#import "UserProfileTVController.h"
 
 #define TASTING_RECORD_ENTITY @"TastingRecord"
-
 #define TASTING_RECORD_CELL @"TastingRecordCell"
+#define REVIEWS_SEGUE @"ReviewsSegue"
 
 @interface TimelineSCDTVC () <UIGestureRecognizerDelegate>
 
@@ -44,6 +45,9 @@
 {
     [self.tableView registerNib:[UINib nibWithNibName:@"TastingRecordCell" bundle:nil] forCellReuseIdentifier:TASTING_RECORD_CELL];
     self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
+    
+    // allows the tableview to load faster
+    self.tableView.estimatedRowHeight = 200;
 }
 
 - (void)viewDidLoad
@@ -242,33 +246,36 @@
         
         BOOL pushUserProfileVC = NO;
         
+        User *user;
+        
         for(UIButton *button in cell.userImageButtonArray){
             if(CGRectContainsPoint(button.frame, cellTouchLocation) && !button.hidden){
                 
                 TastingRecord *tastingRecord = self.fetchedResultsController.fetchedObjects[indexPath.row];
                 NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:YES]]];
                 Review *review = reviewsArray[button.tag];
-                NSLog(@"pushUserProfileVC for = %@",review.user.nameFull);
+                user = review.user;
                 pushUserProfileVC = YES;
                 break;
             }
         }
         
         if(pushUserProfileVC){
-            [tableView deselectRowAtIndexPath:indexPath animated:NO];
+            UserProfileTVController *userProfileTVC = [[UserProfileTVController alloc] initWithUser:user];
+            [self.navigationController pushViewController:userProfileTVC animated:YES];
         } else {
-            [self performSegueWithIdentifier:@"ReviewsSegue" sender:cell];
+            [self performSegueWithIdentifier:REVIEWS_SEGUE sender:cell];
         }
     }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender];
-    
-    ReviewsTVController *reviewTVC = (ReviewsTVController *)segue.destinationViewController;
-    
-    [reviewTVC setupFromTastingRecord:(TastingRecord *)self.fetchedResultsController.fetchedObjects[indexPath.row]];
+    if([segue.identifier isEqualToString:REVIEWS_SEGUE]){
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender];
+        ReviewsTVController *reviewTVC = (ReviewsTVController *)segue.destinationViewController;
+        [reviewTVC setupFromTastingRecord:(TastingRecord *)self.fetchedResultsController.fetchedObjects[indexPath.row]];
+    }
 }
 
 
