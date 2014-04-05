@@ -9,7 +9,7 @@
                 <outlet property="followButton" destination="6Ce-ek-mm3" id="kDq-ly-9wr"/>
                 <outlet property="nameLabel" destination="GbR-K9-onm" id="HJu-aJ-LeI"/>
                 <outlet property="topToUserImageViewConstraint" destination="AR0-Zu-D2e" id="f9Z-VI-xyW"/>
-                <outlet property="userImageViewToBottomConstraint" destination="gr1-2H-Bnc" id="FHo-BA-jMm"/>
+                <outlet property="userImageViewToBottomConstraint" destination="9GV-Wf-nik" id="FGs-15-flR"/>
                 <outlet property="userProfileImageView" destination="8QC-Ej-4dU" id="zlR-rD-EDG"/>
             </connections>
         </placeholder>
@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8QC-Ej-4dU">
-                    <rect key="frame" x="20" y="20" width="100" height="100"/>
+                    <rect key="frame" x="16" y="20" width="100" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="9wr-vJ-b9p"/>
@@ -34,7 +34,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ce-ek-mm3">
-                    <rect key="frame" x="128" y="49" width="45" height="30"/>
+                    <rect key="frame" x="128" y="41" width="45" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Follow">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,13 +43,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="GbR-K9-onm" firstAttribute="leading" secondItem="8QC-Ej-4dU" secondAttribute="trailing" constant="8" id="7Lw-O2-kl4"/>
-                <constraint firstItem="8QC-Ej-4dU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="AR0-Zu-D2e"/>
-                <constraint firstItem="8QC-Ej-4dU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="E7C-0E-zC3"/>
+                <constraint firstItem="GbR-K9-onm" firstAttribute="leading" secondItem="8QC-Ej-4dU" secondAttribute="trailing" constant="12" id="7Lw-O2-kl4"/>
+                <constraint firstAttribute="bottom" secondItem="8QC-Ej-4dU" secondAttribute="bottom" constant="20" id="9GV-Wf-nik"/>
+                <constraint firstItem="8QC-Ej-4dU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="AR0-Zu-D2e"/>
+                <constraint firstItem="8QC-Ej-4dU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="E7C-0E-zC3"/>
                 <constraint firstItem="GbR-K9-onm" firstAttribute="top" secondItem="8QC-Ej-4dU" secondAttribute="top" id="E8m-Lg-q0n"/>
-                <constraint firstItem="6Ce-ek-mm3" firstAttribute="top" secondItem="GbR-K9-onm" secondAttribute="bottom" constant="8" id="ay4-Ah-Jsl"/>
-                <constraint firstAttribute="bottom" secondItem="8QC-Ej-4dU" secondAttribute="bottom" constant="20" id="gr1-2H-Bnc"/>
-                <constraint firstItem="6Ce-ek-mm3" firstAttribute="leading" secondItem="8QC-Ej-4dU" secondAttribute="trailing" constant="8" id="mY6-wx-qiF"/>
+                <constraint firstItem="6Ce-ek-mm3" firstAttribute="top" secondItem="GbR-K9-onm" secondAttribute="bottom" id="ay4-Ah-Jsl"/>
+                <constraint firstItem="6Ce-ek-mm3" firstAttribute="leading" secondItem="8QC-Ej-4dU" secondAttribute="trailing" constant="12" id="mY6-wx-qiF"/>
                 <constraint firstAttribute="trailing" secondItem="GbR-K9-onm" secondAttribute="trailing" constant="20" id="yYQ-ez-Xe6"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

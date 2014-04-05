@@ -14,6 +14,7 @@
 #import "WineNameVHTV.h"
 #import "DateStringFormatter.h"
 #import "ColorSchemer.h"
+#import "UserProfileTVController.h"
 
 #define REVIEW_CELL @"ReviewCell"
 
@@ -125,7 +126,8 @@
 {
     Review *review = self.reviews[reviewCellTag];
     User *user = review.user;
-    NSLog(@"push profile for = %@",user.nameFull);
+    UserProfileTVController *userProfileTVC = [[UserProfileTVController alloc] initWithUser:user];
+    [self.navigationController pushViewController:userProfileTVC animated:YES];
 }
 
 -(void)pushUserReviewVcForReviewerNumber:(NSInteger)reviewCellTag

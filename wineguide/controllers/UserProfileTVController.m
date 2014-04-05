@@ -56,17 +56,24 @@
     // Do any additional setup after loading the view.
     self.tableView.tableHeaderView = [[[NSBundle mainBundle] loadNibNamed:@"UserDetails" owner:self options:nil] firstObject];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:USER_PROFILE_PAGE_CELL];
-    self.title = @"Profile";
     
     if(!self.user){
         [self getMe];
     }
+    
+    if(self.user.isMe){
+        self.title = @"Me";
+    } else {
+        self.title = @"Profile";
+    }
+    
     [self setupHeader];
 }
 
--(void)viewWillLayoutSubviews
+-(void)viewWillAppear:(BOOL)animated
 {
-    [self setViewHeight];
+    [super viewWillAppear:animated];
+    [self setHeaderViewHeight];
 }
 
 
@@ -85,29 +92,27 @@
     } else {
         NSLog(@"getMe - User not found!");
     }
-    
-    self.title = @"Me";
 }
 
 -(void)setupHeader
 {
     self.nameLabel.text = self.user.nameFull;
     [self.userProfileImageView setImage:[UIImage imageWithData:self.user.profileImage]];
+    
+    self.userProfileImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.followButton.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
--(void)setViewHeight
+-(void)setHeaderViewHeight
 {
     float height = 0;
     
-    NSLog(@"%f",height);
     height += self.topToUserImageViewConstraint.constant;
-    NSLog(@"%f",height);
     height += self.userProfileImageView.bounds.size.height;
-    NSLog(@"%f",height);
     height += self.userImageViewToBottomConstraint.constant;
     
-    NSLog(@"%f",height);
-    self.tableView.tableHeaderView.bounds = CGRectMake(0, 0, self.tableView.tableHeaderView.bounds.size.width, height);
+    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.tableView.tableHeaderView.frame.size.width, height);
 }
 
 #pragma mark - UITableViewDataSource
@@ -117,12 +122,12 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 4;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:USER_PROFILE_PAGE_CELL forIndexPath:indexPath];
     
@@ -133,7 +138,7 @@
             title = @"Cellar (#)";
             break;
         case 1:
-            title = @"Tasting Records (#)";
+            title = [NSString stringWithFormat:@"Tasting Records (%i)",[self.user.reviews count]];
             break;
         case 2:
             title = @"Following (#)";

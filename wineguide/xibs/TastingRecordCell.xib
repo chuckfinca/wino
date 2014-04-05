@@ -18,7 +18,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8c2-IA-lRy" customClass="WineNameVHTV">
-                    <rect key="frame" x="20" y="40" width="280" height="78"/>
+                    <rect key="frame" x="20" y="40" width="280" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -66,7 +66,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WR-LH-Fc2">
-                    <rect key="frame" x="20" y="126" width="40" height="40"/>
+                    <rect key="frame" x="20" y="118" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="aTb-bq-OHV"/>
@@ -81,7 +81,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ax-3E-wHg">
-                    <rect key="frame" x="68" y="126" width="40" height="40"/>
+                    <rect key="frame" x="68" y="118" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="37c-CN-emK"/>
@@ -96,7 +96,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZ4-ci-uZA">
-                    <rect key="frame" x="116" y="126" width="40" height="40"/>
+                    <rect key="frame" x="116" y="118" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="ZJG-nX-47F"/>
@@ -111,7 +111,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2S-4D-YQT">
-                    <rect key="frame" x="164" y="126" width="40" height="40"/>
+                    <rect key="frame" x="164" y="118" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="RTg-PV-f2X"/>
@@ -126,7 +126,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBB-61-dUo">
-                    <rect key="frame" x="212" y="126" width="40" height="40"/>
+                    <rect key="frame" x="212" y="118" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="9O8-1C-9vP"/>
@@ -159,7 +159,7 @@
                 <constraint firstItem="1WR-LH-Fc2" firstAttribute="top" secondItem="8c2-IA-lRy" secondAttribute="bottom" constant="8" id="TT5-mj-aPO"/>
                 <constraint firstItem="VTX-Tn-txX" firstAttribute="bottom" secondItem="C6r-EC-4ZY" secondAttribute="bottom" id="U13-bt-Nat"/>
                 <constraint firstAttribute="trailing" secondItem="4H7-5G-2SL" secondAttribute="trailing" constant="20" id="b5i-u1-ZN4"/>
-                <constraint firstAttribute="bottom" secondItem="1WR-LH-Fc2" secondAttribute="bottom" constant="12" id="cEs-l7-Bcz"/>
+                <constraint firstAttribute="bottom" secondItem="1WR-LH-Fc2" secondAttribute="bottom" constant="20" id="cEs-l7-Bcz"/>
                 <constraint firstItem="1WR-LH-Fc2" firstAttribute="top" secondItem="5Ax-3E-wHg" secondAttribute="top" id="dcN-ww-wnf"/>
                 <constraint firstItem="VTX-Tn-txX" firstAttribute="bottom" secondItem="4H7-5G-2SL" secondAttribute="bottom" id="fks-Hv-MPo"/>
                 <constraint firstItem="1WR-LH-Fc2" firstAttribute="top" secondItem="KBB-61-dUo" secondAttribute="top" id="gRU-nZ-Kam"/>
