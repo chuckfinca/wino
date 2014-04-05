@@ -2,7 +2,7 @@
 //  Varietal.h
 //  Corkie
 //
-//  Created by Charles Feinn on 3/30/14.
+//  Created by Charles Feinn on 4/5/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 

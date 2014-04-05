@@ -2,14 +2,14 @@
 //  User.h
 //  Corkie
 //
-//  Created by Charles Feinn on 3/30/14.
+//  Created by Charles Feinn on 4/5/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Review, User;
+@class Review, User, Wine;
 
 @interface User : NSManagedObject
 
@@ -36,6 +36,7 @@
 @property (nonatomic, retain) NSSet *followedBy;
 @property (nonatomic, retain) NSSet *following;
 @property (nonatomic, retain) NSSet *reviews;
+@property (nonatomic, retain) Wine *winesInCellar;
 @end
 
 @interface User (CoreDataGeneratedAccessors)

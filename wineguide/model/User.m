@@ -2,13 +2,14 @@
 //  User.m
 //  Corkie
 //
-//  Created by Charles Feinn on 3/30/14.
+//  Created by Charles Feinn on 4/5/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import "User.h"
 #import "Review.h"
 #import "User.h"
+#import "Wine.h"
 
 
 @implementation User
@@ -36,5 +37,6 @@
 @dynamic followedBy;
 @dynamic following;
 @dynamic reviews;
+@dynamic winesInCellar;
 
 @end
