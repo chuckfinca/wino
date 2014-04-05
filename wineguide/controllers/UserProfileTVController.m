@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *followButton;
 
 @property (nonatomic, strong) User *user;
+@property (nonatomic, strong) User *me;
+@property (nonatomic) BOOL following;
 
 
 // Vertical constraints
@@ -58,16 +60,18 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:USER_PROFILE_PAGE_CELL];
     
     if(!self.user){
-        [self getMe];
+        self.user = self.me;
     }
     
     if(self.user.isMe){
         self.title = @"Me";
+        self.followButton.hidden = YES;
     } else {
         self.title = @"Profile";
     }
     
     [self setupHeader];
+    [self setupFollowButton];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -79,19 +83,22 @@
 
 #pragma mark - Setup
 
--(void)getMe
+-(User *)me
 {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:USER_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"isMe = YES"];
-    
-    NSError *error;
-    NSArray *matches = [[DocumentHandler sharedDocumentHandler].document.managedObjectContext executeFetchRequest:request error:&error];
-    if(matches){
-        self.user = [matches firstObject];
-    } else {
-        NSLog(@"getMe - User not found!");
+    if(!_me){
+        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:USER_ENTITY];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
+        request.predicate = [NSPredicate predicateWithFormat:@"isMe = YES"];
+        
+        NSError *error;
+        NSArray *matches = [[DocumentHandler sharedDocumentHandler].document.managedObjectContext executeFetchRequest:request error:&error];
+        if(matches){
+            _me = [matches firstObject];
+        } else {
+            NSLog(@"Me not found!");
+        }
     }
+    return _me;
 }
 
 -(void)setupHeader
@@ -113,6 +120,17 @@
     height += self.userImageViewToBottomConstraint.constant;
     
     self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.tableView.tableHeaderView.frame.size.width, height);
+}
+
+-(void)setupFollowButton
+{
+    if([self.user.followedBy containsObject:self.me]){
+        [self.followButton setTitle:@"Unfollow" forState:UIControlStateNormal];
+        self.following = YES;
+    } else {
+        [self.followButton setTitle:@"Follow" forState:UIControlStateNormal];
+        self.following = NO;
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -141,7 +159,7 @@
             title = [NSString stringWithFormat:@"Tasting Records (%i)",[self.user.reviews count]];
             break;
         case 2:
-            title = @"Following (#)";
+            title = [NSString stringWithFormat:@"Following (%i)",[self.user.following count]];
             break;
         case 3:
             title = @"Followers (#)";
@@ -186,6 +204,46 @@
     NSLog(@"FBLoginViewDelegate - There was a communication or authorization error - %@.",error.localizedDescription);
     [[FacebookSessionManager sharedInstance] sessionStateChanged:nil state:0 error:error];
 }
+
+
+#pragma mark - Target action
+
+-(IBAction)followUser:(id)sender
+{
+    NSMutableSet *followedBy = [self.user.followedBy mutableCopy];
+    if(self.following){
+        [followedBy removeObject:self.me];
+    } else {
+        [followedBy addObject:self.me];
+    }
+    self.user.followedBy = followedBy;
+    
+    [self displayFollowMessage];
+    [self setupFollowButton];
+}
+
+-(void)displayFollowMessage
+{
+    NSString *message;
+    
+    if(!self.following){
+        message = @"Added as a trusted reviewer";
+    } else {
+        message = @"Unfollowed";
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:nil delegate:nil cancelButtonTitle:message otherButtonTitles: nil];
+    
+    [alert show];
+    
+    NSArray *arguments = @[@1,@1];
+    [alert performSelector:@selector(dismissWithClickedButtonIndex:animated:) withObject:arguments afterDelay:1.5f];
+    
+}
+
+
+
+
 
 
 

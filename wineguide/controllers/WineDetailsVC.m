@@ -168,7 +168,7 @@
 
 -(IBAction)cellarPressed:(id)sender
 {
-    [self favoriteWine];
+    [self cellarWine];
     self.reviewersAndRatingsVC.favorite = [self.wine.favorite boolValue];
     [self.reviewersAndRatingsVC setupForWine:self.wine];
     
@@ -187,7 +187,7 @@
 
 #pragma mark - UserActions
 
--(void)favoriteWine
+-(void)cellarWine
 {
     BOOL favorite = ![self.wine.favorite boolValue];
     self.wine.favorite = @(favorite);
