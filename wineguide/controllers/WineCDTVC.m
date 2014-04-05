@@ -12,7 +12,8 @@
 #import "ReviewTVC.h"
 #import "CheckInVC.h"
 #import "TransitionAnimator_CheckInVC.h"
-#import "FacebookSessionManager.h"
+//#import "FacebookSessionManager.h"
+#import "GetMe.h"
 
 
 #define WINE_CELL @"WineCell"
@@ -190,19 +191,7 @@
 
 -(void)performTriedItSegue
 {
-    // Check to make sure we know which user is about to make the Tasting Record
-    if([[FacebookSessionManager sharedInstance].user.isMe boolValue]){
-        
-        // WHEN DO I CHECK IF INTERNET IS AVAILABLE??
-            // probably should wait until the check in is made
-            // then send to to the 'outbox' script
-            // and then notify the user that the message will be sent when internet becomes available (if necessary)
-        
-        [self performSegueWithIdentifier:@"CheckInSegue" sender:self];
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connect with Facebook" message:@"Corkie needs to be connected to Facebook for you to check wines into your timeline." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Connect", nil];
-        [alert show];
-    }
+    [self performSegueWithIdentifier:@"CheckInSegue" sender:self];
 }
 
 
@@ -232,23 +221,6 @@
     [alert show];
 }
 
-
-#pragma mark - UIAlertViewDelegate
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if(buttonIndex == 1){
-        __weak WineCDTVC *weakSelf = self;
-        [[FacebookSessionManager sharedInstance] logInWithCompletion:^(BOOL loggedIn) {
-            NSLog(@"logged in? %@",loggedIn == YES ? @"y" : @"n");
-            if(loggedIn){
-                [weakSelf performSegueWithIdentifier:@"CheckInSegue" sender:self];
-            } else {
-                NSLog(@"LOGIN FAILED");
-            }
-     }];
-    }
-}
 
 
 #pragma mark - UIViewControllerTransitioningDelegate

@@ -180,9 +180,16 @@
     return wineCell;
 }
 
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"WineDetailsSegue" sender:[tableView cellForRowAtIndexPath:indexPath]];
+    WineCDTVC *wineCDTVC = [[UIStoryboard storyboardWithName:@"iPhone_Wine" bundle:nil] instantiateInitialViewController];
+    
+    // Pass the selected object to the new view controller.
+    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [wineCDTVC setupWithWine:wine fromRestaurant:nil];
+    
+    [self.navigationController pushViewController:wineCDTVC animated:YES];
 }
 
 
@@ -194,26 +201,13 @@
 }
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // NSLog(@"prepareForSegue...");
-    if([sender isKindOfClass:[UITableViewCell class]]){
-        
-        UITableViewCell *tvc = (UITableViewCell *)sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:tvc];
-        
-        if(indexPath){
-            if([segue.destinationViewController isKindOfClass:[WineCDTVC class]]){
-                
-                // Get the new view controller using [segue destinationViewController].
-                WineCDTVC *wineCDTVC = (WineCDTVC *)segue.destinationViewController;
-                
-                // Pass the selected object to the new view controller.
-                Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-                [wineCDTVC setupWithWine:wine fromRestaurant:nil];
-            }
-        }
-    }
-}
+
+
+
+
+
+
+
+
 
 @end

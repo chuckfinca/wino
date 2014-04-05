@@ -37,18 +37,17 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self setup];
     }
     return self;
 }
 
 -(void)awakeFromNib
 {
-    [self.tableView registerNib:[UINib nibWithNibName:@"TastingRecordCell" bundle:nil] forCellReuseIdentifier:TASTING_RECORD_CELL];
-    self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
-    
-    // allows the tableview to load faster
-    self.tableView.estimatedRowHeight = 200;
+    [self setup];
 }
+
+
 
 - (void)viewDidLoad
 {
@@ -62,7 +61,14 @@
     gr.numberOfTapsRequired = 1;
     [self.tableView addGestureRecognizer:gr];
 }
-
+-(void)setup
+{
+    [self.tableView registerNib:[UINib nibWithNibName:@"TastingRecordCell" bundle:nil] forCellReuseIdentifier:TASTING_RECORD_CELL];
+    self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
+    
+    // allows the tableview to load faster
+    self.tableView.estimatedRowHeight = 200;
+}
 
 #pragma mark - Getters & Setters
 
@@ -193,15 +199,10 @@
     NSLog(@"didSelectRowAtIndexPath");
     TastingRecordCell *cell = (TastingRecordCell *)[tableView cellForRowAtIndexPath:indexPath];
     
-    //NSLog(@"# grs = %i",[tableView.gestureRecognizers count]);
     for(UIGestureRecognizer *gr in tableView.gestureRecognizers){
-        //NSLog(@"class = %@",[gr class]);
         CGPoint touchLocation = [gr locationInView:cell];
-        //NSLog(@"x = %f    y = %f",touchLocation.x, touchLocation.y);
     }
     UIGestureRecognizer *gr = (UIGestureRecognizer *)tableView.gestureRecognizers[1];
-    //NSLog(@"class = %@",[gr class]);
-    //NSLog(@"pan GR? %@",[gr isKindOfClass:[UIPanGestureRecognizer class]] ? @"y" : @"n");
     CGPoint touchLocation = [gr locationInView:cell];
     
     for(UIButton *userProfileImageButton in cell.userImageButtonArray){
@@ -260,21 +261,15 @@
             }
         }
         
+        UIViewController *controller;
+        
         if(pushUserProfileVC){
-            UserProfileTVController *userProfileTVC = [[UserProfileTVController alloc] initWithUser:user];
-            [self.navigationController pushViewController:userProfileTVC animated:YES];
+            controller = [[UserProfileTVController alloc] initWithUser:user];
         } else {
-            [self performSegueWithIdentifier:REVIEWS_SEGUE sender:cell];
+            controller = [[ReviewsTVController alloc] init];
+            [(ReviewsTVController *)controller setupFromTastingRecord:(TastingRecord *)self.fetchedResultsController.fetchedObjects[indexPath.row]];
         }
-    }
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:REVIEWS_SEGUE]){
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender];
-        ReviewsTVController *reviewTVC = (ReviewsTVController *)segue.destinationViewController;
-        [reviewTVC setupFromTastingRecord:(TastingRecord *)self.fetchedResultsController.fetchedObjects[indexPath.row]];
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 

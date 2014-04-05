@@ -13,21 +13,33 @@
 
 @implementation GetMe
 
-+(User *)me
+static DocumentHandler *instance;
+
++(DocumentHandler *)sharedInstance
 {
-    User *me;
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:USER_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"isMe = YES"];
-    
-    NSError *error;
-    NSArray *matches = [[DocumentHandler sharedDocumentHandler].document.managedObjectContext executeFetchRequest:request error:&error];
-    if(matches){
-        me = [matches firstObject];
-    } else {
-        NSLog(@"Me not found!");
+    static dispatch_once_t executesOnlyOnce;
+    dispatch_once (&executesOnlyOnce, ^{
+        instance = [[self alloc] init];
+    });
+    return instance;
+}
+
+-(User *)me
+{
+    if(!_me){
+        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:USER_ENTITY];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
+        request.predicate = [NSPredicate predicateWithFormat:@"isMe = YES"];
+        
+        NSError *error;
+        NSArray *matches = [[DocumentHandler sharedDocumentHandler].document.managedObjectContext executeFetchRequest:request error:&error];
+        if(matches){
+            _me = [matches firstObject];
+        } else {
+            NSLog(@"Me not found!");
+        }
     }
-    return me;
+    return _me;
 }
 
 @end

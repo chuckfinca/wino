@@ -11,6 +11,8 @@
 #import <FBGraphUser.h>
 #import "FacebookSessionManager.h"
 #import "GetMe.h"
+#import "TimelineSCDTVC.h"
+#import "CellarSCDTVC.h"
 
 #define USER_PROFILE_PAGE_CELL  @"UserCell"
 #define USER_ENTITY  @"User"
@@ -86,7 +88,7 @@
 -(User *)me
 {
     if(!_me){
-        _me = [GetMe me];
+        _me = [GetMe sharedInstance].me;
     }
     return _me;
 }
@@ -152,8 +154,9 @@
             title = [NSString stringWithFormat:@"Following (%i)",[self.user.following count]];
             break;
         case 3:
-            title = @"Followers (#)";
-            break;default:
+            title = [NSString stringWithFormat:@"Followed by (%i)",[self.user.followedBy count]];
+            break;
+        default:
             break;
     }
     cell.textLabel.text = title;
@@ -165,7 +168,25 @@
 #pragma mark - UITableViewDelegate
 
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIViewController *controller;
+    switch (indexPath.row) {
+    case 0:
+            controller = [[CellarSCDTVC alloc] init];
+        break;
+    case 1:
+            controller = [[TimelineSCDTVC alloc] initWithNibName:nil bundle:nil];
+        break;
+    case 2:
+        break;
+    case 3:
+        break;
+    default:
+        break;
+}
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 
 

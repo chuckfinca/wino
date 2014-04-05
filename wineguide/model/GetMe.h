@@ -11,6 +11,8 @@
 
 @interface GetMe : NSObject
 
-+(User *)me;
++(GetMe *)sharedInstance;
+
+@property (nonatomic, strong) User *me;
 
 @end

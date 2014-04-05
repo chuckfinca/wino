@@ -371,6 +371,41 @@
 
 -(void)checkInWithFriends:(NSArray *)selectedFriendsArray
 {
+    // Once the tasting records are creates the outbox script needs to get knowledge of the newly created entities.
+    // The outbox script then needs to have 1) me and 2) internet and then it should tell the server in the background.
+    
+    /*
+     // Check to make sure we know which user is about to make the Tasting Record
+     if([GetMe me]){
+     
+     // WHEN DO I CHECK IF INTERNET IS AVAILABLE??
+     // probably should wait until the check in is made
+     // then send to to the 'outbox' script
+     // and then notify the user that the message will be sent when internet becomes available (if necessary)
+     
+     } else {
+     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connect with Facebook" message:@"Corkie needs to be connected to Facebook for you to check wines into your timeline." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Connect", nil];
+     [alert show];
+     
+     #pragma mark - UIAlertViewDelegate
+     
+     -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+     {
+     if(buttonIndex == 1){
+     __weak WineCDTVC *weakSelf = self;
+     [[FacebookSessionManager sharedInstance] logInWithCompletion:^(BOOL loggedIn) {
+     NSLog(@"logged in? %@",loggedIn == YES ? @"y" : @"n");
+     if(loggedIn){
+     [weakSelf performSegueWithIdentifier:@"CheckInSegue" sender:self];
+     } else {
+     NSLog(@"LOGIN FAILED");
+     }
+     }];
+     }
+     }
+     
+     }
+     */
     self.selectedFriends = selectedFriendsArray;
     [self createTastingRecord];
     
