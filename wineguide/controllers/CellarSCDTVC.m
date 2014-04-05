@@ -14,6 +14,7 @@
 #import "WineCDTVC.h"
 #import "WineCell.h"
 #import "FontThemer.h"
+#import "GetMe.h"
 
 #define WINE_ENTITY @"Wine"
 #define WINE_CELL @"WineCell"
@@ -25,6 +26,7 @@
 @interface CellarSCDTVC ()
 
 @property (nonatomic) BOOL firstTime;
+@property (nonatomic, strong) User *user;
 
 @end
 
@@ -62,15 +64,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Getters & Setters
+#pragma mark - Getters & setters
 
--(NSPredicate *)fetchPredicate
+-(User *)user
 {
-    return [NSPredicate predicateWithFormat:@"favorite = %@",@YES];
+    if(!_user){
+        _user = [GetMe sharedInstance].me;
+    }
+    return _user;
 }
 
 
 #pragma mark - Setup
+
+-(void)setupForUser:(User *)user
+{
+    self.user = user;
+}
 
 -(void)setupHeader
 {
@@ -144,7 +154,9 @@
     
     if(text){
         NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
-        NSCompoundPredicate *compoundPredicate = [[NSCompoundPredicate alloc] initWithType:NSAndPredicateType subpredicates:@[self.fetchPredicate, searchPredicate]];
+        NSPredicate *wineInCellarPredicate = [NSPredicate predicateWithFormat:@"ANY favoritedBy.identifier == %@",self.user.identifier];
+        
+        NSCompoundPredicate *compoundPredicate = [[NSCompoundPredicate alloc] initWithType:NSAndPredicateType subpredicates:@[searchPredicate, wineInCellarPredicate]];
         request.predicate = compoundPredicate;
     } else {
         request.predicate = self.fetchPredicate;

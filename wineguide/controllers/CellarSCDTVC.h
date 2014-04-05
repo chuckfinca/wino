@@ -7,7 +7,10 @@
 //
 
 #import "SearchableCDTVC.h"
+#import "User.h"
 
 @interface CellarSCDTVC : SearchableCDTVC
+
+-(void)setupForUser:(User *)user;
 
 @end

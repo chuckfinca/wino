@@ -16,7 +16,7 @@
 #import "User.h"
 #import "DateStringFormatter.h"
 #import "ReviewsTVController.h"
-#import "UserProfileTVController.h"
+#import "UserProfileVC.h"
 
 #define TASTING_RECORD_ENTITY @"TastingRecord"
 #define TASTING_RECORD_CELL @"TastingRecordCell"
@@ -264,7 +264,7 @@
         UIViewController *controller;
         
         if(pushUserProfileVC){
-            controller = [[UserProfileTVController alloc] initWithUser:user];
+            controller = [[UserProfileVC alloc] initWithUser:user];
         } else {
             controller = [[ReviewsTVController alloc] init];
             [(ReviewsTVController *)controller setupFromTastingRecord:(TastingRecord *)self.fetchedResultsController.fetchedObjects[indexPath.row]];

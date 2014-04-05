@@ -36,7 +36,7 @@
 @property (nonatomic, retain) NSSet *followedBy;
 @property (nonatomic, retain) NSSet *following;
 @property (nonatomic, retain) NSSet *reviews;
-@property (nonatomic, retain) Wine *winesInCellar;
+@property (nonatomic, retain) NSSet *winesInCellar;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
@@ -55,5 +55,10 @@
 - (void)removeReviewsObject:(Review *)value;
 - (void)addReviews:(NSSet *)values;
 - (void)removeReviews:(NSSet *)values;
+
+- (void)addWinesInCellarObject:(Wine *)value;
+- (void)removeWinesInCellarObject:(Wine *)value;
+- (void)addWinesInCellar:(NSSet *)values;
+- (void)removeWinesInCellar:(NSSet *)values;
 
 @end

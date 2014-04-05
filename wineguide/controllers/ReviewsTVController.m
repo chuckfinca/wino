@@ -14,7 +14,7 @@
 #import "WineNameVHTV.h"
 #import "DateStringFormatter.h"
 #import "ColorSchemer.h"
-#import "UserProfileTVController.h"
+#import "UserProfileVC.h"
 
 #define REVIEW_CELL @"ReviewCell"
 
@@ -126,7 +126,7 @@
 {
     Review *review = self.reviews[reviewCellTag];
     User *user = review.user;
-    UserProfileTVController *userProfileTVC = [[UserProfileTVController alloc] initWithUser:user];
+    UserProfileVC *userProfileTVC = [[UserProfileVC alloc] initWithUser:user];
     [self.navigationController pushViewController:userProfileTVC animated:YES];
 }
 

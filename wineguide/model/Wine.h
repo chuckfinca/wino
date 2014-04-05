@@ -44,7 +44,7 @@
 @property (nonatomic, retain) NSSet *tastingNotes;
 @property (nonatomic, retain) NSSet *varietals;
 @property (nonatomic, retain) NSSet *wineUnits;
-@property (nonatomic, retain) User *favoritedBy;
+@property (nonatomic, retain) NSSet *favoritedBy;
 @end
 
 @interface Wine (CoreDataGeneratedAccessors)
@@ -78,5 +78,10 @@
 - (void)removeWineUnitsObject:(WineUnit *)value;
 - (void)addWineUnits:(NSSet *)values;
 - (void)removeWineUnits:(NSSet *)values;
+
+- (void)addFavoritedByObject:(User *)value;
+- (void)removeFavoritedByObject:(User *)value;
+- (void)addFavoritedBy:(NSSet *)values;
+- (void)removeFavoritedBy:(NSSet *)values;
 
 @end

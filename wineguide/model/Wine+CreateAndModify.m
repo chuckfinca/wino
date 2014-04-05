@@ -180,7 +180,6 @@
     NSLog(@"color = %@",self.color);
     NSLog(@"country = %@",self.country);
     NSLog(@"dessert = %@",self.dessert);
-    NSLog(@"favorite = %@",self.favorite);
     NSLog(@"lastLocalUpdate = %@",self.lastLocalUpdate);
     NSLog(@"lastServerUpdate = %@",self.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.deletedEntity);

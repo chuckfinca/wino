@@ -148,7 +148,7 @@
         <relationship name="followedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="following" inverseEntity="User" syncable="YES"/>
         <relationship name="following" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="followedBy" inverseEntity="User" syncable="YES"/>
         <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review" inverseName="user" inverseEntity="Review" syncable="YES"/>
-        <relationship name="winesInCellar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine" inverseName="favoritedBy" inverseEntity="Wine" syncable="YES"/>
+        <relationship name="winesInCellar" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine" inverseName="favoritedBy" inverseEntity="Wine" syncable="YES"/>
     </entity>
     <entity name="Varietal" representedClassName="Varietal" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
@@ -189,7 +189,7 @@
         <attribute name="vintage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="wineUnitIdentifiers" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="brand" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Brand" inverseName="wines" inverseEntity="Brand" syncable="YES"/>
-        <relationship name="favoritedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="winesInCellar" inverseEntity="User" syncable="YES"/>
+        <relationship name="favoritedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="winesInCellar" inverseEntity="User" syncable="YES"/>
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="wines" inverseEntity="Flight" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="wines" inverseEntity="Group" syncable="YES"/>
         <relationship name="rating" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RatingHistory" inverseName="wine" inverseEntity="RatingHistory" syncable="YES"/>
@@ -215,16 +215,16 @@
     </entity>
     <elements>
         <element name="Brand" positionX="124" positionY="-27" width="128" height="225"/>
-        <element name="Flight" positionX="-254" positionY="60" width="128" height="255"/>
-        <element name="Group" positionX="-254" positionY="330" width="128" height="255"/>
+        <element name="Flight" positionX="-254" positionY="24" width="128" height="255"/>
+        <element name="Group" positionX="-254" positionY="285" width="128" height="255"/>
         <element name="RatingHistory" positionX="144" positionY="210" width="128" height="195"/>
-        <element name="Restaurant" positionX="-450" positionY="189" width="128" height="405"/>
-        <element name="Review" positionX="-650" positionY="644" width="128" height="238"/>
+        <element name="Restaurant" positionX="-450" positionY="135" width="128" height="405"/>
+        <element name="Review" positionX="-650" positionY="608" width="128" height="238"/>
         <element name="TastingNote" positionX="142" positionY="414" width="128" height="225"/>
-        <element name="TastingRecord" positionX="-648" positionY="407" width="128" height="178"/>
-        <element name="User" positionX="-848" positionY="225" width="128" height="403"/>
+        <element name="TastingRecord" positionX="-648" positionY="344" width="128" height="178"/>
+        <element name="User" positionX="-848" positionY="162" width="128" height="403"/>
         <element name="Varietal" positionX="126" positionY="648" width="128" height="225"/>
         <element name="Wine" positionX="-72" positionY="144" width="128" height="523"/>
-        <element name="WineUnit" positionX="-252" positionY="639" width="128" height="240"/>
+        <element name="WineUnit" positionX="-243" positionY="630" width="128" height="240"/>
     </elements>
 </model>

@@ -152,38 +152,6 @@
             </objects>
             <point key="canvasLocation" x="505" y="1627"/>
         </scene>
-        <!--User ProfileTV Controller-->
-        <scene sceneID="bBj-6x-7jx">
-            <objects>
-                <tableViewController id="1JF-0l-vIp" customClass="UserProfileTVController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="osD-wZ-yhF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserCell" id="iVJ-Jc-j3E">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iVJ-Jc-j3E" id="Atj-h8-zkw">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="1JF-0l-vIp" id="G8k-k9-zgc"/>
-                            <outlet property="delegate" destination="1JF-0l-vIp" id="LlR-Ld-Zv3"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="f1r-x5-H9N"/>
-                    <connections>
-                        <segue destination="7qc-6F-T9c" kind="push" identifier="ReviewsSegue" id="eSi-Uo-sBB"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G7m-9u-tcy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1039" y="2363"/>
-        </scene>
         <!--CustomNC - Profile-->
         <scene sceneID="8gG-gy-D8n">
             <objects>
@@ -193,12 +161,31 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="1JF-0l-vIp" kind="relationship" relationship="rootViewController" id="BOP-9V-z2o"/>
+                        <segue destination="saN-Lh-GS6" kind="relationship" relationship="rootViewController" id="vaU-4e-iTX"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Afj-j5-OpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="505" y="2363"/>
+        </scene>
+        <!--User ProfileVC-->
+        <scene sceneID="znq-kj-5D8">
+            <objects>
+                <viewController id="saN-Lh-GS6" customClass="UserProfileVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ehO-kG-Sub"/>
+                        <viewControllerLayoutGuide type="bottom" id="fEQ-Hg-Sww"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fcy-Xk-rrR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CzD-Ln-YlO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WTF-Oj-EMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="2363"/>
         </scene>
         <!--TimelineSCDTVC-->
         <scene sceneID="me6-qe-NNA">
@@ -328,7 +315,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="eSi-Uo-sBB"/>
-    </inferredMetricsTieBreakers>
 </document>

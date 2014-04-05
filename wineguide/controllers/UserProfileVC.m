@@ -6,23 +6,25 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "UserProfileTVController.h"
+#import "UserProfileVC.h"
 #import <FBLoginView.h>
 #import <FBGraphUser.h>
 #import "FacebookSessionManager.h"
 #import "GetMe.h"
 #import "TimelineSCDTVC.h"
 #import "CellarSCDTVC.h"
+#import "ColorSchemer.h"
 
 #define USER_PROFILE_PAGE_CELL  @"UserCell"
 #define USER_ENTITY  @"User"
 
-@interface UserProfileTVController () <FBLoginViewDelegate>
+@interface UserProfileVC () <FBLoginViewDelegate>
 
 @property (weak, nonatomic) IBOutlet FBLoginView *loginView;
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *followButton;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) User *me;
@@ -36,7 +38,7 @@
 
 @end
 
-@implementation UserProfileTVController
+@implementation UserProfileVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,11 +60,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.tableView.tableHeaderView = [[[NSBundle mainBundle] loadNibNamed:@"UserDetails" owner:self options:nil] firstObject];
+    self.view = [[[NSBundle mainBundle] loadNibNamed:@"UserDetails" owner:self options:nil] firstObject];
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:USER_PROFILE_PAGE_CELL];
     
     if(!self.user){
         self.user = self.me;
+        self.followButton.hidden = YES;
+        self.tableView.hidden = YES;
+    } else {
+        self.loginView.hidden = YES;
     }
     
     if(self.user.isMe){
@@ -95,12 +102,21 @@
 
 -(void)setupHeader
 {
-    self.nameLabel.text = self.user.nameFull;
-    [self.userProfileImageView setImage:[UIImage imageWithData:self.user.profileImage]];
-    
-    self.userProfileImageView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.followButton.translatesAutoresizingMaskIntoConstraints = NO;
+    UIImage *image;
+    if(self.user){
+        self.nameLabel.text = self.user.nameFull;
+        image = [UIImage imageWithData:self.user.profileImage];
+    } else {
+        self.userProfileImageView.frame = CGRectMake(self.userProfileImageView.frame.origin.x, self.userProfileImageView.frame.origin.y, 0, self.userProfileImageView.frame.size.height);
+        self.nameLabel.text = @"Create a profile and:\n- add friends to your tasting records\n- see which wines your friends like and are drinking\n- sync your devices\n- etc.";
+        image = [UIImage imageNamed:@"user_default.png"];
+    }
+    UIColor *color = [ColorSchemer sharedInstance].gray;
+    [self.userProfileImageView setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    self.userProfileImageView.tintColor = color;
+    self.userProfileImageView.layer.borderWidth = 2;
+    self.userProfileImageView.layer.borderColor = color.CGColor;
+    self.userProfileImageView.layer.cornerRadius = 4;
 }
 
 -(void)setHeaderViewHeight

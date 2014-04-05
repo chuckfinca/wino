@@ -33,7 +33,8 @@ static DocumentHandler *instance;
         
         NSError *error;
         NSArray *matches = [[DocumentHandler sharedDocumentHandler].document.managedObjectContext executeFetchRequest:request error:&error];
-        if(matches){
+        
+        if([matches count] > 0){
             _me = [matches firstObject];
         } else {
             NSLog(@"Me not found!");

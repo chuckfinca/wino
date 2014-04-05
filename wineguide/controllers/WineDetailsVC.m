@@ -13,12 +13,16 @@
 #import "ColorSchemer.h"
 #import "ReviewersAndRatingsVC.h"
 #import "FontThemer.h"
+#import "User.h"
+#import "GetMe.h"
+
 
 
 @interface WineDetailsVC ()
 
 @property (nonatomic, weak) Wine *wine;
 @property (nonatomic, weak) Restaurant *restaurant;
+@property (nonatomic, weak) User *me;
 @property (nonatomic, weak) IBOutlet WineDetailsVHTV *wineDetailsVHTV;
 @property (nonatomic, weak) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (weak, nonatomic) IBOutlet UIView *ratingsAndReviewsView;
@@ -72,6 +76,14 @@
     return @{NSFontAttributeName : [FontThemer sharedInstance].caption1, NSForegroundColorAttributeName : self.view.tintColor};
 }
 
+-(User *)me
+{
+    if(!_me){
+        _me = [GetMe sharedInstance].me;
+    }
+    return _me;
+}
+
 
 #pragma mark - Setup
 
@@ -90,7 +102,7 @@
     [self.wineDetailsVHTV setupTextViewWithWine:self.wine fromRestaurant:self.restaurant];
     
     [self.ratingsAndReviewsView addSubview:self.reviewersAndRatingsVC.view];
-    self.reviewersAndRatingsVC.favorite = [self.wine.favorite boolValue];
+    self.reviewersAndRatingsVC.favorite = [self.me.winesInCellar containsObject:self.wine];
     [self.reviewersAndRatingsVC setupForWine:self.wine];
     
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
@@ -113,8 +125,9 @@
 
 -(void)setupCellarButton
 {
+    BOOL favorited = [self.me.winesInCellar containsObject:self.wine];
     UIImage *image;
-    if([self.wine.favorite boolValue] == YES){
+    if(favorited){
         image = [UIImage imageNamed:@"button_cellar.png"];
         [self.cellarButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Stored" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
     } else {
@@ -148,7 +161,7 @@
 {
     NSString *message;
     
-    if([self.wine.favorite boolValue]){
+    if([self.me.winesInCellar containsObject:self.wine]){
         message = @"Wine added to cellar";
     } else {
         message = @"Wine removed from cellar";
@@ -169,7 +182,7 @@
 -(IBAction)cellarPressed:(id)sender
 {
     [self cellarWine];
-    self.reviewersAndRatingsVC.favorite = [self.wine.favorite boolValue];
+    self.reviewersAndRatingsVC.favorite = [self.me.winesInCellar containsObject:self.wine];
     [self.reviewersAndRatingsVC setupForWine:self.wine];
     
     [self displayCellarMessage];
@@ -189,8 +202,21 @@
 
 -(void)cellarWine
 {
-    BOOL favorite = ![self.wine.favorite boolValue];
-    self.wine.favorite = @(favorite);
+    NSMutableSet *winesInCellar = [self.me.winesInCellar mutableCopy];
+    
+    NSLog(@"winesInCellar = %i",[winesInCellar count]);
+    
+    if([winesInCellar containsObject:self.wine]){
+        NSLog(@"aaa");
+        [winesInCellar removeObject:self.wine];
+    } else {
+        NSLog(@"bbb");
+        [winesInCellar addObject:self.wine];
+    }
+    self.me.winesInCellar = winesInCellar;
+    
+    NSLog(@"winesInCellar = %i",[winesInCellar count]);
+    
     [self setupCellarButton];
 }
 
@@ -211,7 +237,6 @@
     NSLog(@"color = %@",self.wine.color);
     NSLog(@"country = %@",self.wine.country);
     NSLog(@"dessert = %@",self.wine.dessert);
-    NSLog(@"favorite = %@",self.wine.favorite);
     NSLog(@"lastServerUpdate = %@",self.wine.lastServerUpdate);
     NSLog(@"deletedEntity = %@",self.wine.deletedEntity);
     NSLog(@"name = %@",self.wine.name);
