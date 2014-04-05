@@ -59,6 +59,7 @@
 		C932F14F186D52870079680C /* ReviewersAndRatingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F14E186D52870079680C /* ReviewersAndRatingsVC.m */; };
 		C932F16518734E670079680C /* UserRatingCVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F16418734E670079680C /* UserRatingCVController.m */; };
 		C93A739E18EF5A59000E0B56 /* UserDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93A739D18EF5A59000E0B56 /* UserDetails.xib */; };
+		C93A73A118EF984D000E0B56 /* GetMe.m in Sources */ = {isa = PBXBuildFile; fileRef = C93A73A018EF984D000E0B56 /* GetMe.m */; };
 		C93E4F8D18E7672300D8C2DD /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */; };
 		C947F06D1888A18700123B69 /* userAction_purchase.png in Resources */ = {isa = PBXBuildFile; fileRef = C947F06B1888A18700123B69 /* userAction_purchase.png */; };
 		C947F06E1888A18700123B69 /* userAction_purchase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C947F06C1888A18700123B69 /* userAction_purchase@2x.png */; };
@@ -301,6 +302,8 @@
 		C932F16318734E670079680C /* UserRatingCVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRatingCVController.h; path = controllers/UserRatingCVController.h; sourceTree = "<group>"; };
 		C932F16418734E670079680C /* UserRatingCVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRatingCVController.m; path = controllers/UserRatingCVController.m; sourceTree = "<group>"; };
 		C93A739D18EF5A59000E0B56 /* UserDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserDetails.xib; path = xibs/UserDetails.xib; sourceTree = "<group>"; };
+		C93A739F18EF984D000E0B56 /* GetMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetMe.h; path = model/GetMe.h; sourceTree = "<group>"; };
+		C93A73A018EF984D000E0B56 /* GetMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetMe.m; path = model/GetMe.m; sourceTree = "<group>"; };
 		C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewCell.xib; path = xibs/ReviewCell.xib; sourceTree = "<group>"; };
 		C947F06B1888A18700123B69 /* userAction_purchase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = userAction_purchase.png; path = images/userAction_purchase.png; sourceTree = "<group>"; };
 		C947F06C1888A18700123B69 /* userAction_purchase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_purchase@2x.png"; path = "images/userAction_purchase@2x.png"; sourceTree = "<group>"; };
@@ -975,6 +978,8 @@
 				C9693533187D18BF0071EF41 /* FontThemer.m */,
 				C9B6B26718D8ED8E007406DC /* FacebookSessionManager.h */,
 				C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */,
+				C93A739F18EF984D000E0B56 /* GetMe.h */,
+				C93A73A018EF984D000E0B56 /* GetMe.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1236,6 +1241,7 @@
 				C9B6B26018D7ACA3007406DC /* UserProfileTVController.m in Sources */,
 				C9C6A21318569A9E00CFBBD5 /* AddGroupCell.m in Sources */,
 				C92CAE3018330BFB00F29C9B /* Group+CreateAndModify.m in Sources */,
+				C93A73A118EF984D000E0B56 /* GetMe.m in Sources */,
 				C9AD69F518AD90EB00F48E48 /* ServerHelper.m in Sources */,
 				C92DF0471825B227009DCB2C /* WineCDTVC.m in Sources */,
 				C96928CD18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m in Sources */,

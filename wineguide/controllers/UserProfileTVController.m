@@ -10,7 +10,7 @@
 #import <FBLoginView.h>
 #import <FBGraphUser.h>
 #import "FacebookSessionManager.h"
-#import "DocumentHandler.h"
+#import "GetMe.h"
 
 #define USER_PROFILE_PAGE_CELL  @"UserCell"
 #define USER_ENTITY  @"User"
@@ -86,17 +86,7 @@
 -(User *)me
 {
     if(!_me){
-        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:USER_ENTITY];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-        request.predicate = [NSPredicate predicateWithFormat:@"isMe = YES"];
-        
-        NSError *error;
-        NSArray *matches = [[DocumentHandler sharedDocumentHandler].document.managedObjectContext executeFetchRequest:request error:&error];
-        if(matches){
-            _me = [matches firstObject];
-        } else {
-            NSLog(@"Me not found!");
-        }
+        _me = [GetMe me];
     }
     return _me;
 }
