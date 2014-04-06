@@ -64,7 +64,7 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:USER_PROFILE_PAGE_CELL];
     
-    if(!self.user){
+    if(!self.user || (self.user.isMe && !self.user.registered)){
         self.user = self.me;
         self.followButton.hidden = YES;
         self.tableView.hidden = YES;
@@ -79,7 +79,8 @@
         self.title = @"Profile";
     }
     
-    [self setupHeader];
+    [self setupNameLabel];
+    [self setupUserProfileImage];
     [self setupFollowButton];
 }
 
@@ -100,17 +101,30 @@
     return _me;
 }
 
--(void)setupHeader
+-(void)setupNameLabel
+{
+    NSString *name;
+    if(self.user.nameFirst){
+        name = [NSString stringWithFormat:@"%@ %@.",self.user.nameFirst, self.user.nameLastInitial];
+    } else {
+        if(self.user.isMe){
+            name = @"Create a profile and:\n- add friends to your tasting records\n- see which wines your friends like and are drinking\n- sync your devices\n- etc.";
+        } else {
+            name = @"";
+        }
+    }
+    self.nameLabel.text = name;
+}
+
+-(void)setupUserProfileImage
 {
     UIImage *image;
-    if(self.user){
-        self.nameLabel.text = self.user.nameFull;
+    if(self.user.profileImage){
         image = [UIImage imageWithData:self.user.profileImage];
     } else {
-        self.userProfileImageView.frame = CGRectMake(self.userProfileImageView.frame.origin.x, self.userProfileImageView.frame.origin.y, 0, self.userProfileImageView.frame.size.height);
-        self.nameLabel.text = @"Create a profile and:\n- add friends to your tasting records\n- see which wines your friends like and are drinking\n- sync your devices\n- etc.";
         image = [UIImage imageNamed:@"user_default.png"];
     }
+    
     UIColor *color = [ColorSchemer sharedInstance].gray;
     [self.userProfileImageView setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     self.userProfileImageView.tintColor = color;

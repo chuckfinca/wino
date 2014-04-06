@@ -25,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToDateLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dateLabelToWineNameVHTVConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToBottomConstraint;
 
 @end
 
@@ -50,6 +53,12 @@
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setHeaderHeight];
+}
+
 -(void)setupFromTastingRecord:(TastingRecord *)tastingRecord
 {
     self.reviews = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:NO]]];
@@ -73,6 +82,24 @@
     return _sizingCell;
 }
 
+
+#pragma mark - Setup
+
+-(void)setHeaderHeight
+{
+    float height = 0;
+    
+    height += self.topToDateLabelConstraint.constant;
+    height += self.dateLabel.bounds.size.height;
+    height += self.dateLabelToWineNameVHTVConstraint.constant;
+    height += [self.wineNameVHTV height];
+    height += self.wineNameVHTVToBottomConstraint.constant;
+    
+    self.tableView.tableHeaderView.bounds = CGRectMake(0,0,self.wineNameVHTV.bounds.size.width, height);
+}
+
+
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -93,8 +120,15 @@
     Review *review = self.reviews[indexPath.row];
     User *user = review.user;
     
+    NSString *userName;
+    if(user.isMe){
+        userName = @"Me";
+    } else {
+        [NSString stringWithFormat:@"%@ %@.",user.nameFirst, user.nameLastInitial];
+    }
+    
     [cell setupClaimed:[review.claimedByUser boolValue]
-    reviewWithUserName:[NSString stringWithFormat:@"%@ %@.",user.nameFirst, user.nameLastInitial]
+    reviewWithUserName:userName
              userImage:[UIImage imageWithData:user.profileImage]
             reviewText:review.reviewText
              wineColor:review.wine.color
@@ -103,6 +137,7 @@
     // the content view covers the ReviewCell view so it neeeds to be hidden inorder for the ReviewCell view to record touches
     cell.contentView.hidden = YES;
     cell.delegate = self;
+    
     return cell;
 }
 
@@ -116,7 +151,6 @@
     [self.sizingCell setupClaimed:[review.claimedByUser boolValue] reviewWithUserName:nil userImage:nil reviewText:review.reviewText wineColor:nil andRating:nil];
     return self.sizingCell.bounds.size.height;
 }
-
 
 
 

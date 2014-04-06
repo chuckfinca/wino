@@ -7,7 +7,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReviewsTVController">
             <connections>
                 <outlet property="dateLabel" destination="XjJ-m8-ak8" id="cl3-VN-GGf"/>
+                <outlet property="dateLabelToWineNameVHTVConstraint" destination="opJ-tF-bjD" id="Hz6-th-hlj"/>
+                <outlet property="topToDateLabelConstraint" destination="S5J-YV-Sxh" id="B5L-pd-0sM"/>
                 <outlet property="wineNameVHTV" destination="rLh-KD-4Rq" id="D6Z-fC-vOf"/>
+                <outlet property="wineNameVHTVToBottomConstraint" destination="tOX-xv-Xoj" id="F6X-hE-9kT"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
