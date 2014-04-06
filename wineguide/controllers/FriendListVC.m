@@ -11,6 +11,8 @@
 #import "FriendListSCDTVC.h"
 #import "FontThemer.h"
 #import "FriendListSearchBar.h"
+#import "FBLoginView.h"
+#import "GetMe.h"
 
 #define CORNER_RADIUS 4
 
@@ -21,6 +23,9 @@
 @property (nonatomic, strong) FriendListSCDTVC *friendListSCDTVC;
 @property (weak, nonatomic) IBOutlet FriendListSearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
+@property (weak, nonatomic) IBOutlet UIView *facebookLoginContainerView;
+@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
+@property (weak, nonatomic) IBOutlet UILabel *loginWithFacebookLabel;
 
 @end
 
@@ -45,6 +50,9 @@
     
     [self.checkInButton setAttributedTitle:[[NSAttributedString alloc] initWithString:self.checkInButton.titleLabel.text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].headline}] forState:UIControlStateNormal];
     [self.checkInButton sizeToFit];
+    
+    self.loginWithFacebookLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Connect to Facebook to add friends to this Tasting Record." attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : [FontThemer sharedInstance].body}];
+    self.facebookLoginContainerView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
     
     [self customizeSearchBar];
     
@@ -211,6 +219,12 @@
     [self.friendListSCDTVC setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
+/*
+-(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    if([GetMe sharedInstance].me)
+}
+*/
 
 
 #pragma mark - Listen for Notifications
