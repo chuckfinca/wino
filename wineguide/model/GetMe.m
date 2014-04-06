@@ -8,8 +8,10 @@
 
 #import "GetMe.h"
 #import "DocumentHandler.h"
+#import "ManagedObjectHandler.h"
 
 #define USER_ENTITY @"User"
+#define IDENTIFIER @"identifier"
 
 @implementation GetMe
 
@@ -37,7 +39,14 @@ static DocumentHandler *instance;
         if([matches count] > 0){
             _me = [matches firstObject];
         } else {
-            NSLog(@"Me not found!");
+            
+            // create non-facebook connected user
+            NSString *identifier = @"temporary.id";
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier == %@",identifier];
+            NSDictionary *dictionary = @{IDENTIFIER : identifier};
+            
+            NSLog(@"Me not found! Creating me with id = %@",identifier);
+            _me = (User *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:USER_ENTITY usingPredicate:predicate inContext:[DocumentHandler sharedDocumentHandler].document.managedObjectContext usingDictionary:dictionary];
         }
     }
     return _me;

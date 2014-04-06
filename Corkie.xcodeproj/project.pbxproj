@@ -60,7 +60,7 @@
 		C932F16518734E670079680C /* UserRatingCVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C932F16418734E670079680C /* UserRatingCVController.m */; };
 		C93A739E18EF5A59000E0B56 /* UserDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93A739D18EF5A59000E0B56 /* UserDetails.xib */; };
 		C93A73A118EF984D000E0B56 /* GetMe.m in Sources */ = {isa = PBXBuildFile; fileRef = C93A73A018EF984D000E0B56 /* GetMe.m */; };
-		C93A73A418F09C46000E0B56 /* iPhone_Wine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93A73A218F09C46000E0B56 /* iPhone_Wine.storyboard */; };
+		C93A73A418F09C46000E0B56 /* iPhone_CheckIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93A73A218F09C46000E0B56 /* iPhone_CheckIn.storyboard */; };
 		C93A73CB18F0AB45000E0B56 /* WineUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = C93A73CA18F0AB45000E0B56 /* WineUnit.m */; };
 		C93A73CE18F0AB46000E0B56 /* Rating.m in Sources */ = {isa = PBXBuildFile; fileRef = C93A73CD18F0AB46000E0B56 /* Rating.m */; };
 		C93A73D118F0AB46000E0B56 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = C93A73D018F0AB46000E0B56 /* Review.m */; };
@@ -111,7 +111,6 @@
 		C95E2DC1186510050050DFAC /* tab_cellar.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBB186510050050DFAC /* tab_cellar.png */; };
 		C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBC186510050050DFAC /* tab_cellar@2x.png */; };
 		C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */; };
-		C96928CD18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928CC18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m */; };
 		C96928CF18DCE673006ADCC4 /* FriendsListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96928CE18DCE673006ADCC4 /* FriendsListHeaderView.xib */; };
 		C96928D518DCEEBC006ADCC4 /* FriendListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D418DCEEBC006ADCC4 /* FriendListVC.m */; };
 		C96928D818E0E069006ADCC4 /* RestaurantCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D718E0E069006ADCC4 /* RestaurantCDTVC.m */; };
@@ -122,7 +121,6 @@
 		C969352E187CAF8A0071EF41 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C969352D187CAF8A0071EF41 /* RoundedRectButton.m */; };
 		C9693534187D18BF0071EF41 /* FontThemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9693533187D18BF0071EF41 /* FontThemer.m */; };
 		C9693539187E39FE0071EF41 /* CheckInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9693538187E39FE0071EF41 /* CheckInVC.m */; };
-		C969353C187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C969353B187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.m */; };
 		C96BA8F618E8CE5200E0F990 /* TastingRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96BA8F518E8CE5200E0F990 /* TastingRecordCell.xib */; };
 		C96BA8F918E8D1AE00E0F990 /* TastingRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C96BA8F818E8D1AE00E0F990 /* TastingRecordCell.m */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
@@ -297,7 +295,7 @@
 		C93A739D18EF5A59000E0B56 /* UserDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserDetails.xib; path = xibs/UserDetails.xib; sourceTree = "<group>"; };
 		C93A739F18EF984D000E0B56 /* GetMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetMe.h; path = model/GetMe.h; sourceTree = "<group>"; };
 		C93A73A018EF984D000E0B56 /* GetMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetMe.m; path = model/GetMe.m; sourceTree = "<group>"; };
-		C93A73A318F09C46000E0B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone_Wine.storyboard; sourceTree = "<group>"; };
+		C93A73A318F09C46000E0B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone_CheckIn.storyboard; sourceTree = "<group>"; };
 		C93A73C918F0AB45000E0B56 /* WineUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineUnit.h; path = model/WineUnit.h; sourceTree = "<group>"; };
 		C93A73CA18F0AB45000E0B56 /* WineUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineUnit.m; path = model/WineUnit.m; sourceTree = "<group>"; };
 		C93A73CC18F0AB46000E0B56 /* Rating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rating.h; path = model/Rating.h; sourceTree = "<group>"; };
@@ -365,8 +363,6 @@
 		C95E2DBB186510050050DFAC /* tab_cellar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_cellar.png; path = images/tab_cellar.png; sourceTree = "<group>"; };
 		C95E2DBC186510050050DFAC /* tab_cellar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_cellar@2x.png"; path = "images/tab_cellar@2x.png"; sourceTree = "<group>"; };
 		C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_triedIt@2x.png"; path = "images/userAction_triedIt@2x.png"; sourceTree = "<group>"; };
-		C96928CB18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionAnimator_CheckInFriends.h; path = supportingClasses/TransitionAnimator_CheckInFriends.h; sourceTree = "<group>"; };
-		C96928CC18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionAnimator_CheckInFriends.m; path = supportingClasses/TransitionAnimator_CheckInFriends.m; sourceTree = "<group>"; };
 		C96928CE18DCE673006ADCC4 /* FriendsListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendsListHeaderView.xib; path = xibs/FriendsListHeaderView.xib; sourceTree = "<group>"; };
 		C96928D318DCEEBC006ADCC4 /* FriendListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListVC.h; path = controllers/FriendListVC.h; sourceTree = "<group>"; };
 		C96928D418DCEEBC006ADCC4 /* FriendListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListVC.m; path = controllers/FriendListVC.m; sourceTree = "<group>"; };
@@ -387,8 +383,6 @@
 		C9693533187D18BF0071EF41 /* FontThemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontThemer.m; path = model/FontThemer.m; sourceTree = "<group>"; };
 		C9693537187E39FE0071EF41 /* CheckInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckInVC.h; path = controllers/CheckInVC.h; sourceTree = "<group>"; };
 		C9693538187E39FE0071EF41 /* CheckInVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckInVC.m; path = controllers/CheckInVC.m; sourceTree = "<group>"; };
-		C969353A187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionAnimator_CheckInVC.h; path = supportingClasses/TransitionAnimator_CheckInVC.h; sourceTree = "<group>"; };
-		C969353B187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionAnimator_CheckInVC.m; path = supportingClasses/TransitionAnimator_CheckInVC.m; sourceTree = "<group>"; };
 		C96BA8F518E8CE5200E0F990 /* TastingRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TastingRecordCell.xib; path = xibs/TastingRecordCell.xib; sourceTree = "<group>"; };
 		C96BA8F718E8D1AE00E0F990 /* TastingRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingRecordCell.h; path = views/TastingRecordCell.h; sourceTree = "<group>"; };
 		C96BA8F818E8D1AE00E0F990 /* TastingRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingRecordCell.m; path = views/TastingRecordCell.m; sourceTree = "<group>"; };
@@ -575,7 +569,7 @@
 			children = (
 				C9D0784618452AF800F47851 /* Initial_iPhone.storyboard */,
 				C9061E00181F07CE003D8A55 /* iPhone.storyboard */,
-				C93A73A218F09C46000E0B56 /* iPhone_Wine.storyboard */,
+				C93A73A218F09C46000E0B56 /* iPhone_CheckIn.storyboard */,
 				C91F59C018457EB800CF7F18 /* Restauranteur_iPhone.storyboard */,
 				C9061E03181F07CE003D8A55 /* iPad.storyboard */,
 				C9061E3D181F276D003D8A55 /* xibs */,
@@ -904,12 +898,8 @@
 				C96934271875EF290071EF41 /* IterationCounter.m */,
 				C96934281875EF290071EF41 /* NSDictionary+Helper.h */,
 				C96934291875EF290071EF41 /* NSDictionary+Helper.m */,
-				C969353A187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.h */,
-				C969353B187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.m */,
 				C9A337E918861E810089D020 /* DateStringFormatter.h */,
 				C9A337EA18861E810089D020 /* DateStringFormatter.m */,
-				C96928CB18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.h */,
-				C96928CC18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m */,
 				C95CAADA18EB843E00E210D0 /* RatingImageGenerator.h */,
 				C95CAADB18EB843E00E210D0 /* RatingImageGenerator.m */,
 			);
@@ -1051,7 +1041,7 @@
 				C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */,
 				C9DF590A189B38EE005050E5 /* restaurant.osteriacoppa.139southbstreet.json in Resources */,
 				C991FB8E1861110200C10B52 /* glass_empty@2x.png in Resources */,
-				C93A73A418F09C46000E0B56 /* iPhone_Wine.storyboard in Resources */,
+				C93A73A418F09C46000E0B56 /* iPhone_CheckIn.storyboard in Resources */,
 				C96928CF18DCE673006ADCC4 /* FriendsListHeaderView.xib in Resources */,
 				C95CAAE318EB97D400E210D0 /* button_purchase@2x.png in Resources */,
 				C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */,
@@ -1195,7 +1185,6 @@
 				C92DF236182AD376009DCB2C /* TastingNoteDataHelper.m in Sources */,
 				C9DAB84E18E8EF3E00BB0E2A /* TastingRecordDataHelper.m in Sources */,
 				C91F59BF18457AE800CF7F18 /* UserMenuVC.m in Sources */,
-				C969353C187F6D7B0071EF41 /* TransitionAnimator_CheckInVC.m in Sources */,
 				C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */,
 				C95CAADC18EB843E00E210D0 /* RatingImageGenerator.m in Sources */,
 				C98DEFDC1822DADC0038216C /* WineDataHelper.m in Sources */,
@@ -1220,7 +1209,6 @@
 				C93A73E918F0AB47000E0B56 /* Group.m in Sources */,
 				C93A73D418F0AB46000E0B56 /* Flight.m in Sources */,
 				C92DF0471825B227009DCB2C /* WineCDTVC.m in Sources */,
-				C96928CD18DBA0A8006ADCC4 /* TransitionAnimator_CheckInFriends.m in Sources */,
 				C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */,
 				C93A73DD18F0AB46000E0B56 /* Wine.m in Sources */,
 				C9C7D6151840168700A2E955 /* SearchableCDTVC.m in Sources */,
@@ -1336,12 +1324,12 @@
 			name = Restauranteur_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		C93A73A218F09C46000E0B56 /* iPhone_Wine.storyboard */ = {
+		C93A73A218F09C46000E0B56 /* iPhone_CheckIn.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C93A73A318F09C46000E0B56 /* Base */,
 			);
-			name = iPhone_Wine.storyboard;
+			name = iPhone_CheckIn.storyboard;
 			sourceTree = "<group>";
 		};
 		C9D0784618452AF800F47851 /* Initial_iPhone.storyboard */ = {

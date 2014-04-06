@@ -14,13 +14,9 @@
 #import "Review.h"
 #import "TastingRecord.h"
 #import "FriendListVC.h"
-#import "TransitionAnimator_CheckInFriends.h"
-#import "FacebookSessionManager.h"
+#import "GetMe.h"
 #import "ReviewDataHelper.h"
 #import "TastingRecordDataHelper.h"
-
-#define CORNER_RADIUS 4
-#define CHECK_IN_VC_VIEW_HEIGHT 230
 
 #define ADDED_DATE @"addedDate"
 #define CLAIMED_BY_USER @"claimedByUser"
@@ -123,21 +119,11 @@
 {
     self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
     self.headerBackgroundView.backgroundColor = [ColorSchemer sharedInstance].baseColor;
-    [self setupBackground];
     [self setupUserRatingView];
     [self setupRestaurantButton];
     [self setupDateButton];
     [self setupCancelButton];
     [self setupContinueButton];
-}
-
--(void)setupBackground
-{
-    CALayer *layer = self.view.layer;
-    [layer setCornerRadius:CORNER_RADIUS];
-    [layer setShadowColor:[ColorSchemer sharedInstance].shadowColor.CGColor];
-    [layer setShadowOffset:CGSizeMake(0, 0)];
-    [layer setShadowOpacity:0.2];
 }
 
 -(void)setupUserRatingView
@@ -219,6 +205,7 @@
 -(void)setupContinueButton
 {
     [self.continueButton setAttributedTitle:[[NSAttributedString alloc] initWithString:self.continueButton.titleLabel.text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].headline}] forState:UIControlStateNormal];
+    [self.continueButton sizeToFit];
 }
 
 -(void)setupUserRatingsController
@@ -253,11 +240,13 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"bbb");
     if([segue.identifier isEqual: @"AddFriends"]){
         NSLog(@"Add friends segue");
+        
+        NSLog(@"VC class = %@",[segue.destinationViewController class]);
+        
         FriendListVC *friendListVC = segue.destinationViewController;
-        friendListVC.transitioningDelegate = self;
-        friendListVC.modalTransitionStyle = UIModalPresentationCustom;
         
         friendListVC.delegate = self;
         friendListVC.wineName = [self.wine.name capitalizedString];
@@ -338,24 +327,6 @@
 {
     self.promptLabel.hidden = ([txtView.text length] > 0);
 }
-
-
-#pragma mark - UIViewControllerTransitioningDelegate
-
--(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
-                                                                 presentingController:(UIViewController *)presenting
-                                                                     sourceController:(UIViewController *)source
-{
-    TransitionAnimator_CheckInFriends *animator = [TransitionAnimator_CheckInFriends new];
-    animator.presenting = YES;
-    return animator;
-}
-
--(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
-{
-    return [TransitionAnimator_CheckInFriends new];
-}
-
 
 
 
@@ -440,8 +411,8 @@
     tastingRecord.restaurant = self.restaurant;
     
     NSMutableSet *reviews = [[NSMutableSet alloc] init];
-    User *user = [FacebookSessionManager sharedInstance].user;
-    Review *userReview = [self createClaimed:YES reviewForUser:user];
+    User *me = [GetMe sharedInstance].me;
+    Review *userReview = [self createClaimed:YES reviewForUser:me];
     [reviews addObject:userReview];
     
     if(self.selectedFriends){

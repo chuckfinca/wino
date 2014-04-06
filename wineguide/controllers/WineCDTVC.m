@@ -11,8 +11,6 @@
 #import "ColorSchemer.h"
 #import "ReviewTVC.h"
 #import "CheckInVC.h"
-#import "TransitionAnimator_CheckInVC.h"
-//#import "FacebookSessionManager.h"
 #import "GetMe.h"
 
 
@@ -191,21 +189,16 @@
 
 -(void)performTriedItSegue
 {
-    [self performSegueWithIdentifier:@"CheckInSegue" sender:self];
-}
-
-
-
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    [super prepareForSegue:segue sender:sender];
+    UINavigationController *navController = [[UIStoryboard storyboardWithName:@"iPhone_CheckIn" bundle:nil] instantiateInitialViewController];
+    UIViewController *controller = [navController.viewControllers firstObject];
     
-    CheckInVC *checkInVC = (CheckInVC *)segue.destinationViewController;
-    [checkInVC setupWithWine:self.wine andRestaurant:self.restaurant];
-    checkInVC.transitioningDelegate = self;
-    checkInVC.modalPresentationStyle = UIModalPresentationCustom;
-    checkInVC.delegate = self;
+    if([controller isKindOfClass:[CheckInVC class]]){
+        CheckInVC *checkInVC = (CheckInVC *)controller;
+        [checkInVC setupWithWine:self.wine andRestaurant:self.restaurant];
+        checkInVC.delegate = self;
+    }
+    
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 
@@ -219,24 +212,6 @@
     alert.tintColor = [ColorSchemer sharedInstance].clickable;
     
     [alert show];
-}
-
-
-
-#pragma mark - UIViewControllerTransitioningDelegate
-
--(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
-                                                                 presentingController:(UIViewController *)presenting
-                                                                     sourceController:(UIViewController *)source
-{
-    TransitionAnimator_CheckInVC *animator = [TransitionAnimator_CheckInVC new];
-    animator.presenting = YES;
-    return animator;
-}
-
--(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
-{
-    return [TransitionAnimator_CheckInVC new];
 }
 
 

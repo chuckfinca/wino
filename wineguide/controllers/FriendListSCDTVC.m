@@ -94,14 +94,16 @@
     
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    NSString *name = [NSString stringWithFormat:@"%@ ",user.nameFirst];
-    NSInteger firstNameLength = [name length];
-    name = [name stringByAppendingString:user.nameLast];
-    
-    NSMutableAttributedString *attributedName = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body}];
-    [attributedName addAttribute:NSFontAttributeName value:[FontThemer sharedInstance].headline range: NSMakeRange(firstNameLength, [user.nameLast length])];
-    
-    cell.textLabel.attributedText = attributedName;
+    if(user.nameFull){
+        NSString *name = [NSString stringWithFormat:@"%@ ",user.nameFirst];
+        NSInteger firstNameLength = [name length];
+        name = [name stringByAppendingString:user.nameLast];
+        
+        NSMutableAttributedString *attributedName = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body}];
+        [attributedName addAttribute:NSFontAttributeName value:[FontThemer sharedInstance].headline range: NSMakeRange(firstNameLength, [user.nameLast length])];
+        
+        cell.textLabel.attributedText = attributedName;
+    }
     
     if(user.profileImage){
         [cell.imageView setImage:[UIImage imageWithData:user.profileImage]];
@@ -119,6 +121,8 @@
             NSLog(@"failed to download profile image");
         }];
     }
+    
+    cell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
     return cell;
 }

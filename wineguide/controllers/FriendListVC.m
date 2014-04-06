@@ -18,10 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *selectedFriendsTextView;
 @property (nonatomic, strong) UIImage *placeHolderImage;
-@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (nonatomic, strong) FriendListSCDTVC *friendListSCDTVC;
 @property (weak, nonatomic) IBOutlet FriendListSearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 
 @end
@@ -41,14 +39,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.headerView.backgroundColor = [ColorSchemer sharedInstance].baseColor;
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
-    [self setupBackground];
     [self setupTextView];
     
     [self.checkInButton setAttributedTitle:[[NSAttributedString alloc] initWithString:self.checkInButton.titleLabel.text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].headline}] forState:UIControlStateNormal];
+    [self.checkInButton sizeToFit];
     
     [self customizeSearchBar];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -105,17 +104,6 @@
 
 #pragma mark - Setup
 
--(void)setupBackground
-{
-    CALayer *layer = self.view.layer;
-    [layer setCornerRadius:CORNER_RADIUS];
-    [layer setShadowColor:[ColorSchemer sharedInstance].shadowColor.CGColor];
-    [layer setShadowOffset:CGSizeMake(0, 0)];
-    [layer setShadowOpacity:0.2];
-    
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-}
-
 -(void)setupTextView
 {
     NSString *text;
@@ -142,7 +130,7 @@
     
     if(instructions){
         [self.selectedFriendsTextView.textStorage addAttribute:NSForegroundColorAttributeName
-                                                         value:[ColorSchemer sharedInstance].textSecondary
+                                                         value:[ColorSchemer sharedInstance].textPlaceholder
                                                          range:NSMakeRange(0, [self.selectedFriendsTextView.text length])];
     } else {
         [self.selectedFriendsTextView.textStorage addAttribute:NSForegroundColorAttributeName
@@ -153,6 +141,8 @@
     [self.selectedFriendsTextView.textStorage addAttribute:NSFontAttributeName
                                                      value:[FontThemer sharedInstance].body
                                                      range:NSMakeRange(0, [self.selectedFriendsTextView.text length])];
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -248,7 +238,6 @@
         [self.searchBar setShowsCancelButton:YES animated:YES];
         [UIView animateWithDuration:animationTime animations:^{
             self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-yOffset, self.view.frame.size.width, self.view.frame.size.height-viewHeightAdjustment);
-            self.backButton.hidden = YES;
             self.checkInButton.hidden = YES;
             
         }];
@@ -256,7 +245,6 @@
         [self.searchBar setShowsCancelButton:NO animated:NO];
         [UIView animateWithDuration:animationTime animations:^{
             self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+yOffset, self.view.frame.size.width, self.view.frame.size.height+viewHeightAdjustment);
-            self.backButton.hidden = NO;
             self.checkInButton.hidden = NO;
         }];
     }

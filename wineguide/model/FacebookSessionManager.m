@@ -15,6 +15,7 @@
 #import <FBGraphUser.h>
 #import "UserDataHelper.h"
 #import "DocumentHandler.h"
+#import "GetMe.h"
 
 @interface FacebookSessionManager ()
 
@@ -266,8 +267,11 @@ static FacebookSessionManager *sharedInstance;
                 
                 UserDataHelper *udh = [[UserDataHelper alloc] init];
                 udh.context = self.context;
-                self.user = (User *)[udh updateManagedObjectWithDictionary:graphObject];
-                self.user.isMe = @YES;
+                
+                User *me = [GetMe sharedInstance].me;
+                
+                User *user = (User *)[udh updateManagedObjectWithDictionary:graphObject];
+                user.isMe = @YES;
             }
         } else {
             // An error occurred, we need to handle the error
