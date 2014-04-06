@@ -74,14 +74,14 @@
                                                                           sectionNameKeyPath:@"nameLastInitial"
                                                                                    cacheName:nil];
     
-    //[self logFetchResults];
+    [self logFetchResults];
 }
 
 -(void)logFetchResults
 {
     NSLog(@"fetchedResultCount = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
-    for(NSObject *fetchedResult in self.fetchedResultsController.fetchedObjects){
-        NSLog(@"fetchedResult = %@",fetchedResult.description);
+    for(User *user in self.fetchedResultsController.fetchedObjects){
+        NSLog(@"user = %@",user.identifier);
     }
 }
 

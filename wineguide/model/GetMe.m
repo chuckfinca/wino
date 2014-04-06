@@ -42,11 +42,13 @@ static DocumentHandler *instance;
             
             // create non-facebook connected user
             NSString *identifier = @"temporary.id";
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier == %@",identifier];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",identifier];
             NSDictionary *dictionary = @{IDENTIFIER : identifier};
             
             NSLog(@"Me not found! Creating me with id = %@",identifier);
             _me = (User *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:USER_ENTITY usingPredicate:predicate inContext:[DocumentHandler sharedDocumentHandler].document.managedObjectContext usingDictionary:dictionary];
+            _me.identifier = identifier;
+            _me.isMe = @YES;
         }
     }
     return _me;
