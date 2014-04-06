@@ -175,7 +175,7 @@ typedef enum {
     
     // Pass the selected object to the new view controller.
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [wineCDTVC setupWithWine:wine fromRestaurant:nil];
+    [wineCDTVC setupWithWine:wine fromRestaurant:self.restaurant];
     
     [self.navigationController pushViewController:wineCDTVC animated:YES];
 }

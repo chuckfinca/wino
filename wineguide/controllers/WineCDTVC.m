@@ -208,10 +208,11 @@
 {
     [self dismissViewControllerAnimated:YES completion:^{}];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Wine has been added to your timeline!" delegate:nil cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
-    alert.tintColor = [ColorSchemer sharedInstance].clickable;
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:nil delegate:nil cancelButtonTitle:@"Tasting Record added to timeline!"  otherButtonTitles:nil];
     [alert show];
+    
+    NSArray *arguments = @[@1,@1];
+    [alert performSelector:@selector(dismissWithClickedButtonIndex:animated:) withObject:arguments afterDelay:1.5f];
 }
 
 

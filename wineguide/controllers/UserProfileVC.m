@@ -260,7 +260,6 @@
     }
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:nil delegate:nil cancelButtonTitle:message otherButtonTitles: nil];
-    
     [alert show];
     
     NSArray *arguments = @[@1,@1];
