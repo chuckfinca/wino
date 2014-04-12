@@ -15,6 +15,7 @@
 #import "DateStringFormatter.h"
 #import "ColorSchemer.h"
 #import "UserProfileVC.h"
+#import "WineCDTVC.h"
 
 #define REVIEW_CELL @"ReviewCell"
 
@@ -181,7 +182,20 @@
 
 
 
+#pragma mark - Target action
 
+- (IBAction)pushWineVC:(id)sender
+{
+    
+    WineCDTVC *wineCDTVC = [[WineCDTVC alloc] initWithStyle:UITableViewStylePlain];
+    
+    // Pass the selected object to the new view controller.
+    
+    Review *review = (Review *)self.reviews[0];
+    [wineCDTVC setupWithWine:review.wine fromRestaurant:review.tastingRecord.restaurant];
+    
+    [self.navigationController pushViewController:wineCDTVC animated:YES];
+}
 
 
 
