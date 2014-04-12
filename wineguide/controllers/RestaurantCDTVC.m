@@ -171,7 +171,7 @@ typedef enum {
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WineCDTVC *wineCDTVC = [[UIStoryboard storyboardWithName:@"iPhone_Wine" bundle:nil] instantiateInitialViewController];
+    WineCDTVC *wineCDTVC = [[WineCDTVC alloc] initWithStyle:UITableViewStylePlain];
     
     // Pass the selected object to the new view controller.
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
