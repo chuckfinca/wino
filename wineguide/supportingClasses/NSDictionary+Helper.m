@@ -48,9 +48,11 @@
     if([object isKindOfClass:[NSString class]]){
         NSString *stringDate = (NSString *)object;
         
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyy-MM-dd HH:mm:ss Z"];
-        date = [dateFormatter dateFromString:stringDate];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+        NSLocale *posix = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        [formatter setLocale:posix];
+        date = [formatter dateFromString:stringDate];
     }
     return date;
 }

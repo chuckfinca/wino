@@ -11,7 +11,9 @@
 #import "RestaurantDataHelper.h"
 #import "Restaurant.h"
 #import "ColorSchemer.h"
+#import "ServerCaller.h"
 #import "RestaurantHelper.h"
+#import "DocumentHandler2.h"
 
 #define RESTAURANT_ENTITY @"Restaurant"
 
@@ -79,7 +81,22 @@
 
 -(void)getMoreResultsFromTheServer
 {
-    [self findRestaurantsNearby];
+    
+    // this will be replaced with a server url when available
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
+    
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
+    [rdh updateCoreDataWithJSONFromURL:url];
+    
+    
+    [[DocumentHandler2 sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document) {
+        NSLog(@"WE'VE GOT OUR DOC!!!!!!!!");
+        
+        double latitude = 1;
+        double longitude = 1;
+        ServerCaller *caller = [[ServerCaller alloc] init];
+        [caller getRestaurantsNearLatitude:latitude longitude:longitude];
+    }];
 }
 
 
@@ -155,23 +172,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
-#pragma mark - Update Core Data
-
--(void)findRestaurantsNearby
-{
-    // this will be replaced with a server url when available
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
-    
-    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
-    [rdh updateCoreDataWithJSONFromURL:url];
-    
-    
-    // call Corkie server and get restaurant json
-    RestaurantHelper *restaurantHelper = [[RestaurantHelper alloc] init];
-    [restaurantHelper getDataAtUrl:@"http://wappbeta.herokuapp.com/restaurantjson"];
-}
 
 #pragma mark - Target Action
 
