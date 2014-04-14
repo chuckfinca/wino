@@ -18,62 +18,11 @@
 @property (nonatomic, readwrite) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSString *predicateString;
 @property (nonatomic, strong) NSPredicate *predicate;
+@property (nonatomic, readwrite) NSManagedObject *relatedObject;
 
 @end
 
 @implementation ServerHelper
-
--(void)getDataAtUrl:(NSString *)url
-{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-    NSMutableSet *set = [manager.responseSerializer.acceptableContentTypes mutableCopy];
-    [set addObject:@"text/html"];
-    manager.responseSerializer.acceptableContentTypes = set;
-    
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self processResponseObject:responseObject];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        NSLog(@"Error: %@", [error localizedDescription]);
-    }];
-}
-
--(void)processResponseObject:(id)responseObject
-{
-    if([responseObject isKindOfClass:[NSArray class]]){
-        [self createAndUpdateObjectsWithJsonInArray:(NSArray *)responseObject];
-        
-    } else {
-        NSLog(@"Response object is NOT an array, it is a %@", [responseObject class]);
-    }
-}
-
--(void)createAndUpdateObjectsWithJsonInArray:(NSArray *)jsonArray
-{
-    [jsonArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if([obj isKindOfClass:[NSDictionary class]]){
-            NSDictionary *dictionary = (NSDictionary *)obj;
-            if(dictionary[SERVER_IDENTIFIER]){
-                [self findOrCreateObjectWithDictionary:dictionary];
-                
-            } else {
-                NSLog(@"dictionary does not have key = %@",SERVER_IDENTIFIER);
-            }
-        } else {
-            NSLog(@"obj in responseObject array is not a dictionary, it is a %@",[obj class]);
-        }
-    }];
-}
-
--(NSManagedObject *)findOrCreateObjectWithDictionary:(NSDictionary *)dictionary
-{
-    // abstract
-    return [[NSManagedObject alloc] init];
-}
 
 #pragma mark - Getters & Setters
 
@@ -102,7 +51,7 @@
     return _predicate;
 }
 
--(NSPredicate *)predicateForEntityIdentifier:(NSString *)identifier
+-(NSPredicate *)predicateForEntityIdentifier:(NSNumber *)identifier
 {
     NSDictionary *variables = @{@"IDENTIFIER" : identifier};
     return [self.predicate predicateWithSubstitutionVariables:variables];
@@ -111,31 +60,105 @@
 
 
 
--(NSManagedObject *)findOrCreateManagedObjectEntityType:(NSString *)entityName andIdentifier:(NSString *)identifier
+
+-(void)getDataAtUrl:(NSString *)url
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    NSMutableSet *set = [manager.responseSerializer.acceptableContentTypes mutableCopy];
+    [set addObject:@"text/html"];
+    manager.responseSerializer.acceptableContentTypes = set;
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self processResponseObject:responseObject];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }];
+}
+
+-(void)processResponseObject:(id)responseObject
+{
+    if([responseObject isKindOfClass:[NSArray class]]){
+        [self createOrUpdateObjectsWithJsonInArray:(NSArray *)responseObject andRelatedObject:nil];
+        
+    } else {
+        NSLog(@"Response object is NOT an array, it is a %@", [responseObject class]);
+    }
+}
+
+-(void)createOrUpdateObjectsWithJsonInArray:(NSArray *)jsonArray andRelatedObject:(NSManagedObject *)managedObject
+{
+    [jsonArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if([obj isKindOfClass:[NSDictionary class]]){
+            NSDictionary *dictionary = (NSDictionary *)obj;
+            if(dictionary[SERVER_IDENTIFIER]){
+                NSManagedObject *mo = [self createOrModifyObjectWithDictionary:dictionary];
+                if(managedObject){
+                    self.relatedObject = managedObject;
+                    [self addRelationToManagedObject:mo];
+                }
+            } else {
+                NSLog(@"dictionary does not have key = %@",SERVER_IDENTIFIER);
+            }
+        } else {
+            NSLog(@"obj in responseObject array is not a dictionary, it is a %@",[obj class]);
+        }
+    }];
+}
+
+-(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
+{
+    // Abstract
+    return [[NSManagedObject alloc] init];
+}
+
+-(void)addRelationToManagedObject:(NSManagedObject *)managedObject
+{
+    // Abstract
+}
+
+-(NSSet *)addRelationToSet:(NSSet *)set
+{
+    NSMutableSet *mutableSet = [set mutableCopy];
+    if(![mutableSet containsObject:self.relatedObject]) [mutableSet addObject:self.relatedObject];
+    return mutableSet;
+}
+
+
+-(NSManagedObject *)findOrCreateManagedObjectEntityType:(NSString *)entityName andIdentifier:(NSNumber *)identifier
 {
     NSManagedObject *managedObject;
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:IDENTIFIER ascending:YES]];
-    
-    request.predicate = [self predicateForEntityIdentifier:identifier];
-    
-    NSError *error = nil;
-    NSArray *matches = [self.context executeFetchRequest:request error:&error];
-    
-    if(!matches || [matches count] > 1){
-        NSLog(@"Error %@ - matches exists? %@; [matches count] = %lu",error,matches ? @"yes" : @"no",(unsigned long)[matches count]);
+    if(identifier > 0){
         
-    } else if ([matches count] == 0) {
-        managedObject = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self.context];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:IDENTIFIER ascending:YES]];
         
-    } else if ([matches count] == 1){
-        managedObject = [matches lastObject];
+        request.predicate = [self predicateForEntityIdentifier:identifier];
         
-    } else {
-        // Error
-        NSLog(@"Error - ManagedObject will be nil");
+        NSError *error = nil;
+        NSArray *matches = [self.context executeFetchRequest:request error:&error];
+        
+        if(!matches || [matches count] > 1){
+            NSLog(@"Error %@ - matches exists? %@; [matches count] = %lu",error,matches ? @"yes" : @"no",(unsigned long)[matches count]);
+            
+        } else if ([matches count] == 0) {
+            managedObject = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self.context];
+            
+        } else if ([matches count] == 1){
+            managedObject = [matches lastObject];
+            
+        } else {
+            // Error
+            NSLog(@"Error - ManagedObject will be nil");
+        }
     }
+    
+    
     return managedObject;
 }
 

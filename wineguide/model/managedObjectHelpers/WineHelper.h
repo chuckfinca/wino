@@ -1,13 +1,13 @@
 //
-//  WineUnitHelper.h
+//  WineHelper.h
 //  Corkie
 //
-//  Created by Charles Feinn on 4/12/14.
+//  Created by Charles Feinn on 4/13/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import "ServerHelper.h"
 
-@interface WineUnitHelper : ServerHelper
+@interface WineHelper : ServerHelper
 
 @end

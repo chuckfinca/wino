@@ -39,20 +39,19 @@
     </entity>
     <entity name="Wine2" representedClassName="Wine2" syncable="YES">
         <attribute name="alcohol" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="class_code" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="color_code" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dessert" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="regionDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sparkling" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="vineyard" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="vintage" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="wineClass" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vintage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wineDescription" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight2" inverseName="wines" inverseEntity="Flight2" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group2" inverseName="wines" inverseEntity="Group2" syncable="YES"/>
         <relationship name="wineUnits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WineUnit2" inverseName="wine" inverseEntity="WineUnit2" syncable="YES"/>
@@ -69,9 +68,9 @@
     </entity>
     <elements>
         <element name="Flight2" positionX="0" positionY="-108" width="128" height="133"/>
-        <element name="Group2" positionX="0" positionY="60" width="128" height="178"/>
+        <element name="Group2" positionX="0" positionY="69" width="128" height="178"/>
         <element name="Restaurant2" positionX="-173" positionY="-33" width="128" height="283"/>
-        <element name="WineUnit2" positionX="0" positionY="261" width="128" height="163"/>
-        <element name="Wine2" positionX="189" positionY="72" width="128" height="313"/>
+        <element name="WineUnit2" positionX="0" positionY="270" width="128" height="163"/>
+        <element name="Wine2" positionX="189" positionY="72" width="128" height="298"/>
     </elements>
 </model>

@@ -8,33 +8,36 @@
 
 #import "GroupHelper.h"
 #import "Group2+CreateOrModify.h"
-
 #import "RestaurantHelper.h"
+#import "Restaurant2.h"
+#import "WineHelper.h"
+#import "Wine2.h"
 
-#define GROUP_ENTITY @"Group2"
-
-#define SERVER_IDENTIFIER @"id"
-#define WINE_ID @"wine_id"
-#define RESTAURANT_ID @"restaurant_id"
+#define GROUP_RESTAURANT_ID @"restaurant_id"
+#define GROUP_WINES @"wines"
 
 @implementation GroupHelper
 
--(NSManagedObject *)findOrCreateObjectWithDictionary:(NSDictionary *)dictionary
+-(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
     Group2 *group = (Group2 *)[self findOrCreateManagedObjectEntityType:GROUP_ENTITY andIdentifier:dictionary[SERVER_IDENTIFIER]];
     [group modifyAttributesWithDictionary:dictionary];
     
-    // wine
-    NSNumber *wineIdentifier = dictionary[WINE_ID];
     
     // restaurant
-    if(self.relatedRestaurant){
-        group.restaurant = self.relatedRestaurant;
-    } else {
-        RestaurantHelper *rh = [[RestaurantHelper alloc] init];
-        group.restaurant = (Restaurant2 *)[rh findOrCreateManagedObjectEntityType:RESTAURANT_ID andIdentifier:dictionary[RESTAURANT_ID]];
+    
+    
+    // wine
+    NSArray *wineDictionariesArray = dictionary[GROUP_WINES];
+    
+    for(NSDictionary *wineDictionary in wineDictionariesArray){
+        WineHelper *wh = [[WineHelper alloc] init];
+        Wine2 *wine = (Wine2 *)[wh findOrCreateManagedObjectEntityType:WINE_ENTITY andIdentifier:wineDictionary[SERVER_IDENTIFIER]];
     }
     
     return group;
 }
+
+
+
 @end

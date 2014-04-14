@@ -2,7 +2,7 @@
 //  Wine2.m
 //  Corkie
 //
-//  Created by Charles Feinn on 4/12/14.
+//  Created by Charles Feinn on 4/13/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -17,11 +17,10 @@
 @dynamic identifier;
 @dynamic name;
 @dynamic vintage;
-@dynamic region;
 @dynamic country;
-@dynamic regionDescription;
+@dynamic wineDescription;
 @dynamic vineyard;
-@dynamic wineClass;
+@dynamic class_code;
 @dynamic color_code;
 @dynamic sparkling;
 @dynamic dessert;

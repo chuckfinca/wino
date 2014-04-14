@@ -7,10 +7,7 @@
 //
 
 #import "ServerHelper.h"
-#import "Restaurant2.h"
 
 @interface GroupHelper : ServerHelper
-
-@property (nonatomic, strong) Restaurant2 *relatedRestaurant;
 
 @end

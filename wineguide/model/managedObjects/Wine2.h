@@ -2,7 +2,7 @@
 //  Wine2.h
 //  Corkie
 //
-//  Created by Charles Feinn on 4/12/14.
+//  Created by Charles Feinn on 4/13/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -15,12 +15,11 @@
 
 @property (nonatomic, retain) NSNumber * identifier;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * vintage;
-@property (nonatomic, retain) NSString * region;
+@property (nonatomic, retain) NSString * vintage;
 @property (nonatomic, retain) NSString * country;
-@property (nonatomic, retain) NSString * regionDescription;
+@property (nonatomic, retain) NSString * wineDescription;
 @property (nonatomic, retain) NSString * vineyard;
-@property (nonatomic, retain) NSString * wineClass;
+@property (nonatomic, retain) NSNumber * class_code;
 @property (nonatomic, retain) NSNumber * color_code;
 @property (nonatomic, retain) NSNumber * sparkling;
 @property (nonatomic, retain) NSNumber * dessert;
