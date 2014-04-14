@@ -8,14 +8,16 @@
 
 #import "Flight2.h"
 #import "Restaurant2.h"
+#import "Wine2.h"
 
 
 @implementation Flight2
 
 @dynamic created_at;
-@dynamic updated_at;
-@dynamic status;
 @dynamic identifier;
+@dynamic status;
+@dynamic updated_at;
 @dynamic restaurant;
+@dynamic wines;
 
 @end

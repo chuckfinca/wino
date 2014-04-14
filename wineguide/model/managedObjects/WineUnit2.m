@@ -8,16 +8,18 @@
 
 #import "WineUnit2.h"
 #import "Restaurant2.h"
+#import "Wine2.h"
 
 
 @implementation WineUnit2
 
+@dynamic created_at;
 @dynamic identifier;
 @dynamic price;
 @dynamic quantity;
 @dynamic status;
-@dynamic created_at;
 @dynamic updated_at;
 @dynamic restaurant;
+@dynamic wine;
 
 @end

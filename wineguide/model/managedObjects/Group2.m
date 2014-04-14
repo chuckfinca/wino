@@ -12,13 +12,14 @@
 
 @implementation Group2
 
+@dynamic created_at;
+@dynamic groupDescription;
 @dynamic identifier;
 @dynamic name;
-@dynamic groupDescription;
 @dynamic sortOrder;
 @dynamic status;
-@dynamic created_at;
 @dynamic updated_at;
 @dynamic restaurant;
+@dynamic wines;
 
 @end

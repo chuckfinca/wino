@@ -13,13 +13,22 @@
 
 @interface Group2 : NSManagedObject
 
+@property (nonatomic, retain) NSDate * created_at;
+@property (nonatomic, retain) NSString * groupDescription;
 @property (nonatomic, retain) NSNumber * identifier;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * groupDescription;
 @property (nonatomic, retain) NSNumber * sortOrder;
 @property (nonatomic, retain) NSNumber * status;
-@property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) NSDate * updated_at;
 @property (nonatomic, retain) Restaurant2 *restaurant;
+@property (nonatomic, retain) NSSet *wines;
+@end
+
+@interface Group2 (CoreDataGeneratedAccessors)
+
+- (void)addWinesObject:(NSManagedObject *)value;
+- (void)removeWinesObject:(NSManagedObject *)value;
+- (void)addWines:(NSSet *)values;
+- (void)removeWines:(NSSet *)values;
 
 @end

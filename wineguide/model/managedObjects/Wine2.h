@@ -1,5 +1,5 @@
 //
-//  Restaurant2.h
+//  Wine2.h
 //  Corkie
 //
 //  Created by Charles Feinn on 4/12/14.
@@ -11,27 +11,29 @@
 
 @class Flight2, Group2, WineUnit2;
 
-@interface Restaurant2 : NSManagedObject
+@interface Wine2 : NSManagedObject
 
-@property (nonatomic, retain) NSString * city;
-@property (nonatomic, retain) NSString * country;
-@property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSNumber * latitude;
-@property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * state;
+@property (nonatomic, retain) NSNumber * vintage;
+@property (nonatomic, retain) NSString * region;
+@property (nonatomic, retain) NSString * country;
+@property (nonatomic, retain) NSString * regionDescription;
+@property (nonatomic, retain) NSString * vineyard;
+@property (nonatomic, retain) NSString * wineClass;
+@property (nonatomic, retain) NSNumber * color_code;
+@property (nonatomic, retain) NSNumber * sparkling;
+@property (nonatomic, retain) NSNumber * dessert;
+@property (nonatomic, retain) NSNumber * alcohol;
 @property (nonatomic, retain) NSNumber * status;
-@property (nonatomic, retain) NSString * street_1;
-@property (nonatomic, retain) NSString * street_2;
+@property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) NSDate * updated_at;
-@property (nonatomic, retain) NSString * zip;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
 @property (nonatomic, retain) NSSet *wineUnits;
 @end
 
-@interface Restaurant2 (CoreDataGeneratedAccessors)
+@interface Wine2 (CoreDataGeneratedAccessors)
 
 - (void)addFlightsObject:(Flight2 *)value;
 - (void)removeFlightsObject:(Flight2 *)value;
