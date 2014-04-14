@@ -11,7 +11,7 @@
 #import "RestaurantDataHelper.h"
 #import "Restaurant.h"
 #import "ColorSchemer.h"
-#import "ServerCaller.h"
+#import "ServerCommunicator.h"
 #import "RestaurantHelper.h"
 #import "DocumentHandler2.h"
 
@@ -90,12 +90,11 @@
     
     
     [[DocumentHandler2 sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document) {
-        NSLog(@"WE'VE GOT OUR DOC!!!!!!!!");
-        
         double latitude = 1;
         double longitude = 1;
-        ServerCaller *caller = [[ServerCaller alloc] init];
+        ServerCommunicator *caller = [[ServerCommunicator alloc] init];
         [caller getRestaurantsNearLatitude:latitude longitude:longitude];
+        [caller getAllWinesFromRestaurantIdentifier:1];
     }];
 }
 

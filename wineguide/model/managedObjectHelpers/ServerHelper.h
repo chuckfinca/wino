@@ -14,7 +14,9 @@
 #define WINE_ENTITY @"Wine2"
 #define WINE_UNIT_ENTITY @"WineUnit2"
 
-#define SERVER_IDENTIFIER @"id"
+#define ID_KEY @"id"
+#define WINE_ID @"wine_id"
+#define RESTAURANT_ID @"restaurant_id"
 #define IDENTIFIER @"identifier"
 
 @interface ServerHelper : NSObject
@@ -28,5 +30,7 @@
                                           andIdentifier:(NSNumber *)identifier;
 -(void)createOrUpdateObjectsWithJsonInArray:(NSArray *)jsonArray andRelatedObject:(NSManagedObject *)managedObject;
 -(NSSet *)addRelationToSet:(NSSet *)set;
+-(void)addAdditionalRelativesToManagedObject:(NSManagedObject *)managedObject fromDictionary:(NSDictionary *)dictionary;
+-(NSSet *)toManyRelationshipSetCreatedFromDictionariesArray:(NSArray *)dictionariesArray usingHelper:(ServerHelper *)serverHelper relatedObjectEntityType:(NSString *)entityType;
 
 @end

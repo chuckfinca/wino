@@ -6,18 +6,20 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "ServerCaller.h"
+#import "ServerCommunicator.h"
 #import "RestaurantDataHelper.h"
 #import "RestaurantHelper.h"
 #import "DocumentHandler2.h"
+#import "WineHelper.h"
+#import "GroupHelper.h"
 
-@interface ServerCaller ()
+@interface ServerCommunicator ()
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 
 @end
 
-@implementation ServerCaller
+@implementation ServerCommunicator
 
 #pragma mark - Getters & setters
 
@@ -34,6 +36,13 @@
     // call Corkie server and get restaurant json
     RestaurantHelper *restaurantHelper = [[RestaurantHelper alloc] init];
     [restaurantHelper getDataAtUrl:@"http://www.corkieapp.com/nearMe/1/1"];
+}
+
+-(void)getAllWinesFromRestaurantIdentifier:(NSInteger)restaurantIdentifier
+{
+    GroupHelper *gh = [[GroupHelper alloc] init];
+    [gh getDataAtUrl:[NSString stringWithFormat:@"http://wappbeta.herokuapp.com/getWineList/%ld",(long)restaurantIdentifier]];
+    NSLog(@"%@",[NSString stringWithFormat:@"http://wappbeta.herokuapp.com/getWineList/%ld",(long)restaurantIdentifier]);
 }
 
 @end

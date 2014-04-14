@@ -41,7 +41,7 @@
 -(void)logDetails
 {
     NSLog(@"=====================================================");
-    NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"%@ - %@",[self class],self.identifier);
     NSLog(@"name = %@",self.name);
     NSLog(@"groupDescription = %@",self.groupDescription);
     NSLog(@"sortOrder = %@",self.sortOrder);
@@ -51,5 +51,10 @@
 }
 
 
+-(NSString *)description
+{
+    [self logDetails];
+    return [NSString stringWithFormat:@"%@ - %@",[self class],self.identifier];
+}
 
 @end

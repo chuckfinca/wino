@@ -28,6 +28,7 @@
 
 -(Wine2 *)modifyAttributesWithDictionary:(NSDictionary *)dictionary
 {
+    NSLog(@"dictionary = %@",dictionary);
     if(!self.identifier || [self.identifier isEqualToNumber:@0]){
         self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
     }
@@ -46,7 +47,7 @@
     self.created_at = [dictionary dateAtKey:CREATED_AT];
     self.updated_at = [dictionary dateAtKey:UPDATED_AT];
     
-    [self logDetails];
+    [self description];
     
     return self;
 }
@@ -71,6 +72,10 @@
 }
 
 
-
+-(NSString *)description
+{
+    [self logDetails];
+    return [NSString stringWithFormat:@"%@ - %@",[self class],self.identifier];
+}
 
 @end

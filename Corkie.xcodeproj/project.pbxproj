@@ -188,7 +188,7 @@
 		C9DDD08C1820307D000A6FD7 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08B1820307D000A6FD7 /* MainTabBarController.m */; };
 		C9DDD08F182036D5000A6FD7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08D182036D5000A6FD7 /* Model.xcdatamodeld */; };
 		C9DDD0A11820885C000A6FD7 /* Restaurant+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD0A01820885C000A6FD7 /* Restaurant+CreateAndModify.m */; };
-		C9DEBC2418F9E85400134ECD /* ServerCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DEBC2318F9E85400134ECD /* ServerCaller.m */; };
+		C9DEBC2418F9E85400134ECD /* ServerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DEBC2318F9E85400134ECD /* ServerCommunicator.m */; };
 		C9DEBC2718F9EDF400134ECD /* Corkie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9DEBC2518F9EDF400134ECD /* Corkie.xcdatamodeld */; };
 		C9DEBC3618F9FA4900134ECD /* Restaurant2+CreateOrModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DEBC3518F9FA4900134ECD /* Restaurant2+CreateOrModify.m */; };
 		C9DEBC3918FA11C400134ECD /* DocumentHandler2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DEBC3818FA11C400134ECD /* DocumentHandler2.m */; };
@@ -508,8 +508,8 @@
 		C9DDD08E182036D5000A6FD7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C9DDD09F1820885C000A6FD7 /* Restaurant+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CreateAndModify.h"; path = "model/Restaurant+CreateAndModify.h"; sourceTree = "<group>"; };
 		C9DDD0A01820885C000A6FD7 /* Restaurant+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CreateAndModify.m"; path = "model/Restaurant+CreateAndModify.m"; sourceTree = "<group>"; };
-		C9DEBC2218F9E85400134ECD /* ServerCaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerCaller.h; path = model/ServerCaller.h; sourceTree = "<group>"; };
-		C9DEBC2318F9E85400134ECD /* ServerCaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerCaller.m; path = model/ServerCaller.m; sourceTree = "<group>"; };
+		C9DEBC2218F9E85400134ECD /* ServerCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerCommunicator.h; path = model/ServerCommunicator.h; sourceTree = "<group>"; };
+		C9DEBC2318F9E85400134ECD /* ServerCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerCommunicator.m; path = model/ServerCommunicator.m; sourceTree = "<group>"; };
 		C9DEBC2618F9EDF400134ECD /* Corkie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Corkie.xcdatamodel; sourceTree = "<group>"; };
 		C9DEBC3418F9FA4900134ECD /* Restaurant2+CreateOrModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant2+CreateOrModify.h"; path = "model/managedObjectCategories/Restaurant2+CreateOrModify.h"; sourceTree = "<group>"; };
 		C9DEBC3518F9FA4900134ECD /* Restaurant2+CreateOrModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant2+CreateOrModify.m"; path = "model/managedObjectCategories/Restaurant2+CreateOrModify.m"; sourceTree = "<group>"; };
@@ -1018,8 +1018,8 @@
 				C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */,
 				C93A739F18EF984D000E0B56 /* GetMe.h */,
 				C93A73A018EF984D000E0B56 /* GetMe.m */,
-				C9DEBC2218F9E85400134ECD /* ServerCaller.h */,
-				C9DEBC2318F9E85400134ECD /* ServerCaller.m */,
+				C9DEBC2218F9E85400134ECD /* ServerCommunicator.h */,
+				C9DEBC2318F9E85400134ECD /* ServerCommunicator.m */,
 				C9DEBC3718FA11C400134ECD /* DocumentHandler2.h */,
 				C9DEBC3818FA11C400134ECD /* DocumentHandler2.m */,
 			);
@@ -1311,7 +1311,7 @@
 				C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */,
 				C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */,
 				C932F144186D3BE90079680C /* ReviewTVC.m in Sources */,
-				C9DEBC2418F9E85400134ECD /* ServerCaller.m in Sources */,
+				C9DEBC2418F9E85400134ECD /* ServerCommunicator.m in Sources */,
 				C969343B187781EA0071EF41 /* WineReviewVHTV.m in Sources */,
 				C9DEBC5418FA371900134ECD /* Group2+CreateOrModify.m in Sources */,
 				C9C7D62F184047EB00A2E955 /* CellarSCDTVC.m in Sources */,

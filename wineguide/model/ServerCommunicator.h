@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ServerCaller : NSObject
+@interface ServerCommunicator : NSObject
 
 -(void)getRestaurantsNearLatitude:(double)latitude longitude:(double)longitude;
+-(void)getAllWinesFromRestaurantIdentifier:(NSInteger)restaurantIdentifier;
 
 @end

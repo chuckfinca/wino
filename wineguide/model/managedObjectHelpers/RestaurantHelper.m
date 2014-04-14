@@ -22,24 +22,8 @@
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    Restaurant2 *restaurant = (Restaurant2 *)[self findOrCreateManagedObjectEntityType:RESTAURANT_ENTITY andIdentifier:dictionary[SERVER_IDENTIFIER]];
+    Restaurant2 *restaurant = (Restaurant2 *)[self findOrCreateManagedObjectEntityType:RESTAURANT_ENTITY andIdentifier:dictionary[ID_KEY]];
     [restaurant modifyAttributesWithDictionary:dictionary];
-    
-    
-    // wine units
-    WineUnitHelper *wuh = [[WineUnitHelper alloc] init];
-    [wuh createOrUpdateObjectsWithJsonInArray:dictionary[RESTAURANT_WINE_UNITS]
-                              andRelatedObject:restaurant];
-    
-    // groups
-    GroupHelper *gh = [[GroupHelper alloc] init];
-    [gh createOrUpdateObjectsWithJsonInArray:dictionary[RESTAURANT_GROUPS]
-                             andRelatedObject:restaurant];
-    
-    // flights
-    NSArray *flightDictionaries = dictionary[RESTAURANT_FLIGHTS];
-    
-    // tasting records
     
     return restaurant;
 }
@@ -49,7 +33,7 @@
     if([managedObject isKindOfClass:[Restaurant2 class]]){
         Restaurant2 *restaurant = (Restaurant2 *)managedObject;
         
-        if([self.relatedObject isKindOfClass:[Flight2 class]]){
+        if([self.relatedObject class] == [Flight2 class]){
             restaurant.flights = [self addRelationToSet:restaurant.flights];
             
         } else if ([self.relatedObject class] == [Group2 class]){
@@ -60,6 +44,32 @@
             
         }
     }
+}
+
+-(void)addAdditionalRelativesToManagedObject:(NSManagedObject *)managedObject fromDictionary:(NSDictionary *)dictionary
+{
+    Restaurant2 *restaurant = (Restaurant2 *)managedObject;
+    
+    // flights
+    NSArray *flightDictionaries = dictionary[RESTAURANT_FLIGHTS];
+    
+    
+    // groups
+    GroupHelper *gh = [[GroupHelper alloc] init];
+    [gh createOrUpdateObjectsWithJsonInArray:dictionary[RESTAURANT_GROUPS]
+                            andRelatedObject:restaurant];
+    
+    
+    // tasting records
+    
+    
+    // wine units
+    WineUnitHelper *wuh = [[WineUnitHelper alloc] init];
+    [wuh createOrUpdateObjectsWithJsonInArray:dictionary[RESTAURANT_WINE_UNITS]
+                             andRelatedObject:restaurant];
+    
+    
+    
 }
 
 @end

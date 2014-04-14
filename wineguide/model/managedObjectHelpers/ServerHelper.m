@@ -11,7 +11,6 @@
 #import "DocumentHandler2.h"
 #import "ManagedObjectHandler.h"
 
-#define SERVER_IDENTIFIER @"id"
 
 @interface ServerHelper ()
 
@@ -85,29 +84,42 @@
     if([responseObject isKindOfClass:[NSArray class]]){
         [self createOrUpdateObjectsWithJsonInArray:(NSArray *)responseObject andRelatedObject:nil];
         
+    } else if([responseObject isKindOfClass:[NSDictionary class]]){
+        NSDictionary *dictionary = (NSDictionary *)responseObject;
+        if(dictionary[ID_KEY]){
+            [self processDictionary:dictionary withRelatedObject:nil];
+        } else {
+            NSLog(@"dictionary does not have key = %@",ID_KEY);
+        }
     } else {
-        NSLog(@"Response object is NOT an array, it is a %@", [responseObject class]);
+        NSLog(@"Response object from server is not an array or a dictionary");
     }
 }
 
--(void)createOrUpdateObjectsWithJsonInArray:(NSArray *)jsonArray andRelatedObject:(NSManagedObject *)managedObject
+-(void)createOrUpdateObjectsWithJsonInArray:(NSArray *)jsonArray andRelatedObject:(NSManagedObject *)relatedObject
 {
-    [jsonArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if([obj isKindOfClass:[NSDictionary class]]){
-            NSDictionary *dictionary = (NSDictionary *)obj;
-            if(dictionary[SERVER_IDENTIFIER]){
-                NSManagedObject *mo = [self createOrModifyObjectWithDictionary:dictionary];
-                if(managedObject){
-                    self.relatedObject = managedObject;
-                    [self addRelationToManagedObject:mo];
+        [jsonArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            if([obj isKindOfClass:[NSDictionary class]]){
+                NSDictionary *dictionary = (NSDictionary *)obj;
+                if(dictionary[ID_KEY]){
+                    [self processDictionary:dictionary withRelatedObject:relatedObject];
+                } else {
+                    NSLog(@"dictionary does not have key = %@",ID_KEY);
                 }
             } else {
-                NSLog(@"dictionary does not have key = %@",SERVER_IDENTIFIER);
+                NSLog(@"obj in responseObject array is not a dictionary, it is a %@",[obj class]);
             }
-        } else {
-            NSLog(@"obj in responseObject array is not a dictionary, it is a %@",[obj class]);
-        }
-    }];
+        }];
+}
+
+-(void)processDictionary:(NSDictionary *)dictionary withRelatedObject:(NSManagedObject *)relatedObject
+{
+    NSManagedObject *mo = [self createOrModifyObjectWithDictionary:dictionary];
+    if(relatedObject){
+        self.relatedObject = relatedObject;
+        [self addRelationToManagedObject:mo];
+    }
+    [self addAdditionalRelativesToManagedObject:mo fromDictionary:dictionary];
 }
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
@@ -127,6 +139,25 @@
     if(![mutableSet containsObject:self.relatedObject]) [mutableSet addObject:self.relatedObject];
     return mutableSet;
 }
+
+-(void)addAdditionalRelativesToManagedObject:(NSManagedObject *)managedObject fromDictionary:(NSDictionary *)dictionary
+{
+    // Abstract
+}
+
+-(NSSet *)toManyRelationshipSetCreatedFromDictionariesArray:(NSArray *)dictionariesArray usingHelper:(ServerHelper *)serverHelper relatedObjectEntityType:(NSString *)entityType
+{
+    NSMutableSet *set;
+    if(dictionariesArray > 0){
+        set = [[NSMutableSet alloc] init];
+        for(NSDictionary *dictionary in dictionariesArray){
+            NSManagedObject *mo = [serverHelper findOrCreateManagedObjectEntityType:entityType andIdentifier:dictionary[ID_KEY]];
+            [set addObject:mo];
+        }
+    }
+    return set;
+}
+
 
 
 -(NSManagedObject *)findOrCreateManagedObjectEntityType:(NSString *)entityName andIdentifier:(NSNumber *)identifier

@@ -46,4 +46,17 @@
     NSLog(@"updated_at = %@",self.updated_at);
 }
 
+
+-(NSString *)description
+{
+    [self logDetails];
+    return [NSString stringWithFormat:@"%@ - %@",[self class],self.identifier];
+}
+
+
+
+
+
+
+
 @end
