@@ -63,7 +63,7 @@
     </entity>
     <entity name="Wine2" representedClassName="Wine2" syncable="YES">
         <attribute name="alcohol" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="class_code" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="category_code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="color_code" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
@@ -93,12 +93,12 @@
         <relationship name="wine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine2" inverseName="wineUnits" inverseEntity="Wine2" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Brand2" positionX="358" positionY="-99" width="128" height="163"/>
         <element name="Flight2" positionX="0" positionY="-108" width="128" height="133"/>
         <element name="Group2" positionX="0" positionY="69" width="128" height="178"/>
+        <element name="RatingHistory2" positionX="369" positionY="81" width="128" height="223"/>
         <element name="Restaurant2" positionX="-173" positionY="-33" width="128" height="283"/>
         <element name="Wine2" positionX="189" positionY="72" width="128" height="328"/>
         <element name="WineUnit2" positionX="0" positionY="270" width="128" height="163"/>
-        <element name="Brand2" positionX="358" positionY="-99" width="128" height="163"/>
-        <element name="RatingHistory2" positionX="369" positionY="81" width="128" height="223"/>
     </elements>
 </model>

@@ -17,7 +17,7 @@
 @implementation Wine2
 
 @dynamic alcohol;
-@dynamic class_code;
+@dynamic category_code;
 @dynamic color_code;
 @dynamic country;
 @dynamic created_at;

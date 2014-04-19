@@ -13,9 +13,9 @@
 #define WINE_NAME @"wine_name"
 #define WINE_VINTAGE @"wine_vintage"
 #define WINE_COUNTRY @"wine_country"
-#define WINE_DESCRIPTION @"wine_region_desc"
+#define WINE_DESCRIPTION @"wine_desc"
 #define WINE_VINEYARD @"wine_vineyard"
-#define WINE_CLASS_CODE @"wine_class"
+#define WINE_CATEGORY_CODE @"wine_category_code"
 #define WINE_COLOR_CODE @"wine_color_code"
 #define WINE_SPARKLING @"is_sparkling"
 #define WINE_DESSERT @"is_dessert"
@@ -28,7 +28,6 @@
 
 -(Wine2 *)modifyAttributesWithDictionary:(NSDictionary *)dictionary
 {
-    NSLog(@"dictionary = %@",dictionary);
     if(!self.identifier || [self.identifier isEqualToNumber:@0]){
         self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
     }
@@ -38,7 +37,7 @@
     self.country = [dictionary sanitizedStringForKey:WINE_COUNTRY];
     self.wine_description = [dictionary sanitizedStringForKey:WINE_DESCRIPTION];
     self.vineyard = [dictionary sanitizedStringForKey:WINE_VINEYARD];
-    self.class_code = [dictionary sanitizedValueForKey:WINE_CLASS_CODE];
+    self.category_code = [dictionary sanitizedStringForKey:WINE_CATEGORY_CODE];
     self.color_code = [dictionary sanitizedValueForKey:WINE_COLOR_CODE];
     self.sparkling = [dictionary sanitizedValueForKey:WINE_SPARKLING];
     self.dessert = [dictionary sanitizedValueForKey:WINE_DESSERT];
@@ -46,6 +45,8 @@
     self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
     self.created_at = [dictionary dateAtKey:CREATED_AT];
     self.updated_at = [dictionary dateAtKey:UPDATED_AT];
+    
+    // NSLog(@"dictionary = %@",dictionary);
     
     [self description];
     
@@ -61,7 +62,7 @@
     NSLog(@"country = %@",self.country);
     NSLog(@"wine_description = %@",self.wine_description);
     NSLog(@"vineyard = %@",self.vineyard);
-    NSLog(@"class_code = %@",self.class_code);
+    NSLog(@"category_code = %@",self.category_code);
     NSLog(@"color_code = %@",self.color_code);
     NSLog(@"sparkling = %@",self.sparkling);
     NSLog(@"dessert = %@",self.dessert);

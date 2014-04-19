@@ -14,7 +14,7 @@
 @interface Wine2 : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * alcohol;
-@property (nonatomic, retain) NSNumber * class_code;
+@property (nonatomic, retain) NSString * category_code;
 @property (nonatomic, retain) NSNumber * color_code;
 @property (nonatomic, retain) NSString * country;
 @property (nonatomic, retain) NSDate * created_at;

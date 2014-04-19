@@ -36,6 +36,7 @@
     // call Corkie server and get restaurant json
     RestaurantHelper *restaurantHelper = [[RestaurantHelper alloc] init];
     [restaurantHelper getDataAtUrl:@"http://www.corkieapp.com/nearMe/1/1"];
+    NSLog(@"%@",[NSString stringWithFormat:@"http://wappbeta.herokuapp.com/nearMe/%f/%f",longitude,latitude]);
 }
 
 -(void)getAllWinesFromRestaurantIdentifier:(NSInteger)restaurantIdentifier

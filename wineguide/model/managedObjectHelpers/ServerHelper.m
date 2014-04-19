@@ -96,7 +96,7 @@
             NSLog(@"dictionary does not have key = %@",ID_KEY);
         }
     } else {
-        NSLog(@"Response object from server is not an array or a dictionary");
+        NSLog(@"JSON is not an array or a dictionary. It is a %@",[json class]);
     }
 }
 
