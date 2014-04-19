@@ -145,13 +145,13 @@
     // Abstract
 }
 
--(NSSet *)toManyRelationshipSetCreatedFromDictionariesArray:(NSArray *)dictionariesArray usingHelper:(ServerHelper *)serverHelper relatedObjectEntityType:(NSString *)entityType
+-(NSSet *)toManyRelationshipSetCreatedFromDictionariesArray:(NSArray *)dictionariesArray usingHelper:(ServerHelper *)serverHelper
 {
     NSMutableSet *set;
     if(dictionariesArray > 0){
         set = [[NSMutableSet alloc] init];
         for(NSDictionary *dictionary in dictionariesArray){
-            NSManagedObject *mo = [serverHelper findOrCreateManagedObjectEntityType:entityType andIdentifier:dictionary[ID_KEY]];
+            NSManagedObject *mo = [serverHelper createOrModifyObjectWithDictionary:dictionary];
             [set addObject:mo];
         }
     }

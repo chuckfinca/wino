@@ -44,15 +44,16 @@
 {
     Group2 *group = (Group2 *)managedObject;
     
-    // restaurant
+    // Restaurant
     if(!group.restaurant){
         RestaurantHelper *rh = [[RestaurantHelper alloc] init];
         group.restaurant = (Restaurant2 *)[rh findOrCreateManagedObjectEntityType:RESTAURANT_ENTITY andIdentifier:dictionary[RESTAURANT_ID]];
     }
     
+    // Wine
     NSArray *winesArray = dictionary[GROUP_WINES];
     WineHelper *wu = [[WineHelper alloc] init];
-    NSSet *wineSet = [self toManyRelationshipSetCreatedFromDictionariesArray:winesArray usingHelper:wu relatedObjectEntityType:WINE_ENTITY];
+    group.wines = [self toManyRelationshipSetCreatedFromDictionariesArray:winesArray usingHelper:wu];
 }
 
 

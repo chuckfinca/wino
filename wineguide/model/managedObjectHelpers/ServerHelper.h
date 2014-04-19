@@ -31,6 +31,6 @@
 -(void)createOrUpdateObjectsWithJsonInArray:(NSArray *)jsonArray andRelatedObject:(NSManagedObject *)managedObject;
 -(NSSet *)addRelationToSet:(NSSet *)set;
 -(void)addAdditionalRelativesToManagedObject:(NSManagedObject *)managedObject fromDictionary:(NSDictionary *)dictionary;
--(NSSet *)toManyRelationshipSetCreatedFromDictionariesArray:(NSArray *)dictionariesArray usingHelper:(ServerHelper *)serverHelper relatedObjectEntityType:(NSString *)entityType;
+-(NSSet *)toManyRelationshipSetCreatedFromDictionariesArray:(NSArray *)dictionariesArray usingHelper:(ServerHelper *)serverHelper;
 
 @end
