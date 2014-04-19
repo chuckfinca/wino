@@ -158,6 +158,7 @@
 		C9A73D9719030FA4007C2366 /* Flight2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A73D9619030FA4007C2366 /* Flight2.m */; };
 		C9A73D9A19030FA4007C2366 /* Group2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A73D9919030FA4007C2366 /* Group2.m */; };
 		C9A73DA21903110D007C2366 /* Brand2+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A73DA11903110D007C2366 /* Brand2+Modify.m */; };
+		C9A73DA519031233007C2366 /* BrandHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A73DA419031233007C2366 /* BrandHelper.m */; };
 		C9ACC7D7184E72AB00E5945D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D5184E72AB00E5945D /* settings.png */; };
 		C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D6184E72AB00E5945D /* settings@2x.png */; };
 		C9ACC7DD184E8C3600E5945D /* WineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7DC184E8C3600E5945D /* WineCell.xib */; };
@@ -465,6 +466,8 @@
 		C9A73D9F19030FFD007C2366 /* RatingHistory2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RatingHistory2.m; path = model/managedObjects/RatingHistory2.m; sourceTree = "<group>"; };
 		C9A73DA01903110D007C2366 /* Brand2+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Brand2+Modify.h"; path = "model/managedObjectCategories/Brand2+Modify.h"; sourceTree = "<group>"; };
 		C9A73DA11903110D007C2366 /* Brand2+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Brand2+Modify.m"; path = "model/managedObjectCategories/Brand2+Modify.m"; sourceTree = "<group>"; };
+		C9A73DA319031233007C2366 /* BrandHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrandHelper.h; path = model/managedObjectHelpers/BrandHelper.h; sourceTree = "<group>"; };
+		C9A73DA419031233007C2366 /* BrandHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrandHelper.m; path = model/managedObjectHelpers/BrandHelper.m; sourceTree = "<group>"; };
 		C9ACC7D5184E72AB00E5945D /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = images/settings.png; sourceTree = "<group>"; };
 		C9ACC7D6184E72AB00E5945D /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "images/settings@2x.png"; sourceTree = "<group>"; };
 		C9ACC7DC184E8C3600E5945D /* WineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineCell.xib; path = xibs/WineCell.xib; sourceTree = "<group>"; };
@@ -938,6 +941,8 @@
 				C9DEBC6E18FB696700134ECD /* WineHelper.m */,
 				C9A73D8019030836007C2366 /* FlightHelper.h */,
 				C9A73D8119030836007C2366 /* FlightHelper.m */,
+				C9A73DA319031233007C2366 /* BrandHelper.h */,
+				C9A73DA419031233007C2366 /* BrandHelper.m */,
 			);
 			name = managedObjectHelpers;
 			sourceTree = "<group>";
@@ -1321,6 +1326,7 @@
 				C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */,
 				C991FBAD1862BE6E00C10B52 /* ReviewersCVC.m in Sources */,
 				C9328CC81849784400AF6DEA /* RestaurantWineListManagerTVC.m in Sources */,
+				C9A73DA519031233007C2366 /* BrandHelper.m in Sources */,
 				C95A2CBF185A31980043ECB0 /* SpringyFlowLayout.m in Sources */,
 				C93A73E618F0AB47000E0B56 /* User.m in Sources */,
 				C9BAE96A18E228E5009B8C76 /* FriendListSearchBar.m in Sources */,

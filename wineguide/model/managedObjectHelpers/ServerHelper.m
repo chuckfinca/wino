@@ -96,6 +96,8 @@
     }
 }
 
+
+
 -(void)createOrUpdateObjectsWithJsonInArray:(NSArray *)jsonArray andRelatedObject:(NSManagedObject *)relatedObject
 {
         [jsonArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -143,19 +145,6 @@
 -(void)addAdditionalRelativesToManagedObject:(NSManagedObject *)managedObject fromDictionary:(NSDictionary *)dictionary
 {
     // Abstract
-}
-
--(NSSet *)toManyRelationshipSetCreatedFromDictionariesArray:(NSArray *)dictionariesArray usingHelper:(ServerHelper *)serverHelper
-{
-    NSMutableSet *set;
-    if(dictionariesArray > 0){
-        set = [[NSMutableSet alloc] init];
-        for(NSDictionary *dictionary in dictionariesArray){
-            NSManagedObject *mo = [serverHelper createOrModifyObjectWithDictionary:dictionary];
-            [set addObject:mo];
-        }
-    }
-    return set;
 }
 
 

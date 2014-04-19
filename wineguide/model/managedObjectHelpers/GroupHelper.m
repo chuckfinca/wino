@@ -53,7 +53,7 @@
     // Wine
     NSArray *winesArray = dictionary[GROUP_WINES];
     WineHelper *wu = [[WineHelper alloc] init];
-    group.wines = [self toManyRelationshipSetCreatedFromDictionariesArray:winesArray usingHelper:wu];
+    [wu createOrUpdateObjectsWithJsonInArray:winesArray andRelatedObject:group];
 }
 
 
