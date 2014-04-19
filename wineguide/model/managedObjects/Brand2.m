@@ -1,23 +1,24 @@
 //
-//  Flight2.m
+//  Brand2.m
 //  Corkie
 //
 //  Created by Charles Feinn on 4/19/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "Flight2.h"
-#import "Restaurant2.h"
+#import "Brand2.h"
 #import "Wine2.h"
 
 
-@implementation Flight2
+@implementation Brand2
 
-@dynamic created_at;
+@dynamic about;
+@dynamic name;
 @dynamic identifier;
-@dynamic status;
+@dynamic created_at;
 @dynamic updated_at;
-@dynamic restaurant;
+@dynamic status;
+@dynamic website;
 @dynamic wines;
 
 @end

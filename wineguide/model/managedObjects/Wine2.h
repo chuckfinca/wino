@@ -2,7 +2,7 @@
 //  Wine2.h
 //  Corkie
 //
-//  Created by Charles Feinn on 4/13/14.
+//  Created by Charles Feinn on 4/19/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -13,23 +13,25 @@
 
 @interface Wine2 : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * vintage;
-@property (nonatomic, retain) NSString * country;
-@property (nonatomic, retain) NSString * wineDescription;
-@property (nonatomic, retain) NSString * vineyard;
+@property (nonatomic, retain) NSNumber * alcohol;
 @property (nonatomic, retain) NSNumber * class_code;
 @property (nonatomic, retain) NSNumber * color_code;
-@property (nonatomic, retain) NSNumber * sparkling;
-@property (nonatomic, retain) NSNumber * dessert;
-@property (nonatomic, retain) NSNumber * alcohol;
-@property (nonatomic, retain) NSNumber * status;
+@property (nonatomic, retain) NSString * country;
 @property (nonatomic, retain) NSDate * created_at;
+@property (nonatomic, retain) NSNumber * dessert;
+@property (nonatomic, retain) NSNumber * identifier;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * sparkling;
+@property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) NSDate * updated_at;
+@property (nonatomic, retain) NSString * vineyard;
+@property (nonatomic, retain) NSString * vintage;
+@property (nonatomic, retain) NSString * wine_description;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
 @property (nonatomic, retain) NSSet *wineUnits;
+@property (nonatomic, retain) NSManagedObject *brand;
+@property (nonatomic, retain) NSManagedObject *ratingHistory;
 @end
 
 @interface Wine2 (CoreDataGeneratedAccessors)

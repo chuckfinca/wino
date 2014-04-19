@@ -36,7 +36,7 @@
     self.name = [dictionary sanitizedStringForKey:WINE_NAME];
     self.vintage = [dictionary sanitizedStringForKey:WINE_VINTAGE];
     self.country = [dictionary sanitizedStringForKey:WINE_COUNTRY];
-    self.wineDescription = [dictionary sanitizedStringForKey:WINE_DESCRIPTION];
+    self.wine_description = [dictionary sanitizedStringForKey:WINE_DESCRIPTION];
     self.vineyard = [dictionary sanitizedStringForKey:WINE_VINEYARD];
     self.class_code = [dictionary sanitizedValueForKey:WINE_CLASS_CODE];
     self.color_code = [dictionary sanitizedValueForKey:WINE_COLOR_CODE];
@@ -59,7 +59,7 @@
     NSLog(@"name = %@",self.name);
     NSLog(@"groupDescription = %@",self.vintage);
     NSLog(@"groupDescription = %@",self.country);
-    NSLog(@"groupDescription = %@",self.wineDescription);
+    NSLog(@"groupDescription = %@",self.wine_description);
     NSLog(@"groupDescription = %@",self.vineyard);
     NSLog(@"groupDescription = %@",self.class_code);
     NSLog(@"groupDescription = %@",self.color_code);

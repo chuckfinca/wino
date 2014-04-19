@@ -1,5 +1,5 @@
 //
-//  Group2.h
+//  Brand2.h
 //  Corkie
 //
 //  Created by Charles Feinn on 4/19/14.
@@ -9,22 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Restaurant2, Wine2;
+@class Wine2;
 
-@interface Group2 : NSManagedObject
+@interface Brand2 : NSManagedObject
 
-@property (nonatomic, retain) NSDate * created_at;
-@property (nonatomic, retain) NSString * group_description;
-@property (nonatomic, retain) NSNumber * identifier;
+@property (nonatomic, retain) NSString * about;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * sort_order;
-@property (nonatomic, retain) NSNumber * status;
+@property (nonatomic, retain) NSNumber * identifier;
+@property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) NSDate * updated_at;
-@property (nonatomic, retain) Restaurant2 *restaurant;
+@property (nonatomic, retain) NSNumber * status;
+@property (nonatomic, retain) NSString * website;
 @property (nonatomic, retain) NSSet *wines;
 @end
 
-@interface Group2 (CoreDataGeneratedAccessors)
+@interface Brand2 (CoreDataGeneratedAccessors)
 
 - (void)addWinesObject:(Wine2 *)value;
 - (void)removeWinesObject:(Wine2 *)value;
