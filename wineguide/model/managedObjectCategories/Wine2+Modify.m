@@ -55,17 +55,17 @@
 -(void)logDetails
 {
     NSLog(@"=====================================================");
-    NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"%@ - %@\n",[self class],self.identifier);
     NSLog(@"name = %@",self.name);
-    NSLog(@"groupDescription = %@",self.vintage);
-    NSLog(@"groupDescription = %@",self.country);
-    NSLog(@"groupDescription = %@",self.wine_description);
-    NSLog(@"groupDescription = %@",self.vineyard);
-    NSLog(@"groupDescription = %@",self.class_code);
-    NSLog(@"groupDescription = %@",self.color_code);
-    NSLog(@"groupDescription = %@",self.sparkling);
-    NSLog(@"groupDescription = %@",self.dessert);
-    NSLog(@"groupDescription = %@",self.alcohol);
+    NSLog(@"vintage = %@",self.vintage);
+    NSLog(@"country = %@",self.country);
+    NSLog(@"wine_description = %@",self.wine_description);
+    NSLog(@"vineyard = %@",self.vineyard);
+    NSLog(@"class_code = %@",self.class_code);
+    NSLog(@"color_code = %@",self.color_code);
+    NSLog(@"sparkling = %@",self.sparkling);
+    NSLog(@"dessert = %@",self.dessert);
+    NSLog(@"alcohol = %@",self.alcohol);
     NSLog(@"status = %@",self.status);
     NSLog(@"created_at = %@",self.created_at);
     NSLog(@"updated_at = %@",self.updated_at);

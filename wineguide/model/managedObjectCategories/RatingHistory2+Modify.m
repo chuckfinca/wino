@@ -49,7 +49,7 @@
 -(void)logDetails
 {
     NSLog(@"=====================================================");
-    NSLog(@"%@ - %@",[self class],self.identifier);
+    NSLog(@"%@ - %@\n",[self class],self.identifier);
     NSLog(@"average = %@",self.average);
     NSLog(@"five_star_ratings = %@",self.five_star_ratings);
     NSLog(@"four_star_ratings = %@",self.four_star_ratings);

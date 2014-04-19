@@ -52,7 +52,7 @@
 -(void)logDetails
 {
     NSLog(@"=====================================================");
-    NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"%@ - %@\n",[self class],self.identifier);
     NSLog(@"state = %@",self.state);
     NSLog(@"name = %@",self.name);
     NSLog(@"street_1 = %@",self.street_1);

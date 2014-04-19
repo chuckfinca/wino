@@ -38,7 +38,7 @@
 -(void)logDetails
 {
     NSLog(@"=====================================================");
-    NSLog(@"identifier = %@",self.identifier);
+    NSLog(@"%@ - %@\n",[self class],self.identifier);
     NSLog(@"price = %@",self.price);
     NSLog(@"quantity = %@",self.quantity);
     NSLog(@"status = %@",self.status);

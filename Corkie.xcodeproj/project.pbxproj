@@ -88,6 +88,7 @@
 		C9548EB919032486001A8997 /* WineUnit2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EB819032486001A8997 /* WineUnit2.m */; };
 		C9548EBC19032486001A8997 /* RatingHistory2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EBB19032486001A8997 /* RatingHistory2.m */; };
 		C9548EBF190324FE001A8997 /* RatingHistory2+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EBE190324FE001A8997 /* RatingHistory2+Modify.m */; };
+		C9548EC219032753001A8997 /* RatingHistoryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EC119032753001A8997 /* RatingHistoryHelper.m */; };
 		C95A2CBF185A31980043ECB0 /* SpringyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A2CBE185A31980043ECB0 /* SpringyFlowLayout.m */; };
 		C95A2CC2185B80070043ECB0 /* visible.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CC0185B80070043ECB0 /* visible.png */; };
 		C95A2CC3185B80070043ECB0 /* visible@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CC1185B80070043ECB0 /* visible@2x.png */; };
@@ -366,6 +367,8 @@
 		C9548EBB19032486001A8997 /* RatingHistory2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingHistory2.m; path = model/managedObjects/RatingHistory2.m; sourceTree = "<group>"; };
 		C9548EBD190324FE001A8997 /* RatingHistory2+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RatingHistory2+Modify.h"; path = "model/managedObjectCategories/RatingHistory2+Modify.h"; sourceTree = "<group>"; };
 		C9548EBE190324FE001A8997 /* RatingHistory2+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RatingHistory2+Modify.m"; path = "model/managedObjectCategories/RatingHistory2+Modify.m"; sourceTree = "<group>"; };
+		C9548EC019032753001A8997 /* RatingHistoryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingHistoryHelper.h; path = model/managedObjectHelpers/RatingHistoryHelper.h; sourceTree = "<group>"; };
+		C9548EC119032753001A8997 /* RatingHistoryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingHistoryHelper.m; path = model/managedObjectHelpers/RatingHistoryHelper.m; sourceTree = "<group>"; };
 		C95A2CBD185A31980043ECB0 /* SpringyFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpringyFlowLayout.h; path = views/SpringyFlowLayout.h; sourceTree = "<group>"; };
 		C95A2CBE185A31980043ECB0 /* SpringyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpringyFlowLayout.m; path = views/SpringyFlowLayout.m; sourceTree = "<group>"; };
 		C95A2CC0185B80070043ECB0 /* visible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = visible.png; path = images/visible.png; sourceTree = "<group>"; };
@@ -947,6 +950,8 @@
 				C9A73D8119030836007C2366 /* FlightHelper.m */,
 				C9A73DA319031233007C2366 /* BrandHelper.h */,
 				C9A73DA419031233007C2366 /* BrandHelper.m */,
+				C9548EC019032753001A8997 /* RatingHistoryHelper.h */,
+				C9548EC119032753001A8997 /* RatingHistoryHelper.m */,
 			);
 			name = managedObjectHelpers;
 			sourceTree = "<group>";
@@ -1282,6 +1287,7 @@
 				C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */,
 				C93A73D718F0AB46000E0B56 /* TastingNote.m in Sources */,
 				C9DAB85418E90FE800BB0E2A /* TimelineSCDTVC.m in Sources */,
+				C9548EC219032753001A8997 /* RatingHistoryHelper.m in Sources */,
 				C93A73D118F0AB46000E0B56 /* Review.m in Sources */,
 				C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */,
 				C9DEBC6C18FB694A00134ECD /* Wine2+Modify.m in Sources */,

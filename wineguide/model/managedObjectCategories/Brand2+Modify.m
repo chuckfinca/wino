@@ -40,7 +40,7 @@
 -(void)logDetails
 {
     NSLog(@"=====================================================");
-    NSLog(@"%@ - %@",[self class],self.identifier);
+    NSLog(@"%@ - %@\n",[self class],self.identifier);
     NSLog(@"name = %@",self.name);
     NSLog(@"about = %@",self.about);
     NSLog(@"website = %@",self.website);

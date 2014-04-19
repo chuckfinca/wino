@@ -53,11 +53,11 @@
     
     // flights
     FlightHelper *fh = [[FlightHelper alloc] init];
-    [fh createOrUpdateObjectsWithJsonInArray:dictionary[RESTAURANT_FLIGHTS] andRelatedObject:restaurant];
+    [fh processJSON:dictionary[RESTAURANT_FLIGHTS] withRelatedObject:restaurant];
     
     // groups
     GroupHelper *gh = [[GroupHelper alloc] init];
-    [gh createOrUpdateObjectsWithJsonInArray:dictionary[RESTAURANT_GROUPS] andRelatedObject:restaurant];
+    [gh processJSON:dictionary[RESTAURANT_GROUPS] withRelatedObject:restaurant];
     
     
     // tasting records
@@ -65,7 +65,7 @@
     
     // wine units
     WineUnitHelper *wuh = [[WineUnitHelper alloc] init];
-    [wuh createOrUpdateObjectsWithJsonInArray:dictionary[RESTAURANT_WINE_UNITS] andRelatedObject:restaurant];
+    [wuh processJSON:dictionary[RESTAURANT_WINE_UNITS] withRelatedObject:restaurant];
 }
 
 @end

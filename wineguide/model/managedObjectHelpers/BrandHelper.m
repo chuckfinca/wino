@@ -17,7 +17,7 @@
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    Brand2 *brand = (Brand2 *)[self findOrCreateManagedObjectEntityType:GROUP_ENTITY andIdentifier:dictionary[ID_KEY]];
+    Brand2 *brand = (Brand2 *)[self findOrCreateManagedObjectEntityType:BRAND_ENTITY andIdentifier:dictionary[ID_KEY]];
     [brand modifyAttributesWithDictionary:dictionary];
     
     return brand;
@@ -41,7 +41,7 @@
     
     // Wine
     WineHelper *wu = [[WineHelper alloc] init];
-    [wu createOrUpdateObjectsWithJsonInArray:dictionary[BRAND_WINES] andRelatedObject:brand];
+    [wu processJSON:dictionary[BRAND_WINES] withRelatedObject:brand];
 }
 
 

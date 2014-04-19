@@ -19,7 +19,7 @@
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    Flight2 *flight = (Flight2 *)[self findOrCreateManagedObjectEntityType:GROUP_ENTITY andIdentifier:dictionary[ID_KEY]];
+    Flight2 *flight = (Flight2 *)[self findOrCreateManagedObjectEntityType:FLIGHT_ENTITY andIdentifier:dictionary[ID_KEY]];
     [flight modifyAttributesWithDictionary:dictionary];
     
     return flight;
@@ -51,7 +51,7 @@
     
     // Wine
     WineHelper *wu = [[WineHelper alloc] init];
-    [wu createOrUpdateObjectsWithJsonInArray:dictionary[FLIGHT_WINES] andRelatedObject:flight];
+    [wu processJSON:dictionary[FLIGHT_WINES] withRelatedObject:flight];
 }
 
 

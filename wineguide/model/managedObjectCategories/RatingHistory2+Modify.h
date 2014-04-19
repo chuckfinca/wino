@@ -10,4 +10,6 @@
 
 @interface RatingHistory2 (Modify)
 
+-(RatingHistory2 *)modifyAttributesWithDictionary:(NSDictionary *)dictionary;
+
 @end

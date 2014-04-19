@@ -34,7 +34,7 @@
 -(void)logDetails
 {
     NSLog(@"=====================================================");
-    NSLog(@"%@ - %@",[self class],self.identifier);
+    NSLog(@"%@ - %@\n",[self class],self.identifier);
     NSLog(@"status = %@",self.status);
     NSLog(@"created_at = %@",self.created_at);
     NSLog(@"updated_at = %@",self.updated_at);

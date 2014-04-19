@@ -71,7 +71,7 @@
     manager.responseSerializer.acceptableContentTypes = set;
     
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self processResponseObject:responseObject];
+        [self processJSON:responseObject withRelatedObject:nil];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -79,15 +79,19 @@
     }];
 }
 
--(void)processResponseObject:(id)responseObject
+-(void)processJSON:(id)json withRelatedObject:(NSManagedObject *)relatedObject
 {
-    if([responseObject isKindOfClass:[NSArray class]]){
-        [self createOrUpdateObjectsWithJsonInArray:(NSArray *)responseObject andRelatedObject:nil];
+    if(relatedObject){
+        self.relatedObject = relatedObject;
+    }
+    
+    if([json isKindOfClass:[NSArray class]]){
+        [self createOrUpdateObjectsWithJsonInArray:(NSArray *)json];
         
-    } else if([responseObject isKindOfClass:[NSDictionary class]]){
-        NSDictionary *dictionary = (NSDictionary *)responseObject;
+    } else if([json isKindOfClass:[NSDictionary class]]){
+        NSDictionary *dictionary = (NSDictionary *)json;
         if(dictionary[ID_KEY]){
-            [self processDictionary:dictionary withRelatedObject:nil];
+            [self processDictionary:dictionary];
         } else {
             NSLog(@"dictionary does not have key = %@",ID_KEY);
         }
@@ -98,13 +102,13 @@
 
 
 
--(void)createOrUpdateObjectsWithJsonInArray:(NSArray *)jsonArray andRelatedObject:(NSManagedObject *)relatedObject
+-(void)createOrUpdateObjectsWithJsonInArray:(NSArray *)jsonArray
 {
         [jsonArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             if([obj isKindOfClass:[NSDictionary class]]){
                 NSDictionary *dictionary = (NSDictionary *)obj;
                 if(dictionary[ID_KEY]){
-                    [self processDictionary:dictionary withRelatedObject:relatedObject];
+                    [self processDictionary:dictionary];
                 } else {
                     NSLog(@"dictionary does not have key = %@",ID_KEY);
                 }
@@ -114,11 +118,10 @@
         }];
 }
 
--(void)processDictionary:(NSDictionary *)dictionary withRelatedObject:(NSManagedObject *)relatedObject
+-(void)processDictionary:(NSDictionary *)dictionary
 {
     NSManagedObject *mo = [self createOrModifyObjectWithDictionary:dictionary];
-    if(relatedObject){
-        self.relatedObject = relatedObject;
+    if(self.relatedObject){
         [self addRelationToManagedObject:mo];
     }
     [self processManagedObject:mo relativesFoundInDictionary:dictionary];

@@ -41,7 +41,7 @@
 -(void)logDetails
 {
     NSLog(@"=====================================================");
-    NSLog(@"%@ - %@",[self class],self.identifier);
+    NSLog(@"%@ - %@\n",[self class],self.identifier);
     NSLog(@"name = %@",self.name);
     NSLog(@"group_description = %@",self.group_description);
     NSLog(@"sort_order = %@",self.sort_order);

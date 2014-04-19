@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#define BRAND_ENTITY @"Brand2"
+#define FLIGHT_ENTITY @"Flight2"
 #define GROUP_ENTITY @"Group2"
+#define RATING_HISTORY_ENTITY @"RatingHistory2"
 #define RESTAURANT_ENTITY @"Restaurant2"
 #define WINE_ENTITY @"Wine2"
 #define WINE_UNIT_ENTITY @"WineUnit2"
@@ -25,11 +28,12 @@
 @property (nonatomic, readonly) NSManagedObject *relatedObject;
 
 -(void)getDataAtUrl:(NSString *)url;
+-(void)processJSON:(id)json withRelatedObject:(NSManagedObject *)relatedObject;
 
--(NSManagedObject *)findOrCreateManagedObjectEntityType:(NSString *)entityName
-                                          andIdentifier:(NSNumber *)identifier;
--(void)createOrUpdateObjectsWithJsonInArray:(NSArray *)jsonArray andRelatedObject:(NSManagedObject *)managedObject;
+-(NSManagedObject *)findOrCreateManagedObjectEntityType:(NSString *)entityName andIdentifier:(NSNumber *)identifier;
+
 -(NSSet *)addRelationToSet:(NSSet *)set;
+
 -(void)processManagedObject:(NSManagedObject *)managedObject relativesFoundInDictionary:(NSDictionary *)dictionary;
 
 @end

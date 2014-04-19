@@ -52,7 +52,7 @@
     
     // Wine
     WineHelper *wu = [[WineHelper alloc] init];
-    [wu createOrUpdateObjectsWithJsonInArray:dictionary[GROUP_WINES] andRelatedObject:group];
+    [wu processJSON:dictionary[GROUP_WINES] withRelatedObject:group];
 }
 
 
