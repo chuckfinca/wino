@@ -20,18 +20,21 @@
 
 -(WineUnit2 *)modifyAttributesWithDictionary:(NSDictionary *)dictionary
 {
-    if(!self.identifier || [self.identifier isEqualToNumber:@0]){
-        self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
+    NSDate *serverUpdatedDate = [dictionary dateAtKey:UPDATED_AT];
+    if(!self.updated_at || [self.updated_at laterDate:serverUpdatedDate] == serverUpdatedDate){
+        
+        if(!self.identifier || [self.identifier isEqualToNumber:@0]){
+            self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
+        }
+        
+        self.price = [dictionary sanitizedValueForKey:WINE_UNIT_PRICE];
+        self.quantity = [dictionary sanitizedValueForKey:WINE_UNIT_QUANTITY];
+        self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
+        self.created_at = [dictionary dateAtKey:CREATED_AT];
+        self.updated_at = serverUpdatedDate;
+        
+        [self logDetails];
     }
-    
-    self.price = [dictionary sanitizedValueForKey:WINE_UNIT_PRICE];
-    self.quantity = [dictionary sanitizedValueForKey:WINE_UNIT_QUANTITY];
-    self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
-    self.created_at = [dictionary dateAtKey:CREATED_AT];
-    self.updated_at = [dictionary dateAtKey:UPDATED_AT];
-    
-    [self logDetails];
-    
     return self;
 }
 

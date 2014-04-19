@@ -26,23 +26,26 @@
 
 -(RatingHistory2 *)modifyAttributesWithDictionary:(NSDictionary *)dictionary
 {
-    if(!self.identifier || [self.identifier isEqualToNumber:@0]){
-        self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
+    NSDate *serverUpdatedDate = [dictionary dateAtKey:UPDATED_AT];
+    if(!self.updated_at || [self.updated_at laterDate:serverUpdatedDate] == serverUpdatedDate){
+        
+        if(!self.identifier || [self.identifier isEqualToNumber:@0]){
+            self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
+        }
+        
+        self.average = [dictionary sanitizedValueForKey:RATING_HISTORY_AVERAGE_RATING];
+        self.five_star_ratings = [dictionary sanitizedValueForKey:RATING_HISTORY_FIVES];
+        self.four_star_ratings = [dictionary sanitizedValueForKey:RATING_HISTORY_FOURS];
+        self.three_star_ratings = [dictionary sanitizedValueForKey:RATING_HISTORY_THREES];
+        self.two_star_ratings = [dictionary sanitizedValueForKey:RATING_HISTORY_TWOS];
+        self.one_star_ratings = [dictionary sanitizedValueForKey:RATING_HISTORY_ONES];
+        self.total_ratings = [dictionary sanitizedValueForKey:RATING_HISTORY_TOTAL_RATINGS];
+        self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
+        self.created_at = [dictionary dateAtKey:CREATED_AT];
+        self.updated_at = serverUpdatedDate;
+        
+        [self logDetails];
     }
- 
-    self.average = [dictionary sanitizedValueForKey:RATING_HISTORY_AVERAGE_RATING];
-    self.five_star_ratings = [dictionary sanitizedValueForKey:RATING_HISTORY_FIVES];
-    self.four_star_ratings = [dictionary sanitizedValueForKey:RATING_HISTORY_FOURS];
-    self.three_star_ratings = [dictionary sanitizedValueForKey:RATING_HISTORY_THREES];
-    self.two_star_ratings = [dictionary sanitizedValueForKey:RATING_HISTORY_TWOS];
-    self.one_star_ratings = [dictionary sanitizedValueForKey:RATING_HISTORY_ONES];
-    self.total_ratings = [dictionary sanitizedValueForKey:RATING_HISTORY_TOTAL_RATINGS];
-    self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
-    self.created_at = [dictionary dateAtKey:CREATED_AT];
-    self.updated_at = [dictionary dateAtKey:UPDATED_AT];
-    
-    [self logDetails];
-    
     return self;
 }
 

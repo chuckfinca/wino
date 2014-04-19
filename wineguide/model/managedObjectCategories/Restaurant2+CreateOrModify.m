@@ -27,24 +27,30 @@
 
 -(Restaurant2 *)modifyAttributesWithDictionary:(NSDictionary *)dictionary
 {
-    if(!self.identifier || [self.identifier isEqualToNumber:@0]){
-        self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
+    NSDate *serverUpdatedDate = [dictionary dateAtKey:UPDATED_AT];
+    if(!self.updated_at || [self.updated_at laterDate:serverUpdatedDate] == serverUpdatedDate){
+        
+        if(!self.identifier || [self.identifier isEqualToNumber:@0]){
+            self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
+        }
+        
+        self.state = [dictionary sanitizedStringForKey:RESTAURANT_STATE];
+        self.name = [dictionary sanitizedStringForKey:RESTAURANT_NAME];
+        self.street_1 = [dictionary sanitizedStringForKey:RESTAURANT_STREET_1];
+        self.street_2 = [dictionary sanitizedStringForKey:RESTAURANT_STREET_2];
+        self.city = [dictionary sanitizedStringForKey:RESTAURANT_CITY];
+        self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
+        self.zip = [dictionary sanitizedStringForKey:RESTAURANT_ZIP];
+        self.country = [dictionary sanitizedStringForKey:RESTAURANT_COUNTRY];
+        self.created_at = [dictionary dateAtKey:CREATED_AT];
+        self.updated_at = serverUpdatedDate;
+        self.latitude = [dictionary sanitizedValueForKey:RESTAURANT_LATITUDE];
+        self.longitude = [dictionary sanitizedValueForKey:RESTAURANT_LONGITUDE];
+        
+        [self logDetails];
     }
     
-    self.state = [dictionary sanitizedStringForKey:RESTAURANT_STATE];
-    self.name = [dictionary sanitizedStringForKey:RESTAURANT_NAME];
-    self.street_1 = [dictionary sanitizedStringForKey:RESTAURANT_STREET_1];
-    self.street_2 = [dictionary sanitizedStringForKey:RESTAURANT_STREET_2];
-    self.city = [dictionary sanitizedStringForKey:RESTAURANT_CITY];
-    self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
-    self.zip = [dictionary sanitizedStringForKey:RESTAURANT_ZIP];
-    self.country = [dictionary sanitizedStringForKey:RESTAURANT_COUNTRY];
-    self.created_at = [dictionary dateAtKey:CREATED_AT];
-    self.updated_at = [dictionary dateAtKey:UPDATED_AT];
-    self.latitude = [dictionary sanitizedValueForKey:RESTAURANT_LATITUDE];
-    self.longitude = [dictionary sanitizedValueForKey:RESTAURANT_LONGITUDE];
     
-    [self logDetails];
     
     return self;
 }

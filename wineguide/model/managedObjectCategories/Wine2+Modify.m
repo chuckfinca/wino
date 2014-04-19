@@ -28,28 +28,31 @@
 
 -(Wine2 *)modifyAttributesWithDictionary:(NSDictionary *)dictionary
 {
-    if(!self.identifier || [self.identifier isEqualToNumber:@0]){
-        self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
+    NSDate *serverUpdatedDate = [dictionary dateAtKey:UPDATED_AT];
+    if(!self.updated_at || [self.updated_at laterDate:serverUpdatedDate] == serverUpdatedDate){
+        
+        if(!self.identifier || [self.identifier isEqualToNumber:@0]){
+            self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
+        }
+        
+        self.name = [dictionary sanitizedStringForKey:WINE_NAME];
+        self.vintage = [dictionary sanitizedStringForKey:WINE_VINTAGE];
+        self.country = [dictionary sanitizedStringForKey:WINE_COUNTRY];
+        self.wine_description = [dictionary sanitizedStringForKey:WINE_DESCRIPTION];
+        self.vineyard = [dictionary sanitizedStringForKey:WINE_VINEYARD];
+        self.category_code = [dictionary sanitizedStringForKey:WINE_CATEGORY_CODE];
+        self.color_code = [dictionary sanitizedValueForKey:WINE_COLOR_CODE];
+        self.sparkling = [dictionary sanitizedValueForKey:WINE_SPARKLING];
+        self.dessert = [dictionary sanitizedValueForKey:WINE_DESSERT];
+        self.alcohol = [dictionary sanitizedValueForKey:WINE_ALCOHOL_PERCENTAGE];
+        self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
+        self.created_at = [dictionary dateAtKey:CREATED_AT];
+        self.updated_at = serverUpdatedDate;
+        
+        // NSLog(@"dictionary = %@",dictionary);
+        
+        [self description];
     }
-    
-    self.name = [dictionary sanitizedStringForKey:WINE_NAME];
-    self.vintage = [dictionary sanitizedStringForKey:WINE_VINTAGE];
-    self.country = [dictionary sanitizedStringForKey:WINE_COUNTRY];
-    self.wine_description = [dictionary sanitizedStringForKey:WINE_DESCRIPTION];
-    self.vineyard = [dictionary sanitizedStringForKey:WINE_VINEYARD];
-    self.category_code = [dictionary sanitizedStringForKey:WINE_CATEGORY_CODE];
-    self.color_code = [dictionary sanitizedValueForKey:WINE_COLOR_CODE];
-    self.sparkling = [dictionary sanitizedValueForKey:WINE_SPARKLING];
-    self.dessert = [dictionary sanitizedValueForKey:WINE_DESSERT];
-    self.alcohol = [dictionary sanitizedValueForKey:WINE_ALCOHOL_PERCENTAGE];
-    self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
-    self.created_at = [dictionary dateAtKey:CREATED_AT];
-    self.updated_at = [dictionary dateAtKey:UPDATED_AT];
-    
-    // NSLog(@"dictionary = %@",dictionary);
-    
-    [self description];
-    
     return self;
 }
 

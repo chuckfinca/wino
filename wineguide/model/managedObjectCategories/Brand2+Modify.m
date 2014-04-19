@@ -21,19 +21,22 @@
 
 -(Brand2 *)modifyAttributesWithDictionary:(NSDictionary *)dictionary
 {
-    if(!self.identifier || [self.identifier isEqualToNumber:@0]){
-        self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
+    NSDate *serverUpdatedDate = [dictionary dateAtKey:UPDATED_AT];
+    if(!self.updated_at || [self.updated_at laterDate:serverUpdatedDate] == serverUpdatedDate){
+        
+        if(!self.identifier || [self.identifier isEqualToNumber:@0]){
+            self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
+        }
+        
+        self.about = [dictionary sanitizedStringForKey:BRAND_ABOUT];
+        self.name = [dictionary sanitizedStringForKey:BRAND_NAME];
+        self.website = [dictionary sanitizedStringForKey:BRAND_WEBSITE];
+        self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
+        self.created_at = [dictionary dateAtKey:CREATED_AT];
+        self.updated_at = serverUpdatedDate;
+        
+        [self logDetails];
     }
-    
-    self.about = [dictionary sanitizedStringForKey:BRAND_ABOUT];
-    self.name = [dictionary sanitizedStringForKey:BRAND_NAME];
-    self.website = [dictionary sanitizedStringForKey:BRAND_WEBSITE];
-    self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
-    self.created_at = [dictionary dateAtKey:CREATED_AT];
-    self.updated_at = [dictionary dateAtKey:UPDATED_AT];
-    
-    [self logDetails];
-    
     return self;
 }
 

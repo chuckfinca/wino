@@ -22,19 +22,22 @@
 
 -(Group2 *)modifyAttributesWithDictionary:(NSDictionary *)dictionary
 {
-    if(!self.identifier || [self.identifier isEqualToNumber:@0]){
-        self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
+    NSDate *serverUpdatedDate = [dictionary dateAtKey:UPDATED_AT];
+    if(!self.updated_at || [self.updated_at laterDate:serverUpdatedDate] == serverUpdatedDate){
+        
+        if(!self.identifier || [self.identifier isEqualToNumber:@0]){
+            self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
+        }
+        
+        self.name = [dictionary sanitizedStringForKey:GROUP_NAME];
+        self.group_description = [dictionary sanitizedStringForKey:GROUP_DESCRIPTION];
+        self.sort_order = [dictionary sanitizedValueForKey:GROUP_SORT_ORDER];
+        self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
+        self.created_at = [dictionary dateAtKey:CREATED_AT];
+        self.updated_at = serverUpdatedDate;
+        
+        [self logDetails];
     }
-    
-    self.name = [dictionary sanitizedStringForKey:GROUP_NAME];
-    self.group_description = [dictionary sanitizedStringForKey:GROUP_DESCRIPTION];
-    self.sort_order = [dictionary sanitizedValueForKey:GROUP_SORT_ORDER];
-    self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
-    self.created_at = [dictionary dateAtKey:CREATED_AT];
-    self.updated_at = [dictionary dateAtKey:UPDATED_AT];
-    
-    [self logDetails];
-    
     return self;
 }
 
