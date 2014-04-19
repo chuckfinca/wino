@@ -13,13 +13,13 @@
 #define STATUS_CODE @"status"
 #define CREATED_AT @"created_at"
 #define UPDATED_AT @"updated_at"
-#define RATING_HISTORY_AVERAGE_RATING @"asdf"
-#define RATING_HISTORY_FIVES @"asdf"
-#define RATING_HISTORY_FOURS @"asdf"
-#define RATING_HISTORY_THREES @"asdf"
-#define RATING_HISTORY_TWOS @"asdf"
-#define RATING_HISTORY_ONES @"asdf"
-#define RATING_HISTORY_TOTAL_RATINGS @"asdf"
+#define RATING_HISTORY_AVERAGE_RATING @"avg_rating"
+#define RATING_HISTORY_FIVES @"five_star_ratings"
+#define RATING_HISTORY_FOURS @"four_star_ratings"
+#define RATING_HISTORY_THREES @"three_star_ratings"
+#define RATING_HISTORY_TWOS @"two_star_ratings"
+#define RATING_HISTORY_ONES @"one_star_ratings"
+#define RATING_HISTORY_TOTAL_RATINGS @"total_ratings"
 
 
 @implementation RatingHistory2 (Modify)
