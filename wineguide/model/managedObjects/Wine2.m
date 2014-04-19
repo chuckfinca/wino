@@ -7,8 +7,10 @@
 //
 
 #import "Wine2.h"
+#import "Brand2.h"
 #import "Flight2.h"
 #import "Group2.h"
+#import "RatingHistory2.h"
 #import "WineUnit2.h"
 
 
@@ -28,10 +30,10 @@
 @dynamic vineyard;
 @dynamic vintage;
 @dynamic wine_description;
+@dynamic brand;
 @dynamic flights;
 @dynamic groups;
-@dynamic wineUnits;
-@dynamic brand;
 @dynamic ratingHistory;
+@dynamic wineUnits;
 
 @end

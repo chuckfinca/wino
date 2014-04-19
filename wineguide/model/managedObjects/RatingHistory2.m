@@ -16,12 +16,12 @@
 @dynamic created_at;
 @dynamic five_star_ratings;
 @dynamic four_star_ratings;
-@dynamic three_star_ratings;
-@dynamic two_star_ratings;
-@dynamic one_star_ratings;
 @dynamic identifier;
+@dynamic one_star_ratings;
 @dynamic status;
+@dynamic three_star_ratings;
 @dynamic total_ratings;
+@dynamic two_star_ratings;
 @dynamic updated_at;
 @dynamic wine;
 

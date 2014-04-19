@@ -13,11 +13,11 @@
 @implementation Brand2
 
 @dynamic about;
-@dynamic name;
-@dynamic identifier;
 @dynamic created_at;
-@dynamic updated_at;
+@dynamic identifier;
+@dynamic name;
 @dynamic status;
+@dynamic updated_at;
 @dynamic website;
 @dynamic wines;
 

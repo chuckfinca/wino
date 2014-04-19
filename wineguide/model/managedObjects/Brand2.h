@@ -14,11 +14,11 @@
 @interface Brand2 : NSManagedObject
 
 @property (nonatomic, retain) NSString * about;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * identifier;
 @property (nonatomic, retain) NSDate * created_at;
-@property (nonatomic, retain) NSDate * updated_at;
+@property (nonatomic, retain) NSNumber * identifier;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * status;
+@property (nonatomic, retain) NSDate * updated_at;
 @property (nonatomic, retain) NSString * website;
 @property (nonatomic, retain) NSSet *wines;
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Flight2, Group2, WineUnit2;
+@class Brand2, Flight2, Group2, RatingHistory2, WineUnit2;
 
 @interface Wine2 : NSManagedObject
 
@@ -27,11 +27,11 @@
 @property (nonatomic, retain) NSString * vineyard;
 @property (nonatomic, retain) NSString * vintage;
 @property (nonatomic, retain) NSString * wine_description;
+@property (nonatomic, retain) Brand2 *brand;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
+@property (nonatomic, retain) RatingHistory2 *ratingHistory;
 @property (nonatomic, retain) NSSet *wineUnits;
-@property (nonatomic, retain) NSManagedObject *brand;
-@property (nonatomic, retain) NSManagedObject *ratingHistory;
 @end
 
 @interface Wine2 (CoreDataGeneratedAccessors)
