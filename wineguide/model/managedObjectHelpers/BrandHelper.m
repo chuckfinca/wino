@@ -35,14 +35,13 @@
 }
 
 
--(void)addAdditionalRelativesToManagedObject:(NSManagedObject *)managedObject fromDictionary:(NSDictionary *)dictionary
+-(void)processManagedObject:(NSManagedObject *)managedObject relativesFoundInDictionary:(NSDictionary *)dictionary
 {
     Brand2 *brand = (Brand2 *)managedObject;
     
     // Wine
-    NSArray *winesArray = dictionary[BRAND_WINES];
     WineHelper *wu = [[WineHelper alloc] init];
-    brand.wines = [self toManyRelationshipSetCreatedFromDictionariesArray:winesArray usingHelper:wu];
+    [wu createOrUpdateObjectsWithJsonInArray:dictionary[BRAND_WINES] andRelatedObject:brand];
 }
 
 

@@ -10,6 +10,7 @@
 #import "Restaurant2+CreateOrModify.h"
 #import "WineUnitHelper.h"
 #import "GroupHelper.h"
+#import "FlightHelper.h"
 #import "Flight2.h"
 #import "Group2.h"
 #import "WineUnit2.h"
@@ -46,18 +47,17 @@
     }
 }
 
--(void)addAdditionalRelativesToManagedObject:(NSManagedObject *)managedObject fromDictionary:(NSDictionary *)dictionary
+-(void)processManagedObject:(NSManagedObject *)managedObject relativesFoundInDictionary:(NSDictionary *)dictionary
 {
     Restaurant2 *restaurant = (Restaurant2 *)managedObject;
     
     // flights
-    NSArray *flightDictionaries = dictionary[RESTAURANT_FLIGHTS];
-    
+    FlightHelper *fh = [[FlightHelper alloc] init];
+    [fh createOrUpdateObjectsWithJsonInArray:dictionary[RESTAURANT_FLIGHTS] andRelatedObject:restaurant];
     
     // groups
     GroupHelper *gh = [[GroupHelper alloc] init];
-    [gh createOrUpdateObjectsWithJsonInArray:dictionary[RESTAURANT_GROUPS]
-                            andRelatedObject:restaurant];
+    [gh createOrUpdateObjectsWithJsonInArray:dictionary[RESTAURANT_GROUPS] andRelatedObject:restaurant];
     
     
     // tasting records
@@ -65,11 +65,7 @@
     
     // wine units
     WineUnitHelper *wuh = [[WineUnitHelper alloc] init];
-    [wuh createOrUpdateObjectsWithJsonInArray:dictionary[RESTAURANT_WINE_UNITS]
-                             andRelatedObject:restaurant];
-    
-    
-    
+    [wuh createOrUpdateObjectsWithJsonInArray:dictionary[RESTAURANT_WINE_UNITS] andRelatedObject:restaurant];
 }
 
 @end

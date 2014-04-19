@@ -40,7 +40,7 @@
     }
 }
 
--(void)addAdditionalRelativesToManagedObject:(NSManagedObject *)managedObject fromDictionary:(NSDictionary *)dictionary
+-(void)processManagedObject:(NSManagedObject *)managedObject relativesFoundInDictionary:(NSDictionary *)dictionary
 {
     Group2 *group = (Group2 *)managedObject;
     
@@ -51,9 +51,8 @@
     }
     
     // Wine
-    NSArray *winesArray = dictionary[GROUP_WINES];
     WineHelper *wu = [[WineHelper alloc] init];
-    [wu createOrUpdateObjectsWithJsonInArray:winesArray andRelatedObject:group];
+    [wu createOrUpdateObjectsWithJsonInArray:dictionary[GROUP_WINES] andRelatedObject:group];
 }
 
 

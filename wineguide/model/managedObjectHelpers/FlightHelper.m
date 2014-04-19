@@ -39,7 +39,7 @@
     }
 }
 
--(void)addAdditionalRelativesToManagedObject:(NSManagedObject *)managedObject fromDictionary:(NSDictionary *)dictionary
+-(void)processManagedObject:(NSManagedObject *)managedObject relativesFoundInDictionary:(NSDictionary *)dictionary
 {
     Flight2 *flight = (Flight2 *)managedObject;
     
@@ -50,9 +50,8 @@
     }
     
     // Wine
-    NSArray *winesArray = dictionary[FLIGHT_WINES];
     WineHelper *wu = [[WineHelper alloc] init];
-    [wu createOrUpdateObjectsWithJsonInArray:winesArray andRelatedObject:flight];
+    [wu createOrUpdateObjectsWithJsonInArray:dictionary[FLIGHT_WINES] andRelatedObject:flight];
 }
 
 

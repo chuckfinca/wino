@@ -37,7 +37,7 @@
     }
 }
 
--(void)addAdditionalRelativesToManagedObject:(NSManagedObject *)managedObject fromDictionary:(NSDictionary *)dictionary
+-(void)processManagedObject:(NSManagedObject *)managedObject relativesFoundInDictionary:(NSDictionary *)dictionary
 {
     WineUnit2 *wineUnit = (WineUnit2 *)managedObject;
     

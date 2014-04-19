@@ -121,7 +121,7 @@
         self.relatedObject = relatedObject;
         [self addRelationToManagedObject:mo];
     }
-    [self addAdditionalRelativesToManagedObject:mo fromDictionary:dictionary];
+    [self processManagedObject:mo relativesFoundInDictionary:dictionary];
 }
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
@@ -142,7 +142,7 @@
     return mutableSet;
 }
 
--(void)addAdditionalRelativesToManagedObject:(NSManagedObject *)managedObject fromDictionary:(NSDictionary *)dictionary
+-(void)processManagedObject:(NSManagedObject *)managedObject relativesFoundInDictionary:(NSDictionary *)dictionary
 {
     // Abstract
 }

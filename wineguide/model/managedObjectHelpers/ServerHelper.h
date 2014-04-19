@@ -30,6 +30,6 @@
                                           andIdentifier:(NSNumber *)identifier;
 -(void)createOrUpdateObjectsWithJsonInArray:(NSArray *)jsonArray andRelatedObject:(NSManagedObject *)managedObject;
 -(NSSet *)addRelationToSet:(NSSet *)set;
--(void)addAdditionalRelativesToManagedObject:(NSManagedObject *)managedObject fromDictionary:(NSDictionary *)dictionary;
+-(void)processManagedObject:(NSManagedObject *)managedObject relativesFoundInDictionary:(NSDictionary *)dictionary;
 
 @end
