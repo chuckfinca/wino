@@ -14,8 +14,10 @@
 #define GROUP_ENTITY @"Group2"
 #define RATING_HISTORY_ENTITY @"RatingHistory2"
 #define RESTAURANT_ENTITY @"Restaurant2"
+#define TASTING_NOTE_ENTITY @"TastingNote2"
 #define WINE_ENTITY @"Wine2"
 #define WINE_UNIT_ENTITY @"WineUnit2"
+#define VARIETAL_ENTITY @"Varietal2"
 
 #define ID_KEY @"id"
 #define WINE_ID @"wine_id"

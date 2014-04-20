@@ -1,24 +1,23 @@
 //
-//  Varietal2.m
+//  Region.m
 //  Corkie
 //
 //  Created by Charles Feinn on 4/19/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "Varietal2.h"
+#import "Region.h"
 #import "Wine2.h"
 
 
-@implementation Varietal2
+@implementation Region
 
-@dynamic about;
-@dynamic created_at;
-@dynamic identifier;
-@dynamic blend;
 @dynamic name;
-@dynamic updated_at;
+@dynamic region_description;
 @dynamic status;
+@dynamic created_at;
+@dynamic updated_at;
+@dynamic identifier;
 @dynamic wines;
 
 @end

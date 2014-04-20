@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSNumber * blend;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * updated_at;
+@property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) Wine2 *wines;
 
 @end
