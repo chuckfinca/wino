@@ -10,6 +10,7 @@
 #import "NSDictionary+Helper.h"
 #import "Restaurant2.h"
 #import "Review2.h"
+#import "Wine2.h"
 
 #define SERVER_IDENTIFIER @"id"
 #define STATUS_CODE @"status"
@@ -51,6 +52,7 @@
     
     NSLog(@"Related objects:");
     NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.restaurant class], self.restaurant.identifier]);
+    NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.wine class], self.wine.identifier]);
     
     for(Review2 *r in self.reviews){
         NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[r class], r.identifier]);

@@ -11,13 +11,13 @@
 #import "WineHelper.h"
 #import "Wine2.h"
 
-#define TASTING_NOTE_WINES @"tasting_note_wines"
+#define TASTING_NOTE_WINES @"wines"
 
 @implementation TastingNoteHelper
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    TastingNote2 *tastingNote = (TastingNote2 *)[self findOrCreateManagedObjectEntityType:TASTING_NOTE_ENTITY andIdentifier:dictionary[ID_KEY]];
+    TastingNote2 *tastingNote = (TastingNote2 *)[self findOrCreateManagedObjectEntityType:TASTING_NOTE_ENTITY usingDictionary:dictionary];
     [tastingNote modifyAttributesWithDictionary:dictionary];
     
     return tastingNote;
@@ -25,12 +25,10 @@
 
 -(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    if([managedObject isKindOfClass:[TastingNote2 class]]){
-        TastingNote2 *tastingNote = (TastingNote2 *)managedObject;
-        
-        if ([self.relatedObject class] == [Wine2 class]){
-            tastingNote.wines = [self addRelationToSet:tastingNote.wines];
-        }
+    TastingNote2 *tastingNote = (TastingNote2 *)managedObject;
+    
+    if ([self.relatedObject class] == [Wine2 class]){
+        tastingNote.wines = [self addRelationToSet:tastingNote.wines];
     }
 }
 

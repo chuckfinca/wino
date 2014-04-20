@@ -155,9 +155,11 @@
 
 
 
--(NSManagedObject *)findOrCreateManagedObjectEntityType:(NSString *)entityName andIdentifier:(NSNumber *)identifier
+-(NSManagedObject *)findOrCreateManagedObjectEntityType:(NSString *)entityName usingDictionary:(NSDictionary *)dictionary
 {
     NSManagedObject *managedObject;
+    
+    NSNumber *identifier = (NSNumber *)dictionary[ID_KEY];
     
     if(identifier > 0){
         

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class User2, Wine2;
+@class Review2, User2, Wine2;
 
 @interface User2 : NSManagedObject
 
@@ -52,8 +52,8 @@
 - (void)addFollowedBy:(NSSet *)values;
 - (void)removeFollowedBy:(NSSet *)values;
 
-- (void)addReviewsObject:(NSManagedObject *)value;
-- (void)removeReviewsObject:(NSManagedObject *)value;
+- (void)addReviewsObject:(Review2 *)value;
+- (void)removeReviewsObject:(Review2 *)value;
 - (void)addReviews:(NSSet *)values;
 - (void)removeReviews:(NSSet *)values;
 

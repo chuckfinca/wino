@@ -15,15 +15,14 @@
 #import "WineHelper.h"
 #import "Wine2.h"
 
-#define REVIEW_TASTING_RECORD @"asdf"   ///////////////////
-#define REVIEW_USER @"asdf"             ///////////////////
-#define REVIEW_WINE @"asdf"             ///////////////////
+#define REVIEW_TASTING_RECORD @"tasting_record"     ///////////////////
+#define REVIEW_USER @"user"                         ///////////////////
 
 @implementation ReviewHelper
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    Review2 *review = (Review2 *)[self findOrCreateManagedObjectEntityType:REVIEW_ENTITY andIdentifier:dictionary[ID_KEY]];
+    Review2 *review = (Review2 *)[self findOrCreateManagedObjectEntityType:REVIEW_ENTITY usingDictionary:dictionary];
     [review modifyAttributesWithDictionary:dictionary];
     
     return review;
@@ -38,9 +37,6 @@
         
     } else if([self.relatedObject class] == [User2 class]){
         review.user = (User2 *)self.relatedObject;
-        
-    } else if([self.relatedObject class] == [Wine2 class]){
-        review.wine = (Wine2 *)self.relatedObject;
     }
 }
 
@@ -48,22 +44,16 @@
 {
     Review2 *review = (Review2 *)managedObject;
     
-    // tasting record
+    // Tasting Record
     if(!review.tastingRecord){
         TastingRecordHelper *rh = [[TastingRecordHelper alloc] init];
-        review.tastingRecord  = (TastingRecord2 *)[rh findOrCreateManagedObjectEntityType:TASTING_RECORD_ENTITY andIdentifier:dictionary[RESTAURANT_ID]];
+        [rh processJSON:dictionary[REVIEW_TASTING_RECORD] withRelatedObject:review];
     }
     
-    // user
+    // User
     if(!review.user){
-        UserHelper *rh = [[UserHelper alloc] init];
-        review.user  = (User2 *)[rh findOrCreateManagedObjectEntityType:USER_ENTITY andIdentifier:dictionary[REVIEW_USER]];
-    }
-    
-    // wine
-    if(!review.wine){
-        WineHelper *rh = [[WineHelper alloc] init];
-        review.wine  = (Wine2 *)[rh findOrCreateManagedObjectEntityType:WINE_ENTITY andIdentifier:dictionary[REVIEW_WINE]];
+        UserHelper *uh = [[UserHelper alloc] init];
+        [uh processJSON:dictionary[REVIEW_USER] withRelatedObject:review];
     }
     
 }

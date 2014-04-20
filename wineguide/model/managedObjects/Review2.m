@@ -9,7 +9,6 @@
 #import "Review2.h"
 #import "TastingRecord2.h"
 #import "User2.h"
-#import "Wine2.h"
 
 
 @implementation Review2
@@ -22,7 +21,6 @@
 @dynamic rating;
 @dynamic review_text;
 @dynamic tastingRecord;
-@dynamic wine;
 @dynamic user;
 
 @end

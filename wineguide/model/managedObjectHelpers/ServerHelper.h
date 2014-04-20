@@ -35,7 +35,7 @@
 -(void)getDataAtUrl:(NSString *)url;
 -(void)processJSON:(id)json withRelatedObject:(NSManagedObject *)relatedObject;
 
--(NSManagedObject *)findOrCreateManagedObjectEntityType:(NSString *)entityName andIdentifier:(NSNumber *)identifier;
+-(NSManagedObject *)findOrCreateManagedObjectEntityType:(NSString *)entityName usingDictionary:(NSDictionary *)dictionary;
 
 -(NSSet *)addRelationToSet:(NSSet *)set;
 

@@ -13,13 +13,14 @@
 #import "WineHelper.h"
 #import "Wine2.h"
 
-#define FLIGHT_WINES @"flight_wine"
+#define FLIGHT_WINES @"wine"
+#define FLIGHT_RESTAURANT @"restaurant"      //////////////////////
 
 @implementation FlightHelper
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    Flight2 *flight = (Flight2 *)[self findOrCreateManagedObjectEntityType:FLIGHT_ENTITY andIdentifier:dictionary[ID_KEY]];
+    Flight2 *flight = (Flight2 *)[self findOrCreateManagedObjectEntityType:FLIGHT_ENTITY usingDictionary:dictionary];
     [flight modifyAttributesWithDictionary:dictionary];
     
     return flight;
@@ -27,15 +28,13 @@
 
 -(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    if([managedObject isKindOfClass:[Flight2 class]]){
-        Flight2 *flight = (Flight2 *)managedObject;
+    Flight2 *flight = (Flight2 *)managedObject;
+    
+    if([self.relatedObject class] == [Restaurant2 class]){
+        flight.restaurant = (Restaurant2 *)self.relatedObject;
         
-        if([self.relatedObject class] == [Restaurant2 class]){
-            flight.restaurant = (Restaurant2 *)self.relatedObject;
-            
-        } else if ([self.relatedObject class] == [Wine2 class]){
-            flight.wines = [self addRelationToSet:flight.wines];
-        }
+    } else if ([self.relatedObject class] == [Wine2 class]){
+        flight.wines = [self addRelationToSet:flight.wines];
     }
 }
 
@@ -46,10 +45,10 @@
     // Restaurant
     if(!flight.restaurant){
         RestaurantHelper *rh = [[RestaurantHelper alloc] init];
-        flight.restaurant = (Restaurant2 *)[rh findOrCreateManagedObjectEntityType:RESTAURANT_ENTITY andIdentifier:dictionary[RESTAURANT_ID]];
+        [rh processJSON:dictionary[FLIGHT_RESTAURANT] withRelatedObject:flight];
     }
     
-    // Wine
+    // Wines
     WineHelper *wu = [[WineHelper alloc] init];
     [wu processJSON:dictionary[FLIGHT_WINES] withRelatedObject:flight];
 }

@@ -10,4 +10,6 @@
 
 @interface Varietal2 (Modify)
 
+-(Varietal2 *)modifyAttributesWithDictionary:(NSDictionary *)dictionary;
+
 @end

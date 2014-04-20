@@ -13,11 +13,14 @@
 #import "WineHelper.h"
 #import "Wine2.h"
 
+#define WINE_UNIT_RESTAURANT @"restaurant"
+#define WINE_UNIT_WINE @"wine"
+
 @implementation WineUnitHelper
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    WineUnit2 *wineUnit = (WineUnit2 *)[self findOrCreateManagedObjectEntityType:WINE_UNIT_ENTITY andIdentifier:dictionary[ID_KEY]];
+    WineUnit2 *wineUnit = (WineUnit2 *)[self findOrCreateManagedObjectEntityType:WINE_UNIT_ENTITY usingDictionary:dictionary];
     [wineUnit modifyAttributesWithDictionary:dictionary];
     
     return wineUnit;
@@ -25,15 +28,13 @@
 
 -(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    if([managedObject isKindOfClass:[WineUnit2 class]]){
-        WineUnit2 *wineUnit = (WineUnit2 *)managedObject;
+    WineUnit2 *wineUnit = (WineUnit2 *)managedObject;
+    
+    if([self.relatedObject class] == [Restaurant2 class]){
+        wineUnit.restaurant = (Restaurant2 *)self.relatedObject;
         
-        if([self.relatedObject class] == [Restaurant2 class]){
-            wineUnit.restaurant = (Restaurant2 *)self.relatedObject;
-            
-        } else if ([self.relatedObject class] == [Wine2 class]){
-            wineUnit.wine = (Wine2 *)self.relatedObject;
-        }
+    } else if ([self.relatedObject class] == [Wine2 class]){
+        wineUnit.wine = (Wine2 *)self.relatedObject;
     }
 }
 
@@ -44,12 +45,12 @@
     // restaurant
     if(!wineUnit.restaurant){
         RestaurantHelper *rh = [[RestaurantHelper alloc] init];
-        wineUnit.restaurant = (Restaurant2 *)[rh findOrCreateManagedObjectEntityType:RESTAURANT_ENTITY andIdentifier:dictionary[RESTAURANT_ID]];
+        [rh processJSON:dictionary[WINE_UNIT_RESTAURANT] withRelatedObject:wineUnit];
     }
     
     if(!wineUnit.wine){
         WineHelper *wh = [[WineHelper alloc] init];
-        wineUnit.wine = (Wine2 *)[wh findOrCreateManagedObjectEntityType:WINE_ENTITY andIdentifier:dictionary[WINE_ID]];
+        [wh processJSON:dictionary[WINE_UNIT_WINE] withRelatedObject:wineUnit];
     }
 }
 

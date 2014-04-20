@@ -8,6 +8,8 @@
 
 #import "WineUnit2+CreateOrModify.h"
 #import "NSDictionary+Helper.h"
+#import "Restaurant2.h"
+#import "Wine2.h"
 
 #define SERVER_IDENTIFIER @"id"
 #define WINE_UNIT_PRICE @"price"
@@ -47,6 +49,10 @@
     NSLog(@"status = %@",self.status);
     NSLog(@"created_at = %@",self.created_at);
     NSLog(@"updated_at = %@",self.updated_at);
+    
+    NSLog(@"Related objects:");
+    NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.restaurant class], self.restaurant.identifier]);
+    NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.wine class], self.wine.identifier]);
 }
 
 

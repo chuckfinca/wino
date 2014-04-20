@@ -8,6 +8,8 @@
 
 #import "TastingRecord2.h"
 #import "Restaurant2.h"
+#import "Review2.h"
+#import "Wine2.h"
 
 
 @implementation TastingRecord2
@@ -19,5 +21,6 @@
 @dynamic status;
 @dynamic restaurant;
 @dynamic reviews;
+@dynamic wine;
 
 @end

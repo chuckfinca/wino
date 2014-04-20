@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Restaurant2;
+@class Restaurant2, Review2, Wine2;
 
 @interface TastingRecord2 : NSManagedObject
 
@@ -20,12 +20,13 @@
 @property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) Restaurant2 *restaurant;
 @property (nonatomic, retain) NSSet *reviews;
+@property (nonatomic, retain) Wine2 *wine;
 @end
 
 @interface TastingRecord2 (CoreDataGeneratedAccessors)
 
-- (void)addReviewsObject:(NSManagedObject *)value;
-- (void)removeReviewsObject:(NSManagedObject *)value;
+- (void)addReviewsObject:(Review2 *)value;
+- (void)removeReviewsObject:(Review2 *)value;
 - (void)addReviews:(NSSet *)values;
 - (void)removeReviews:(NSSet *)values;
 

@@ -1,45 +1,47 @@
 //
-//  RegionHelper.m
+//  VarietalHelper.m
 //  Corkie
 //
 //  Created by Charles Feinn on 4/19/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "RegionHelper.h"
-#import "Region+Modify.h"
+#import "VarietalHelper.h"
+#import "Varietal2+Modify.h"
 #import "WineHelper.h"
 #import "Wine2.h"
 
-#define REGION_WINES @"wines" //////////////
+#define VARIETAL_WINES @"wines"
 
-@implementation RegionHelper
+@implementation VarietalHelper
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    Region *region = (Region *)[self findOrCreateManagedObjectEntityType:REGION_ENTITY usingDictionary:dictionary];
-    [region modifyAttributesWithDictionary:dictionary];
+    Varietal2 *varietal = (Varietal2 *)[self findOrCreateManagedObjectEntityType:BRAND_ENTITY usingDictionary:dictionary];
+    [varietal modifyAttributesWithDictionary:dictionary];
     
-    return region;
+    return varietal;
 }
 
 -(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    Region *region = (Region *)managedObject;
+    Varietal2 *varietal = (Varietal2 *)managedObject;
     
     if ([self.relatedObject class] == [Wine2 class]){
-        region.wines = [self addRelationToSet:region.wines];
+        varietal.wines = [self addRelationToSet:varietal.wines];
     }
 }
 
 -(void)processManagedObject:(NSManagedObject *)managedObject relativesFoundInDictionary:(NSDictionary *)dictionary
 {
-    Region *region = (Region *)managedObject;
+    Varietal2 *varietal = (Varietal2 *)managedObject;
     
     // Wine
     WineHelper *wu = [[WineHelper alloc] init];
-    [wu processJSON:dictionary[REGION_WINES] withRelatedObject:region];
+    [wu processJSON:dictionary[VARIETAL_WINES] withRelatedObject:varietal];
 }
+
+
 
 
 

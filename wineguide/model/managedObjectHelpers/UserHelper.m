@@ -13,8 +13,8 @@
 #import "ReviewHelper.h"
 #import "Review2.h"
 
-#define USER_WINES @"user_wines"        ////////////////////
-#define USER_REVIEWS @"user_reviews"    ////////////////////
+#define USER_WINES @"wines"             ////////////////////
+#define USER_REVIEWS @"reviews"         ////////////////////
 #define USER_FOLLOWING @"following"     ////////////////////
 #define USER_FOLLOWED_BY @"followed_by" ////////////////////
 
@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, FollowingStatus) {
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    User2 *user = (User2 *)[self findOrCreateManagedObjectEntityType:USER_ENTITY andIdentifier:dictionary[ID_KEY]];
+    User2 *user = (User2 *)[self findOrCreateManagedObjectEntityType:USER_ENTITY usingDictionary:dictionary];
     [user modifyAttributesWithDictionary:dictionary];
     
     return user;

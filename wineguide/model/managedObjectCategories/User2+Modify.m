@@ -81,7 +81,7 @@
     NSLog(@"updated_at = %@",self.updated_at);
     
     
-    NSLog(@"\n\nRelated Objects");
+    NSLog(@"Related Objects");
     
     for(Review2 *r in self.reviews){
         NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[r class], r.identifier]);

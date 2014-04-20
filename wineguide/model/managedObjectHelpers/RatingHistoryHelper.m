@@ -15,7 +15,7 @@
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    RatingHistory2 *ratingHistory = (RatingHistory2 *)[self findOrCreateManagedObjectEntityType:RATING_HISTORY_ENTITY andIdentifier:dictionary[ID_KEY]];
+    RatingHistory2 *ratingHistory = (RatingHistory2 *)[self findOrCreateManagedObjectEntityType:RATING_HISTORY_ENTITY usingDictionary:dictionary];
     [ratingHistory modifyAttributesWithDictionary:dictionary];
     
     return ratingHistory;
@@ -23,12 +23,10 @@
 
 -(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    if([managedObject isKindOfClass:[RatingHistory2 class]]){
-        RatingHistory2 *ratingHistory = (RatingHistory2 *)managedObject;
-        
-        if ([self.relatedObject class] == [Wine2 class]){
-            ratingHistory.wine = (Wine2 *)self.relatedObject;
-        }
+    RatingHistory2 *ratingHistory = (RatingHistory2 *)managedObject;
+    
+    if ([self.relatedObject class] == [Wine2 class]){
+        ratingHistory.wine = (Wine2 *)self.relatedObject;
     }
 }
 

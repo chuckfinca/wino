@@ -8,6 +8,8 @@
 
 #import "Group2+CreateOrModify.h"
 #import "NSDictionary+Helper.h"
+#import "Restaurant2.h"
+#import "Wine2.h"
 
 #define SERVER_IDENTIFIER @"id"
 #define STATUS_CODE @"status"
@@ -51,6 +53,13 @@
     NSLog(@"status = %@",self.status);
     NSLog(@"created_at = %@",self.created_at);
     NSLog(@"updated_at = %@",self.updated_at);
+    
+    NSLog(@"Related objects:");
+    NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.restaurant class], self.restaurant.identifier]);
+    
+    for(Wine2 *wine in self.wines){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[wine class], wine.identifier]);
+    }
 }
 
 

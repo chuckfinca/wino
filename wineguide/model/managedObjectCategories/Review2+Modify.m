@@ -57,7 +57,6 @@
     
     NSLog(@"Related objects:");
     NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.user class], self.user.identifier]);
-    NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.wine class], self.wine.identifier]);
     NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.tastingRecord class], self.tastingRecord.identifier]);
 }
 

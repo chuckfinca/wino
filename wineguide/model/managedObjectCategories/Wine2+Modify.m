@@ -8,6 +8,16 @@
 
 #import "Wine2+Modify.h"
 #import "NSDictionary+Helper.h"
+#import "Brand2.h"
+#import "Flight2.h"
+#import "Group2.h"
+#import "RatingHistory2.h"
+#import "WineUnit2.h"
+#import "TastingNote2.h"
+#import "Varietal2.h"
+#import "Region.h"
+#import "User2.h"
+#import "TastingRecord2.h"
 
 #define SERVER_IDENTIFIER @"id"
 #define WINE_NAME @"wine_name"
@@ -49,8 +59,6 @@
         self.created_at = [dictionary dateAtKey:CREATED_AT];
         self.updated_at = serverUpdatedDate;
         
-        // NSLog(@"dictionary = %@",dictionary);
-        
         [self description];
     }
     return self;
@@ -73,6 +81,39 @@
     NSLog(@"status = %@",self.status);
     NSLog(@"created_at = %@",self.created_at);
     NSLog(@"updated_at = %@",self.updated_at);
+    
+    
+    NSLog(@"Related objects:");
+    NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.brand class], self.brand.identifier]);
+    NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.ratingHistory class], self.ratingHistory.identifier]);
+    
+    for(Flight2 *flight in self.flights){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[flight class], flight.identifier]);
+    }
+    for(Group2 *group in self.groups){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[group class], group.identifier]);
+    }
+    for(Group2 *group in self.groups){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[group class], group.identifier]);
+    }
+    for(WineUnit2 *wineUnit in self.wineUnits){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[wineUnit class], wineUnit.identifier]);
+    }
+    for(TastingNote2 *tastingNote in self.tastingNotes){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[tastingNote class], tastingNote.identifier]);
+    }
+    for(Region *region in self.regions){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[region class], region.identifier]);
+    }
+    for(User2 *user in self.cellars){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[user class], user.identifier]);
+    }
+    for(Varietal2 *varietal in self.varietals){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[varietal class], varietal.identifier]);
+    }
+    for(TastingRecord2 *tastingRecord in self.tastingRecords){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[tastingRecord class], tastingRecord.identifier]);
+    }
 }
 
 
@@ -81,5 +122,14 @@
     [self logDetails];
     return [NSString stringWithFormat:@"%@ - %@",[self class],self.identifier];
 }
+
+
+
+
+
+
+
+
+
 
 @end

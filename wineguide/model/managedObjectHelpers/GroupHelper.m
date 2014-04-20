@@ -13,14 +13,14 @@
 #import "WineHelper.h"
 #import "Wine2.h"
 
-#define GROUP_RESTAURANT_ID @"restaurant_id"
+#define GROUP_RESTAURANT @"restaurant"
 #define GROUP_WINES @"wines"
 
 @implementation GroupHelper
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    Group2 *group = (Group2 *)[self findOrCreateManagedObjectEntityType:GROUP_ENTITY andIdentifier:dictionary[ID_KEY]];
+    Group2 *group = (Group2 *)[self findOrCreateManagedObjectEntityType:GROUP_ENTITY usingDictionary:dictionary];
     [group modifyAttributesWithDictionary:dictionary];
     
     return group;
@@ -28,15 +28,13 @@
 
 -(void)addRelationToManagedObject:(NSManagedObject *)managedObject
 {
-    if([managedObject isKindOfClass:[Group2 class]]){
-        Group2 *group = (Group2 *)managedObject;
+    Group2 *group = (Group2 *)managedObject;
+    
+    if([self.relatedObject class] == [Restaurant2 class]){
+        group.restaurant = (Restaurant2 *)self.relatedObject;
         
-        if([self.relatedObject class] == [Restaurant2 class]){
-            group.restaurant = (Restaurant2 *)self.relatedObject;
-            
-        } else if ([self.relatedObject class] == [Wine2 class]){
-            group.wines = [self addRelationToSet:group.wines];
-        }
+    } else if ([self.relatedObject class] == [Wine2 class]){
+        group.wines = [self addRelationToSet:group.wines];
     }
 }
 
@@ -47,10 +45,10 @@
     // Restaurant
     if(!group.restaurant){
         RestaurantHelper *rh = [[RestaurantHelper alloc] init];
-        group.restaurant = (Restaurant2 *)[rh findOrCreateManagedObjectEntityType:RESTAURANT_ENTITY andIdentifier:dictionary[RESTAURANT_ID]];
+        [rh processJSON:dictionary[GROUP_RESTAURANT] withRelatedObject:group];
     }
     
-    // Wine
+    // Wines
     WineHelper *wu = [[WineHelper alloc] init];
     [wu processJSON:dictionary[GROUP_WINES] withRelatedObject:group];
 }

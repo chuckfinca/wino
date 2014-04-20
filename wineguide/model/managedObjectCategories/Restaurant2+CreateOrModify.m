@@ -8,6 +8,10 @@
 
 #import "Restaurant2+CreateOrModify.h"
 #import "NSDictionary+Helper.h"
+#import "Flight2.h"
+#import "Group2.h"
+#import "WineUnit2.h"
+#import "TastingRecord2.h"
 
 #define SERVER_IDENTIFIER @"id"
 #define RESTAURANT_STATE @"restaurant_state"
@@ -50,8 +54,6 @@
         [self logDetails];
     }
     
-    
-    
     return self;
 }
 
@@ -71,6 +73,21 @@
     NSLog(@"updated_at = %@",self.updated_at);
     NSLog(@"latitude = %@",self.latitude);
     NSLog(@"longitude = %@",self.longitude);
+    
+    NSLog(@"Related objects:");
+    
+    for(Flight2 *flight in self.flights){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[flight class], flight.identifier]);
+    }
+    for(Group2 *group in self.groups){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[group class], group.identifier]);
+    }
+    for(WineUnit2 *wineUnits in self.wineUnits){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[wineUnits class], wineUnits.identifier]);
+    }
+    for(TastingRecord2 *tastingRecord in self.tastingRecords){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[tastingRecord class], tastingRecord.identifier]);
+    }
 }
 
 
