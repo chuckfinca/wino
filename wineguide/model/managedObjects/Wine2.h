@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Brand2, Flight2, Group2, RatingHistory2, WineUnit2;
+@class Brand2, Flight2, Group2, RatingHistory2, Region, TastingNote2, User2, Varietal2, WineUnit2;
 
 @interface Wine2 : NSManagedObject
 
@@ -32,6 +32,10 @@
 @property (nonatomic, retain) NSSet *groups;
 @property (nonatomic, retain) RatingHistory2 *ratingHistory;
 @property (nonatomic, retain) NSSet *wineUnits;
+@property (nonatomic, retain) NSSet *tastingNotes;
+@property (nonatomic, retain) Varietal2 *varietal;
+@property (nonatomic, retain) NSSet *regions;
+@property (nonatomic, retain) NSSet *cellars;
 @end
 
 @interface Wine2 (CoreDataGeneratedAccessors)
@@ -50,5 +54,20 @@
 - (void)removeWineUnitsObject:(WineUnit2 *)value;
 - (void)addWineUnits:(NSSet *)values;
 - (void)removeWineUnits:(NSSet *)values;
+
+- (void)addTastingNotesObject:(TastingNote2 *)value;
+- (void)removeTastingNotesObject:(TastingNote2 *)value;
+- (void)addTastingNotes:(NSSet *)values;
+- (void)removeTastingNotes:(NSSet *)values;
+
+- (void)addRegionsObject:(Region *)value;
+- (void)removeRegionsObject:(Region *)value;
+- (void)addRegions:(NSSet *)values;
+- (void)removeRegions:(NSSet *)values;
+
+- (void)addCellarsObject:(User2 *)value;
+- (void)removeCellarsObject:(User2 *)value;
+- (void)addCellars:(NSSet *)values;
+- (void)removeCellars:(NSSet *)values;
 
 @end

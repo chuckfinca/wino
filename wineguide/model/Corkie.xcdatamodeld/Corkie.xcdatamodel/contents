@@ -3,7 +3,7 @@
     <entity name="Brand2" representedClassName="Brand2" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
@@ -12,7 +12,7 @@
     </entity>
     <entity name="Flight2" representedClassName="Flight2" syncable="YES">
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant2" inverseName="flights" inverseEntity="Restaurant2" syncable="YES"/>
@@ -21,20 +21,20 @@
     <entity name="Group2" representedClassName="Group2" syncable="YES">
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="group_description" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sort_order" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sort_order" optional="YES" attributeType="Integer 16" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant2" inverseName="groups" inverseEntity="Restaurant2" syncable="YES"/>
         <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine2" inverseName="groups" inverseEntity="Wine2" syncable="YES"/>
     </entity>
     <entity name="RatingHistory2" representedClassName="RatingHistory2" syncable="YES">
-        <attribute name="average" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="average" optional="YES" attributeType="Float" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="five_star_ratings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="four_star_ratings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <attribute name="one_star_ratings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="three_star_ratings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -45,7 +45,7 @@
     </entity>
     <entity name="Region" representedClassName="Region" syncable="YES">
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="region_description" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -56,7 +56,7 @@
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -73,31 +73,52 @@
     <entity name="TastingNote2" representedClassName="TastingNote2" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="tasting_stage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine2" inverseName="tastingNotes" inverseEntity="Wine2" syncable="YES"/>
     </entity>
+    <entity name="User2" representedClassName="User2" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebook_id" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="follow_status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="is_me" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name_display" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name_first" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name_last" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="registered" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="followedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User2" inverseName="following" inverseEntity="User2" syncable="YES"/>
+        <relationship name="following" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User2" inverseName="followedBy" inverseEntity="User2" syncable="YES"/>
+        <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine2" inverseName="cellars" inverseEntity="Wine2" syncable="YES"/>
+    </entity>
     <entity name="Varietal2" representedClassName="Varietal2" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="blend" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="wines" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine2" inverseName="varietal" inverseEntity="Wine2" syncable="YES"/>
     </entity>
     <entity name="Wine2" representedClassName="Wine2" syncable="YES">
-        <attribute name="alcohol" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="alcohol" optional="YES" attributeType="Float" syncable="YES"/>
         <attribute name="category_code" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="color_code" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="color_code" optional="YES" attributeType="Integer 16" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dessert" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sparkling" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -106,6 +127,7 @@
         <attribute name="vintage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wine_description" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="brand" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Brand2" inverseName="wines" inverseEntity="Brand2" syncable="YES"/>
+        <relationship name="cellars" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User2" inverseName="wines" inverseEntity="User2" syncable="YES"/>
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight2" inverseName="wines" inverseEntity="Flight2" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group2" inverseName="wines" inverseEntity="Group2" syncable="YES"/>
         <relationship name="ratingHistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RatingHistory2" inverseName="wine" inverseEntity="RatingHistory2" syncable="YES"/>
@@ -116,8 +138,8 @@
     </entity>
     <entity name="WineUnit2" representedClassName="WineUnit2" syncable="YES">
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
@@ -126,14 +148,15 @@
     </entity>
     <elements>
         <element name="Brand2" positionX="367" positionY="-217" width="128" height="163"/>
-        <element name="Flight2" positionX="9" positionY="-108" width="128" height="133"/>
-        <element name="Group2" positionX="0" positionY="69" width="128" height="178"/>
+        <element name="Flight2" positionX="9" positionY="-198" width="128" height="133"/>
+        <element name="Group2" positionX="0" positionY="-21" width="128" height="178"/>
         <element name="RatingHistory2" positionX="369" positionY="-34" width="128" height="223"/>
-        <element name="Restaurant2" positionX="-173" positionY="-33" width="128" height="283"/>
-        <element name="Wine2" positionX="189" positionY="-108" width="128" height="373"/>
-        <element name="WineUnit2" positionX="9" positionY="270" width="128" height="163"/>
-        <element name="TastingNote2" positionX="378" positionY="225" width="128" height="163"/>
+        <element name="Restaurant2" positionX="-173" positionY="-123" width="128" height="283"/>
+        <element name="Wine2" positionX="189" positionY="-108" width="128" height="388"/>
+        <element name="WineUnit2" positionX="9" positionY="180" width="128" height="163"/>
+        <element name="TastingNote2" positionX="378" positionY="234" width="128" height="163"/>
         <element name="Varietal2" positionX="351" positionY="405" width="128" height="163"/>
         <element name="Region" positionX="520" positionY="72" width="128" height="148"/>
+        <element name="User2" positionX="-335" positionY="-108" width="128" height="328"/>
     </elements>
 </model>

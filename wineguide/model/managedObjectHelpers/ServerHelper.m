@@ -141,7 +141,9 @@
 -(NSSet *)addRelationToSet:(NSSet *)set
 {
     NSMutableSet *mutableSet = [set mutableCopy];
-    if(![mutableSet containsObject:self.relatedObject]) [mutableSet addObject:self.relatedObject];
+    if(![mutableSet containsObject:self.relatedObject]) {
+        [mutableSet addObject:self.relatedObject];
+    }
     return mutableSet;
 }
 
