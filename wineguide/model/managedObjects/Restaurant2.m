@@ -9,6 +9,7 @@
 #import "Restaurant2.h"
 #import "Flight2.h"
 #import "Group2.h"
+#import "TastingRecord2.h"
 #import "WineUnit2.h"
 
 
@@ -30,5 +31,6 @@
 @dynamic flights;
 @dynamic groups;
 @dynamic wineUnits;
+@dynamic tastingRecords;
 
 @end

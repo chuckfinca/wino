@@ -17,7 +17,7 @@
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    Region *region = (Region *)[self findOrCreateManagedObjectEntityType:BRAND_ENTITY andIdentifier:dictionary[ID_KEY]];
+    Region *region = (Region *)[self findOrCreateManagedObjectEntityType:REGION_ENTITY andIdentifier:dictionary[ID_KEY]];
     [region modifyAttributesWithDictionary:dictionary];
     
     return region;

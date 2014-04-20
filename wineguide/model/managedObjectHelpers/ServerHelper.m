@@ -11,6 +11,7 @@
 #import "DocumentHandler2.h"
 #import "ManagedObjectHandler.h"
 
+#define IDENTIFIER @"identifier"
 
 @interface ServerHelper ()
 

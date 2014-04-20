@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, FollowingStatus) {
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    User2 *user = (User2 *)[self findOrCreateManagedObjectEntityType:BRAND_ENTITY andIdentifier:dictionary[ID_KEY]];
+    User2 *user = (User2 *)[self findOrCreateManagedObjectEntityType:USER_ENTITY andIdentifier:dictionary[ID_KEY]];
     [user modifyAttributesWithDictionary:dictionary];
     
     return user;
