@@ -19,5 +19,14 @@
 @property (nonatomic, retain) NSDate * tasting_date;
 @property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) Restaurant2 *restaurant;
+@property (nonatomic, retain) NSSet *reviews;
+@end
+
+@interface TastingRecord2 (CoreDataGeneratedAccessors)
+
+- (void)addReviewsObject:(NSManagedObject *)value;
+- (void)removeReviewsObject:(NSManagedObject *)value;
+- (void)addReviews:(NSSet *)values;
+- (void)removeReviews:(NSSet *)values;
 
 @end

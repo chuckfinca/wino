@@ -12,6 +12,7 @@
 #import "Group2.h"
 #import "RatingHistory2.h"
 #import "Region.h"
+#import "Review2.h"
 #import "TastingNote2.h"
 #import "User2.h"
 #import "Varietal2.h"
@@ -43,5 +44,6 @@
 @dynamic varietal;
 @dynamic regions;
 @dynamic cellars;
+@dynamic reviews;
 
 @end

@@ -32,6 +32,7 @@
 @property (nonatomic, retain) NSSet *wines;
 @property (nonatomic, retain) NSSet *following;
 @property (nonatomic, retain) NSSet *followedBy;
+@property (nonatomic, retain) NSSet *reviews;
 @end
 
 @interface User2 (CoreDataGeneratedAccessors)
@@ -50,5 +51,10 @@
 - (void)removeFollowedByObject:(User2 *)value;
 - (void)addFollowedBy:(NSSet *)values;
 - (void)removeFollowedBy:(NSSet *)values;
+
+- (void)addReviewsObject:(NSManagedObject *)value;
+- (void)removeReviewsObject:(NSManagedObject *)value;
+- (void)addReviews:(NSSet *)values;
+- (void)removeReviews:(NSSet *)values;
 
 @end

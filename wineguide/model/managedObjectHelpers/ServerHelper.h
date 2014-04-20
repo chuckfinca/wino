@@ -14,6 +14,7 @@
 #define GROUP_ENTITY @"Group2"
 #define RATING_HISTORY_ENTITY @"RatingHistory2"
 #define REGION_ENTITY @"Region"
+#define REVIEW_ENTITY @"Review2"
 #define RESTAURANT_ENTITY @"Restaurant2"
 #define TASTING_NOTE_ENTITY @"TastingNote2"
 #define TASTING_RECORD_ENTITY @"TastingRecord2"

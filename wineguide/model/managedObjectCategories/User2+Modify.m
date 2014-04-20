@@ -8,6 +8,8 @@
 
 #import "User2+Modify.h"
 #import "NSDictionary+Helper.h"
+#import "Wine2.h"
+#import "Review2.h"
 
 #define SERVER_IDENTIFIER @"id"
 #define STATUS_CODE @"status"
@@ -34,20 +36,22 @@
             self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
         }
         
-        if(!self.facebook_id || [self.facebook_id isEqualToNumber:@0]){
+        if(!self.facebook_id){
             self.facebook_id = [dictionary sanitizedValueForKey:USER_FACEBOOK_ID];
         }
         
         self.email = [dictionary sanitizedStringForKey:USER_EMAIL];
         self.gender = [dictionary sanitizedStringForKey:USER_GENDER];
-        self.latitude = [dictionary sanitizedStringForKey:USER_LATITUDE];
-        self.longitude = [dictionary sanitizedStringForKey:USER_LONGITUDE];
+        self.latitude = [dictionary sanitizedValueForKey:USER_LATITUDE];
+        self.longitude = [dictionary sanitizedValueForKey:USER_LONGITUDE];
                 // self.is_me
         self.name_first = [dictionary sanitizedStringForKey:USER_NAME_FIRST];
         self.name_last = [dictionary sanitizedStringForKey:USER_NAME_LAST];
         self.name_display = [NSString stringWithFormat:@"%@ %@.",self.name_first, [self.name_last substringToIndex:1]];
                 // self.imageData
         self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
+                // self.registered
+                // self.follow_status // used by UserHelper for relationship creation
         self.created_at = [dictionary dateAtKey:CREATED_AT];
         self.updated_at = serverUpdatedDate;
         
@@ -71,9 +75,29 @@
     NSLog(@"longitude = %@",self.longitude);
     NSLog(@"image data exists = %@",self.imageData ? @"Yes" : @"No");
     NSLog(@"registered = %@",self.registered);
+    NSLog(@"follow_status = %@",self.follow_status);
     NSLog(@"status = %@",self.status);
     NSLog(@"created_at = %@",self.created_at);
     NSLog(@"updated_at = %@",self.updated_at);
+    
+    
+    NSLog(@"\n\nRelated Objects");
+    
+    for(Review2 *r in self.reviews){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[r class], r.identifier]);
+    }
+    
+    for(Wine2 *w in self.wines){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[w class], w.identifier]);
+    }
+    
+    for(User2 *following in self.following){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[following class], following.identifier]);
+    }
+    
+    for(User2 *followedBy in self.followedBy){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[followedBy class], followedBy.identifier]);
+    }
 }
 
 -(NSString *)description

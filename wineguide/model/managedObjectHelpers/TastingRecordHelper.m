@@ -10,6 +10,11 @@
 #import "TastingRecord2+Modify.h"
 #import "RestaurantHelper.h"
 #import "Restaurant2.h"
+#import "ReviewHelper.h"
+#import "Review2.h"
+
+#define TASTING_RECORD_RESTAURANT @"tasting_record_restaurant"  ///////////////////
+#define TASTING_RECORD_REVIEWS @"tasting_record_reviews"        ///////////////////
 
 @implementation TastingRecordHelper
 
@@ -27,6 +32,10 @@
     
     if([self.relatedObject class] == [Restaurant2 class]){
         tastingRecord.restaurant = (Restaurant2 *)self.relatedObject;
+        
+    } else if([self.relatedObject class] == [Review2 class]){
+        tastingRecord.reviews = [self addRelationToSet:tastingRecord.reviews];
+        
     }
 }
 
@@ -37,8 +46,11 @@
     // Restaurant
     if(!tastingRecord.restaurant){
         RestaurantHelper *rh = [[RestaurantHelper alloc] init];
-        tastingRecord.restaurant = (Restaurant2 *)[rh findOrCreateManagedObjectEntityType:RESTAURANT_ENTITY andIdentifier:dictionary[RESTAURANT_ID]];
+        tastingRecord.restaurant = (Restaurant2 *)[rh findOrCreateManagedObjectEntityType:RESTAURANT_ENTITY andIdentifier:dictionary[TASTING_RECORD_RESTAURANT]];
     }
+    
+    ReviewHelper *rh = [[ReviewHelper alloc] init];
+    [rh processJSON:dictionary[TASTING_RECORD_REVIEWS] withRelatedObject:tastingRecord];
 }
 
 

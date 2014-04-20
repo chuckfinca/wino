@@ -32,5 +32,6 @@
 @dynamic wines;
 @dynamic following;
 @dynamic followedBy;
+@dynamic reviews;
 
 @end
