@@ -89,6 +89,8 @@
 		C9548ED6190334DE001A8997 /* Brand2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548ED5190334DE001A8997 /* Brand2.m */; };
 		C9548ED9190334DF001A8997 /* Group2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548ED8190334DF001A8997 /* Group2.m */; };
 		C9548EDC190334DF001A8997 /* Flight2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EDB190334DF001A8997 /* Flight2.m */; };
+		C9548EDF190345C4001A8997 /* Varietal2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EDE190345C4001A8997 /* Varietal2.m */; };
+		C9548EE2190345C5001A8997 /* TastingNote2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EE1190345C5001A8997 /* TastingNote2.m */; };
 		C95A2CBF185A31980043ECB0 /* SpringyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A2CBE185A31980043ECB0 /* SpringyFlowLayout.m */; };
 		C95A2CC2185B80070043ECB0 /* visible.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CC0185B80070043ECB0 /* visible.png */; };
 		C95A2CC3185B80070043ECB0 /* visible@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A2CC1185B80070043ECB0 /* visible@2x.png */; };
@@ -369,6 +371,10 @@
 		C9548ED8190334DF001A8997 /* Group2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Group2.m; path = model/managedObjects/Group2.m; sourceTree = "<group>"; };
 		C9548EDA190334DF001A8997 /* Flight2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flight2.h; path = model/managedObjects/Flight2.h; sourceTree = "<group>"; };
 		C9548EDB190334DF001A8997 /* Flight2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Flight2.m; path = model/managedObjects/Flight2.m; sourceTree = "<group>"; };
+		C9548EDD190345C4001A8997 /* Varietal2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Varietal2.h; path = model/managedObjects/Varietal2.h; sourceTree = "<group>"; };
+		C9548EDE190345C4001A8997 /* Varietal2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Varietal2.m; path = model/managedObjects/Varietal2.m; sourceTree = "<group>"; };
+		C9548EE0190345C5001A8997 /* TastingNote2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingNote2.h; path = model/managedObjects/TastingNote2.h; sourceTree = "<group>"; };
+		C9548EE1190345C5001A8997 /* TastingNote2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingNote2.m; path = model/managedObjects/TastingNote2.m; sourceTree = "<group>"; };
 		C95A2CBD185A31980043ECB0 /* SpringyFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpringyFlowLayout.h; path = views/SpringyFlowLayout.h; sourceTree = "<group>"; };
 		C95A2CBE185A31980043ECB0 /* SpringyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpringyFlowLayout.m; path = views/SpringyFlowLayout.m; sourceTree = "<group>"; };
 		C95A2CC0185B80070043ECB0 /* visible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = visible.png; path = images/visible.png; sourceTree = "<group>"; };
@@ -863,6 +869,10 @@
 		C90B6F9818241A5B0012FE5F /* managedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				C9548EE0190345C5001A8997 /* TastingNote2.h */,
+				C9548EE1190345C5001A8997 /* TastingNote2.m */,
+				C9548EDD190345C4001A8997 /* Varietal2.h */,
+				C9548EDE190345C4001A8997 /* Varietal2.m */,
 				C9548EDA190334DF001A8997 /* Flight2.h */,
 				C9548EDB190334DF001A8997 /* Flight2.m */,
 				C9548ED7190334DF001A8997 /* Group2.h */,
@@ -1384,6 +1394,7 @@
 				C92932D8182B00D50035C93C /* BrandDataHelper.m in Sources */,
 				C9DEBC4718FA2A4500134ECD /* RestaurantHelper.m in Sources */,
 				C9B6B26F18D9078C007406DC /* UserDataHelper.m in Sources */,
+				C9548EDF190345C4001A8997 /* Varietal2.m in Sources */,
 				C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */,
 				C92932D2182AD8E80035C93C /* GroupDataHelper.m in Sources */,
 				C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */,
@@ -1394,6 +1405,7 @@
 				C9A73D8819030AC7007C2366 /* Flight2+Modify.m in Sources */,
 				C969347818779F1B0071EF41 /* TastingRecord+CreateAndModify.m in Sources */,
 				C9DAB85D18EA025000BB0E2A /* ReviewCell.m in Sources */,
+				C9548EE2190345C5001A8997 /* TastingNote2.m in Sources */,
 				C93A73E018F0AB46000E0B56 /* Brand.m in Sources */,
 				C9548ECD190334DE001A8997 /* Wine2.m in Sources */,
 				C92932D5182AD9040035C93C /* WineUnitDataHelper.m in Sources */,
