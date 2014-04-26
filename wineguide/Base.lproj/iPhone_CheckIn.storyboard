@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LZn-C8-BM0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LZn-C8-BM0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -51,28 +51,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7i-7n-e8V">
-                                        <rect key="frame" x="0.0" y="102" width="320" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdw-Ld-8lf">
-                                                <rect key="frame" x="20" y="8" width="280" height="33"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.37094537789999998" green="0.18735637860000001" blue="0.40712041440000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="33" id="Ohd-kD-wcF"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="3fA-UF-8t9"/>
-                                            <constraint firstAttribute="trailing" secondItem="xdw-Ld-8lf" secondAttribute="trailing" constant="20" id="AHh-hR-RWb"/>
-                                            <constraint firstItem="xdw-Ld-8lf" firstAttribute="leading" secondItem="W7i-7n-e8V" secondAttribute="leading" constant="20" id="mzy-UV-Sga"/>
-                                            <constraint firstAttribute="centerY" secondItem="xdw-Ld-8lf" secondAttribute="centerY" id="yW9-AL-reA"/>
-                                        </constraints>
-                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFd-se-A6y">
-                                        <rect key="frame" x="0.0" y="152" width="100" height="50"/>
+                                        <rect key="frame" x="0.0" y="162" width="100" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Oau-Zf-tHj"/>
@@ -86,7 +66,7 @@
                                         </connections>
                                     </button>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wnn-Ty-Q0C">
-                                        <rect key="frame" x="0.0" y="210" width="320" height="162"/>
+                                        <rect key="frame" x="0.0" y="220" width="320" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="162" id="9d8-0D-IaH"/>
@@ -121,7 +101,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </timeZone>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iL-l9-6AW">
-                                        <rect key="frame" x="100" y="152" width="220" height="50"/>
+                                        <rect key="frame" x="100" y="162" width="220" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="IDM-2V-hnN"/>
@@ -135,22 +115,30 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <action selector="changeRestaurant:" destination="svh-yg-t6g" eventType="touchUpInside" id="JBL-FH-xk9"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMn-Sx-biX">
+                                        <rect key="frame" x="20" y="102" width="222" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Dwg-Dj-92I"/>
+                                            <constraint firstAttribute="width" constant="222" id="HfQ-DS-BIR"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="FFd-se-A6y" firstAttribute="leading" secondItem="Wnn-Ty-Q0C" secondAttribute="leading" id="84S-Pv-L70"/>
-                                    <constraint firstItem="FFd-se-A6y" firstAttribute="top" secondItem="W7i-7n-e8V" secondAttribute="bottom" id="BlB-Tm-JG0"/>
                                     <constraint firstItem="4iL-l9-6AW" firstAttribute="leading" secondItem="FFd-se-A6y" secondAttribute="trailing" id="Ogz-CR-3fa"/>
-                                    <constraint firstItem="W7i-7n-e8V" firstAttribute="top" secondItem="4ee-Su-dgl" secondAttribute="bottom" constant="8" symbolic="YES" id="Okp-OV-KXz"/>
-                                    <constraint firstItem="W7i-7n-e8V" firstAttribute="trailing" secondItem="Wnn-Ty-Q0C" secondAttribute="trailing" id="Uvy-hh-BR0"/>
-                                    <constraint firstItem="W7i-7n-e8V" firstAttribute="leading" secondItem="Wnn-Ty-Q0C" secondAttribute="leading" id="V9d-zc-MkN"/>
                                     <constraint firstAttribute="trailing" secondItem="Wnn-Ty-Q0C" secondAttribute="trailing" id="VZc-Qc-Ely"/>
                                     <constraint firstAttribute="centerX" secondItem="4ee-Su-dgl" secondAttribute="centerX" id="beT-oV-Fal"/>
                                     <constraint firstItem="Wnn-Ty-Q0C" firstAttribute="top" secondItem="4iL-l9-6AW" secondAttribute="bottom" constant="8" id="biS-dN-KTq"/>
                                     <constraint firstAttribute="centerX" secondItem="T39-9k-gaE" secondAttribute="centerX" id="f4d-nS-q6r"/>
+                                    <constraint firstItem="FFd-se-A6y" firstAttribute="top" secondItem="UMn-Sx-biX" secondAttribute="bottom" id="gvw-VX-O4p"/>
                                     <constraint firstAttribute="bottom" secondItem="Wnn-Ty-Q0C" secondAttribute="bottom" constant="148" id="hAu-82-nrH"/>
+                                    <constraint firstItem="UMn-Sx-biX" firstAttribute="top" secondItem="3h7-j8-gLL" secondAttribute="top" constant="102" id="ih2-PD-EEf"/>
                                     <constraint firstItem="Wnn-Ty-Q0C" firstAttribute="leading" secondItem="3h7-j8-gLL" secondAttribute="leading" id="jxx-8L-t6K"/>
                                     <constraint firstItem="Wnn-Ty-Q0C" firstAttribute="top" secondItem="FFd-se-A6y" secondAttribute="bottom" constant="8" id="kWM-Gd-Lz4"/>
                                     <constraint firstItem="4ee-Su-dgl" firstAttribute="top" secondItem="3h7-j8-gLL" secondAttribute="top" constant="16" id="pqr-cU-8i9"/>
+                                    <constraint firstItem="UMn-Sx-biX" firstAttribute="leading" secondItem="3h7-j8-gLL" secondAttribute="leading" constant="20" id="ptW-Df-53Y"/>
                                     <constraint firstItem="4iL-l9-6AW" firstAttribute="trailing" secondItem="Wnn-Ty-Q0C" secondAttribute="trailing" id="ucf-LR-aZu"/>
                                     <constraint firstItem="T39-9k-gaE" firstAttribute="top" secondItem="3h7-j8-gLL" secondAttribute="top" constant="20" id="x6K-Hg-5Pc"/>
                                 </constraints>
@@ -201,15 +189,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="datePicker" destination="Wnn-Ty-Q0C" id="maS-PR-gVB"/>
                         <outlet property="noteTV" destination="4ee-Su-dgl" id="WaP-SF-Emx"/>
                         <outlet property="promptLabel" destination="T39-9k-gaE" id="NaJ-Pc-l7U"/>
+                        <outlet property="ratingContainerView" destination="UMn-Sx-biX" id="epb-Tu-3F6"/>
                         <outlet property="restaurantButton" destination="4iL-l9-6AW" id="oar-Cr-41b"/>
-                        <outlet property="userRatingView" destination="xdw-Ld-8lf" id="UDU-rR-j58"/>
-                        <outlet property="userRatingViewContainerView" destination="W7i-7n-e8V" id="RYN-BZ-rkI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ek1-aO-ITs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Laj-4E-765" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2332" y="201"/>
+            <point key="canvasLocation" x="2336" y="201"/>
         </scene>
         <!--Friend ListVC-->
         <scene sceneID="jCh-2v-PUd">
@@ -350,24 +337,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7j-rc-uiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3325" y="333"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="m2V-ZF-Dsr">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Wtk-Ju-c4D" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nBW-Hc-BRt"/>
-                        <viewControllerLayoutGuide type="bottom" id="dXs-2I-Y6b"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vmP-SH-kEV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FDb-ra-LNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

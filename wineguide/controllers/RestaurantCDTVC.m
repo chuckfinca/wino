@@ -19,7 +19,6 @@
 #import "ColorSchemer.h"
 #import "WineCell.h"
 #import "CollectionViewWithIndex.h"
-#import "RatingsCVC.h"
 #import "ReviewersCVC.h"
 
 #define JSON @"json"

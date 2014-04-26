@@ -7,10 +7,13 @@
 //
 
 #import "RatingVC.h"
+#import "ColorSchemer.h"
 
 @interface RatingVC ()
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *ratingButtonsCollection;
+@property (nonatomic, strong) UIColor *color;
+
 @end
 
 @implementation RatingVC
@@ -28,7 +31,56 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    for (UIButton *button in self.ratingButtonsCollection){
+        [button setImage:[[UIImage imageNamed:@"glass_empty.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                forState:UIControlStateNormal];
+        button.tintColor = [ColorSchemer sharedInstance].lightGray;
+    }
 }
+
+-(void)setWineColor:(COWineColor)wineColor
+{
+    switch (wineColor) {
+        case 0:
+            self.color = [ColorSchemer sharedInstance].redWine;
+            break;
+        case 1:
+            self.color = [ColorSchemer sharedInstance].whiteWine;
+            break;
+        case 2:
+            self.color = [ColorSchemer sharedInstance].roseWine;
+            break;
+            
+        default:
+            break;
+    }
+    self.view.tintColor = self.color;
+}
+
+
+-(IBAction)changeRating:(UIButton *)sender
+{
+    self.rating = sender.tag+1;
+    
+    UIImage *image;
+    for (UIButton *button in self.ratingButtonsCollection){
+        if(button.tag < self.rating){
+            image = [UIImage imageNamed:@"glass_full.png"];
+            button.tintColor = self.color;
+        } else {
+            image = [UIImage imageNamed:@"glass_empty.png"];
+            button.tintColor = [ColorSchemer sharedInstance].lightGray;
+        }
+        [button setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    }
+}
+
+
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -36,19 +88,8 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)changeRating:(UIButton *)sender
-{
-    self.rating = sender.tag+1;
-    NSLog(@"tag = %i",sender.tag);
-    UIImage *image;
-    for (UIButton *button in self.ratingButtonsCollection){
-        if(button.tag < self.rating){
-            image = [UIImage imageNamed:@"glass_full.png"];
-        } else {
-            image = [UIImage imageNamed:@"glass_empty.png"];
-        }
-        [button setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    }
-}
+
+
+
 
 @end

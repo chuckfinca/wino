@@ -7,7 +7,6 @@
 //
 
 #import "CheckInVC.h"
-#import "UserRatingCVController.h"
 #import "ManagedObjectHandler.h"
 #import "FontThemer.h"
 #import "ColorSchemer.h"
@@ -17,6 +16,7 @@
 #import "GetMe.h"
 #import "ReviewDataHelper.h"
 #import "TastingRecordDataHelper.h"
+#import "RatingVC.h"
 
 #define ADDED_DATE @"addedDate"
 #define CLAIMED_BY_USER @"claimedByUser"
@@ -34,21 +34,20 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *cancelCheckInButton;
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
-@property (weak, nonatomic) IBOutlet UIView *headerBackgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *promptLabel;
 @property (weak, nonatomic) IBOutlet UITextView *noteTV;
-@property (weak, nonatomic) IBOutlet UIView *userRatingView;
-@property (weak, nonatomic) IBOutlet UIView *userRatingViewContainerView;
 @property (weak, nonatomic) IBOutlet UIButton *dateButton;
 @property (weak, nonatomic) IBOutlet UIButton *restaurantButton;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @property (nonatomic, strong) Wine *wine;
 @property (nonatomic, strong) Restaurant *restaurant;
-@property (nonatomic, strong) UserRatingCVController *userRatingsController;
 @property (nonatomic, strong) NSArray *selectedFriends;
 @property (nonatomic) BOOL datePickerVisible;
 @property (nonatomic, strong) NSDate *selectedDate;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *ratingButtonCollection;
+@property (weak, nonatomic) IBOutlet UIView *ratingContainerView;
+@property (nonatomic, strong) RatingVC *ratingVC;
 
 @end
 
@@ -83,23 +82,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [self setupUserRatingsController];
     [self.noteTV becomeFirstResponder];
     
 }
-
-#pragma mark - Getters & Setters
-
--(UserRatingCVController *)userRatingsController
-{
-    if(!_userRatingsController) {
-        _userRatingsController = [[UserRatingCVController alloc] initWithCollectionViewLayout:[[UICollectionViewLayout alloc] init]];
-        _userRatingsController.userCanEdit = YES;
-    }
-    return _userRatingsController;
-}
-
 
 
 #pragma mark - Setup
@@ -111,25 +96,28 @@
     
     [self setupPrompt];
     [self setupRestaurantText];
+    [self setupRatingView];
 }
 
-
+-(void)setupRatingView
+{
+    self.ratingVC = [[RatingVC alloc] initWithNibName:@"RatingVC" bundle:nil];
+    [self.ratingContainerView addSubview:self.ratingVC.view];
+    
+    COWineColor wineColor;
+    if([self.wine.color isEqualToString:@"red"]) wineColor = COWineColorRed;
+    if([self.wine.color isEqualToString:@"white"]) wineColor = COWineColorWhite;
+    if([self.wine.color isEqualToString:@"rose"]) wineColor = COWineColorRose;
+    self.ratingVC.wineColor = wineColor;
+}
 
 -(void)setup
 {
     self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
-    self.headerBackgroundView.backgroundColor = [ColorSchemer sharedInstance].baseColor;
-    [self setupUserRatingView];
     [self setupRestaurantButton];
     [self setupDateButton];
     [self setupCancelButton];
     [self setupContinueButton];
-}
-
--(void)setupUserRatingView
-{
-    self.userRatingViewContainerView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    self.userRatingView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)setupPrompt
@@ -208,14 +196,6 @@
     [self.continueButton sizeToFit];
 }
 
--(void)setupUserRatingsController
-{
-    self.userRatingsController.wine = self.wine;
-    self.userRatingsController.collectionView.frame = self.userRatingView.bounds;
-    [self.userRatingView addSubview:self.userRatingsController.collectionView];
-    [self addBorderToLayer:self.userRatingViewContainerView.layer];
-}
-
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     if([identifier isEqual:@"CancelCheckIn"]){
@@ -226,7 +206,7 @@
     }
     
     if([identifier isEqualToString:@"AddFriends"]){
-        if(!self.userRatingsController.rating){
+        if(!self.ratingVC.rating){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please provide a wine glass rating." delegate:self cancelButtonTitle:nil  otherButtonTitles:@"Ok", nil];
             alert.tintColor = [ColorSchemer sharedInstance].clickable;
             
@@ -306,8 +286,6 @@
 {
     NSLog(@"change restaurant");
 }
-
-
 
 #pragma mark - UITextViewDelegate
 
@@ -438,7 +416,7 @@
     
     if(claimed){
         
-        [dictionary setObject:@(self.userRatingsController.rating) forKey:RATING];
+        [dictionary setObject:@(self.ratingVC.rating) forKey:RATING];
         NSString *reviewText;
         if([[self.noteTV.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] > 0){
             reviewText = self.noteTV.text;
