@@ -9,6 +9,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="LZn-C8-BM0" customClass="CustomNC" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9uU-CG-vpo">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -28,11 +29,11 @@
                         <viewControllerLayoutGuide type="bottom" id="QXG-n9-VLh"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="vHg-WR-V3E">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3h7-j8-gLL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ee-Su-dgl">
@@ -116,29 +117,29 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMn-Sx-biX">
-                                        <rect key="frame" x="20" y="102" width="222" height="60"/>
+                                        <rect key="frame" x="0.0" y="104" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="Dwg-Dj-92I"/>
-                                            <constraint firstAttribute="width" constant="222" id="HfQ-DS-BIR"/>
+                                            <constraint firstAttribute="height" constant="50" id="Dwg-Dj-92I"/>
+                                            <constraint firstAttribute="width" constant="320" id="HfQ-DS-BIR"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Wnn-Ty-Q0C" secondAttribute="bottom" constant="122" id="3w0-l3-gln"/>
                                     <constraint firstItem="FFd-se-A6y" firstAttribute="leading" secondItem="Wnn-Ty-Q0C" secondAttribute="leading" id="84S-Pv-L70"/>
                                     <constraint firstItem="4iL-l9-6AW" firstAttribute="leading" secondItem="FFd-se-A6y" secondAttribute="trailing" id="Ogz-CR-3fa"/>
                                     <constraint firstAttribute="trailing" secondItem="Wnn-Ty-Q0C" secondAttribute="trailing" id="VZc-Qc-Ely"/>
                                     <constraint firstAttribute="centerX" secondItem="4ee-Su-dgl" secondAttribute="centerX" id="beT-oV-Fal"/>
                                     <constraint firstItem="Wnn-Ty-Q0C" firstAttribute="top" secondItem="4iL-l9-6AW" secondAttribute="bottom" constant="8" id="biS-dN-KTq"/>
                                     <constraint firstAttribute="centerX" secondItem="T39-9k-gaE" secondAttribute="centerX" id="f4d-nS-q6r"/>
-                                    <constraint firstItem="FFd-se-A6y" firstAttribute="top" secondItem="UMn-Sx-biX" secondAttribute="bottom" id="gvw-VX-O4p"/>
-                                    <constraint firstAttribute="bottom" secondItem="Wnn-Ty-Q0C" secondAttribute="bottom" constant="148" id="hAu-82-nrH"/>
-                                    <constraint firstItem="UMn-Sx-biX" firstAttribute="top" secondItem="3h7-j8-gLL" secondAttribute="top" constant="102" id="ih2-PD-EEf"/>
+                                    <constraint firstItem="FFd-se-A6y" firstAttribute="top" secondItem="UMn-Sx-biX" secondAttribute="bottom" constant="8" id="gvw-VX-O4p"/>
+                                    <constraint firstItem="UMn-Sx-biX" firstAttribute="top" secondItem="3h7-j8-gLL" secondAttribute="top" constant="104" id="ih2-PD-EEf"/>
                                     <constraint firstItem="Wnn-Ty-Q0C" firstAttribute="leading" secondItem="3h7-j8-gLL" secondAttribute="leading" id="jxx-8L-t6K"/>
                                     <constraint firstItem="Wnn-Ty-Q0C" firstAttribute="top" secondItem="FFd-se-A6y" secondAttribute="bottom" constant="8" id="kWM-Gd-Lz4"/>
                                     <constraint firstItem="4ee-Su-dgl" firstAttribute="top" secondItem="3h7-j8-gLL" secondAttribute="top" constant="16" id="pqr-cU-8i9"/>
-                                    <constraint firstItem="UMn-Sx-biX" firstAttribute="leading" secondItem="3h7-j8-gLL" secondAttribute="leading" constant="20" id="ptW-Df-53Y"/>
+                                    <constraint firstItem="UMn-Sx-biX" firstAttribute="leading" secondItem="3h7-j8-gLL" secondAttribute="leading" id="ptW-Df-53Y"/>
                                     <constraint firstItem="4iL-l9-6AW" firstAttribute="trailing" secondItem="Wnn-Ty-Q0C" secondAttribute="trailing" id="ucf-LR-aZu"/>
                                     <constraint firstItem="T39-9k-gaE" firstAttribute="top" secondItem="3h7-j8-gLL" secondAttribute="top" constant="20" id="x6K-Hg-5Pc"/>
                                 </constraints>
@@ -146,11 +147,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3h7-j8-gLL" secondAttribute="trailing" id="Cos-cn-0kH"/>
+                            <constraint firstItem="3h7-j8-gLL" firstAttribute="top" secondItem="nUO-NF-Avv" secondAttribute="bottom" id="ENb-gs-XaE"/>
                             <constraint firstItem="QXG-n9-VLh" firstAttribute="top" secondItem="3h7-j8-gLL" secondAttribute="bottom" id="MDw-vR-TE6"/>
                             <constraint firstItem="3h7-j8-gLL" firstAttribute="leading" secondItem="vHg-WR-V3E" secondAttribute="leading" id="XQv-y5-bVq"/>
-                            <constraint firstItem="3h7-j8-gLL" firstAttribute="top" secondItem="nUO-NF-Avv" secondAttribute="bottom" constant="-64" id="gWw-n2-rS9"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="QZP-6Q-Hd1">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="yR3-dU-kel">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OrU-Ad-6c6">
@@ -179,8 +181,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="320" height="389"/>
                     <connections>
                         <outlet property="cancelCheckInButton" destination="OrU-Ad-6c6" id="eZL-Za-kGa"/>
