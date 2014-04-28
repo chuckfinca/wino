@@ -31,6 +31,7 @@
 		C91F59BF18457AE800CF7F18 /* UserMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C91F59BE18457AE800CF7F18 /* UserMenuVC.m */; };
 		C91F59C218457EB800CF7F18 /* Restauranteur_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91F59C018457EB800CF7F18 /* Restauranteur_iPhone.storyboard */; };
 		C91F59C5184581C900CF7F18 /* RestaurantGroupManagerTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C91F59C4184581C900CF7F18 /* RestaurantGroupManagerTVC.m */; };
+		C92660EC190F16540024EFDC /* UIView+BorderDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = C92660EB190F16540024EFDC /* UIView+BorderDrawer.m */; };
 		C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92932B6182AD5F90035C93C /* JSONToCoreDataHelper.m */; };
 		C92932D2182AD8E80035C93C /* GroupDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92932D1182AD8E80035C93C /* GroupDataHelper.m */; };
 		C92932D5182AD9040035C93C /* WineUnitDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92932D4182AD9040035C93C /* WineUnitDataHelper.m */; };
@@ -280,6 +281,8 @@
 		C91F59C118457EB800CF7F18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Restauranteur_iPhone.storyboard; sourceTree = "<group>"; };
 		C91F59C3184581C900CF7F18 /* RestaurantGroupManagerTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantGroupManagerTVC.h; path = controllers/RestaurantGroupManagerTVC.h; sourceTree = "<group>"; };
 		C91F59C4184581C900CF7F18 /* RestaurantGroupManagerTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantGroupManagerTVC.m; path = controllers/RestaurantGroupManagerTVC.m; sourceTree = "<group>"; };
+		C92660EA190F16540024EFDC /* UIView+BorderDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BorderDrawer.h"; path = "views/UIView+BorderDrawer.h"; sourceTree = "<group>"; };
+		C92660EB190F16540024EFDC /* UIView+BorderDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BorderDrawer.m"; path = "views/UIView+BorderDrawer.m"; sourceTree = "<group>"; };
 		C92932B5182AD5F90035C93C /* JSONToCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToCoreDataHelper.h; path = model/JSONToCoreDataHelper.h; sourceTree = "<group>"; };
 		C92932B6182AD5F90035C93C /* JSONToCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToCoreDataHelper.m; path = model/JSONToCoreDataHelper.m; sourceTree = "<group>"; };
 		C92932D0182AD8E80035C93C /* GroupDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupDataHelper.h; path = model/GroupDataHelper.h; sourceTree = "<group>"; };
@@ -827,6 +830,8 @@
 				C96BA8F818E8D1AE00E0F990 /* TastingRecordCell.m */,
 				C9DAB85B18EA025000BB0E2A /* ReviewCell.h */,
 				C9DAB85C18EA025000BB0E2A /* ReviewCell.m */,
+				C92660EA190F16540024EFDC /* UIView+BorderDrawer.h */,
+				C92660EB190F16540024EFDC /* UIView+BorderDrawer.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1460,6 +1465,7 @@
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
 				C969352E187CAF8A0071EF41 /* RoundedRectButton.m in Sources */,
 				C96928D518DCEEBC006ADCC4 /* FriendListVC.m in Sources */,
+				C92660EC190F16540024EFDC /* UIView+BorderDrawer.m in Sources */,
 				C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,
 				C98DEFB018217BE70038216C /* RestaurantDataHelper.m in Sources */,

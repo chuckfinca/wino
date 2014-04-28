@@ -17,6 +17,7 @@
 #import "ReviewDataHelper.h"
 #import "TastingRecordDataHelper.h"
 #import "RatingVC.h"
+#import "UIView+BorderDrawer.h"
 
 #define ADDED_DATE @"addedDate"
 #define CLAIMED_BY_USER @"claimedByUser"
@@ -30,8 +31,11 @@
 
 #define TASTING_DATE @"tastingDate"
 
+#define NOTE_TEXT_INSET 20
+
 @interface CheckInVC () <UITextViewDelegate, UIViewControllerTransitioningDelegate, FriendListVcDelegate>
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelCheckInButton;
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
 @property (weak, nonatomic) IBOutlet UILabel *promptLabel;
@@ -39,14 +43,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *dateButton;
 @property (weak, nonatomic) IBOutlet UIButton *restaurantButton;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIView *ratingContainerView;
 
 @property (nonatomic, strong) Wine *wine;
 @property (nonatomic, strong) Restaurant *restaurant;
 @property (nonatomic, strong) NSArray *selectedFriends;
 @property (nonatomic) BOOL datePickerVisible;
 @property (nonatomic, strong) NSDate *selectedDate;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *ratingButtonCollection;
-@property (weak, nonatomic) IBOutlet UIView *ratingContainerView;
 @property (nonatomic, strong) RatingVC *ratingVC;
 
 @end
@@ -72,11 +75,14 @@
     [self setup];
 }
 
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.noteTV.delegate = self;
+    self.scrollView.backgroundColor = [ColorSchemer sharedInstance].gray;
+    self.noteTV.backgroundColor = [ColorSchemer sharedInstance].customWhite;
+    self.noteTV.textContainerInset = UIEdgeInsetsMake(NOTE_TEXT_INSET, NOTE_TEXT_INSET, NOTE_TEXT_INSET, NOTE_TEXT_INSET);
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -109,6 +115,9 @@
     if([self.wine.color isEqualToString:@"white"]) wineColor = COWineColorWhite;
     if([self.wine.color isEqualToString:@"rose"]) wineColor = COWineColorRose;
     self.ratingVC.wineColor = wineColor;
+    
+    self.ratingVC.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    [self.ratingVC.view drawBorderColor:[ColorSchemer sharedInstance].lightGray onTop:YES bottom:YES left:NO andRight:NO];
 }
 
 -(void)setup
@@ -129,7 +138,7 @@
 -(void)setupRestaurantButton
 {
     self.restaurantButton.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    [self addBorderToLayer:self.restaurantButton.layer];
+    [self.restaurantButton drawBorderColor:[ColorSchemer sharedInstance].lightGray onTop:NO bottom:YES left:NO andRight:NO];
 }
 
 -(void)setupRestaurantText
@@ -145,12 +154,6 @@
     attributed = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     
     [self.restaurantButton setAttributedTitle:attributed forState:UIControlStateNormal];
-}
-
--(void)addBorderToLayer:(CALayer *)layer
-{
-    [layer setBorderColor:[ColorSchemer sharedInstance].gray.CGColor];
-    [layer setBorderWidth:0.25];
 }
 
 -(void)setupDateButton
@@ -182,7 +185,7 @@
     [self.dateButton setAttributedTitle:attributed forState:UIControlStateNormal];
     
     self.dateButton.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    [self addBorderToLayer:self.dateButton.layer];
+    [self.dateButton drawBorderColor:[ColorSchemer sharedInstance].lightGray onTop:NO bottom:YES left:NO andRight:YES];
 }
 
 -(void)setupCancelButton
