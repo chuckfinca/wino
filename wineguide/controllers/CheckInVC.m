@@ -42,7 +42,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *noteTV;
 @property (weak, nonatomic) IBOutlet UIButton *dateButton;
 @property (weak, nonatomic) IBOutlet UIButton *restaurantButton;
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIView *ratingContainerView;
 
 @property (nonatomic, strong) Wine *wine;
@@ -51,6 +50,7 @@
 @property (nonatomic) BOOL datePickerVisible;
 @property (nonatomic, strong) NSDate *selectedDate;
 @property (nonatomic, strong) RatingVC *ratingVC;
+@property (nonatomic, strong) UIDatePicker *datePicker;
 
 @end
 
@@ -89,7 +89,18 @@
 {
     [super viewWillAppear:animated];
     [self.noteTV becomeFirstResponder];
-    
+}
+
+#pragma mark - Getters & setters
+
+-(UIDatePicker *)datePicker
+{
+    if(!_datePicker){
+        _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 700, 320, 162)];
+        _datePicker.datePickerMode = UIDatePickerModeDate;
+        [self.view addSubview:_datePicker];
+    }
+    return _datePicker;
 }
 
 
@@ -254,12 +265,12 @@
 -(void)showHideDatePicker
 {
     float animationTime = 0.3;
-    NSInteger viewHeightAdjustment = 200;
+    NSInteger viewHeightAdjustment = 500;
     
     if(self.datePickerVisible){
         self.datePickerVisible = NO;
         [UIView animateWithDuration:animationTime animations:^{
-            self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height-viewHeightAdjustment);
+            self.datePicker.frame = CGRectMake(self.datePicker.frame.origin.x, self.datePicker.frame.origin.y+viewHeightAdjustment, self.datePicker.frame.size.width, self.datePicker.frame.size.height);
             [self.noteTV becomeFirstResponder];
             [self setupDateButton];
             [self setupRestaurantButton];
@@ -269,9 +280,10 @@
             
         }];
     } else {
+        
         self.datePickerVisible = YES;
         [UIView animateWithDuration:animationTime animations:^{
-            self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height+viewHeightAdjustment);
+            self.datePicker.frame = CGRectMake(self.datePicker.frame.origin.x, self.datePicker.frame.origin.y-viewHeightAdjustment, self.datePicker.frame.size.width, self.datePicker.frame.size.height);
             [self.noteTV resignFirstResponder];
             [self setupDateButton];
             [self setupRestaurantButton];

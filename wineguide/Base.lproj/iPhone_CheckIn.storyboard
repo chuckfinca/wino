@@ -65,43 +65,8 @@
                                             <action selector="changeDate:" destination="svh-yg-t6g" eventType="touchUpInside" id="nUL-yb-IXm"/>
                                         </connections>
                                     </button>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wnn-Ty-Q0C">
-                                        <rect key="frame" x="0.0" y="208" width="320" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="162" id="9d8-0D-IaH"/>
-                                            <constraint firstAttribute="width" constant="320" id="Hcq-dB-T1y"/>
-                                        </constraints>
-                                        <date key="date" timeIntervalSinceReferenceDate="417564203.40213698">
-                                            <!--2014-03-26 22:03:23 +0000-->
-                                        </date>
-                                        <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
-                                            <!--2037-12-31 11:00:00 +0000-->
-                                        </date>
-                                        <timeZone key="timeZone" name="America/Los_Angeles">
-                                            <data key="data">
-VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
-y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
-5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
-8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
-AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
-DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
-HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
-KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
-OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
-Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
-VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
-Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
-cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
-f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</data>
-                                        </timeZone>
-                                    </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iL-l9-6AW">
-                                        <rect key="frame" x="100" y="150" width="220" height="50"/>
+                                        <rect key="frame" x="100" y="150" width="221" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="IDM-2V-hnN"/>
@@ -116,31 +81,29 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMn-Sx-biX">
-                                        <rect key="frame" x="0.0" y="100" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="100" width="321" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Dwg-Dj-92I"/>
-                                            <constraint firstAttribute="width" constant="320" id="HfQ-DS-BIR"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Wnn-Ty-Q0C" secondAttribute="bottom" constant="122" id="3w0-l3-gln"/>
-                                    <constraint firstItem="FFd-se-A6y" firstAttribute="leading" secondItem="Wnn-Ty-Q0C" secondAttribute="leading" id="84S-Pv-L70"/>
                                     <constraint firstItem="4ee-Su-dgl" firstAttribute="leading" secondItem="3h7-j8-gLL" secondAttribute="leading" id="8AQ-wO-beI"/>
+                                    <constraint firstAttribute="bottom" secondItem="FFd-se-A6y" secondAttribute="bottom" constant="304" id="8BQ-ML-tfg"/>
                                     <constraint firstItem="4iL-l9-6AW" firstAttribute="leading" secondItem="FFd-se-A6y" secondAttribute="trailing" id="Ogz-CR-3fa"/>
-                                    <constraint firstAttribute="trailing" secondItem="Wnn-Ty-Q0C" secondAttribute="trailing" id="VZc-Qc-Ely"/>
-                                    <constraint firstItem="Wnn-Ty-Q0C" firstAttribute="top" secondItem="4iL-l9-6AW" secondAttribute="bottom" constant="8" id="biS-dN-KTq"/>
+                                    <constraint firstAttribute="centerX" secondItem="4ee-Su-dgl" secondAttribute="centerX" id="R2L-iD-4Jc"/>
+                                    <constraint firstItem="UMn-Sx-biX" firstAttribute="leading" secondItem="FFd-se-A6y" secondAttribute="leading" id="W3G-zY-aYC"/>
                                     <constraint firstAttribute="trailing" secondItem="4ee-Su-dgl" secondAttribute="trailing" id="dxR-cO-Zol"/>
                                     <constraint firstAttribute="centerX" secondItem="T39-9k-gaE" secondAttribute="centerX" id="f4d-nS-q6r"/>
+                                    <constraint firstAttribute="centerX" secondItem="UMn-Sx-biX" secondAttribute="centerX" id="fUb-uE-cEx"/>
                                     <constraint firstItem="FFd-se-A6y" firstAttribute="top" secondItem="UMn-Sx-biX" secondAttribute="bottom" id="gvw-VX-O4p"/>
-                                    <constraint firstItem="Wnn-Ty-Q0C" firstAttribute="leading" secondItem="3h7-j8-gLL" secondAttribute="leading" id="jxx-8L-t6K"/>
-                                    <constraint firstItem="Wnn-Ty-Q0C" firstAttribute="top" secondItem="FFd-se-A6y" secondAttribute="bottom" constant="8" id="kWM-Gd-Lz4"/>
                                     <constraint firstItem="4ee-Su-dgl" firstAttribute="top" secondItem="3h7-j8-gLL" secondAttribute="top" id="pqr-cU-8i9"/>
                                     <constraint firstItem="UMn-Sx-biX" firstAttribute="leading" secondItem="3h7-j8-gLL" secondAttribute="leading" id="ptW-Df-53Y"/>
-                                    <constraint firstItem="4iL-l9-6AW" firstAttribute="trailing" secondItem="Wnn-Ty-Q0C" secondAttribute="trailing" id="ucf-LR-aZu"/>
+                                    <constraint firstItem="4iL-l9-6AW" firstAttribute="top" secondItem="FFd-se-A6y" secondAttribute="top" id="u70-Ex-m0C"/>
                                     <constraint firstItem="T39-9k-gaE" firstAttribute="top" secondItem="3h7-j8-gLL" secondAttribute="top" constant="20" id="x6K-Hg-5Pc"/>
+                                    <constraint firstItem="4iL-l9-6AW" firstAttribute="trailing" secondItem="UMn-Sx-biX" secondAttribute="trailing" id="xWl-FS-t1u"/>
                                     <constraint firstItem="UMn-Sx-biX" firstAttribute="top" secondItem="4ee-Su-dgl" secondAttribute="bottom" id="yWv-lj-Tnf"/>
                                 </constraints>
                             </scrollView>
@@ -186,7 +149,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="cancelCheckInButton" destination="OrU-Ad-6c6" id="eZL-Za-kGa"/>
                         <outlet property="continueButton" destination="HTo-E3-A0X" id="FFu-q3-kHB"/>
                         <outlet property="dateButton" destination="FFd-se-A6y" id="Z41-Tn-5Q4"/>
-                        <outlet property="datePicker" destination="Wnn-Ty-Q0C" id="maS-PR-gVB"/>
                         <outlet property="noteTV" destination="4ee-Su-dgl" id="WaP-SF-Emx"/>
                         <outlet property="promptLabel" destination="T39-9k-gaE" id="NaJ-Pc-l7U"/>
                         <outlet property="ratingContainerView" destination="UMn-Sx-biX" id="epb-Tu-3F6"/>
