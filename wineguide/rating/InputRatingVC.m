@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "RatingVC.h"
+#import "InputRatingVC.h"
 #import "ColorSchemer.h"
 
-@interface RatingVC ()
+@interface InputRatingVC ()
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *ratingButtonsCollection;
 @property (nonatomic, strong) UIColor *color;
 
 @end
 
-@implementation RatingVC
+@implementation InputRatingVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

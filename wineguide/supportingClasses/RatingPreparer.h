@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RatingImageGenerator : NSObject
+@interface RatingPreparer : NSObject
 
-+(void)setupRating:(float)rating inImageViewArray:(NSArray *)imageViewArray;
++(void)setupRating:(float)rating inImageViewArray:(NSArray *)imageViewArray withWineColorString:(NSString *)wineColorString;
 
 @end

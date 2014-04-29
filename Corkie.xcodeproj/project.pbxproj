@@ -120,7 +120,7 @@
 		C95CAAD518EB701D00E210D0 /* tab_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = C95CAAD318EB701D00E210D0 /* tab_Profile.png */; };
 		C95CAAD818EB750900E210D0 /* user_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95CAAD618EB750900E210D0 /* user_default@2x.png */; };
 		C95CAAD918EB750900E210D0 /* user_default.png in Resources */ = {isa = PBXBuildFile; fileRef = C95CAAD718EB750900E210D0 /* user_default.png */; };
-		C95CAADC18EB843E00E210D0 /* RatingImageGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CAADB18EB843E00E210D0 /* RatingImageGenerator.m */; };
+		C95CAADC18EB843E00E210D0 /* RatingPreparer.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CAADB18EB843E00E210D0 /* RatingPreparer.m */; };
 		C95CAAE118EB97D400E210D0 /* button_cellar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95CAADD18EB97D400E210D0 /* button_cellar@2x.png */; };
 		C95CAAE218EB97D400E210D0 /* button_cellar.png in Resources */ = {isa = PBXBuildFile; fileRef = C95CAADE18EB97D400E210D0 /* button_cellar.png */; };
 		C95CAAE318EB97D400E210D0 /* button_purchase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95CAADF18EB97D400E210D0 /* button_purchase@2x.png */; };
@@ -152,8 +152,8 @@
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C982980C190B3E7800E0299A /* RatingsCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C982980B190B3E7800E0299A /* RatingsCVC.m */; };
 		C982980F190B405700E0299A /* CollectionViewWithIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = C982980E190B405700E0299A /* CollectionViewWithIndex.m */; };
-		C9829819190B42D900E0299A /* RatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9829817190B42D900E0299A /* RatingVC.m */; };
-		C982981A190B42D900E0299A /* RatingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9829818190B42D900E0299A /* RatingVC.xib */; };
+		C9829819190B42D900E0299A /* InputRatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9829817190B42D900E0299A /* InputRatingVC.m */; };
+		C982981A190B42D900E0299A /* InputRatingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9829818190B42D900E0299A /* InputRatingVC.xib */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
 		C98DB3C118B2F44300AAEDB5 /* WineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DB3C018B2F44300AAEDB5 /* WineCell.m */; };
 		C98DEFB018217BE70038216C /* RestaurantDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFAF18217BE70038216C /* RestaurantDataHelper.m */; };
@@ -436,8 +436,8 @@
 		C95CAAD318EB701D00E210D0 /* tab_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_Profile.png; path = images/tab_Profile.png; sourceTree = "<group>"; };
 		C95CAAD618EB750900E210D0 /* user_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user_default@2x.png"; path = "images/user_default@2x.png"; sourceTree = "<group>"; };
 		C95CAAD718EB750900E210D0 /* user_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user_default.png; path = images/user_default.png; sourceTree = "<group>"; };
-		C95CAADA18EB843E00E210D0 /* RatingImageGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingImageGenerator.h; path = supportingClasses/RatingImageGenerator.h; sourceTree = "<group>"; };
-		C95CAADB18EB843E00E210D0 /* RatingImageGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingImageGenerator.m; path = supportingClasses/RatingImageGenerator.m; sourceTree = "<group>"; };
+		C95CAADA18EB843E00E210D0 /* RatingPreparer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingPreparer.h; path = supportingClasses/RatingPreparer.h; sourceTree = "<group>"; };
+		C95CAADB18EB843E00E210D0 /* RatingPreparer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingPreparer.m; path = supportingClasses/RatingPreparer.m; sourceTree = "<group>"; };
 		C95CAADD18EB97D400E210D0 /* button_cellar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_cellar@2x.png"; path = "images/button_cellar@2x.png"; sourceTree = "<group>"; };
 		C95CAADE18EB97D400E210D0 /* button_cellar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_cellar.png; path = images/button_cellar.png; sourceTree = "<group>"; };
 		C95CAADF18EB97D400E210D0 /* button_purchase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_purchase@2x.png"; path = "images/button_purchase@2x.png"; sourceTree = "<group>"; };
@@ -482,9 +482,9 @@
 		C982980B190B3E7800E0299A /* RatingsCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingsCVC.m; path = views/RatingsCVC.m; sourceTree = "<group>"; };
 		C982980D190B405700E0299A /* CollectionViewWithIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionViewWithIndex.h; path = views/CollectionViewWithIndex.h; sourceTree = "<group>"; };
 		C982980E190B405700E0299A /* CollectionViewWithIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionViewWithIndex.m; path = views/CollectionViewWithIndex.m; sourceTree = "<group>"; };
-		C9829816190B42D900E0299A /* RatingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingVC.h; path = rating/RatingVC.h; sourceTree = "<group>"; };
-		C9829817190B42D900E0299A /* RatingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingVC.m; path = rating/RatingVC.m; sourceTree = "<group>"; };
-		C9829818190B42D900E0299A /* RatingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingVC.xib; path = rating/RatingVC.xib; sourceTree = "<group>"; };
+		C9829816190B42D900E0299A /* InputRatingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputRatingVC.h; path = rating/InputRatingVC.h; sourceTree = "<group>"; };
+		C9829817190B42D900E0299A /* InputRatingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputRatingVC.m; path = rating/InputRatingVC.m; sourceTree = "<group>"; };
+		C9829818190B42D900E0299A /* InputRatingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InputRatingVC.xib; path = rating/InputRatingVC.xib; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
 		C986B022184677CD006CF318 /* LocalObjectUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalObjectUpdater.m; path = model/LocalObjectUpdater.m; sourceTree = "<group>"; };
 		C98DB3BF18B2F44300AAEDB5 /* WineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineCell.h; path = views/WineCell.h; sourceTree = "<group>"; };
@@ -1087,8 +1087,8 @@
 				C96934291875EF290071EF41 /* NSDictionary+Helper.m */,
 				C9A337E918861E810089D020 /* DateStringFormatter.h */,
 				C9A337EA18861E810089D020 /* DateStringFormatter.m */,
-				C95CAADA18EB843E00E210D0 /* RatingImageGenerator.h */,
-				C95CAADB18EB843E00E210D0 /* RatingImageGenerator.m */,
+				C95CAADA18EB843E00E210D0 /* RatingPreparer.h */,
+				C95CAADB18EB843E00E210D0 /* RatingPreparer.m */,
 			);
 			name = "supporting classes";
 			sourceTree = "<group>";
@@ -1096,9 +1096,9 @@
 		C9829815190B42CB00E0299A /* rating */ = {
 			isa = PBXGroup;
 			children = (
-				C9829816190B42D900E0299A /* RatingVC.h */,
-				C9829817190B42D900E0299A /* RatingVC.m */,
-				C9829818190B42D900E0299A /* RatingVC.xib */,
+				C9829816190B42D900E0299A /* InputRatingVC.h */,
+				C9829817190B42D900E0299A /* InputRatingVC.m */,
+				C9829818190B42D900E0299A /* InputRatingVC.xib */,
 			);
 			name = rating;
 			sourceTree = "<group>";
@@ -1271,7 +1271,7 @@
 				C95CAAD918EB750900E210D0 /* user_default.png in Resources */,
 				C95CAAE418EB97D400E210D0 /* button_purchase.png in Resources */,
 				C95A2CC2185B80070043ECB0 /* visible.png in Resources */,
-				C982981A190B42D900E0299A /* RatingVC.xib in Resources */,
+				C982981A190B42D900E0299A /* InputRatingVC.xib in Resources */,
 				C932F14C186D4E5C0079680C /* RatingsAndReviews.xib in Resources */,
 				C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */,
 				C9C7D62518402BBE00A2E955 /* Tutorial.xib in Resources */,
@@ -1396,7 +1396,7 @@
 				C9DAB84E18E8EF3E00BB0E2A /* TastingRecordDataHelper.m in Sources */,
 				C91F59BF18457AE800CF7F18 /* UserMenuVC.m in Sources */,
 				C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */,
-				C95CAADC18EB843E00E210D0 /* RatingImageGenerator.m in Sources */,
+				C95CAADC18EB843E00E210D0 /* RatingPreparer.m in Sources */,
 				C9A73D8219030836007C2366 /* FlightHelper.m in Sources */,
 				C98DEFDC1822DADC0038216C /* WineDataHelper.m in Sources */,
 				C9487D9A182EF119007F7E19 /* NSManagedObject+Helper.m in Sources */,
@@ -1407,7 +1407,7 @@
 				C9693539187E39FE0071EF41 /* CheckInVC.m in Sources */,
 				C93A73CE18F0AB46000E0B56 /* Rating.m in Sources */,
 				C9548F7B19037252001A8997 /* Review2+Modify.m in Sources */,
-				C9829819190B42D900E0299A /* RatingVC.m in Sources */,
+				C9829819190B42D900E0299A /* InputRatingVC.m in Sources */,
 				C93A73EC18F0AB47000E0B56 /* TastingRecord.m in Sources */,
 				C9548F81190381F1001A8997 /* VarietalHelper.m in Sources */,
 				C9328CCB184ADCBC00AF6DEA /* RestaurantWineManagerSCDTVC.m in Sources */,

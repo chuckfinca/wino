@@ -13,7 +13,7 @@
 #import "DateStringFormatter.h"
 #import "Review.h"
 #import "User.h"
-#import "RatingImageGenerator.h"
+#import "RatingPreparer.h"
 
 @interface TastingRecordCell ()
 
@@ -101,8 +101,7 @@
     
     [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:tastingRecord.restaurant];
     
-    [RatingImageGenerator setupRating:(rating/numberOfRatings) inImageViewArray:self.ratingImageViewArray];
-    [self setWineColorFromString:wine.color];
+    [RatingPreparer setupRating:(rating/numberOfRatings) inImageViewArray:self.ratingImageViewArray withWineColorString:wine.color];
     
     [self setHeight];
     
@@ -128,22 +127,6 @@
     self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }
 
--(void)setWineColorFromString:(NSString *)wineColorString
-{
-    UIColor *wineColor;
-    if([wineColorString isEqualToString:@"red"]){
-        wineColor = [ColorSchemer sharedInstance].redWine;
-    } else if([wineColorString isEqualToString:@"rose"]){
-        wineColor = [ColorSchemer sharedInstance].roseWine;
-    } else if([wineColorString isEqualToString:@"white"]){
-        wineColor = [ColorSchemer sharedInstance].whiteWine;
-    } else {
-        NSLog(@"wine.color != red/rose/white");
-    }
-    for(UIImageView *iv in self.ratingImageViewArray){
-        iv.tintColor = wineColor;
-    }
-}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

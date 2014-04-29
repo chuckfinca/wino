@@ -11,7 +11,7 @@
 #import "ColorSchemer.h"
 #import "FontThemer.h"
 #import "WineNameVHTV.h"
-#import "RatingImageGenerator.h"
+#import "RatingPreparer.h"
 
 @interface ReviewCell ()
 
@@ -63,8 +63,7 @@
             self.reviewTV.attributedText = nil;
         }
         
-        [RatingImageGenerator setupRating:[rating floatValue] inImageViewArray:self.ratingGlassArray];
-        [self setWineColorFromString:wineColor];
+        [RatingPreparer setupRating:[rating floatValue] inImageViewArray:self.ratingGlassArray withWineColorString:wineColor  ];
         
         self.reviewButton.hidden = YES;
     } else {
@@ -109,24 +108,6 @@
     
     self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }
-
--(void)setWineColorFromString:(NSString *)wineColorString
-{
-    UIColor *wineColor;
-    if([wineColorString isEqualToString:@"red"]){
-        wineColor = [ColorSchemer sharedInstance].redWine;
-    } else if([wineColorString isEqualToString:@"rose"]){
-        wineColor = [ColorSchemer sharedInstance].roseWine;
-    } else if([wineColorString isEqualToString:@"white"]){
-        wineColor = [ColorSchemer sharedInstance].whiteWine;
-    } else {
-        // NSLog(@"wine.color != red/rose/white");
-    }
-    for(UIImageView *iv in self.ratingGlassArray){
-        iv.tintColor = wineColor;
-    }
-}
-
 #pragma mark - Target action
 
 - (IBAction)sendToUserProfile:(id)sender
