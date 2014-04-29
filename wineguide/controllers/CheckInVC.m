@@ -97,7 +97,10 @@
 {
     if(!_datePicker){
         _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 700, 320, 162)];
+        _datePicker.maximumDate = [NSDate date];
+        _datePicker.minimumDate = [NSDate dateWithTimeIntervalSince1970:0];
         _datePicker.datePickerMode = UIDatePickerModeDate;
+        _datePicker.backgroundColor = [ColorSchemer sharedInstance].customWhite;
         [self.view addSubview:_datePicker];
     }
     return _datePicker;
