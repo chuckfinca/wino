@@ -11,13 +11,16 @@
 #import "Wine.h"
 #import "Varietal.h"
 #import "TastingNote.h"
+#import "WineRatingAndReviewQuickViewVC.h"
 
 
 @interface WineCell ()
 
-@property (nonatomic, strong) Wine *wine;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *vintageAndVarietals;
+@property (weak, nonatomic) IBOutlet UIView *ratingsAndReviewsContainerView;
+
+@property (nonatomic, strong) WineRatingAndReviewQuickViewVC *wineRatingAndReviewQuickViewVC;
 
 @end
 @implementation WineCell
@@ -38,35 +41,35 @@
     // Configure the view for the selected state
 }
 
-#pragma mark - Getters & Setters
+#pragma mark - Getters & setters
 
--(ReviewersAndRatingsVC *)reviewersAndRatingsVC
+-(WineRatingAndReviewQuickViewVC *)wineRatingAndReviewQuickViewVC
 {
-    if(!_reviewersAndRatingsVC){
-        _reviewersAndRatingsVC = [[ReviewersAndRatingsVC alloc] initWithNibName:@"RatingsAndReviews" bundle:nil];
+    if(!_wineRatingAndReviewQuickViewVC){
+        _wineRatingAndReviewQuickViewVC = [[WineRatingAndReviewQuickViewVC alloc] initWithNibName:@"WineRatingAndReviewQuickviewVC" bundle:nil];
+        [self.ratingsAndReviewsContainerView addSubview:_wineRatingAndReviewQuickViewVC.view];
     }
-    return _reviewersAndRatingsVC;
+    return _wineRatingAndReviewQuickViewVC;
 }
+
+
+
+#pragma mark - Setup
 
 -(void)setupCellForWine:(Wine *)wine
 {
-    self.wine = wine;
-    
-    [self setupText];
+    [self setupTextForWine:wine];
     
     if(!self.abridged){
-        [self.ratingsAndReviewsView addSubview:self.reviewersAndRatingsVC.view];
-        [self.reviewersAndRatingsVC setupForWine:wine];
+        [self.wineRatingAndReviewQuickViewVC setupForWine:wine];
     } else {
-        [self.ratingsAndReviewsView removeFromSuperview];
+        [self.ratingsAndReviewsContainerView removeFromSuperview];
     }
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
--(void)setupText
+-(void)setupTextForWine:(Wine *)wine
 {
-    Wine *wine = self.wine;
-    
     if(wine.name){
         self.name.attributedText = [[NSAttributedString alloc] initWithString:[wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     }

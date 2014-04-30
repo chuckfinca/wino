@@ -24,6 +24,8 @@
 @property (nonatomic, strong) Wine *wine;
 @property (nonatomic, strong) Restaurant *restaurant;
 
+@property (nonatomic) float tableViewHeaderheight;
+
 @end
 
 @implementation WineTRSCDTVC
@@ -44,6 +46,12 @@
     
     // allows the tableview to load faster
     self.tableView.estimatedRowHeight = 200;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.wineDetailsViewController.view.frame = CGRectMake(self.wineDetailsViewController.view.frame.origin.x, self.wineDetailsViewController.view.frame.origin.y, self.wineDetailsViewController.view.frame.size.width, self.tableViewHeaderheight);
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,6 +77,8 @@
 {
     [self.wineDetailsViewController setupWithWine:wine fromRestaurant:(Restaurant *)restaurant];
     self.tableView.tableHeaderView = self.wineDetailsViewController.view;
+    self.tableViewHeaderheight = self.wineDetailsViewController.view.bounds.size.height;
+    
     self.wine = wine;
     self.restaurant = restaurant;
     self.context = wine.managedObjectContext;

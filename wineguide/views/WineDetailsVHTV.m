@@ -59,7 +59,6 @@
         textViewString = [textViewString stringByAppendingString:tastingNotesString];
     }
     
-    
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
     self.attributedText = attributedText;
     self.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];

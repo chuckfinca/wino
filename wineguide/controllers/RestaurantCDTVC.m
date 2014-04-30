@@ -18,15 +18,11 @@
 #import "TastingNote.h"
 #import "ColorSchemer.h"
 #import "WineCell.h"
-#import "CollectionViewWithIndex.h"
-#import "ReviewersCVC.h"
 
 #define JSON @"json"
 #define GROUP_ENTITY @"Group"
 #define WINE_ENTITY @"Wine"
 #define WINE_CELL @"WineCell"
-#define RATINGS_COLLECTION_VIEW_CELL @"RatingsCollectionViewCell"
-#define REVIEWS_COLLECTION_VIEW_CELL @"ReviewersCollectionViewCell"
 
 typedef enum {
     MostPopular,
@@ -94,8 +90,6 @@ typedef enum {
     self.context = restaurant.managedObjectContext;
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
     self.tableView.tableHeaderView = self.restaurantDetailsViewController.view;
-    
-    //[self logDetails];
     
     [self refreshWineList];
     self.title = nil;
@@ -254,44 +248,6 @@ typedef enum {
         index++;
     }
     [self loadWineList:0];
-}
-
-
-
-
-#pragma mark - Restaurant Details
-
--(void)logDetails
-{
-    NSLog(@"----------------------------------------");
-    NSLog(@"identifier = %@",self.restaurant.identifier);
-    NSLog(@"added date = %@",self.restaurant.addedDate);
-    NSLog(@"address = %@",self.restaurant.address);
-    NSLog(@"address 2 = %@",self.restaurant.address2);
-    NSLog(@"city = %@",self.restaurant.city);
-    NSLog(@"country = %@",self.restaurant.country);
-    NSLog(@"lastServerUpdate = %@",self.restaurant.lastServerUpdate);
-    NSLog(@"latitude = %@",self.restaurant.latitude);
-    NSLog(@"longitude = %@",self.restaurant.longitude);
-    NSLog(@"deletedEntity = %@",self.restaurant.deletedEntity);
-    NSLog(@"menuNeedsUpdating = %@",self.restaurant.menuNeedsUpdating);
-    NSLog(@"name = %@",self.restaurant.name);
-    NSLog(@"state = %@",self.restaurant.state);
-    NSLog(@"zip = %@",self.restaurant.zip);
-    NSLog(@"flightIdentifiers = %@",self.restaurant.flightIdentifiers);
-    NSLog(@"groupIdentifiers = %@",self.restaurant.groupIdentifiers);
-    
-    NSLog(@"flights count = %lu",(unsigned long)[self.restaurant.flights count]);
-    for(NSObject *obj in self.restaurant.flights){
-        NSLog(@"  %@",obj.description);
-    }
-    
-    NSLog(@"groups count = %lu",(unsigned long)[self.restaurant.groups count]);
-    for(NSObject *obj in self.restaurant.groups){
-        NSLog(@"  %@",obj.description);
-    }
-    
-    NSLog(@"\n\n\n");
 }
 
 

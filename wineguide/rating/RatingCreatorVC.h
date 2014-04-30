@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, COWineColor) {
     COWineColorRose    = 2
 };
 
-@interface InputRatingVC : UIViewController
+@interface RatingCreatorVC : UIViewController
 
 @property (nonatomic) NSInteger rating;
 @property (nonatomic) COWineColor wineColor;

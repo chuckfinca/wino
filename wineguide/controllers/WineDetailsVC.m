@@ -11,25 +11,24 @@
 #import "WineNameVHTV.h"
 #import "Brand.h"
 #import "ColorSchemer.h"
-#import "ReviewersAndRatingsVC.h"
 #import "FontThemer.h"
 #import "User.h"
 #import "GetMe.h"
-
-
+#import "WineRatingAndReviewQuickViewVC.h"
 
 @interface WineDetailsVC ()
+
+@property (nonatomic, weak) IBOutlet WineNameVHTV *wineNameVHTV;
+@property (nonatomic, weak) IBOutlet WineDetailsVHTV *wineDetailsVHTV;
+@property (weak, nonatomic) IBOutlet UIView *ratingsAndReviewsView;
+@property (weak, nonatomic) IBOutlet UIButton *cellarButton;
+@property (weak, nonatomic) IBOutlet UIButton *triedItButton;
+@property (weak, nonatomic) IBOutlet UIButton *purchaseButton;
 
 @property (nonatomic, weak) Wine *wine;
 @property (nonatomic, weak) Restaurant *restaurant;
 @property (nonatomic, weak) User *me;
-@property (nonatomic, weak) IBOutlet WineDetailsVHTV *wineDetailsVHTV;
-@property (nonatomic, weak) IBOutlet WineNameVHTV *wineNameVHTV;
-@property (weak, nonatomic) IBOutlet UIView *ratingsAndReviewsView;
-@property (nonatomic, strong) ReviewersAndRatingsVC *reviewersAndRatingsVC;
-@property (weak, nonatomic) IBOutlet UIButton *cellarButton;
-@property (weak, nonatomic) IBOutlet UIButton *triedItButton;
-@property (weak, nonatomic) IBOutlet UIButton *purchaseButton;
+@property (nonatomic, strong) WineRatingAndReviewQuickViewVC *wineRatingAndReviewQuickviewVC;
 @property (nonatomic, strong) NSDictionary *buttonTextAttributesDictionary;
 
 // Vertical spacing constraints
@@ -63,14 +62,6 @@
 
 #pragma mark - Getters & Setters
 
--(ReviewersAndRatingsVC *)reviewersAndRatingsVC
-{
-    if(!_reviewersAndRatingsVC){
-        _reviewersAndRatingsVC = [[ReviewersAndRatingsVC alloc] initWithNibName:@"RatingsAndReviews" bundle:nil];
-    }
-    return _reviewersAndRatingsVC;
-}
-
 -(NSDictionary *)buttonTextAttributesDictionary
 {
     return @{NSFontAttributeName : [FontThemer sharedInstance].caption1, NSForegroundColorAttributeName : self.view.tintColor};
@@ -91,25 +82,22 @@
 {
     self.wine = wine;
     self.restaurant = restaurant;
-    
-    // [self logDetails];
 }
 
 -(void)setup
 {
     [self.wineNameVHTV setupTextViewWithWine:self.wine fromRestaurant:nil];
-    
     [self.wineDetailsVHTV setupTextViewWithWine:self.wine fromRestaurant:nil];
     
-    [self.ratingsAndReviewsView addSubview:self.reviewersAndRatingsVC.view];
-    self.reviewersAndRatingsVC.favorite = [self.me.winesInCellar containsObject:self.wine];
-    [self.reviewersAndRatingsVC setupForWine:self.wine];
-    
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.wineRatingAndReviewQuickviewVC = [[WineRatingAndReviewQuickViewVC alloc] initWithNibName:@"WineRatingAndReviewQuickviewVC" bundle:nil];
+    [self.ratingsAndReviewsView addSubview:self.wineRatingAndReviewQuickviewVC.view];
+    [self.wineRatingAndReviewQuickviewVC setupForWine:self.wine];
     
     [self setupUserActionButtons];
     
     [self setViewHeight];
+    
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)setupUserActionButtons
@@ -182,9 +170,6 @@
 -(IBAction)cellarPressed:(id)sender
 {
     [self cellarWine];
-    self.reviewersAndRatingsVC.favorite = [self.me.winesInCellar containsObject:self.wine];
-    [self.reviewersAndRatingsVC setupForWine:self.wine];
-    
     [self displayCellarMessage];
 }
 
@@ -204,18 +189,12 @@
 {
     NSMutableSet *winesInCellar = [self.me.winesInCellar mutableCopy];
     
-    NSLog(@"winesInCellar = %i",[winesInCellar count]);
-    
     if([winesInCellar containsObject:self.wine]){
-        NSLog(@"aaa");
         [winesInCellar removeObject:self.wine];
     } else {
-        NSLog(@"bbb");
         [winesInCellar addObject:self.wine];
     }
     self.me.winesInCellar = winesInCellar;
-    
-    NSLog(@"winesInCellar = %i",[winesInCellar count]);
     
     [self setupCellarButton];
 }
@@ -225,54 +204,6 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Bottle purchases coming soon!" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"Ok",nil];
     [alert show];
 }
-
-
-
-
--(void)logDetails
-{
-    NSLog(@"----------------------------------------");
-    NSLog(@"identifier = %@",self.wine.identifier);
-    NSLog(@"alcoholPercentage = %@",self.wine.alcoholPercentage);
-    NSLog(@"color = %@",self.wine.color);
-    NSLog(@"country = %@",self.wine.country);
-    NSLog(@"dessert = %@",self.wine.dessert);
-    NSLog(@"lastServerUpdate = %@",self.wine.lastServerUpdate);
-    NSLog(@"deletedEntity = %@",self.wine.deletedEntity);
-    NSLog(@"name = %@",self.wine.name);
-    NSLog(@"region = %@",self.wine.region);
-    NSLog(@"sparkling = %@",self.wine.sparkling);
-    NSLog(@"state = %@",self.wine.state);
-    NSLog(@"vineyard = %@",self.wine.vineyard);
-    NSLog(@"vintage = %@",self.wine.vintage);
-    
-    NSLog(@"brandIdentifier = %@",self.wine.brandIdentifier);
-    NSLog(@"wineUnitIdentifiers = %@",self.wine.wineUnitIdentifiers);
-    NSLog(@"tastingNoteIdentifers = %@",self.wine.tastingNoteIdentifers);
-    NSLog(@"varietalIdentifiers = %@",self.wine.varietalIdentifiers);
-    
-    NSLog(@"brand = %@",self.wine.brand.description);
-    
-    NSLog(@"tastingNotes count = %lu",(unsigned long)[self.wine.tastingNotes count]);
-    for(NSObject *obj in self.wine.tastingNotes){
-        NSLog(@"  %@",obj.description);
-    }
-    
-    NSLog(@"varietals count = %lu",(unsigned long)[self.wine.varietals count]);
-    for(NSObject *obj in self.wine.varietals){
-        NSLog(@"  %@",obj.description);
-    }
-    
-    NSLog(@"wineUnits = %lu",(unsigned long)[self.wine.wineUnits count]);
-    for(NSObject *obj in self.wine.wineUnits){
-        NSLog(@"  %@",obj.description);
-    }
-    NSLog(@"\n\n\n");
-}
-
-
-
-
 
 
 
