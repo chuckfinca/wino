@@ -68,7 +68,8 @@
          [self.view addSubview:instructions.view];
          */
     }
-    NSLog(@"%@",self.fetchedResultsController.fetchedObjects);
+    
+    // NSLog(@"%@",self.fetchedResultsController.fetchedObjects);
 }
 
 -(void)logFetchResultsForController:(NSFetchedResultsController *)frc

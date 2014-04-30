@@ -91,7 +91,7 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
-    NSLog(@"%@",self.fetchedResultsController.fetchedObjects);
+    // NSLog(@"%@",self.fetchedResultsController.fetchedObjects);
 }
 
 -(void)logFetchResultsForController:(NSFetchedResultsController *)frc
