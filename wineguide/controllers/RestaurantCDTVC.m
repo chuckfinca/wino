@@ -8,7 +8,7 @@
 
 #import "RestaurantCDTVC.h"
 #import "RestaurantDetailsVC.h"
-#import "WineCDTVC.h"
+#import "WineTRSCDTVC.h"
 #import "RestaurantDataHelper.h"
 #import "GroupDataHelper.h"
 #import "Wine.h"
@@ -170,7 +170,7 @@ typedef enum {
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WineCDTVC *wineCDTVC = [[WineCDTVC alloc] initWithStyle:UITableViewStylePlain];
+    WineTRSCDTVC *wineCDTVC = [[WineTRSCDTVC alloc] initWithStyle:UITableViewStylePlain];
     
     // Pass the selected object to the new view controller.
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];

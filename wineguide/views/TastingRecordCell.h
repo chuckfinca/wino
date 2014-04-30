@@ -13,6 +13,6 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *userImageButtonArray;
 
--(void)setupWithTastingRecord:(TastingRecord *)tastingRecord;
+-(void)setupWithTastingRecord:(TastingRecord *)tastingRecord andDisplayWineName:(BOOL)displayWineName;
 
 @end

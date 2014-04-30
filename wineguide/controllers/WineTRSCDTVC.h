@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "CoreDataTableViewController.h"
+#import "TastingRecordSCDTVC.h"
 #import "Wine.h"
 #import "Restaurant.h"
 
-@interface WineCDTVC : CoreDataTableViewController
+@interface WineTRSCDTVC : TastingRecordSCDTVC
 
 -(void)setupWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant;
 

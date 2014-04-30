@@ -11,7 +11,7 @@
 #import "ColorSchemer.h"
 #import "Varietal.h"
 #import "TastingNote.h"
-#import "WineCDTVC.h"
+#import "WineTRSCDTVC.h"
 #import "WineCell.h"
 #import "FontThemer.h"
 #import "GetMe.h"
@@ -195,7 +195,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WineCDTVC *wineCDTVC = [[WineCDTVC alloc] initWithStyle:UITableViewStylePlain];
+    WineTRSCDTVC *wineCDTVC = [[WineTRSCDTVC alloc] initWithStyle:UITableViewStylePlain];
     
     // Pass the selected object to the new view controller.
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];

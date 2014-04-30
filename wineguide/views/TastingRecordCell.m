@@ -54,7 +54,7 @@
     return _placeHolderImage;
 }
 
--(void)setupWithTastingRecord:(TastingRecord *)tastingRecord
+-(void)setupWithTastingRecord:(TastingRecord *)tastingRecord andDisplayWineName:(BOOL)displayWineName
 {
     self.dateLabel.attributedText = [DateStringFormatter attributedStringFromDate:tastingRecord.tastingDate];
     
@@ -99,7 +99,11 @@
         }
     }
     
-    [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:tastingRecord.restaurant];
+    if(displayWineName){
+        [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:tastingRecord.restaurant];
+    } else {
+        self.wineNameVHTV.text = nil;
+    }
     
     [RatingPreparer setupRating:(rating/numberOfRatings) inImageViewArray:self.ratingImageViewArray withWineColorString:wine.color];
     

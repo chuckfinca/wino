@@ -17,78 +17,27 @@
 #import "DateStringFormatter.h"
 #import "ReviewsTVController.h"
 #import "UserProfileVC.h"
+#import "GetMe.h"
 
 #define TASTING_RECORD_ENTITY @"TastingRecord"
-#define TASTING_RECORD_CELL @"TastingRecordCell"
-#define REVIEWS_SEGUE @"ReviewsSegue"
 
 @interface TimelineSCDTVC () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic, strong) TastingRecordCell *tastingRecordSizingCell;
 @property (nonatomic) CGPoint touchLocation;
 
 @end
 
 @implementation TimelineSCDTVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        [self setup];
-    }
-    return self;
-}
-
--(void)awakeFromNib
-{
-    [self setup];
-}
-
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationItem.title = @"Tasting Timeline";
-    
-    UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-    gr.delegate = self;
-    gr.numberOfTouchesRequired = 1;
-    gr.numberOfTapsRequired = 1;
-    [self.tableView addGestureRecognizer:gr];
-}
--(void)setup
-{
-    [self.tableView registerNib:[UINib nibWithNibName:@"TastingRecordCell" bundle:nil] forCellReuseIdentifier:TASTING_RECORD_CELL];
-    self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
-    
-    // allows the tableview to load faster
-    self.tableView.estimatedRowHeight = 200;
+    self.displayWineNameOnEachCell = YES;
 }
 
-#pragma mark - Getters & Setters
-
--(TastingRecordCell *)tastingRecordSizingCell
-{
-    if(!_tastingRecordSizingCell){
-        _tastingRecordSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"TastingRecordCell" owner:self options:nil] firstObject];
-    }
-    return _tastingRecordSizingCell;
-}
-
-#pragma mark - Setup
-
--(void)refresh
-{
-    [self getManagedObjectContext];
-    if (self.context){
-        [self setupFetchedResultsController];
-    }
-}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -96,15 +45,6 @@
     [self setupFetchedResultsController];
 }
 
--(void)getManagedObjectContext
-{
-    if(!self.context && [DocumentHandler sharedDocumentHandler]){
-        self.context = [DocumentHandler sharedDocumentHandler].document.managedObjectContext;
-    } else {
-        [self listenForDocumentReadyNotification];
-        NSLog(@"cannot get managed object context because either self.context exists (%@) or [DocumentHandler sharedDocumentHandler] does not exist (%@). Did start listening to DocumentReady notifications",self.context,[DocumentHandler sharedDocumentHandler]);
-    }
-}
 
 -(void)setupFetchedResultsController
 {
@@ -114,8 +54,7 @@
                                                               ascending:NO],
                                 [NSSortDescriptor sortDescriptorWithKey:@"identifier"
                                                               ascending:YES]];
-    
-    request.predicate = nil;
+    request.predicate = [NSPredicate predicateWithFormat:@"ANY reviews.user.identifier = %@",[GetMe sharedInstance].me.identifier];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
@@ -129,169 +68,16 @@
          [self.view addSubview:instructions.view];
          */
     }
+    NSLog(@"%@",self.fetchedResultsController.fetchedObjects);
 }
 
--(void)logDetailsOfTastingRecord:(TastingRecord *)tastingRecord
+-(void)logFetchResultsForController:(NSFetchedResultsController *)frc
 {
-    NSLog(@"----------------------------------------");
-    NSLog(@"identifier = %@",tastingRecord.identifier);
-    NSLog(@"added date = %@",tastingRecord.addedDate);
-    NSLog(@"tasting Date = %@",tastingRecord.tastingDate);
-    NSLog(@"lastLocalUpdate = %@",tastingRecord.lastLocalUpdate);
-    NSLog(@"lastServerUpdate = %@",tastingRecord.lastServerUpdate);
-    NSLog(@"deletedEntity = %@",tastingRecord.deletedEntity);
-    
-    for(Review *r in tastingRecord.reviews){
-        NSLog(@"review = %@",r);
-    }
-    // NSLog(@"rating = %@",tastingRecord.review.rating);
-    
-    
-    NSLog(@"\n\n\n");
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    if(tableView == self.tableView){
-        return [[self.fetchedResultsController sections] count];
-    } else {
-        return 1;
+    NSLog(@"fetchedResultCount = %lu",(unsigned long)[frc.fetchedObjects count]);
+    for(NSObject *fetchedResult in frc.fetchedObjects){
+        NSLog(@"fetchedResult = %@",fetchedResult.description);
     }
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if(tableView == self.tableView){
-        return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
-    } else {
-        TastingRecord *tr = self.fetchedResultsController.fetchedObjects[tableView.tag];
-        return [tr.reviews count];
-    }
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    TastingRecordCell *trCell = (TastingRecordCell *)[tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
-    trCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [trCell setupWithTastingRecord:tastingRecord];
-    
-    return trCell;
-}
-
-
-
-#pragma mark - UITableViewDelegate
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self.tastingRecordSizingCell setupWithTastingRecord:tastingRecord];
-    
-    return self.tastingRecordSizingCell.bounds.size.height;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"didSelectRowAtIndexPath");
-    TastingRecordCell *cell = (TastingRecordCell *)[tableView cellForRowAtIndexPath:indexPath];
-    
-    for(UIGestureRecognizer *gr in tableView.gestureRecognizers){
-        CGPoint touchLocation = [gr locationInView:cell];
-    }
-    UIGestureRecognizer *gr = (UIGestureRecognizer *)tableView.gestureRecognizers[1];
-    CGPoint touchLocation = [gr locationInView:cell];
-    
-    for(UIButton *userProfileImageButton in cell.userImageButtonArray){
-        if(CGRectContainsPoint(userProfileImageButton.frame, touchLocation)){
-            //NSLog(@"touched number %i",userProfileImageButton.tag);
-        }
-    }
-    
-    // [self performSegueWithIdentifier:@"ReviewsSegue" sender:cell];
-}
-
-#pragma mark - UIGestureRecognizerDelegate
-
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    UITableView *tableView = (UITableView *)gestureRecognizer.view;
-    self.touchLocation = [touch locationInView:tableView];
-    
-    if ([tableView indexPathForRowAtPoint:self.touchLocation]) {
-        return YES;
-    }
-    
-    return NO;
-}
-
--(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
-    return YES;
-}
-
-
--(void)handleTap:(UIGestureRecognizer *)tap
-{
-    if (UIGestureRecognizerStateEnded == tap.state) {
-        UITableView *tableView = (UITableView *)tap.view;
-        
-        NSIndexPath* indexPath = [tableView indexPathForRowAtPoint:self.touchLocation];
-        
-        TastingRecordCell *cell = (TastingRecordCell *)[tableView cellForRowAtIndexPath:indexPath];
-        
-        CGPoint cellTouchLocation = [tap locationInView:cell];
-        
-        BOOL pushUserProfileVC = NO;
-        
-        User *user;
-        
-        for(UIButton *button in cell.userImageButtonArray){
-            if(CGRectContainsPoint(button.frame, cellTouchLocation) && !button.hidden){
-                
-                TastingRecord *tastingRecord = self.fetchedResultsController.fetchedObjects[indexPath.row];
-                NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:YES]]];
-                Review *review = reviewsArray[button.tag];
-                user = review.user;
-                pushUserProfileVC = YES;
-                break;
-            }
-        }
-        
-        UIViewController *controller;
-        
-        if(pushUserProfileVC){
-            controller = [[UserProfileVC alloc] initWithUser:user];
-        } else {
-            controller = [[ReviewsTVController alloc] init];
-            [(ReviewsTVController *)controller setupFromTastingRecord:(TastingRecord *)self.fetchedResultsController.fetchedObjects[indexPath.row]];
-        }
-        [self.navigationController pushViewController:controller animated:YES];
-    }
-}
-
-
-#pragma mark - Listen for Notifications
-
--(void)listenForDocumentReadyNotification
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(refresh)
-                                                 name:@"Document Ready"
-                                               object:nil];
-}
-
-
-
-
-
-
-
-
-
 
 
 
