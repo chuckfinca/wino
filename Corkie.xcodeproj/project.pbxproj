@@ -159,6 +159,7 @@
 		C98DEFE8182312130038216C /* ManagedObjectHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFE7182312130038216C /* ManagedObjectHandler.m */; };
 		C98DEFFE182329D30038216C /* restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = C98DEFFA182329D30038216C /* restaurants.json */; };
 		C990FAC51910886F00BF692E /* TastingRecordSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C990FAC41910886F00BF692E /* TastingRecordSCDTVC.m */; };
+		C990FAC81910955D00BF692E /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C990FAC71910955D00BF692E /* RoundedRectButton.m */; };
 		C991FB891861110200C10B52 /* glass_full.png in Resources */ = {isa = PBXBuildFile; fileRef = C991FB831861110200C10B52 /* glass_full.png */; };
 		C991FB8A1861110200C10B52 /* glass_full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C991FB841861110200C10B52 /* glass_full@2x.png */; };
 		C991FB8B1861110200C10B52 /* glass_half.png in Resources */ = {isa = PBXBuildFile; fileRef = C991FB851861110200C10B52 /* glass_half.png */; };
@@ -491,6 +492,8 @@
 		C98DEFFA182329D30038216C /* restaurants.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurants.json; path = model/json/restaurants.json; sourceTree = "<group>"; };
 		C990FAC31910886F00BF692E /* TastingRecordSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingRecordSCDTVC.h; path = controllers/TastingRecordSCDTVC.h; sourceTree = "<group>"; };
 		C990FAC41910886F00BF692E /* TastingRecordSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingRecordSCDTVC.m; path = controllers/TastingRecordSCDTVC.m; sourceTree = "<group>"; };
+		C990FAC61910955D00BF692E /* RoundedRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoundedRectButton.h; path = views/RoundedRectButton.h; sourceTree = "<group>"; };
+		C990FAC71910955D00BF692E /* RoundedRectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoundedRectButton.m; path = views/RoundedRectButton.m; sourceTree = "<group>"; };
 		C991FB831861110200C10B52 /* glass_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glass_full.png; path = images/glass_full.png; sourceTree = "<group>"; };
 		C991FB841861110200C10B52 /* glass_full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glass_full@2x.png"; path = "images/glass_full@2x.png"; sourceTree = "<group>"; };
 		C991FB851861110200C10B52 /* glass_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glass_half.png; path = images/glass_half.png; sourceTree = "<group>"; };
@@ -787,6 +790,8 @@
 		C9061E31181F1E13003D8A55 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				C990FAC61910955D00BF692E /* RoundedRectButton.h */,
+				C990FAC71910955D00BF692E /* RoundedRectButton.m */,
 				C982980A190B3E7800E0299A /* RatingsCVC.h */,
 				C982980B190B3E7800E0299A /* RatingsCVC.m */,
 				C9DF121118C80628003AE68C /* VariableHeightTV.h */,
@@ -1414,6 +1419,7 @@
 				C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */,
 				C93A73DD18F0AB46000E0B56 /* Wine.m in Sources */,
 				C9C7D6151840168700A2E955 /* SearchableCDTVC.m in Sources */,
+				C990FAC81910955D00BF692E /* RoundedRectButton.m in Sources */,
 				C9A337EB18861E810089D020 /* DateStringFormatter.m in Sources */,
 				C91F59C5184581C900CF7F18 /* RestaurantGroupManagerTVC.m in Sources */,
 				C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */,
