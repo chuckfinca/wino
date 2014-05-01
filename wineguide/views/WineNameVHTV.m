@@ -73,7 +73,6 @@
             }
         }
     }
-    NSLog(@"name = %@",textViewString);
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
     self.attributedText = attributedText;
     self.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
