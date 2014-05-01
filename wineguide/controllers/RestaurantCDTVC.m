@@ -42,6 +42,7 @@ typedef enum {
 @property (nonatomic, strong) NSString *listName;
 @property (nonatomic, strong) NSFetchedResultsController *restaurantGroupsFRC;
 @property (nonatomic, strong) NSString *selectedGroupIdentifier;
+@property (nonatomic, strong) WineCell *wineSizingCell;
 
 @end
 
@@ -79,6 +80,14 @@ typedef enum {
         _restaurantDetailsViewController.delegate = self;
     }
     return _restaurantDetailsViewController;
+}
+
+-(WineCell *)wineSizingCell
+{
+    if(!_wineSizingCell){
+        _wineSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"WineCell" owner:self options:nil] firstObject];
+    }
+    return _wineSizingCell;
 }
 
 #pragma mark - Setup
@@ -183,7 +192,10 @@ typedef enum {
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 135;
+    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.wineSizingCell setupCellForWine:wine];
+    
+    return self.wineSizingCell.bounds.size.height;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

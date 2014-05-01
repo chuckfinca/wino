@@ -12,15 +12,18 @@
 #import "Varietal.h"
 #import "TastingNote.h"
 #import "WineRatingAndReviewQuickViewVC.h"
+#import "WineNameVHTV.h"
 
 
 @interface WineCell ()
 
-@property (weak, nonatomic) IBOutlet UILabel *name;
-@property (weak, nonatomic) IBOutlet UILabel *vintageAndVarietals;
+@property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (weak, nonatomic) IBOutlet UIView *ratingsAndReviewsContainerView;
 
 @property (nonatomic, strong) WineRatingAndReviewQuickViewVC *wineRatingAndReviewQuickViewVC;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameVhtvConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVhtvToRatingsAndReviewsContainerViewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingsAndReviewsContainerViewToBottomConstraint;
 
 @end
 @implementation WineCell
@@ -58,43 +61,31 @@
 
 -(void)setupCellForWine:(Wine *)wine
 {
-    [self setupTextForWine:wine];
+    [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:nil];
     
     if(!self.abridged){
         [self.wineRatingAndReviewQuickViewVC setupForWine:wine];
     } else {
         [self.ratingsAndReviewsContainerView removeFromSuperview];
     }
+    
+    [self setViewHeight];
+    
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
--(void)setupTextForWine:(Wine *)wine
+-(void)setViewHeight
 {
-    if(wine.name){
-        self.name.attributedText = [[NSAttributedString alloc] initWithString:[wine.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
-    }
+    CGFloat height = 0;
     
-    NSString *vintageAndVarietals = @"";
-    if(wine.vintage){
-        NSString *vintageString = [wine.vintage stringValue];
-        vintageAndVarietals = [vintageAndVarietals stringByAppendingString:[NSString stringWithFormat:@"%@",[vintageString capitalizedString]]];
-    }
-    if(wine.varietals){
-        NSString *varietalsString = @"";
-        if(wine.vintage) {
-            varietalsString = @" - ";
-        }
-        NSArray *varietals = [wine.varietals sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-        for(Varietal *varietal in varietals){
-            varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
-        }
-        varietalsString = [varietalsString substringToIndex:[varietalsString length]-2];
-        vintageAndVarietals = [vintageAndVarietals stringByAppendingString:[NSString stringWithFormat:@"%@",[varietalsString capitalizedString]]];
-    }
-    self.vintageAndVarietals.attributedText = [[NSAttributedString alloc] initWithString:vintageAndVarietals attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+    height += self.topToWineNameVhtvConstraint.constant;
+    height += [self.wineNameVHTV height];
+    height += self.wineNameVhtvToRatingsAndReviewsContainerViewConstraint.constant;
+    height += self.ratingsAndReviewsContainerView.bounds.size.height;
+    height += self.ratingsAndReviewsContainerViewToBottomConstraint.constant;
     
+    self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }
-
 
 
 

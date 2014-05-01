@@ -10,20 +10,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="153"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="brand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xe-51-zAi">
-                    <rect key="frame" x="20" y="15" width="272" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vintage &amp; varietal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOi-d1-Suz">
-                    <rect key="frame" x="20" y="36" width="280" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="39t-7y-wrb">
                     <rect key="frame" x="0.0" y="65" width="320" height="68"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -32,25 +18,31 @@
                         <constraint firstAttribute="height" constant="68" id="vtH-n0-xyq"/>
                     </constraints>
                 </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Wine name" translatesAutoresizingMaskIntoConstraints="NO" id="V6j-mN-BMa" customClass="WineNameVHTV">
+                    <rect key="frame" x="20" y="8" width="280" height="57"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="39t-7y-wrb" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="77e-0M-Ymw"/>
-                <constraint firstItem="39t-7y-wrb" firstAttribute="top" secondItem="dOi-d1-Suz" secondAttribute="bottom" constant="8" id="8fW-TX-hXS"/>
-                <constraint firstAttribute="trailing" secondItem="5Xe-51-zAi" secondAttribute="trailing" constant="28" id="DH3-UX-DLQ"/>
-                <constraint firstItem="dOi-d1-Suz" firstAttribute="top" secondItem="5Xe-51-zAi" secondAttribute="bottom" id="DgG-l1-gSI"/>
+                <constraint firstAttribute="bottom" secondItem="39t-7y-wrb" secondAttribute="bottom" constant="20" id="H21-Jm-MxF"/>
+                <constraint firstAttribute="trailing" secondItem="V6j-mN-BMa" secondAttribute="trailing" constant="20" id="Wfp-UK-vrB"/>
                 <constraint firstAttribute="trailing" secondItem="39t-7y-wrb" secondAttribute="trailing" id="ZS6-h0-Rh4"/>
-                <constraint firstItem="5Xe-51-zAi" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="bFd-M0-ENQ"/>
-                <constraint firstAttribute="trailing" secondItem="dOi-d1-Suz" secondAttribute="trailing" constant="20" id="fZt-of-iHJ"/>
-                <constraint firstItem="5Xe-51-zAi" firstAttribute="top" secondItem="1" secondAttribute="top" constant="15" id="gKS-is-V3V"/>
-                <constraint firstItem="dOi-d1-Suz" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="hLz-Yy-PvY"/>
+                <constraint firstItem="39t-7y-wrb" firstAttribute="top" secondItem="V6j-mN-BMa" secondAttribute="bottom" id="fo4-Eo-Zp6"/>
+                <constraint firstItem="V6j-mN-BMa" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="fru-YN-UN9"/>
+                <constraint firstItem="V6j-mN-BMa" firstAttribute="top" secondItem="1" secondAttribute="top" constant="8" id="n8O-fc-XyL"/>
             </constraints>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="name" destination="5Xe-51-zAi" id="0DN-Gw-RVK"/>
                 <outlet property="ratingsAndReviewsContainerView" destination="39t-7y-wrb" id="L73-UY-ks9"/>
-                <outlet property="vintageAndVarietals" destination="dOi-d1-Suz" id="jEo-hq-DDW"/>
+                <outlet property="ratingsAndReviewsContainerViewToBottomConstraint" destination="H21-Jm-MxF" id="HgG-7t-teG"/>
+                <outlet property="topToWineNameVhtvConstraint" destination="n8O-fc-XyL" id="Wr6-AW-2cl"/>
+                <outlet property="wineNameVHTV" destination="V6j-mN-BMa" id="tuW-js-wEu"/>
+                <outlet property="wineNameVhtvToRatingsAndReviewsContainerViewConstraint" destination="fo4-Eo-Zp6" id="Gkl-Bj-wNm"/>
             </connections>
         </view>
     </objects>
