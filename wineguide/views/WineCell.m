@@ -46,7 +46,7 @@
 -(WineRatingAndReviewQuickViewVC *)wineRatingAndReviewQuickViewVC
 {
     if(!_wineRatingAndReviewQuickViewVC){
-        _wineRatingAndReviewQuickViewVC = [[WineRatingAndReviewQuickViewVC alloc] initWithNibName:@"WineRatingAndReviewQuickviewVC" bundle:nil];
+        _wineRatingAndReviewQuickViewVC = [[WineRatingAndReviewQuickViewVC alloc] initWithNibName:@"WineRatingAndReviewQuickViewVC" bundle:nil];
         [self.ratingsAndReviewsContainerView addSubview:_wineRatingAndReviewQuickViewVC.view];
     }
     return _wineRatingAndReviewQuickViewVC;

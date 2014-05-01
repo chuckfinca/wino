@@ -89,9 +89,8 @@
     [self.wineNameVHTV setupTextViewWithWine:self.wine fromRestaurant:nil];
     [self.wineDetailsVHTV setupTextViewWithWine:self.wine fromRestaurant:nil];
     
-    self.wineRatingAndReviewQuickviewVC = [[WineRatingAndReviewQuickViewVC alloc] initWithNibName:@"WineRatingAndReviewQuickviewVC" bundle:nil];
+    self.wineRatingAndReviewQuickviewVC = [[WineRatingAndReviewQuickViewVC alloc] initWithNibName:@"WineRatingAndReviewQuickViewVC" bundle:nil];
     [self.ratingsAndReviewsView addSubview:self.wineRatingAndReviewQuickviewVC.view];
-    [self.wineRatingAndReviewQuickviewVC setupForWine:self.wine];
     
     [self setupUserActionButtons];
     

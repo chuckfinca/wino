@@ -51,7 +51,10 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.wineDetailsViewController.view.frame = CGRectMake(self.wineDetailsViewController.view.frame.origin.x, self.wineDetailsViewController.view.frame.origin.y, self.wineDetailsViewController.view.frame.size.width, self.tableViewHeaderheight);
+    self.wineDetailsViewController.view.frame = CGRectMake(self.wineDetailsViewController.view.frame.origin.x,
+                                                           self.wineDetailsViewController.view.frame.origin.y,
+                                                           self.wineDetailsViewController.view.frame.size.width,
+                                                           self.tableViewHeaderheight);
 }
 
 - (void)didReceiveMemoryWarning

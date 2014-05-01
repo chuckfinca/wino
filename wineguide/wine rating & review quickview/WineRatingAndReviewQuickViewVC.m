@@ -36,14 +36,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-}
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     
-    [RatingPreparer setupRating:[self.wine.rating.averageRating floatValue] inImageViewArray:self.ratingImageViewArray withWineColorString:self.wine.color];
-    self.numberOfReviewersLabel.text = [NSString stringWithFormat:@"%@ reviews",self.wine.rating.totalRatings];
-    NSLog(@"%@",self.numberOfReviewersLabel.text);NSLog(@"-%@",self.usersLikedThisLabel.text);
+    if(self.wine.rating.totalRatings > 0){
+        [RatingPreparer setupRating:[self.wine.rating.averageRating floatValue] inImageViewArray:self.ratingImageViewArray withWineColorString:self.wine.color];
+        self.numberOfReviewersLabel.text = [NSString stringWithFormat:@"%@ reviews",self.wine.rating.totalRatings];
+    } else {
+        self.numberOfReviewersLabel.text = @"Be the first to try it!";
+    }
 }
 
 -(void)setupForWine:(Wine *)wine
