@@ -12,6 +12,7 @@
 #import "TastingNote.h"
 #import "WineUnit.h"
 #import "ColorSchemer.h"
+#import "FontThemer.h"
 
 @implementation WineNameVHTV
 
@@ -75,13 +76,13 @@
     }
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
     self.attributedText = attributedText;
-    self.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
+    self.font = [FontThemer sharedInstance].footnote;
     
     [self.textStorage addAttribute:NSForegroundColorAttributeName
                              value:[ColorSchemer sharedInstance].textPrimary
                              range:NSMakeRange(0, [self.textStorage length])];
     [self.textStorage addAttribute:NSFontAttributeName
-                             value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
+                             value:[FontThemer sharedInstance].headline
                              range:nameRange];
     [self.textStorage addAttribute:NSForegroundColorAttributeName
                              value:[ColorSchemer sharedInstance].textSecondary

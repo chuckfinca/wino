@@ -11,19 +11,20 @@
 #import "Wine.h"
 #import "Varietal.h"
 #import "TastingNote.h"
-#import "WineRatingAndReviewQuickViewVC.h"
 #import "WineNameVHTV.h"
+#import "Rating.h"
+#import "RatingsVC.h"
 
 
 @interface WineCell ()
 
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
-@property (weak, nonatomic) IBOutlet UIView *ratingsAndReviewsContainerView;
+@property (weak, nonatomic) IBOutlet UIView *ratingsContainerView;
 
-@property (nonatomic, strong) WineRatingAndReviewQuickViewVC *wineRatingAndReviewQuickViewVC;
+@property (nonatomic, strong) RatingsVC *ratingsCVController;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameVhtvConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVhtvToRatingsAndReviewsContainerViewConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingsAndReviewsContainerViewToBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVhtvToRatingsContainerViewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingsContainerViewToBottomConstraint;
 
 @end
 @implementation WineCell
@@ -46,13 +47,13 @@
 
 #pragma mark - Getters & setters
 
--(WineRatingAndReviewQuickViewVC *)wineRatingAndReviewQuickViewVC
+-(RatingsVC *)ratingsCVController
 {
-    if(!_wineRatingAndReviewQuickViewVC){
-        _wineRatingAndReviewQuickViewVC = [[WineRatingAndReviewQuickViewVC alloc] initWithNibName:@"WineRatingAndReviewQuickViewVC" bundle:nil];
-        [self.ratingsAndReviewsContainerView addSubview:_wineRatingAndReviewQuickViewVC.view];
+    if(!_ratingsCVController){
+        _ratingsCVController = [[RatingsVC alloc] initWithNibName:@"RatingsVC" bundle:nil];
+        [self.ratingsContainerView addSubview:_ratingsCVController.view];
     }
-    return _wineRatingAndReviewQuickViewVC;
+    return _ratingsCVController;
 }
 
 
@@ -64,9 +65,9 @@
     [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:nil];
     
     if(!self.abridged){
-        [self.wineRatingAndReviewQuickViewVC setupForWine:wine];
+        [self.ratingsCVController setupForRating:[wine.rating.averageRating floatValue] andWineColor:wine.color displayText:YES];
     } else {
-        [self.ratingsAndReviewsContainerView removeFromSuperview];
+        [self.ratingsContainerView removeFromSuperview];
     }
     
     [self setViewHeight];
@@ -80,9 +81,9 @@
     
     height += self.topToWineNameVhtvConstraint.constant;
     height += [self.wineNameVHTV height];
-    height += self.wineNameVhtvToRatingsAndReviewsContainerViewConstraint.constant;
-    height += self.ratingsAndReviewsContainerView.bounds.size.height;
-    height += self.ratingsAndReviewsContainerViewToBottomConstraint.constant;
+    height += self.wineNameVhtvToRatingsContainerViewConstraint.constant;
+    height += self.ratingsContainerView.bounds.size.height;
+    height += self.ratingsContainerViewToBottomConstraint.constant;
     
     self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }

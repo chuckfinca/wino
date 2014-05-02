@@ -16,7 +16,7 @@
 #import "GetMe.h"
 #import "ReviewDataHelper.h"
 #import "TastingRecordDataHelper.h"
-#import "RatingCreatorVC.h"
+#import "SetRatingVC.h"
 #import "UIView+BorderDrawer.h"
 
 #define ADDED_DATE @"addedDate"
@@ -49,7 +49,7 @@
 @property (nonatomic, strong) NSArray *selectedFriends;
 @property (nonatomic) BOOL datePickerVisible;
 @property (nonatomic, strong) NSDate *selectedDate;
-@property (nonatomic, strong) RatingCreatorVC *ratingVC;
+@property (nonatomic, strong) SetRatingVC *ratingVC;
 @property (nonatomic, strong) UIDatePicker *datePicker;
 
 @end
@@ -121,7 +121,7 @@
 
 -(void)setupRatingView
 {
-    self.ratingVC = [[RatingCreatorVC alloc] initWithNibName:@"RatingVC" bundle:nil];
+    self.ratingVC = [[SetRatingVC alloc] initWithNibName:@"RatingVC" bundle:nil];
     [self.ratingContainerView addSubview:self.ratingVC.view];
     
     COWineColor wineColor;

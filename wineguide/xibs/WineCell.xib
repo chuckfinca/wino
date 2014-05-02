@@ -10,39 +10,39 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="153"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="39t-7y-wrb">
-                    <rect key="frame" x="0.0" y="65" width="320" height="68"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="68" id="vtH-n0-xyq"/>
-                    </constraints>
-                </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Wine name" translatesAutoresizingMaskIntoConstraints="NO" id="V6j-mN-BMa" customClass="WineNameVHTV">
-                    <rect key="frame" x="20" y="8" width="280" height="57"/>
+                    <rect key="frame" x="20" y="8" width="280" height="105"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yF9-Ue-ooZ">
+                    <rect key="frame" x="20" y="113" width="280" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="kGc-sk-rG6"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="39t-7y-wrb" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="77e-0M-Ymw"/>
-                <constraint firstAttribute="bottom" secondItem="39t-7y-wrb" secondAttribute="bottom" constant="20" id="H21-Jm-MxF"/>
+                <constraint firstAttribute="trailing" secondItem="yF9-Ue-ooZ" secondAttribute="trailing" constant="20" id="3f0-8a-ILf"/>
+                <constraint firstItem="yF9-Ue-ooZ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="N4R-ZD-shU"/>
                 <constraint firstAttribute="trailing" secondItem="V6j-mN-BMa" secondAttribute="trailing" constant="20" id="Wfp-UK-vrB"/>
-                <constraint firstAttribute="trailing" secondItem="39t-7y-wrb" secondAttribute="trailing" id="ZS6-h0-Rh4"/>
-                <constraint firstItem="39t-7y-wrb" firstAttribute="top" secondItem="V6j-mN-BMa" secondAttribute="bottom" id="fo4-Eo-Zp6"/>
+                <constraint firstAttribute="bottom" secondItem="yF9-Ue-ooZ" secondAttribute="bottom" constant="20" id="cxq-MQ-lag"/>
                 <constraint firstItem="V6j-mN-BMa" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="fru-YN-UN9"/>
                 <constraint firstItem="V6j-mN-BMa" firstAttribute="top" secondItem="1" secondAttribute="top" constant="8" id="n8O-fc-XyL"/>
+                <constraint firstItem="yF9-Ue-ooZ" firstAttribute="top" secondItem="V6j-mN-BMa" secondAttribute="bottom" id="vSr-rf-RfZ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="ratingsAndReviewsContainerView" destination="39t-7y-wrb" id="L73-UY-ks9"/>
-                <outlet property="ratingsAndReviewsContainerViewToBottomConstraint" destination="H21-Jm-MxF" id="HgG-7t-teG"/>
+                <outlet property="ratingsContainerView" destination="yF9-Ue-ooZ" id="wKy-4L-HP2"/>
+                <outlet property="ratingsContainerViewToBottomConstraint" destination="cxq-MQ-lag" id="CNd-9W-4me"/>
                 <outlet property="topToWineNameVhtvConstraint" destination="n8O-fc-XyL" id="Wr6-AW-2cl"/>
                 <outlet property="wineNameVHTV" destination="V6j-mN-BMa" id="tuW-js-wEu"/>
-                <outlet property="wineNameVhtvToRatingsAndReviewsContainerViewConstraint" destination="fo4-Eo-Zp6" id="Gkl-Bj-wNm"/>
+                <outlet property="wineNameVhtvToRatingsContainerViewConstraint" destination="vSr-rf-RfZ" id="vOE-TB-NdD"/>
             </connections>
         </view>
     </objects>
