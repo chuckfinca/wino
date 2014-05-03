@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIView *ratingsContainerView;
 @property (weak, nonatomic) IBOutlet UIView *talkingHeadsContainerView;
 
-@property (nonatomic, strong) RatingsVC *ratingsCVController;
+@property (nonatomic, strong) RatingsVC *ratingsVC;
 @property (nonatomic, strong) TalkingHeadsVC *talkingHeadsVC;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameVhtvConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVhtvToTalkingHeadsContainerViewConstraint;
@@ -51,13 +51,13 @@
 
 #pragma mark - Getters & setters
 
--(RatingsVC *)ratingsCVController
+-(RatingsVC *)ratingsVC
 {
-    if(!_ratingsCVController){
-        _ratingsCVController = [[RatingsVC alloc] initWithNibName:@"RatingsVC" bundle:nil];
-        [self.ratingsContainerView addSubview:_ratingsCVController.view];
+    if(!_ratingsVC){
+        _ratingsVC = [[RatingsVC alloc] initWithNibName:@"RatingsVC" bundle:nil];
+        [self.ratingsContainerView addSubview:_ratingsVC.view];
     }
-    return _ratingsCVController;
+    return _ratingsVC;
 }
 
 -(TalkingHeadsVC *)talkingHeadsVC
@@ -77,7 +77,7 @@
     [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:nil];
     
     if(!self.abridged){
-        [self.ratingsCVController setupForRating:[wine.rating.averageRating floatValue] andWineColor:wine.color displayText:YES];
+        [self.ratingsVC setupForRating:[wine.rating.averageRating floatValue] andWineColor:wine.color displayText:YES];
         [self.talkingHeadsVC setupWithNumberOfTalkingHeads:4];
     } else {
         [self.ratingsContainerView removeFromSuperview];

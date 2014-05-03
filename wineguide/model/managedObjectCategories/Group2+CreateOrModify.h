@@ -8,7 +8,7 @@
 
 #import "Group2.h"
 
-@interface Group2 (CreateOrModify)
+@interface Group2 (Modify)
 
 -(Group2 *)modifyAttributesWithDictionary:(NSDictionary *)dictionary;
 

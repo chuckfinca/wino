@@ -2,7 +2,7 @@
 //  TastingNote2.h
 //  Corkie
 //
-//  Created by Charles Feinn on 4/19/14.
+//  Created by Charles Feinn on 5/3/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -17,8 +17,8 @@
 @property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) NSNumber * identifier;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * tasting_stage;
 @property (nonatomic, retain) NSNumber * status;
+@property (nonatomic, retain) NSString * tasting_stage;
 @property (nonatomic, retain) NSDate * updated_at;
 @property (nonatomic, retain) NSSet *wines;
 @end

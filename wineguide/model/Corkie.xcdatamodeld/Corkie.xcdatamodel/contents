@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Brand2" representedClassName="Brand2" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
@@ -82,6 +82,13 @@
         <relationship name="tastingRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TastingRecord2" inverseName="reviews" inverseEntity="TastingRecord2" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User2" inverseName="reviews" inverseEntity="User2" syncable="YES"/>
     </entity>
+    <entity name="TalkingHeads" representedClassName="TalkingHeads" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User2" inverseName="talkingHeads" inverseEntity="User2" syncable="YES"/>
+        <relationship name="wine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wine2" inverseName="talkingHeads" inverseEntity="Wine2" syncable="YES"/>
+    </entity>
     <entity name="TastingNote2" representedClassName="TastingNote2" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
@@ -122,6 +129,7 @@
         <relationship name="followedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User2" inverseName="following" inverseEntity="User2" syncable="YES"/>
         <relationship name="following" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User2" inverseName="followedBy" inverseEntity="User2" syncable="YES"/>
         <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review2" inverseName="user" inverseEntity="Review2" syncable="YES"/>
+        <relationship name="talkingHeads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TalkingHeads" inverseName="users" inverseEntity="TalkingHeads" syncable="YES"/>
         <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine2" inverseName="cellars" inverseEntity="Wine2" syncable="YES"/>
     </entity>
     <entity name="Varietal2" representedClassName="Varietal2" syncable="YES">
@@ -155,6 +163,7 @@
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group2" inverseName="wines" inverseEntity="Group2" syncable="YES"/>
         <relationship name="ratingHistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RatingHistory2" inverseName="wine" inverseEntity="RatingHistory2" syncable="YES"/>
         <relationship name="regions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Region" inverseName="wines" inverseEntity="Region" syncable="YES"/>
+        <relationship name="talkingHeads" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TalkingHeads" inverseName="wine" inverseEntity="TalkingHeads" syncable="YES"/>
         <relationship name="tastingNotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TastingNote2" inverseName="wines" inverseEntity="TastingNote2" syncable="YES"/>
         <relationship name="tastingRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TastingRecord2" inverseName="wine" inverseEntity="TastingRecord2" syncable="YES"/>
         <relationship name="varietals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Varietal2" inverseName="wines" inverseEntity="Varietal2" syncable="YES"/>
@@ -173,16 +182,17 @@
     <elements>
         <element name="Brand2" positionX="367" positionY="-190" width="128" height="163"/>
         <element name="Flight2" positionX="9" positionY="-198" width="128" height="133"/>
-        <element name="Group2" positionX="0" positionY="-21" width="128" height="178"/>
-        <element name="RatingHistory2" positionX="369" positionY="-7" width="128" height="223"/>
-        <element name="Restaurant2" positionX="-182" positionY="-132" width="128" height="298"/>
-        <element name="Wine2" positionX="180" positionY="-97" width="128" height="403"/>
-        <element name="WineUnit2" positionX="-29" positionY="386" width="128" height="163"/>
-        <element name="TastingNote2" positionX="378" positionY="252" width="128" height="163"/>
-        <element name="Varietal2" positionX="351" positionY="432" width="128" height="163"/>
+        <element name="Group2" positionX="0" positionY="-39" width="128" height="178"/>
+        <element name="RatingHistory2" positionX="369" positionY="-16" width="128" height="223"/>
         <element name="Region" positionX="520" positionY="99" width="128" height="148"/>
-        <element name="User2" positionX="-351" positionY="-153" width="128" height="343"/>
-        <element name="TastingRecord2" positionX="-2" positionY="197" width="128" height="163"/>
-        <element name="Review2" positionX="-353" positionY="254" width="128" height="178"/>
+        <element name="Restaurant2" positionX="-182" positionY="-150" width="128" height="298"/>
+        <element name="Review2" positionX="-371" positionY="227" width="128" height="178"/>
+        <element name="TastingNote2" positionX="378" positionY="252" width="128" height="163"/>
+        <element name="TastingRecord2" positionX="-2" positionY="198" width="128" height="163"/>
+        <element name="User2" positionX="-369" positionY="-171" width="128" height="358"/>
+        <element name="Varietal2" positionX="351" positionY="432" width="128" height="163"/>
+        <element name="Wine2" positionX="180" positionY="-97" width="128" height="418"/>
+        <element name="WineUnit2" positionX="-191" positionY="396" width="128" height="163"/>
+        <element name="TalkingHeads" positionX="151" positionY="368" width="128" height="118"/>
     </elements>
 </model>

@@ -2,7 +2,7 @@
 //  Wine2.m
 //  Corkie
 //
-//  Created by Charles Feinn on 4/19/14.
+//  Created by Charles Feinn on 5/3/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -12,6 +12,7 @@
 #import "Group2.h"
 #import "RatingHistory2.h"
 #import "Region.h"
+#import "TalkingHeads.h"
 #import "TastingNote2.h"
 #import "TastingRecord2.h"
 #import "User2.h"
@@ -36,14 +37,15 @@
 @dynamic vintage;
 @dynamic wine_description;
 @dynamic brand;
+@dynamic cellars;
 @dynamic flights;
 @dynamic groups;
 @dynamic ratingHistory;
-@dynamic wineUnits;
-@dynamic tastingNotes;
-@dynamic varietals;
 @dynamic regions;
-@dynamic cellars;
+@dynamic tastingNotes;
 @dynamic tastingRecords;
+@dynamic varietals;
+@dynamic wineUnits;
+@dynamic talkingHeads;
 
 @end

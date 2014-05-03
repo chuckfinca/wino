@@ -2,7 +2,7 @@
 //  Review2.m
 //  Corkie
 //
-//  Created by Charles Feinn on 4/19/14.
+//  Created by Charles Feinn on 5/3/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -13,13 +13,13 @@
 
 @implementation Review2
 
+@dynamic claimed;
 @dynamic created_at;
 @dynamic identifier;
-@dynamic updated_at;
-@dynamic status;
-@dynamic claimed;
 @dynamic rating;
 @dynamic review_text;
+@dynamic status;
+@dynamic updated_at;
 @dynamic tastingRecord;
 @dynamic user;
 

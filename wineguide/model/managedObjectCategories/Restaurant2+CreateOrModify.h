@@ -11,5 +11,7 @@
 @interface Restaurant2 (CreateOrModify)
 
 -(Restaurant2 *)modifyAttributesWithDictionary:(NSDictionary *)dictionary;
+-(void)logDetails;
+
 
 @end

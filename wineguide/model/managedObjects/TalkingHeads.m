@@ -1,24 +1,22 @@
 //
-//  Brand2.m
+//  TalkingHeads.m
 //  Corkie
 //
 //  Created by Charles Feinn on 5/3/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "Brand2.h"
+#import "TalkingHeads.h"
+#import "User2.h"
 #import "Wine2.h"
 
 
-@implementation Brand2
+@implementation TalkingHeads
 
-@dynamic about;
-@dynamic created_at;
 @dynamic identifier;
-@dynamic name;
-@dynamic status;
+@dynamic created_at;
 @dynamic updated_at;
-@dynamic website;
-@dynamic wines;
+@dynamic users;
+@dynamic wine;
 
 @end

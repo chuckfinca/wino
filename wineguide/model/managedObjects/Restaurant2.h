@@ -2,7 +2,7 @@
 //  Restaurant2.h
 //  Corkie
 //
-//  Created by Charles Feinn on 4/19/14.
+//  Created by Charles Feinn on 5/3/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -28,8 +28,8 @@
 @property (nonatomic, retain) NSString * zip;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
-@property (nonatomic, retain) NSSet *wineUnits;
 @property (nonatomic, retain) NSSet *tastingRecords;
+@property (nonatomic, retain) NSSet *wineUnits;
 @end
 
 @interface Restaurant2 (CoreDataGeneratedAccessors)
@@ -44,14 +44,14 @@
 - (void)addGroups:(NSSet *)values;
 - (void)removeGroups:(NSSet *)values;
 
-- (void)addWineUnitsObject:(WineUnit2 *)value;
-- (void)removeWineUnitsObject:(WineUnit2 *)value;
-- (void)addWineUnits:(NSSet *)values;
-- (void)removeWineUnits:(NSSet *)values;
-
 - (void)addTastingRecordsObject:(TastingRecord2 *)value;
 - (void)removeTastingRecordsObject:(TastingRecord2 *)value;
 - (void)addTastingRecords:(NSSet *)values;
 - (void)removeTastingRecords:(NSSet *)values;
+
+- (void)addWineUnitsObject:(WineUnit2 *)value;
+- (void)removeWineUnitsObject:(WineUnit2 *)value;
+- (void)addWineUnits:(NSSet *)values;
+- (void)removeWineUnits:(NSSet *)values;
 
 @end

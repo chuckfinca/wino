@@ -14,27 +14,32 @@
 #import "FontThemer.h"
 #import "User.h"
 #import "GetMe.h"
-#import "WineRatingAndReviewQuickViewVC.h"
+#import "TalkingHeadsVC.h"
+#import "RatingsVC.h"
 
 @interface WineDetailsVC ()
 
 @property (nonatomic, weak) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (nonatomic, weak) IBOutlet WineDetailsVHTV *wineDetailsVHTV;
-@property (weak, nonatomic) IBOutlet UIView *ratingsAndReviewsView;
 @property (weak, nonatomic) IBOutlet UIButton *cellarButton;
 @property (weak, nonatomic) IBOutlet UIButton *triedItButton;
 @property (weak, nonatomic) IBOutlet UIButton *purchaseButton;
+@property (weak, nonatomic) IBOutlet UIView *talkingHeadsContainerView;
+@property (weak, nonatomic) IBOutlet UIView *ratingsContainerView;
 
 @property (nonatomic, weak) Wine *wine;
 @property (nonatomic, weak) Restaurant *restaurant;
 @property (nonatomic, weak) User *me;
-@property (nonatomic, strong) WineRatingAndReviewQuickViewVC *wineRatingAndReviewQuickviewVC;
 @property (nonatomic, strong) NSDictionary *buttonTextAttributesDictionary;
+@property (nonatomic, strong) RatingsVC *ratingsVC;
+@property (nonatomic, strong) TalkingHeadsVC *talkingHeadsVC;
+
 
 // Vertical spacing constraints
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameVHTVConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVTHVToRatingsAndReviewsViewConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingsAndReviewsViewToWineDetailsVHTVConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVTHVToTalkingHeadsViewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsContainerToRatingsContainerConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingsContainerViewToWineDetailsVHTVConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineDetailsVHTVToTriedItButtonConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *triedItButtonToBottomConstraint;
 
@@ -75,6 +80,24 @@
     return _me;
 }
 
+-(RatingsVC *)ratingsVC
+{
+    if(!_ratingsVC){
+        _ratingsVC = [[RatingsVC alloc] initWithNibName:@"RatingsVC" bundle:nil];
+        [self.ratingsContainerView addSubview:_ratingsVC.view];
+    }
+    return _ratingsVC;
+}
+
+-(TalkingHeadsVC *)talkingHeadsVC
+{
+    if(!_talkingHeadsVC){
+        _talkingHeadsVC = [[TalkingHeadsVC alloc] initWithNibName:@"TalkingHeadsVC" bundle:nil];
+        [self.talkingHeadsContainerView addSubview:_talkingHeadsVC.view];
+    }
+    return _talkingHeadsVC;
+}
+
 
 #pragma mark - Setup
 
@@ -89,8 +112,8 @@
     [self.wineNameVHTV setupTextViewWithWine:self.wine fromRestaurant:nil];
     [self.wineDetailsVHTV setupTextViewWithWine:self.wine fromRestaurant:nil];
     
-    self.wineRatingAndReviewQuickviewVC = [[WineRatingAndReviewQuickViewVC alloc] initWithNibName:@"WineRatingAndReviewQuickViewVC" bundle:nil];
-    [self.ratingsAndReviewsView addSubview:self.wineRatingAndReviewQuickviewVC.view];
+    [self.talkingHeadsVC setupWithNumberOfTalkingHeads:1];
+    [self.ratingsVC setupForRating:3 andWineColor:self.wine.color displayText:YES];
     
     [self setupUserActionButtons];
     
@@ -131,9 +154,11 @@
     
     height += self.topToWineNameVHTVConstraint.constant;
     height += [self.wineNameVHTV height];
-    height += self.wineNameVTHVToRatingsAndReviewsViewConstraint.constant;
-    height += self.ratingsAndReviewsView.bounds.size.height;
-    height += self.ratingsAndReviewsViewToWineDetailsVHTVConstraint.constant;
+    height += self.wineNameVTHVToTalkingHeadsViewConstraint.constant;
+    height += self.talkingHeadsContainerView.bounds.size.height;
+    height += self.talkingHeadsContainerToRatingsContainerConstraint.constant;
+    height += self.ratingsContainerView.bounds.size.height;
+    height += self.ratingsContainerViewToWineDetailsVHTVConstraint.constant;
     height += [self.wineDetailsVHTV height];
     height += self.wineDetailsVHTVToTriedItButtonConstraint.constant;
     height += self.triedItButton.bounds.size.height;

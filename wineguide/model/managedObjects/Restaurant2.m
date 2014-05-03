@@ -2,7 +2,7 @@
 //  Restaurant2.m
 //  Corkie
 //
-//  Created by Charles Feinn on 4/19/14.
+//  Created by Charles Feinn on 5/3/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -30,7 +30,7 @@
 @dynamic zip;
 @dynamic flights;
 @dynamic groups;
-@dynamic wineUnits;
 @dynamic tastingRecords;
+@dynamic wineUnits;
 
 @end

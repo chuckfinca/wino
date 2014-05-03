@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SetRatingVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="ratingButtonsCollection" destination="Shc-zJ-QBY" id="Dix-6V-CuB"/>
+                <outletCollection property="ratingButtonsCollection" destination="Dfr-iN-rA2" id="cHE-z7-sLc"/>
+                <outletCollection property="ratingButtonsCollection" destination="27V-5U-F5v" id="ZKV-GM-Cfa"/>
+                <outletCollection property="ratingButtonsCollection" destination="0xQ-pk-YLr" id="VNZ-H2-hIx"/>
+                <outletCollection property="ratingButtonsCollection" destination="h1m-6I-S3K" id="aC4-1d-qOA"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shc-zJ-QBY">
+                    <rect key="frame" x="20" y="3" width="30" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="glass_empty.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changeRating:" destination="-1" eventType="touchUpInside" id="wvY-th-MsJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfr-iN-rA2">
+                    <rect key="frame" x="58" y="3" width="30" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="glass_empty.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changeRating:" destination="-1" eventType="touchUpInside" id="BuK-aI-deO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27V-5U-F5v">
+                    <rect key="frame" x="96" y="3" width="30" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="glass_empty.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changeRating:" destination="-1" eventType="touchUpInside" id="3L3-hH-dji"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xQ-pk-YLr">
+                    <rect key="frame" x="134" y="3" width="30" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="glass_empty.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changeRating:" destination="-1" eventType="touchUpInside" id="Xa3-0U-IeU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1m-6I-S3K">
+                    <rect key="frame" x="172" y="3" width="30" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="glass_empty.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changeRating:" destination="-1" eventType="touchUpInside" id="Kz9-J0-zLA"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="h1m-6I-S3K" firstAttribute="top" secondItem="Dfr-iN-rA2" secondAttribute="top" id="Mda-39-v8j"/>
+                <constraint firstAttribute="bottom" secondItem="h1m-6I-S3K" secondAttribute="bottom" constant="3" id="QWa-eC-En9"/>
+                <constraint firstItem="27V-5U-F5v" firstAttribute="leading" secondItem="Dfr-iN-rA2" secondAttribute="trailing" constant="8" id="TuF-qq-sp9"/>
+                <constraint firstItem="Dfr-iN-rA2" firstAttribute="leading" secondItem="Shc-zJ-QBY" secondAttribute="trailing" constant="8" id="ZD2-Es-KS0"/>
+                <constraint firstItem="Shc-zJ-QBY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="bsD-Tv-qAy"/>
+                <constraint firstItem="h1m-6I-S3K" firstAttribute="top" secondItem="Shc-zJ-QBY" secondAttribute="top" id="iEd-fm-fKB"/>
+                <constraint firstItem="Shc-zJ-QBY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="3" id="k2D-h9-kOM"/>
+                <constraint firstItem="h1m-6I-S3K" firstAttribute="leading" secondItem="0xQ-pk-YLr" secondAttribute="trailing" constant="8" id="nw7-sl-6Da"/>
+                <constraint firstItem="h1m-6I-S3K" firstAttribute="top" secondItem="27V-5U-F5v" secondAttribute="top" id="sTa-By-ahi"/>
+                <constraint firstItem="h1m-6I-S3K" firstAttribute="top" secondItem="0xQ-pk-YLr" secondAttribute="top" id="srU-GR-T21"/>
+                <constraint firstItem="0xQ-pk-YLr" firstAttribute="leading" secondItem="27V-5U-F5v" secondAttribute="trailing" constant="8" id="v2p-OS-ITT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="glass_empty.png" width="30" height="44"/>
+    </resources>
+</document>

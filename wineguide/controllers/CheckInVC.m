@@ -121,7 +121,7 @@
 
 -(void)setupRatingView
 {
-    self.ratingVC = [[SetRatingVC alloc] initWithNibName:@"RatingVC" bundle:nil];
+    self.ratingVC = [[SetRatingVC alloc] initWithNibName:@"SetRatingVC" bundle:nil];
     [self.ratingContainerView addSubview:self.ratingVC.view];
     
     COWineColor wineColor;
