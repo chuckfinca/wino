@@ -48,6 +48,8 @@ static FacebookSessionManager *sharedInstance;
     return _context;
 }
 
+
+
 -(void)checkToken
 {
     if([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded){
@@ -271,6 +273,7 @@ static FacebookSessionManager *sharedInstance;
                 User *me = [GetMe sharedInstance].me;
                 
                 User *user = (User *)[udh updateManagedObjectWithDictionary:graphObject];
+
                 user.isMe = @YES;
             }
         } else {
@@ -313,6 +316,7 @@ static FacebookSessionManager *sharedInstance;
         }];
     }
 }
+
 
 
 

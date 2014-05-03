@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TalkingHeads.h"
 
 @interface TalkingHeadsVC : UIViewController
 
 -(void)setupWithNumberOfTalkingHeads:(NSInteger)numberOfTalkingHeads;
+-(void)setupWithTalkingHeads:(TalkingHeads *)talkingHeads;
 
 @end

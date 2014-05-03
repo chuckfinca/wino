@@ -8,15 +8,16 @@
 
 #import "FriendListSCDTVC.h"
 #import "User.h"
-#import <UIImageView+AFNetworking.h>
 #import "ColorSchemer.h"
 #import "FontThemer.h"
+#import "FacebookProfileImageGetter.h"
 
 #define USER_ENTITY @"User"
 
 @interface FriendListSCDTVC ()
 
-@property (nonatomic, strong) UIImage *placeHolderImage;
+@property (nonatomic, strong) FacebookProfileImageGetter *facebookProfileImageGetter;
+
 
 @end
 
@@ -37,18 +38,14 @@
     // Do any additional setup after loading the view.
 }
 
+#pragma mark - Getters & setters
 
-
-
-
-#pragma mark - Getters & Setters
-
--(UIImage *)placeHolderImage
+-(FacebookProfileImageGetter *)facebookProfileImageGetter
 {
-    if(!_placeHolderImage){
-        _placeHolderImage = [[UIImage alloc] init];
+    if(!_facebookProfileImageGetter){
+        _facebookProfileImageGetter = [[FacebookProfileImageGetter alloc] init];
     }
-    return _placeHolderImage;
+    return _facebookProfileImageGetter;
 }
 
 #pragma mark - SearchableCDTVC Required Methods
@@ -111,14 +108,10 @@
     } else {
         __weak UITableView *weakTableView = self.tableView;
         
-        NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", user.identifier]];
-        NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:URL];
-        [cell.imageView setImageWithURLRequest:urlRequest placeholderImage:self.placeHolderImage success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-            user.profileImage = UIImagePNGRepresentation(image);
-            [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-            
-        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-            NSLog(@"failed to download profile image");
+        [self.facebookProfileImageGetter setProfilePicForUser:user inImageView:cell.imageView completion:^(BOOL success) {
+            if(success){
+                [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }
         }];
     }
     

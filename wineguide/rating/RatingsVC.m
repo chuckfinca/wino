@@ -48,13 +48,19 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"RatingCVCell" bundle:nil] forCellWithReuseIdentifier:RATING_CELL];
     [self.collectionView registerNib:[UINib nibWithNibName:@"RatingTextCVCell" bundle:nil] forCellWithReuseIdentifier:RATING_TEXT_CELL];
     
+    [self setupFlowlayout];
+    
+    self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+}
+
+#pragma mark - Setup
+
+-(void)setupFlowlayout
+{
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     flowLayout.minimumInteritemSpacing = 2;
-    
     [self.collectionView setCollectionViewLayout:flowLayout];
-    
-    self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 #pragma mark - Getters & setters

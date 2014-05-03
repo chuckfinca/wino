@@ -78,7 +78,7 @@
     
     if(!self.abridged){
         [self.ratingsVC setupForRating:[wine.rating.averageRating floatValue] andWineColor:wine.color displayText:YES];
-        [self.talkingHeadsVC setupWithNumberOfTalkingHeads:4];
+        [self.talkingHeadsVC setupWithNumberOfTalkingHeads:3];
     } else {
         [self.ratingsContainerView removeFromSuperview];
     }

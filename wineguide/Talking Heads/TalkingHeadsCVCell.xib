@@ -13,24 +13,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKg-BQ-wUf">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="WeT-zS-T7w">
                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" image="user_default.png">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="EKg-BQ-wUf" firstAttribute="leading" secondItem="ivd-Zt-l6w" secondAttribute="leading" id="RC1-sM-wCu"/>
-                <constraint firstAttribute="bottom" secondItem="EKg-BQ-wUf" secondAttribute="bottom" id="SiP-cm-4TT"/>
-                <constraint firstItem="EKg-BQ-wUf" firstAttribute="top" secondItem="ivd-Zt-l6w" secondAttribute="top" id="pxh-iQ-NoQ"/>
-                <constraint firstAttribute="trailing" secondItem="EKg-BQ-wUf" secondAttribute="trailing" id="tGK-Uv-SxM"/>
+                <constraint firstAttribute="trailing" secondItem="WeT-zS-T7w" secondAttribute="trailing" id="LHG-04-0Kj"/>
+                <constraint firstItem="WeT-zS-T7w" firstAttribute="leading" secondItem="ivd-Zt-l6w" secondAttribute="leading" id="MKb-e2-omm"/>
+                <constraint firstAttribute="bottom" secondItem="WeT-zS-T7w" secondAttribute="bottom" id="ark-TH-4An"/>
+                <constraint firstItem="WeT-zS-T7w" firstAttribute="top" secondItem="ivd-Zt-l6w" secondAttribute="top" id="h25-6F-s14"/>
             </constraints>
             <connections>
-                <outlet property="userImageButton" destination="EKg-BQ-wUf" id="uYj-r1-3db"/>
+                <outlet property="imageView" destination="WeT-zS-T7w" id="Vvt-45-rJy"/>
             </connections>
         </collectionViewCell>
     </objects>
