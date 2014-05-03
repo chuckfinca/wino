@@ -10,7 +10,6 @@
 #import "ColorSchemer.h"
 #import "RatingCVCell.h"
 #import "RatingTextCVCell.h"
-#import "FontThemer.h"
 
 #define RATING_CELL @"RatingCell"
 #define RATING_TEXT_CELL @"RatingTextCell"
@@ -20,7 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) BOOL displayText;
-@property (nonatomic) BOOL displayRating;
 @property (nonatomic) float rating;
 @property (nonatomic, strong) UIColor *wineColor;
 @property (nonatomic) NSInteger numberOfReviews;
@@ -89,13 +87,6 @@
 
 -(void)setupForRating:(float)rating andWineColor:(NSString *)wineColorString displayText:(BOOL)displayText
 {
-    if(rating){
-        self.rating = rating;
-        self.displayRating = YES;
-    } else {
-        self.displayRating = NO;
-    }
-    
     [self setWineColorFromString:wineColorString];
     self.displayText = displayText;
 }
@@ -121,7 +112,7 @@
     if(self.displayText){
         numberOfItemsInSection++;
     }
-    if(self.displayRating){
+    if(self.numberOfReviews > 0){
         numberOfItemsInSection += 5;
     }
     return numberOfItemsInSection;
@@ -129,7 +120,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(self.displayRating){
+    if(self.numberOfReviews > 0){
         if(indexPath.row < 5){
             RatingCVCell *ratingCell = (RatingCVCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:RATING_CELL forIndexPath:indexPath];
             
@@ -148,14 +139,7 @@
     
     RatingTextCVCell *ratingTextCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:RATING_TEXT_CELL forIndexPath:indexPath];
     
-    NSString *text;
-    if(self.displayRating){
-        text = [NSString stringWithFormat:@"%ld reviews",(long)self.numberOfReviews];
-    } else {
-        text = @" Be the first to try it!";
-    }
-    
-    ratingTextCell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].footnote, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+    [ratingTextCell setupForNumberOfReviews:self.numberOfReviews];
     
     return ratingTextCell;
 }
@@ -165,7 +149,7 @@
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(self.displayRating && indexPath.row < 5){
+    if(self.numberOfReviews > 0 && indexPath.row < 5){
         return CGSizeMake(15, 20);
     }
     

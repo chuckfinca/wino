@@ -14,16 +14,20 @@
 #import "WineNameVHTV.h"
 #import "Rating.h"
 #import "RatingsVC.h"
+#import "TalkingHeadsVC.h"
 
 
 @interface WineCell ()
 
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (weak, nonatomic) IBOutlet UIView *ratingsContainerView;
+@property (weak, nonatomic) IBOutlet UIView *talkingHeadsContainerView;
 
 @property (nonatomic, strong) RatingsVC *ratingsCVController;
+@property (nonatomic, strong) TalkingHeadsVC *talkingHeadsVC;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameVhtvConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVhtvToRatingsContainerViewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVhtvToTalkingHeadsContainerViewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsContainerViewToRatingsCvConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingsContainerViewToBottomConstraint;
 
 @end
@@ -56,6 +60,14 @@
     return _ratingsCVController;
 }
 
+-(TalkingHeadsVC *)talkingHeadsVC
+{
+    if(!_talkingHeadsVC){
+        _talkingHeadsVC = [[TalkingHeadsVC alloc] initWithNibName:@"TalkingHeadsVC" bundle:nil];
+        [self.talkingHeadsContainerView addSubview:_talkingHeadsVC.view];
+    }
+    return _talkingHeadsVC;
+}
 
 
 #pragma mark - Setup
@@ -66,6 +78,7 @@
     
     if(!self.abridged){
         [self.ratingsCVController setupForRating:[wine.rating.averageRating floatValue] andWineColor:wine.color displayText:YES];
+        [self.talkingHeadsVC setupWithNumberOfTalkingHeads:4];
     } else {
         [self.ratingsContainerView removeFromSuperview];
     }
@@ -81,7 +94,9 @@
     
     height += self.topToWineNameVhtvConstraint.constant;
     height += [self.wineNameVHTV height];
-    height += self.wineNameVhtvToRatingsContainerViewConstraint.constant;
+    height += self.wineNameVhtvToTalkingHeadsContainerViewConstraint.constant;
+    height += self.talkingHeadsContainerView.bounds.size.height;
+    height += self.talkingHeadsContainerViewToRatingsCvConstraint.constant;
     height += self.ratingsContainerView.bounds.size.height;
     height += self.ratingsContainerViewToBottomConstraint.constant;
     

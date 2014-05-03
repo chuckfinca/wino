@@ -11,7 +11,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Wine name" translatesAutoresizingMaskIntoConstraints="NO" id="V6j-mN-BMa" customClass="WineNameVHTV">
-                    <rect key="frame" x="20" y="8" width="280" height="105"/>
+                    <rect key="frame" x="20" y="8" width="280" height="65"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -25,24 +25,37 @@
                         <constraint firstAttribute="height" constant="20" id="kGc-sk-rG6"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qju-Yb-rkS">
+                    <rect key="frame" x="20" y="73" width="280" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.17885704769999999" green="0.52698284650000005" blue="0.2020374033" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="GpQ-VS-Wnb"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="yF9-Ue-ooZ" secondAttribute="trailing" constant="20" id="3f0-8a-ILf"/>
-                <constraint firstItem="yF9-Ue-ooZ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="N4R-ZD-shU"/>
+                <constraint firstItem="qju-Yb-rkS" firstAttribute="top" secondItem="V6j-mN-BMa" secondAttribute="bottom" id="2W3-PO-a3i"/>
+                <constraint firstItem="qju-Yb-rkS" firstAttribute="trailing" secondItem="V6j-mN-BMa" secondAttribute="trailing" id="7uF-8q-SVO"/>
+                <constraint firstItem="yF9-Ue-ooZ" firstAttribute="top" secondItem="qju-Yb-rkS" secondAttribute="bottom" id="Dvn-aI-ybL"/>
+                <constraint firstItem="qju-Yb-rkS" firstAttribute="trailing" secondItem="yF9-Ue-ooZ" secondAttribute="trailing" id="JSu-RD-4nI"/>
+                <constraint firstItem="qju-Yb-rkS" firstAttribute="leading" secondItem="V6j-mN-BMa" secondAttribute="leading" id="Qnz-ZO-vje"/>
                 <constraint firstAttribute="trailing" secondItem="V6j-mN-BMa" secondAttribute="trailing" constant="20" id="Wfp-UK-vrB"/>
                 <constraint firstAttribute="bottom" secondItem="yF9-Ue-ooZ" secondAttribute="bottom" constant="20" id="cxq-MQ-lag"/>
                 <constraint firstItem="V6j-mN-BMa" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="fru-YN-UN9"/>
                 <constraint firstItem="V6j-mN-BMa" firstAttribute="top" secondItem="1" secondAttribute="top" constant="8" id="n8O-fc-XyL"/>
-                <constraint firstItem="yF9-Ue-ooZ" firstAttribute="top" secondItem="V6j-mN-BMa" secondAttribute="bottom" id="vSr-rf-RfZ"/>
+                <constraint firstItem="qju-Yb-rkS" firstAttribute="leading" secondItem="yF9-Ue-ooZ" secondAttribute="leading" id="uAb-c2-wWu"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="ratingsContainerView" destination="yF9-Ue-ooZ" id="wKy-4L-HP2"/>
                 <outlet property="ratingsContainerViewToBottomConstraint" destination="cxq-MQ-lag" id="CNd-9W-4me"/>
+                <outlet property="talkingHeadsContainerView" destination="qju-Yb-rkS" id="qin-eS-P6G"/>
+                <outlet property="talkingHeadsContainerViewToRatingsCvConstraint" destination="Dvn-aI-ybL" id="zOm-N4-kms"/>
                 <outlet property="topToWineNameVhtvConstraint" destination="n8O-fc-XyL" id="Wr6-AW-2cl"/>
                 <outlet property="wineNameVHTV" destination="V6j-mN-BMa" id="tuW-js-wEu"/>
-                <outlet property="wineNameVhtvToRatingsContainerViewConstraint" destination="vSr-rf-RfZ" id="vOE-TB-NdD"/>
+                <outlet property="wineNameVhtvToTalkingHeadsContainerViewConstraint" destination="2W3-PO-a3i" id="qcP-cZ-YMB"/>
             </connections>
         </view>
     </objects>

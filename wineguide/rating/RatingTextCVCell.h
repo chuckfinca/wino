@@ -10,6 +10,6 @@
 
 @interface RatingTextCVCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+-(void)setupForNumberOfReviews:(NSInteger)numberOfReviews;
 
 @end

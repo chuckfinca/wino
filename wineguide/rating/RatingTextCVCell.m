@@ -7,6 +7,14 @@
 //
 
 #import "RatingTextCVCell.h"
+#import "FontThemer.h"
+#import "ColorSchemer.h"
+
+@interface RatingTextCVCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+
+@end
 
 @implementation RatingTextCVCell
 
@@ -19,13 +27,25 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+-(void)setupForNumberOfReviews:(NSInteger)numberOfReviews
 {
-    // Drawing code
+    NSString *text;
+    if(numberOfReviews > 0){
+        text = [NSString stringWithFormat:@"%ld reviews",(long)numberOfReviews];
+    } else {
+        text = @" Be the first to try it!";
+    }
+    
+    self.textLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption1, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
 }
-*/
+
+/*
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 @end
