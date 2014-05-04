@@ -2,7 +2,7 @@
 //  Wine.h
 //  Corkie
 //
-//  Created by Charles Feinn on 4/5/14.
+//  Created by Charles Feinn on 5/4/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -36,7 +36,9 @@
 @property (nonatomic, retain) NSString * vineyard;
 @property (nonatomic, retain) NSNumber * vintage;
 @property (nonatomic, retain) NSString * wineUnitIdentifiers;
+@property (nonatomic, retain) NSNumber * user_favorite;
 @property (nonatomic, retain) Brand *brand;
+@property (nonatomic, retain) NSSet *favoritedBy;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
 @property (nonatomic, retain) Rating *rating;
@@ -44,10 +46,14 @@
 @property (nonatomic, retain) NSSet *tastingNotes;
 @property (nonatomic, retain) NSSet *varietals;
 @property (nonatomic, retain) NSSet *wineUnits;
-@property (nonatomic, retain) NSSet *favoritedBy;
 @end
 
 @interface Wine (CoreDataGeneratedAccessors)
+
+- (void)addFavoritedByObject:(User *)value;
+- (void)removeFavoritedByObject:(User *)value;
+- (void)addFavoritedBy:(NSSet *)values;
+- (void)removeFavoritedBy:(NSSet *)values;
 
 - (void)addFlightsObject:(Flight *)value;
 - (void)removeFlightsObject:(Flight *)value;
@@ -78,10 +84,5 @@
 - (void)removeWineUnitsObject:(WineUnit *)value;
 - (void)addWineUnits:(NSSet *)values;
 - (void)removeWineUnits:(NSSet *)values;
-
-- (void)addFavoritedByObject:(User *)value;
-- (void)removeFavoritedByObject:(User *)value;
-- (void)addFavoritedBy:(NSSet *)values;
-- (void)removeFavoritedBy:(NSSet *)values;
 
 @end

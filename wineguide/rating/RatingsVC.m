@@ -51,7 +51,7 @@
     
     [self setupFlowlayout];
     
-    self.numberOfReviews = arc4random_uniform(100);
+    //self.numberOfReviews = arc4random_uniform(100);
     
     self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
@@ -96,9 +96,9 @@
 
 -(void)setupForRating:(float)rating andWineColor:(NSString *)wineColorString displayText:(BOOL)displayText
 {
-    //self.rating = rating;
+    self.rating = rating;
     
-    self.rating = arc4random_uniform(6) + drand48();
+    //self.rating = arc4random_uniform(6) + drand48();
     
     self.wineColorString = wineColorString;
     [self setWineColorFromString:wineColorString];
@@ -124,8 +124,6 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 6;
-    
     NSInteger numberOfItemsInSection = 0;
     if(self.displayText){
         numberOfItemsInSection++;

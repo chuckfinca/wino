@@ -2,7 +2,7 @@
 //  Wine2.h
 //  Corkie
 //
-//  Created by Charles Feinn on 5/3/14.
+//  Created by Charles Feinn on 5/4/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -27,17 +27,18 @@
 @property (nonatomic, retain) NSString * vineyard;
 @property (nonatomic, retain) NSString * vintage;
 @property (nonatomic, retain) NSString * wine_description;
+@property (nonatomic, retain) NSNumber * user_favorite;
 @property (nonatomic, retain) Brand2 *brand;
 @property (nonatomic, retain) NSSet *cellars;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
 @property (nonatomic, retain) RatingHistory2 *ratingHistory;
 @property (nonatomic, retain) NSSet *regions;
+@property (nonatomic, retain) TalkingHeads *talkingHeads;
 @property (nonatomic, retain) NSSet *tastingNotes;
 @property (nonatomic, retain) NSSet *tastingRecords;
 @property (nonatomic, retain) NSSet *varietals;
 @property (nonatomic, retain) NSSet *wineUnits;
-@property (nonatomic, retain) TalkingHeads *talkingHeads;
 @end
 
 @interface Wine2 (CoreDataGeneratedAccessors)

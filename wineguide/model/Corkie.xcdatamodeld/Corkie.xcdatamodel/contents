@@ -154,6 +154,7 @@
         <attribute name="sparkling" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="user_favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="vineyard" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="vintage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wine_description" optional="YES" attributeType="String" syncable="YES"/>
@@ -187,12 +188,12 @@
         <element name="Region" positionX="520" positionY="99" width="128" height="148"/>
         <element name="Restaurant2" positionX="-182" positionY="-150" width="128" height="298"/>
         <element name="Review2" positionX="-371" positionY="227" width="128" height="178"/>
+        <element name="TalkingHeads" positionX="151" positionY="368" width="128" height="118"/>
         <element name="TastingNote2" positionX="378" positionY="252" width="128" height="163"/>
         <element name="TastingRecord2" positionX="-2" positionY="198" width="128" height="163"/>
         <element name="User2" positionX="-369" positionY="-171" width="128" height="358"/>
         <element name="Varietal2" positionX="351" positionY="432" width="128" height="163"/>
-        <element name="Wine2" positionX="180" positionY="-97" width="128" height="418"/>
+        <element name="Wine2" positionX="180" positionY="-97" width="128" height="433"/>
         <element name="WineUnit2" positionX="-191" positionY="396" width="128" height="163"/>
-        <element name="TalkingHeads" positionX="151" positionY="368" width="128" height="118"/>
     </elements>
 </model>

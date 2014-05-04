@@ -16,6 +16,7 @@
 #import "GetMe.h"
 #import "TalkingHeadsVC.h"
 #import "RatingsVC.h"
+#import "OutBox.h"
 
 @interface WineDetailsVC ()
 
@@ -42,6 +43,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingsContainerViewToWineDetailsVHTVConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineDetailsVHTVToTriedItButtonConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *triedItButtonToBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsContainerViewHeightConstraint;
 
 
 
@@ -112,8 +114,14 @@
     [self.wineNameVHTV setupTextViewWithWine:self.wine fromRestaurant:nil];
     [self.wineDetailsVHTV setupTextViewWithWine:self.wine fromRestaurant:nil];
     
-    [self.talkingHeadsVC setupWithNumberOfTalkingHeads:1];
-    [self.ratingsVC setupForRating:3 andWineColor:self.wine.color displayText:YES];
+    NSInteger numberOfTalkingHeads = 0;
+    if(numberOfTalkingHeads == 0){
+        self.talkingHeadsContainerView.bounds = CGRectMake(0, 0, self.talkingHeadsContainerView.bounds.size.width, 0);
+        self.talkingHeadsContainerViewHeightConstraint.constant = 0;
+    } else {
+        [self.talkingHeadsVC setupWithNumberOfTalkingHeads:0];
+    }
+    [self.ratingsVC setupForRating:0 andWineColor:self.wine.color displayText:YES];
     
     [self setupUserActionButtons];
     
@@ -215,12 +223,17 @@
     
     if([winesInCellar containsObject:self.wine]){
         [winesInCellar removeObject:self.wine];
+        self.wine.user_favorite = @NO;
     } else {
         [winesInCellar addObject:self.wine];
+        self.wine.user_favorite = @YES;
     }
     self.me.winesInCellar = winesInCellar;
     
     [self setupCellarButton];
+    
+    OutBox *outBox = [[OutBox alloc] init];
+    [outBox userDidCellarWine:self.wine];
 }
 
 - (void)purchaseWine

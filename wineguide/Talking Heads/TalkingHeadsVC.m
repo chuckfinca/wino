@@ -125,7 +125,7 @@
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == self.numberOfTalkingHeads || indexPath.row == 3){
-        return CGSizeMake(150, 40);
+        return CGSizeMake(160, 40);
         
     } else {
         return CGSizeMake(40, 40);

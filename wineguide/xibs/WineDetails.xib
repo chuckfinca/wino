@@ -12,6 +12,7 @@
                 <outlet property="ratingsContainerViewToWineDetailsVHTVConstraint" destination="xkr-MW-9Vv" id="gTO-kr-Zk8"/>
                 <outlet property="talkingHeadsContainerToRatingsContainerConstraint" destination="tOq-Yc-ytg" id="fNW-h8-aBh"/>
                 <outlet property="talkingHeadsContainerView" destination="cXy-rN-mhP" id="Vgv-2Z-eOC"/>
+                <outlet property="talkingHeadsContainerViewHeightConstraint" destination="WLn-21-pkw" id="jah-Uc-NTv"/>
                 <outlet property="topToWineNameVHTVConstraint" destination="OSH-yW-S1I" id="nnE-62-TSy"/>
                 <outlet property="triedItButton" destination="Wsg-dY-LDW" id="2Qd-63-Lah"/>
                 <outlet property="triedItButtonToBottomConstraint" destination="imQ-2y-QXV" id="wzp-gp-Kls"/>

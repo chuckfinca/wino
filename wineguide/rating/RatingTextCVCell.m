@@ -29,14 +29,17 @@
 
 -(void)setupForNumberOfReviews:(NSInteger)numberOfReviews
 {
+    NSAttributedString *attributedString;
     NSString *text;
     if(numberOfReviews > 0){
         text = [NSString stringWithFormat:@"%ld reviews",(long)numberOfReviews];
+        attributedString = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption1, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     } else {
         text = @"Be the first to try it!";
+        attributedString = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     }
     
-    self.textLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption1, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+    self.textLabel.attributedText = attributedString;
 }
 
 
