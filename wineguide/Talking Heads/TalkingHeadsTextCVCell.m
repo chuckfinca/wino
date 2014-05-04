@@ -36,7 +36,7 @@
     
     NSString *text = [NSString stringWithFormat:@"+%@ %i friends liked this",youAndString,numberOfPeople];
     
-    self.label.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].footnote, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
+    self.label.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption1, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
 }
 
 /*

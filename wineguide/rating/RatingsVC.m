@@ -21,6 +21,7 @@
 @property (nonatomic) BOOL displayText;
 @property (nonatomic) float rating;
 @property (nonatomic, strong) UIColor *wineColor;
+@property (nonatomic, strong) NSString *wineColorString;
 @property (nonatomic) NSInteger numberOfReviews;
 
 @property (nonatomic, strong) UIImage *empty;
@@ -49,6 +50,8 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"RatingTextCVCell" bundle:nil] forCellWithReuseIdentifier:RATING_TEXT_CELL];
     
     [self setupFlowlayout];
+    
+    self.numberOfReviews = arc4random_uniform(100);
     
     self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
@@ -93,8 +96,16 @@
 
 -(void)setupForRating:(float)rating andWineColor:(NSString *)wineColorString displayText:(BOOL)displayText
 {
+    //self.rating = rating;
+    
+    self.rating = arc4random_uniform(6) + drand48();
+    NSLog(@"rating = %f",self.rating);
+    
+    self.wineColorString = wineColorString;
     [self setWineColorFromString:wineColorString];
     self.displayText = displayText;
+    
+    [self.collectionView reloadData];
 }
 
 -(void)setWineColorFromString:(NSString *)wineColorString
@@ -114,6 +125,8 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    return 6;
+    
     NSInteger numberOfItemsInSection = 0;
     if(self.displayText){
         numberOfItemsInSection++;
@@ -131,11 +144,13 @@
             RatingCVCell *ratingCell = (RatingCVCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:RATING_CELL forIndexPath:indexPath];
             
             if(indexPath.row + 1 > self.rating){
-                [ratingCell.imageView setImage:self.empty];
-            } else if(indexPath.row + 1 <= self.rating) {
-                [ratingCell.imageView setImage:self.full];
+                if(self.rating - indexPath.row >= 0.5){
+                    [ratingCell.imageView setImage:self.half];
+                } else {
+                    [ratingCell.imageView setImage:self.empty];
+                }
             } else {
-                [ratingCell.imageView setImage:self.half];
+                [ratingCell.imageView setImage:self.full];
             }
             ratingCell.imageView.tintColor = self.wineColor;
             
@@ -144,7 +159,6 @@
     }
     
     RatingTextCVCell *ratingTextCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:RATING_TEXT_CELL forIndexPath:indexPath];
-    
     [ratingTextCell setupForNumberOfReviews:self.numberOfReviews];
     
     return ratingTextCell;

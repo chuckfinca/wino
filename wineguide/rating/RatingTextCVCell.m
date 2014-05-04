@@ -33,7 +33,7 @@
     if(numberOfReviews > 0){
         text = [NSString stringWithFormat:@"%ld reviews",(long)numberOfReviews];
     } else {
-        text = @" Be the first to try it!";
+        text = @"Be the first to try it!";
     }
     
     self.textLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption1, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];

@@ -40,6 +40,7 @@
 
 -(void)setWineColor:(COWineColor)wineColor
 {
+    NSLog(@"wineColor = %d",wineColor);
     switch (wineColor) {
         case 0:
             self.color = [ColorSchemer sharedInstance].redWine;
@@ -54,7 +55,6 @@
         default:
             break;
     }
-    self.view.tintColor = self.color;
 }
 
 

@@ -71,8 +71,6 @@ typedef enum {
     
     // allows the tableview to load faster
     self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
-    
-    self.testingArray = @[@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3];
 }
 
 #pragma mark - Getters & Setters
@@ -92,6 +90,14 @@ typedef enum {
         _wineSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"WineCell" owner:self options:nil] firstObject];
     }
     return _wineSizingCell;
+}
+
+-(NSArray *)testingArray
+{
+    if(!_testingArray){
+        _testingArray = @[@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3];
+    }
+    return _testingArray;
 }
 
 #pragma mark - Setup

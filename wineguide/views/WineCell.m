@@ -84,15 +84,7 @@
     
     if(!self.abridged){
         [self.ratingsVC setupForRating:[wine.rating.averageRating floatValue] andWineColor:wine.color displayText:YES];
-        
-        if(numberOfTalkingHeads == 0){
-            self.talkingHeadsContainerView.bounds = CGRectMake(0, 0, self.talkingHeadsVC.view.bounds.size.width, 0);
-            self.talkingHeadsHeightConstraint.constant = 0;
-        } else {
-            self.talkingHeadsContainerView.bounds = CGRectMake(0, 0, self.talkingHeadsVC.view.bounds.size.width, 40);
-            self.talkingHeadsHeightConstraint.constant = 40;
-        }
-        [self.talkingHeadsVC setupWithNumberOfTalkingHeads:numberOfTalkingHeads];
+        [self setupTalkingHeadsVcWithNumberOfTalkingHeads:numberOfTalkingHeads];
         
     } else {
         [self.ratingsContainerView removeFromSuperview];
@@ -102,6 +94,18 @@
     [self setViewHeight];
     
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+}
+
+-(void)setupTalkingHeadsVcWithNumberOfTalkingHeads:(NSInteger)numberOfTalkingHeads
+{
+    if(numberOfTalkingHeads == 0){
+        self.talkingHeadsContainerView.bounds = CGRectMake(0, 0, self.talkingHeadsVC.view.bounds.size.width, 0);
+        self.talkingHeadsHeightConstraint.constant = 0;
+    } else {
+        self.talkingHeadsContainerView.bounds = CGRectMake(0, 0, self.talkingHeadsVC.view.bounds.size.width, 40);
+        self.talkingHeadsHeightConstraint.constant = 40;
+    }
+    [self.talkingHeadsVC setupWithNumberOfTalkingHeads:numberOfTalkingHeads];
 }
 
 -(void)setViewHeight
