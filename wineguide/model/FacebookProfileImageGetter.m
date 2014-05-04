@@ -21,7 +21,9 @@
 {
     if(!_placeHolderImage){
         _placeHolderImage = [UIImage imageNamed:@"user_default.png"];
+        _placeHolderImage = [_placeHolderImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
+    
     return _placeHolderImage;
 }
 
@@ -34,10 +36,7 @@
         completion(YES);
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        NSLog(@"failed to download profile image");
-        NSLog(@"request = %@",request);
-        NSLog(@"response = %@",response);
-        NSLog(@"error = %@",error.localizedDescription);
+        // NSLog(@"failed to download profile image\nrequest = %@\nresponse = %@\nerror = %@",request,response,error.localizedDescription);
     }];
 }
 

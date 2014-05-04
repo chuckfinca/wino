@@ -99,7 +99,6 @@
     //self.rating = rating;
     
     self.rating = arc4random_uniform(6) + drand48();
-    NSLog(@"rating = %f",self.rating);
     
     self.wineColorString = wineColorString;
     [self setWineColorFromString:wineColorString];

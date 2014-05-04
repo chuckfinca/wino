@@ -91,8 +91,6 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"indexPath = %@",indexPath);
-        NSLog(@"numberOfTalkingHeads = %ld",(long)self.numberOfTalkingHeads);
     if(indexPath.row == self.numberOfTalkingHeads || indexPath.row == 3){
         
         TalkingHeadsTextCVCell *textCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:TALKING_HEAD_TEXT_CELL forIndexPath:indexPath];
