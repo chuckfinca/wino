@@ -44,6 +44,8 @@ typedef enum {
 @property (nonatomic, strong) NSString *selectedGroupIdentifier;
 @property (nonatomic, strong) WineCell *wineSizingCell;
 
+@property (nonatomic, strong) NSArray *testingArray;
+
 @end
 
 @implementation RestaurantCDTVC
@@ -69,6 +71,8 @@ typedef enum {
     
     // allows the tableview to load faster
     self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
+    
+    self.testingArray = @[@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3];
 }
 
 #pragma mark - Getters & Setters
@@ -164,7 +168,9 @@ typedef enum {
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [cell setupCellForWine:wine];
+    
+    NSNumber *num = self.testingArray[indexPath.row];
+    [cell setupCellForWine:wine numberOfTalkingHeads:[num integerValue]];
     
     return cell;
 }
@@ -193,7 +199,9 @@ typedef enum {
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self.wineSizingCell setupCellForWine:wine];
+    
+    NSNumber *num = self.testingArray[indexPath.row];
+    [self.wineSizingCell setupCellForWine:wine numberOfTalkingHeads:[num integerValue]];
     
     return self.wineSizingCell.bounds.size.height;
 }

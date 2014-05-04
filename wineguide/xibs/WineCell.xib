@@ -53,6 +53,7 @@
                 <outlet property="ratingsContainerViewToBottomConstraint" destination="cxq-MQ-lag" id="CNd-9W-4me"/>
                 <outlet property="talkingHeadsContainerView" destination="qju-Yb-rkS" id="qin-eS-P6G"/>
                 <outlet property="talkingHeadsContainerViewToRatingsCvConstraint" destination="Dvn-aI-ybL" id="zOm-N4-kms"/>
+                <outlet property="talkingHeadsHeightConstraint" destination="GpQ-VS-Wnb" id="7Dg-0e-8yN"/>
                 <outlet property="topToWineNameVhtvConstraint" destination="n8O-fc-XyL" id="Wr6-AW-2cl"/>
                 <outlet property="wineNameVHTV" destination="V6j-mN-BMa" id="tuW-js-wEu"/>
                 <outlet property="wineNameVhtvToTalkingHeadsContainerViewConstraint" destination="2W3-PO-a3i" id="qcP-cZ-YMB"/>

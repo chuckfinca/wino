@@ -14,5 +14,6 @@
 @property (nonatomic) BOOL abridged;
 
 -(void)setupCellForWine:(Wine *)wine;
+-(void)setupCellForWine:(Wine *)wine numberOfTalkingHeads:(NSInteger)numberOfTalkingHeads; // for testing ONLY
 
 @end

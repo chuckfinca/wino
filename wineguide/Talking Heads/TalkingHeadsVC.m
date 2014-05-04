@@ -70,6 +70,8 @@
 -(void)setupWithNumberOfTalkingHeads:(NSInteger)numberOfTalkingHeads
 {
     self.numberOfTalkingHeads = numberOfTalkingHeads;
+    
+    [self.collectionView reloadData];
 }
 
 -(void)setupWithTalkingHeads:(TalkingHeads *)talkingHeads
@@ -81,7 +83,10 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.numberOfTalkingHeads+1;
+    if(self.numberOfTalkingHeads > 0){
+        return self.numberOfTalkingHeads+1;
+    }
+    return 0;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

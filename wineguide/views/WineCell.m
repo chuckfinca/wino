@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVhtvToTalkingHeadsContainerViewConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsContainerViewToRatingsCvConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingsContainerViewToBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsHeightConstraint;
 
 @end
 @implementation WineCell
@@ -74,13 +75,28 @@
 
 -(void)setupCellForWine:(Wine *)wine
 {
+    [self setupCellForWine:wine numberOfTalkingHeads:2];
+}
+
+-(void)setupCellForWine:(Wine *)wine numberOfTalkingHeads:(NSInteger)numberOfTalkingHeads
+{
     [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:nil];
     
     if(!self.abridged){
         [self.ratingsVC setupForRating:[wine.rating.averageRating floatValue] andWineColor:wine.color displayText:YES];
-        [self.talkingHeadsVC setupWithNumberOfTalkingHeads:3];
+        
+        if(numberOfTalkingHeads == 0){
+            self.talkingHeadsContainerView.bounds = CGRectMake(0, 0, self.talkingHeadsVC.view.bounds.size.width, 0);
+            self.talkingHeadsHeightConstraint.constant = 0;
+        } else {
+            self.talkingHeadsContainerView.bounds = CGRectMake(0, 0, self.talkingHeadsVC.view.bounds.size.width, 40);
+            self.talkingHeadsHeightConstraint.constant = 40;
+        }
+        [self.talkingHeadsVC setupWithNumberOfTalkingHeads:numberOfTalkingHeads];
+        
     } else {
         [self.ratingsContainerView removeFromSuperview];
+        [self.talkingHeadsContainerView removeFromSuperview];
     }
     
     [self setViewHeight];
