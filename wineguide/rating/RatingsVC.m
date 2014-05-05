@@ -52,8 +52,6 @@
     [self setupFlowlayout];
     
     //self.numberOfReviews = arc4random_uniform(100);
-    
-    self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 #pragma mark - Setup
@@ -94,15 +92,15 @@
 
 #pragma mark - Setup
 
--(void)setupForRating:(float)rating andWineColor:(NSString *)wineColorString displayText:(BOOL)displayText
+-(void)setupForRating:(float)rating andWineColor:(NSString *)wineColorString displayText:(BOOL)displayText andBackgroundColor:(UIColor *)backgroundColor
 {
     self.rating = rating;
-    
-    //self.rating = arc4random_uniform(6) + drand48();
     
     self.wineColorString = wineColorString;
     [self setWineColorFromString:wineColorString];
     self.displayText = displayText;
+    
+    self.collectionView.backgroundColor = backgroundColor;
     
     [self.collectionView reloadData];
 }
@@ -150,6 +148,7 @@
                 [ratingCell.imageView setImage:self.full];
             }
             ratingCell.imageView.tintColor = self.wineColor;
+            ratingCell.backgroundColor = self.collectionView.backgroundColor;
             
             return ratingCell;
         }
@@ -157,6 +156,8 @@
     
     RatingTextCVCell *ratingTextCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:RATING_TEXT_CELL forIndexPath:indexPath];
     [ratingTextCell setupForNumberOfReviews:self.numberOfReviews];
+    
+    ratingTextCell.backgroundColor = self.collectionView.backgroundColor;
     
     return ratingTextCell;
 }

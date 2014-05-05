@@ -32,6 +32,8 @@
 
 #define TASTING_DATE @"tastingDate"
 
+#define REVIEW_ENTITY @"Review"
+
 #define NOTE_TEXT_INSET 20
 
 @interface CheckInVC () <UITextViewDelegate, UIViewControllerTransitioningDelegate, FriendListVcDelegate>
@@ -412,6 +414,8 @@
     Review *userReview = [self createClaimed:YES reviewForUser:me];
     [reviews addObject:userReview];
     
+    [self determineIfFavorite];
+    
     if(self.selectedFriends){
         for(User *friend in self.selectedFriends){
             Review *friendReview = [self createClaimed:NO reviewForUser:friend];
@@ -456,6 +460,37 @@
     review.user = user;
     
     return review;
+}
+
+-(void)determineIfFavorite
+{
+    User *me = [GetMe sharedInstance].me;
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:REVIEW_ENTITY];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"user.identifier == %@ AND wine.identifier == %@",me.identifier,self.wine.identifier];
+    
+    NSError *error;
+    NSArray *matches = [me.managedObjectContext executeFetchRequest:request error:&error];
+    
+    NSLog(@"matches count = %lu",(unsigned long)[matches count]);
+    
+    NSInteger ratingsSummated = 0;
+    
+    for(Review *r in matches){
+        NSLog(@"rating = %@",r.rating);
+        ratingsSummated += [r.rating integerValue];
+    }
+    
+    float averageRating = ratingsSummated / [matches count];
+    
+    NSLog(@"average rating = %f",averageRating);
+    
+    if(averageRating >= 4){
+        self.wine.user_favorite = @YES;
+    } else {
+        self.wine.user_favorite = @NO;
+    }
 }
 
 

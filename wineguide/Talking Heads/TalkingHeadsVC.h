@@ -11,7 +11,7 @@
 
 @interface TalkingHeadsVC : UIViewController
 
--(void)setupWithNumberOfTalkingHeads:(NSInteger)numberOfTalkingHeads;
--(void)setupWithTalkingHeads:(TalkingHeads *)talkingHeads;
+-(void)setupWithNumberOfTalkingHeads:(NSInteger)numberOfTalkingHeads andYou:(BOOL)userLikesThis withBackgroundColor:(UIColor *)backgroundColor;
+-(void)setupWithTalkingHeads:(TalkingHeads *)talkingHeads andYou:(BOOL)userLikesThis withBackgroundColor:(UIColor *)backgroundColor;
 
 @end

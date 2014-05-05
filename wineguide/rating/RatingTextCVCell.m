@@ -32,7 +32,10 @@
     NSAttributedString *attributedString;
     NSString *text;
     if(numberOfReviews > 0){
-        text = [NSString stringWithFormat:@"%ld reviews",(long)numberOfReviews];
+        text = [NSString stringWithFormat:@"%ld review",(long)numberOfReviews];
+        if(numberOfReviews > 1){
+            text = [text stringByAppendingString:@"s"];
+        }
         attributedString = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption1, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
     } else {
         text = @"Be the first to try it!";

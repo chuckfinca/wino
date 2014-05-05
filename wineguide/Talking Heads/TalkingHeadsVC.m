@@ -21,6 +21,8 @@
 @property (nonatomic) NSInteger numberOfTalkingHeads;
 @property (nonatomic, strong) TalkingHeads *talkingHeads;
 @property (nonatomic, strong) FacebookProfileImageGetter *facebookProfileImageGetter;
+@property (nonatomic, strong) UIColor *customBackgroundColor;
+@property (nonatomic) BOOL userLikesThis;
 
 @end
 
@@ -43,8 +45,6 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"TalkingHeadsTextCVCell" bundle:nil] forCellWithReuseIdentifier:TALKING_HEAD_TEXT_CELL];
     
     [self setupFlowlayout];
-    
-    self.collectionView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 #pragma mark - Getters & setters
@@ -67,16 +67,22 @@
     [self.collectionView setCollectionViewLayout:flowLayout];
 }
 
--(void)setupWithNumberOfTalkingHeads:(NSInteger)numberOfTalkingHeads
+-(void)setupWithNumberOfTalkingHeads:(NSInteger)numberOfTalkingHeads andYou:(BOOL)userLikesThis withBackgroundColor:(UIColor *)backgroundColor
 {
     self.numberOfTalkingHeads = numberOfTalkingHeads;
+    self.userLikesThis = userLikesThis;
     
+    self.collectionView.backgroundColor = backgroundColor;
     [self.collectionView reloadData];
 }
 
--(void)setupWithTalkingHeads:(TalkingHeads *)talkingHeads
+-(void)setupWithTalkingHeads:(TalkingHeads *)talkingHeads andYou:(BOOL)userLikesThis withBackgroundColor:(UIColor *)backgroundColor
 {
     self.talkingHeads = talkingHeads;
+    self.userLikesThis = userLikesThis;
+    
+    self.collectionView.backgroundColor = backgroundColor;
+    [self.collectionView reloadData];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -91,25 +97,30 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    UICollectionViewCell *cell;
+    
     if(indexPath.row == self.numberOfTalkingHeads || indexPath.row == 3){
         
         TalkingHeadsTextCVCell *textCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:TALKING_HEAD_TEXT_CELL forIndexPath:indexPath];
-        [textCell setupForNumberOfPeople:self.numberOfTalkingHeads includingYou:YES];
+        [textCell setupForNumberOfPeople:arc4random_uniform(10) includingYou:self.userLikesThis];
         
-        return textCell;
+        cell = textCell;
         
     } else {
-        TalkingHeadsCVCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:TALKING_HEAD_CELL forIndexPath:indexPath];
+        TalkingHeadsCVCell *talkingHeadCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:TALKING_HEAD_CELL forIndexPath:indexPath];
         
         __weak UICollectionView *weakCollectionView = self.collectionView;
-        [self.facebookProfileImageGetter setProfilePicForUser:nil inImageView:cell.imageView completion:^(BOOL success) {
+        [self.facebookProfileImageGetter setProfilePicForUser:nil inImageView:talkingHeadCell.imageView completion:^(BOOL success) {
             if(success){
                 [weakCollectionView reloadItemsAtIndexPaths:@[indexPath]];
             }
         }];
         
-        return cell;
+        cell = talkingHeadCell;
     }
+    cell.backgroundColor = self.collectionView.backgroundColor;
+    
+    return cell;
 }
 
 #pragma mark - UICollectionViewDelegate

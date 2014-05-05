@@ -18,6 +18,7 @@
 @property (nonatomic, readonly) UIColor *clickable;
 
 @property (nonatomic, readonly) UIColor *baseColor;
+@property (nonatomic, readonly) UIColor *baseColorLight;
 
 @property (nonatomic, readonly) UIColor *customWhite;
 

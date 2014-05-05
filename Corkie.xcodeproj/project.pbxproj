@@ -130,6 +130,8 @@
 		C96D3178191706E300B340F4 /* Wine2.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D3177191706E300B340F4 /* Wine2.m */; };
 		C96D317B1917074700B340F4 /* Wine.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D317A1917074700B340F4 /* Wine.m */; };
 		C96D317E1917081800B340F4 /* OutBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D317D1917081800B340F4 /* OutBox.m */; };
+		C96D3183191715FB00B340F4 /* ReviewsTVControllerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D3181191715FB00B340F4 /* ReviewsTVControllerHeaderView.m */; };
+		C96D3184191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96D3182191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -450,6 +452,9 @@
 		C96D317A1917074700B340F4 /* Wine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wine.m; path = model/Wine.m; sourceTree = "<group>"; };
 		C96D317C1917081800B340F4 /* OutBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutBox.h; path = model/OutBox.h; sourceTree = "<group>"; };
 		C96D317D1917081800B340F4 /* OutBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutBox.m; path = model/OutBox.m; sourceTree = "<group>"; };
+		C96D3180191715FB00B340F4 /* ReviewsTVControllerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewsTVControllerHeaderView.h; path = "Reviews TVC/ReviewsTVControllerHeaderView.h"; sourceTree = "<group>"; };
+		C96D3181191715FB00B340F4 /* ReviewsTVControllerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewsTVControllerHeaderView.m; path = "Reviews TVC/ReviewsTVControllerHeaderView.m"; sourceTree = "<group>"; };
+		C96D3182191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewsTVControllerHeaderView.xib; path = "Reviews TVC/ReviewsTVControllerHeaderView.xib"; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -704,6 +709,7 @@
 		C9061DF4181F07CE003D8A55 /* wineguide */ = {
 			isa = PBXGroup;
 			children = (
+				C96D317F191715CA00B340F4 /* Reviews TVC */,
 				C988AF0919144EBE00A3E13A /* Talking Heads */,
 				C9C164F71912F68D0032D340 /* Rating */,
 				C9D0784618452AF800F47851 /* Initial_iPhone.storyboard */,
@@ -1106,6 +1112,16 @@
 			name = "supporting classes";
 			sourceTree = "<group>";
 		};
+		C96D317F191715CA00B340F4 /* Reviews TVC */ = {
+			isa = PBXGroup;
+			children = (
+				C96D3180191715FB00B340F4 /* ReviewsTVControllerHeaderView.h */,
+				C96D3181191715FB00B340F4 /* ReviewsTVControllerHeaderView.m */,
+				C96D3182191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib */,
+			);
+			name = "Reviews TVC";
+			sourceTree = "<group>";
+		};
 		C988AF0919144EBE00A3E13A /* Talking Heads */ = {
 			isa = PBXGroup;
 			children = (
@@ -1318,6 +1334,7 @@
 				C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */,
 				C9C7D62518402BBE00A2E955 /* Tutorial.xib in Resources */,
 				C9C6A21018568ABE00CFBBD5 /* brands.json in Resources */,
+				C96D3184191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib in Resources */,
 				C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */,
 				C96BA8F618E8CE5200E0F990 /* TastingRecordCell.xib in Resources */,
 				C95E2DC0186510050050DFAC /* userAction_cellar@2x.png in Resources */,
@@ -1514,6 +1531,7 @@
 				C96D3178191706E300B340F4 /* Wine2.m in Sources */,
 				C988AF2219145FF700A3E13A /* TalkingHeadsVC.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
+				C96D3183191715FB00B340F4 /* ReviewsTVControllerHeaderView.m in Sources */,
 				C96928D518DCEEBC006ADCC4 /* FriendListVC.m in Sources */,
 				C92660EC190F16540024EFDC /* UIView+BorderDrawer.m in Sources */,
 				C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */,

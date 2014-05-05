@@ -76,16 +76,30 @@
 
 -(void)setupCellForWine:(Wine *)wine
 {
-    [self setupCellForWine:wine numberOfTalkingHeads:2];
+    [self setupCellForWine:wine numberOfTalkingHeads:arc4random_uniform(10)];
 }
 
 -(void)setupCellForWine:(Wine *)wine numberOfTalkingHeads:(NSInteger)numberOfTalkingHeads
 {
     [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:nil];
     
+    BOOL userLikesThis = [wine.user_favorite boolValue];
+    
+    UIColor *backgroundColor;
+    if(userLikesThis){
+        backgroundColor = [ColorSchemer sharedInstance].baseColorLight;
+    } else {
+        backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    }
+    self.backgroundColor = backgroundColor;
+    self.wineNameVHTV.backgroundColor = backgroundColor;
+
+    
     if(!self.abridged){
-        [self.ratingsVC setupForRating:[wine.rating.averageRating floatValue] andWineColor:wine.color displayText:YES];
-        [self setupTalkingHeadsVcWithNumberOfTalkingHeads:numberOfTalkingHeads];
+        [self.ratingsVC setupForRating:[wine.rating.averageRating floatValue] andWineColor:wine.color displayText:YES andBackgroundColor:backgroundColor];
+        NSLog(@"numberOfTalkingHeads = %i",numberOfTalkingHeads);
+        NSLog(@"userLikesThis = %i",userLikesThis);
+        [self setupTalkingHeadsVcWithNumberOfTalkingHeads:numberOfTalkingHeads includingYou:userLikesThis];
         
     } else {
         [self.ratingsContainerView removeFromSuperview];
@@ -93,11 +107,9 @@
     }
     
     [self setViewHeight];
-    
-    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
--(void)setupTalkingHeadsVcWithNumberOfTalkingHeads:(NSInteger)numberOfTalkingHeads
+-(void)setupTalkingHeadsVcWithNumberOfTalkingHeads:(NSInteger)numberOfTalkingHeads includingYou:(BOOL)userLikesThis
 {
     if(numberOfTalkingHeads == 0){
         self.talkingHeadsContainerView.bounds = CGRectMake(0, 0, self.talkingHeadsVC.view.bounds.size.width, 0);
@@ -106,7 +118,7 @@
         self.talkingHeadsContainerView.bounds = CGRectMake(0, 0, self.talkingHeadsVC.view.bounds.size.width, 40);
         self.talkingHeadsHeightConstraint.constant = 40;
     }
-    [self.talkingHeadsVC setupWithNumberOfTalkingHeads:numberOfTalkingHeads];
+    [self.talkingHeadsVC setupWithNumberOfTalkingHeads:numberOfTalkingHeads andYou:userLikesThis withBackgroundColor:self.backgroundColor];
 }
 
 -(void)setViewHeight

@@ -10,6 +10,6 @@
 
 @interface RatingsVC : UIViewController
 
--(void)setupForRating:(float)rating andWineColor:(NSString *)wineColorString displayText:(BOOL)displayText;
+-(void)setupForRating:(float)rating andWineColor:(NSString *)wineColorString displayText:(BOOL)displayText andBackgroundColor:(UIColor *)backgroundColor;
 
 @end

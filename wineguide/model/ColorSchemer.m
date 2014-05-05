@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSDictionary *baseColorDictionary;
 
 @property (nonatomic, readwrite) UIColor *baseColor;
+@property (nonatomic, readwrite) UIColor *baseColorLight;
 
 @property (nonatomic, readwrite) UIColor *textPrimary;
 @property (nonatomic, readwrite) UIColor *textSecondary;
@@ -56,6 +57,12 @@ static ColorSchemer *sharedInstance;
         //[UIColor colorWithRed:0.666667f green:0.470588f blue:0.650980f alpha:1.0]; // original slightly lighter purple
         //[UIColor colorWithRed:0.364706F green:0.129412F blue:0.160784F alpha:1.0F]; // dark red wine
     return _baseColor;
+}
+
+-(UIColor *)baseColorLight
+{
+    if(!_baseColorLight) _baseColorLight = [UIColor colorWithRed:0.968627F green:0.952941F blue:0.972549F alpha:1.0F];
+    return _baseColorLight;
 }
 
 -(UIColor *)textPrimary
@@ -175,7 +182,6 @@ static ColorSchemer *sharedInstance;
      
      */
 }
-
 
 -(UIColor *)gray
 {

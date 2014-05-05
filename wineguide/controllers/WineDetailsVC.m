@@ -114,20 +114,22 @@
     [self.wineNameVHTV setupTextViewWithWine:self.wine fromRestaurant:nil];
     [self.wineDetailsVHTV setupTextViewWithWine:self.wine fromRestaurant:nil];
     
+    UIColor *backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    
     NSInteger numberOfTalkingHeads = 0;
     if(numberOfTalkingHeads == 0){
         self.talkingHeadsContainerView.bounds = CGRectMake(0, 0, self.talkingHeadsContainerView.bounds.size.width, 0);
         self.talkingHeadsContainerViewHeightConstraint.constant = 0;
     } else {
-        [self.talkingHeadsVC setupWithNumberOfTalkingHeads:0];
+        [self.talkingHeadsVC setupWithNumberOfTalkingHeads:0 andYou:[self.wine.user_favorite boolValue] withBackgroundColor:backgroundColor];
     }
-    [self.ratingsVC setupForRating:0 andWineColor:self.wine.color displayText:YES];
+    [self.ratingsVC setupForRating:0 andWineColor:self.wine.color displayText:YES andBackgroundColor:backgroundColor];
     
     [self setupUserActionButtons];
     
     [self setViewHeight];
     
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.view.backgroundColor = backgroundColor;
 }
 
 -(void)setupUserActionButtons
