@@ -18,6 +18,7 @@
 #import "TastingRecordDataHelper.h"
 #import "SetRatingVC.h"
 #import "UIView+BorderDrawer.h"
+#import "OutBox.h"
 
 #define ADDED_DATE @"addedDate"
 #define CLAIMED_BY_USER @"claimedByUser"
@@ -418,6 +419,9 @@
         }
         tastingRecord.reviews = reviews;
     }
+    
+    OutBox *outBox = [[OutBox alloc] init];
+    [outBox userCreatedTastingRecord:tastingRecord];
 }
 
 -(Review *)createClaimed:(BOOL)claimed reviewForUser:(User *)user
