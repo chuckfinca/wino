@@ -33,16 +33,30 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d51-eQ-Ihp">
+                    <rect key="frame" x="20" y="46" width="280" height="76"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="pushWineVC:" destination="-1" eventType="touchUpInside" id="4PY-Ox-aYM"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Etc-Rn-v0k" secondAttribute="trailing" constant="20" id="4Rr-Dg-9Av"/>
                 <constraint firstItem="bY8-S1-AD0" firstAttribute="top" secondItem="Etc-Rn-v0k" secondAttribute="bottom" constant="5" id="75h-ls-er6"/>
+                <constraint firstItem="d51-eQ-Ihp" firstAttribute="centerX" secondItem="bY8-S1-AD0" secondAttribute="centerX" id="7WC-gd-SEb"/>
                 <constraint firstAttribute="bottom" secondItem="bY8-S1-AD0" secondAttribute="bottom" constant="20" symbolic="YES" id="AdQ-zw-zjy"/>
                 <constraint firstItem="Etc-Rn-v0k" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="F42-B7-PzE"/>
                 <constraint firstItem="bY8-S1-AD0" firstAttribute="trailing" secondItem="Etc-Rn-v0k" secondAttribute="trailing" id="RJD-6z-lT9"/>
+                <constraint firstItem="d51-eQ-Ihp" firstAttribute="centerY" secondItem="bY8-S1-AD0" secondAttribute="centerY" id="YJh-oj-04u"/>
                 <constraint firstItem="Etc-Rn-v0k" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="gEj-bh-k1O"/>
                 <constraint firstItem="bY8-S1-AD0" firstAttribute="leading" secondItem="Etc-Rn-v0k" secondAttribute="leading" id="oKz-Rz-4aP"/>
+                <constraint firstItem="d51-eQ-Ihp" firstAttribute="height" secondItem="bY8-S1-AD0" secondAttribute="height" id="upd-jP-WPq"/>
+                <constraint firstItem="d51-eQ-Ihp" firstAttribute="width" secondItem="bY8-S1-AD0" secondAttribute="width" id="wpJ-hQ-tSH"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

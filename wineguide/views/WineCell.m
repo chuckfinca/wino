@@ -131,6 +131,10 @@
     height += self.ratingsContainerView.bounds.size.height;
     height += self.ratingsContainerViewToBottomConstraint.constant;
     
+    if(self.abridged){
+        height += 10;
+    }
+    
     self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }
 
