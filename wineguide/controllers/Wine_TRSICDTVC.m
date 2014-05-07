@@ -157,22 +157,6 @@
 }
 
 
-#pragma mark - Target Action
-
--(IBAction)userProfileButton:(UIButton *)sender
-{
-    NSLog(@"userProfileButton");
-    NSLog(@"button tag = %ld",(long)sender.tag);
-}
-
--(IBAction)followUser:(UIButton *)sender
-{
-    NSLog(@"followUser");
-    NSLog(@"button tag = %ld",(long)sender.tag);
-}
-
-
-
 
 @end
 
