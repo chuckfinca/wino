@@ -18,5 +18,8 @@
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text; // Abstract
 -(void)getMoreResultsFromTheServer; // Abstract
 
+-(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath; // Abstract - call instead of cellForRowAtIndexPath
+-(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath; // Abstract - call instead of heightForRowAtIndexPath
+-(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath; // Abstract - call instead of didSelectRowAtIndexPath
 
 @end

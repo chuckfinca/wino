@@ -12,6 +12,7 @@
 #import "ColorSchemer.h"
 
 @interface SearchableCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
+
 @end
 
 @implementation SearchableCDTVC
@@ -34,20 +35,6 @@
     self.searchBar.delegate = self;
     
     [self customizeSearchBar];
-}
-
--(void)customizeSearchBar
-{
-    self.searchBar.barTintColor = [ColorSchemer sharedInstance].customWhite;
-    
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
-    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    [self.searchBar setSearchFieldBackgroundImage:blank forState:UIControlStateNormal];
-    
-    [self.searchBar.layer setBorderColor:[ColorSchemer sharedInstance].lightGray.CGColor];
-    [self.searchBar.layer setBorderWidth:1];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -83,6 +70,20 @@
     }
 }
 
+-(void)customizeSearchBar
+{
+    self.searchBar.barTintColor = [ColorSchemer sharedInstance].customWhite;
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
+    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self.searchBar setSearchFieldBackgroundImage:blank forState:UIControlStateNormal];
+    
+    [self.searchBar.layer setBorderColor:[ColorSchemer sharedInstance].lightGray.CGColor];
+    [self.searchBar.layer setBorderWidth:1];
+}
+
 #pragma mark - UISearchBarDelegate
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -103,7 +104,6 @@
         
         // get more results from the server
     }
-    
 }
 
 -(void)getMoreResultsFromTheServer
@@ -122,6 +122,126 @@
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     // Abstract
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+	   atIndexPath:(NSIndexPath *)indexPath
+	 forChangeType:(NSFetchedResultsChangeType)type
+	  newIndexPath:(NSIndexPath *)newIndexPath
+{
+    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext)
+    {
+        switch(type)
+        {
+            case NSFetchedResultsChangeInsert:
+                if(indexPath.row == 0){
+                    [self.tableView reloadData];
+                } else {
+                    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                }
+                break;
+                
+            case NSFetchedResultsChangeDelete:
+                if(indexPath.row == 0){
+                    [self.tableView reloadData];
+                } else {
+                    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                }
+                break;
+                
+            case NSFetchedResultsChangeUpdate:
+                [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case NSFetchedResultsChangeMove:
+                [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+        }
+    }
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if([self.fetchedResultsController.fetchedObjects count] == 0){
+        return 1;
+    } else {
+        return [[self.fetchedResultsController sections] count];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if([self.fetchedResultsController.fetchedObjects count] == 0){
+        return 1;
+    } else {
+        return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+    }
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell;
+    if([self.fetchedResultsController.fetchedObjects count] == 0){
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tester"];
+        cell.backgroundColor = [UIColor redColor];
+        
+        return cell;
+    } else {
+        cell = [self customTableViewCellForIndexPath:indexPath];
+    }
+    return cell;
+}
+
+-(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell; // Abstract
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([self.fetchedResultsController.fetchedObjects count] == 0){
+        return 100;
+    } else {
+        return [self heightForCellAtIndexPath:indexPath];
+    }
+}
+
+-(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Abstract
+    return 80;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([self.fetchedResultsController.fetchedObjects count] > 0){
+        [self userDidSelectRowAtIndexPath:indexPath];
+    }
+}
+
+-(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Abstract
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if([self.fetchedResultsController.fetchedObjects count] > 0){
+        return [[[self.fetchedResultsController sections] objectAtIndex:section] name];
+    }
+    return nil;
 }
 
 #pragma mark - Listen for Notifications
@@ -164,5 +284,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+
+
+
+
 
 @end

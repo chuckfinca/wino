@@ -7,7 +7,7 @@
 //
 
 #import "RestaurantsSCDTVC.h"
-#import "RestaurantCDTVC.h"
+#import "RestaurantSCDTVC.h"
 #import "RestaurantDataHelper.h"
 #import "Restaurant.h"
 #import "ColorSchemer.h"
@@ -106,16 +106,20 @@
     return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    // NSLog(@"cellForRowAtIndexPath...");
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"RestaurantCell" forIndexPath:indexPath];
     cell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
     // Configure the cell...
     [self setupTextForCell:cell atIndexPath:indexPath];
-    
     return cell;
+}
+
+-(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"Restaurant Segue" sender:cell];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -127,10 +131,10 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tvc];
         
         if(indexPath){
-            if([segue.destinationViewController isKindOfClass:[RestaurantCDTVC class]]){
+            if([segue.destinationViewController isKindOfClass:[RestaurantSCDTVC class]]){
                 
                 // Get the new view controller using [segue destinationViewController].
-                RestaurantCDTVC *restaurantCDTVC = (RestaurantCDTVC *)segue.destinationViewController;
+                RestaurantSCDTVC *restaurantCDTVC = (RestaurantSCDTVC *)segue.destinationViewController;
                 
                 // Pass the selected object to the new view controller.
                 Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -143,7 +147,6 @@
 
 
 #pragma mark - SearchableCDTVC Required Methods
-
 
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {

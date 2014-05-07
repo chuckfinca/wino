@@ -225,10 +225,8 @@
     
     if([winesInCellar containsObject:self.wine]){
         [winesInCellar removeObject:self.wine];
-        self.wine.user_favorite = @NO;
     } else {
         [winesInCellar addObject:self.wine];
-        self.wine.user_favorite = @YES;
     }
     self.me.winesInCellar = winesInCellar;
     

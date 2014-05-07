@@ -119,7 +119,7 @@
 		C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBC186510050050DFAC /* tab_cellar@2x.png */; };
 		C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */; };
 		C96928D518DCEEBC006ADCC4 /* FriendListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D418DCEEBC006ADCC4 /* FriendListVC.m */; };
-		C96928D818E0E069006ADCC4 /* RestaurantCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D718E0E069006ADCC4 /* RestaurantCDTVC.m */; };
+		C96928D818E0E069006ADCC4 /* RestaurantSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D718E0E069006ADCC4 /* RestaurantSCDTVC.m */; };
 		C969342A1875EF290071EF41 /* IterationCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934271875EF290071EF41 /* IterationCounter.m */; };
 		C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934291875EF290071EF41 /* NSDictionary+Helper.m */; };
 		C969347818779F1B0071EF41 /* TastingRecord+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C969347718779F1B0071EF41 /* TastingRecord+CreateAndModify.m */; };
@@ -430,8 +430,8 @@
 		C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_triedIt@2x.png"; path = "images/userAction_triedIt@2x.png"; sourceTree = "<group>"; };
 		C96928D318DCEEBC006ADCC4 /* FriendListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListVC.h; path = controllers/FriendListVC.h; sourceTree = "<group>"; };
 		C96928D418DCEEBC006ADCC4 /* FriendListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListVC.m; path = controllers/FriendListVC.m; sourceTree = "<group>"; };
-		C96928D618E0E069006ADCC4 /* RestaurantCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantCDTVC.h; path = controllers/RestaurantCDTVC.h; sourceTree = "<group>"; };
-		C96928D718E0E069006ADCC4 /* RestaurantCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantCDTVC.m; path = controllers/RestaurantCDTVC.m; sourceTree = "<group>"; };
+		C96928D618E0E069006ADCC4 /* RestaurantSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantSCDTVC.h; path = controllers/RestaurantSCDTVC.h; sourceTree = "<group>"; };
+		C96928D718E0E069006ADCC4 /* RestaurantSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantSCDTVC.m; path = controllers/RestaurantSCDTVC.m; sourceTree = "<group>"; };
 		C96934261875EF290071EF41 /* IterationCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IterationCounter.h; path = supportingClasses/IterationCounter.h; sourceTree = "<group>"; };
 		C96934271875EF290071EF41 /* IterationCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IterationCounter.m; path = supportingClasses/IterationCounter.m; sourceTree = "<group>"; };
 		C96934281875EF290071EF41 /* NSDictionary+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Helper.h"; path = "supportingClasses/NSDictionary+Helper.h"; sourceTree = "<group>"; };
@@ -785,22 +785,22 @@
 				C9C7D61E184029B600A2E955 /* TutorialVC.m */,
 				C9C7D62618402E0600A2E955 /* TutorialDetailsVC.h */,
 				C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */,
+				C98DEFC51821DA790038216C /* CoreDataTableViewController.h */,
+				C98DEFC61821DA790038216C /* CoreDataTableViewController.m */,
 				C9C7D6131840168700A2E955 /* SearchableCDTVC.h */,
 				C9C7D6141840168700A2E955 /* SearchableCDTVC.m */,
 				C990FAC31910886F00BF692E /* TastingRecordSCDTVC.h */,
 				C990FAC41910886F00BF692E /* TastingRecordSCDTVC.m */,
 				C9061E2E181F1C9C003D8A55 /* RestaurantsSCDTVC.h */,
 				C9061E2F181F1C9C003D8A55 /* RestaurantsSCDTVC.m */,
-				C96928D618E0E069006ADCC4 /* RestaurantCDTVC.h */,
-				C96928D718E0E069006ADCC4 /* RestaurantCDTVC.m */,
+				C96928D618E0E069006ADCC4 /* RestaurantSCDTVC.h */,
+				C96928D718E0E069006ADCC4 /* RestaurantSCDTVC.m */,
 				C9061E44181F2BF2003D8A55 /* RestaurantDetailsVC.h */,
 				C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */,
 				C92DF0451825B227009DCB2C /* WineTRSCDTVC.h */,
 				C92DF0461825B227009DCB2C /* WineTRSCDTVC.m */,
 				C9F47974181F4D940026A383 /* WineDetailsVC.h */,
 				C9F47975181F4D940026A383 /* WineDetailsVC.m */,
-				C98DEFC51821DA790038216C /* CoreDataTableViewController.h */,
-				C98DEFC61821DA790038216C /* CoreDataTableViewController.m */,
 				C9C7D62D184047EB00A2E955 /* CellarSCDTVC.h */,
 				C9C7D62E184047EB00A2E955 /* CellarSCDTVC.m */,
 				C9A337EC1886FD8B0089D020 /* InstructionsVC.h */,
@@ -1445,7 +1445,7 @@
 				C988AF74191587A600A3E13A /* TastingNote2.m in Sources */,
 				C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */,
 				C9DEBC6C18FB694A00134ECD /* Wine2+Modify.m in Sources */,
-				C96928D818E0E069006ADCC4 /* RestaurantCDTVC.m in Sources */,
+				C96928D818E0E069006ADCC4 /* RestaurantSCDTVC.m in Sources */,
 				C9DDD08C1820307D000A6FD7 /* MainTabBarController.m in Sources */,
 				C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */,
 				C9DEBC6F18FB696700134ECD /* WineHelper.m in Sources */,

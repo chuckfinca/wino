@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CoreDataTableViewController.h"
+#import "SearchableCDTVC.h"
 #import "Restaurant.h"
 
-@interface RestaurantCDTVC : CoreDataTableViewController
+@interface RestaurantSCDTVC : SearchableCDTVC
 
 -(void)setupWithRestaurant:(Restaurant *)restaurant;
 

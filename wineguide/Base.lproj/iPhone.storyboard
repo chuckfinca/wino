@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Q2U-N1-8yg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Q2U-N1-8yg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -61,9 +61,6 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                <connections>
-                                    <segue destination="UxH-6q-oix" kind="push" id="W3v-Lo-B0t"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -80,6 +77,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="Dh4-27-ckg" id="ii4-yR-bAi"/>
+                        <segue destination="UxH-6q-oix" kind="push" identifier="Restaurant Segue" id="JCJ-WY-sTs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04R-gd-WBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -248,10 +246,10 @@
             </objects>
             <point key="canvasLocation" x="2082" y="1627"/>
         </scene>
-        <!--RestaurantCDTVC-->
+        <!--RestaurantSCDTVC-->
         <scene sceneID="fQO-YH-hC5">
             <objects>
-                <tableViewController id="UxH-6q-oix" customClass="RestaurantCDTVC" sceneMemberID="viewController">
+                <tableViewController id="UxH-6q-oix" customClass="RestaurantSCDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="kzz-VD-tNA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -87,13 +87,13 @@
     self.context = wine.managedObjectContext;
     self.displayWineNameOnEachCell = NO;
     
-    [self setupFetchedResultsController];
+    [self setupAndSearchFetchedResultsControllerWithText:nil];
     
     // get the reviews for that wine
     [self getTastingRecords];
 }
 
--(void)setupFetchedResultsController
+-(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TASTING_RECORD_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tastingDate"

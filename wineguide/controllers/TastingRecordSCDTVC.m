@@ -45,8 +45,6 @@
     [self setup];
 }
 
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -82,24 +80,11 @@
     return _tastingRecordSizingCell;
 }
 
-#pragma mark - Setup
-
-
-
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+-(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView == self.tableView){
-        return [[self.fetchedResultsController sections] count];
-    } else {
-        return 1;
-    }
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    TastingRecordCell *trCell = (TastingRecordCell *)[tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
+    TastingRecordCell *trCell = (TastingRecordCell *)[self.tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
     trCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -112,14 +97,13 @@
 
 #pragma mark - UITableViewDelegate
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.tastingRecordSizingCell setupWithTastingRecord:tastingRecord andDisplayWineName:self.displayWineNameOnEachCell];
     
     return self.tastingRecordSizingCell.bounds.size.height;
 }
-
 
 
 #pragma mark - UIGestureRecognizerDelegate

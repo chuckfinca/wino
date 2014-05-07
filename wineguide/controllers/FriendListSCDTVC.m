@@ -11,6 +11,7 @@
 #import "ColorSchemer.h"
 #import "FontThemer.h"
 #import "FacebookProfileImageGetter.h"
+#import <FBLoginView.h>
 
 #define USER_ENTITY @"User"
 
@@ -18,6 +19,8 @@
 
 @property (nonatomic, strong) FacebookProfileImageGetter *facebookProfileImageGetter;
 
+@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
+@property (weak, nonatomic) IBOutlet UILabel *loginWithFacebookLabel;
 
 @end
 
@@ -36,6 +39,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.loginWithFacebookLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Connect to Facebook to add friends to this Tasting Record." attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : [FontThemer sharedInstance].body}];
 }
 
 #pragma mark - Getters & setters
@@ -70,8 +75,16 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"nameLastInitial"
                                                                                    cacheName:nil];
+    //[self logFetchResults];
     
-    [self logFetchResults];
+    if([self.fetchedResultsController.fetchedObjects count] == 0){
+        
+    }
+}
+
+-(void)setupInstructionsView
+{
+    self.loginWithFacebookLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Connect to Facebook to add friends to this Tasting Record." attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : [FontThemer sharedInstance].body}];
 }
 
 -(void)logFetchResults
@@ -85,9 +98,9 @@
 
 #pragma mark - UITableViewDataSource
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"UserCell" forIndexPath:indexPath];
     
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     

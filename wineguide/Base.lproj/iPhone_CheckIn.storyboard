@@ -200,37 +200,6 @@
                                     <segue destination="bjA-xM-TvC" kind="embed" identifier="EmbeddedFriendList" id="udM-Bm-pF4"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odv-2a-ptF">
-                                <rect key="frame" x="0.0" y="437" width="320" height="131"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ob4-Pu-sGl" customClass="FBLoginView">
-                                        <rect key="frame" x="20" y="61" width="280" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="tTq-PF-KU2"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to Facebook" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="vsp-fe-msU">
-                                        <rect key="frame" x="20" y="20" width="280" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="vsp-fe-msU" firstAttribute="leading" secondItem="Ob4-Pu-sGl" secondAttribute="leading" id="L0X-fK-QzI"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ob4-Pu-sGl" secondAttribute="trailing" constant="20" id="OqZ-df-Dw1"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ob4-Pu-sGl" secondAttribute="bottom" constant="20" symbolic="YES" id="eTd-F4-m9k"/>
-                                    <constraint firstItem="Ob4-Pu-sGl" firstAttribute="leading" secondItem="odv-2a-ptF" secondAttribute="leading" constant="20" id="l8Z-Wd-9tg"/>
-                                    <constraint firstItem="Ob4-Pu-sGl" firstAttribute="top" secondItem="vsp-fe-msU" secondAttribute="bottom" constant="20" id="mOm-hw-yTv"/>
-                                    <constraint firstItem="vsp-fe-msU" firstAttribute="trailing" secondItem="Ob4-Pu-sGl" secondAttribute="trailing" id="qzl-b7-w9P"/>
-                                    <constraint firstItem="vsp-fe-msU" firstAttribute="top" secondItem="odv-2a-ptF" secondAttribute="top" constant="20" symbolic="YES" id="xaT-8D-DzQ"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -240,12 +209,9 @@
                             <constraint firstItem="VnB-3V-wa9" firstAttribute="leading" secondItem="J6O-P4-eT8" secondAttribute="leading" constant="20" id="6k8-m2-im6"/>
                             <constraint firstAttribute="trailing" secondItem="yIB-Vq-2Qg" secondAttribute="trailing" id="GYV-kC-qYx"/>
                             <constraint firstAttribute="trailing" secondItem="J9z-7B-nk6" secondAttribute="trailing" id="SfW-Aa-dkn"/>
-                            <constraint firstAttribute="trailing" secondItem="odv-2a-ptF" secondAttribute="trailing" id="XjY-zp-tFr"/>
                             <constraint firstItem="J9z-7B-nk6" firstAttribute="leading" secondItem="J6O-P4-eT8" secondAttribute="leading" id="YPU-FJ-EPX"/>
                             <constraint firstItem="Qwg-H6-oG8" firstAttribute="top" secondItem="J9z-7B-nk6" secondAttribute="bottom" id="aKJ-Lf-iPj"/>
                             <constraint firstItem="B8C-O6-ddK" firstAttribute="top" secondItem="VnB-3V-wa9" secondAttribute="top" constant="-76" id="dVa-Cw-p6V"/>
-                            <constraint firstItem="Qwg-H6-oG8" firstAttribute="top" secondItem="odv-2a-ptF" secondAttribute="bottom" id="e3a-Cw-g1g"/>
-                            <constraint firstItem="odv-2a-ptF" firstAttribute="leading" secondItem="J6O-P4-eT8" secondAttribute="leading" id="gyY-M8-mlX"/>
                             <constraint firstItem="yIB-Vq-2Qg" firstAttribute="leading" secondItem="J6O-P4-eT8" secondAttribute="leading" id="nyc-nE-gBI"/>
                             <constraint firstItem="yIB-Vq-2Qg" firstAttribute="top" secondItem="VnB-3V-wa9" secondAttribute="bottom" id="opP-Wu-EDO"/>
                         </constraints>
@@ -267,9 +233,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="checkInButton" destination="tl7-gK-zIg" id="8HT-wW-Wmo"/>
-                        <outlet property="facebookLoginContainerView" destination="odv-2a-ptF" id="CdD-Du-nry"/>
-                        <outlet property="loginView" destination="Ob4-Pu-sGl" id="Dp0-uw-XI3"/>
-                        <outlet property="loginWithFacebookLabel" destination="vsp-fe-msU" id="VAr-x2-0ts"/>
                         <outlet property="searchBar" destination="yIB-Vq-2Qg" id="58R-UZ-PKU"/>
                         <outlet property="selectedFriendsTextView" destination="VnB-3V-wa9" id="qbw-fz-sqC"/>
                     </connections>

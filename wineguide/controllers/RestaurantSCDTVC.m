@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "RestaurantCDTVC.h"
+#import "RestaurantSCDTVC.h"
 #import "RestaurantDetailsVC.h"
 #import "WineTRSCDTVC.h"
 #import "RestaurantDataHelper.h"
@@ -33,7 +33,7 @@ typedef enum {
     RareFinds,
 } WineList;
 
-@interface RestaurantCDTVC () <UITableViewDelegate, UITableViewDataSource, RestaurantDetailsVC_WineSelectionDelegate>
+@interface RestaurantSCDTVC () <UITableViewDelegate, UITableViewDataSource, RestaurantDetailsVC_WineSelectionDelegate>
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
 @property (nonatomic, strong) Restaurant *restaurant;
@@ -48,7 +48,7 @@ typedef enum {
 
 @end
 
-@implementation RestaurantCDTVC
+@implementation RestaurantSCDTVC
 
 -(id)initWithStyle:(UITableViewStyle)style
 {
@@ -142,7 +142,7 @@ typedef enum {
     }
 }
 
--(void)setupFetchedResultsController
+-(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"color"
@@ -168,9 +168,9 @@ typedef enum {
 
 #pragma mark - UITableViewDataSource
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    WineCell *cell = [tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
+    WineCell *cell = [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -181,19 +181,6 @@ typedef enum {
     return cell;
 }
 
-
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    WineTRSCDTVC *wineCDTVC = [[WineTRSCDTVC alloc] initWithStyle:UITableViewStylePlain];
-    
-    // Pass the selected object to the new view controller.
-    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [wineCDTVC setupWithWine:wine fromRestaurant:self.restaurant];
-    
-    [self.navigationController pushViewController:wineCDTVC animated:YES];
-}
-
 #pragma mark - UITableViewDelegate
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -202,7 +189,7 @@ typedef enum {
     return [[theSection name] capitalizedString];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
@@ -228,6 +215,18 @@ typedef enum {
         [sectionHeaderView.textLabel setTextColor:[ColorSchemer sharedInstance].textPrimary];
     }
     return sectionHeaderView;
+}
+
+-(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"userDidSelectRowAtIndexPath");
+    WineTRSCDTVC *wineCDTVC = [[WineTRSCDTVC alloc] initWithStyle:UITableViewStylePlain];
+    
+    // Pass the selected object to the new view controller.
+    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [wineCDTVC setupWithWine:wine fromRestaurant:self.restaurant];
+    
+    [self.navigationController pushViewController:wineCDTVC animated:YES];
 }
 
 #pragma mark - RestaurantDetailsVC_WineSelectionDelegate
@@ -256,7 +255,7 @@ typedef enum {
     }
     
     self.fetchedResultsController = nil;
-    [self setupFetchedResultsController];
+    [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
 -(void)setSortOrderForGroups

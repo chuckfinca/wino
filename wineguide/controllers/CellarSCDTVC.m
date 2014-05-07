@@ -27,6 +27,7 @@
 
 @property (nonatomic) BOOL firstTime;
 @property (nonatomic, strong) User *user;
+@property (nonatomic, strong) WineCell *wineSizingCell;
 
 @end
 
@@ -72,6 +73,16 @@
         _user = [GetMe sharedInstance].me;
     }
     return _user;
+}
+
+
+-(WineCell *)wineSizingCell
+{
+    if(!_wineSizingCell){
+        _wineSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"WineCell" owner:self options:nil] firstObject];
+        _wineSizingCell.abridged = YES;
+    }
+    return _wineSizingCell;
 }
 
 
@@ -179,9 +190,9 @@
 
 #pragma mark - UITableViewDataSource
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    WineCell *wineCell = (WineCell *)[tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
+    WineCell *wineCell = (WineCell *)[self.tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
     
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     wineCell.abridged = YES;
@@ -192,8 +203,7 @@
     return wineCell;
 }
 
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WineTRSCDTVC *wineCDTVC = [[WineTRSCDTVC alloc] initWithStyle:UITableViewStylePlain];
     
@@ -207,11 +217,13 @@
 
 #pragma mark - UITableViewDelegate
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 62;
+    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.wineSizingCell setupCellForWine:wine numberOfTalkingHeads:0];
+    
+    return self.wineSizingCell.bounds.size.height;
 }
-
 
 
 

@@ -97,8 +97,6 @@
     
     if(!self.abridged){
         [self.ratingsVC setupForRating:[wine.rating.averageRating floatValue] andWineColor:wine.color displayText:YES andBackgroundColor:backgroundColor];
-        NSLog(@"numberOfTalkingHeads = %i",numberOfTalkingHeads);
-        NSLog(@"userLikesThis = %i",userLikesThis);
         [self setupTalkingHeadsVcWithNumberOfTalkingHeads:numberOfTalkingHeads includingYou:userLikesThis];
         
     } else {
