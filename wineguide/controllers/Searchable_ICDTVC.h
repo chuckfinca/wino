@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "InstructionsCDTVC.h"
+#import "Instructions_CDTVC.h"
 
-@interface SearchableICDTVC : InstructionsCDTVC
+@interface Searchable_ICDTVC : Instructions_CDTVC
 
 @property (nonatomic, weak) NSManagedObjectContext *context;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;

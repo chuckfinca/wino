@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "TastingRecordSCDTVC.h"
+#import "TastingRecord_SICDTVC.h"
 
-@interface TimelineSCDTVC : TastingRecordSCDTVC
+@interface Timeline_SICDTVC : TastingRecord_SICDTVC
 
 @end

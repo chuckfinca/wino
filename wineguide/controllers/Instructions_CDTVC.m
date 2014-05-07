@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "InstructionsCDTVC.h"
+#import "Instructions_CDTVC.h"
 
-@interface InstructionsCDTVC ()
+@interface Instructions_CDTVC ()
 
 @end
 
-@implementation InstructionsCDTVC
+@implementation Instructions_CDTVC
 
 #pragma mark - Getters & setters
 

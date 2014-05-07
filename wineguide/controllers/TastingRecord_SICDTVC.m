@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "TastingRecordSCDTVC.h"
+#import "TastingRecord_SICDTVC.h"
 #import <CoreData/CoreData.h>
 #import "ColorSchemer.h"
 #import "DocumentHandler.h"
@@ -20,7 +20,7 @@
 
 #define TASTING_RECORD_CELL @"TastingRecordCell"
 
-@interface TastingRecordSCDTVC () <UIGestureRecognizerDelegate>
+@interface TastingRecord_SICDTVC () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) TastingRecordCell *tastingRecordSizingCell;
@@ -28,7 +28,7 @@
 
 @end
 
-@implementation TastingRecordSCDTVC
+@implementation TastingRecord_SICDTVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "RestaurantSCDTVC.h"
+#import "Restaurant_ISCDTVC.h"
 #import "RestaurantDetailsVC.h"
-#import "WineTRSCDTVC.h"
+#import "Wine_TRSICDTVC.h"
 #import "RestaurantDataHelper.h"
 #import "GroupDataHelper.h"
 #import "Wine.h"
@@ -33,7 +33,7 @@ typedef enum {
     RareFinds,
 } WineList;
 
-@interface RestaurantSCDTVC () <UITableViewDelegate, UITableViewDataSource, RestaurantDetailsVC_WineSelectionDelegate>
+@interface Restaurant_ISCDTVC () <UITableViewDelegate, UITableViewDataSource, RestaurantDetailsVC_WineSelectionDelegate>
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
 @property (nonatomic, strong) Restaurant *restaurant;
@@ -48,7 +48,7 @@ typedef enum {
 
 @end
 
-@implementation RestaurantSCDTVC
+@implementation Restaurant_ISCDTVC
 
 -(id)initWithStyle:(UITableViewStyle)style
 {
@@ -215,7 +215,7 @@ typedef enum {
 -(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"userDidSelectRowAtIndexPath");
-    WineTRSCDTVC *wineCDTVC = [[WineTRSCDTVC alloc] initWithStyle:UITableViewStylePlain];
+    Wine_TRSICDTVC *wineCDTVC = [[Wine_TRSICDTVC alloc] initWithStyle:UITableViewStylePlain];
     
     // Pass the selected object to the new view controller.
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];

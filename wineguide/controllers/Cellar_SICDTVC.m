@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "CellarSCDTVC.h"
+#import "Cellar_SICDTVC.h"
 #import "Wine.h"
 #import "ColorSchemer.h"
 #import "Varietal.h"
 #import "TastingNote.h"
-#import "WineTRSCDTVC.h"
+#import "Wine_TRSICDTVC.h"
 #import "WineCell.h"
 #import "FontThemer.h"
 #import "GetMe.h"
@@ -23,7 +23,7 @@
 #define MIN_SIDE_LENGTH 44
 #define OFFSET 10
 
-@interface CellarSCDTVC ()
+@interface Cellar_SICDTVC ()
 
 @property (nonatomic) BOOL firstTime;
 @property (nonatomic, strong) User *user;
@@ -31,7 +31,7 @@
 
 @end
 
-@implementation CellarSCDTVC
+@implementation Cellar_SICDTVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -197,7 +197,7 @@
 
 -(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WineTRSCDTVC *wineCDTVC = [[WineTRSCDTVC alloc] initWithStyle:UITableViewStylePlain];
+    Wine_TRSICDTVC *wineCDTVC = [[Wine_TRSICDTVC alloc] initWithStyle:UITableViewStylePlain];
     
     // Pass the selected object to the new view controller.
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];

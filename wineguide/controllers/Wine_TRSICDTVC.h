@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "TastingRecordSCDTVC.h"
+#import "TastingRecord_SICDTVC.h"
 #import "Wine.h"
 #import "Restaurant.h"
 
-@interface WineTRSCDTVC : TastingRecordSCDTVC
+@interface Wine_TRSICDTVC : TastingRecord_SICDTVC
 
 -(void)setupWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant;
 

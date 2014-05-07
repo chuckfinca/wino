@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "WineTRSCDTVC.h"
+#import "Wine_TRSICDTVC.h"
 #import "WineDetailsVC.h"
 #import "ColorSchemer.h"
 #import "CheckInVC.h"
@@ -17,7 +17,7 @@
 #define WINE_CELL @"WineCell"
 #define REVIEW_CELL @"ReviewCell"
 
-@interface WineTRSCDTVC () <WineDetailsVcDelegate, UIViewControllerTransitioningDelegate, CheckInVcDelegate, UIAlertViewDelegate>
+@interface Wine_TRSICDTVC () <WineDetailsVcDelegate, UIViewControllerTransitioningDelegate, CheckInVcDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) WineDetailsVC *wineDetailsViewController;
 @property (nonatomic, strong) NSManagedObjectContext *context;
@@ -28,7 +28,7 @@
 
 @end
 
-@implementation WineTRSCDTVC
+@implementation Wine_TRSICDTVC
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

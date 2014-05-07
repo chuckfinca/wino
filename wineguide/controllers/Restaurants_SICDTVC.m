@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "RestaurantsSCDTVC.h"
-#import "RestaurantSCDTVC.h"
+#import "Restaurants_SICDTVC.h"
+#import "Restaurant_ISCDTVC.h"
 #import "RestaurantDataHelper.h"
 #import "Restaurant.h"
 #import "ColorSchemer.h"
@@ -15,15 +15,13 @@
 #import "RestaurantHelper.h"
 #import "DocumentHandler2.h"
 
-#define RESTAURANT_ENTITY @"Restaurant"
-
 #define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
 
-@interface RestaurantsSCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface Restaurants_SICDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @end
 
-@implementation RestaurantsSCDTVC
+@implementation Restaurants_SICDTVC
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -154,10 +152,10 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tvc];
         
         if(indexPath){
-            if([segue.destinationViewController isKindOfClass:[RestaurantSCDTVC class]]){
+            if([segue.destinationViewController isKindOfClass:[Restaurant_ISCDTVC class]]){
                 
                 // Get the new view controller using [segue destinationViewController].
-                RestaurantSCDTVC *restaurantCDTVC = (RestaurantSCDTVC *)segue.destinationViewController;
+                Restaurant_ISCDTVC *restaurantCDTVC = (Restaurant_ISCDTVC *)segue.destinationViewController;
                 
                 // Pass the selected object to the new view controller.
                 Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];

@@ -8,7 +8,7 @@
 
 #import "CoreDataTableViewController.h"
 
-@interface InstructionsCDTVC : CoreDataTableViewController
+@interface Instructions_CDTVC : CoreDataTableViewController
 
 @property (nonatomic, strong) UITableViewCell *instructionsCell; // Abstract
 

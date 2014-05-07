@@ -15,7 +15,7 @@
 #import "DateStringFormatter.h"
 #import "ColorSchemer.h"
 #import "UserProfileVC.h"
-#import "WineTRSCDTVC.h"
+#import "Wine_TRSICDTVC.h"
 
 #define REVIEW_CELL @"ReviewCell"
 
@@ -187,7 +187,7 @@
 - (IBAction)pushWineVC:(id)sender
 {
     
-    WineTRSCDTVC *wineCDTVC = [[WineTRSCDTVC alloc] initWithStyle:UITableViewStylePlain];
+    Wine_TRSICDTVC *wineCDTVC = [[Wine_TRSICDTVC alloc] initWithStyle:UITableViewStylePlain];
     
     // Pass the selected object to the new view controller.
     

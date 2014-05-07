@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "TimelineSCDTVC.h"
+#import "Timeline_SICDTVC.h"
 #import <CoreData/CoreData.h>
 #import "ColorSchemer.h"
 #import "DocumentHandler.h"
@@ -21,14 +21,14 @@
 
 #define TASTING_RECORD_ENTITY @"TastingRecord"
 
-@interface TimelineSCDTVC () <UIGestureRecognizerDelegate>
+@interface Timeline_SICDTVC () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic) CGPoint touchLocation;
 
 @end
 
-@implementation TimelineSCDTVC
+@implementation Timeline_SICDTVC
 
 - (void)viewDidLoad
 {

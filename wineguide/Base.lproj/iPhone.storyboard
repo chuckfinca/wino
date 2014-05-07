@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="505" y="160"/>
         </scene>
-        <!--RestaurantsSCDTVC-->
+        <!--RestaurantsSICDTVC-->
         <scene sceneID="Hf6-e8-0Zr">
             <objects>
-                <tableViewController id="SuW-Gu-nSw" customClass="RestaurantsSCDTVC" sceneMemberID="viewController">
+                <tableViewController id="SuW-Gu-nSw" customClass="Restaurants_SICDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="hVv-kU-8wi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="1036" y="160"/>
         </scene>
-        <!--CellarSCDTVC - Root View Controller-->
+        <!--CellarSICDTVC - Root View Controller-->
         <scene sceneID="C06-0i-J9l">
             <objects>
-                <tableViewController id="9wT-c5-7MY" customClass="CellarSCDTVC" sceneMemberID="viewController">
+                <tableViewController id="9wT-c5-7MY" customClass="Cellar_SICDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="elj-G6-ORZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -185,10 +185,10 @@
             </objects>
             <point key="canvasLocation" x="964" y="2363"/>
         </scene>
-        <!--TimelineSCDTVC-->
+        <!--TimelineSICDTVC-->
         <scene sceneID="me6-qe-NNA">
             <objects>
-                <tableViewController id="7qc-6F-T9c" customClass="TimelineSCDTVC" sceneMemberID="viewController">
+                <tableViewController id="7qc-6F-T9c" customClass="Timeline_SICDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="192" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xoy-bv-kON">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,10 +246,10 @@
             </objects>
             <point key="canvasLocation" x="2082" y="1627"/>
         </scene>
-        <!--RestaurantSCDTVC-->
+        <!--RestaurantSICDTVC-->
         <scene sceneID="fQO-YH-hC5">
             <objects>
-                <tableViewController id="UxH-6q-oix" customClass="RestaurantSCDTVC" sceneMemberID="viewController">
+                <tableViewController id="UxH-6q-oix" customClass="Restaurant_SICDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="kzz-VD-tNA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -22,7 +22,7 @@
 		C9061E13181F07CE003D8A55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9061DF2181F07CE003D8A55 /* UIKit.framework */; };
 		C9061E1B181F07CE003D8A55 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9061E19181F07CE003D8A55 /* InfoPlist.strings */; };
 		C9061E1D181F07CE003D8A55 /* wineguideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E1C181F07CE003D8A55 /* wineguideTests.m */; };
-		C9061E30181F1C9C003D8A55 /* RestaurantsSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E2F181F1C9C003D8A55 /* RestaurantsSCDTVC.m */; };
+		C9061E30181F1C9C003D8A55 /* Restaurants_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E2F181F1C9C003D8A55 /* Restaurants_SICDTVC.m */; };
 		C9061E3C181F2767003D8A55 /* RestaurantDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9061E3B181F2767003D8A55 /* RestaurantDetails.xib */; };
 		C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */; };
 		C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9061E4D181F36BE003D8A55 /* WineDetails.xib */; };
@@ -44,7 +44,7 @@
 		C92DEFF218242D16009DCB2C /* Varietal+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DEFF118242D16009DCB2C /* Varietal+CreateAndModify.m */; };
 		C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF009182476EF009DCB2C /* TastingNote+CreateAndModify.m */; };
 		C92DF04318247AB3009DCB2C /* Brand+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF04218247AB3009DCB2C /* Brand+CreateAndModify.m */; };
-		C92DF0471825B227009DCB2C /* WineTRSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF0461825B227009DCB2C /* WineTRSCDTVC.m */; };
+		C92DF0471825B227009DCB2C /* Wine_TRSICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF0461825B227009DCB2C /* Wine_TRSICDTVC.m */; };
 		C92DF09618286942009DCB2C /* Flight+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF09518286942009DCB2C /* Flight+CreateAndModify.m */; };
 		C92DF1D018297A76009DCB2C /* WineUnit+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF1CF18297A76009DCB2C /* WineUnit+CreateAndModify.m */; };
 		C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF232182AD063009DCB2C /* FlightDataHelper.m */; };
@@ -118,7 +118,7 @@
 		C95E2DC1186510050050DFAC /* tab_cellar.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBB186510050050DFAC /* tab_cellar.png */; };
 		C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBC186510050050DFAC /* tab_cellar@2x.png */; };
 		C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */; };
-		C96928D818E0E069006ADCC4 /* RestaurantSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D718E0E069006ADCC4 /* RestaurantSCDTVC.m */; };
+		C96928D818E0E069006ADCC4 /* Restaurant_ISCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D718E0E069006ADCC4 /* Restaurant_ISCDTVC.m */; };
 		C969342A1875EF290071EF41 /* IterationCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934271875EF290071EF41 /* IterationCounter.m */; };
 		C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934291875EF290071EF41 /* NSDictionary+Helper.m */; };
 		C969347818779F1B0071EF41 /* TastingRecord+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C969347718779F1B0071EF41 /* TastingRecord+CreateAndModify.m */; };
@@ -147,7 +147,7 @@
 		C96D31B9191AAC2200B340F4 /* User2.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D31B8191AAC2200B340F4 /* User2.m */; };
 		C96D31BC191AAC2300B340F4 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D31BB191AAC2300B340F4 /* Region.m */; };
 		C96D31BF191AAC2300B340F4 /* Wine2.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D31BE191AAC2300B340F4 /* Wine2.m */; };
-		C96D31C2191AB24100B340F4 /* InstructionsCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D31C1191AB24100B340F4 /* InstructionsCDTVC.m */; };
+		C96D31C2191AB24100B340F4 /* Instructions_CDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D31C1191AB24100B340F4 /* Instructions_CDTVC.m */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -176,7 +176,7 @@
 		C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFE4182310060038216C /* Wine+CreateAndModify.m */; };
 		C98DEFE8182312130038216C /* ManagedObjectHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DEFE7182312130038216C /* ManagedObjectHandler.m */; };
 		C98DEFFE182329D30038216C /* restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = C98DEFFA182329D30038216C /* restaurants.json */; };
-		C990FAC51910886F00BF692E /* TastingRecordSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C990FAC41910886F00BF692E /* TastingRecordSCDTVC.m */; };
+		C990FAC51910886F00BF692E /* TastingRecord_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C990FAC41910886F00BF692E /* TastingRecord_SICDTVC.m */; };
 		C990FAC81910955D00BF692E /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C990FAC71910955D00BF692E /* RoundedRectButton.m */; };
 		C991FB891861110200C10B52 /* glass_full.png in Resources */ = {isa = PBXBuildFile; fileRef = C991FB831861110200C10B52 /* glass_full.png */; };
 		C991FB8A1861110200C10B52 /* glass_full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C991FB841861110200C10B52 /* glass_full@2x.png */; };
@@ -203,7 +203,7 @@
 		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
 		C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EE183FE6E400A2E955 /* RestaurantDetailsVHTV.m */; };
 		C9C7D5F2183FEA7E00A2E955 /* WineDetailsVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5F1183FEA7E00A2E955 /* WineDetailsVHTV.m */; };
-		C9C7D6151840168700A2E955 /* SearchableICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D6141840168700A2E955 /* SearchableICDTVC.m */; };
+		C9C7D6151840168700A2E955 /* Searchable_ICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D6141840168700A2E955 /* Searchable_ICDTVC.m */; };
 		C9C7D61718401F1700A2E955 /* tab_nearMe.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D61618401F1700A2E955 /* tab_nearMe.png */; };
 		C9C7D61918401F7100A2E955 /* tab_nearMe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D61818401F7100A2E955 /* tab_nearMe@2x.png */; };
 		C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D61E184029B600A2E955 /* TutorialVC.m */; };
@@ -211,7 +211,7 @@
 		C9C7D62818402E0600A2E955 /* TutorialDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */; };
 		C9C7D62B18403E0E00A2E955 /* tutorial_nearby.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62918403E0E00A2E955 /* tutorial_nearby.png */; };
 		C9C7D62C18403E0E00A2E955 /* tutorial_nearby@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D62A18403E0E00A2E955 /* tutorial_nearby@2x.png */; };
-		C9C7D62F184047EB00A2E955 /* CellarSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D62E184047EB00A2E955 /* CellarSCDTVC.m */; };
+		C9C7D62F184047EB00A2E955 /* Cellar_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D62E184047EB00A2E955 /* Cellar_SICDTVC.m */; };
 		C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D63118417DED00A2E955 /* CustomNC.m */; };
 		C9C7D6391842AACD00A2E955 /* tutorial_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6371842AACD00A2E955 /* tutorial_logo.png */; };
 		C9C7D63A1842AACD00A2E955 /* tutorial_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6381842AACD00A2E955 /* tutorial_logo@2x.png */; };
@@ -220,7 +220,7 @@
 		C9DAB84818E8DAD300BB0E2A /* ReviewDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB84718E8DAD300BB0E2A /* ReviewDataHelper.m */; };
 		C9DAB84B18E8DC5A00BB0E2A /* Review+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB84A18E8DC5A00BB0E2A /* Review+CreateAndModify.m */; };
 		C9DAB84E18E8EF3E00BB0E2A /* TastingRecordDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB84D18E8EF3E00BB0E2A /* TastingRecordDataHelper.m */; };
-		C9DAB85418E90FE800BB0E2A /* TimelineSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85318E90FE800BB0E2A /* TimelineSCDTVC.m */; };
+		C9DAB85418E90FE800BB0E2A /* Timeline_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85318E90FE800BB0E2A /* Timeline_SICDTVC.m */; };
 		C9DAB85718E91D3900BB0E2A /* ReviewsTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85618E91D3900BB0E2A /* ReviewsTVController.m */; };
 		C9DAB85D18EA025000BB0E2A /* ReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85C18EA025000BB0E2A /* ReviewCell.m */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
@@ -277,8 +277,8 @@
 		C9061E18181F07CE003D8A55 /* CorkieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CorkieTests-Info.plist"; sourceTree = "<group>"; };
 		C9061E1A181F07CE003D8A55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9061E1C181F07CE003D8A55 /* wineguideTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wineguideTests.m; sourceTree = "<group>"; };
-		C9061E2E181F1C9C003D8A55 /* RestaurantsSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantsSCDTVC.h; path = controllers/RestaurantsSCDTVC.h; sourceTree = "<group>"; };
-		C9061E2F181F1C9C003D8A55 /* RestaurantsSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantsSCDTVC.m; path = controllers/RestaurantsSCDTVC.m; sourceTree = "<group>"; };
+		C9061E2E181F1C9C003D8A55 /* Restaurants_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Restaurants_SICDTVC.h; path = controllers/Restaurants_SICDTVC.h; sourceTree = "<group>"; };
+		C9061E2F181F1C9C003D8A55 /* Restaurants_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Restaurants_SICDTVC.m; path = controllers/Restaurants_SICDTVC.m; sourceTree = "<group>"; };
 		C9061E3B181F2767003D8A55 /* RestaurantDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RestaurantDetails.xib; path = xibs/RestaurantDetails.xib; sourceTree = "<group>"; };
 		C9061E44181F2BF2003D8A55 /* RestaurantDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantDetailsVC.h; path = controllers/RestaurantDetailsVC.h; sourceTree = "<group>"; };
 		C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantDetailsVC.m; path = controllers/RestaurantDetailsVC.m; sourceTree = "<group>"; };
@@ -316,8 +316,8 @@
 		C92DF009182476EF009DCB2C /* TastingNote+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TastingNote+CreateAndModify.m"; path = "model/TastingNote+CreateAndModify.m"; sourceTree = "<group>"; };
 		C92DF04118247AB3009DCB2C /* Brand+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Brand+CreateAndModify.h"; path = "model/Brand+CreateAndModify.h"; sourceTree = "<group>"; };
 		C92DF04218247AB3009DCB2C /* Brand+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Brand+CreateAndModify.m"; path = "model/Brand+CreateAndModify.m"; sourceTree = "<group>"; };
-		C92DF0451825B227009DCB2C /* WineTRSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineTRSCDTVC.h; path = controllers/WineTRSCDTVC.h; sourceTree = "<group>"; };
-		C92DF0461825B227009DCB2C /* WineTRSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineTRSCDTVC.m; path = controllers/WineTRSCDTVC.m; sourceTree = "<group>"; };
+		C92DF0451825B227009DCB2C /* Wine_TRSICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wine_TRSICDTVC.h; path = controllers/Wine_TRSICDTVC.h; sourceTree = "<group>"; };
+		C92DF0461825B227009DCB2C /* Wine_TRSICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wine_TRSICDTVC.m; path = controllers/Wine_TRSICDTVC.m; sourceTree = "<group>"; };
 		C92DF04B18270553009DCB2C /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
 		C92DF09418286942009DCB2C /* Flight+CreateAndModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Flight+CreateAndModify.h"; path = "model/Flight+CreateAndModify.h"; sourceTree = "<group>"; };
 		C92DF09518286942009DCB2C /* Flight+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Flight+CreateAndModify.m"; path = "model/Flight+CreateAndModify.m"; sourceTree = "<group>"; };
@@ -430,8 +430,8 @@
 		C95E2DBB186510050050DFAC /* tab_cellar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_cellar.png; path = images/tab_cellar.png; sourceTree = "<group>"; };
 		C95E2DBC186510050050DFAC /* tab_cellar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_cellar@2x.png"; path = "images/tab_cellar@2x.png"; sourceTree = "<group>"; };
 		C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_triedIt@2x.png"; path = "images/userAction_triedIt@2x.png"; sourceTree = "<group>"; };
-		C96928D618E0E069006ADCC4 /* RestaurantSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantSCDTVC.h; path = controllers/RestaurantSCDTVC.h; sourceTree = "<group>"; };
-		C96928D718E0E069006ADCC4 /* RestaurantSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantSCDTVC.m; path = controllers/RestaurantSCDTVC.m; sourceTree = "<group>"; };
+		C96928D618E0E069006ADCC4 /* Restaurant_ISCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Restaurant_ISCDTVC.h; path = controllers/Restaurant_ISCDTVC.h; sourceTree = "<group>"; };
+		C96928D718E0E069006ADCC4 /* Restaurant_ISCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Restaurant_ISCDTVC.m; path = controllers/Restaurant_ISCDTVC.m; sourceTree = "<group>"; };
 		C96934261875EF290071EF41 /* IterationCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IterationCounter.h; path = supportingClasses/IterationCounter.h; sourceTree = "<group>"; };
 		C96934271875EF290071EF41 /* IterationCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IterationCounter.m; path = supportingClasses/IterationCounter.m; sourceTree = "<group>"; };
 		C96934281875EF290071EF41 /* NSDictionary+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Helper.h"; path = "supportingClasses/NSDictionary+Helper.h"; sourceTree = "<group>"; };
@@ -486,8 +486,8 @@
 		C96D31BB191AAC2300B340F4 /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Region.m; path = model/managedObjects/Region.m; sourceTree = "<group>"; };
 		C96D31BD191AAC2300B340F4 /* Wine2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wine2.h; path = model/managedObjects/Wine2.h; sourceTree = "<group>"; };
 		C96D31BE191AAC2300B340F4 /* Wine2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wine2.m; path = model/managedObjects/Wine2.m; sourceTree = "<group>"; };
-		C96D31C0191AB24100B340F4 /* InstructionsCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsCDTVC.h; path = controllers/InstructionsCDTVC.h; sourceTree = "<group>"; };
-		C96D31C1191AB24100B340F4 /* InstructionsCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsCDTVC.m; path = controllers/InstructionsCDTVC.m; sourceTree = "<group>"; };
+		C96D31C0191AB24100B340F4 /* Instructions_CDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Instructions_CDTVC.h; path = controllers/Instructions_CDTVC.h; sourceTree = "<group>"; };
+		C96D31C1191AB24100B340F4 /* Instructions_CDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Instructions_CDTVC.m; path = controllers/Instructions_CDTVC.m; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -534,8 +534,8 @@
 		C98DEFE6182312130038216C /* ManagedObjectHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagedObjectHandler.h; path = model/ManagedObjectHandler.h; sourceTree = "<group>"; };
 		C98DEFE7182312130038216C /* ManagedObjectHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagedObjectHandler.m; path = model/ManagedObjectHandler.m; sourceTree = "<group>"; };
 		C98DEFFA182329D30038216C /* restaurants.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurants.json; path = model/json/restaurants.json; sourceTree = "<group>"; };
-		C990FAC31910886F00BF692E /* TastingRecordSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingRecordSCDTVC.h; path = controllers/TastingRecordSCDTVC.h; sourceTree = "<group>"; };
-		C990FAC41910886F00BF692E /* TastingRecordSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingRecordSCDTVC.m; path = controllers/TastingRecordSCDTVC.m; sourceTree = "<group>"; };
+		C990FAC31910886F00BF692E /* TastingRecord_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingRecord_SICDTVC.h; path = controllers/TastingRecord_SICDTVC.h; sourceTree = "<group>"; };
+		C990FAC41910886F00BF692E /* TastingRecord_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingRecord_SICDTVC.m; path = controllers/TastingRecord_SICDTVC.m; sourceTree = "<group>"; };
 		C990FAC61910955D00BF692E /* RoundedRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoundedRectButton.h; path = views/RoundedRectButton.h; sourceTree = "<group>"; };
 		C990FAC71910955D00BF692E /* RoundedRectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoundedRectButton.m; path = views/RoundedRectButton.m; sourceTree = "<group>"; };
 		C991FB831861110200C10B52 /* glass_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glass_full.png; path = images/glass_full.png; sourceTree = "<group>"; };
@@ -581,8 +581,8 @@
 		C9C7D5EE183FE6E400A2E955 /* RestaurantDetailsVHTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantDetailsVHTV.m; path = views/RestaurantDetailsVHTV.m; sourceTree = "<group>"; };
 		C9C7D5F0183FEA7E00A2E955 /* WineDetailsVHTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineDetailsVHTV.h; path = views/WineDetailsVHTV.h; sourceTree = "<group>"; };
 		C9C7D5F1183FEA7E00A2E955 /* WineDetailsVHTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineDetailsVHTV.m; path = views/WineDetailsVHTV.m; sourceTree = "<group>"; };
-		C9C7D6131840168700A2E955 /* SearchableICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchableICDTVC.h; path = controllers/SearchableICDTVC.h; sourceTree = "<group>"; };
-		C9C7D6141840168700A2E955 /* SearchableICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchableICDTVC.m; path = controllers/SearchableICDTVC.m; sourceTree = "<group>"; };
+		C9C7D6131840168700A2E955 /* Searchable_ICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Searchable_ICDTVC.h; path = controllers/Searchable_ICDTVC.h; sourceTree = "<group>"; };
+		C9C7D6141840168700A2E955 /* Searchable_ICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Searchable_ICDTVC.m; path = controllers/Searchable_ICDTVC.m; sourceTree = "<group>"; };
 		C9C7D61618401F1700A2E955 /* tab_nearMe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_nearMe.png; path = images/tab_nearMe.png; sourceTree = "<group>"; };
 		C9C7D61818401F7100A2E955 /* tab_nearMe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_nearMe@2x.png"; path = "images/tab_nearMe@2x.png"; sourceTree = "<group>"; };
 		C9C7D61D184029B600A2E955 /* TutorialVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialVC.h; path = controllers/TutorialVC.h; sourceTree = "<group>"; };
@@ -592,8 +592,8 @@
 		C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialDetailsVC.m; path = controllers/TutorialDetailsVC.m; sourceTree = "<group>"; };
 		C9C7D62918403E0E00A2E955 /* tutorial_nearby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_nearby.png; path = images/tutorial_nearby.png; sourceTree = "<group>"; };
 		C9C7D62A18403E0E00A2E955 /* tutorial_nearby@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorial_nearby@2x.png"; path = "images/tutorial_nearby@2x.png"; sourceTree = "<group>"; };
-		C9C7D62D184047EB00A2E955 /* CellarSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellarSCDTVC.h; path = controllers/CellarSCDTVC.h; sourceTree = "<group>"; };
-		C9C7D62E184047EB00A2E955 /* CellarSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellarSCDTVC.m; path = controllers/CellarSCDTVC.m; sourceTree = "<group>"; };
+		C9C7D62D184047EB00A2E955 /* Cellar_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cellar_SICDTVC.h; path = controllers/Cellar_SICDTVC.h; sourceTree = "<group>"; };
+		C9C7D62E184047EB00A2E955 /* Cellar_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cellar_SICDTVC.m; path = controllers/Cellar_SICDTVC.m; sourceTree = "<group>"; };
 		C9C7D63018417DED00A2E955 /* CustomNC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomNC.h; path = controllers/CustomNC.h; sourceTree = "<group>"; };
 		C9C7D63118417DED00A2E955 /* CustomNC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomNC.m; path = controllers/CustomNC.m; sourceTree = "<group>"; };
 		C9C7D6371842AACD00A2E955 /* tutorial_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_logo.png; path = images/tutorial_logo.png; sourceTree = "<group>"; };
@@ -607,8 +607,8 @@
 		C9DAB84A18E8DC5A00BB0E2A /* Review+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Review+CreateAndModify.m"; path = "model/Review+CreateAndModify.m"; sourceTree = "<group>"; };
 		C9DAB84C18E8EF3E00BB0E2A /* TastingRecordDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingRecordDataHelper.h; path = model/TastingRecordDataHelper.h; sourceTree = "<group>"; };
 		C9DAB84D18E8EF3E00BB0E2A /* TastingRecordDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingRecordDataHelper.m; path = model/TastingRecordDataHelper.m; sourceTree = "<group>"; };
-		C9DAB85218E90FE800BB0E2A /* TimelineSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineSCDTVC.h; path = controllers/TimelineSCDTVC.h; sourceTree = "<group>"; };
-		C9DAB85318E90FE800BB0E2A /* TimelineSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineSCDTVC.m; path = controllers/TimelineSCDTVC.m; sourceTree = "<group>"; };
+		C9DAB85218E90FE800BB0E2A /* Timeline_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timeline_SICDTVC.h; path = controllers/Timeline_SICDTVC.h; sourceTree = "<group>"; };
+		C9DAB85318E90FE800BB0E2A /* Timeline_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Timeline_SICDTVC.m; path = controllers/Timeline_SICDTVC.m; sourceTree = "<group>"; };
 		C9DAB85518E91D3900BB0E2A /* ReviewsTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewsTVController.h; path = controllers/ReviewsTVController.h; sourceTree = "<group>"; };
 		C9DAB85618E91D3900BB0E2A /* ReviewsTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewsTVController.m; path = controllers/ReviewsTVController.m; sourceTree = "<group>"; };
 		C9DAB85B18EA025000BB0E2A /* ReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewCell.h; path = views/ReviewCell.h; sourceTree = "<group>"; };
@@ -793,34 +793,34 @@
 				C9C7D62718402E0600A2E955 /* TutorialDetailsVC.m */,
 				C98DEFC51821DA790038216C /* CoreDataTableViewController.h */,
 				C98DEFC61821DA790038216C /* CoreDataTableViewController.m */,
-				C9C7D6131840168700A2E955 /* SearchableICDTVC.h */,
-				C9C7D6141840168700A2E955 /* SearchableICDTVC.m */,
-				C990FAC31910886F00BF692E /* TastingRecordSCDTVC.h */,
-				C990FAC41910886F00BF692E /* TastingRecordSCDTVC.m */,
-				C9061E2E181F1C9C003D8A55 /* RestaurantsSCDTVC.h */,
-				C9061E2F181F1C9C003D8A55 /* RestaurantsSCDTVC.m */,
-				C96928D618E0E069006ADCC4 /* RestaurantSCDTVC.h */,
-				C96928D718E0E069006ADCC4 /* RestaurantSCDTVC.m */,
+				C96D31C0191AB24100B340F4 /* Instructions_CDTVC.h */,
+				C96D31C1191AB24100B340F4 /* Instructions_CDTVC.m */,
+				C9C7D6131840168700A2E955 /* Searchable_ICDTVC.h */,
+				C9C7D6141840168700A2E955 /* Searchable_ICDTVC.m */,
+				C990FAC31910886F00BF692E /* TastingRecord_SICDTVC.h */,
+				C990FAC41910886F00BF692E /* TastingRecord_SICDTVC.m */,
+				C9061E2E181F1C9C003D8A55 /* Restaurants_SICDTVC.h */,
+				C9061E2F181F1C9C003D8A55 /* Restaurants_SICDTVC.m */,
+				C96928D618E0E069006ADCC4 /* Restaurant_ISCDTVC.h */,
+				C96928D718E0E069006ADCC4 /* Restaurant_ISCDTVC.m */,
 				C9061E44181F2BF2003D8A55 /* RestaurantDetailsVC.h */,
 				C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */,
-				C92DF0451825B227009DCB2C /* WineTRSCDTVC.h */,
-				C92DF0461825B227009DCB2C /* WineTRSCDTVC.m */,
+				C92DF0451825B227009DCB2C /* Wine_TRSICDTVC.h */,
+				C92DF0461825B227009DCB2C /* Wine_TRSICDTVC.m */,
 				C9F47974181F4D940026A383 /* WineDetailsVC.h */,
 				C9F47975181F4D940026A383 /* WineDetailsVC.m */,
-				C9C7D62D184047EB00A2E955 /* CellarSCDTVC.h */,
-				C9C7D62E184047EB00A2E955 /* CellarSCDTVC.m */,
+				C9C7D62D184047EB00A2E955 /* Cellar_SICDTVC.h */,
+				C9C7D62E184047EB00A2E955 /* Cellar_SICDTVC.m */,
 				C9A337EC1886FD8B0089D020 /* InstructionsVC.h */,
 				C9A337ED1886FD8B0089D020 /* InstructionsVC.m */,
 				C9B6B25E18D7ACA3007406DC /* UserProfileVC.h */,
 				C9B6B25F18D7ACA3007406DC /* UserProfileVC.m */,
 				C9693537187E39FE0071EF41 /* CheckInVC.h */,
 				C9693538187E39FE0071EF41 /* CheckInVC.m */,
-				C9DAB85218E90FE800BB0E2A /* TimelineSCDTVC.h */,
-				C9DAB85318E90FE800BB0E2A /* TimelineSCDTVC.m */,
+				C9DAB85218E90FE800BB0E2A /* Timeline_SICDTVC.h */,
+				C9DAB85318E90FE800BB0E2A /* Timeline_SICDTVC.m */,
 				C9DAB85518E91D3900BB0E2A /* ReviewsTVController.h */,
 				C9DAB85618E91D3900BB0E2A /* ReviewsTVController.m */,
-				C96D31C0191AB24100B340F4 /* InstructionsCDTVC.h */,
-				C96D31C1191AB24100B340F4 /* InstructionsCDTVC.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -1454,14 +1454,14 @@
 				C9693534187D18BF0071EF41 /* FontThemer.m in Sources */,
 				C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */,
 				C93A73D718F0AB46000E0B56 /* TastingNote.m in Sources */,
-				C9DAB85418E90FE800BB0E2A /* TimelineSCDTVC.m in Sources */,
+				C9DAB85418E90FE800BB0E2A /* Timeline_SICDTVC.m in Sources */,
 				C9548EC219032753001A8997 /* RatingHistoryHelper.m in Sources */,
-				C96D31C2191AB24100B340F4 /* InstructionsCDTVC.m in Sources */,
+				C96D31C2191AB24100B340F4 /* Instructions_CDTVC.m in Sources */,
 				C96D31A7191AAC2200B340F4 /* Varietal2.m in Sources */,
 				C93A73D118F0AB46000E0B56 /* Review.m in Sources */,
 				C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */,
 				C9DEBC6C18FB694A00134ECD /* Wine2+Modify.m in Sources */,
-				C96928D818E0E069006ADCC4 /* RestaurantSCDTVC.m in Sources */,
+				C96928D818E0E069006ADCC4 /* Restaurant_ISCDTVC.m in Sources */,
 				C9DDD08C1820307D000A6FD7 /* MainTabBarController.m in Sources */,
 				C96D31A4191AAC2200B340F4 /* Flight2.m in Sources */,
 				C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */,
@@ -1470,7 +1470,7 @@
 				C9DAB84818E8DAD300BB0E2A /* ReviewDataHelper.m in Sources */,
 				C96D31B6191AAC2200B340F4 /* Review2.m in Sources */,
 				C93A73DA18F0AB46000E0B56 /* Varietal.m in Sources */,
-				C9061E30181F1C9C003D8A55 /* RestaurantsSCDTVC.m in Sources */,
+				C9061E30181F1C9C003D8A55 /* Restaurants_SICDTVC.m in Sources */,
 				C9548F7E19037317001A8997 /* ReviewHelper.m in Sources */,
 				C92DF09618286942009DCB2C /* Flight+CreateAndModify.m in Sources */,
 				C988AF02191321BA00A3E13A /* RatingTextCVCell.m in Sources */,
@@ -1511,13 +1511,13 @@
 				C93A73A118EF984D000E0B56 /* GetMe.m in Sources */,
 				C93A73E918F0AB47000E0B56 /* Group.m in Sources */,
 				C93A73D418F0AB46000E0B56 /* Flight.m in Sources */,
-				C92DF0471825B227009DCB2C /* WineTRSCDTVC.m in Sources */,
+				C92DF0471825B227009DCB2C /* Wine_TRSICDTVC.m in Sources */,
 				C9548EE519034760001A8997 /* TastingNote2+Modify.m in Sources */,
 				C9548EF719035D03001A8997 /* RegionHelper.m in Sources */,
 				C9548F4E19036DC9001A8997 /* TastingRecord2+Modify.m in Sources */,
 				C96D317E1917081800B340F4 /* OutBox.m in Sources */,
 				C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */,
-				C9C7D6151840168700A2E955 /* SearchableICDTVC.m in Sources */,
+				C9C7D6151840168700A2E955 /* Searchable_ICDTVC.m in Sources */,
 				C96D31BC191AAC2300B340F4 /* Region.m in Sources */,
 				C96D318E1919BFD000B340F4 /* FriendListVC.m in Sources */,
 				C988AF261914674C00A3E13A /* TalkingHeadsTextCVCell.m in Sources */,
@@ -1539,7 +1539,7 @@
 				C9DEBC2418F9E85400134ECD /* ServerCommunicator.m in Sources */,
 				C9548F211903658A001A8997 /* UserHelper.m in Sources */,
 				C9DEBC5418FA371900134ECD /* Group2+CreateOrModify.m in Sources */,
-				C9C7D62F184047EB00A2E955 /* CellarSCDTVC.m in Sources */,
+				C9C7D62F184047EB00A2E955 /* Cellar_SICDTVC.m in Sources */,
 				C9DEBC4B18FA2AA400134ECD /* WineUnit2+CreateOrModify.m in Sources */,
 				C93A73CB18F0AB45000E0B56 /* WineUnit.m in Sources */,
 				C988AF061913223700A3E13A /* RatingsVC.m in Sources */,
@@ -1580,7 +1580,7 @@
 				C96D31B3191AAC2200B340F4 /* Restaurant2.m in Sources */,
 				C9548F5119036E63001A8997 /* TastingRecordHelper.m in Sources */,
 				C96D31B9191AAC2200B340F4 /* User2.m in Sources */,
-				C990FAC51910886F00BF692E /* TastingRecordSCDTVC.m in Sources */,
+				C990FAC51910886F00BF692E /* TastingRecord_SICDTVC.m in Sources */,
 				C9A73D8819030AC7007C2366 /* Flight2+Modify.m in Sources */,
 				C96D31A1191AAC2200B340F4 /* TastingRecord2.m in Sources */,
 				C969347818779F1B0071EF41 /* TastingRecord+CreateAndModify.m in Sources */,

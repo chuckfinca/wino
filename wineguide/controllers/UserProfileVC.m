@@ -11,8 +11,8 @@
 #import <FBGraphUser.h>
 #import "FacebookSessionManager.h"
 #import "GetMe.h"
-#import "TimelineSCDTVC.h"
-#import "CellarSCDTVC.h"
+#import "Timeline_SICDTVC.h"
+#import "Cellar_SICDTVC.h"
 #import "ColorSchemer.h"
 
 #define USER_PROFILE_PAGE_CELL  @"UserCell"
@@ -203,10 +203,10 @@
     UIViewController *controller;
     switch (indexPath.row) {
     case 0:
-            controller = [[CellarSCDTVC alloc] init];
+            controller = [[Cellar_SICDTVC alloc] init];
         break;
     case 1:
-            controller = [[TimelineSCDTVC alloc] initWithNibName:nil bundle:nil];
+            controller = [[Timeline_SICDTVC alloc] initWithNibName:nil bundle:nil];
         break;
     case 2:
         break;

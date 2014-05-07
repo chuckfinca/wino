@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "SearchableICDTVC.h"
+#import "Searchable_ICDTVC.h"
 #import "MainTabBarController.h"
 #import "DocumentHandler.h"
 #import "ColorSchemer.h"
 
-@interface SearchableICDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface Searchable_ICDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @end
 
-@implementation SearchableICDTVC
+@implementation Searchable_ICDTVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
