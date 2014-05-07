@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
-#import "SearchableCDTVC.h"
+#import "SearchableICDTVC.h"
 
-@interface RestaurantsSCDTVC : SearchableCDTVC
+@interface RestaurantsSCDTVC : SearchableICDTVC
 
 @end

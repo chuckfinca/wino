@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "SearchableCDTVC.h"
+#import "SearchableICDTVC.h"
 #import "User.h"
 
-@interface CellarSCDTVC : SearchableCDTVC
+@interface CellarSCDTVC : SearchableICDTVC
 
 -(void)setupForUser:(User *)user;
 

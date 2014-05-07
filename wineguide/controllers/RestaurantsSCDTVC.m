@@ -99,6 +99,29 @@
 }
 
 
+#pragma mark - SearchableCDTVC Required Methods
+
+-(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
+{
+    //NSLog(@"Favorites setupFetchedResultsController...");
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:RESTAURANT_ENTITY];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier"
+                                                              ascending:YES
+                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
+    
+    if(text){
+        request.predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
+    } else {
+        request.predicate = self.fetchPredicate;
+    }
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.context
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+}
+
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -146,27 +169,18 @@
 }
 
 
-#pragma mark - SearchableCDTVC Required Methods
+#pragma mark - Target Action
 
--(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
+- (IBAction)revealLeftPanel:(UIBarButtonItem *)sender
 {
-    //NSLog(@"Favorites setupFetchedResultsController...");
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:RESTAURANT_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier"
-                                                              ascending:YES
-                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
-    
-    if(text){
-        request.predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
-    } else {
-        request.predicate = self.fetchPredicate;
-    }
-    
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                        managedObjectContext:self.context
-                                                                          sectionNameKeyPath:nil
-                                                                                   cacheName:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_OR_HIDE_LEFT_PANEL object:nil];
 }
+
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -175,12 +189,8 @@
 }
 
 
-#pragma mark - Target Action
 
-- (IBAction)revealLeftPanel:(UIBarButtonItem *)sender
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_OR_HIDE_LEFT_PANEL object:nil];
-}
+
 
 
 

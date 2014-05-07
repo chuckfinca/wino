@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "SearchableCDTVC.h"
+#import "SearchableICDTVC.h"
 #import "Group.h"
 
-@interface RestaurantWineManagerSCDTVC : SearchableCDTVC
+@interface RestaurantWineManagerSCDTVC : SearchableICDTVC
 
 @property Group *group;
 

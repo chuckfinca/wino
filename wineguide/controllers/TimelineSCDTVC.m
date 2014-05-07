@@ -60,24 +60,6 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
-    
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
-        /*
-         InstructionsVC *instructions = [[InstructionsVC alloc] init];
-         instructions.view.frame = self.collectionView.frame;
-         [self.view addSubview:instructions.view];
-         */
-    }
-    
-    // NSLog(@"%@",self.fetchedResultsController.fetchedObjects);
-}
-
--(void)logFetchResultsForController:(NSFetchedResultsController *)frc
-{
-    NSLog(@"fetchedResultCount = %lu",(unsigned long)[frc.fetchedObjects count]);
-    for(NSObject *fetchedResult in frc.fetchedObjects){
-        NSLog(@"fetchedResult = %@",fetchedResult.description);
-    }
 }
 
 

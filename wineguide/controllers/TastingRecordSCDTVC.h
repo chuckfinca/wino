@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "SearchableCDTVC.h"
+#import "SearchableICDTVC.h"
 
-@interface TastingRecordSCDTVC : SearchableCDTVC
+@interface TastingRecordSCDTVC : SearchableICDTVC
 
 @property (nonatomic) BOOL displayWineNameOnEachCell; //abstract
 

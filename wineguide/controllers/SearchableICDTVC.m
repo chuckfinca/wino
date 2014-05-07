@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "SearchableCDTVC.h"
+#import "SearchableICDTVC.h"
 #import "MainTabBarController.h"
 #import "DocumentHandler.h"
 #import "ColorSchemer.h"
 
-@interface SearchableCDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface SearchableICDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @end
 
-@implementation SearchableCDTVC
+@implementation SearchableICDTVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,16 +47,6 @@
 {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark - Getters & setters
-
--(UITableViewCell *)instructionsCell
-{
-    if(!_instructionsCell){
-        _instructionsCell = [self.tableView dequeueReusableCellWithIdentifier:@"Instructions Cell"];
-    }
-    return _instructionsCell;
 }
 
 
@@ -133,128 +123,6 @@
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     // Abstract
-}
-
-#pragma mark - NSFetchedResultsControllerDelegate
-
-- (void)controller:(NSFetchedResultsController *)controller
-   didChangeObject:(id)anObject
-	   atIndexPath:(NSIndexPath *)indexPath
-	 forChangeType:(NSFetchedResultsChangeType)type
-	  newIndexPath:(NSIndexPath *)newIndexPath
-{
-    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext)
-    {
-        switch(type)
-        {
-            case NSFetchedResultsChangeInsert:
-                if(indexPath.row == 0){
-                    [self.tableView reloadData];
-                } else {
-                    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-                }
-                break;
-                
-            case NSFetchedResultsChangeDelete:
-                if(indexPath.row == 0){
-                    [self.tableView reloadData];
-                } else {
-                    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                }
-                break;
-                
-            case NSFetchedResultsChangeUpdate:
-                [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                break;
-                
-            case NSFetchedResultsChangeMove:
-                [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-                break;
-        }
-    }
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
-        return 1;
-    } else {
-        return [[self.fetchedResultsController sections] count];
-    }
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
-        return 1;
-    } else {
-        return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
-    }
-}
-
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell;
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
-        return self.instructionsCell;
-    } else {
-        cell = [self customTableViewCellForIndexPath:indexPath];
-    }
-    return cell;
-}
-
--(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell; // Abstract
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
-        return [self heightForInstructionsCell];
-    } else {
-        return [self heightForCellAtIndexPath:indexPath];
-    }
-}
-
--(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Abstract
-    return 80;
-}
-
--(CGFloat)heightForInstructionsCell
-{
-    // Abstract
-    return 100;
-}
-
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if([self.fetchedResultsController.fetchedObjects count] > 0){
-        [self userDidSelectRowAtIndexPath:indexPath];
-    }
-}
-
--(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Abstract
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    if([self.fetchedResultsController.fetchedObjects count] > 0){
-        return [[[self.fetchedResultsController sections] objectAtIndex:section] name];
-    }
-    return nil;
 }
 
 #pragma mark - Listen for Notifications

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "SearchableCDTVC.h"
+#import "SearchableICDTVC.h"
 #import "User.h"
 
 @protocol FriendSelectionDelegate
@@ -15,7 +15,7 @@
 
 @end
 
-@interface FriendListSCDTVC : SearchableCDTVC
+@interface FriendListSCDTVC : SearchableICDTVC
 
 @property (nonatomic, weak) id <FriendSelectionDelegate> delegate;
 
