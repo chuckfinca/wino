@@ -211,7 +211,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if([self.fetchedResultsController.fetchedObjects count] == 0){
-        return 100;
+        return [self heightForInstructionsCell];
     } else {
         return [self heightForCellAtIndexPath:indexPath];
     }
@@ -221,6 +221,12 @@
 {
     // Abstract
     return 80;
+}
+
+-(CGFloat)heightForInstructionsCell
+{
+    // Abstract
+    return 100;
 }
 
 

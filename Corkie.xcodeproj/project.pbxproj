@@ -130,7 +130,6 @@
 		C96D3178191706E300B340F4 /* Wine2.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D3177191706E300B340F4 /* Wine2.m */; };
 		C96D317B1917074700B340F4 /* Wine.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D317A1917074700B340F4 /* Wine.m */; };
 		C96D317E1917081800B340F4 /* OutBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D317D1917081800B340F4 /* OutBox.m */; };
-		C96D3183191715FB00B340F4 /* ReviewsTVControllerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D3181191715FB00B340F4 /* ReviewsTVControllerHeaderView.m */; };
 		C96D3184191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96D3182191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
@@ -452,8 +451,6 @@
 		C96D317A1917074700B340F4 /* Wine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wine.m; path = model/Wine.m; sourceTree = "<group>"; };
 		C96D317C1917081800B340F4 /* OutBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutBox.h; path = model/OutBox.h; sourceTree = "<group>"; };
 		C96D317D1917081800B340F4 /* OutBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutBox.m; path = model/OutBox.m; sourceTree = "<group>"; };
-		C96D3180191715FB00B340F4 /* ReviewsTVControllerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewsTVControllerHeaderView.h; path = "Reviews TVC/ReviewsTVControllerHeaderView.h"; sourceTree = "<group>"; };
-		C96D3181191715FB00B340F4 /* ReviewsTVControllerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewsTVControllerHeaderView.m; path = "Reviews TVC/ReviewsTVControllerHeaderView.m"; sourceTree = "<group>"; };
 		C96D3182191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewsTVControllerHeaderView.xib; path = "Reviews TVC/ReviewsTVControllerHeaderView.xib"; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
@@ -1115,8 +1112,6 @@
 		C96D317F191715CA00B340F4 /* Reviews TVC */ = {
 			isa = PBXGroup;
 			children = (
-				C96D3180191715FB00B340F4 /* ReviewsTVControllerHeaderView.h */,
-				C96D3181191715FB00B340F4 /* ReviewsTVControllerHeaderView.m */,
 				C96D3182191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib */,
 			);
 			name = "Reviews TVC";
@@ -1531,7 +1526,6 @@
 				C96D3178191706E300B340F4 /* Wine2.m in Sources */,
 				C988AF2219145FF700A3E13A /* TalkingHeadsVC.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
-				C96D3183191715FB00B340F4 /* ReviewsTVControllerHeaderView.m in Sources */,
 				C96928D518DCEEBC006ADCC4 /* FriendListVC.m in Sources */,
 				C92660EC190F16540024EFDC /* UIView+BorderDrawer.m in Sources */,
 				C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */,
