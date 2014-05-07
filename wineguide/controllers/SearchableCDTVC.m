@@ -49,6 +49,17 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark - Getters & setters
+
+-(UITableViewCell *)instructionsCell
+{
+    if(!_instructionsCell){
+        _instructionsCell = [self.tableView dequeueReusableCellWithIdentifier:@"Instructions Cell"];
+    }
+    return _instructionsCell;
+}
+
+
 #pragma mark - Setup
 
 -(void)refresh
@@ -189,11 +200,7 @@
 {
     UITableViewCell *cell;
     if([self.fetchedResultsController.fetchedObjects count] == 0){
-        
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tester"];
-        cell.backgroundColor = [UIColor redColor];
-        
-        return cell;
+        return self.instructionsCell;
     } else {
         cell = [self customTableViewCellForIndexPath:indexPath];
     }

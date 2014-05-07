@@ -118,7 +118,6 @@
 		C95E2DC1186510050050DFAC /* tab_cellar.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBB186510050050DFAC /* tab_cellar.png */; };
 		C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBC186510050050DFAC /* tab_cellar@2x.png */; };
 		C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */; };
-		C96928D518DCEEBC006ADCC4 /* FriendListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D418DCEEBC006ADCC4 /* FriendListVC.m */; };
 		C96928D818E0E069006ADCC4 /* RestaurantSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D718E0E069006ADCC4 /* RestaurantSCDTVC.m */; };
 		C969342A1875EF290071EF41 /* IterationCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934271875EF290071EF41 /* IterationCounter.m */; };
 		C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934291875EF290071EF41 /* NSDictionary+Helper.m */; };
@@ -131,6 +130,10 @@
 		C96D317B1917074700B340F4 /* Wine.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D317A1917074700B340F4 /* Wine.m */; };
 		C96D317E1917081800B340F4 /* OutBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D317D1917081800B340F4 /* OutBox.m */; };
 		C96D3184191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96D3182191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib */; };
+		C96D318D1919BFD000B340F4 /* FriendListSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D318A1919BFD000B340F4 /* FriendListSCDTVC.m */; };
+		C96D318E1919BFD000B340F4 /* FriendListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D318C1919BFD000B340F4 /* FriendListVC.m */; };
+		C96D31941919C15C00B340F4 /* InstructionsCell_FacebookConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D31921919C15C00B340F4 /* InstructionsCell_FacebookConnect.m */; };
+		C96D31951919C15C00B340F4 /* InstructionsCell_FacebookConnect.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96D31931919C15C00B340F4 /* InstructionsCell_FacebookConnect.xib */; };
 		C96D5FBB185005B60068093C /* tastingnotes.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FB9185005B60068093C /* tastingnotes.json */; };
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
@@ -189,7 +192,6 @@
 		C9ACC7D7184E72AB00E5945D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D5184E72AB00E5945D /* settings.png */; };
 		C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D6184E72AB00E5945D /* settings@2x.png */; };
 		C9ACC7DD184E8C3600E5945D /* WineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7DC184E8C3600E5945D /* WineCell.xib */; };
-		C9AEC73018DA6B6B00B4074B /* FriendListSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AEC72F18DA6B6B00B4074B /* FriendListSCDTVC.m */; };
 		C9B6B26018D7ACA3007406DC /* UserProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B25F18D7ACA3007406DC /* UserProfileVC.m */; };
 		C9B6B26918D8ED8E007406DC /* FacebookSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */; };
 		C9B6B26C18D8FF75007406DC /* User+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26B18D8FF75007406DC /* User+CreateAndModify.m */; };
@@ -427,8 +429,6 @@
 		C95E2DBB186510050050DFAC /* tab_cellar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_cellar.png; path = images/tab_cellar.png; sourceTree = "<group>"; };
 		C95E2DBC186510050050DFAC /* tab_cellar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_cellar@2x.png"; path = "images/tab_cellar@2x.png"; sourceTree = "<group>"; };
 		C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_triedIt@2x.png"; path = "images/userAction_triedIt@2x.png"; sourceTree = "<group>"; };
-		C96928D318DCEEBC006ADCC4 /* FriendListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListVC.h; path = controllers/FriendListVC.h; sourceTree = "<group>"; };
-		C96928D418DCEEBC006ADCC4 /* FriendListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListVC.m; path = controllers/FriendListVC.m; sourceTree = "<group>"; };
 		C96928D618E0E069006ADCC4 /* RestaurantSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantSCDTVC.h; path = controllers/RestaurantSCDTVC.h; sourceTree = "<group>"; };
 		C96928D718E0E069006ADCC4 /* RestaurantSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantSCDTVC.m; path = controllers/RestaurantSCDTVC.m; sourceTree = "<group>"; };
 		C96934261875EF290071EF41 /* IterationCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IterationCounter.h; path = supportingClasses/IterationCounter.h; sourceTree = "<group>"; };
@@ -452,6 +452,13 @@
 		C96D317C1917081800B340F4 /* OutBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutBox.h; path = model/OutBox.h; sourceTree = "<group>"; };
 		C96D317D1917081800B340F4 /* OutBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutBox.m; path = model/OutBox.m; sourceTree = "<group>"; };
 		C96D3182191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewsTVControllerHeaderView.xib; path = "Reviews TVC/ReviewsTVControllerHeaderView.xib"; sourceTree = "<group>"; };
+		C96D31891919BFD000B340F4 /* FriendListSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListSCDTVC.h; path = "Add Friends/FriendListSCDTVC.h"; sourceTree = "<group>"; };
+		C96D318A1919BFD000B340F4 /* FriendListSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListSCDTVC.m; path = "Add Friends/FriendListSCDTVC.m"; sourceTree = "<group>"; };
+		C96D318B1919BFD000B340F4 /* FriendListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListVC.h; path = "Add Friends/FriendListVC.h"; sourceTree = "<group>"; };
+		C96D318C1919BFD000B340F4 /* FriendListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListVC.m; path = "Add Friends/FriendListVC.m"; sourceTree = "<group>"; };
+		C96D31911919C15C00B340F4 /* InstructionsCell_FacebookConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsCell_FacebookConnect.h; path = "Add Friends/InstructionsCell_FacebookConnect.h"; sourceTree = "<group>"; };
+		C96D31921919C15C00B340F4 /* InstructionsCell_FacebookConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsCell_FacebookConnect.m; path = "Add Friends/InstructionsCell_FacebookConnect.m"; sourceTree = "<group>"; };
+		C96D31931919C15C00B340F4 /* InstructionsCell_FacebookConnect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstructionsCell_FacebookConnect.xib; path = "Add Friends/InstructionsCell_FacebookConnect.xib"; sourceTree = "<group>"; };
 		C96D5FB9185005B60068093C /* tastingnotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tastingnotes.json; path = model/json/tastingnotes.json; sourceTree = "<group>"; };
 		C96D5FBA185005B60068093C /* varietals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = varietals.json; path = model/json/varietals.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
@@ -551,8 +558,6 @@
 		C9ACC7DC184E8C3600E5945D /* WineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineCell.xib; path = xibs/WineCell.xib; sourceTree = "<group>"; };
 		C9ACC7E0184FF38400E5945D /* Model 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 5.xcdatamodel"; sourceTree = "<group>"; };
 		C9AD6A1D18AE887000F48E48 /* Model 9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 9.xcdatamodel"; sourceTree = "<group>"; };
-		C9AEC72E18DA6B6B00B4074B /* FriendListSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListSCDTVC.h; path = controllers/FriendListSCDTVC.h; sourceTree = "<group>"; };
-		C9AEC72F18DA6B6B00B4074B /* FriendListSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListSCDTVC.m; path = controllers/FriendListSCDTVC.m; sourceTree = "<group>"; };
 		C9B6B25E18D7ACA3007406DC /* UserProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfileVC.h; path = controllers/UserProfileVC.h; sourceTree = "<group>"; };
 		C9B6B25F18D7ACA3007406DC /* UserProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfileVC.m; path = controllers/UserProfileVC.m; sourceTree = "<group>"; };
 		C9B6B26718D8ED8E007406DC /* FacebookSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookSessionManager.h; path = model/FacebookSessionManager.h; sourceTree = "<group>"; };
@@ -706,6 +711,7 @@
 		C9061DF4181F07CE003D8A55 /* wineguide */ = {
 			isa = PBXGroup;
 			children = (
+				C96D31881919BF6D00B340F4 /* Add Friends */,
 				C96D317F191715CA00B340F4 /* Reviews TVC */,
 				C988AF0919144EBE00A3E13A /* Talking Heads */,
 				C9C164F71912F68D0032D340 /* Rating */,
@@ -806,10 +812,6 @@
 				C9B6B25F18D7ACA3007406DC /* UserProfileVC.m */,
 				C9693537187E39FE0071EF41 /* CheckInVC.h */,
 				C9693538187E39FE0071EF41 /* CheckInVC.m */,
-				C96928D318DCEEBC006ADCC4 /* FriendListVC.h */,
-				C96928D418DCEEBC006ADCC4 /* FriendListVC.m */,
-				C9AEC72E18DA6B6B00B4074B /* FriendListSCDTVC.h */,
-				C9AEC72F18DA6B6B00B4074B /* FriendListSCDTVC.m */,
 				C9DAB85218E90FE800BB0E2A /* TimelineSCDTVC.h */,
 				C9DAB85318E90FE800BB0E2A /* TimelineSCDTVC.m */,
 				C9DAB85518E91D3900BB0E2A /* ReviewsTVController.h */,
@@ -1117,6 +1119,20 @@
 			name = "Reviews TVC";
 			sourceTree = "<group>";
 		};
+		C96D31881919BF6D00B340F4 /* Add Friends */ = {
+			isa = PBXGroup;
+			children = (
+				C96D31891919BFD000B340F4 /* FriendListSCDTVC.h */,
+				C96D318A1919BFD000B340F4 /* FriendListSCDTVC.m */,
+				C96D318B1919BFD000B340F4 /* FriendListVC.h */,
+				C96D318C1919BFD000B340F4 /* FriendListVC.m */,
+				C96D31911919C15C00B340F4 /* InstructionsCell_FacebookConnect.h */,
+				C96D31921919C15C00B340F4 /* InstructionsCell_FacebookConnect.m */,
+				C96D31931919C15C00B340F4 /* InstructionsCell_FacebookConnect.xib */,
+			);
+			name = "Add Friends";
+			sourceTree = "<group>";
+		};
 		C988AF0919144EBE00A3E13A /* Talking Heads */ = {
 			isa = PBXGroup;
 			children = (
@@ -1329,6 +1345,7 @@
 				C9487D0B182C6660007F7E19 /* restaurant.leszygomates.129southstreet.json in Resources */,
 				C9C7D62518402BBE00A2E955 /* Tutorial.xib in Resources */,
 				C9C6A21018568ABE00CFBBD5 /* brands.json in Resources */,
+				C96D31951919C15C00B340F4 /* InstructionsCell_FacebookConnect.xib in Resources */,
 				C96D3184191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib in Resources */,
 				C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */,
 				C96BA8F618E8CE5200E0F990 /* TastingRecordCell.xib in Resources */,
@@ -1443,6 +1460,7 @@
 				C96928D818E0E069006ADCC4 /* RestaurantSCDTVC.m in Sources */,
 				C9DDD08C1820307D000A6FD7 /* MainTabBarController.m in Sources */,
 				C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */,
+				C96D318D1919BFD000B340F4 /* FriendListSCDTVC.m in Sources */,
 				C9DEBC6F18FB696700134ECD /* WineHelper.m in Sources */,
 				C9DAB84818E8DAD300BB0E2A /* ReviewDataHelper.m in Sources */,
 				C93A73DA18F0AB46000E0B56 /* Varietal.m in Sources */,
@@ -1477,6 +1495,7 @@
 				C9A73DA21903110D007C2366 /* Brand2+Modify.m in Sources */,
 				C93A73E318F0AB47000E0B56 /* Restaurant.m in Sources */,
 				C92DEFF218242D16009DCB2C /* Varietal+CreateAndModify.m in Sources */,
+				C96D31941919C15C00B340F4 /* InstructionsCell_FacebookConnect.m in Sources */,
 				C9061DFF181F07CE003D8A55 /* AppDelegate.m in Sources */,
 				C9DEBC4218FA29E500134ECD /* WineUnitHelper.m in Sources */,
 				C9DAB85718E91D3900BB0E2A /* ReviewsTVController.m in Sources */,
@@ -1494,6 +1513,7 @@
 				C96D317E1917081800B340F4 /* OutBox.m in Sources */,
 				C92DF00A182476EF009DCB2C /* TastingNote+CreateAndModify.m in Sources */,
 				C9C7D6151840168700A2E955 /* SearchableCDTVC.m in Sources */,
+				C96D318E1919BFD000B340F4 /* FriendListVC.m in Sources */,
 				C988AF261914674C00A3E13A /* TalkingHeadsTextCVCell.m in Sources */,
 				C988AF86191587A600A3E13A /* WineUnit2.m in Sources */,
 				C990FAC81910955D00BF692E /* RoundedRectButton.m in Sources */,
@@ -1509,7 +1529,6 @@
 				C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */,
 				C95A2CC6185B87930043ECB0 /* RestaurantGroupCell.m in Sources */,
 				C98DB3C118B2F44300AAEDB5 /* WineCell.m in Sources */,
-				C9AEC73018DA6B6B00B4074B /* FriendListSCDTVC.m in Sources */,
 				C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */,
 				C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */,
 				C9548EE819035809001A8997 /* TastingNoteHelper.m in Sources */,
@@ -1526,7 +1545,6 @@
 				C96D3178191706E300B340F4 /* Wine2.m in Sources */,
 				C988AF2219145FF700A3E13A /* TalkingHeadsVC.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
-				C96928D518DCEEBC006ADCC4 /* FriendListVC.m in Sources */,
 				C92660EC190F16540024EFDC /* UIView+BorderDrawer.m in Sources */,
 				C92DF233182AD063009DCB2C /* FlightDataHelper.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,

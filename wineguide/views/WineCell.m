@@ -25,6 +25,8 @@
 
 @property (nonatomic, strong) RatingsVC *ratingsVC;
 @property (nonatomic, strong) TalkingHeadsVC *talkingHeadsVC;
+
+// Vertical constraints
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameVhtvConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVhtvToTalkingHeadsContainerViewConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsContainerViewToRatingsCvConstraint;

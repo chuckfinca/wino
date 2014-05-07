@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak) NSManagedObjectContext *context;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong) UITableViewCell *instructionsCell; // Abstract
 
 @property (nonatomic, strong) NSPredicate *fetchPredicate; // Abstract
 
