@@ -2,7 +2,7 @@
 //  TalkingHeads.m
 //  Corkie
 //
-//  Created by Charles Feinn on 5/3/14.
+//  Created by Charles Feinn on 5/7/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 
 @implementation TalkingHeads
 
-@dynamic identifier;
 @dynamic created_at;
+@dynamic identifier;
 @dynamic updated_at;
 @dynamic users;
 @dynamic wine;

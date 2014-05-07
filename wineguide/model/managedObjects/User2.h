@@ -2,7 +2,7 @@
 //  User2.h
 //  Corkie
 //
-//  Created by Charles Feinn on 5/3/14.
+//  Created by Charles Feinn on 5/7/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -32,8 +32,8 @@
 @property (nonatomic, retain) NSSet *followedBy;
 @property (nonatomic, retain) NSSet *following;
 @property (nonatomic, retain) NSSet *reviews;
-@property (nonatomic, retain) NSSet *wines;
 @property (nonatomic, retain) NSSet *talkingHeads;
+@property (nonatomic, retain) NSSet *wines;
 @end
 
 @interface User2 (CoreDataGeneratedAccessors)
@@ -53,14 +53,14 @@
 - (void)addReviews:(NSSet *)values;
 - (void)removeReviews:(NSSet *)values;
 
-- (void)addWinesObject:(Wine2 *)value;
-- (void)removeWinesObject:(Wine2 *)value;
-- (void)addWines:(NSSet *)values;
-- (void)removeWines:(NSSet *)values;
-
 - (void)addTalkingHeadsObject:(TalkingHeads *)value;
 - (void)removeTalkingHeadsObject:(TalkingHeads *)value;
 - (void)addTalkingHeads:(NSSet *)values;
 - (void)removeTalkingHeads:(NSSet *)values;
+
+- (void)addWinesObject:(Wine2 *)value;
+- (void)removeWinesObject:(Wine2 *)value;
+- (void)addWines:(NSSet *)values;
+- (void)removeWines:(NSSet *)values;
 
 @end
