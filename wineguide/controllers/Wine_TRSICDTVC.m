@@ -20,7 +20,6 @@
 @interface Wine_TRSICDTVC () <WineDetailsVcDelegate, UIViewControllerTransitioningDelegate, CheckInVcDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) WineDetailsVC *wineDetailsViewController;
-@property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) Wine *wine;
 @property (nonatomic, strong) Restaurant *restaurant;
 

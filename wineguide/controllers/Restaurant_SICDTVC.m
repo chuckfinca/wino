@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "Restaurant_ISCDTVC.h"
+#import "Restaurant_SICDTVC.h"
 #import "RestaurantDetailsVC.h"
 #import "Wine_TRSICDTVC.h"
 #import "RestaurantDataHelper.h"
@@ -33,11 +33,10 @@ typedef enum {
     RareFinds,
 } WineList;
 
-@interface Restaurant_ISCDTVC () <UITableViewDelegate, UITableViewDataSource, RestaurantDetailsVC_WineSelectionDelegate>
+@interface Restaurant_SICDTVC () <UITableViewDelegate, UITableViewDataSource, RestaurantDetailsVC_WineSelectionDelegate>
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
 @property (nonatomic, strong) Restaurant *restaurant;
-@property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic) BOOL restaurantWineListCached;
 @property (nonatomic, strong) NSString *listName;
 @property (nonatomic, strong) NSFetchedResultsController *restaurantGroupsFRC;
@@ -48,7 +47,7 @@ typedef enum {
 
 @end
 
-@implementation Restaurant_ISCDTVC
+@implementation Restaurant_SICDTVC
 
 -(id)initWithStyle:(UITableViewStyle)style
 {

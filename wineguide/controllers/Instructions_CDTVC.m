@@ -14,15 +14,29 @@
 
 @implementation Instructions_CDTVC
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self registerInstructionCellNib];
+    self.instructionsCell = [self.tableView dequeueReusableCellWithIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+}
+
 #pragma mark - Getters & setters
 
 -(UITableViewCell *)instructionsCell
 {
     if(!_instructionsCell){
-        _instructionsCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Instructions Cell"];
+        _instructionsCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
         _instructionsCell.backgroundColor = [UIColor redColor];
     }
     return _instructionsCell;
+}
+
+#pragma mark - Setup
+
+-(void)registerInstructionCellNib
+{
+    // Abstract
 }
 
 #pragma mark - UITableViewDataSource
@@ -82,8 +96,7 @@
 
 -(CGFloat)heightForInstructionsCell
 {
-    // Abstract
-    return 100;
+    return self.instructionsCell.bounds.size.height;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

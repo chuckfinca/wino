@@ -11,10 +11,6 @@
 #import "DocumentHandler.h"
 #import "ColorSchemer.h"
 
-@interface Searchable_ICDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
-
-@end
-
 @implementation Searchable_ICDTVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,11 +26,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self refresh];
-    
     self.searchBar.delegate = self;
-    
     [self customizeSearchBar];
+    
+    [self refresh];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -97,9 +92,6 @@
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
-    
-    //NSString *input = searchBar.text;
-    //NSLog(@"input = %@",input);
     
     if([self.fetchedResultsController.fetchedObjects count] == 0){
         

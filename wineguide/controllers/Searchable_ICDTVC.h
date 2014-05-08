@@ -8,12 +8,10 @@
 
 #import "Instructions_CDTVC.h"
 
-@interface Searchable_ICDTVC : Instructions_CDTVC
+@interface Searchable_ICDTVC : Instructions_CDTVC <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, weak) NSManagedObjectContext *context;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
-
-@property (nonatomic, strong) NSPredicate *fetchPredicate; // Abstract
 
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text; // Abstract
 -(void)getMoreResultsFromTheServer; // Abstract

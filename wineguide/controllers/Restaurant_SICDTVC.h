@@ -10,7 +10,7 @@
 #import "Searchable_ICDTVC.h"
 #import "Restaurant.h"
 
-@interface Restaurant_ISCDTVC : Searchable_ICDTVC
+@interface Restaurant_SICDTVC : Searchable_ICDTVC
 
 -(void)setupWithRestaurant:(Restaurant *)restaurant;
 

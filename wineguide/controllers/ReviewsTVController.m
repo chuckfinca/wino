@@ -174,19 +174,11 @@
 
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 
 #pragma mark - Target action
 
 - (IBAction)pushWineVC:(id)sender
 {
-    
     Wine_TRSICDTVC *wineCDTVC = [[Wine_TRSICDTVC alloc] initWithStyle:UITableViewStylePlain];
     
     // Pass the selected object to the new view controller.
@@ -198,6 +190,16 @@
 }
 
 
+
+
+
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 
 

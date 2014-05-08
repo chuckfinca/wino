@@ -22,7 +22,6 @@
 
 @interface TastingRecord_SICDTVC () <UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) TastingRecordCell *tastingRecordSizingCell;
 @property (nonatomic) CGPoint touchLocation;
 

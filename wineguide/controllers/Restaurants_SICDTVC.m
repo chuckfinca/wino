@@ -7,19 +7,17 @@
 //
 
 #import "Restaurants_SICDTVC.h"
-#import "Restaurant_ISCDTVC.h"
+#import "Restaurant_SICDTVC.h"
 #import "RestaurantDataHelper.h"
 #import "Restaurant.h"
 #import "ColorSchemer.h"
 #import "ServerCommunicator.h"
 #import "RestaurantHelper.h"
 #import "DocumentHandler2.h"
+#import "InstructionsCell_RequestGPS.h"
 
 #define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
-
-@interface Restaurants_SICDTVC () <UISearchBarDelegate, UISearchDisplayDelegate>
-
-@end
+#define RESTAURANT_ENTITY @"Restaurant"
 
 @implementation Restaurants_SICDTVC
 
@@ -40,6 +38,11 @@
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -48,15 +51,12 @@
 }
 
 
-#pragma mark - Getters & Setters
-
--(NSPredicate *)fetchPredicate
-{
-    return nil;
-}
-
-
 #pragma mark - Setup
+
+-(void)registerInstructionCellNib
+{
+    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_RequestGPS" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+}
 
 -(void)setupSearchBar
 {
@@ -76,10 +76,8 @@
     }
 }
 
-
 -(void)getMoreResultsFromTheServer
 {
-    
     // this will be replaced with a server url when available
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
     
@@ -109,23 +107,17 @@
     
     if(text){
         request.predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
-    } else {
-        request.predicate = self.fetchPredicate;
     }
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
+    NSLog(@"asdf = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
 }
 
 
 #pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
 
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
@@ -143,7 +135,7 @@
     [self performSegueWithIdentifier:@"Restaurant Segue" sender:cell];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // NSLog(@"prepareForSegue...");
     if([sender isKindOfClass:[UITableViewCell class]]){
@@ -152,10 +144,10 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tvc];
         
         if(indexPath){
-            if([segue.destinationViewController isKindOfClass:[Restaurant_ISCDTVC class]]){
+            if([segue.destinationViewController isKindOfClass:[Restaurant_SICDTVC class]]){
                 
                 // Get the new view controller using [segue destinationViewController].
-                Restaurant_ISCDTVC *restaurantCDTVC = (Restaurant_ISCDTVC *)segue.destinationViewController;
+                Restaurant_SICDTVC *restaurantCDTVC = (Restaurant_SICDTVC *)segue.destinationViewController;
                 
                 // Pass the selected object to the new view controller.
                 Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];

@@ -23,7 +23,6 @@
 
 @interface Timeline_SICDTVC () <UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic) CGPoint touchLocation;
 
 @end
