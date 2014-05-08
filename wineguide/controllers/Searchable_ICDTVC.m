@@ -26,6 +26,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
+    
     self.searchBar.delegate = self;
     [self customizeSearchBar];
     

@@ -54,10 +54,6 @@
 -(void)setup
 {
     [self.tableView registerNib:[UINib nibWithNibName:@"TastingRecordCell" bundle:nil] forCellReuseIdentifier:TASTING_RECORD_CELL];
-    self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
-    
-    // allows the tableview to load faster
-    self.tableView.estimatedRowHeight = 200;
 }
 
 -(void)addTapGestureRecognizer

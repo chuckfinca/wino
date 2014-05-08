@@ -64,12 +64,7 @@ typedef enum {
     
     self.title = @"Wine List";
     [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeaderViewIdentifier"];
-    
-    // allows the tableview to load faster
-    self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
 }
 
 #pragma mark - Getters & Setters
@@ -208,7 +203,13 @@ typedef enum {
     if(wine.color){
         [sectionHeaderView.textLabel setTextColor:[ColorSchemer sharedInstance].textPrimary];
     }
+    sectionHeaderView.contentView.backgroundColor = [ColorSchemer sharedInstance].gray;
     return sectionHeaderView;
+}
+
+-(CGFloat)heightForHeaderInSection:(NSInteger)section
+{
+    return 25;
 }
 
 -(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath

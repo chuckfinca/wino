@@ -45,6 +45,8 @@
     
     [self.restaurantDetailsVHTV setupTextViewWithRestaurant:self.restaurant];
     [self setViewHeight];
+    
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 -(void)setViewHeight
 {

@@ -42,9 +42,6 @@
 {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"WineReview" bundle:nil] forCellReuseIdentifier:REVIEW_CELL];
-    
-    // allows the tableview to load faster
-    self.tableView.estimatedRowHeight = 200;
 }
 
 -(void)viewWillAppear:(BOOL)animated

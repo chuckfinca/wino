@@ -17,6 +17,7 @@
 #import "InstructionsCell_RequestGPS.h"
 
 #define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
+#define RESTAURANT_ENTITY @"Restaurant"
 
 @implementation Restaurants_SICDTVC
 
@@ -34,7 +35,6 @@
     [super viewDidLoad];
     [self setupSearchBar];
     self.navigationItem.title = @"Restaurants Nearby";
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -46,7 +46,6 @@
 {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 
@@ -59,7 +58,7 @@
 
 -(void)setupSearchBar
 {
-    self.searchBar.placeholder = @"Search...";
+    self.searchBar.placeholder = @"Search for restaurants...";
 }
 
 -(void)setupTextForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -112,7 +111,6 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
-    NSLog(@"asdf = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
 }
 
 
@@ -150,7 +148,6 @@
                 
                 // Pass the selected object to the new view controller.
                 Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
-                NSLog(@"restaurant name = %@",restaurant.name);
                 [restaurantCDTVC setupWithRestaurant:restaurant];
             }
         }

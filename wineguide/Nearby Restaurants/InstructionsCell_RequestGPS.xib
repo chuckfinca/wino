@@ -22,7 +22,7 @@
                         </constraints>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="In order for Corkie to find the restaurant you're at we need access to your location information." translatesAutoresizingMaskIntoConstraints="NO" id="Sfw-15-YXu" customClass="VariableHeightTV">
-                        <rect key="frame" x="20" y="20" width="280" height="89"/>
+                        <rect key="frame" x="20" y="12" width="280" height="97"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -49,7 +49,7 @@
                     <constraint firstAttribute="centerX" secondItem="1OB-Rr-WAV" secondAttribute="centerX" id="PC2-0b-wBG"/>
                     <constraint firstItem="Sfw-15-YXu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="d4w-Sn-NYJ"/>
                     <constraint firstItem="AxD-E0-7VE" firstAttribute="leading" secondItem="Sfw-15-YXu" secondAttribute="leading" id="fP4-ia-8xA"/>
-                    <constraint firstItem="Sfw-15-YXu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="vvf-lC-8ru"/>
+                    <constraint firstItem="Sfw-15-YXu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="vvf-lC-8ru"/>
                     <constraint firstAttribute="bottom" secondItem="AxD-E0-7VE" secondAttribute="bottom" constant="18" id="xHn-Oq-76C"/>
                     <constraint firstItem="AxD-E0-7VE" firstAttribute="top" secondItem="1OB-Rr-WAV" secondAttribute="bottom" constant="8" symbolic="YES" id="xiQ-O8-l3u"/>
                 </constraints>

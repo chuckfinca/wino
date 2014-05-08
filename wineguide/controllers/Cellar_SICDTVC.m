@@ -48,7 +48,6 @@
 	// Do any additional setup after loading the view.
     self.title = @"Cellar";
     [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
-    self.tableView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     self.firstTime = YES;
 }
 

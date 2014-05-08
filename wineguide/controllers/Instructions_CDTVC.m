@@ -17,6 +17,9 @@
     [super viewDidLoad];
     [self registerInstructionCellNib];
     self.instructionsCell = [self.tableView dequeueReusableCellWithIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+    
+    // allows the tableview to load faster
+    self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
 }
 
 #pragma mark - Getters & setters
