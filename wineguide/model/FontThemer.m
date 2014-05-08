@@ -7,6 +7,7 @@
 //
 
 #import "FontThemer.h"
+#import "ColorSchemer.h"
 
 @interface FontThemer ()
 
@@ -16,6 +17,7 @@
 @property (nonatomic, readwrite) UIFont *caption1;
 @property (nonatomic, readwrite) UIFont *caption2;
 @property (nonatomic, readwrite) UIFont *footnote;
+@property (nonatomic, readwrite) NSDictionary *secondaryBodyTextAttributes;
 
 @end
 
@@ -62,6 +64,21 @@ static FontThemer *sharedInstance;
 {
     return [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
 }
+
+
+-(NSDictionary *)secondaryBodyTextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : [FontThemer sharedInstance].body};
+}
+
+
+
+
+
+
+
+
+
 
 
 

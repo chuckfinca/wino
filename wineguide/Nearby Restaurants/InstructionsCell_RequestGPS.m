@@ -15,13 +15,13 @@
 @interface InstructionsCell_RequestGPS ()
 
 @property (weak, nonatomic) IBOutlet VariableHeightTV *instructions_VHTV;
-@property (weak, nonatomic) IBOutlet UIImageView *instructionsImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *mapImageView;
 @property (weak, nonatomic) IBOutlet RoundedRectButton *accessButton;
+@property (weak, nonatomic) IBOutlet UIImageView *gpsImageView;
 
 // Vertical constraints
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToInstructionsVHTVConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionsVhtvToInstructionsImageViewConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionsImageViewToAccessButtonConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionsVhtvToAccessButtonConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *accessButtonToBottomConstraint;
 
 @end
@@ -37,8 +37,14 @@
     [self.accessButton setAttributedTitle:accessButtonAttributedText forState:UIControlStateNormal];
     
     NSString *instructions = @"In order to find the restaurant you're at Corkie needs access to your location data.";
-    self.instructions_VHTV.attributedText = [[NSAttributedString alloc] initWithString:instructions attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : [FontThemer sharedInstance].body}];
+    self.instructions_VHTV.attributedText = [[NSAttributedString alloc] initWithString:instructions attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
+    self.gpsImageView.image = [[UIImage imageNamed:@"instructions_gps.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.gpsImageView.tintColor = [ColorSchemer sharedInstance].baseColor;
+    
+    self.mapImageView.layer.masksToBounds = YES;
+    self.mapImageView.layer.cornerRadius = 10;
     
     [self setViewHeight];
 }
@@ -46,12 +52,9 @@
 -(void)setViewHeight
 {
     CGFloat height = 0;
-    
     height += self.topToInstructionsVHTVConstraint.constant;
     height += [self.instructions_VHTV height];
-    height += self.instructionsVhtvToInstructionsImageViewConstraint.constant;
-    height += self.instructionsImageView.bounds.size.height;
-    height += self.instructionsImageViewToAccessButtonConstraint.constant;
+    height += self.instructionsVhtvToAccessButtonConstraint.constant;
     height += self.accessButton.bounds.size.height;
     height += self.accessButtonToBottomConstraint.constant;
     

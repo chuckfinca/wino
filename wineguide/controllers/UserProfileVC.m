@@ -14,6 +14,7 @@
 #import "Timeline_SICDTVC.h"
 #import "Cellar_SICDTVC.h"
 #import "ColorSchemer.h"
+#import "FontThemer.h"
 
 #define USER_PROFILE_PAGE_CELL  @"UserCell"
 #define USER_ENTITY  @"User"
@@ -103,17 +104,17 @@
 
 -(void)setupNameLabel
 {
-    NSString *name;
+    NSString *text;
     if(self.user.nameFirst){
-        name = [NSString stringWithFormat:@"%@ %@.",self.user.nameFirst, self.user.nameLastInitial];
+        text = [NSString stringWithFormat:@"%@ %@.",self.user.nameFirst, self.user.nameLastInitial];
     } else {
         if(self.user.isMe){
-            name = @"Create a profile and:\n- add friends to your tasting records\n- see which wines your friends like and are drinking\n- sync your devices\n- etc.";
+            text = @"Create a profile and:\n・add friends to your tasting records\n・see which wines your friends like and are drinking\n・sync your devices\n・etc.";
         } else {
-            name = @"";
+            text = @"";
         }
     }
-    self.nameLabel.text = name;
+    self.nameLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
 }
 
 -(void)setupUserProfileImage

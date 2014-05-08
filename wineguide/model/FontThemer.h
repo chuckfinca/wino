@@ -18,5 +18,6 @@
 @property (nonatomic, readonly) UIFont *caption1;
 @property (nonatomic, readonly) UIFont *caption2;
 @property (nonatomic, readonly) UIFont *footnote;
+@property (nonatomic, readonly) NSDictionary *secondaryBodyTextAttributes;
 
 @end

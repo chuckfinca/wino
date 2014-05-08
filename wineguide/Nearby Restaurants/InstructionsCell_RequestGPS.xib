@@ -14,17 +14,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instructions_location.png" translatesAutoresizingMaskIntoConstraints="NO" id="1OB-Rr-WAV">
-                        <rect key="frame" x="90" y="109" width="140" height="140"/>
+                        <rect key="frame" x="20" y="38" width="100" height="82"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="140" id="7ZR-sp-vg0"/>
-                            <constraint firstAttribute="height" constant="140" id="whq-0d-6Kn"/>
+                            <constraint firstAttribute="width" constant="100" id="oIg-FB-uqd"/>
+                            <constraint firstAttribute="height" constant="82" id="whq-0d-6Kn"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="In order for Corkie to find the restaurant you're at we need access to your location information." translatesAutoresizingMaskIntoConstraints="NO" id="Sfw-15-YXu" customClass="VariableHeightTV">
-                        <rect key="frame" x="20" y="12" width="280" height="97"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="In order for Corkie to find the restaurant you're at we need access to your location information." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfw-15-YXu" customClass="VariableHeightTV">
+                        <rect key="frame" x="128" y="20" width="172" height="229"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
@@ -41,31 +41,43 @@
                             <action selector="requestAccess:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="il7-PN-urk"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instructions_gps.png" translatesAutoresizingMaskIntoConstraints="NO" id="txz-HM-AIc">
+                        <rect key="frame" x="69" y="20" width="40" height="60"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="f4h-Bo-Xr3"/>
+                            <constraint firstAttribute="width" constant="40" id="wqg-5f-xbi"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="AxD-E0-7VE" firstAttribute="trailing" secondItem="Sfw-15-YXu" secondAttribute="trailing" id="8GH-OL-oUT"/>
-                    <constraint firstAttribute="trailing" secondItem="Sfw-15-YXu" secondAttribute="trailing" constant="20" id="A3E-lA-DXg"/>
-                    <constraint firstItem="1OB-Rr-WAV" firstAttribute="top" secondItem="Sfw-15-YXu" secondAttribute="bottom" id="DZp-0B-AYx"/>
-                    <constraint firstAttribute="centerX" secondItem="1OB-Rr-WAV" secondAttribute="centerX" id="PC2-0b-wBG"/>
-                    <constraint firstItem="Sfw-15-YXu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="d4w-Sn-NYJ"/>
-                    <constraint firstItem="AxD-E0-7VE" firstAttribute="leading" secondItem="Sfw-15-YXu" secondAttribute="leading" id="fP4-ia-8xA"/>
-                    <constraint firstItem="Sfw-15-YXu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="vvf-lC-8ru"/>
+                    <constraint firstItem="Sfw-15-YXu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="9Ln-eb-o7F"/>
+                    <constraint firstItem="1OB-Rr-WAV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="H6Y-NM-SSD"/>
+                    <constraint firstItem="Sfw-15-YXu" firstAttribute="leading" secondItem="1OB-Rr-WAV" secondAttribute="trailing" constant="8" id="Ouf-gi-IX7"/>
+                    <constraint firstItem="AxD-E0-7VE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1OB-Rr-WAV" secondAttribute="bottom" constant="8" symbolic="YES" id="XoK-fr-xRi"/>
+                    <constraint firstItem="AxD-E0-7VE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Zf4-cR-zfW"/>
+                    <constraint firstAttribute="trailing" secondItem="AxD-E0-7VE" secondAttribute="trailing" constant="20" id="hcC-rR-2ap"/>
+                    <constraint firstAttribute="trailing" secondItem="Sfw-15-YXu" secondAttribute="trailing" constant="20" id="lvp-s1-Yh0"/>
+                    <constraint firstItem="AxD-E0-7VE" firstAttribute="top" secondItem="Sfw-15-YXu" secondAttribute="bottom" constant="8" symbolic="YES" id="oje-vH-V1Q"/>
+                    <constraint firstItem="txz-HM-AIc" firstAttribute="leading" secondItem="1OB-Rr-WAV" secondAttribute="trailing" constant="-51" id="qf8-r3-5c2"/>
+                    <constraint firstItem="1OB-Rr-WAV" firstAttribute="top" secondItem="txz-HM-AIc" secondAttribute="bottom" constant="-42" id="vmY-bJ-9eZ"/>
                     <constraint firstAttribute="bottom" secondItem="AxD-E0-7VE" secondAttribute="bottom" constant="18" id="xHn-Oq-76C"/>
-                    <constraint firstItem="AxD-E0-7VE" firstAttribute="top" secondItem="1OB-Rr-WAV" secondAttribute="bottom" constant="8" symbolic="YES" id="xiQ-O8-l3u"/>
+                    <constraint firstItem="Sfw-15-YXu" firstAttribute="top" secondItem="1OB-Rr-WAV" secondAttribute="top" constant="-18" id="yZ2-Y5-YZU"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="accessButton" destination="AxD-E0-7VE" id="eHb-4z-GgO"/>
                 <outlet property="accessButtonToBottomConstraint" destination="xHn-Oq-76C" id="hoJ-Jg-ykh"/>
-                <outlet property="instructionsImageView" destination="1OB-Rr-WAV" id="ORR-bi-Lrw"/>
-                <outlet property="instructionsImageViewToAccessButtonConstraint" destination="xiQ-O8-l3u" id="QpC-Yq-bJa"/>
-                <outlet property="instructionsVhtvToInstructionsImageViewConstraint" destination="DZp-0B-AYx" id="hcQ-9l-oIg"/>
+                <outlet property="gpsImageView" destination="txz-HM-AIc" id="llG-qi-haC"/>
+                <outlet property="instructionsVhtvToAccessButtonConstraint" destination="oje-vH-V1Q" id="m6w-v8-h66"/>
                 <outlet property="instructions_VHTV" destination="Sfw-15-YXu" id="oU0-Cf-t4H"/>
-                <outlet property="topToInstructionsVHTVConstraint" destination="vvf-lC-8ru" id="KUO-RZ-QiU"/>
+                <outlet property="mapImageView" destination="1OB-Rr-WAV" id="2Fn-gm-REK"/>
+                <outlet property="topToInstructionsVHTVConstraint" destination="9Ln-eb-o7F" id="toj-Wq-lgu"/>
             </connections>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="instructions_location.png" width="280" height="280"/>
+        <image name="instructions_gps.png" width="100" height="150"/>
+        <image name="instructions_location.png" width="280" height="230"/>
     </resources>
 </document>

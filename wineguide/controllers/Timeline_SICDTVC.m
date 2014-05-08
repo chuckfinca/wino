@@ -44,6 +44,12 @@
     [self setupFetchedResultsController];
 }
 
+#pragma mark - Setup
+
+-(void)registerInstructionCellNib
+{
+    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_Timeline" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+}
 
 -(void)setupFetchedResultsController
 {
