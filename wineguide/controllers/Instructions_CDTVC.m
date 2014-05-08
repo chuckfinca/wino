@@ -8,9 +8,7 @@
 
 #import "Instructions_CDTVC.h"
 
-@interface Instructions_CDTVC ()
-
-@end
+#define DEFAULT_SECTION_HEADER_HEIGHT 1
 
 @implementation Instructions_CDTVC
 
@@ -121,6 +119,21 @@
     } else {
         return [self titleForHeaderInSection:section];
     }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if([self.fetchedResultsController.fetchedObjects count] == 0){
+        return DEFAULT_SECTION_HEADER_HEIGHT;
+    } else {
+        return [self heightForHeaderInSection:section];
+    }
+}
+
+-(CGFloat)heightForHeaderInSection:(NSInteger)section
+{
+    // Abstract
+    return DEFAULT_SECTION_HEADER_HEIGHT;
 }
 
 -(NSString *)titleForHeaderInSection:(NSInteger)section

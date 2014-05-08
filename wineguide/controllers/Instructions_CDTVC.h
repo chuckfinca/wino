@@ -18,8 +18,10 @@
 
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath; // Abstract
 -(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath; // Abstract
+-(UIView *)viewForHeaderInSection:(NSInteger)section; // Abstract
+-(CGFloat)heightForHeaderInSection:(NSInteger)section; // Abstract
+-(NSString *)titleForHeaderInSection:(NSInteger)section; // Abstract
 -(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath; // Abstract
--(CGFloat)heightForInstructionsCell; // Abstract
 
 
 @end

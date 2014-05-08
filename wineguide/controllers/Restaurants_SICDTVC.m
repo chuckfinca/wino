@@ -17,7 +17,6 @@
 #import "InstructionsCell_RequestGPS.h"
 
 #define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
-#define RESTAURANT_ENTITY @"Restaurant"
 
 @implementation Restaurants_SICDTVC
 

@@ -9,6 +9,8 @@
 #import "InstructionsCell_RequestGPS.h"
 #import "VariableHeightTV.h"
 #import "RoundedRectButton.h"
+#import "ColorSchemer.h"
+#import "FontThemer.h"
 
 @interface InstructionsCell_RequestGPS ()
 
@@ -29,6 +31,15 @@
 -(void)awakeFromNib
 {
     // Initialization code
+    
+    NSString *accessButtonText = @"Allow access to your location";
+    NSAttributedString *accessButtonAttributedText = [[NSAttributedString alloc] initWithString:accessButtonText attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].customWhite, NSFontAttributeName : [FontThemer sharedInstance].body}];
+    [self.accessButton setAttributedTitle:accessButtonAttributedText forState:UIControlStateNormal];
+    
+    NSString *instructions = @"In order to find the restaurant you're at Corkie needs access to your location data.";
+    self.instructions_VHTV.attributedText = [[NSAttributedString alloc] initWithString:instructions attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : [FontThemer sharedInstance].body}];
+    
+    
     [self setViewHeight];
 }
 
