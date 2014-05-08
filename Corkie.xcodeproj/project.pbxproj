@@ -22,7 +22,7 @@
 		C9061E13181F07CE003D8A55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9061DF2181F07CE003D8A55 /* UIKit.framework */; };
 		C9061E1B181F07CE003D8A55 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9061E19181F07CE003D8A55 /* InfoPlist.strings */; };
 		C9061E1D181F07CE003D8A55 /* wineguideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E1C181F07CE003D8A55 /* wineguideTests.m */; };
-		C9061E30181F1C9C003D8A55 /* Restaurants_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E2F181F1C9C003D8A55 /* Restaurants_SICDTVC.m */; };
+		C9061E30181F1C9C003D8A55 /* NearbyRestaurants_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E2F181F1C9C003D8A55 /* NearbyRestaurants_SICDTVC.m */; };
 		C9061E3C181F2767003D8A55 /* RestaurantDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9061E3B181F2767003D8A55 /* RestaurantDetails.xib */; };
 		C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */; };
 		C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9061E4D181F36BE003D8A55 /* WineDetails.xib */; };
@@ -281,8 +281,8 @@
 		C9061E18181F07CE003D8A55 /* CorkieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CorkieTests-Info.plist"; sourceTree = "<group>"; };
 		C9061E1A181F07CE003D8A55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9061E1C181F07CE003D8A55 /* wineguideTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wineguideTests.m; sourceTree = "<group>"; };
-		C9061E2E181F1C9C003D8A55 /* Restaurants_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Restaurants_SICDTVC.h; path = controllers/Restaurants_SICDTVC.h; sourceTree = "<group>"; };
-		C9061E2F181F1C9C003D8A55 /* Restaurants_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Restaurants_SICDTVC.m; path = controllers/Restaurants_SICDTVC.m; sourceTree = "<group>"; };
+		C9061E2E181F1C9C003D8A55 /* NearbyRestaurants_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NearbyRestaurants_SICDTVC.h; path = controllers/NearbyRestaurants_SICDTVC.h; sourceTree = "<group>"; };
+		C9061E2F181F1C9C003D8A55 /* NearbyRestaurants_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NearbyRestaurants_SICDTVC.m; path = controllers/NearbyRestaurants_SICDTVC.m; sourceTree = "<group>"; };
 		C9061E3B181F2767003D8A55 /* RestaurantDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RestaurantDetails.xib; path = xibs/RestaurantDetails.xib; sourceTree = "<group>"; };
 		C9061E44181F2BF2003D8A55 /* RestaurantDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantDetailsVC.h; path = controllers/RestaurantDetailsVC.h; sourceTree = "<group>"; };
 		C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantDetailsVC.m; path = controllers/RestaurantDetailsVC.m; sourceTree = "<group>"; };
@@ -809,8 +809,8 @@
 				C9C7D6141840168700A2E955 /* Searchable_ICDTVC.m */,
 				C990FAC31910886F00BF692E /* TastingRecord_SICDTVC.h */,
 				C990FAC41910886F00BF692E /* TastingRecord_SICDTVC.m */,
-				C9061E2E181F1C9C003D8A55 /* Restaurants_SICDTVC.h */,
-				C9061E2F181F1C9C003D8A55 /* Restaurants_SICDTVC.m */,
+				C9061E2E181F1C9C003D8A55 /* NearbyRestaurants_SICDTVC.h */,
+				C9061E2F181F1C9C003D8A55 /* NearbyRestaurants_SICDTVC.m */,
 				C96928D618E0E069006ADCC4 /* Restaurant_SICDTVC.h */,
 				C96928D718E0E069006ADCC4 /* Restaurant_SICDTVC.m */,
 				C9061E44181F2BF2003D8A55 /* RestaurantDetailsVC.h */,
@@ -1495,7 +1495,7 @@
 				C9DAB84818E8DAD300BB0E2A /* ReviewDataHelper.m in Sources */,
 				C96D31B6191AAC2200B340F4 /* Review2.m in Sources */,
 				C93A73DA18F0AB46000E0B56 /* Varietal.m in Sources */,
-				C9061E30181F1C9C003D8A55 /* Restaurants_SICDTVC.m in Sources */,
+				C9061E30181F1C9C003D8A55 /* NearbyRestaurants_SICDTVC.m in Sources */,
 				C9548F7E19037317001A8997 /* ReviewHelper.m in Sources */,
 				C92DF09618286942009DCB2C /* Flight+CreateAndModify.m in Sources */,
 				C988AF02191321BA00A3E13A /* RatingTextCVCell.m in Sources */,

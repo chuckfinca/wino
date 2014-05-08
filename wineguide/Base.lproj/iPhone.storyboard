@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="505" y="160"/>
         </scene>
-        <!--RestaurantsSICDTVC-->
+        <!--Nearby RestaurantsSICDTVC-->
         <scene sceneID="Hf6-e8-0Zr">
             <objects>
-                <tableViewController id="SuW-Gu-nSw" customClass="Restaurants_SICDTVC" sceneMemberID="viewController">
+                <tableViewController id="SuW-Gu-nSw" customClass="NearbyRestaurants_SICDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="hVv-kU-8wi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

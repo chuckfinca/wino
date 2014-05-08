@@ -10,6 +10,6 @@
 #import "CoreDataTableViewController.h"
 #import "Searchable_ICDTVC.h"
 
-@interface Restaurants_SICDTVC : Searchable_ICDTVC
+@interface NearbyRestaurants_SICDTVC : Searchable_ICDTVC
 
 @end

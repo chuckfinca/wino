@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "Restaurants_SICDTVC.h"
+#import "NearbyRestaurants_SICDTVC.h"
 #import "Restaurant_SICDTVC.h"
 #import "RestaurantDataHelper.h"
 #import "Restaurant.h"
@@ -19,7 +19,7 @@
 #define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
 #define RESTAURANT_ENTITY @"Restaurant"
 
-@implementation Restaurants_SICDTVC
+@implementation NearbyRestaurants_SICDTVC
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
