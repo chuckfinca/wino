@@ -38,7 +38,6 @@
     
     NSString *instructions = @"In order to find the restaurant you're at Corkie needs access to your location data.";
     self.instructions_VHTV.attributedText = [[NSAttributedString alloc] initWithString:instructions attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
-    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
     self.gpsImageView.image = [[UIImage imageNamed:@"instructions_gps.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.gpsImageView.tintColor = [ColorSchemer sharedInstance].baseColor;
@@ -47,6 +46,8 @@
     self.mapImageView.layer.cornerRadius = 10;
     
     [self setViewHeight];
+    
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)setViewHeight

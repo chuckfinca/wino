@@ -33,6 +33,8 @@
     self.instructionsImageView.tintColor = [ColorSchemer sharedInstance].baseColor;
     
     [self setViewHeight];
+    
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 

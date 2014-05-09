@@ -8,7 +8,7 @@
 
 #import "Instructions_CDTVC.h"
 
-#define DEFAULT_SECTION_HEADER_HEIGHT 1
+#define DEFAULT_SECTION_HEADER_HEIGHT 0
 
 @implementation Instructions_CDTVC
 
