@@ -13,7 +13,7 @@
 
 -(void)awakeFromNib
 {
-    self.backgroundColor = [ColorSchemer sharedInstance].baseColorLight;
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(float)height
@@ -23,7 +23,7 @@
     }
     
     CGSize size = [self sizeThatFits:CGSizeMake(self.bounds.size.width, FLT_MAX)];
-    return size.height+1;
+    return size.height+5;
 }
 
 @end

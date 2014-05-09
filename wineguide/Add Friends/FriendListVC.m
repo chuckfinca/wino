@@ -8,7 +8,7 @@
 
 #import "FriendListVC.h"
 #import "ColorSchemer.h"
-#import "FriendListSCDTVC.h"
+#import "FriendList_SICDTVC.h"
 #import "FontThemer.h"
 #import "FriendListSearchBar.h"
 #import "GetMe.h"
@@ -17,7 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *selectedFriendsTextView;
 @property (nonatomic, strong) UIImage *placeHolderImage;
-@property (nonatomic, strong) FriendListSCDTVC *friendListSCDTVC;
+@property (nonatomic, strong) FriendList_SICDTVC *friendListSCDTVC;
 @property (weak, nonatomic) IBOutlet FriendListSearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 
@@ -147,8 +147,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"EmbeddedFriendList"]){
-        if([segue.destinationViewController isKindOfClass:[FriendListSCDTVC class]]){
-            self.friendListSCDTVC = (FriendListSCDTVC *)segue.destinationViewController;
+        if([segue.destinationViewController isKindOfClass:[FriendList_SICDTVC class]]){
+            self.friendListSCDTVC = (FriendList_SICDTVC *)segue.destinationViewController;
             self.friendListSCDTVC.delegate = self;
         }
     }

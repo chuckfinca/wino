@@ -129,7 +129,7 @@
 		C96D317B1917074700B340F4 /* Wine.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D317A1917074700B340F4 /* Wine.m */; };
 		C96D317E1917081800B340F4 /* OutBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D317D1917081800B340F4 /* OutBox.m */; };
 		C96D3184191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96D3182191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib */; };
-		C96D318D1919BFD000B340F4 /* FriendListSCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D318A1919BFD000B340F4 /* FriendListSCDTVC.m */; };
+		C96D318D1919BFD000B340F4 /* FriendList_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D318A1919BFD000B340F4 /* FriendList_SICDTVC.m */; };
 		C96D318E1919BFD000B340F4 /* FriendListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D318C1919BFD000B340F4 /* FriendListVC.m */; };
 		C96D31941919C15C00B340F4 /* InstructionsCell_FacebookConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D31921919C15C00B340F4 /* InstructionsCell_FacebookConnect.m */; };
 		C96D31951919C15C00B340F4 /* InstructionsCell_FacebookConnect.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96D31931919C15C00B340F4 /* InstructionsCell_FacebookConnect.xib */; };
@@ -464,8 +464,8 @@
 		C96D317C1917081800B340F4 /* OutBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutBox.h; path = model/OutBox.h; sourceTree = "<group>"; };
 		C96D317D1917081800B340F4 /* OutBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutBox.m; path = model/OutBox.m; sourceTree = "<group>"; };
 		C96D3182191715FB00B340F4 /* ReviewsTVControllerHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewsTVControllerHeaderView.xib; path = "Reviews TVC/ReviewsTVControllerHeaderView.xib"; sourceTree = "<group>"; };
-		C96D31891919BFD000B340F4 /* FriendListSCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListSCDTVC.h; path = "Add Friends/FriendListSCDTVC.h"; sourceTree = "<group>"; };
-		C96D318A1919BFD000B340F4 /* FriendListSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListSCDTVC.m; path = "Add Friends/FriendListSCDTVC.m"; sourceTree = "<group>"; };
+		C96D31891919BFD000B340F4 /* FriendList_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendList_SICDTVC.h; path = "Add Friends/FriendList_SICDTVC.h"; sourceTree = "<group>"; };
+		C96D318A1919BFD000B340F4 /* FriendList_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendList_SICDTVC.m; path = "Add Friends/FriendList_SICDTVC.m"; sourceTree = "<group>"; };
 		C96D318B1919BFD000B340F4 /* FriendListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListVC.h; path = "Add Friends/FriendListVC.h"; sourceTree = "<group>"; };
 		C96D318C1919BFD000B340F4 /* FriendListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListVC.m; path = "Add Friends/FriendListVC.m"; sourceTree = "<group>"; };
 		C96D31911919C15C00B340F4 /* InstructionsCell_FacebookConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsCell_FacebookConnect.h; path = "Add Friends/InstructionsCell_FacebookConnect.h"; sourceTree = "<group>"; };
@@ -1163,8 +1163,8 @@
 		C96D31881919BF6D00B340F4 /* Add Friends */ = {
 			isa = PBXGroup;
 			children = (
-				C96D31891919BFD000B340F4 /* FriendListSCDTVC.h */,
-				C96D318A1919BFD000B340F4 /* FriendListSCDTVC.m */,
+				C96D31891919BFD000B340F4 /* FriendList_SICDTVC.h */,
+				C96D318A1919BFD000B340F4 /* FriendList_SICDTVC.m */,
 				C96D318B1919BFD000B340F4 /* FriendListVC.h */,
 				C96D318C1919BFD000B340F4 /* FriendListVC.m */,
 				C96D31911919C15C00B340F4 /* InstructionsCell_FacebookConnect.h */,
@@ -1535,7 +1535,7 @@
 				C9DDD08C1820307D000A6FD7 /* MainTabBarController.m in Sources */,
 				C96D31A4191AAC2200B340F4 /* Flight2.m in Sources */,
 				C98DEFC71821DA790038216C /* CoreDataTableViewController.m in Sources */,
-				C96D318D1919BFD000B340F4 /* FriendListSCDTVC.m in Sources */,
+				C96D318D1919BFD000B340F4 /* FriendList_SICDTVC.m in Sources */,
 				C9DEBC6F18FB696700134ECD /* WineHelper.m in Sources */,
 				C9DAB84818E8DAD300BB0E2A /* ReviewDataHelper.m in Sources */,
 				C96D31B6191AAC2200B340F4 /* Review2.m in Sources */,

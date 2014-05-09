@@ -10,6 +10,4 @@
 
 @interface InstructionsCell_FacebookConnect : UITableViewCell
 
--(void)height;
-
 @end

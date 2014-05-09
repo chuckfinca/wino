@@ -15,7 +15,7 @@
 
 @end
 
-@interface FriendListSCDTVC : Searchable_ICDTVC
+@interface FriendList_SICDTVC : Searchable_ICDTVC
 
 @property (nonatomic, weak) id <FriendSelectionDelegate> delegate;
 

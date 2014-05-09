@@ -28,6 +28,7 @@
 	// Do any additional setup after loading the view.
     self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
     
+    //self.searchBar.frame = CGRectMake(self.searchBar.frame.origin.x,self.searchBar.frame.origin.x,self.searchBar.frame.size.width,0);
     self.searchBar.delegate = self;
     [self customizeSearchBar];
     

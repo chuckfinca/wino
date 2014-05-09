@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "FriendListSCDTVC.h"
+#import "FriendList_SICDTVC.h"
 #import "User.h"
 #import "ColorSchemer.h"
 #import "FontThemer.h"
@@ -15,7 +15,7 @@
 
 #define USER_ENTITY @"User"
 
-@interface FriendListSCDTVC ()
+@interface FriendList_SICDTVC ()
 
 @property (nonatomic, strong) FacebookProfileImageGetter *facebookProfileImageGetter;
 
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation FriendListSCDTVC
+@implementation FriendList_SICDTVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,6 +51,13 @@
         _facebookProfileImageGetter = [[FacebookProfileImageGetter alloc] init];
     }
     return _facebookProfileImageGetter;
+}
+
+#pragma mark - Setup
+
+-(void)registerInstructionCellNib
+{
+    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_FacebookConnect" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
 }
 
 #pragma mark - SearchableCDTVC Required Methods

@@ -28,17 +28,14 @@
 {
     // Initialization code
     NSString *text = @"Connect with Facebook to add friends to this tasting record.";
-    self.instructionsVHTV.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+    self.instructionsVHTV.attributedText = [[NSAttributedString alloc] initWithString:text attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
+    
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    
+    [self setViewHeight];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
--(void)height
+-(void)setViewHeight
 {
     CGFloat height = 0;
     
