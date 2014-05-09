@@ -13,7 +13,7 @@
 
 -(void)awakeFromNib
 {
-    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.backgroundColor = [ColorSchemer sharedInstance].baseColorLight;
 }
 
 -(float)height
@@ -22,10 +22,8 @@
         return 0;
     }
     
-    UITextView *tv = [[UITextView alloc] init];
-    [tv setAttributedText:self.textStorage];
-    CGSize size = [tv sizeThatFits:CGSizeMake(self.bounds.size.width, FLT_MAX)];
-    return size.height;
+    CGSize size = [self sizeThatFits:CGSizeMake(self.bounds.size.width, FLT_MAX)];
+    return size.height+1;
 }
 
 @end

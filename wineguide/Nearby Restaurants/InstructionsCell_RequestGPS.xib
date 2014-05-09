@@ -22,7 +22,7 @@
                         </constraints>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="In order for Corkie to find the restaurant you're at we need access to your location information." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfw-15-YXu" customClass="VariableHeightTV">
-                        <rect key="frame" x="128" y="20" width="172" height="229"/>
+                        <rect key="frame" x="128" y="20" width="172" height="197"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -54,15 +54,14 @@
                     <constraint firstItem="Sfw-15-YXu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="9Ln-eb-o7F"/>
                     <constraint firstItem="1OB-Rr-WAV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="H6Y-NM-SSD"/>
                     <constraint firstItem="Sfw-15-YXu" firstAttribute="leading" secondItem="1OB-Rr-WAV" secondAttribute="trailing" constant="8" id="Ouf-gi-IX7"/>
-                    <constraint firstItem="AxD-E0-7VE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1OB-Rr-WAV" secondAttribute="bottom" constant="8" symbolic="YES" id="XoK-fr-xRi"/>
+                    <constraint firstItem="txz-HM-AIc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="YMa-UH-eW6"/>
                     <constraint firstItem="AxD-E0-7VE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Zf4-cR-zfW"/>
+                    <constraint firstItem="1OB-Rr-WAV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="38" id="ean-bc-IgU"/>
                     <constraint firstAttribute="trailing" secondItem="AxD-E0-7VE" secondAttribute="trailing" constant="20" id="hcC-rR-2ap"/>
                     <constraint firstAttribute="trailing" secondItem="Sfw-15-YXu" secondAttribute="trailing" constant="20" id="lvp-s1-Yh0"/>
-                    <constraint firstItem="AxD-E0-7VE" firstAttribute="top" secondItem="Sfw-15-YXu" secondAttribute="bottom" constant="8" symbolic="YES" id="oje-vH-V1Q"/>
-                    <constraint firstItem="txz-HM-AIc" firstAttribute="leading" secondItem="1OB-Rr-WAV" secondAttribute="trailing" constant="-51" id="qf8-r3-5c2"/>
-                    <constraint firstItem="1OB-Rr-WAV" firstAttribute="top" secondItem="txz-HM-AIc" secondAttribute="bottom" constant="-42" id="vmY-bJ-9eZ"/>
+                    <constraint firstItem="txz-HM-AIc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="69" id="m8G-9Y-Kkp"/>
+                    <constraint firstItem="AxD-E0-7VE" firstAttribute="top" secondItem="Sfw-15-YXu" secondAttribute="bottom" constant="40" id="oje-vH-V1Q"/>
                     <constraint firstAttribute="bottom" secondItem="AxD-E0-7VE" secondAttribute="bottom" constant="18" id="xHn-Oq-76C"/>
-                    <constraint firstItem="Sfw-15-YXu" firstAttribute="top" secondItem="1OB-Rr-WAV" secondAttribute="top" constant="-18" id="yZ2-Y5-YZU"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

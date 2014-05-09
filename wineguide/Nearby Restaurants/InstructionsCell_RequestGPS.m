@@ -43,7 +43,7 @@
     self.gpsImageView.tintColor = [ColorSchemer sharedInstance].baseColor;
     
     self.mapImageView.layer.masksToBounds = YES;
-    self.mapImageView.layer.cornerRadius = 10;
+    self.mapImageView.layer.cornerRadius = 6;
     
     [self setViewHeight];
     

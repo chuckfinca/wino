@@ -42,7 +42,7 @@
 {
     CGFloat height = 0;
     height += self.topToInstructionsVhtvConstraint.constant;
-    height += [self.instructionsVHTV height]*1.1;
+    height += [self.instructionsVHTV height];
     height += self.instructionsVhtvToBottomConstraint.constant;
     
     self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
