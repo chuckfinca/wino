@@ -87,6 +87,11 @@
 
 #pragma mark - Setup
 
+-(void)registerInstructionCellNib
+{
+    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_Cellar" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+}
+
 -(void)setupForUser:(User *)user
 {
     self.user = user;

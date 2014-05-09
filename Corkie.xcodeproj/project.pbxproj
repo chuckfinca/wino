@@ -253,6 +253,8 @@
 		C9F43EA8191C439B003DB6B4 /* InstructionsCell_Timeline.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9F43EA6191C439B003DB6B4 /* InstructionsCell_Timeline.xib */; };
 		C9F43EAB191C4D8D003DB6B4 /* instructions_timeline.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F43EA9191C4D8D003DB6B4 /* instructions_timeline.png */; };
 		C9F43EAC191C4D8D003DB6B4 /* instructions_timeline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F43EAA191C4D8D003DB6B4 /* instructions_timeline@2x.png */; };
+		C9F43EBF191C5755003DB6B4 /* InstructionsCell_Cellar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F43EBD191C5755003DB6B4 /* InstructionsCell_Cellar.m */; };
+		C9F43EC0191C5755003DB6B4 /* InstructionsCell_Cellar.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9F43EBE191C5755003DB6B4 /* InstructionsCell_Cellar.xib */; };
 		C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F47975181F4D940026A383 /* WineDetailsVC.m */; };
 /* End PBXBuildFile section */
 
@@ -670,6 +672,9 @@
 		C9F43EA6191C439B003DB6B4 /* InstructionsCell_Timeline.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstructionsCell_Timeline.xib; path = Timeline/InstructionsCell_Timeline.xib; sourceTree = "<group>"; };
 		C9F43EA9191C4D8D003DB6B4 /* instructions_timeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions_timeline.png; path = images/instructions_timeline.png; sourceTree = "<group>"; };
 		C9F43EAA191C4D8D003DB6B4 /* instructions_timeline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions_timeline@2x.png"; path = "images/instructions_timeline@2x.png"; sourceTree = "<group>"; };
+		C9F43EBC191C5755003DB6B4 /* InstructionsCell_Cellar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsCell_Cellar.h; path = Instructions/InstructionsCell_Cellar.h; sourceTree = "<group>"; };
+		C9F43EBD191C5755003DB6B4 /* InstructionsCell_Cellar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsCell_Cellar.m; path = Instructions/InstructionsCell_Cellar.m; sourceTree = "<group>"; };
+		C9F43EBE191C5755003DB6B4 /* InstructionsCell_Cellar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstructionsCell_Cellar.xib; path = Instructions/InstructionsCell_Cellar.xib; sourceTree = "<group>"; };
 		C9F47974181F4D940026A383 /* WineDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineDetailsVC.h; path = controllers/WineDetailsVC.h; sourceTree = "<group>"; };
 		C9F47975181F4D940026A383 /* WineDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineDetailsVC.m; path = controllers/WineDetailsVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1275,6 +1280,9 @@
 				C9F43EA4191C439B003DB6B4 /* InstructionsCell_Timeline.h */,
 				C9F43EA5191C439B003DB6B4 /* InstructionsCell_Timeline.m */,
 				C9F43EA6191C439B003DB6B4 /* InstructionsCell_Timeline.xib */,
+				C9F43EBC191C5755003DB6B4 /* InstructionsCell_Cellar.h */,
+				C9F43EBD191C5755003DB6B4 /* InstructionsCell_Cellar.m */,
+				C9F43EBE191C5755003DB6B4 /* InstructionsCell_Cellar.xib */,
 			);
 			name = InstructionsCell_Timeline;
 			sourceTree = "<group>";
@@ -1374,6 +1382,7 @@
 				C95CAAEB18EB9C1400E210D0 /* button_cellarUnstored@2x.png in Resources */,
 				C9C7D63A1842AACD00A2E955 /* tutorial_logo@2x.png in Resources */,
 				C9F43EA1191C3D99003DB6B4 /* instructions_gps.png in Resources */,
+				C9F43EC0191C5755003DB6B4 /* InstructionsCell_Cellar.xib in Resources */,
 				C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */,
 				C9C7D62B18403E0E00A2E955 /* tutorial_nearby.png in Resources */,
 				C95CF7B3188A250200E14E03 /* restaurant.hinojosa.1parklane.json in Resources */,
@@ -1556,6 +1565,7 @@
 				C9548F81190381F1001A8997 /* VarietalHelper.m in Sources */,
 				C9328CCB184ADCBC00AF6DEA /* RestaurantWineManagerSCDTVC.m in Sources */,
 				C9A73DA21903110D007C2366 /* Brand2+Modify.m in Sources */,
+				C9F43EBF191C5755003DB6B4 /* InstructionsCell_Cellar.m in Sources */,
 				C93A73E318F0AB47000E0B56 /* Restaurant.m in Sources */,
 				C92DEFF218242D16009DCB2C /* Varietal+CreateAndModify.m in Sources */,
 				C96D31941919C15C00B340F4 /* InstructionsCell_FacebookConnect.m in Sources */,
