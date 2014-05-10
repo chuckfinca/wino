@@ -97,6 +97,14 @@
 -(void)setupMap
 {
     MKMapView *mapView = [[MKMapView alloc] initWithFrame:self.view.frame];
+    
+    CAGradientLayer *layer = [CAGradientLayer layer];
+    layer.frame = mapView.bounds;
+    layer.colors = @[(id)[ColorSchemer sharedInstance].customWhite.CGColor, (id)[UIColor clearColor].CGColor];
+    layer.startPoint = CGPointMake(1.0f, 0.1f);
+    layer.endPoint = CGPointMake(0.0f, 0.1f);
+    mapView.layer.mask = layer;
+    
     [self.view insertSubview:mapView atIndex:0];
     
     double latitued = [self.restaurant.latitude doubleValue];
