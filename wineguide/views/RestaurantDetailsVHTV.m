@@ -49,8 +49,8 @@
     self.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
     
     NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowBlurRadius = 3;
-    shadow.shadowColor = [ColorSchemer sharedInstance].customWhite;
+    shadow.shadowBlurRadius = 5;
+    shadow.shadowColor = [UIColor whiteColor];
     
     [self.textStorage addAttribute:NSShadowAttributeName
                              value:shadow

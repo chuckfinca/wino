@@ -49,6 +49,8 @@
     [self setViewHeight];
     
     [self setupMap];
+    
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
 }
 
 -(void)setViewHeight
@@ -95,7 +97,6 @@
 -(void)setupMap
 {
     MKMapView *mapView = [[MKMapView alloc] initWithFrame:self.view.frame];
-    mapView.alpha = 0.8;
     [self.view insertSubview:mapView atIndex:0];
     
     double latitued = [self.restaurant.latitude doubleValue];
