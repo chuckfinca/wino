@@ -242,6 +242,7 @@
 		C9DF121318C80628003AE68C /* VariableHeightTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF121218C80628003AE68C /* VariableHeightTV.m */; };
 		C9DF590A189B38EE005050E5 /* restaurant.osteriacoppa.139southbstreet.json in Resources */ = {isa = PBXBuildFile; fileRef = C9DF5908189B38EE005050E5 /* restaurant.osteriacoppa.139southbstreet.json */; };
 		C9DF590B189B38EE005050E5 /* group.restaurant.osteriacoppa.139southbstreet.all.json in Resources */ = {isa = PBXBuildFile; fileRef = C9DF5909189B38EE005050E5 /* group.restaurant.osteriacoppa.139southbstreet.all.json */; };
+		C9E40185191D90BF00ADD072 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E40184191D90BF00ADD072 /* MapKit.framework */; };
 		C9F43E93191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F43E91191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.m */; };
 		C9F43E94191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9F43E92191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.xib */; };
 		C9F43E97191AEAE0003DB6B4 /* instructions_location.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F43E95191AEAE0003DB6B4 /* instructions_location.png */; };
@@ -659,6 +660,7 @@
 		C9DF121218C80628003AE68C /* VariableHeightTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VariableHeightTV.m; path = views/VariableHeightTV.m; sourceTree = "<group>"; };
 		C9DF5908189B38EE005050E5 /* restaurant.osteriacoppa.139southbstreet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurant.osteriacoppa.139southbstreet.json; path = model/json/restaurant.osteriacoppa.139southbstreet.json; sourceTree = "<group>"; };
 		C9DF5909189B38EE005050E5 /* group.restaurant.osteriacoppa.139southbstreet.all.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = group.restaurant.osteriacoppa.139southbstreet.all.json; path = model/json/group.restaurant.osteriacoppa.139southbstreet.all.json; sourceTree = "<group>"; };
+		C9E40184191D90BF00ADD072 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C9F43E90191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsCell_RequestGPS.h; path = "Nearby Restaurants/InstructionsCell_RequestGPS.h"; sourceTree = "<group>"; };
 		C9F43E91191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsCell_RequestGPS.m; path = "Nearby Restaurants/InstructionsCell_RequestGPS.m"; sourceTree = "<group>"; };
 		C9F43E92191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstructionsCell_RequestGPS.xib; path = "Nearby Restaurants/InstructionsCell_RequestGPS.xib"; sourceTree = "<group>"; };
@@ -685,6 +687,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E40185191D90BF00ADD072 /* MapKit.framework in Frameworks */,
 				C9DDD08918201F0C000A6FD7 /* CoreData.framework in Frameworks */,
 				C9061DF1181F07CE003D8A55 /* CoreGraphics.framework in Frameworks */,
 				C9061DF3181F07CE003D8A55 /* UIKit.framework in Frameworks */,
@@ -729,6 +732,7 @@
 		C9061DED181F07CE003D8A55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9E40184191D90BF00ADD072 /* MapKit.framework */,
 				C9DDD08818201F0C000A6FD7 /* CoreData.framework */,
 				C9061DEE181F07CE003D8A55 /* Foundation.framework */,
 				C9061DF0181F07CE003D8A55 /* CoreGraphics.framework */,

@@ -8,6 +8,7 @@
 
 #import "RestaurantDetailsVHTV.h"
 #import "ColorSchemer.h"
+#import "FontThemer.h"
 
 @implementation RestaurantDetailsVHTV
 
@@ -43,16 +44,23 @@
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[restaurant.state capitalizedString]]];
     }
     
-    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString];
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:textViewString attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
     self.attributedText = attributedText;
     self.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
     
-    [self.textStorage addAttribute:NSForegroundColorAttributeName
-                             value:[ColorSchemer sharedInstance].textPrimary
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowBlurRadius = 3;
+    shadow.shadowColor = [ColorSchemer sharedInstance].customWhite;
+    
+    [self.textStorage addAttribute:NSShadowAttributeName
+                             value:shadow
                              range:NSMakeRange(0, [self.textStorage length])];
+    
     [self.textStorage addAttribute:NSFontAttributeName
-                                                 value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
-                                                 range:nameRange];
+                             value:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
+                             range:nameRange];
+    
+    self.backgroundColor = [UIColor clearColor];
 }
 
 @end

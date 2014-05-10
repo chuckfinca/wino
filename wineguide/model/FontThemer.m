@@ -17,6 +17,7 @@
 @property (nonatomic, readwrite) UIFont *caption1;
 @property (nonatomic, readwrite) UIFont *caption2;
 @property (nonatomic, readwrite) UIFont *footnote;
+@property (nonatomic, readwrite) NSDictionary *primaryBodyTextAttributes;
 @property (nonatomic, readwrite) NSDictionary *secondaryBodyTextAttributes;
 
 @end
@@ -71,6 +72,10 @@ static FontThemer *sharedInstance;
     return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : [FontThemer sharedInstance].body};
 }
 
+-(NSDictionary *)primaryBodyTextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : [FontThemer sharedInstance].body};
+}
 
 
 

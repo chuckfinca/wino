@@ -10,10 +10,12 @@
 #import "RestaurantDetailsVHTV.h"
 #import "Group.h"
 #import "ColorSchemer.h"
+#import <MapKit/MapKit.h>
 
 #define GROUP_ENTITY @"Group"
+#define METERS_PER_MILE 1609.344
 
-@interface RestaurantDetailsVC () <NSFetchedResultsControllerDelegate>
+@interface RestaurantDetailsVC () <NSFetchedResultsControllerDelegate, MKMapViewDelegate>
 
 @property (nonatomic, weak) IBOutlet RestaurantDetailsVHTV *restaurantDetailsVHTV;
 @property (nonatomic, strong) Restaurant *restaurant;
@@ -46,8 +48,9 @@
     [self.restaurantDetailsVHTV setupTextViewWithRestaurant:self.restaurant];
     [self setViewHeight];
     
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    [self setupMap];
 }
+
 -(void)setViewHeight
 {
     CGFloat height = 0;
@@ -87,6 +90,32 @@
     }
 }
 
+#pragma mark - Setup
+
+-(void)setupMap
+{
+    MKMapView *mapView = [[MKMapView alloc] initWithFrame:self.view.frame];
+    mapView.alpha = 0.8;
+    [self.view insertSubview:mapView atIndex:0];
+    
+    double latitued = [self.restaurant.latitude doubleValue];
+    double longitude = [self.restaurant.longitude doubleValue];
+    
+    CLLocationCoordinate2D restaurantLocation = CLLocationCoordinate2DMake(latitued, longitude);
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(latitued, longitude-0.002), 0.*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+    
+    [mapView setRegion:viewRegion animated:YES];
+    
+    MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc] init];
+    [pointAnnotation setCoordinate:restaurantLocation];
+    
+    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] init];
+    pin.pinColor = MKPinAnnotationColorPurple;
+    pin.annotation = pointAnnotation;
+    
+    [mapView addAnnotation:pointAnnotation];
+}
 
 -(void)setupSegmentedControl
 {
