@@ -15,9 +15,18 @@
 #import "RestaurantHelper.h"
 #import "DocumentHandler2.h"
 #import "InstructionsCell_RequestGPS.h"
+#import "LocationHelper.h"
+#import "RestaurantCell.h"
 
 #define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
+#define RESTAURANT_CELL @"RestaurantCell"
 #define RESTAURANT_ENTITY @"Restaurant"
+
+@interface NearbyRestaurants_SICDTVC ()
+
+@property (nonatomic, strong) RestaurantCell *sizingCell;
+
+@end
 
 @implementation NearbyRestaurants_SICDTVC
 
@@ -35,6 +44,7 @@
     [super viewDidLoad];
     [self setupSearchBar];
     self.navigationItem.title = @"Restaurants Nearby";
+    [self.tableView registerNib:[UINib nibWithNibName:@"RestaurantCell" bundle:nil] forCellReuseIdentifier:RESTAURANT_CELL];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -49,6 +59,16 @@
 }
 
 
+#pragma mark - Getters & setters
+
+-(RestaurantCell *)sizingCell
+{
+    if(!_sizingCell){
+        _sizingCell = [[[NSBundle mainBundle] loadNibNamed:@"RestaurantCell" owner:self options:nil] firstObject];
+    }
+    return _sizingCell;
+}
+
 #pragma mark - Setup
 
 -(void)registerInstructionCellNib
@@ -61,17 +81,13 @@
     self.searchBar.placeholder = @"Search for restaurants...";
 }
 
--(void)setupTextForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+
+
+#pragma mark - Location
+
+-(void)checkUserLocation
 {
-    Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    if(restaurant.name){
-        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
-    }
-    if(restaurant.address){
-        cell.detailTextLabel.numberOfLines = 0;
-        cell.detailTextLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.address capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary}];
-    }
+    BOOL enabled = [[LocationHelper sharedInstance] locationServicesEnabled];
 }
 
 -(void)getMoreResultsFromTheServer
@@ -118,19 +134,35 @@
 
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"RestaurantCell" forIndexPath:indexPath];
-    cell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    RestaurantCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"RestaurantCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    [self setupTextForCell:cell atIndexPath:indexPath];
+    Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    [cell setupCellForRestaurant:restaurant];
     return cell;
 }
+
+
+#pragma mark - UITableViewDelegate
 
 -(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [self performSegueWithIdentifier:@"Restaurant Segue" sender:cell];
 }
+
+-(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Configure the cell...
+    Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    [self.sizingCell setupCellForRestaurant:restaurant];
+    NSLog(@"height = %f",CGRectGetHeight(self.sizingCell.bounds));
+    return CGRectGetHeight(self.sizingCell.bounds);
+}
+
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

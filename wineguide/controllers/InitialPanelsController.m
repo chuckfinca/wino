@@ -22,7 +22,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) TutorialVC *tutorialVC;
 @property (nonatomic) BOOL supressTutorial;
-@property (nonatomic) BOOL locationServicesEnabled;
 
 @end
 
@@ -127,24 +126,12 @@
         self.tutorialVC = nil;
         [self disableIntro];
     }];
-    [self checkUserLocation];
 }
 
 -(void)disableIntro
 {
     //[[NSUserDefaults standardUserDefaults] setBool:YES forKey:SUPRESS_TUTORIAL];
     //[[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-#pragma mark - Location
-
--(void)checkUserLocation
-{
-    if(!self.locationServicesEnabled){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Corkie would like to use your location." message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
-        alert.tintColor = [ColorSchemer sharedInstance].clickable;
-        
-    }
 }
 
 

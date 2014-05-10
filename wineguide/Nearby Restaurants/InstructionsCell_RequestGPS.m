@@ -11,6 +11,7 @@
 #import "RoundedRectButton.h"
 #import "ColorSchemer.h"
 #import "FontThemer.h"
+#import "LocationHelper.h"
 
 @interface InstructionsCell_RequestGPS ()
 
@@ -67,6 +68,7 @@
 - (IBAction)requestAccess:(id)sender
 {
     NSLog(@"requestAccess...");
+    
 }
 
 

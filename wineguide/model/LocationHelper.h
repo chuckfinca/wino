@@ -10,8 +10,9 @@
 
 @interface LocationHelper : NSObject
 
-+(BOOL)locationServicesEnabled;
++(LocationHelper *)sharedInstance;
 
-+(void)getUserLocation;
+-(BOOL)locationServicesEnabled;
+-(void)getUserLocation;
 
 @end

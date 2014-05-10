@@ -244,6 +244,8 @@
 		C9DF590B189B38EE005050E5 /* group.restaurant.osteriacoppa.139southbstreet.all.json in Resources */ = {isa = PBXBuildFile; fileRef = C9DF5909189B38EE005050E5 /* group.restaurant.osteriacoppa.139southbstreet.all.json */; };
 		C9E40185191D90BF00ADD072 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E40184191D90BF00ADD072 /* MapKit.framework */; };
 		C9E40187191DAF5800ADD072 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E40186191DAF5800ADD072 /* QuartzCore.framework */; };
+		C9E4018C191EC4AC00ADD072 /* RestaurantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E4018A191EC4AC00ADD072 /* RestaurantCell.m */; };
+		C9E4018D191EC4AC00ADD072 /* RestaurantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9E4018B191EC4AC00ADD072 /* RestaurantCell.xib */; };
 		C9F43E93191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F43E91191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.m */; };
 		C9F43E94191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9F43E92191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.xib */; };
 		C9F43E97191AEAE0003DB6B4 /* instructions_location.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F43E95191AEAE0003DB6B4 /* instructions_location.png */; };
@@ -663,6 +665,9 @@
 		C9DF5909189B38EE005050E5 /* group.restaurant.osteriacoppa.139southbstreet.all.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = group.restaurant.osteriacoppa.139southbstreet.all.json; path = model/json/group.restaurant.osteriacoppa.139southbstreet.all.json; sourceTree = "<group>"; };
 		C9E40184191D90BF00ADD072 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C9E40186191DAF5800ADD072 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C9E40189191EC4AC00ADD072 /* RestaurantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantCell.h; path = RestaurantCell/RestaurantCell.h; sourceTree = "<group>"; };
+		C9E4018A191EC4AC00ADD072 /* RestaurantCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantCell.m; path = RestaurantCell/RestaurantCell.m; sourceTree = "<group>"; };
+		C9E4018B191EC4AC00ADD072 /* RestaurantCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RestaurantCell.xib; path = RestaurantCell/RestaurantCell.xib; sourceTree = "<group>"; };
 		C9F43E90191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsCell_RequestGPS.h; path = "Nearby Restaurants/InstructionsCell_RequestGPS.h"; sourceTree = "<group>"; };
 		C9F43E91191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsCell_RequestGPS.m; path = "Nearby Restaurants/InstructionsCell_RequestGPS.m"; sourceTree = "<group>"; };
 		C9F43E92191AE2DD003DB6B4 /* InstructionsCell_RequestGPS.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstructionsCell_RequestGPS.xib; path = "Nearby Restaurants/InstructionsCell_RequestGPS.xib"; sourceTree = "<group>"; };
@@ -750,6 +755,7 @@
 		C9061DF4181F07CE003D8A55 /* wineguide */ = {
 			isa = PBXGroup;
 			children = (
+				C9E40188191EC48300ADD072 /* Restaurant Cell */,
 				C9F43EA3191C432D003DB6B4 /* InstructionsCell_Timeline */,
 				C9F43E8F191AE252003DB6B4 /* InstructionsCell_RequestGPS */,
 				C96D31881919BF6D00B340F4 /* Add Friends */,
@@ -1273,6 +1279,16 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		C9E40188191EC48300ADD072 /* Restaurant Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C9E40189191EC4AC00ADD072 /* RestaurantCell.h */,
+				C9E4018A191EC4AC00ADD072 /* RestaurantCell.m */,
+				C9E4018B191EC4AC00ADD072 /* RestaurantCell.xib */,
+			);
+			name = "Restaurant Cell";
+			sourceTree = "<group>";
+		};
 		C9F43E8F191AE252003DB6B4 /* InstructionsCell_RequestGPS */ = {
 			isa = PBXGroup;
 			children = (
@@ -1465,6 +1481,7 @@
 				C991FB8B1861110200C10B52 /* glass_half.png in Resources */,
 				C96D5FBB185005B60068093C /* tastingnotes.json in Resources */,
 				C9D0784818452AF800F47851 /* Initial_iPhone.storyboard in Resources */,
+				C9E4018D191EC4AC00ADD072 /* RestaurantCell.xib in Resources */,
 				C92CAE3518330CC700F29C9B /* group.restaurant.strega-waterfront.1marinaparkdrive.all.json in Resources */,
 				C9C7D61718401F1700A2E955 /* tab_nearMe.png in Resources */,
 				C95A2CC9185BDC0F0043ECB0 /* tutorial_triedIt.png in Resources */,
@@ -1659,6 +1676,7 @@
 				C9B6B26C18D8FF75007406DC /* User+CreateAndModify.m in Sources */,
 				C96D31B3191AAC2200B340F4 /* Restaurant2.m in Sources */,
 				C9548F5119036E63001A8997 /* TastingRecordHelper.m in Sources */,
+				C9E4018C191EC4AC00ADD072 /* RestaurantCell.m in Sources */,
 				C96D31B9191AAC2200B340F4 /* User2.m in Sources */,
 				C990FAC51910886F00BF692E /* TastingRecord_SICDTVC.m in Sources */,
 				C9A73D8819030AC7007C2366 /* Flight2+Modify.m in Sources */,
