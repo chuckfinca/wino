@@ -101,8 +101,8 @@
     CAGradientLayer *layer = [CAGradientLayer layer];
     layer.frame = mapView.bounds;
     layer.colors = @[(id)[ColorSchemer sharedInstance].customWhite.CGColor, (id)[UIColor clearColor].CGColor];
-    layer.startPoint = CGPointMake(1.0f, 0.1f);
-    layer.endPoint = CGPointMake(0.0f, 0.1f);
+    layer.startPoint = CGPointMake(0.7f, 0.0f);
+    layer.endPoint = CGPointMake(0.0f, 0.0f);
     mapView.layer.mask = layer;
     
     [self.view insertSubview:mapView atIndex:0];
