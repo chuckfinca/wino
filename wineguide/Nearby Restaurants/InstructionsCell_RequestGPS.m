@@ -68,6 +68,7 @@
 - (IBAction)requestAccess:(id)sender
 {
     NSLog(@"requestAccess...");
+    [[LocationHelper sharedInstance] requestUserLocationPermission];
     
 }
 

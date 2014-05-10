@@ -20,7 +20,7 @@
 
 #define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
 #define RESTAURANT_CELL @"RestaurantCell"
-#define RESTAURANT_ENTITY @"Restaurant"
+//#define RESTAURANT_ENTITY @"Restaurant"
 
 @interface NearbyRestaurants_SICDTVC ()
 
@@ -47,9 +47,13 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"RestaurantCell" bundle:nil] forCellReuseIdentifier:RESTAURANT_CELL];
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
+    
+    if([[LocationHelper sharedInstance] locationServicesEnabled]){
+        //[self getMoreResultsFromTheServer];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -84,11 +88,6 @@
 
 
 #pragma mark - Location
-
--(void)checkUserLocation
-{
-    BOOL enabled = [[LocationHelper sharedInstance] locationServicesEnabled];
-}
 
 -(void)getMoreResultsFromTheServer
 {
@@ -158,7 +157,6 @@
     Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [self.sizingCell setupCellForRestaurant:restaurant];
-    NSLog(@"height = %f",CGRectGetHeight(self.sizingCell.bounds));
     return CGRectGetHeight(self.sizingCell.bounds);
 }
 

@@ -11,6 +11,12 @@
 
 static LocationHelper *sharedInstance;
 
+@interface LocationHelper () <CLLocationManagerDelegate>
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+
+@end
+
 @implementation LocationHelper
 
 +(LocationHelper *)sharedInstance
@@ -22,9 +28,22 @@ static LocationHelper *sharedInstance;
     return sharedInstance;
 }
 
+#pragma mark - Getters & setters
+
+-(CLLocationManager *)locationManager
+{
+    if(!_locationManager){
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+        _locationManager.distanceFilter = 2000;
+        _locationManager.delegate = self;
+    }
+    return _locationManager;
+}
+
 -(BOOL)locationServicesEnabled
 {
-    BOOL locationServicesEnabled = NO;
+    BOOL locationServicesEnabled = [CLLocationManager locationServicesEnabled];
     
     // check to see if the user has given us access to gps
     NSInteger locationAuthorizationStatus = [CLLocationManager authorizationStatus];
@@ -41,7 +60,6 @@ static LocationHelper *sharedInstance;
             break;
         case kCLAuthorizationStatusAuthorized:
             NSLog(@"kCLAuthorizationStatusAuthorized");
-            locationAuthorizationStatus = YES;
             break;
             
         default:
@@ -55,5 +73,32 @@ static LocationHelper *sharedInstance;
 {
     
 }
+
+-(void)requestUserLocationPermission
+{
+    [self.locationManager startUpdatingLocation];
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    NSLog(@"locationManager didUpdateLocations...");
+    NSLog(@"%i locations",[locations count]);
+    
+    CLLocation *location = [locations firstObject];
+    NSLog(@"Lat = %f",location.coordinate.latitude);
+    NSLog(@"Long = %f",location.coordinate.longitude);
+    
+    [manager stopUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"locationManager didFailWithError %@",error.localizedDescription);
+}
+
+
+
 
 @end

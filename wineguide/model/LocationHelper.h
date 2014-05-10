@@ -14,5 +14,6 @@
 
 -(BOOL)locationServicesEnabled;
 -(void)getUserLocation;
+-(void)requestUserLocationPermission;
 
 @end

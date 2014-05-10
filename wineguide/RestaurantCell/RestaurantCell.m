@@ -41,11 +41,9 @@
 {
     if(restaurant.name){
         self.restaurantNameLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.name capitalizedString] attributes:[FontThemer sharedInstance].subHeadlineTextAttributes];
-        //self.restaurantVHTV.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     }
     if(restaurant.address){
         self.restaurantAddressLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.address capitalizedString] attributes:[FontThemer sharedInstance].secondaryFootnoteTextAttributes];
-        //self.addressVHTV.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     }
     
     [self setViewHeight];
