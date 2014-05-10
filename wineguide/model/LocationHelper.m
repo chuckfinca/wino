@@ -83,13 +83,9 @@ static LocationHelper *sharedInstance;
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    NSLog(@"locationManager didUpdateLocations...");
-    NSLog(@"%i locations",[locations count]);
-    
     CLLocation *location = [locations firstObject];
     NSLog(@"Lat = %f",location.coordinate.latitude);
     NSLog(@"Long = %f",location.coordinate.longitude);
-    
     [manager stopUpdatingLocation];
 }
 
