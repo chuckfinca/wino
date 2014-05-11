@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 @interface LocationHelper : NSObject
 
+typedef void(^RefreshUserLocationCompletionHandler)(BOOL requestNearbyRestaurants, CLLocation *location);
+
 +(LocationHelper *)sharedInstance;
 
--(BOOL)locationServicesEnabled;
--(void)getUserLocation;
+-(void)refreshUserLocationBecauseUserRequested:(BOOL)userRequested completionHandler:(RefreshUserLocationCompletionHandler)completionHandler;
 -(void)requestUserLocationPermission;
 
 @end

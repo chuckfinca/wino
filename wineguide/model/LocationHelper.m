@@ -7,17 +7,22 @@
 //
 
 #import "LocationHelper.h"
-#import <MapKit/MapKit.h>
+
+#define RE_REQUEST_NEARYBY_RESTAURANTS_DISTANCE_THRESHOLD 300 // meters
 
 static LocationHelper *sharedInstance;
+
 
 @interface LocationHelper () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLLocation *lastLocationSentToServer;
+@property (nonatomic, strong) RefreshUserLocationCompletionHandler refreshUserLocationCompletionHandler;
 
 @end
 
 @implementation LocationHelper
+
 
 +(LocationHelper *)sharedInstance
 {
@@ -69,9 +74,14 @@ static LocationHelper *sharedInstance;
     return locationServicesEnabled;
 }
 
--(void)getUserLocation
+-(void)refreshUserLocationBecauseUserRequested:(BOOL)userRequested completionHandler:(RefreshUserLocationCompletionHandler)completionHandler
 {
-    
+    if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized || userRequested){
+        [self.locationManager startUpdatingLocation];
+        self.refreshUserLocationCompletionHandler = completionHandler;
+    } else {
+        completionHandler(NO,nil);
+    }
 }
 
 -(void)requestUserLocationPermission
@@ -84,8 +94,19 @@ static LocationHelper *sharedInstance;
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *location = [locations firstObject];
-    NSLog(@"Lat = %f",location.coordinate.latitude);
-    NSLog(@"Long = %f",location.coordinate.longitude);
+    
+    double distanceTraveled = [location distanceFromLocation:self.lastLocationSentToServer];
+    
+    if(!self.lastLocationSentToServer || distanceTraveled > RE_REQUEST_NEARYBY_RESTAURANTS_DISTANCE_THRESHOLD){
+        
+        NSLog(@"Lat = %f",location.coordinate.latitude);
+        NSLog(@"Long = %f",location.coordinate.longitude);
+        self.refreshUserLocationCompletionHandler(YES,location);
+        self.lastLocationSentToServer = location;
+    } else {
+        self.refreshUserLocationCompletionHandler(NO,nil);
+    }
+    
     [manager stopUpdatingLocation];
 }
 

@@ -22,7 +22,7 @@
 #define RESTAURANT_CELL @"RestaurantCell"
 //#define RESTAURANT_ENTITY @"Restaurant"
 
-@interface NearbyRestaurants_SICDTVC ()
+@interface NearbyRestaurants_SICDTVC () <RequestUserLocation>
 
 @property (nonatomic, strong) RestaurantCell *sizingCell;
 
@@ -42,24 +42,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupSearchBar];
+    
     self.navigationItem.title = @"Restaurants Nearby";
+    self.searchBar.placeholder = @"Search by zipcode...";
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"RestaurantCell" bundle:nil] forCellReuseIdentifier:RESTAURANT_CELL];
+    
+    InstructionsCell_RequestGPS *cell = (InstructionsCell_RequestGPS *)self.instructionsCell;
+    cell.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    if([[LocationHelper sharedInstance] locationServicesEnabled]){
-        //[self getMoreResultsFromTheServer];
-    }
+    [self requestUserLocationUserRequested:NO];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -80,11 +81,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_RequestGPS" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
 }
 
--(void)setupSearchBar
-{
-    self.searchBar.placeholder = @"Search for restaurants...";
-}
-
 
 
 #pragma mark - Location
@@ -96,7 +92,6 @@
     
     RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
     [rdh updateCoreDataWithJSONFromURL:url];
-    
     
     [[DocumentHandler2 sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document) {
         double latitude = 1;
@@ -139,6 +134,7 @@
     Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [cell setupCellForRestaurant:restaurant];
+    
     return cell;
 }
 
@@ -190,6 +186,22 @@
 - (IBAction)revealLeftPanel:(UIBarButtonItem *)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_OR_HIDE_LEFT_PANEL object:nil];
+}
+
+
+
+#pragma mark - RequestUserLocation
+
+-(void)requestUserLocationUserRequested:(BOOL)userRequested
+{
+    [[LocationHelper sharedInstance] refreshUserLocationBecauseUserRequested:userRequested completionHandler:^(BOOL requestNearbyRestaurants, CLLocation *location) {
+        if(requestNearbyRestaurants){
+            // Call server with coordinates of the CLLocation
+            NSLog(@"Get nearby restaurants from server");
+        } else {
+            NSLog(@"Don't request nearby restaurants");
+        }
+    }];
 }
 
 

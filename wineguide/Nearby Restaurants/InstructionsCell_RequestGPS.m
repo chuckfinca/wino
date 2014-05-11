@@ -11,7 +11,6 @@
 #import "RoundedRectButton.h"
 #import "ColorSchemer.h"
 #import "FontThemer.h"
-#import "LocationHelper.h"
 
 @interface InstructionsCell_RequestGPS ()
 
@@ -37,7 +36,7 @@
     NSAttributedString *accessButtonAttributedText = [[NSAttributedString alloc] initWithString:accessButtonText attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].customWhite, NSFontAttributeName : [FontThemer sharedInstance].body}];
     [self.accessButton setAttributedTitle:accessButtonAttributedText forState:UIControlStateNormal];
     
-    NSString *instructions = @"In order to find the restaurant you're at Corkie needs access to your location data.";
+    NSString *instructions = @"In order to find the restaurant you're at automatically Corkie needs access to your location data.";
     self.instructions_VHTV.attributedText = [[NSAttributedString alloc] initWithString:instructions attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
     
     self.gpsImageView.image = [[UIImage imageNamed:@"instructions_gps.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -67,8 +66,7 @@
 
 - (IBAction)requestAccess:(id)sender
 {
-    NSLog(@"requestAccess...");
-    [[LocationHelper sharedInstance] requestUserLocationPermission];
+    [self.delegate requestUserLocationUserRequested:YES];
     
 }
 

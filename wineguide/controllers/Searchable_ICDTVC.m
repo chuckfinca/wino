@@ -30,14 +30,13 @@
     
     self.searchBar.delegate = self;
     [self customizeSearchBar];
-    
-    [self refresh];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self listenForKeyboardNotifcations];
+    [self refresh];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -53,7 +52,6 @@
 {
     [self getManagedObjectContext];
     if (self.context){
-        [self getMoreResultsFromTheServer];
         [self setupAndSearchFetchedResultsControllerWithText:nil];
     }
 }

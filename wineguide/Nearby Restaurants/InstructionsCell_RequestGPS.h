@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol RequestUserLocation
+
+-(void)requestUserLocationUserRequested:(BOOL)userRequested;
+
+@end
+
 @interface InstructionsCell_RequestGPS : UITableViewCell
+
+@property (nonatomic, weak) id <RequestUserLocation> delegate;
 
 @end
