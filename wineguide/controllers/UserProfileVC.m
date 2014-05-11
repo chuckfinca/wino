@@ -11,7 +11,7 @@
 #import <FBGraphUser.h>
 #import "FacebookSessionManager.h"
 #import "GetMe.h"
-#import "Timeline_SICDTVC.h"
+#import "Timeline_TRSICDTVC.h"
 #import "Cellar_SICDTVC.h"
 #import "ColorSchemer.h"
 #import "FontThemer.h"
@@ -207,7 +207,7 @@
             controller = [[Cellar_SICDTVC alloc] init];
         break;
     case 1:
-            controller = [[Timeline_SICDTVC alloc] initWithNibName:nil bundle:nil];
+            controller = [[Timeline_TRSICDTVC alloc] initWithNibName:nil bundle:nil];
         break;
     case 2:
         break;

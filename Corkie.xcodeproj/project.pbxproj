@@ -219,7 +219,7 @@
 		C9DAB84818E8DAD300BB0E2A /* ReviewDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB84718E8DAD300BB0E2A /* ReviewDataHelper.m */; };
 		C9DAB84B18E8DC5A00BB0E2A /* Review+CreateAndModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB84A18E8DC5A00BB0E2A /* Review+CreateAndModify.m */; };
 		C9DAB84E18E8EF3E00BB0E2A /* TastingRecordDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB84D18E8EF3E00BB0E2A /* TastingRecordDataHelper.m */; };
-		C9DAB85418E90FE800BB0E2A /* Timeline_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85318E90FE800BB0E2A /* Timeline_SICDTVC.m */; };
+		C9DAB85418E90FE800BB0E2A /* Timeline_TRSICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85318E90FE800BB0E2A /* Timeline_TRSICDTVC.m */; };
 		C9DAB85718E91D3900BB0E2A /* ReviewsTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85618E91D3900BB0E2A /* ReviewsTVController.m */; };
 		C9DAB85D18EA025000BB0E2A /* ReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85C18EA025000BB0E2A /* ReviewCell.m */; };
 		C9DDD08718201EEC000A6FD7 /* DocumentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08618201EEC000A6FD7 /* DocumentHandler.m */; };
@@ -622,8 +622,8 @@
 		C9DAB84A18E8DC5A00BB0E2A /* Review+CreateAndModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Review+CreateAndModify.m"; path = "model/Review+CreateAndModify.m"; sourceTree = "<group>"; };
 		C9DAB84C18E8EF3E00BB0E2A /* TastingRecordDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TastingRecordDataHelper.h; path = model/TastingRecordDataHelper.h; sourceTree = "<group>"; };
 		C9DAB84D18E8EF3E00BB0E2A /* TastingRecordDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TastingRecordDataHelper.m; path = model/TastingRecordDataHelper.m; sourceTree = "<group>"; };
-		C9DAB85218E90FE800BB0E2A /* Timeline_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timeline_SICDTVC.h; path = controllers/Timeline_SICDTVC.h; sourceTree = "<group>"; };
-		C9DAB85318E90FE800BB0E2A /* Timeline_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Timeline_SICDTVC.m; path = controllers/Timeline_SICDTVC.m; sourceTree = "<group>"; };
+		C9DAB85218E90FE800BB0E2A /* Timeline_TRSICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timeline_TRSICDTVC.h; path = controllers/Timeline_TRSICDTVC.h; sourceTree = "<group>"; };
+		C9DAB85318E90FE800BB0E2A /* Timeline_TRSICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Timeline_TRSICDTVC.m; path = controllers/Timeline_TRSICDTVC.m; sourceTree = "<group>"; };
 		C9DAB85518E91D3900BB0E2A /* ReviewsTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewsTVController.h; path = controllers/ReviewsTVController.h; sourceTree = "<group>"; };
 		C9DAB85618E91D3900BB0E2A /* ReviewsTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewsTVController.m; path = controllers/ReviewsTVController.m; sourceTree = "<group>"; };
 		C9DAB85B18EA025000BB0E2A /* ReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewCell.h; path = views/ReviewCell.h; sourceTree = "<group>"; };
@@ -859,8 +859,8 @@
 				C9B6B25F18D7ACA3007406DC /* UserProfileVC.m */,
 				C9693537187E39FE0071EF41 /* CheckInVC.h */,
 				C9693538187E39FE0071EF41 /* CheckInVC.m */,
-				C9DAB85218E90FE800BB0E2A /* Timeline_SICDTVC.h */,
-				C9DAB85318E90FE800BB0E2A /* Timeline_SICDTVC.m */,
+				C9DAB85218E90FE800BB0E2A /* Timeline_TRSICDTVC.h */,
+				C9DAB85318E90FE800BB0E2A /* Timeline_TRSICDTVC.m */,
 				C9DAB85518E91D3900BB0E2A /* ReviewsTVController.h */,
 				C9DAB85618E91D3900BB0E2A /* ReviewsTVController.m */,
 			);
@@ -1549,7 +1549,7 @@
 				C9693534187D18BF0071EF41 /* FontThemer.m in Sources */,
 				C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */,
 				C93A73D718F0AB46000E0B56 /* TastingNote.m in Sources */,
-				C9DAB85418E90FE800BB0E2A /* Timeline_SICDTVC.m in Sources */,
+				C9DAB85418E90FE800BB0E2A /* Timeline_TRSICDTVC.m in Sources */,
 				C9548EC219032753001A8997 /* RatingHistoryHelper.m in Sources */,
 				C96D31C2191AB24100B340F4 /* Instructions_CDTVC.m in Sources */,
 				C96D31A7191AAC2200B340F4 /* Varietal2.m in Sources */,

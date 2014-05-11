@@ -12,9 +12,12 @@
 
 @interface Instructions_CDTVC : CoreDataTableViewController
 
-@property (nonatomic, strong) UITableViewCell *instructionsCell; // Abstract
-
+@property (nonatomic, strong) UITableViewCell *instructionsCell; // Abstract - register below:
 -(void)registerInstructionCellNib; // Abstract - REQUIRED to display the instructions cell
+
+@property (nonatomic) BOOL displayInstructionsCell;
+
+// Replacement UITableView Delegate and Datasource methods
 
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath; // Abstract
 -(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath; // Abstract

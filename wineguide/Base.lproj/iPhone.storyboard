@@ -36,11 +36,11 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantCell" rowHeight="80" id="1aO-XF-FA9" customClass="RestaurantCell">
-                                <rect key="frame" x="0.0" y="130" width="320" height="80"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantCell" id="1aO-XF-FA9" customClass="RestaurantCell">
+                                <rect key="frame" x="0.0" y="130" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1aO-XF-FA9" id="9Ed-oS-YPl">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </tableViewCellContentView>
@@ -169,10 +169,10 @@
             </objects>
             <point key="canvasLocation" x="964" y="2363"/>
         </scene>
-        <!--TimelineSICDTVC-->
+        <!--TimelineTRSICDTVC-->
         <scene sceneID="me6-qe-NNA">
             <objects>
-                <tableViewController id="7qc-6F-T9c" customClass="Timeline_SICDTVC" sceneMemberID="viewController">
+                <tableViewController id="7qc-6F-T9c" customClass="Timeline_TRSICDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="192" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xoy-bv-kON">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

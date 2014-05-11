@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "Timeline_SICDTVC.h"
+#import "Timeline_TRSICDTVC.h"
 #import <CoreData/CoreData.h>
 #import "ColorSchemer.h"
 #import "DocumentHandler.h"
@@ -21,13 +21,13 @@
 
 #define TASTING_RECORD_ENTITY @"TastingRecord"
 
-@interface Timeline_SICDTVC () <UIGestureRecognizerDelegate>
+@interface Timeline_TRSICDTVC () <UIGestureRecognizerDelegate>
 
 @property (nonatomic) CGPoint touchLocation;
 
 @end
 
-@implementation Timeline_SICDTVC
+@implementation Timeline_TRSICDTVC
 
 - (void)viewDidLoad
 {
@@ -41,7 +41,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self setupFetchedResultsController];
+    [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
 #pragma mark - Setup
@@ -51,7 +51,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_Timeline" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
 }
 
--(void)setupFetchedResultsController
+-(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     //NSLog(@"Timeline setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TASTING_RECORD_ENTITY];
@@ -65,6 +65,9 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
+    if([self.fetchedResultsController.fetchedObjects count] == 0){
+        self.displayInstructionsCell = YES;
+    }
 }
 
 

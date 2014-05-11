@@ -44,7 +44,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
+    if(self.displayInstructionsCell){
         return 1;
     } else {
         return [[self.fetchedResultsController sections] count];
@@ -53,18 +53,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
+    if(self.displayInstructionsCell){
+        NSLog(@"-numberOfRowsInSection = 1");
         return 1;
     } else {
+        NSLog(@"numberOfRowsInSection = %i",[[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects]);
         return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
     }
 }
 
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
+    if(self.displayInstructionsCell){
         return self.instructionsCell;
     } else {
         cell = [self customTableViewCellForIndexPath:indexPath];
@@ -82,7 +83,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
+    if(self.displayInstructionsCell){
         return [self heightForInstructionsCell];
     } else {
         return [self heightForCellAtIndexPath:indexPath];
@@ -102,7 +103,7 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
+    if(self.displayInstructionsCell){
         return nil;
     } else {
         return [self viewForHeaderInSection:section];
@@ -117,7 +118,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
+    if(self.displayInstructionsCell){
         return nil;
     } else {
         return [self titleForHeaderInSection:section];
@@ -126,7 +127,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
+    if(self.displayInstructionsCell){
         return DEFAULT_SECTION_HEADER_HEIGHT;
     } else {
         return [self heightForHeaderInSection:section];
@@ -171,19 +172,11 @@
         switch(type)
         {
             case NSFetchedResultsChangeInsert:
-                if(indexPath.row == 0){
-                    [self.tableView reloadData];
-                } else {
                     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-                }
                 break;
                 
             case NSFetchedResultsChangeDelete:
-                if(indexPath.row == 0){
-                    [self.tableView reloadData];
-                } else {
-                    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                }
+                [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
                 break;
                 
             case NSFetchedResultsChangeUpdate:

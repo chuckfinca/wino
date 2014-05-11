@@ -100,7 +100,6 @@ typedef enum {
 {
     // get the winelist for that restaurant
     self.restaurant = restaurant;
-    self.context = restaurant.managedObjectContext;
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
     self.tableView.tableHeaderView = self.restaurantDetailsViewController.view;
     
@@ -149,15 +148,7 @@ typedef enum {
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"color"
                                                                                    cacheName:nil];
-    // NSLog(@"%@",self.fetchedResultsController.fetchedObjects);
-}
 
--(void)logFetchResultsForController:(NSFetchedResultsController *)frc
-{
-    NSLog(@"fetchedResultCount = %lu",(unsigned long)[frc.fetchedObjects count]);
-    for(NSObject *fetchedResult in frc.fetchedObjects){
-        NSLog(@"fetchedResult = %@",fetchedResult.description);
-    }
 }
 
 #pragma mark - UITableViewDataSource

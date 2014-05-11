@@ -48,7 +48,7 @@ static LocationHelper *sharedInstance;
 
 -(BOOL)locationServicesEnabled
 {
-    BOOL locationServicesEnabled = [CLLocationManager locationServicesEnabled];
+    BOOL locationServicesEnabled = NO;
     
     // check to see if the user has given us access to gps
     NSInteger locationAuthorizationStatus = [CLLocationManager authorizationStatus];
@@ -65,6 +65,7 @@ static LocationHelper *sharedInstance;
             break;
         case kCLAuthorizationStatusAuthorized:
             NSLog(@"kCLAuthorizationStatusAuthorized");
+            locationServicesEnabled = YES;
             break;
             
         default:
@@ -84,10 +85,7 @@ static LocationHelper *sharedInstance;
     }
 }
 
--(void)requestUserLocationPermission
-{
-    [self.locationManager startUpdatingLocation];
-}
+
 
 #pragma mark - CLLocationManagerDelegate
 
@@ -97,10 +95,11 @@ static LocationHelper *sharedInstance;
     
     double distanceTraveled = [location distanceFromLocation:self.lastLocationSentToServer];
     
+    NSLog(@"Lat = %f",location.coordinate.latitude);
+    NSLog(@"Long = %f",location.coordinate.longitude);
+    
     if(!self.lastLocationSentToServer || distanceTraveled > RE_REQUEST_NEARYBY_RESTAURANTS_DISTANCE_THRESHOLD){
         
-        NSLog(@"Lat = %f",location.coordinate.latitude);
-        NSLog(@"Long = %f",location.coordinate.longitude);
         self.refreshUserLocationCompletionHandler(YES,location);
         self.lastLocationSentToServer = location;
     } else {
@@ -108,6 +107,9 @@ static LocationHelper *sharedInstance;
     }
     
     [manager stopUpdatingLocation];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:LOCATION_SERVICES_ENABLED];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error

@@ -20,7 +20,7 @@
 
 #define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
 #define RESTAURANT_CELL @"RestaurantCell"
-//#define RESTAURANT_ENTITY @"Restaurant"
+#define RESTAURANT_ENTITY @"Restaurant"
 
 @interface NearbyRestaurants_SICDTVC () <RequestUserLocation>
 
@@ -48,8 +48,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"RestaurantCell" bundle:nil] forCellReuseIdentifier:RESTAURANT_CELL];
     
-    InstructionsCell_RequestGPS *cell = (InstructionsCell_RequestGPS *)self.instructionsCell;
-    cell.delegate = self;
+    [self setupInstructionsCell];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -82,24 +81,25 @@
 }
 
 
-
-#pragma mark - Location
-
--(void)getMoreResultsFromTheServer
+-(void)setupInstructionsCell
 {
-    // this will be replaced with a server url when available
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
-    
-    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
-    [rdh updateCoreDataWithJSONFromURL:url];
-    
-    [[DocumentHandler2 sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document) {
-        double latitude = 1;
-        double longitude = 1;
-        ServerCommunicator *caller = [[ServerCommunicator alloc] init];
-        [caller getRestaurantsNearLatitude:latitude longitude:longitude];
-        [caller getAllWinesFromRestaurantIdentifier:1];
-    }];
+    BOOL userAlreadyEnabledLocation = [[NSUserDefaults standardUserDefaults] boolForKey:LOCATION_SERVICES_ENABLED];
+    if(userAlreadyEnabledLocation == NO){
+        self.displayInstructionsCell = YES;
+        InstructionsCell_RequestGPS *cell = (InstructionsCell_RequestGPS *)self.instructionsCell;
+        cell.delegate = self;
+        self.suspendAutomaticTrackingOfChangesInManagedObjectContext = YES;
+        [self.tableView reloadData];
+    }
+}
+
+-(void)removeInstructionsCell
+{
+    self.displayInstructionsCell = NO;
+    self.instructionsCell = nil;
+    [self.tableView reloadData];
+    self.suspendAutomaticTrackingOfChangesInManagedObjectContext = NO;
+    [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
 
@@ -128,7 +128,7 @@
 
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    RestaurantCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"RestaurantCell" forIndexPath:indexPath];
+    RestaurantCell *cell = [self.tableView dequeueReusableCellWithIdentifier:RESTAURANT_CELL forIndexPath:indexPath];
     
     // Configure the cell...
     Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -198,6 +198,12 @@
         if(requestNearbyRestaurants){
             // Call server with coordinates of the CLLocation
             NSLog(@"Get nearby restaurants from server");
+            
+            if(self.displayInstructionsCell == YES){
+                [self removeInstructionsCell];
+            }
+            [self getMoreResultsFromTheServer];
+            
         } else {
             NSLog(@"Don't request nearby restaurants");
         }
@@ -207,6 +213,25 @@
 
 
 
+-(void)getMoreResultsFromTheServer
+{
+    // this will be replaced with a server url when available
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
+    
+    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
+    [rdh updateCoreDataWithJSONFromURL:url];
+    
+    [self.tableView reloadData];
+    /*
+    [[DocumentHandler2 sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document) {
+        double latitude = 1;
+        double longitude = 1;
+        ServerCommunicator *caller = [[ServerCommunicator alloc] init];
+        [caller getRestaurantsNearLatitude:latitude longitude:longitude];
+        [caller getAllWinesFromRestaurantIdentifier:1];
+    }];
+     */
+}
 
 
 

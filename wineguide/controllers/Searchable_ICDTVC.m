@@ -30,13 +30,13 @@
     
     self.searchBar.delegate = self;
     [self customizeSearchBar];
+    [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self listenForKeyboardNotifcations];
-    [self refresh];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -45,26 +45,25 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark - Getters & setters
+
+-(NSManagedObjectContext *)context
+{
+    if(!_context){
+        if([DocumentHandler sharedDocumentHandler]){
+            _context = [DocumentHandler sharedDocumentHandler].document.managedObjectContext;
+            [self setupAndSearchFetchedResultsControllerWithText:nil];
+            
+        } else {
+            [self listenForDocumentReadyNotification];
+            NSLog(@"[DocumentHandler sharedDocumentHandler] does not exist (%@). Did start listening to DocumentReady notifications",[DocumentHandler sharedDocumentHandler]);
+        }
+    }
+    return _context;
+}
 
 #pragma mark - Setup
 
--(void)refresh
-{
-    [self getManagedObjectContext];
-    if (self.context){
-        [self setupAndSearchFetchedResultsControllerWithText:nil];
-    }
-}
-
--(void)getManagedObjectContext
-{
-    if(!self.context && [DocumentHandler sharedDocumentHandler]){
-        self.context = [DocumentHandler sharedDocumentHandler].document.managedObjectContext;
-    } else {
-        [self listenForDocumentReadyNotification];
-        NSLog(@"cannot get managed object context because either self.context exists (%@) or [DocumentHandler sharedDocumentHandler] does not exist (%@). Did start listening to DocumentReady notifications",self.context,[DocumentHandler sharedDocumentHandler]);
-    }
-}
 
 -(void)customizeSearchBar
 {
@@ -122,7 +121,7 @@
 -(void)listenForDocumentReadyNotification
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(refresh)
+                                             selector:@selector(setupAndSearchFetchedResultsControllerWithText:)
                                                  name:@"Document Ready"
                                                object:nil];
 }

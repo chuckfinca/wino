@@ -8,6 +8,6 @@
 
 #import "TastingRecord_SICDTVC.h"
 
-@interface Timeline_SICDTVC : TastingRecord_SICDTVC
+@interface Timeline_TRSICDTVC : TastingRecord_SICDTVC
 
 @end
