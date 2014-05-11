@@ -53,19 +53,12 @@
 -(void)setViewHeight
 {
     CGFloat height = 0;
+    
     height += self.topToInstructionsVHTVConstraint.constant;
     height += [self.instructions_VHTV height];
     height += self.instructionsVhtvToAccessButtonConstraint.constant;
     height += self.accessButton.bounds.size.height;
     height += self.accessButtonToBottomConstraint.constant;
-    
-    
-    NSLog(@"topToInstructionsVHTVConstraint = %f",self.topToInstructionsVHTVConstraint.constant);
-    NSLog(@"instructions_VHTV = %f",[self.instructions_VHTV height]);
-    NSLog(@"instructionsVhtvToAccessButtonConstraint = %f",self.instructionsVhtvToAccessButtonConstraint.constant);
-    NSLog(@"accessButton = %f",self.accessButton.bounds.size.height);
-    NSLog(@"accessButtonToBottomConstraint = %f",self.accessButtonToBottomConstraint.constant);
-    NSLog(@"height = %f",height);
     
     self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }

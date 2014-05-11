@@ -54,8 +54,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self setupAndSearchFetchedResultsControllerWithText:nil];
-    
     [self setupSearchBar];
 }
 
@@ -101,18 +99,6 @@
 -(void)setupSearchBar
 {
     self.searchBar.placeholder = @"Search your cellar...";
-    
-    CGSize searchSize = self.searchBar.bounds.size;
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
-        
-        [self.tableView setContentOffset:CGPointMake(0, searchSize.height)];
-        self.searchBar.hidden = YES;
-    } else {
-        if(self.searchBar.hidden == YES){
-            self.searchBar.hidden = NO;
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-        }
-    }
 }
 
 #pragma mark - SearchableCDTVC Required Methods

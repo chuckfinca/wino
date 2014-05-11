@@ -54,10 +54,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(self.displayInstructionsCell){
-        NSLog(@"-numberOfRowsInSection = 1");
         return 1;
     } else {
-        NSLog(@"numberOfRowsInSection = %i",[[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects]);
         return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
     }
 }

@@ -30,13 +30,13 @@
     
     self.searchBar.delegate = self;
     [self customizeSearchBar];
-    [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self listenForKeyboardNotifcations];
+    [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
 -(void)viewWillDisappear:(BOOL)animated

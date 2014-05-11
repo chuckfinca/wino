@@ -83,8 +83,6 @@
     self.context = wine.managedObjectContext;
     self.displayWineNameOnEachCell = NO;
     
-    [self setupAndSearchFetchedResultsControllerWithText:nil];
-    
     // get the reviews for that wine
     [self getTastingRecords];
 }
@@ -100,15 +98,6 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
-    // NSLog(@"%@",self.fetchedResultsController.fetchedObjects);
-}
-
--(void)logFetchResultsForController:(NSFetchedResultsController *)frc
-{
-    NSLog(@"fetchedResultCount = %lu",(unsigned long)[frc.fetchedObjects count]);
-    for(NSObject *fetchedResult in frc.fetchedObjects){
-        NSLog(@"fetchedResult = %@",fetchedResult.description);
-    }
 }
 
 -(void)getTastingRecords

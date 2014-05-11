@@ -37,13 +37,6 @@
     self.displayWineNameOnEachCell = YES;
 }
 
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self setupAndSearchFetchedResultsControllerWithText:nil];
-}
-
 #pragma mark - Setup
 
 -(void)registerInstructionCellNib
@@ -67,6 +60,8 @@
                                                                                    cacheName:nil];
     if([self.fetchedResultsController.fetchedObjects count] == 0){
         self.displayInstructionsCell = YES;
+    } else {
+        self.displayInstructionsCell = NO;
     }
 }
 
