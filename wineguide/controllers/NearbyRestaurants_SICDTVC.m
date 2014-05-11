@@ -89,7 +89,6 @@
         InstructionsCell_RequestGPS *cell = (InstructionsCell_RequestGPS *)self.instructionsCell;
         cell.delegate = self;
         self.suspendAutomaticTrackingOfChangesInManagedObjectContext = YES;
-        [self.tableView reloadData];
     }
 }
 
@@ -97,7 +96,6 @@
 {
     self.displayInstructionsCell = NO;
     self.instructionsCell = nil;
-    [self.tableView reloadData];
     self.suspendAutomaticTrackingOfChangesInManagedObjectContext = NO;
     [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
@@ -221,7 +219,6 @@
     RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
     [rdh updateCoreDataWithJSONFromURL:url];
     
-    [self.tableView reloadData];
     /*
     [[DocumentHandler2 sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document) {
         double latitude = 1;

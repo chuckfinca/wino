@@ -240,7 +240,6 @@ typedef enum {
         }
     }
     
-    self.fetchedResultsController = nil;
     [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
