@@ -115,6 +115,7 @@ static LocationHelper *sharedInstance;
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"locationManager didFailWithError %@",error.localizedDescription);
+    [manager stopUpdatingLocation];
 }
 
 
