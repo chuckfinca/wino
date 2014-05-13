@@ -11,7 +11,9 @@
 @interface Searchable_ICDTVC : Instructions_CDTVC <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, weak) NSManagedObjectContext *context;
-@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
+
+@property (nonatomic) BOOL displaySearchBar;
+@property (nonatomic, strong) UISearchBar *searchBar;
 
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text; // Abstract
 -(void)getMoreResultsFromTheServer; // Abstract

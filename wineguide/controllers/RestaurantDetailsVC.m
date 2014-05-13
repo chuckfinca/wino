@@ -44,6 +44,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.segmentedControl.backgroundColor = [ColorSchemer sharedInstance].customWhite;
+    self.segmentedControl.tintColor = [ColorSchemer sharedInstance].baseColor;
     
     [self.restaurantDetailsVHTV setupTextViewWithRestaurant:self.restaurant];
     [self setViewHeight];
@@ -80,16 +82,6 @@
     
     NSError *error;
     [self.fetchedResultsController performFetch:&error];
-    
-    // [self logFetchResultsForController:self.fetchedResultsController];
-}
-
--(void)logFetchResultsForController:(NSFetchedResultsController *)frc
-{
-    NSLog(@"fetchedResultCount = %lu",(unsigned long)[frc.fetchedObjects count]);
-    for(NSObject *fetchedResult in frc.fetchedObjects){
-        NSLog(@"fetchedResult = %@",fetchedResult.description);
-    }
 }
 
 #pragma mark - Setup
@@ -141,9 +133,6 @@
     }
     [self.segmentedControl setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:10.0]} forState:UIControlStateNormal];
     [self.segmentedControl setSelectedSegmentIndex:0];
-    [self.delegate loadWineList:[self.segmentedControl selectedSegmentIndex]];
-    self.segmentedControl.backgroundColor = [ColorSchemer sharedInstance].customWhite;
-    self.segmentedControl.tintColor = [ColorSchemer sharedInstance].clickable;
 }
 
 

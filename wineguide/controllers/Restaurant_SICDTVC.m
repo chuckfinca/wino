@@ -62,7 +62,6 @@ typedef enum {
 {
     [super viewDidLoad];
     
-    self.title = @"Wine List";
     [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeaderViewIdentifier"];
 }
@@ -94,6 +93,14 @@ typedef enum {
     return _testingArray;
 }
 
+-(NSString *)selectedGroupIdentifier
+{
+    if(!_selectedGroupIdentifier){
+        _selectedGroupIdentifier = [NSString stringWithFormat:@"group.%@.all",self.restaurant.identifier];
+    }
+    return _selectedGroupIdentifier;
+}
+
 #pragma mark - Setup
 
 -(void)setupWithRestaurant:(Restaurant *)restaurant
@@ -104,7 +111,6 @@ typedef enum {
     self.tableView.tableHeaderView = self.restaurantDetailsViewController.view;
     
     [self refreshWineList];
-    self.title = nil;
 }
 
 -(void)refreshWineList
@@ -148,7 +154,7 @@ typedef enum {
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"color"
                                                                                    cacheName:nil];
-
+    NSLog(@"self.selectedGroupIdentifier = %@",self.selectedGroupIdentifier);
 }
 
 #pragma mark - UITableViewDataSource

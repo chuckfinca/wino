@@ -49,12 +49,14 @@
     self.title = @"Cellar";
     [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
     self.firstTime = YES;
+    
+    self.displaySearchBar = YES;
+    self.searchBar.placeholder = @"Search your cellar...";
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self setupSearchBar];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,11 +96,6 @@
 -(void)setupForUser:(User *)user
 {
     self.user = user;
-}
-
--(void)setupSearchBar
-{
-    self.searchBar.placeholder = @"Search your cellar...";
 }
 
 #pragma mark - SearchableCDTVC Required Methods

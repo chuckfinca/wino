@@ -44,6 +44,8 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"Restaurants Nearby";
+    
+    self.displaySearchBar = YES;
     self.searchBar.placeholder = @"Search by zipcode...";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"RestaurantCell" bundle:nil] forCellReuseIdentifier:RESTAURANT_CELL];

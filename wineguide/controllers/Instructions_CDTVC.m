@@ -145,7 +145,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if([self.fetchedResultsController.fetchedObjects count] > 0){
+    if(!self.displayInstructionsCell){
         [self userDidSelectRowAtIndexPath:indexPath];
     }
 }

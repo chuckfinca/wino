@@ -11,6 +11,12 @@
 #import "DocumentHandler.h"
 #import "ColorSchemer.h"
 
+@interface Searchable_ICDTVC ()
+
+@property (nonatomic, strong) UISearchDisplayController * customSearchDisplayController;
+
+@end
+
 @implementation Searchable_ICDTVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -27,15 +33,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
-    
-    self.searchBar.delegate = self;
-    [self customizeSearchBar];
+    self.tableView.separatorColor = [ColorSchemer sharedInstance].gray;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self listenForKeyboardNotifcations];
+    
+    if(self.displaySearchBar){
+        self.tableView.tableHeaderView = _searchBar;
+    }
+    
     [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
@@ -65,18 +74,24 @@
 #pragma mark - Setup
 
 
--(void)customizeSearchBar
+-(UISearchBar *)searchBar
 {
-    self.searchBar.barTintColor = [ColorSchemer sharedInstance].customWhite;
-    
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
-    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    [self.searchBar setSearchFieldBackgroundImage:blank forState:UIControlStateNormal];
-    
-    [self.searchBar.layer setBorderColor:[ColorSchemer sharedInstance].lightGray.CGColor];
-    [self.searchBar.layer setBorderWidth:1];
+    if(!_searchBar){
+        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+        _searchBar.delegate = self;
+        
+        _searchBar.barTintColor = [ColorSchemer sharedInstance].customWhite;
+        
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
+        UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        [_searchBar setSearchFieldBackgroundImage:blank forState:UIControlStateNormal];
+        
+        [_searchBar.layer setBorderColor:[ColorSchemer sharedInstance].gray.CGColor];
+        [_searchBar.layer setBorderWidth:1];
+    }
+    return _searchBar;
 }
 
 #pragma mark - UISearchBarDelegate
@@ -85,7 +100,6 @@
 {
     //NSLog(@"searchText = %@",searchText);
     [self setupAndSearchFetchedResultsControllerWithText:searchText];
-    self.searchBar.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -142,9 +156,9 @@
 -(void)showHideCancelButton:(NSNotification *)notification
 {
     if(notification.name == UIKeyboardWillShowNotification){
-        [self.searchBar setShowsCancelButton:YES animated:YES];
+        [_searchBar setShowsCancelButton:YES animated:YES];
     } else {
-        [self.searchBar setShowsCancelButton:NO animated:NO];
+        [_searchBar setShowsCancelButton:NO animated:NO];
     }
 }
 
