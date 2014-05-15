@@ -10,7 +10,6 @@
 #import "WineNameVHTV.h"
 #import "ColorSchemer.h"
 #import "FontThemer.h"
-#import "FacebookProfileImageGetter.h"
 #import "TalkingHeadsLabel.h"
 #import "RatingPreparer.h"
 #import "ReviewsLabel.h"
@@ -30,54 +29,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToReviewsLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToBottomConstraint;
 
-
-@property (nonatomic, strong) UIImage *empty;
-@property (nonatomic, strong) UIImage *half;
-@property (nonatomic, strong) UIImage *full;
-@property (nonatomic, strong) FacebookProfileImageGetter *facebookProfileImageGetter;
-
 @end
 
 @implementation WineCell
-
-- (void)awakeFromNib
-{
-    // Initialization code
-}
-
-#pragma mark - Getters & setters
-
--(UIImage *)empty
-{
-    if(!_empty){
-        _empty = [[UIImage imageNamed:@"glass_empty.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    }
-    return _empty;
-}
-
--(UIImage *)half
-{
-    if(!_half){
-        _half = [[UIImage imageNamed:@"glass_half.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    }
-    return _half;
-}
-
--(UIImage *)full
-{
-    if(!_full){
-        _full = [[UIImage imageNamed:@"glass_full.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    }
-    return _full;
-}
-
--(FacebookProfileImageGetter *)facebookProfileImageGetter
-{
-    if(!_facebookProfileImageGetter){
-        _facebookProfileImageGetter = [[FacebookProfileImageGetter alloc] init];
-    }
-    return _facebookProfileImageGetter;
-}
 
 #pragma mark - Setup
 
