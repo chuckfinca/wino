@@ -120,7 +120,6 @@
                     <constraint firstItem="Btr-sl-rrp" firstAttribute="trailing" secondItem="7Xy-6s-aw8" secondAttribute="trailing" id="eDK-lK-TrE"/>
                     <constraint firstItem="X9V-A0-It0" firstAttribute="top" secondItem="92m-N1-buE" secondAttribute="top" id="gNO-Fu-0bb"/>
                     <constraint firstAttribute="bottom" secondItem="jMq-e2-AcZ" secondAttribute="bottom" constant="19" id="gXX-cd-PbD"/>
-                    <constraint firstItem="jMq-e2-AcZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Edj-of-vRn" secondAttribute="leading" constant="20" symbolic="YES" id="hbM-II-xFB"/>
                     <constraint firstItem="jMq-e2-AcZ" firstAttribute="top" secondItem="wfu-lW-9vx" secondAttribute="bottom" constant="8" id="j6O-tZ-2fO"/>
                     <constraint firstItem="jMq-e2-AcZ" firstAttribute="leading" secondItem="X9V-A0-It0" secondAttribute="trailing" constant="8" id="l65-Zn-Wvx"/>
                     <constraint firstAttribute="trailing" secondItem="7Xy-6s-aw8" secondAttribute="trailing" id="s8b-Ph-IhW"/>
@@ -133,6 +132,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="glassToReviewsLabelConstraint" destination="l65-Zn-Wvx" id="Dcs-VA-8HM"/>
                 <outlet property="reviewsLabel" destination="jMq-e2-AcZ" id="H02-wd-cps"/>
                 <outlet property="reviewsLabelToBottomConstraint" destination="gXX-cd-PbD" id="eba-iw-xsz"/>
                 <outlet property="talkingHeadsImageViewArrayToReviewsLabelConstraint" destination="j6O-tZ-2fO" id="AD7-DA-H8G"/>

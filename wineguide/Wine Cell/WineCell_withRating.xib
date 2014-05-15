@@ -81,7 +81,6 @@
                     <constraint firstItem="aUV-k0-hZH" firstAttribute="leading" secondItem="sJA-kh-QbY" secondAttribute="trailing" constant="2" id="O0c-WW-BXh"/>
                     <constraint firstItem="DM7-Dc-XEJ" firstAttribute="top" secondItem="gs9-Pr-yhG" secondAttribute="bottom" constant="8" id="TXL-Pv-BWX"/>
                     <constraint firstItem="aUV-k0-hZH" firstAttribute="top" secondItem="08R-K4-9zE" secondAttribute="top" id="UFa-1t-lwM"/>
-                    <constraint firstItem="DM7-Dc-XEJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jFh-Fm-gD1" secondAttribute="leading" constant="20" symbolic="YES" id="Unz-HU-PzA"/>
                     <constraint firstItem="gs9-Pr-yhG" firstAttribute="trailing" secondItem="DM7-Dc-XEJ" secondAttribute="trailing" id="bXI-ZN-Rhg"/>
                     <constraint firstItem="DM7-Dc-XEJ" firstAttribute="top" secondItem="aUV-k0-hZH" secondAttribute="top" id="dUt-0z-iaM"/>
                     <constraint firstItem="08R-K4-9zE" firstAttribute="leading" secondItem="jFh-Fm-gD1" secondAttribute="leading" constant="20" id="gNH-iT-AGw"/>
@@ -93,6 +92,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="glassToReviewsLabelConstraint" destination="CLg-or-L7M" id="Cyd-Kz-Yzi"/>
                 <outlet property="reviewsLabel" destination="DM7-Dc-XEJ" id="cz1-3z-cAI"/>
                 <outlet property="reviewsLabelToBottomConstraint" destination="Ckv-tQ-MVO" id="9hR-fu-fho"/>
                 <outlet property="topToWineNameVHTVConstraint" destination="FdP-xP-29m" id="Hwv-An-dmc"/>

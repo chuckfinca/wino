@@ -29,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToReviewsLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToBottomConstraint;
 
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *glassToReviewsLabelConstraint;
+
 @end
 
 @implementation WineCell
@@ -80,13 +83,21 @@
 
 -(void)setupRatingForWine:(Wine *)wine
 {
-    NSInteger numberOfRatings = 0;
+    NSInteger numberOfRatings = arc4random_uniform(120)+1;
     
     if(self.glassRatingImageViewArray){
+        
         float rating = (arc4random_uniform(50)+1)/10;
+        
         [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColorString:wine.color];
         
-        numberOfRatings = arc4random_uniform(120);
+        if(!rating || rating == 0){
+            numberOfRatings = 0;
+            self.glassToReviewsLabelConstraint.constant = -83;
+        } else {
+            self.glassToReviewsLabelConstraint.constant = 8;
+        }
+        
         [self.reviewsLabel setupForNumberOfReviews:numberOfRatings];
         
         self.wineNameVHTVToBottomConstraint = nil;
