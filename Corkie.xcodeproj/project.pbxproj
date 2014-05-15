@@ -79,6 +79,7 @@
 		C94E8E581924260E00BB0669 /* WineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C94E8E561924260E00BB0669 /* WineCell.xib */; };
 		C94E8E5A1924290A00BB0669 /* WineCell_withRating.xib in Resources */ = {isa = PBXBuildFile; fileRef = C94E8E591924290A00BB0669 /* WineCell_withRating.xib */; };
 		C94E8E5C192430A500BB0669 /* WineCell_withRatingAndTalkingHeads.xib in Resources */ = {isa = PBXBuildFile; fileRef = C94E8E5B192430A500BB0669 /* WineCell_withRatingAndTalkingHeads.xib */; };
+		C94E8E681925607B00BB0669 /* TalkingHeadsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C94E8E671925607B00BB0669 /* TalkingHeadsLabel.m */; };
 		C9548EBF190324FE001A8997 /* RatingHistory2+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EBE190324FE001A8997 /* RatingHistory2+Modify.m */; };
 		C9548EC219032753001A8997 /* RatingHistoryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EC119032753001A8997 /* RatingHistoryHelper.m */; };
 		C9548EE519034760001A8997 /* TastingNote2+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EE419034760001A8997 /* TastingNote2+Modify.m */; };
@@ -396,6 +397,8 @@
 		C94E8E561924260E00BB0669 /* WineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineCell.xib; path = "Wine Cell/WineCell.xib"; sourceTree = "<group>"; };
 		C94E8E591924290A00BB0669 /* WineCell_withRating.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineCell_withRating.xib; path = "Wine Cell/WineCell_withRating.xib"; sourceTree = "<group>"; };
 		C94E8E5B192430A500BB0669 /* WineCell_withRatingAndTalkingHeads.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineCell_withRatingAndTalkingHeads.xib; path = "Wine Cell/WineCell_withRatingAndTalkingHeads.xib"; sourceTree = "<group>"; };
+		C94E8E661925607B00BB0669 /* TalkingHeadsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkingHeadsLabel.h; path = "Wine Cell/TalkingHeadsLabel.h"; sourceTree = "<group>"; };
+		C94E8E671925607B00BB0669 /* TalkingHeadsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkingHeadsLabel.m; path = "Wine Cell/TalkingHeadsLabel.m"; sourceTree = "<group>"; };
 		C9548EBD190324FE001A8997 /* RatingHistory2+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RatingHistory2+Modify.h"; path = "model/managedObjectCategories/RatingHistory2+Modify.h"; sourceTree = "<group>"; };
 		C9548EBE190324FE001A8997 /* RatingHistory2+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RatingHistory2+Modify.m"; path = "model/managedObjectCategories/RatingHistory2+Modify.m"; sourceTree = "<group>"; };
 		C9548EC019032753001A8997 /* RatingHistoryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingHistoryHelper.h; path = model/managedObjectHelpers/RatingHistoryHelper.h; sourceTree = "<group>"; };
@@ -1169,6 +1172,8 @@
 				C94E8E561924260E00BB0669 /* WineCell.xib */,
 				C94E8E591924290A00BB0669 /* WineCell_withRating.xib */,
 				C94E8E5B192430A500BB0669 /* WineCell_withRatingAndTalkingHeads.xib */,
+				C94E8E661925607B00BB0669 /* TalkingHeadsLabel.h */,
+				C94E8E671925607B00BB0669 /* TalkingHeadsLabel.m */,
 			);
 			name = "Wine Cell";
 			sourceTree = "<group>";
@@ -1705,6 +1710,7 @@
 				C9E4018C191EC4AC00ADD072 /* RestaurantCell.m in Sources */,
 				C96D31B9191AAC2200B340F4 /* User2.m in Sources */,
 				C990FAC51910886F00BF692E /* TastingRecord_SICDTVC.m in Sources */,
+				C94E8E681925607B00BB0669 /* TalkingHeadsLabel.m in Sources */,
 				C9A73D8819030AC7007C2366 /* Flight2+Modify.m in Sources */,
 				C96D31A1191AAC2200B340F4 /* TastingRecord2.m in Sources */,
 				C969347818779F1B0071EF41 /* TastingRecord+CreateAndModify.m in Sources */,

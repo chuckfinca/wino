@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WineCellTalkingHeadsLabel : UILabel
+@interface TalkingHeadsLabel : UILabel
+
+-(void)setupLabelWithNumberOfAdditionalPeople:(NSInteger)additionalPeople andYou:(BOOL)youLikeThis;
 
 @end
