@@ -7,26 +7,26 @@
 //
 
 #import "WineCell.h"
-#import "WineNameVHTV.h"
 #import "ColorSchemer.h"
 #import "TalkingHeadsLabel.h"
 #import "RatingPreparer.h"
 #import "ReviewsLabel.h"
+#import "WineNameLabel.h"
 
 @interface WineCell ()
 
-@property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
+@property (weak, nonatomic) IBOutlet WineNameLabel *wineNameLabel;
 @property (weak, nonatomic) IBOutlet TalkingHeadsLabel *talkingHeadsLabel;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *glassRatingImageViewArray;
 @property (weak, nonatomic) IBOutlet ReviewsLabel *reviewsLabel;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameVHTVConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToTalkingHeadsButtonArrayConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameLabelToTalkingHeadsButtonArrayConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsButtonArrayToReviewsLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewsLabelToBottomConstraint;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToReviewsLabelConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameLabelToReviewsLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameLabelToBottomConstraint;
 
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *glassToReviewsLabelConstraint;
@@ -41,7 +41,8 @@
 {
     // Wine object will come with a rating history, which will be used to determine the ratings, and a talking heads object, which will be used to determine the talking heads.
     
-    [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:nil];
+    [self.wineNameLabel setupForWine:wine fromRestaurant:nil];
+    
     [self setupTalkingHeadsForWine:wine];
     [self setupRatingForWine:wine];
     
@@ -60,24 +61,24 @@
             [talkingHeadButton setImage:[[UIImage imageNamed:@"user_default.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
             talkingHeadButton.tintColor = [ColorSchemer sharedInstance].baseColor;
             /*
-            if(talkingHead.tag + 1 <= numberOfTalkingHeads){
-                
-                
-                 [self.facebookProfileImageGetter setProfilePicForUser:nil inImageView:talkingHead completion:^(BOOL success) {
-                 if(success){
-                 [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                 }
-                 }];
-                 }
-                 */
+             if(talkingHead.tag + 1 <= numberOfTalkingHeads){
+             
+             
+             [self.facebookProfileImageGetter setProfilePicForUser:nil inImageView:talkingHead completion:^(BOOL success) {
+             if(success){
+             [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+             }
+             }];
+             }
+             */
         }
         
         NSInteger additionalPeople = numberOfTalkingHeads - 3 > 0 ? numberOfTalkingHeads - 3 : 0;
         [self.talkingHeadsLabel setupLabelWithNumberOfAdditionalPeople:additionalPeople andYou:[wine.user_favorite boolValue]];
         
-        self.wineNameVHTVToReviewsLabelConstraint = nil;
+        self.wineNameLabelToReviewsLabelConstraint = nil;
     } else {
-        self.wineNameVHTVToTalkingHeadsButtonArrayConstraint = nil;
+        self.wineNameLabelToTalkingHeadsButtonArrayConstraint = nil;
         self.talkingHeadsButtonArrayToReviewsLabelConstraint = nil;
     }
 }
@@ -101,13 +102,13 @@
         
         [self.reviewsLabel setupForNumberOfReviews:numberOfRatings];
         
-        self.wineNameVHTVToBottomConstraint = nil;
+        self.wineNameLabelToBottomConstraint = nil;
         
     } else {
-        self.wineNameVHTVToTalkingHeadsButtonArrayConstraint = nil;
+        self.wineNameLabelToTalkingHeadsButtonArrayConstraint = nil;
         self.talkingHeadsButtonArrayToReviewsLabelConstraint = nil;
         self.reviewsLabelToBottomConstraint = nil;
-        self.wineNameVHTVToReviewsLabelConstraint = nil;
+        self.wineNameLabelToReviewsLabelConstraint = nil;
     }
 }
 
@@ -120,23 +121,25 @@
         backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     }
     self.backgroundColor = backgroundColor;
-    self.wineNameVHTV.backgroundColor = backgroundColor;
 }
 
 -(void)setViewHeight
 {
     CGFloat height = 0;
     
-    height += self.topToWineNameVHTVConstraint.constant;
-    height += [self.wineNameVHTV height];
+    height += self.topToWineNameLabelConstraint.constant;
     
-    if(self.glassRatingImageViewArray){
-        height += self.wineNameVHTVToTalkingHeadsButtonArrayConstraint.constant;
+    NSLog(@"self.wineNameLabel.bounds.size.width = %f",self.wineNameLabel.bounds.size.width);
+    CGSize wineNameLabelSize = [self.wineNameLabel sizeThatFits:CGSizeMake(260, FLT_MAX)];
+    height += wineNameLabelSize.height;
+    
+    if(self.talkingHeadsButtonArray){
+        height += self.wineNameLabelToTalkingHeadsButtonArrayConstraint.constant;
         UIButton *talkingHeadButton = [self.talkingHeadsButtonArray firstObject];
         height += talkingHeadButton.bounds.size.height;
         height += self.talkingHeadsButtonArrayToReviewsLabelConstraint.constant;
     } else {
-        height += self.wineNameVHTVToReviewsLabelConstraint.constant;
+        height += self.wineNameLabelToReviewsLabelConstraint.constant;
     }
     
     if(self.reviewsLabel){
@@ -145,7 +148,7 @@
     }
     
     if(!self.glassRatingImageViewArray && !self.reviewsLabel){
-        height += self.wineNameVHTVToBottomConstraint.constant;
+        height += self.wineNameLabelToBottomConstraint.constant;
     }
     
     self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);

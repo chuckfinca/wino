@@ -13,13 +13,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="177"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="wine name" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gs9-Pr-yhG" customClass="WineNameVHTV">
-                        <rect key="frame" x="20" y="20" width="300" height="109"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="08R-K4-9zE">
                         <rect key="frame" x="20" y="137" width="15" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -70,23 +63,29 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wine name label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="3TS-Pr-GK9" customClass="WineNameLabel">
+                        <rect key="frame" x="20" y="20" width="300" height="109"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="aUV-k0-hZH" firstAttribute="top" secondItem="sJA-kh-QbY" secondAttribute="top" id="5S4-17-e1k"/>
                     <constraint firstItem="o5u-0V-7iQ" firstAttribute="leading" secondItem="08R-K4-9zE" secondAttribute="trailing" constant="2" id="9C2-DY-nhs"/>
                     <constraint firstItem="DM7-Dc-XEJ" firstAttribute="leading" secondItem="aUV-k0-hZH" secondAttribute="trailing" constant="8" id="CLg-or-L7M"/>
                     <constraint firstAttribute="bottom" secondItem="DM7-Dc-XEJ" secondAttribute="bottom" constant="20" symbolic="YES" id="Ckv-tQ-MVO"/>
-                    <constraint firstItem="gs9-Pr-yhG" firstAttribute="leading" secondItem="jFh-Fm-gD1" secondAttribute="leading" constant="20" id="FQ6-fL-ZB9"/>
-                    <constraint firstItem="gs9-Pr-yhG" firstAttribute="top" secondItem="jFh-Fm-gD1" secondAttribute="top" constant="20" symbolic="YES" id="FdP-xP-29m"/>
                     <constraint firstItem="aUV-k0-hZH" firstAttribute="leading" secondItem="sJA-kh-QbY" secondAttribute="trailing" constant="2" id="O0c-WW-BXh"/>
-                    <constraint firstItem="DM7-Dc-XEJ" firstAttribute="top" secondItem="gs9-Pr-yhG" secondAttribute="bottom" constant="8" id="TXL-Pv-BWX"/>
                     <constraint firstItem="aUV-k0-hZH" firstAttribute="top" secondItem="08R-K4-9zE" secondAttribute="top" id="UFa-1t-lwM"/>
-                    <constraint firstItem="gs9-Pr-yhG" firstAttribute="trailing" secondItem="DM7-Dc-XEJ" secondAttribute="trailing" id="bXI-ZN-Rhg"/>
+                    <constraint firstAttribute="trailing" secondItem="3TS-Pr-GK9" secondAttribute="trailing" id="bRg-fy-ok2"/>
                     <constraint firstItem="DM7-Dc-XEJ" firstAttribute="top" secondItem="aUV-k0-hZH" secondAttribute="top" id="dUt-0z-iaM"/>
+                    <constraint firstItem="3TS-Pr-GK9" firstAttribute="leading" secondItem="jFh-Fm-gD1" secondAttribute="leading" constant="20" id="dsl-Te-bJL"/>
                     <constraint firstItem="08R-K4-9zE" firstAttribute="leading" secondItem="jFh-Fm-gD1" secondAttribute="leading" constant="20" id="gNH-iT-AGw"/>
+                    <constraint firstItem="3TS-Pr-GK9" firstAttribute="top" secondItem="jFh-Fm-gD1" secondAttribute="top" constant="20" id="hhE-Sc-f2O"/>
                     <constraint firstItem="aUV-k0-hZH" firstAttribute="top" secondItem="o5u-0V-7iQ" secondAttribute="top" id="hnB-Ko-pxo"/>
                     <constraint firstItem="ZQn-6e-hvb" firstAttribute="leading" secondItem="o5u-0V-7iQ" secondAttribute="trailing" constant="2" id="mvT-bS-YoL"/>
-                    <constraint firstAttribute="trailing" secondItem="gs9-Pr-yhG" secondAttribute="trailing" id="tAb-4g-Oix"/>
+                    <constraint firstItem="3TS-Pr-GK9" firstAttribute="trailing" secondItem="DM7-Dc-XEJ" secondAttribute="trailing" id="pEi-GE-ueQ"/>
+                    <constraint firstItem="DM7-Dc-XEJ" firstAttribute="top" secondItem="3TS-Pr-GK9" secondAttribute="bottom" constant="8" id="vVg-P2-iWf"/>
                     <constraint firstItem="aUV-k0-hZH" firstAttribute="top" secondItem="ZQn-6e-hvb" secondAttribute="top" id="yT7-O6-Xs5"/>
                     <constraint firstItem="sJA-kh-QbY" firstAttribute="leading" secondItem="ZQn-6e-hvb" secondAttribute="trailing" constant="2" id="zZF-N1-xxQ"/>
                 </constraints>
@@ -95,9 +94,9 @@
                 <outlet property="glassToReviewsLabelConstraint" destination="CLg-or-L7M" id="Cyd-Kz-Yzi"/>
                 <outlet property="reviewsLabel" destination="DM7-Dc-XEJ" id="cz1-3z-cAI"/>
                 <outlet property="reviewsLabelToBottomConstraint" destination="Ckv-tQ-MVO" id="54y-2g-Gxo"/>
-                <outlet property="topToWineNameVHTVConstraint" destination="FdP-xP-29m" id="pNW-1C-wgv"/>
-                <outlet property="wineNameVHTV" destination="gs9-Pr-yhG" id="GcD-v1-TSj"/>
-                <outlet property="wineNameVHTVToReviewsLabelConstraint" destination="TXL-Pv-BWX" id="XYL-UG-Zx5"/>
+                <outlet property="topToWineNameLabelConstraint" destination="hhE-Sc-f2O" id="MuI-Di-Gqc"/>
+                <outlet property="wineNameLabel" destination="3TS-Pr-GK9" id="Uc4-aq-HMU"/>
+                <outlet property="wineNameLabelToReviewsLabelConstraint" destination="vVg-P2-iWf" id="me8-Hg-B13"/>
                 <outletCollection property="glassRatingImageViewArray" destination="08R-K4-9zE" id="FEJ-iU-o0r"/>
                 <outletCollection property="glassRatingImageViewArray" destination="o5u-0V-7iQ" id="RCW-Uy-21G"/>
                 <outletCollection property="glassRatingImageViewArray" destination="ZQn-6e-hvb" id="Jye-rP-LW4"/>

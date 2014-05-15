@@ -16,7 +16,6 @@
 
 -(void)setupForWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
 {
-    
     NSString *textViewString = @"";
     NSRange nameRange = NSMakeRange(0, 0);
     NSRange restaurantRange = NSMakeRange(0, 0);
@@ -67,6 +66,11 @@
     
     self.attributedText = attributedText;
 }
+
+
+
+
+
 
 
 
