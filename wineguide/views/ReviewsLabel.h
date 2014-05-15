@@ -10,4 +10,6 @@
 
 @interface ReviewsLabel : UILabel
 
+-(void)setupForNumberOfReviews:(NSInteger)numberOfReviews;
+
 @end

@@ -7,25 +7,27 @@
 //
 
 #import "ReviewsLabel.h"
+#import "FontThemer.h"
 
 @implementation ReviewsLabel
 
-- (id)initWithFrame:(CGRect)frame
+-(void)setupForNumberOfReviews:(NSInteger)numberOfReviews
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+    NSAttributedString *attributedString;
+    NSString *text;
+    
+    if(numberOfReviews > 0){
+        text = [NSString stringWithFormat:@"%ld review",(long)numberOfReviews];
+        if(numberOfReviews > 1){
+            text = [text stringByAppendingString:@"s"];
+        }
+        attributedString = [[NSAttributedString alloc] initWithString:text attributes:[FontThemer sharedInstance].secondaryCaption1TextAttributes];
+    } else {
+        text = @"Be the first to try it!";
+        attributedString = [[NSAttributedString alloc] initWithString:text attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
     }
-    return self;
+    
+    self.attributedText = attributedString;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
