@@ -13,7 +13,7 @@
 #import "ColorSchemer.h"
 #import "WineUnitDataHelper.h"
 #import "Restaurant.h"
-#import "WineCell_OLD.h"
+#import "WineCell.h"
 
 #define WINE_ENTITY @"Wine"
 #define GROUP_ENTITY @"Group"
@@ -108,12 +108,10 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"WineCell";
-    WineCell_OLD *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    WineCell *cell = [tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
     
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell setupCellForWine:wine];
-    cell.abridged = YES;
     
     return cell;
 }
