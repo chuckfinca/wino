@@ -30,11 +30,11 @@
             NSInteger glassIndex = iv.tag;
             UIImage *image;
             if(glassIndex + 1 > rating){
-                image = [UIImage imageNamed:@"glass_empty.png"];
+                image = [[UIImage imageNamed:@"glass_empty.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             } else if(glassIndex + 1 <= rating) {
-                image = [UIImage imageNamed:@"glass_full.png"];
+                image = [[UIImage imageNamed:@"glass_full.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             } else {
-                image = [UIImage imageNamed:@"glass_half.png"];
+                image = [[UIImage imageNamed:@"glass_half.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             }
             iv.tintColor = wineColor;
             [iv setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
