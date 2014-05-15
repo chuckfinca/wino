@@ -11,7 +11,7 @@
 
 @implementation RatingPreparer
 
-+(void)setupRating:(float)rating inButtonArray:(NSArray *)buttonArray withWineColorString:(NSString *)wineColorString
++(void)setupRating:(float)rating inImageViewArray:(NSArray *)imageViewArray withWineColorString:(NSString *)wineColorString
 {
     if(rating && rating > 0){
         UIColor *wineColor;
@@ -25,9 +25,9 @@
             NSLog(@"wine.color != red/rose/white");
         }
         
-        for(UIButton *button in buttonArray){
-            button.hidden = NO;
-            NSInteger glassIndex = button.tag;
+        for(UIImageView *iv in imageViewArray){
+            iv.hidden = NO;
+            NSInteger glassIndex = iv.tag;
             UIImage *image;
             if(glassIndex + 1 > rating){
                 image = [[UIImage imageNamed:@"glass_empty.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -36,11 +36,11 @@
             } else {
                 image = [[UIImage imageNamed:@"glass_half.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             }
-            button.tintColor = wineColor;
-            [button setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            iv.tintColor = wineColor;
+            [iv setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
         }
     } else {
-        for(UIImageView *iv in buttonArray){
+        for(UIImageView *iv in imageViewArray){
             iv.hidden = YES;
         }
     }

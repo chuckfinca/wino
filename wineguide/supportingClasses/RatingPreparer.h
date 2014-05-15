@@ -10,6 +10,6 @@
 
 @interface RatingPreparer : NSObject
 
-+(void)setupRating:(float)rating inButtonArray:(NSArray *)buttonArray withWineColorString:(NSString *)wineColorString;
++(void)setupRating:(float)rating inImageViewArray:(NSArray *)imageViewArray withWineColorString:(NSString *)wineColorString;
 
 @end
