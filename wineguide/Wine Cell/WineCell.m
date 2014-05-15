@@ -86,7 +86,10 @@
     [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:nil];
     [self setupRatingForWine:wine];
     
-    [self setViewHeight];
+    
+    if(!self.talkingHeadsImageViewArray){
+        [self setViewHeight];
+    }
 }
 
 
@@ -108,9 +111,12 @@
         
         NSInteger additionalPeople = numberOfTalkingHeads - 3 > 0 ? numberOfTalkingHeads - 3 : 0;
         [self setupTalkingHeadsLabelForWine:wine andAdditionalPeople:additionalPeople];
-    } else {
         
+        self.wineNameVHTVToReviewsLabelConstraint = nil;
+    } else {
         NSLog(@"talkingHeadsImageViewArray DOES NOT exist");
+        self.wineNameVHTVToTalkingHeadsImageViewArrayConstraint = nil;
+        self.talkingHeadsImageViewArrayToReviewsLabelConstraint = nil;
     }
 }
 
@@ -154,6 +160,7 @@
         
         self.talkingHeadsLabel.attributedText = mutableAttributedString;
     }
+    [self setViewHeight];
 }
 
 -(void)setupRatingForWine:(Wine *)wine
@@ -180,8 +187,17 @@
         }
         
         numberOfRatings = arc4random_uniform(120);
+        
+        [self setupForNumberOfReviews:numberOfRatings];
+        
+        self.wineNameVHTVToBottomConstraint = nil;
+        
+    } else {
+        self.wineNameVHTVToTalkingHeadsImageViewArrayConstraint = nil;
+        self.talkingHeadsImageViewArrayToReviewsLabelConstraint = nil;
+        self.reviewsLabelToBottomConstraint = nil;
+        self.wineNameVHTVToReviewsLabelConstraint = nil;
     }
-    [self setupForNumberOfReviews:numberOfRatings];
 }
 
 -(UIColor *)setWineColorFromString:(NSString *)wineColorString
