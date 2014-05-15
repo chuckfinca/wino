@@ -192,9 +192,6 @@ typedef enum {
     
     [cell setupCellForWine:wine];
     
-    __weak UITableView *weakTableView = self.tableView;
-    [cell setupTalkingHeadsForWine:wine cellAtIndexPath:indexPath ofTableView:weakTableView];
-    
     return cell;
 }
 
@@ -245,9 +242,6 @@ typedef enum {
     WineCell *cell = [self testSizingCellForIndexPath:indexPath];
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell setupCellForWine:wine];
-    
-    __weak UITableView *weakTableView = self.tableView;
-    [cell setupTalkingHeadsForWine:wine cellAtIndexPath:indexPath ofTableView:weakTableView];
     
     return cell.bounds.size.height;
 }

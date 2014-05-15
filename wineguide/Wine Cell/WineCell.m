@@ -86,27 +86,31 @@
     [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:nil];
     [self setupRatingForWine:wine];
     
+    [self setupTalkingHeadsForWine:wine];
     
-    if(!self.talkingHeadsImageViewArray){
-        [self setViewHeight];
-    }
+    [self setViewHeight];
 }
 
 
--(void)setupTalkingHeadsForWine:(Wine *)wine cellAtIndexPath:(NSIndexPath *)indexPath ofTableView:(__weak UITableView *)tableView
+-(void)setupTalkingHeadsForWine:(Wine *)wine
 {
     if(self.talkingHeadsImageViewArray){
         NSLog(@"talkingHeadsImageViewArray exists");
         NSInteger numberOfTalkingHeads = arc4random_uniform(15) + 1;
         
         for(UIImageView *talkingHead in self.talkingHeadsImageViewArray){
+            [talkingHead setImage:[UIImage imageNamed:@"user_default.png"]];
+            /*
             if(talkingHead.tag + 1 <= numberOfTalkingHeads){
-                [self.facebookProfileImageGetter setProfilePicForUser:nil inImageView:talkingHead completion:^(BOOL success) {
-                    if(success){
-                        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                    }
-                }];
-            }
+                
+                
+                 [self.facebookProfileImageGetter setProfilePicForUser:nil inImageView:talkingHead completion:^(BOOL success) {
+                 if(success){
+                 [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                 }
+                 }];
+                 }
+                 */
         }
         
         NSInteger additionalPeople = numberOfTalkingHeads - 3 > 0 ? numberOfTalkingHeads - 3 : 0;
@@ -230,7 +234,7 @@
         attributedString = [[NSAttributedString alloc] initWithString:text attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
     }
     
-    self.textLabel.attributedText = attributedString;
+    self.reviewsLabel.attributedText = attributedString;
 }
 
 -(void)setViewHeight
