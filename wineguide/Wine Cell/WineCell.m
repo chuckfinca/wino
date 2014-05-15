@@ -13,13 +13,14 @@
 #import "FacebookProfileImageGetter.h"
 #import "TalkingHeadsLabel.h"
 #import "RatingPreparer.h"
+#import "ReviewsLabel.h"
 
 @interface WineCell ()
 
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (weak, nonatomic) IBOutlet TalkingHeadsLabel *talkingHeadsLabel;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *glassRatingImageViewArray;
-@property (weak, nonatomic) IBOutlet UILabel *reviewsLabel;
+@property (weak, nonatomic) IBOutlet ReviewsLabel *reviewsLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameVHTVConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToTalkingHeadsImageViewArrayConstraint;
@@ -85,9 +86,8 @@
     // Wine object will come with a rating history, which will be used to determine the ratings, and a talking heads object, which will be used to determine the talking heads.
     
     [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:nil];
-    [self setupRatingForWine:wine];
-    
     [self setupTalkingHeadsForWine:wine];
+    [self setupRatingForWine:wine];
     
     [self setViewHeight];
 }
@@ -133,7 +133,7 @@
         [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColorString:wine.color];
         
         numberOfRatings = arc4random_uniform(120);
-        [self setupForNumberOfReviews:numberOfRatings];
+        [self.reviewsLabel setupForNumberOfReviews:numberOfRatings];
         
         self.wineNameVHTVToBottomConstraint = nil;
         
@@ -143,25 +143,6 @@
         self.reviewsLabelToBottomConstraint = nil;
         self.wineNameVHTVToReviewsLabelConstraint = nil;
     }
-}
-
--(void)setupForNumberOfReviews:(NSInteger)numberOfReviews
-{
-    NSAttributedString *attributedString;
-    NSString *text;
-    
-    if(numberOfReviews > 0){
-        text = [NSString stringWithFormat:@"%ld review",(long)numberOfReviews];
-        if(numberOfReviews > 1){
-            text = [text stringByAppendingString:@"s"];
-        }
-        attributedString = [[NSAttributedString alloc] initWithString:text attributes:[FontThemer sharedInstance].secondaryCaption1TextAttributes];
-    } else {
-        text = @"Be the first to try it!";
-        attributedString = [[NSAttributedString alloc] initWithString:text attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
-    }
-    
-    self.reviewsLabel.attributedText = attributedString;
 }
 
 -(void)setViewHeight
