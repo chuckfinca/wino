@@ -81,6 +81,7 @@
 		C94E8E5C192430A500BB0669 /* WineCell_withRatingAndTalkingHeads.xib in Resources */ = {isa = PBXBuildFile; fileRef = C94E8E5B192430A500BB0669 /* WineCell_withRatingAndTalkingHeads.xib */; };
 		C94E8E681925607B00BB0669 /* TalkingHeadsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C94E8E671925607B00BB0669 /* TalkingHeadsLabel.m */; };
 		C94E8E6E1925687200BB0669 /* ReviewsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C94E8E6D1925687200BB0669 /* ReviewsLabel.m */; };
+		C94E8E7119257C2B00BB0669 /* WineNameLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C94E8E7019257C2B00BB0669 /* WineNameLabel.m */; };
 		C9548EBF190324FE001A8997 /* RatingHistory2+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EBE190324FE001A8997 /* RatingHistory2+Modify.m */; };
 		C9548EC219032753001A8997 /* RatingHistoryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EC119032753001A8997 /* RatingHistoryHelper.m */; };
 		C9548EE519034760001A8997 /* TastingNote2+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EE419034760001A8997 /* TastingNote2+Modify.m */; };
@@ -402,6 +403,8 @@
 		C94E8E671925607B00BB0669 /* TalkingHeadsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkingHeadsLabel.m; path = "Wine Cell/TalkingHeadsLabel.m"; sourceTree = "<group>"; };
 		C94E8E6C1925687200BB0669 /* ReviewsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewsLabel.h; path = views/ReviewsLabel.h; sourceTree = "<group>"; };
 		C94E8E6D1925687200BB0669 /* ReviewsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewsLabel.m; path = views/ReviewsLabel.m; sourceTree = "<group>"; };
+		C94E8E6F19257C2B00BB0669 /* WineNameLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineNameLabel.h; path = views/WineNameLabel.h; sourceTree = "<group>"; };
+		C94E8E7019257C2B00BB0669 /* WineNameLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineNameLabel.m; path = views/WineNameLabel.m; sourceTree = "<group>"; };
 		C9548EBD190324FE001A8997 /* RatingHistory2+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RatingHistory2+Modify.h"; path = "model/managedObjectCategories/RatingHistory2+Modify.h"; sourceTree = "<group>"; };
 		C9548EBE190324FE001A8997 /* RatingHistory2+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RatingHistory2+Modify.m"; path = "model/managedObjectCategories/RatingHistory2+Modify.m"; sourceTree = "<group>"; };
 		C9548EC019032753001A8997 /* RatingHistoryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingHistoryHelper.h; path = model/managedObjectHelpers/RatingHistoryHelper.h; sourceTree = "<group>"; };
@@ -912,6 +915,8 @@
 				C9DAB85C18EA025000BB0E2A /* ReviewCell.m */,
 				C92660EA190F16540024EFDC /* UIView+BorderDrawer.h */,
 				C92660EB190F16540024EFDC /* UIView+BorderDrawer.m */,
+				C94E8E6F19257C2B00BB0669 /* WineNameLabel.h */,
+				C94E8E7019257C2B00BB0669 /* WineNameLabel.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1713,6 +1718,7 @@
 				C9B6B26C18D8FF75007406DC /* User+CreateAndModify.m in Sources */,
 				C96D31B3191AAC2200B340F4 /* Restaurant2.m in Sources */,
 				C9548F5119036E63001A8997 /* TastingRecordHelper.m in Sources */,
+				C94E8E7119257C2B00BB0669 /* WineNameLabel.m in Sources */,
 				C9E4018C191EC4AC00ADD072 /* RestaurantCell.m in Sources */,
 				C96D31B9191AAC2200B340F4 /* User2.m in Sources */,
 				C990FAC51910886F00BF692E /* TastingRecord_SICDTVC.m in Sources */,
