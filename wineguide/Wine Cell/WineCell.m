@@ -21,8 +21,8 @@
 @property (weak, nonatomic) IBOutlet ReviewsLabel *reviewsLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameVHTVConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToTalkingHeadsImageViewArrayConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsImageViewArrayToReviewsLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToTalkingHeadsButtonArrayConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsButtonArrayToReviewsLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewsLabelToBottomConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToReviewsLabelConstraint;
@@ -53,12 +53,12 @@
 
 -(void)setupTalkingHeadsForWine:(Wine *)wine
 {
-    if(self.talkingHeadsImageViewArray){
-        NSLog(@"talkingHeadsImageViewArray exists");
+    if(self.talkingHeadsButtonArray){
         NSInteger numberOfTalkingHeads = arc4random_uniform(15) + 1;
         
-        for(UIImageView *talkingHead in self.talkingHeadsImageViewArray){
-            [talkingHead setImage:[UIImage imageNamed:@"user_default.png"]];
+        for(UIButton *talkingHeadButton in self.talkingHeadsButtonArray){
+            [talkingHeadButton setImage:[[UIImage imageNamed:@"user_default.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            talkingHeadButton.tintColor = [ColorSchemer sharedInstance].baseColor;
             /*
             if(talkingHead.tag + 1 <= numberOfTalkingHeads){
                 
@@ -77,8 +77,8 @@
         
         self.wineNameVHTVToReviewsLabelConstraint = nil;
     } else {
-        self.wineNameVHTVToTalkingHeadsImageViewArrayConstraint = nil;
-        self.talkingHeadsImageViewArrayToReviewsLabelConstraint = nil;
+        self.wineNameVHTVToTalkingHeadsButtonArrayConstraint = nil;
+        self.talkingHeadsButtonArrayToReviewsLabelConstraint = nil;
     }
 }
 
@@ -104,8 +104,8 @@
         self.wineNameVHTVToBottomConstraint = nil;
         
     } else {
-        self.wineNameVHTVToTalkingHeadsImageViewArrayConstraint = nil;
-        self.talkingHeadsImageViewArrayToReviewsLabelConstraint = nil;
+        self.wineNameVHTVToTalkingHeadsButtonArrayConstraint = nil;
+        self.talkingHeadsButtonArrayToReviewsLabelConstraint = nil;
         self.reviewsLabelToBottomConstraint = nil;
         self.wineNameVHTVToReviewsLabelConstraint = nil;
     }
@@ -131,10 +131,10 @@
     height += [self.wineNameVHTV height];
     
     if(self.glassRatingImageViewArray){
-        height += self.wineNameVHTVToTalkingHeadsImageViewArrayConstraint.constant;
-        UIImageView *talkingHeadImageView = [self.talkingHeadsImageViewArray firstObject];
-        height += talkingHeadImageView.bounds.size.height;
-        height += self.talkingHeadsImageViewArrayToReviewsLabelConstraint.constant;
+        height += self.wineNameVHTVToTalkingHeadsButtonArrayConstraint.constant;
+        UIButton *talkingHeadButton = [self.talkingHeadsButtonArray firstObject];
+        height += talkingHeadButton.bounds.size.height;
+        height += self.talkingHeadsButtonArrayToReviewsLabelConstraint.constant;
     } else {
         height += self.wineNameVHTVToReviewsLabelConstraint.constant;
     }
@@ -152,6 +152,10 @@
 }
 
 
+- (IBAction)pushUserProfile:(UIButton *)sender
+{
+    NSLog(@"push profile for button %ld",(long)sender.tag);
+}
 
 
 
