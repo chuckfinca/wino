@@ -9,7 +9,6 @@
 #import "WineCell.h"
 #import "WineNameVHTV.h"
 #import "ColorSchemer.h"
-#import "FontThemer.h"
 #import "TalkingHeadsLabel.h"
 #import "RatingPreparer.h"
 #import "ReviewsLabel.h"
@@ -45,6 +44,8 @@
     [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:nil];
     [self setupTalkingHeadsForWine:wine];
     [self setupRatingForWine:wine];
+    
+    [self setupBackgroundColorForWine:wine];
     
     [self setViewHeight];
 }
@@ -108,6 +109,18 @@
         self.reviewsLabelToBottomConstraint = nil;
         self.wineNameVHTVToReviewsLabelConstraint = nil;
     }
+}
+
+-(void)setupBackgroundColorForWine:(Wine *)wine
+{
+    UIColor *backgroundColor;
+    if([wine.user_favorite boolValue] == YES){
+        backgroundColor = [ColorSchemer sharedInstance].baseColorLight;
+    } else {
+        backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    }
+    self.backgroundColor = backgroundColor;
+    self.wineNameVHTV.backgroundColor = backgroundColor;
 }
 
 -(void)setViewHeight
