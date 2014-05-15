@@ -129,7 +129,6 @@
     
     height += self.topToWineNameLabelConstraint.constant;
     
-    NSLog(@"self.wineNameLabel.bounds.size.width = %f",self.wineNameLabel.bounds.size.width);
     CGSize wineNameLabelSize = [self.wineNameLabel sizeThatFits:CGSizeMake(260, FLT_MAX)];
     height += wineNameLabelSize.height;
     

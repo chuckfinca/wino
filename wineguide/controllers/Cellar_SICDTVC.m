@@ -12,7 +12,7 @@
 #import "Varietal.h"
 #import "TastingNote.h"
 #import "Wine_TRSICDTVC.h"
-#import "WineCell_OLD.h"
+#import "WineCell.h"
 #import "FontThemer.h"
 #import "GetMe.h"
 
@@ -27,7 +27,7 @@
 
 @property (nonatomic) BOOL firstTime;
 @property (nonatomic, strong) User *user;
-@property (nonatomic, strong) WineCell_OLD *wineSizingCell;
+@property (nonatomic, strong) WineCell *sizingCell;
 
 @end
 
@@ -47,7 +47,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = @"Cellar";
-    [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
+    [self.tableView registerNib:[UINib nibWithNibName:WINE_CELL bundle:nil] forCellReuseIdentifier:WINE_CELL];
     self.firstTime = YES;
     
     self.displaySearchBar = YES;
@@ -76,13 +76,12 @@
 }
 
 
--(WineCell_OLD *)wineSizingCell
+-(WineCell *)sizingCell
 {
-    if(!_wineSizingCell){
-        _wineSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"WineCell" owner:self options:nil] firstObject];
-        _wineSizingCell.abridged = YES;
+    if(!_sizingCell){
+        _sizingCell = [[[NSBundle mainBundle] loadNibNamed:@"WineCell" owner:self options:nil] firstObject];
     }
-    return _wineSizingCell;
+    return _sizingCell;
 }
 
 
@@ -129,10 +128,9 @@
 
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    WineCell_OLD *wineCell = (WineCell_OLD *)[self.tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
+    WineCell *wineCell = (WineCell *)[self.tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
     
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    wineCell.abridged = YES;
     [wineCell setupCellForWine:wine];
     
     wineCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -157,9 +155,9 @@
 -(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self.wineSizingCell setupCellForWine:wine numberOfTalkingHeads:0];
+    [self.sizingCell setupCellForWine:wine];
     
-    return self.wineSizingCell.bounds.size.height;
+    return self.sizingCell.bounds.size.height;
 }
 
 
