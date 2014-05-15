@@ -20,6 +20,7 @@
 @property (nonatomic, readonly) UIFont *footnote;
 
 @property (nonatomic, readonly) NSDictionary *primaryBodyTextAttributes;
+@property (nonatomic, readonly) NSDictionary *primaryFootnoteTextAttributes;
 @property (nonatomic, readonly) NSDictionary *primarySubHeadlineTextAttributes;
 
 @property (nonatomic, readonly) NSDictionary *secondaryBodyTextAttributes;

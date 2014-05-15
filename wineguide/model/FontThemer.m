@@ -64,6 +64,11 @@ static FontThemer *sharedInstance;
     return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : self.body};
 }
 
+-(NSDictionary *)primaryFootnoteTextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : self.footnote};
+}
+
 -(NSDictionary *)primarySubHeadlineTextAttributes
 {
     return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : self.subHeadline};
