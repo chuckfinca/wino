@@ -23,6 +23,8 @@
 #define GROUP_ENTITY @"Group"
 #define WINE_ENTITY @"Wine"
 #define WINE_CELL @"WineCell"
+#define WINE_CELL_WITH_RATING @"WineCell_withRating"
+#define WINE_CELL_WITH_RATING_AND_TALKING_HEADS @"WineCell_withRatingAndTalkingHeads"
 
 typedef enum {
     MostPopular,
@@ -41,7 +43,10 @@ typedef enum {
 @property (nonatomic, strong) NSString *listName;
 @property (nonatomic, strong) NSFetchedResultsController *restaurantGroupsFRC;
 @property (nonatomic, strong) NSString *selectedGroupIdentifier;
-@property (nonatomic, strong) WineCell *wineSizingCell;
+
+@property (nonatomic, strong) WineCell *sizingCell;
+@property (nonatomic, strong) WineCell *sizingCellWithRating;
+@property (nonatomic, strong) WineCell *sizingCellWithRatingAndTalkingHeads;
 
 @property (nonatomic, strong) NSArray *testingArray;
 
@@ -62,7 +67,9 @@ typedef enum {
 {
     [super viewDidLoad];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"WineCell" bundle:nil] forCellReuseIdentifier:WINE_CELL];
+    [self.tableView registerNib:[UINib nibWithNibName:WINE_CELL bundle:nil] forCellReuseIdentifier:WINE_CELL];
+    [self.tableView registerNib:[UINib nibWithNibName:WINE_CELL_WITH_RATING bundle:nil] forCellReuseIdentifier:WINE_CELL_WITH_RATING];
+    [self.tableView registerNib:[UINib nibWithNibName:WINE_CELL_WITH_RATING_AND_TALKING_HEADS bundle:nil] forCellReuseIdentifier:WINE_CELL_WITH_RATING_AND_TALKING_HEADS];
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeaderViewIdentifier"];
 }
 
@@ -77,18 +84,34 @@ typedef enum {
     return _restaurantDetailsViewController;
 }
 
--(WineCell *)wineSizingCell
+-(WineCell *)sizingCell
 {
-    if(!_wineSizingCell){
-        _wineSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"WineCell" owner:self options:nil] firstObject];
+    if(!_sizingCell){
+        _sizingCell = [[[NSBundle mainBundle] loadNibNamed:WINE_CELL owner:self options:nil] firstObject];
     }
-    return _wineSizingCell;
+    return _sizingCell;
+}
+
+-(WineCell *)sizingCellWithRating
+{
+    if(!_sizingCellWithRating){
+        _sizingCellWithRating = [[[NSBundle mainBundle] loadNibNamed:WINE_CELL_WITH_RATING owner:self options:nil] firstObject];
+    }
+    return _sizingCellWithRating;
+}
+
+-(WineCell *)sizingCellWithRatingAndTalkingHeads
+{
+    if(!_sizingCellWithRatingAndTalkingHeads){
+        _sizingCellWithRatingAndTalkingHeads = [[[NSBundle mainBundle] loadNibNamed:WINE_CELL_WITH_RATING_AND_TALKING_HEADS owner:self options:nil] firstObject];
+    }
+    return _sizingCellWithRatingAndTalkingHeads;
 }
 
 -(NSArray *)testingArray
 {
     if(!_testingArray){
-        _testingArray = @[@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3,@2,@0,@1,@2,@3];
+        _testingArray = @[@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2,@2,@0,@1,@2];
     }
     return _testingArray;
 }
@@ -161,15 +184,52 @@ typedef enum {
 
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    WineCell *cell = [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
+    WineCell *cell = [self testCellForIndexPath:indexPath];
+    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    NSNumber *num = self.testingArray[indexPath.row];
-    [cell setupCellForWine:wine numberOfTalkingHeads:[num integerValue]];
+    [cell setupCellForWine:wine];
+    
+    __weak UITableView *weakTableView = self.tableView;
+    [cell setupTalkingHeadsForWine:wine cellAtIndexPath:indexPath ofTableView:weakTableView];
     
     return cell;
+}
+
+-(WineCell *)testCellForIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger typeOfCell = [self.testingArray[indexPath.row] integerValue];
+    switch (typeOfCell) {
+        case 1:
+            return [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL_WITH_RATING forIndexPath:indexPath];
+            break;
+        case 2:
+            return [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL_WITH_RATING_AND_TALKING_HEADS forIndexPath:indexPath];
+            break;
+            
+        default:
+            break;
+    }
+    return [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
+}
+
+-(WineCell *)testSizingCellForIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger typeOfCell = [self.testingArray[indexPath.row] integerValue];
+    switch (typeOfCell) {
+        case 1:
+            return self.sizingCellWithRating;
+            break;
+        case 2:
+            return self.sizingCellWithRatingAndTalkingHeads;
+            break;
+            
+        default:
+            break;
+    }
+    return self.sizingCell;
 }
 
 #pragma mark - UITableViewDelegate
@@ -182,12 +242,14 @@ typedef enum {
 
 -(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
+    WineCell *cell = [self testSizingCellForIndexPath:indexPath];
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [cell setupCellForWine:wine];
     
-    NSNumber *num = self.testingArray[indexPath.row];
-    [self.wineSizingCell setupCellForWine:wine numberOfTalkingHeads:[num integerValue]];
+    __weak UITableView *weakTableView = self.tableView;
+    [cell setupTalkingHeadsForWine:wine cellAtIndexPath:indexPath ofTableView:weakTableView];
     
-    return self.wineSizingCell.bounds.size.height;
+    return cell.bounds.size.height;
 }
 
 

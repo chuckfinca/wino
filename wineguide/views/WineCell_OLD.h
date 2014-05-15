@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Wine.h"
 
-@interface WineCell : UITableViewCell
+@interface WineCell_OLD : UITableViewCell
 
 @property (nonatomic) BOOL abridged;
 

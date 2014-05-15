@@ -10,7 +10,7 @@
 #import "WineUnit.h"
 #import "Wine.h"
 #import "RestaurantWineManagerSCDTVC.h"
-#import "WineCell.h"
+#import "WineCell_OLD.h"
 
 #define WINE_CELL @"WineCell"
 
@@ -101,7 +101,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
     } else {
         cellIdentifier = @"WineCell";
-        WineCell *wineCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        WineCell_OLD *wineCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
         // Configure the cell...
         Wine *wine = self.managedObjects[indexPath.row];

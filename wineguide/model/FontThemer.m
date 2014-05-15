@@ -11,15 +11,6 @@
 
 @interface FontThemer ()
 
-@property (nonatomic, readwrite) UIFont *headline;
-@property (nonatomic, readwrite) UIFont *subHeadline;
-@property (nonatomic, readwrite) UIFont *body;
-@property (nonatomic, readwrite) UIFont *caption1;
-@property (nonatomic, readwrite) UIFont *caption2;
-@property (nonatomic, readwrite) UIFont *footnote;
-@property (nonatomic, readwrite) NSDictionary *primaryBodyTextAttributes;
-@property (nonatomic, readwrite) NSDictionary *secondaryBodyTextAttributes;
-
 @end
 
 @implementation FontThemer
@@ -67,29 +58,33 @@ static FontThemer *sharedInstance;
 }
 
 
--(NSDictionary *)secondaryBodyTextAttributes
-{
-    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : [FontThemer sharedInstance].body};
-}
 
 -(NSDictionary *)primaryBodyTextAttributes
 {
-    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : [FontThemer sharedInstance].body};
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : self.body};
 }
 
--(NSDictionary *)subHeadlineTextAttributes
+-(NSDictionary *)primarySubHeadlineTextAttributes
 {
-    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : [FontThemer sharedInstance].subHeadline};
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : self.subHeadline};
+}
+
+
+
+-(NSDictionary *)secondaryBodyTextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : self.body};
+}
+
+-(NSDictionary *)secondaryCaption1TextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : self.caption1};
 }
 
 -(NSDictionary *)secondaryFootnoteTextAttributes
 {
-    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : [FontThemer sharedInstance].footnote};
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : self.footnote};
 }
-
-
-
-
 
 
 

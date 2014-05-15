@@ -12,7 +12,7 @@
 #import "Varietal.h"
 #import "TastingNote.h"
 #import "Wine_TRSICDTVC.h"
-#import "WineCell.h"
+#import "WineCell_OLD.h"
 #import "FontThemer.h"
 #import "GetMe.h"
 
@@ -27,7 +27,7 @@
 
 @property (nonatomic) BOOL firstTime;
 @property (nonatomic, strong) User *user;
-@property (nonatomic, strong) WineCell *wineSizingCell;
+@property (nonatomic, strong) WineCell_OLD *wineSizingCell;
 
 @end
 
@@ -76,7 +76,7 @@
 }
 
 
--(WineCell *)wineSizingCell
+-(WineCell_OLD *)wineSizingCell
 {
     if(!_wineSizingCell){
         _wineSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"WineCell" owner:self options:nil] firstObject];
@@ -129,7 +129,7 @@
 
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    WineCell *wineCell = (WineCell *)[self.tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
+    WineCell_OLD *wineCell = (WineCell_OLD *)[self.tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
     
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     wineCell.abridged = YES;

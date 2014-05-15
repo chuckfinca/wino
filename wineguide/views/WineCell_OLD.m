@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
-#import "WineCell.h"
+#import "WineCell_OLD.h"
 #import "ColorSchemer.h"
 #import "Wine.h"
 #import "Varietal.h"
@@ -17,7 +17,7 @@
 #import "TalkingHeadsVC.h"
 
 
-@interface WineCell ()
+@interface WineCell_OLD ()
 
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (weak, nonatomic) IBOutlet UIView *ratingsContainerView;
@@ -35,7 +35,7 @@
 
 @end
 
-@implementation WineCell
+@implementation WineCell_OLD
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

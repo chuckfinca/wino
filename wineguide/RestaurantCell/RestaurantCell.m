@@ -40,7 +40,7 @@
 -(void)setupCellForRestaurant:(Restaurant *)restaurant
 {
     if(restaurant.name){
-        self.restaurantNameLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.name capitalizedString] attributes:[FontThemer sharedInstance].subHeadlineTextAttributes];
+        self.restaurantNameLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.name capitalizedString] attributes:[FontThemer sharedInstance].primarySubHeadlineTextAttributes];
     }
     if(restaurant.address){
         self.restaurantAddressLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.address capitalizedString] attributes:[FontThemer sharedInstance].secondaryFootnoteTextAttributes];
