@@ -12,11 +12,11 @@
 #import "FontThemer.h"
 #import "FacebookProfileImageGetter.h"
 #import "TalkingHeadsLabel.h"
+#import "RatingPreparer.h"
 
 @interface WineCell ()
 
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
-@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *talkingHeadsImageViewArray;
 @property (weak, nonatomic) IBOutlet TalkingHeadsLabel *talkingHeadsLabel;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *glassRatingImageViewArray;
 @property (weak, nonatomic) IBOutlet UILabel *reviewsLabel;
@@ -119,7 +119,6 @@
         
         self.wineNameVHTVToReviewsLabelConstraint = nil;
     } else {
-        NSLog(@"talkingHeadsImageViewArray DOES NOT exist");
         self.wineNameVHTVToTalkingHeadsImageViewArrayConstraint = nil;
         self.talkingHeadsImageViewArrayToReviewsLabelConstraint = nil;
     }
@@ -130,26 +129,10 @@
     NSInteger numberOfRatings = 0;
     
     if(self.glassRatingImageViewArray){
-        NSLog(@"setting up glassRatingImageViewArray");
-        UIColor *wineColor = [self setWineColorFromString:wine.color];
-        
         float rating = (arc4random_uniform(50)+1)/10;
-        
-        for(UIImageView *glass in self.glassRatingImageViewArray){
-            if(glass.tag + 1 > rating){
-                if(rating - glass.tag >= 0.5){
-                    [glass setImage:self.half];
-                } else {
-                    [glass setImage:self.empty];
-                }
-            } else {
-                [glass setImage:self.full];
-            }
-            glass.tintColor = wineColor;
-        }
+        [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColorString:wine.color];
         
         numberOfRatings = arc4random_uniform(120);
-        
         [self setupForNumberOfReviews:numberOfRatings];
         
         self.wineNameVHTVToBottomConstraint = nil;
@@ -162,25 +145,11 @@
     }
 }
 
--(UIColor *)setWineColorFromString:(NSString *)wineColorString
-{
-    UIColor *wineColor;
-    if([wineColorString isEqualToString:@"red"]){
-        wineColor = [ColorSchemer sharedInstance].redWine;
-    } else if([wineColorString isEqualToString:@"rose"]){
-        wineColor = [ColorSchemer sharedInstance].roseWine;
-    } else if([wineColorString isEqualToString:@"white"]){
-        wineColor = [ColorSchemer sharedInstance].whiteWine;
-    } else {
-        NSLog(@"wine.color != red/rose/white");
-    }
-    return wineColor;
-}
-
 -(void)setupForNumberOfReviews:(NSInteger)numberOfReviews
 {
     NSAttributedString *attributedString;
     NSString *text;
+    
     if(numberOfReviews > 0){
         text = [NSString stringWithFormat:@"%ld review",(long)numberOfReviews];
         if(numberOfReviews > 1){

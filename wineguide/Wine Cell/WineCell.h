@@ -11,6 +11,8 @@
 
 @interface WineCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *talkingHeadsImageViewArray;
+
 -(void)setupCellForWine:(Wine *)wine;
 -(void)setupTalkingHeadsForWine:(Wine *)wine cellAtIndexPath:(NSIndexPath *)indexPath ofTableView:(__weak UITableView *)tableView;
 
