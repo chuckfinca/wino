@@ -80,7 +80,6 @@
 		C94E8E5A1924290A00BB0669 /* WineCell_withRating.xib in Resources */ = {isa = PBXBuildFile; fileRef = C94E8E591924290A00BB0669 /* WineCell_withRating.xib */; };
 		C94E8E5C192430A500BB0669 /* WineCell_withRatingAndTalkingHeads.xib in Resources */ = {isa = PBXBuildFile; fileRef = C94E8E5B192430A500BB0669 /* WineCell_withRatingAndTalkingHeads.xib */; };
 		C94E8E681925607B00BB0669 /* TalkingHeadsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C94E8E671925607B00BB0669 /* TalkingHeadsLabel.m */; };
-		C94E8E6B1925632000BB0669 /* GlassRatingImageViewArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C94E8E6A1925632000BB0669 /* GlassRatingImageViewArray.m */; };
 		C9548EBF190324FE001A8997 /* RatingHistory2+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EBE190324FE001A8997 /* RatingHistory2+Modify.m */; };
 		C9548EC219032753001A8997 /* RatingHistoryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EC119032753001A8997 /* RatingHistoryHelper.m */; };
 		C9548EE519034760001A8997 /* TastingNote2+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9548EE419034760001A8997 /* TastingNote2+Modify.m */; };
@@ -400,8 +399,6 @@
 		C94E8E5B192430A500BB0669 /* WineCell_withRatingAndTalkingHeads.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineCell_withRatingAndTalkingHeads.xib; path = "Wine Cell/WineCell_withRatingAndTalkingHeads.xib"; sourceTree = "<group>"; };
 		C94E8E661925607B00BB0669 /* TalkingHeadsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkingHeadsLabel.h; path = "Wine Cell/TalkingHeadsLabel.h"; sourceTree = "<group>"; };
 		C94E8E671925607B00BB0669 /* TalkingHeadsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkingHeadsLabel.m; path = "Wine Cell/TalkingHeadsLabel.m"; sourceTree = "<group>"; };
-		C94E8E691925632000BB0669 /* GlassRatingImageViewArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlassRatingImageViewArray.h; path = "Wine Cell/GlassRatingImageViewArray.h"; sourceTree = "<group>"; };
-		C94E8E6A1925632000BB0669 /* GlassRatingImageViewArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlassRatingImageViewArray.m; path = "Wine Cell/GlassRatingImageViewArray.m"; sourceTree = "<group>"; };
 		C9548EBD190324FE001A8997 /* RatingHistory2+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RatingHistory2+Modify.h"; path = "model/managedObjectCategories/RatingHistory2+Modify.h"; sourceTree = "<group>"; };
 		C9548EBE190324FE001A8997 /* RatingHistory2+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RatingHistory2+Modify.m"; path = "model/managedObjectCategories/RatingHistory2+Modify.m"; sourceTree = "<group>"; };
 		C9548EC019032753001A8997 /* RatingHistoryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingHistoryHelper.h; path = model/managedObjectHelpers/RatingHistoryHelper.h; sourceTree = "<group>"; };
@@ -1177,8 +1174,6 @@
 				C94E8E5B192430A500BB0669 /* WineCell_withRatingAndTalkingHeads.xib */,
 				C94E8E661925607B00BB0669 /* TalkingHeadsLabel.h */,
 				C94E8E671925607B00BB0669 /* TalkingHeadsLabel.m */,
-				C94E8E691925632000BB0669 /* GlassRatingImageViewArray.h */,
-				C94E8E6A1925632000BB0669 /* GlassRatingImageViewArray.m */,
 			);
 			name = "Wine Cell";
 			sourceTree = "<group>";
@@ -1588,7 +1583,6 @@
 				C9548EC219032753001A8997 /* RatingHistoryHelper.m in Sources */,
 				C96D31C2191AB24100B340F4 /* Instructions_CDTVC.m in Sources */,
 				C96D31A7191AAC2200B340F4 /* Varietal2.m in Sources */,
-				C94E8E6B1925632000BB0669 /* GlassRatingImageViewArray.m in Sources */,
 				C93A73D118F0AB46000E0B56 /* Review.m in Sources */,
 				C98DEFE5182310060038216C /* Wine+CreateAndModify.m in Sources */,
 				C9DEBC6C18FB694A00134ECD /* Wine2+Modify.m in Sources */,
