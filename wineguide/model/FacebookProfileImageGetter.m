@@ -8,6 +8,7 @@
 
 #import "FacebookProfileImageGetter.h"
 #import <UIImageView+AFNetworking.h>
+#import <UIButton+AFNetworking.h>
 
 @interface FacebookProfileImageGetter ()
 
@@ -39,7 +40,19 @@
     }];
 }
 
-
+-(void)setProfilePicForUser:(User *)user inButton:(UIButton *)button completion:(void (^)(BOOL success))completion
+{
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", user.identifier]];
+    NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:URL];
+    
+    [button setImageForState:UIControlStateNormal withURLRequest:urlRequest placeholderImage:self.placeHolderImage success:^(NSHTTPURLResponse *response, UIImage *image) {
+        user.profileImage = UIImagePNGRepresentation(image);
+        completion(YES);
+    } failure:^(NSError *error) {
+        
+        // NSLog(@"failed to download profile image\nerror = %@",error.localizedDescription);
+    }];
+}
 
 
 

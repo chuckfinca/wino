@@ -18,6 +18,7 @@
 #import "TastingNote.h"
 #import "ColorSchemer.h"
 #import "WineCell.h"
+#import "FacebookProfileImageGetter.h"
 
 #define JSON @"json"
 #define GROUP_ENTITY @"Group"
@@ -49,6 +50,7 @@ typedef enum {
 @property (nonatomic, strong) WineCell *sizingCellWithRatingAndTalkingHeads;
 
 @property (nonatomic, strong) NSArray *testingArray;
+@property (nonatomic, strong) FacebookProfileImageGetter *facebookProfileImageGetter;
 
 @end
 
@@ -106,6 +108,14 @@ typedef enum {
         _sizingCellWithRatingAndTalkingHeads = [[[NSBundle mainBundle] loadNibNamed:WINE_CELL_WITH_RATING_AND_TALKING_HEADS owner:self options:nil] firstObject];
     }
     return _sizingCellWithRatingAndTalkingHeads;
+}
+
+-(FacebookProfileImageGetter *)facebookProfileImageGetter
+{
+    if(!_facebookProfileImageGetter){
+        _facebookProfileImageGetter = [[FacebookProfileImageGetter alloc] init];
+    }
+    return _facebookProfileImageGetter;
 }
 
 -(NSArray *)testingArray
@@ -188,8 +198,24 @@ typedef enum {
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [cell setupCellForWine:wine];
+    [self loadTalkingHeadImagesInCell:cell atIndexPath:indexPath];
     
     return cell;
+}
+
+-(void)loadTalkingHeadImagesInCell:(WineCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    if(cell.talkingHeadsButtonArray){
+        for(UIButton *talkingHeadButton in cell.talkingHeadsButtonArray){
+            
+            __weak UITableView *weakTableView = self.tableView;
+            [self.facebookProfileImageGetter setProfilePicForUser:nil inButton:talkingHeadButton completion:^(BOOL success) {
+                if([weakTableView cellForRowAtIndexPath:indexPath]){
+                    [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+            }];
+        }
+    }
 }
 
 -(WineCell *)testCellForIndexPath:(NSIndexPath *)indexPath
