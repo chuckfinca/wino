@@ -31,7 +31,6 @@
 @property (nonatomic, weak) Wine *wine;
 @property (nonatomic, weak) Restaurant *restaurant;
 @property (nonatomic, weak) User *me;
-@property (nonatomic, strong) NSDictionary *buttonTextAttributesDictionary;
 @property (nonatomic, strong) RatingsVC *ratingsVC;
 @property (nonatomic, strong) TalkingHeadsVC *talkingHeadsVC;
 
@@ -66,11 +65,6 @@
 }
 
 #pragma mark - Getters & Setters
-
--(NSDictionary *)buttonTextAttributesDictionary
-{
-    return @{NSFontAttributeName : [FontThemer sharedInstance].caption1, NSForegroundColorAttributeName : self.view.tintColor};
-}
 
 -(User *)me
 {
@@ -133,10 +127,10 @@
 -(void)setupUserActionButtons
 {
     [self.triedItButton setBackgroundImage:[[UIImage imageNamed:@"button_triedIt.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    [self.triedItButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Tried It" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
+    [self.triedItButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Tried It" attributes:[FontThemer sharedInstance].linkCaption1TextAttributes] forState:UIControlStateNormal];
     
     [self.purchaseButton setBackgroundImage:[[UIImage imageNamed:@"button_purchase.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    [self.purchaseButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Purchase" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
+    [self.purchaseButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Purchase" attributes:[FontThemer sharedInstance].linkCaption1TextAttributes] forState:UIControlStateNormal];
     
     [self setupCellarButton];
 }
@@ -147,10 +141,10 @@
     UIImage *image;
     if(favorited){
         image = [UIImage imageNamed:@"button_cellar.png"];
-        [self.cellarButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Stored" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
+        [self.cellarButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Stored" attributes:[FontThemer sharedInstance].linkCaption1TextAttributes] forState:UIControlStateNormal];
     } else {
         image = [UIImage imageNamed:@"button_cellarUnstored.png"];
-        [self.cellarButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Cellar" attributes:self.buttonTextAttributesDictionary] forState:UIControlStateNormal];
+        [self.cellarButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Cellar" attributes:[FontThemer sharedInstance].linkCaption1TextAttributes] forState:UIControlStateNormal];
     }
     [self.cellarButton setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     

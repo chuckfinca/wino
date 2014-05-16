@@ -92,6 +92,10 @@ static FontThemer *sharedInstance;
 }
 
 
+-(NSDictionary *)linkCaption1TextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].clickable, NSFontAttributeName : self.caption1};
+}
 
 
 

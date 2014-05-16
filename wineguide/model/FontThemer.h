@@ -27,4 +27,6 @@
 @property (nonatomic, readonly) NSDictionary *secondaryFootnoteTextAttributes;
 @property (nonatomic, readonly) NSDictionary *secondaryCaption1TextAttributes;
 
+@property (nonatomic, readonly) NSDictionary *linkCaption1TextAttributes;
+
 @end
