@@ -129,7 +129,7 @@
     
     height += self.topToWineNameLabelConstraint.constant;
     
-    CGSize wineNameLabelSize = [self.wineNameLabel sizeThatFits:CGSizeMake(260, FLT_MAX)];
+    CGSize wineNameLabelSize = [self.wineNameLabel sizeThatFits:CGSizeMake(self.wineNameLabel.bounds.size.width, FLT_MAX)];
     height += wineNameLabelSize.height;
     
     if(self.talkingHeadsButtonArray){

@@ -185,9 +185,6 @@ typedef enum {
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
     WineCell *cell = [self testCellForIndexPath:indexPath];
-    
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [cell setupCellForWine:wine];

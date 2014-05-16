@@ -20,8 +20,7 @@
 -(UIImage *)placeHolderImage
 {
     if(!_placeHolderImage){
-        _placeHolderImage = [UIImage imageNamed:@"user_default.png"];
-        _placeHolderImage = [_placeHolderImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        _placeHolderImage = [[UIImage imageNamed:@"user_default.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     
     return _placeHolderImage;
