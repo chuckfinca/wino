@@ -45,8 +45,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *triedItButtonToBottomConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsContainerViewHeightConstraint;
 
-
-
 @end
 
 @implementation WineDetailsVC
