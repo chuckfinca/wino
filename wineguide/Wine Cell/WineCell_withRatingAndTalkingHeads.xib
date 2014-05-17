@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RYt-rh-lfh">
-                        <rect key="frame" x="20" y="158" width="15" height="20"/>
+                        <rect key="frame" x="20" y="159" width="15" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="GwG-MA-5ZL"/>
@@ -22,7 +22,7 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pPH-ec-rTP">
-                        <rect key="frame" x="37" y="158" width="15" height="20"/>
+                        <rect key="frame" x="37" y="159" width="15" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="5YU-tx-5U1"/>
@@ -30,7 +30,7 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u0Y-3x-y5s">
-                        <rect key="frame" x="54" y="158" width="15" height="20"/>
+                        <rect key="frame" x="54" y="159" width="15" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="Mbc-Ka-R9c"/>
@@ -38,7 +38,7 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="92m-N1-buE">
-                        <rect key="frame" x="71" y="158" width="15" height="20"/>
+                        <rect key="frame" x="71" y="159" width="15" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="AXP-ph-Jjn"/>
@@ -46,7 +46,7 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X9V-A0-It0">
-                        <rect key="frame" x="88" y="158" width="15" height="20"/>
+                        <rect key="frame" x="88" y="159" width="15" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="CTB-C6-xFF"/>
@@ -54,23 +54,26 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reviews" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMq-e2-AcZ" customClass="ReviewsLabel">
-                        <rect key="frame" x="111" y="158" width="176" height="21"/>
+                        <rect key="frame" x="111" y="159" width="176" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Ps0-i8-Tkc"/>
+                            <constraint firstAttribute="height" constant="20" id="Ps0-i8-Tkc"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="130" translatesAutoresizingMaskIntoConstraints="NO" id="Btr-sl-rrp" customClass="TalkingHeadsLabel">
-                        <rect key="frame" x="157" y="112" width="130" height="40"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="talking heads label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="130" translatesAutoresizingMaskIntoConstraints="NO" id="Btr-sl-rrp" customClass="TalkingHeadsLabel">
+                        <rect key="frame" x="157" y="113" width="130" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="JMF-Kc-KhH"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkV-wT-zal">
-                        <rect key="frame" x="20" y="112" width="40" height="40"/>
+                        <rect key="frame" x="20" y="113" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="gmH-mK-dIC"/>
@@ -84,7 +87,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yaj-ri-4tH">
-                        <rect key="frame" x="62" y="112" width="40" height="40"/>
+                        <rect key="frame" x="62" y="113" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="jcb-ro-w1M"/>
@@ -98,7 +101,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QA1-zq-ZGc">
-                        <rect key="frame" x="104" y="112" width="40" height="40"/>
+                        <rect key="frame" x="104" y="113" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="G2F-6a-1SC"/>
@@ -112,7 +115,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wine name label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="267" translatesAutoresizingMaskIntoConstraints="NO" id="1Jl-mq-TKE" customClass="WineNameLabel">
-                        <rect key="frame" x="20" y="20" width="267" height="84"/>
+                        <rect key="frame" x="20" y="20" width="267" height="85"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
@@ -133,10 +136,9 @@
                     <constraint firstItem="jMq-e2-AcZ" firstAttribute="top" secondItem="fkV-wT-zal" secondAttribute="bottom" constant="6" id="HSs-qL-kUt"/>
                     <constraint firstAttribute="trailing" secondItem="1Jl-mq-TKE" secondAttribute="trailing" id="OSP-S2-MQd"/>
                     <constraint firstItem="RYt-rh-lfh" firstAttribute="leading" secondItem="1Jl-mq-TKE" secondAttribute="leading" id="OsK-Sb-NbZ"/>
-                    <constraint firstItem="QA1-zq-ZGc" firstAttribute="height" secondItem="Btr-sl-rrp" secondAttribute="height" id="REb-NK-6f4"/>
                     <constraint firstItem="QA1-zq-ZGc" firstAttribute="top" secondItem="fkV-wT-zal" secondAttribute="top" id="Rv7-9i-BnB"/>
                     <constraint firstItem="X9V-A0-It0" firstAttribute="top" secondItem="pPH-ec-rTP" secondAttribute="top" id="V7G-kj-dxM"/>
-                    <constraint firstItem="Btr-sl-rrp" firstAttribute="leading" secondItem="QA1-zq-ZGc" secondAttribute="trailing" constant="13" id="Vxq-cW-Foq"/>
+                    <constraint firstItem="jMq-e2-AcZ" firstAttribute="leading" secondItem="Edj-of-vRn" secondAttribute="leading" constant="111" id="Z20-w0-COm"/>
                     <constraint firstItem="jMq-e2-AcZ" firstAttribute="trailing" secondItem="Btr-sl-rrp" secondAttribute="trailing" id="bPr-GE-LLG"/>
                     <constraint firstItem="pPH-ec-rTP" firstAttribute="leading" secondItem="RYt-rh-lfh" secondAttribute="trailing" constant="2" id="bsp-7I-pY2"/>
                     <constraint firstItem="fkV-wT-zal" firstAttribute="top" secondItem="1Jl-mq-TKE" secondAttribute="bottom" constant="8" id="cOn-rx-6D2"/>
@@ -144,16 +146,24 @@
                     <constraint firstItem="X9V-A0-It0" firstAttribute="top" secondItem="92m-N1-buE" secondAttribute="top" id="gNO-Fu-0bb"/>
                     <constraint firstAttribute="bottom" secondItem="jMq-e2-AcZ" secondAttribute="bottom" constant="20" symbolic="YES" id="gXX-cd-PbD"/>
                     <constraint firstItem="jMq-e2-AcZ" firstAttribute="trailing" secondItem="1Jl-mq-TKE" secondAttribute="trailing" id="hWA-am-uWG"/>
-                    <constraint firstItem="jMq-e2-AcZ" firstAttribute="leading" secondItem="X9V-A0-It0" secondAttribute="trailing" constant="8" id="l65-Zn-Wvx"/>
                     <constraint firstItem="X9V-A0-It0" firstAttribute="leading" secondItem="92m-N1-buE" secondAttribute="trailing" constant="2" id="u95-sk-Ocl"/>
+                    <constraint firstItem="Btr-sl-rrp" firstAttribute="leading" secondItem="Edj-of-vRn" secondAttribute="leading" constant="157" id="uQD-0z-mo8"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="glassToReviewsLabelConstraint" destination="l65-Zn-Wvx" id="Dcs-VA-8HM"/>
+                <outlet property="leftToReviewsLabelConstraint" destination="Z20-w0-COm" id="Cx7-d2-bYP"/>
+                <outlet property="leftToTalkingHeadsLabelConstraint" destination="uQD-0z-mo8" id="fZC-ZU-EYW"/>
                 <outlet property="reviewsLabel" destination="jMq-e2-AcZ" id="H02-wd-cps"/>
                 <outlet property="reviewsLabelToBottomConstraint" destination="gXX-cd-PbD" id="eba-iw-xsz"/>
+                <outlet property="talkingHeadButtonOne" destination="fkV-wT-zal" id="AOa-GJ-CfE"/>
+                <outlet property="talkingHeadButtonOneHeightConstraint" destination="gmH-mK-dIC" id="jtO-IU-RrO"/>
+                <outlet property="talkingHeadButtonThree" destination="QA1-zq-ZGc" id="vVl-XR-4Vh"/>
+                <outlet property="talkingHeadButtonThreeHeightConstraint" destination="xuH-U1-kp0" id="GAF-cs-zAe"/>
+                <outlet property="talkingHeadButtonTwo" destination="Yaj-ri-4tH" id="kL0-Tg-XZI"/>
+                <outlet property="talkingHeadButtonTwoHeightConstraint" destination="jcb-ro-w1M" id="RDA-DJ-8Bd"/>
                 <outlet property="talkingHeadsButtonArrayToReviewsLabelConstraint" destination="HSs-qL-kUt" id="3vl-lG-UnC"/>
                 <outlet property="talkingHeadsLabel" destination="Btr-sl-rrp" id="cwd-qU-BNi"/>
+                <outlet property="talkingHeadsLabelHeightConstraint" destination="JMF-Kc-KhH" id="YfS-45-WF6"/>
                 <outlet property="topToWineNameLabelConstraint" destination="5Oc-bk-HJb" id="1bo-NL-FRv"/>
                 <outlet property="wineNameLabel" destination="1Jl-mq-TKE" id="vsg-Oo-cfI"/>
                 <outlet property="wineNameLabelToTalkingHeadsButtonArrayConstraint" destination="cOn-rx-6D2" id="ndu-RM-ZKo"/>
@@ -162,9 +172,6 @@
                 <outletCollection property="glassRatingImageViewArray" destination="u0Y-3x-y5s" id="XLH-vy-CSJ"/>
                 <outletCollection property="glassRatingImageViewArray" destination="92m-N1-buE" id="h95-PW-vu8"/>
                 <outletCollection property="glassRatingImageViewArray" destination="X9V-A0-It0" id="TKH-ok-It7"/>
-                <outletCollection property="talkingHeadsButtonArray" destination="fkV-wT-zal" id="vFu-55-ChT"/>
-                <outletCollection property="talkingHeadsButtonArray" destination="Yaj-ri-4tH" id="7YE-kt-vf4"/>
-                <outletCollection property="talkingHeadsButtonArray" destination="QA1-zq-ZGc" id="V07-xY-6Ir"/>
             </connections>
         </tableViewCell>
     </objects>

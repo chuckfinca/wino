@@ -16,9 +16,14 @@
 @interface WineCell ()
 
 @property (weak, nonatomic) IBOutlet WineNameLabel *wineNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *talkingHeadButtonOne;
+@property (weak, nonatomic) IBOutlet UIButton *talkingHeadButtonTwo;
+@property (weak, nonatomic) IBOutlet UIButton *talkingHeadButtonThree;
 @property (weak, nonatomic) IBOutlet TalkingHeadsLabel *talkingHeadsLabel;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *glassRatingImageViewArray;
 @property (weak, nonatomic) IBOutlet ReviewsLabel *reviewsLabel;
+
+@property (nonatomic) float talkingHeadButtonHeight;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameLabelToTalkingHeadsButtonArrayConstraint;
@@ -28,12 +33,23 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameLabelToReviewsLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameLabelToBottomConstraint;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftToReviewsLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftToTalkingHeadsLabelConstraint;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *glassToReviewsLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadButtonOneHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadButtonTwoHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadButtonThreeHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsLabelHeightConstraint;
 
 @end
 
 @implementation WineCell
+
+-(void)awakeFromNib
+{
+    self.talkingHeadButtonHeight = self.talkingHeadButtonOne.bounds.size.height;
+    NSLog(@"self.talkingHeadButtonHeight = %f",self.talkingHeadButtonHeight);
+}
 
 #pragma mark - Setup
 
@@ -49,55 +65,81 @@
     [self setupBackgroundColorForWine:wine];
     
     [self setViewHeight];
+    
+    self.wineNameLabel.backgroundColor = [UIColor greenColor];
+    self.reviewsLabel.backgroundColor = [UIColor orangeColor];
 }
-
 
 -(void)setupTalkingHeadsForWine:(Wine *)wine
 {
-    if(self.talkingHeadsButtonArray){
-        NSInteger numberOfTalkingHeads = arc4random_uniform(15) + 1;
+    self.talkingHeadsArray = nil;
+    
+    if(self.talkingHeadButtonOne){
+        NSInteger numberOfTalkingHeads = 0;//arc4random_uniform(5)+1;
+        BOOL youLikeThis = [wine.user_favorite boolValue];
         
-        for(UIButton *talkingHeadButton in self.talkingHeadsButtonArray){
-            [talkingHeadButton setImage:[[UIImage imageNamed:@"user_default.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-            talkingHeadButton.tintColor = [ColorSchemer sharedInstance].baseColor;
-            /*
-             if(talkingHead.tag + 1 <= numberOfTalkingHeads){
-             
-             
-             [self.facebookProfileImageGetter setProfilePicForUser:nil inImageView:talkingHead completion:^(BOOL success) {
-             if(success){
-             [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-             }
-             }];
-             }
-             */
+        if(numberOfTalkingHeads < 1){
+            self.leftToTalkingHeadsLabelConstraint.constant = self.talkingHeadButtonOne.frame.origin.x;
+            self.talkingHeadButtonOneHeightConstraint.constant = 0;
+        } else {
+            self.talkingHeadButtonOneHeightConstraint.constant = self.talkingHeadButtonHeight;
+            [self.talkingHeadsArray addObject:self.talkingHeadButtonOne];
         }
         
-        NSInteger additionalPeople = numberOfTalkingHeads - 3 > 0 ? numberOfTalkingHeads - 3 : 0;
-        [self.talkingHeadsLabel setupLabelWithNumberOfAdditionalPeople:additionalPeople andYou:[wine.user_favorite boolValue]];
+        if(numberOfTalkingHeads < 2){
+            if(self.talkingHeadButtonTwo.frame.origin.x < self.leftToTalkingHeadsLabelConstraint.constant){
+                self.leftToTalkingHeadsLabelConstraint.constant = self.talkingHeadButtonTwo.frame.origin.x;
+            }
+            self.talkingHeadButtonTwoHeightConstraint.constant = 0;
+        } else {
+            self.talkingHeadButtonTwoHeightConstraint.constant = self.talkingHeadButtonHeight;
+            [self.talkingHeadsArray addObject:self.talkingHeadButtonTwo];
+        }
+        
+        if(numberOfTalkingHeads < 3){
+            if(self.talkingHeadButtonThree.frame.origin.x < self.leftToTalkingHeadsLabelConstraint.constant){
+                self.leftToTalkingHeadsLabelConstraint.constant = self.talkingHeadButtonThree.frame.origin.x;
+            }
+            self.talkingHeadButtonThreeHeightConstraint.constant = 0;
+        } else {
+            self.talkingHeadButtonThreeHeightConstraint.constant = self.talkingHeadButtonHeight;
+            [self.talkingHeadsArray addObject:self.talkingHeadButtonThree];
+        }
+        
+        if(numberOfTalkingHeads > 3 || youLikeThis){
+            NSInteger additionalPeople = numberOfTalkingHeads - 3 > 0 ? numberOfTalkingHeads - 3 : 0;
+            [self.talkingHeadsLabel setupLabelWithNumberOfAdditionalPeople:additionalPeople andYou:youLikeThis];
+            self.talkingHeadsLabelHeightConstraint.constant = self.talkingHeadButtonHeight;
+            
+        } else {
+            self.talkingHeadsLabelHeightConstraint.constant = 0;
+        }
         
         self.wineNameLabelToReviewsLabelConstraint = nil;
     } else {
         self.wineNameLabelToTalkingHeadsButtonArrayConstraint = nil;
         self.talkingHeadsButtonArrayToReviewsLabelConstraint = nil;
     }
-}
+
+    
+    }
 
 -(void)setupRatingForWine:(Wine *)wine
 {
-    NSInteger numberOfRatings = arc4random_uniform(120)+1;
-    
     if(self.glassRatingImageViewArray){
         
-        float rating = (arc4random_uniform(50)+1)/10;
+        NSInteger numberOfRatings = arc4random_uniform(5);
+        
+        float rating = arc4random_uniform(50);
+        rating /= 10;
+        rating = 0;
+        NSLog(@"rating = %f",rating);
         
         [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColorString:wine.color];
         
         if(!rating || rating == 0){
             numberOfRatings = 0;
-            self.glassToReviewsLabelConstraint.constant = -83;
-        } else {
-            self.glassToReviewsLabelConstraint.constant = 8;
+            self.leftToReviewsLabelConstraint.constant = self.wineNameLabel.frame.origin.x;
         }
         
         [self.reviewsLabel setupForNumberOfReviews:numberOfRatings];
@@ -132,11 +174,11 @@
     CGSize wineNameLabelSize = [self.wineNameLabel sizeThatFits:CGSizeMake(self.wineNameLabel.bounds.size.width, FLT_MAX)];
     height += wineNameLabelSize.height;
     
-    if(self.talkingHeadsButtonArray){
+    if(self.talkingHeadButtonOne){
         height += self.wineNameLabelToTalkingHeadsButtonArrayConstraint.constant;
-        UIButton *talkingHeadButton = [self.talkingHeadsButtonArray firstObject];
-        height += talkingHeadButton.bounds.size.height;
+        height += self.talkingHeadsLabelHeightConstraint.constant;
         height += self.talkingHeadsButtonArrayToReviewsLabelConstraint.constant;
+        
     } else {
         height += self.wineNameLabelToReviewsLabelConstraint.constant;
     }

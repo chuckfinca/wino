@@ -205,8 +205,8 @@ typedef enum {
 
 -(void)loadTalkingHeadImagesInCell:(WineCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    if(cell.talkingHeadsButtonArray){
-        for(UIButton *talkingHeadButton in cell.talkingHeadsButtonArray){
+    if(cell.talkingHeadsArray){
+        for(UIButton *talkingHeadButton in cell.talkingHeadsArray){
             
             __weak UITableView *weakTableView = self.tableView;
             [self.facebookProfileImageGetter setProfilePicForUser:nil inButton:talkingHeadButton completion:^(BOOL success) {

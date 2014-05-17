@@ -73,7 +73,6 @@
                 <constraints>
                     <constraint firstItem="aUV-k0-hZH" firstAttribute="top" secondItem="sJA-kh-QbY" secondAttribute="top" id="5S4-17-e1k"/>
                     <constraint firstItem="o5u-0V-7iQ" firstAttribute="leading" secondItem="08R-K4-9zE" secondAttribute="trailing" constant="2" id="9C2-DY-nhs"/>
-                    <constraint firstItem="DM7-Dc-XEJ" firstAttribute="leading" secondItem="aUV-k0-hZH" secondAttribute="trailing" constant="8" id="CLg-or-L7M"/>
                     <constraint firstAttribute="bottom" secondItem="DM7-Dc-XEJ" secondAttribute="bottom" constant="20" symbolic="YES" id="Ckv-tQ-MVO"/>
                     <constraint firstItem="aUV-k0-hZH" firstAttribute="leading" secondItem="sJA-kh-QbY" secondAttribute="trailing" constant="2" id="O0c-WW-BXh"/>
                     <constraint firstItem="aUV-k0-hZH" firstAttribute="top" secondItem="08R-K4-9zE" secondAttribute="top" id="UFa-1t-lwM"/>
@@ -83,6 +82,7 @@
                     <constraint firstItem="08R-K4-9zE" firstAttribute="leading" secondItem="jFh-Fm-gD1" secondAttribute="leading" constant="20" id="gNH-iT-AGw"/>
                     <constraint firstItem="3TS-Pr-GK9" firstAttribute="top" secondItem="jFh-Fm-gD1" secondAttribute="top" constant="20" id="hhE-Sc-f2O"/>
                     <constraint firstItem="aUV-k0-hZH" firstAttribute="top" secondItem="o5u-0V-7iQ" secondAttribute="top" id="hnB-Ko-pxo"/>
+                    <constraint firstItem="DM7-Dc-XEJ" firstAttribute="leading" secondItem="jFh-Fm-gD1" secondAttribute="leading" constant="111" id="ltZ-nf-4aa"/>
                     <constraint firstItem="ZQn-6e-hvb" firstAttribute="leading" secondItem="o5u-0V-7iQ" secondAttribute="trailing" constant="2" id="mvT-bS-YoL"/>
                     <constraint firstItem="3TS-Pr-GK9" firstAttribute="trailing" secondItem="DM7-Dc-XEJ" secondAttribute="trailing" id="pEi-GE-ueQ"/>
                     <constraint firstItem="DM7-Dc-XEJ" firstAttribute="top" secondItem="3TS-Pr-GK9" secondAttribute="bottom" constant="8" id="vVg-P2-iWf"/>
@@ -91,7 +91,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="glassToReviewsLabelConstraint" destination="CLg-or-L7M" id="Cyd-Kz-Yzi"/>
+                <outlet property="leftToReviewsLabelConstraint" destination="ltZ-nf-4aa" id="Eyb-jg-jWr"/>
                 <outlet property="reviewsLabel" destination="DM7-Dc-XEJ" id="cz1-3z-cAI"/>
                 <outlet property="reviewsLabelToBottomConstraint" destination="Ckv-tQ-MVO" id="54y-2g-Gxo"/>
                 <outlet property="topToWineNameLabelConstraint" destination="hhE-Sc-f2O" id="MuI-Di-Gqc"/>
