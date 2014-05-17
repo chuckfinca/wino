@@ -160,6 +160,7 @@
 		C9744C6B1928207200DB1F2B /* Brand2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9744C6A1928207200DB1F2B /* Brand2.m */; };
 		C9744C6E192821B800DB1F2B /* WineList+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9744C6D192821B800DB1F2B /* WineList+Modify.m */; };
 		C9744C711928234E00DB1F2B /* WineList.m in Sources */ = {isa = PBXBuildFile; fileRef = C9744C701928234E00DB1F2B /* WineList.m */; };
+		C9744C741928246900DB1F2B /* WineListHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9744C731928246900DB1F2B /* WineListHelper.m */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
 		C988AEFE191321BA00A3E13A /* SetRatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AEF6191321BA00A3E13A /* SetRatingVC.m */; };
 		C988AEFF191321BA00A3E13A /* SetRatingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C988AEF7191321BA00A3E13A /* SetRatingVC.xib */; };
@@ -532,6 +533,8 @@
 		C9744C6D192821B800DB1F2B /* WineList+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "WineList+Modify.m"; path = "model/managedObjectCategories/WineList+Modify.m"; sourceTree = "<group>"; };
 		C9744C6F1928234E00DB1F2B /* WineList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineList.h; path = model/managedObjects/WineList.h; sourceTree = "<group>"; };
 		C9744C701928234E00DB1F2B /* WineList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineList.m; path = model/managedObjects/WineList.m; sourceTree = "<group>"; };
+		C9744C721928246900DB1F2B /* WineListHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineListHelper.h; path = model/managedObjectHelpers/WineListHelper.h; sourceTree = "<group>"; };
+		C9744C731928246900DB1F2B /* WineListHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineListHelper.m; path = model/managedObjectHelpers/WineListHelper.m; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
 		C986B022184677CD006CF318 /* LocalObjectUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalObjectUpdater.m; path = model/LocalObjectUpdater.m; sourceTree = "<group>"; };
 		C988AEF5191321BA00A3E13A /* SetRatingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetRatingVC.h; path = Rating/SetRatingVC.h; sourceTree = "<group>"; };
@@ -1118,6 +1121,8 @@
 				C9548F80190381F1001A8997 /* VarietalHelper.m */,
 				C988AF8719158B3B00A3E13A /* TalkingHeadsHelper.h */,
 				C988AF8819158B3B00A3E13A /* TalkingHeadsHelper.m */,
+				C9744C721928246900DB1F2B /* WineListHelper.h */,
+				C9744C731928246900DB1F2B /* WineListHelper.m */,
 			);
 			name = managedObjectHelpers;
 			sourceTree = "<group>";
@@ -1683,6 +1688,7 @@
 				C92DF04318247AB3009DCB2C /* Brand+CreateAndModify.m in Sources */,
 				C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */,
 				C95A2CC6185B87930043ECB0 /* RestaurantGroupCell.m in Sources */,
+				C9744C741928246900DB1F2B /* WineListHelper.m in Sources */,
 				C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */,
 				C92932B7182AD5F90035C93C /* JSONToCoreDataHelper.m in Sources */,
 				C9548EE819035809001A8997 /* TastingNoteHelper.m in Sources */,

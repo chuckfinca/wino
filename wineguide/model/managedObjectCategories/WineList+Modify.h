@@ -10,4 +10,6 @@
 
 @interface WineList (Modify)
 
+-(WineList *)modifyAttributesWithDictionary:(NSDictionary *)dictionary;
+
 @end
