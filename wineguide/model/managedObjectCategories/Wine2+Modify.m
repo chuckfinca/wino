@@ -18,6 +18,7 @@
 #import "Region.h"
 #import "User2.h"
 #import "TastingRecord2.h"
+#import "WineList.h"
 
 #define SERVER_IDENTIFIER @"id"
 #define WINE_NAME @"wine_name"
@@ -113,6 +114,9 @@
     }
     for(TastingRecord2 *tastingRecord in self.tastingRecords){
         NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[tastingRecord class], tastingRecord.identifier]);
+    }
+    for(WineList *wineList in self.wineLists){
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[wineList class], wineList.identifier]);
     }
 }
 

@@ -8,18 +8,12 @@
 
 #import "RestaurantHelper.h"
 #import "Restaurant2+CreateOrModify.h"
-#import "WineUnitHelper.h"
-#import "GroupHelper.h"
-#import "FlightHelper.h"
-#import "Flight2.h"
-#import "Group2.h"
-#import "WineUnit2.h"
+#import "WineList.h"
+#import "WineListHelper.h"
 #import "TastingRecordHelper.h"
 #import "TastingRecord2.h"
 
-#define RESTAURANT_WINE_UNITS @"wine_units"
-#define RESTAURANT_GROUPS @"groups"
-#define RESTAURANT_FLIGHTS @"flights"
+#define RESTAURANT_WINE_LIST @"wine_list"
 #define RESTAURANT_TASTING_RECORDS @"tasting_records"  ////////////////////////
 
 @implementation RestaurantHelper
@@ -36,14 +30,8 @@
 {
     Restaurant2 *restaurant = (Restaurant2 *)managedObject;
     
-    if([self.relatedObject class] == [Flight2 class]){
-        restaurant.flights = [self addRelationToSet:restaurant.flights];
-        
-    } else if ([self.relatedObject class] == [Group2 class]){
-        restaurant.groups = [self addRelationToSet:restaurant.groups];
-        
-    } else if ([self.relatedObject class] == [WineUnit2 class]){
-        restaurant.wineUnits = [self addRelationToSet:restaurant.wineUnits];
+    if([self.relatedObject class] == [WineList class]){
+        restaurant.wineList = (WineList *)self.relatedObject;
         
     } else if ([self.relatedObject class] == [TastingRecord2 class]){
         restaurant.tastingRecords = [self addRelationToSet:restaurant.tastingRecords];
@@ -54,22 +42,13 @@
 {
     Restaurant2 *restaurant = (Restaurant2 *)managedObject;
     
-    // Flights
-    FlightHelper *fh = [[FlightHelper alloc] init];
-    [fh processJSON:dictionary[RESTAURANT_FLIGHTS] withRelatedObject:restaurant];
-    
-    // Groups
-    GroupHelper *gh = [[GroupHelper alloc] init];
-    [gh processJSON:dictionary[RESTAURANT_GROUPS] withRelatedObject:restaurant];
-    
+    // Wine List
+    WineListHelper *wlh = [[WineListHelper alloc] init];
+    [wlh processJSON:dictionary[RESTAURANT_WINE_LIST] withRelatedObject:restaurant];
     
     // Tasting Records
     TastingRecordHelper *trh = [[TastingRecordHelper alloc] init];
     [trh processJSON:dictionary[RESTAURANT_TASTING_RECORDS] withRelatedObject:restaurant];
-    
-    // Wine Units
-    WineUnitHelper *wuh = [[WineUnitHelper alloc] init];
-    [wuh processJSON:dictionary[RESTAURANT_WINE_UNITS] withRelatedObject:restaurant];
 }
 
 

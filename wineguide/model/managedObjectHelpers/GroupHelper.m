@@ -8,12 +8,12 @@
 
 #import "GroupHelper.h"
 #import "Group2+CreateOrModify.h"
-#import "RestaurantHelper.h"
-#import "Restaurant2.h"
+#import "WineList.h"
+#import "WineListHelper.h"
 #import "WineHelper.h"
 #import "Wine2.h"
 
-#define GROUP_RESTAURANT @"restaurant"
+#define GROUP_WINE_LIST @"wine_list"
 #define GROUP_WINES @"wines"
 
 @implementation GroupHelper
@@ -30,8 +30,8 @@
 {
     Group2 *group = (Group2 *)managedObject;
     
-    if([self.relatedObject class] == [Restaurant2 class]){
-        group.restaurant = (Restaurant2 *)self.relatedObject;
+    if([self.relatedObject class] == [WineList class]){
+        group.wineList = (WineList *)self.relatedObject;
         
     } else if ([self.relatedObject class] == [Wine2 class]){
         group.wines = [self addRelationToSet:group.wines];
@@ -43,9 +43,9 @@
     Group2 *group = (Group2 *)managedObject;
     
     // Restaurant
-    if(!group.restaurant){
-        RestaurantHelper *rh = [[RestaurantHelper alloc] init];
-        [rh processJSON:dictionary[GROUP_RESTAURANT] withRelatedObject:group];
+    if(!group.wineList){
+        WineListHelper *wlh = [[WineListHelper alloc] init];
+        [wlh processJSON:dictionary[GROUP_WINE_LIST] withRelatedObject:group];
     }
     
     // Wines

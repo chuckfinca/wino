@@ -28,6 +28,8 @@
 #import "Region.h"
 #import "TastingRecordHelper.h"
 #import "TastingRecord2.h"
+#import "WineList.h"
+#import "WineListHelper.h"
 
 #define WINE_BRAND @"brand"
 #define WINE_FLIGHTS @"flights"
@@ -39,6 +41,7 @@
 #define WINE_REGIONS @"regions"
 #define WINE_CELLARS @"cellars"
 #define WINE_TASTING_RECORDS @"tasting_records"
+#define WINE_WINE_LISTS @"wine_lists"
 
 
 @implementation WineHelper
@@ -83,6 +86,9 @@
         
     } else if ([self.relatedObject class] == [TastingRecord2 class]){
         wine.tastingRecords = [self addRelationToSet:wine.tastingRecords];
+        
+    } else if ([self.relatedObject class] == [WineList class]){
+        wine.wineLists = [self addRelationToSet:wine.wineLists];
     }
 }
 
@@ -130,7 +136,9 @@
     TastingRecordHelper *trh = [[TastingRecordHelper alloc] init];
     [trh processJSON:dictionary[WINE_TASTING_RECORDS] withRelatedObject:wine];
     
-    
+    // Wine Lists
+    WineListHelper *wlh = [[WineListHelper alloc] init];
+    [wlh processJSON:dictionary[WINE_WINE_LISTS] withRelatedObject:wine];
     
 }
 

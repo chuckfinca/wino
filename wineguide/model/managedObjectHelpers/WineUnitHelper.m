@@ -8,12 +8,12 @@
 
 #import "WineUnitHelper.h"
 #import "WineUnit2+CreateOrModify.h"
-#import "RestaurantHelper.h"
-#import "Restaurant2.h"
+#import "WineList.h"
+#import "WineListHelper.h"
 #import "WineHelper.h"
 #import "Wine2.h"
 
-#define WINE_UNIT_RESTAURANT @"restaurant"
+#define WINE_UNIT_WINE_LIST @"wine_list"
 #define WINE_UNIT_WINE @"wine"
 
 @implementation WineUnitHelper
@@ -30,8 +30,8 @@
 {
     WineUnit2 *wineUnit = (WineUnit2 *)managedObject;
     
-    if([self.relatedObject class] == [Restaurant2 class]){
-        wineUnit.restaurant = (Restaurant2 *)self.relatedObject;
+    if([self.relatedObject class] == [WineList class]){
+        wineUnit.wineList = (WineList *)self.relatedObject;
         
     } else if ([self.relatedObject class] == [Wine2 class]){
         wineUnit.wine = (Wine2 *)self.relatedObject;
@@ -43,9 +43,9 @@
     WineUnit2 *wineUnit = (WineUnit2 *)managedObject;
     
     // restaurant
-    if(!wineUnit.restaurant){
-        RestaurantHelper *rh = [[RestaurantHelper alloc] init];
-        [rh processJSON:dictionary[WINE_UNIT_RESTAURANT] withRelatedObject:wineUnit];
+    if(!wineUnit.wineList){
+        WineListHelper *wlh = [[WineListHelper alloc] init];
+        [wlh processJSON:dictionary[WINE_UNIT_WINE_LIST] withRelatedObject:wineUnit];
     }
     
     if(!wineUnit.wine){

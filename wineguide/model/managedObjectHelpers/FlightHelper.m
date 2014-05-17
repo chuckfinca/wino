@@ -8,13 +8,13 @@
 
 #import "FlightHelper.h"
 #import "Flight2+Modify.h"
-#import "RestaurantHelper.h"
-#import "Restaurant2.h"
+#import "WineList.h"
+#import "WineListHelper.h"
 #import "WineHelper.h"
 #import "Wine2.h"
 
 #define FLIGHT_WINES @"wine"
-#define FLIGHT_RESTAURANT @"restaurant"      //////////////////////
+#define FLIGHT_WINE_LIST @"wine_list"
 
 @implementation FlightHelper
 
@@ -30,8 +30,8 @@
 {
     Flight2 *flight = (Flight2 *)managedObject;
     
-    if([self.relatedObject class] == [Restaurant2 class]){
-        flight.restaurant = (Restaurant2 *)self.relatedObject;
+    if([self.relatedObject class] == [WineList class]){
+        flight.wineList = (WineList *)self.relatedObject;
         
     } else if ([self.relatedObject class] == [Wine2 class]){
         flight.wines = [self addRelationToSet:flight.wines];
@@ -43,9 +43,9 @@
     Flight2 *flight = (Flight2 *)managedObject;
     
     // Restaurant
-    if(!flight.restaurant){
-        RestaurantHelper *rh = [[RestaurantHelper alloc] init];
-        [rh processJSON:dictionary[FLIGHT_RESTAURANT] withRelatedObject:flight];
+    if(!flight.wineList){
+        WineListHelper *wlh = [[WineListHelper alloc] init];
+        [wlh processJSON:dictionary[FLIGHT_WINE_LIST] withRelatedObject:flight];
     }
     
     // Wines

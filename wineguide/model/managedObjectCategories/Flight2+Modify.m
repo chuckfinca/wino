@@ -8,7 +8,7 @@
 
 #import "Flight2+Modify.h"
 #import "NSDictionary+Helper.h"
-#import "Restaurant2.h"
+#import "WineList.h"
 #import "Wine2.h"
 
 #define SERVER_IDENTIFIER @"id"
@@ -45,7 +45,8 @@
     NSLog(@"updated_at = %@",self.updated_at);
     
     NSLog(@"Related objects:");
-    NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.restaurant class], self.restaurant.identifier]);
+    
+    NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.wineList class], self.wineList.identifier]);
     
     for(Wine2 *wine in self.wines){
         NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[wine class], wine.identifier]);
