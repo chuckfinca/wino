@@ -25,22 +25,16 @@
 
 @property (nonatomic) float defaultWineNameLabelToReviewsLabelHeightConstraint;
 @property (nonatomic) float defaultTalkingHeadLabelXPosition;
+@property (nonatomic) float defaultReviewsLabelXPosition;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameLabelConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameLabelToTalkingHeadsButtonArrayConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsButtonArrayToReviewsLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameLabelToReviewsLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewsLabelToBottomConstraint;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameLabelToReviewsLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameLabelToBottomConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftToReviewsLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftToTalkingHeadsLabelConstraint;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadButtonOneHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadButtonTwoHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadButtonThreeHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsLabelHeightConstraint;
 
 @end
 
@@ -50,6 +44,7 @@
 {
     self.defaultWineNameLabelToReviewsLabelHeightConstraint = self.wineNameLabelToReviewsLabelConstraint.constant;
     self.defaultTalkingHeadLabelXPosition = self.talkingHeadsLabel.frame.origin.x;
+    self.defaultReviewsLabelXPosition = self.reviewsLabel.frame.origin.x;
 }
 
 #pragma mark - Getters & setters
@@ -141,10 +136,6 @@
         } else {
             self.wineNameLabelToReviewsLabelConstraint.constant = self.defaultWineNameLabelToReviewsLabelHeightConstraint;
         }
-        
-    } else {
-        self.wineNameLabelToTalkingHeadsButtonArrayConstraint = nil;
-        self.talkingHeadsButtonArrayToReviewsLabelConstraint = nil;
     }
 }
 
@@ -153,16 +144,21 @@
     if(self.glassRatingImageViewArray){
         
         NSInteger numberOfRatings = arc4random_uniform(5);
+        float rating = 0;
         
-        float rating = arc4random_uniform(50);
-        rating /= 10;
-        NSLog(@"rating = %f",rating);
+        if(numberOfRatings > 0){
+            rating = arc4random_uniform(50);
+            rating /= 10;
+            NSLog(@"rating = %f",rating);
+        }
         
         [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColorString:wine.color];
         
         if(!rating || rating == 0){
             numberOfRatings = 0;
             self.leftToReviewsLabelConstraint.constant = self.wineNameLabel.frame.origin.x;
+        } else {
+            self.leftToReviewsLabelConstraint.constant = self.defaultReviewsLabelXPosition;
         }
         
         [self.reviewsLabel setupForNumberOfReviews:numberOfRatings];
@@ -170,8 +166,6 @@
         self.wineNameLabelToBottomConstraint = nil;
         
     } else {
-        self.wineNameLabelToTalkingHeadsButtonArrayConstraint = nil;
-        self.talkingHeadsButtonArrayToReviewsLabelConstraint = nil;
         self.reviewsLabelToBottomConstraint = nil;
         self.wineNameLabelToReviewsLabelConstraint = nil;
     }

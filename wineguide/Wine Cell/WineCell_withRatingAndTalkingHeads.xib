@@ -153,16 +153,12 @@
                 <outlet property="reviewsLabel" destination="jMq-e2-AcZ" id="H02-wd-cps"/>
                 <outlet property="reviewsLabelToBottomConstraint" destination="gXX-cd-PbD" id="eba-iw-xsz"/>
                 <outlet property="talkingHeadButtonOne" destination="fkV-wT-zal" id="AOa-GJ-CfE"/>
-                <outlet property="talkingHeadButtonOneHeightConstraint" destination="gmH-mK-dIC" id="jtO-IU-RrO"/>
                 <outlet property="talkingHeadButtonThree" destination="QA1-zq-ZGc" id="vVl-XR-4Vh"/>
-                <outlet property="talkingHeadButtonThreeHeightConstraint" destination="xuH-U1-kp0" id="GAF-cs-zAe"/>
                 <outlet property="talkingHeadButtonTwo" destination="Yaj-ri-4tH" id="kL0-Tg-XZI"/>
-                <outlet property="talkingHeadButtonTwoHeightConstraint" destination="jcb-ro-w1M" id="RDA-DJ-8Bd"/>
                 <outlet property="talkingHeadsLabel" destination="Btr-sl-rrp" id="cwd-qU-BNi"/>
                 <outlet property="topToWineNameLabelConstraint" destination="5Oc-bk-HJb" id="1bo-NL-FRv"/>
                 <outlet property="wineNameLabel" destination="1Jl-mq-TKE" id="vsg-Oo-cfI"/>
                 <outlet property="wineNameLabelToReviewsLabelConstraint" destination="GAT-Ld-gAx" id="6yR-02-epj"/>
-                <outlet property="wineNameLabelToTalkingHeadsButtonArrayConstraint" destination="cOn-rx-6D2" id="ndu-RM-ZKo"/>
                 <outletCollection property="glassRatingImageViewArray" destination="RYt-rh-lfh" id="s4m-PA-jzm"/>
                 <outletCollection property="glassRatingImageViewArray" destination="pPH-ec-rTP" id="lVD-7H-eys"/>
                 <outletCollection property="glassRatingImageViewArray" destination="u0Y-3x-y5s" id="XLH-vy-CSJ"/>

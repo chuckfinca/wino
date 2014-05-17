@@ -206,7 +206,6 @@ typedef enum {
 -(void)loadTalkingHeadImagesInCell:(WineCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     if(cell.talkingHeadsArray){
-        NSLog(@"---------------- %d",cell.numberOfTalkingHeads);
         for(UIButton *talkingHeadButton in cell.talkingHeadsArray){
             
             __weak UITableView *weakTableView = self.tableView;
@@ -221,7 +220,6 @@ typedef enum {
 
 -(WineCell *)testCellForIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL_WITH_RATING_AND_TALKING_HEADS forIndexPath:indexPath];
     NSInteger typeOfCell = [self.testingArray[indexPath.row] integerValue];
     switch (typeOfCell) {
         case 1:
@@ -239,7 +237,6 @@ typedef enum {
 
 -(WineCell *)testSizingCellForIndexPath:(NSIndexPath *)indexPath
 {
-    return self.sizingCellWithRatingAndTalkingHeads;
     NSInteger typeOfCell = [self.testingArray[indexPath.row] integerValue];
     switch (typeOfCell) {
         case 1:
