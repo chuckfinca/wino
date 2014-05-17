@@ -27,14 +27,16 @@
         
         for(UIImageView *iv in imageViewArray){
             iv.hidden = NO;
-            NSInteger glassIndex = iv.tag;
+            NSInteger glassIndex = iv.tag + 1;
             UIImage *image;
-            if(glassIndex + 1 > rating){
-                image = [[UIImage imageNamed:@"glass_empty.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-            } else if(glassIndex + 1 <= rating) {
-                image = [[UIImage imageNamed:@"glass_full.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            if(glassIndex > rating){
+                if(rating + 0.5 >= glassIndex){
+                    image = [[UIImage imageNamed:@"glass_half.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                } else {
+                    image = [[UIImage imageNamed:@"glass_empty.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                }
             } else {
-                image = [[UIImage imageNamed:@"glass_half.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                image = [[UIImage imageNamed:@"glass_full.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             }
             iv.tintColor = wineColor;
             [iv setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];

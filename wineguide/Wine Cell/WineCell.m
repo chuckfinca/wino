@@ -149,7 +149,6 @@
         if(numberOfRatings > 0){
             rating = arc4random_uniform(50);
             rating /= 10;
-            NSLog(@"rating = %f",rating);
         }
         
         [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColorString:wine.color];
