@@ -2,14 +2,14 @@
 //  Group2.h
 //  Corkie
 //
-//  Created by Charles Feinn on 5/7/14.
+//  Created by Charles Feinn on 5/17/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Restaurant2, Wine2;
+@class Wine2, WineList;
 
 @interface Group2 : NSManagedObject
 
@@ -20,8 +20,8 @@
 @property (nonatomic, retain) NSNumber * sort_order;
 @property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) NSDate * updated_at;
-@property (nonatomic, retain) Restaurant2 *restaurant;
 @property (nonatomic, retain) NSSet *wines;
+@property (nonatomic, retain) WineList *wineList;
 @end
 
 @interface Group2 (CoreDataGeneratedAccessors)

@@ -2,14 +2,14 @@
 //  Wine2.h
 //  Corkie
 //
-//  Created by Charles Feinn on 5/7/14.
+//  Created by Charles Feinn on 5/17/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Brand2, Flight2, Group2, RatingHistory2, Region, TalkingHeads, TastingNote2, TastingRecord2, User2, Varietal2, WineUnit2;
+@class Brand2, Flight2, Group2, RatingHistory2, Region, TalkingHeads, TastingNote2, TastingRecord2, User2, Varietal2, WineList, WineUnit2;
 
 @interface Wine2 : NSManagedObject
 
@@ -24,10 +24,10 @@
 @property (nonatomic, retain) NSNumber * sparkling;
 @property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) NSDate * updated_at;
+@property (nonatomic, retain) NSNumber * user_favorite;
 @property (nonatomic, retain) NSString * vineyard;
 @property (nonatomic, retain) NSString * vintage;
 @property (nonatomic, retain) NSString * wine_description;
-@property (nonatomic, retain) NSNumber * user_favorite;
 @property (nonatomic, retain) Brand2 *brand;
 @property (nonatomic, retain) NSSet *cellars;
 @property (nonatomic, retain) NSSet *flights;
@@ -39,6 +39,7 @@
 @property (nonatomic, retain) NSSet *tastingRecords;
 @property (nonatomic, retain) NSSet *varietals;
 @property (nonatomic, retain) NSSet *wineUnits;
+@property (nonatomic, retain) NSSet *wineLists;
 @end
 
 @interface Wine2 (CoreDataGeneratedAccessors)
@@ -82,5 +83,10 @@
 - (void)removeWineUnitsObject:(WineUnit2 *)value;
 - (void)addWineUnits:(NSSet *)values;
 - (void)removeWineUnits:(NSSet *)values;
+
+- (void)addWineListsObject:(WineList *)value;
+- (void)removeWineListsObject:(WineList *)value;
+- (void)addWineLists:(NSSet *)values;
+- (void)removeWineLists:(NSSet *)values;
 
 @end

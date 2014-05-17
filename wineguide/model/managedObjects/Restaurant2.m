@@ -2,15 +2,13 @@
 //  Restaurant2.m
 //  Corkie
 //
-//  Created by Charles Feinn on 5/7/14.
+//  Created by Charles Feinn on 5/17/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
 #import "Restaurant2.h"
-#import "Flight2.h"
-#import "Group2.h"
 #import "TastingRecord2.h"
-#import "WineUnit2.h"
+#import "WineList.h"
 
 
 @implementation Restaurant2
@@ -28,9 +26,7 @@
 @dynamic street_2;
 @dynamic updated_at;
 @dynamic zip;
-@dynamic flights;
-@dynamic groups;
 @dynamic tastingRecords;
-@dynamic wineUnits;
+@dynamic wineList;
 
 @end
