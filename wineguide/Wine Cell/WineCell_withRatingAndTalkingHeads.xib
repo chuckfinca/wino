@@ -64,11 +64,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="talking heads label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="130" translatesAutoresizingMaskIntoConstraints="NO" id="Btr-sl-rrp" customClass="TalkingHeadsLabel">
-                        <rect key="frame" x="157" y="113" width="130" height="40"/>
+                        <rect key="frame" x="157" y="113" width="130" height="41"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="JMF-Kc-KhH"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -132,8 +129,8 @@
                     <constraint firstItem="92m-N1-buE" firstAttribute="leading" secondItem="u0Y-3x-y5s" secondAttribute="trailing" constant="2" id="BGP-yE-qCB"/>
                     <constraint firstItem="jMq-e2-AcZ" firstAttribute="top" secondItem="X9V-A0-It0" secondAttribute="top" id="CgA-FF-zAS"/>
                     <constraint firstItem="u0Y-3x-y5s" firstAttribute="leading" secondItem="pPH-ec-rTP" secondAttribute="trailing" constant="2" id="DTd-eU-MWJ"/>
+                    <constraint firstItem="jMq-e2-AcZ" firstAttribute="top" secondItem="1Jl-mq-TKE" secondAttribute="bottom" constant="54" id="GAT-Ld-gAx"/>
                     <constraint firstItem="QA1-zq-ZGc" firstAttribute="leading" secondItem="Yaj-ri-4tH" secondAttribute="trailing" constant="2" id="Gtn-RA-NYc"/>
-                    <constraint firstItem="jMq-e2-AcZ" firstAttribute="top" secondItem="fkV-wT-zal" secondAttribute="bottom" constant="6" id="HSs-qL-kUt"/>
                     <constraint firstAttribute="trailing" secondItem="1Jl-mq-TKE" secondAttribute="trailing" id="OSP-S2-MQd"/>
                     <constraint firstItem="RYt-rh-lfh" firstAttribute="leading" secondItem="1Jl-mq-TKE" secondAttribute="leading" id="OsK-Sb-NbZ"/>
                     <constraint firstItem="QA1-zq-ZGc" firstAttribute="top" secondItem="fkV-wT-zal" secondAttribute="top" id="Rv7-9i-BnB"/>
@@ -144,7 +141,7 @@
                     <constraint firstItem="fkV-wT-zal" firstAttribute="top" secondItem="1Jl-mq-TKE" secondAttribute="bottom" constant="8" id="cOn-rx-6D2"/>
                     <constraint firstItem="QA1-zq-ZGc" firstAttribute="top" secondItem="Yaj-ri-4tH" secondAttribute="top" id="dLL-Si-zvF"/>
                     <constraint firstItem="X9V-A0-It0" firstAttribute="top" secondItem="92m-N1-buE" secondAttribute="top" id="gNO-Fu-0bb"/>
-                    <constraint firstAttribute="bottom" secondItem="jMq-e2-AcZ" secondAttribute="bottom" constant="20" symbolic="YES" id="gXX-cd-PbD"/>
+                    <constraint firstAttribute="bottom" secondItem="jMq-e2-AcZ" secondAttribute="bottom" priority="900" constant="20" symbolic="YES" id="gXX-cd-PbD"/>
                     <constraint firstItem="jMq-e2-AcZ" firstAttribute="trailing" secondItem="1Jl-mq-TKE" secondAttribute="trailing" id="hWA-am-uWG"/>
                     <constraint firstItem="X9V-A0-It0" firstAttribute="leading" secondItem="92m-N1-buE" secondAttribute="trailing" constant="2" id="u95-sk-Ocl"/>
                     <constraint firstItem="Btr-sl-rrp" firstAttribute="leading" secondItem="Edj-of-vRn" secondAttribute="leading" constant="157" id="uQD-0z-mo8"/>
@@ -161,11 +158,10 @@
                 <outlet property="talkingHeadButtonThreeHeightConstraint" destination="xuH-U1-kp0" id="GAF-cs-zAe"/>
                 <outlet property="talkingHeadButtonTwo" destination="Yaj-ri-4tH" id="kL0-Tg-XZI"/>
                 <outlet property="talkingHeadButtonTwoHeightConstraint" destination="jcb-ro-w1M" id="RDA-DJ-8Bd"/>
-                <outlet property="talkingHeadsButtonArrayToReviewsLabelConstraint" destination="HSs-qL-kUt" id="3vl-lG-UnC"/>
                 <outlet property="talkingHeadsLabel" destination="Btr-sl-rrp" id="cwd-qU-BNi"/>
-                <outlet property="talkingHeadsLabelHeightConstraint" destination="JMF-Kc-KhH" id="YfS-45-WF6"/>
                 <outlet property="topToWineNameLabelConstraint" destination="5Oc-bk-HJb" id="1bo-NL-FRv"/>
                 <outlet property="wineNameLabel" destination="1Jl-mq-TKE" id="vsg-Oo-cfI"/>
+                <outlet property="wineNameLabelToReviewsLabelConstraint" destination="GAT-Ld-gAx" id="6yR-02-epj"/>
                 <outlet property="wineNameLabelToTalkingHeadsButtonArrayConstraint" destination="cOn-rx-6D2" id="ndu-RM-ZKo"/>
                 <outletCollection property="glassRatingImageViewArray" destination="RYt-rh-lfh" id="s4m-PA-jzm"/>
                 <outletCollection property="glassRatingImageViewArray" destination="pPH-ec-rTP" id="lVD-7H-eys"/>

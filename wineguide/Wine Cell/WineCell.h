@@ -12,6 +12,7 @@
 @interface WineCell : UITableViewCell
 
 @property (nonatomic, strong) NSMutableArray *talkingHeadsArray;
+@property (nonatomic) NSInteger numberOfTalkingHeads;
 
 -(void)setupCellForWine:(Wine *)wine;
 

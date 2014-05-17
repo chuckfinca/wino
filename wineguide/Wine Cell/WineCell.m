@@ -23,7 +23,8 @@
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *glassRatingImageViewArray;
 @property (weak, nonatomic) IBOutlet ReviewsLabel *reviewsLabel;
 
-@property (nonatomic) float talkingHeadButtonHeight;
+@property (nonatomic) float defaultWineNameLabelToReviewsLabelHeightConstraint;
+@property (nonatomic) float defaultTalkingHeadLabelXPosition;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameLabelToTalkingHeadsButtonArrayConstraint;
@@ -47,9 +48,20 @@
 
 -(void)awakeFromNib
 {
-    self.talkingHeadButtonHeight = self.talkingHeadButtonOne.bounds.size.height;
-    NSLog(@"self.talkingHeadButtonHeight = %f",self.talkingHeadButtonHeight);
+    self.defaultWineNameLabelToReviewsLabelHeightConstraint = self.wineNameLabelToReviewsLabelConstraint.constant;
+    self.defaultTalkingHeadLabelXPosition = self.talkingHeadsLabel.frame.origin.x;
 }
+
+#pragma mark - Getters & setters
+
+-(NSMutableArray *)talkingHeadsArray
+{
+    if(!_talkingHeadsArray){
+        _talkingHeadsArray = [[NSMutableArray alloc] init];
+    }
+    return _talkingHeadsArray;
+}
+
 
 #pragma mark - Setup
 
@@ -72,17 +84,29 @@
 
 -(void)setupTalkingHeadsForWine:(Wine *)wine
 {
-    self.talkingHeadsArray = nil;
-    
     if(self.talkingHeadButtonOne){
-        NSInteger numberOfTalkingHeads = 0;//arc4random_uniform(5)+1;
+        
+        // Reset
+        self.talkingHeadsArray = nil;
+        self.leftToTalkingHeadsLabelConstraint.constant = self.defaultTalkingHeadLabelXPosition;
+        self.talkingHeadButtonOne.hidden = NO;
+        self.talkingHeadButtonTwo.hidden = NO;
+        self.talkingHeadButtonThree.hidden = NO;
+        self.talkingHeadsLabel.hidden = NO;
+        
+        NSInteger numberOfTalkingHeads = arc4random_uniform(5);
+        
+        // For testing
+        if(self.numberOfTalkingHeads){
+            numberOfTalkingHeads = self.numberOfTalkingHeads;
+        }
+        
         BOOL youLikeThis = [wine.user_favorite boolValue];
         
         if(numberOfTalkingHeads < 1){
             self.leftToTalkingHeadsLabelConstraint.constant = self.talkingHeadButtonOne.frame.origin.x;
-            self.talkingHeadButtonOneHeightConstraint.constant = 0;
+            self.talkingHeadButtonOne.hidden = YES;
         } else {
-            self.talkingHeadButtonOneHeightConstraint.constant = self.talkingHeadButtonHeight;
             [self.talkingHeadsArray addObject:self.talkingHeadButtonOne];
         }
         
@@ -90,9 +114,8 @@
             if(self.talkingHeadButtonTwo.frame.origin.x < self.leftToTalkingHeadsLabelConstraint.constant){
                 self.leftToTalkingHeadsLabelConstraint.constant = self.talkingHeadButtonTwo.frame.origin.x;
             }
-            self.talkingHeadButtonTwoHeightConstraint.constant = 0;
+            self.talkingHeadButtonTwo.hidden = YES;
         } else {
-            self.talkingHeadButtonTwoHeightConstraint.constant = self.talkingHeadButtonHeight;
             [self.talkingHeadsArray addObject:self.talkingHeadButtonTwo];
         }
         
@@ -100,29 +123,30 @@
             if(self.talkingHeadButtonThree.frame.origin.x < self.leftToTalkingHeadsLabelConstraint.constant){
                 self.leftToTalkingHeadsLabelConstraint.constant = self.talkingHeadButtonThree.frame.origin.x;
             }
-            self.talkingHeadButtonThreeHeightConstraint.constant = 0;
+            self.talkingHeadButtonThree.hidden = YES;
         } else {
-            self.talkingHeadButtonThreeHeightConstraint.constant = self.talkingHeadButtonHeight;
             [self.talkingHeadsArray addObject:self.talkingHeadButtonThree];
         }
         
         if(numberOfTalkingHeads > 3 || youLikeThis){
-            NSInteger additionalPeople = numberOfTalkingHeads - 3 > 0 ? numberOfTalkingHeads - 3 : 0;
+            NSInteger additionalPeople = numberOfTalkingHeads - 3;
             [self.talkingHeadsLabel setupLabelWithNumberOfAdditionalPeople:additionalPeople andYou:youLikeThis];
-            self.talkingHeadsLabelHeightConstraint.constant = self.talkingHeadButtonHeight;
             
         } else {
-            self.talkingHeadsLabelHeightConstraint.constant = 0;
+            self.talkingHeadsLabel.hidden = YES;
         }
         
-        self.wineNameLabelToReviewsLabelConstraint = nil;
+        if(self.talkingHeadButtonOne.hidden == YES && self.talkingHeadsLabel.hidden == YES){
+            self.wineNameLabelToReviewsLabelConstraint.constant = 8;
+        } else {
+            self.wineNameLabelToReviewsLabelConstraint.constant = self.defaultWineNameLabelToReviewsLabelHeightConstraint;
+        }
+        
     } else {
         self.wineNameLabelToTalkingHeadsButtonArrayConstraint = nil;
         self.talkingHeadsButtonArrayToReviewsLabelConstraint = nil;
     }
-
-    
-    }
+}
 
 -(void)setupRatingForWine:(Wine *)wine
 {
@@ -132,7 +156,6 @@
         
         float rating = arc4random_uniform(50);
         rating /= 10;
-        rating = 0;
         NSLog(@"rating = %f",rating);
         
         [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColorString:wine.color];
@@ -174,21 +197,12 @@
     CGSize wineNameLabelSize = [self.wineNameLabel sizeThatFits:CGSizeMake(self.wineNameLabel.bounds.size.width, FLT_MAX)];
     height += wineNameLabelSize.height;
     
-    if(self.talkingHeadButtonOne){
-        height += self.wineNameLabelToTalkingHeadsButtonArrayConstraint.constant;
-        height += self.talkingHeadsLabelHeightConstraint.constant;
-        height += self.talkingHeadsButtonArrayToReviewsLabelConstraint.constant;
-        
-    } else {
-        height += self.wineNameLabelToReviewsLabelConstraint.constant;
-    }
+    height += self.wineNameLabelToReviewsLabelConstraint.constant;
     
     if(self.reviewsLabel){
         height += self.reviewsLabel.bounds.size.height;
         height += self.reviewsLabelToBottomConstraint.constant;
-    }
-    
-    if(!self.glassRatingImageViewArray && !self.reviewsLabel){
+    } else if(!self.glassRatingImageViewArray){
         height += self.wineNameLabelToBottomConstraint.constant;
     }
     
