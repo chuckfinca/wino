@@ -14,35 +14,49 @@
 #import "FontThemer.h"
 #import "User.h"
 #import "GetMe.h"
-#import "TalkingHeadsVC.h"
-#import "RatingsVC.h"
 #import "OutBox.h"
+#import "TalkingHeadsLabel.h"
+#import "ReviewsLabel.h"
+#import "FacebookProfileImageGetter.h"
+#import "RatingPreparer.h"
 
 @interface WineDetailsVC ()
 
 @property (nonatomic, weak) IBOutlet WineNameVHTV *wineNameVHTV;
 @property (nonatomic, weak) IBOutlet WineDetailsVHTV *wineDetailsVHTV;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *glassRatingImageViewArray;
+
+@property (weak, nonatomic) IBOutlet UIButton *talkingHeadButtonOne;
+@property (weak, nonatomic) IBOutlet UIButton *talkingHeadButtonTwo;
+@property (weak, nonatomic) IBOutlet UIButton *talkingHeadButtonThree;
+
 @property (weak, nonatomic) IBOutlet UIButton *cellarButton;
 @property (weak, nonatomic) IBOutlet UIButton *triedItButton;
 @property (weak, nonatomic) IBOutlet UIButton *purchaseButton;
-@property (weak, nonatomic) IBOutlet UIView *talkingHeadsContainerView;
-@property (weak, nonatomic) IBOutlet UIView *ratingsContainerView;
+@property (weak, nonatomic) IBOutlet TalkingHeadsLabel *talkingHeadsLabel;
+@property (weak, nonatomic) IBOutlet ReviewsLabel *reviewsLabel;
 
 @property (nonatomic, weak) Wine *wine;
 @property (nonatomic, weak) Restaurant *restaurant;
 @property (nonatomic, weak) User *me;
-@property (nonatomic, strong) RatingsVC *ratingsVC;
-@property (nonatomic, strong) TalkingHeadsVC *talkingHeadsVC;
 
 
 // Vertical spacing constraints
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameVHTVConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVTHVToTalkingHeadsViewConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsContainerToRatingsContainerConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingsContainerViewToWineDetailsVHTVConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToTalkingHeadsButtonArrayConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsButtonArrayToReviewsLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reviewsLabelToWineDetailsVHTVConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineDetailsVHTVToTriedItButtonConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *triedItButtonToBottomConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsContainerViewHeightConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToGlassRatingImageViewArrayConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToWineDetailsVHTVConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToTalkingHeadsLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsLabelToReviewsLabelConstraint;
+
+// Horizontal spacing constraints
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftToTalkingHeadsLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftToReviewsLabelConstraint;
 
 @end
 
@@ -74,24 +88,6 @@
     return _me;
 }
 
--(RatingsVC *)ratingsVC
-{
-    if(!_ratingsVC){
-        _ratingsVC = [[RatingsVC alloc] initWithNibName:@"RatingsVC" bundle:nil];
-        [self.ratingsContainerView addSubview:_ratingsVC.view];
-    }
-    return _ratingsVC;
-}
-
--(TalkingHeadsVC *)talkingHeadsVC
-{
-    if(!_talkingHeadsVC){
-        _talkingHeadsVC = [[TalkingHeadsVC alloc] initWithNibName:@"TalkingHeadsVC" bundle:nil];
-        [self.talkingHeadsContainerView addSubview:_talkingHeadsVC.view];
-    }
-    return _talkingHeadsVC;
-}
-
 
 #pragma mark - Setup
 
@@ -104,24 +100,16 @@
 -(void)setup
 {
     [self.wineNameVHTV setupTextViewWithWine:self.wine fromRestaurant:nil];
+    [self setupTalkingHeadsForWine:self.wine];
     [self.wineDetailsVHTV setupTextViewWithWine:self.wine fromRestaurant:nil];
-    
-    UIColor *backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    
-    NSInteger numberOfTalkingHeads = 0;
-    if(numberOfTalkingHeads == 0){
-        self.talkingHeadsContainerView.bounds = CGRectMake(0, 0, self.talkingHeadsContainerView.bounds.size.width, 0);
-        self.talkingHeadsContainerViewHeightConstraint.constant = 0;
-    } else {
-        [self.talkingHeadsVC setupWithNumberOfTalkingHeads:0 andYou:[self.wine.user_favorite boolValue] withBackgroundColor:backgroundColor];
-    }
-    [self.ratingsVC setupForRating:0 andWineColor:self.wine.color displayText:YES andBackgroundColor:backgroundColor];
-    
+    [self setupRatingForWine:self.wine];
     [self setupUserActionButtons];
     
     [self setViewHeight];
     
-    self.view.backgroundColor = backgroundColor;
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.wineNameVHTV.backgroundColor = [UIColor greenColor];
+    self.wineDetailsVHTV.backgroundColor = [UIColor orangeColor];
 }
 
 -(void)setupUserActionButtons
@@ -150,17 +138,105 @@
     
 }
 
+-(void)setupTalkingHeadsForWine:(Wine *)wine
+{
+    NSInteger numberOfTalkingHeads = arc4random_uniform(5)+1;
+    BOOL youLikeThis = [wine.user_favorite boolValue];
+    
+    NSMutableArray *talkingHeadsArray = [[NSMutableArray alloc] init];
+    
+    if(numberOfTalkingHeads < 1){
+        self.leftToTalkingHeadsLabelConstraint.constant = self.talkingHeadButtonOne.frame.origin.x;
+        [self.talkingHeadButtonOne removeFromSuperview];
+        self.talkingHeadButtonOne = nil;
+    } else {
+        [talkingHeadsArray addObject:self.talkingHeadButtonOne];
+    }
+    
+    if(numberOfTalkingHeads < 2){
+        if(self.talkingHeadButtonTwo.frame.origin.x < self.leftToTalkingHeadsLabelConstraint.constant){
+            self.leftToTalkingHeadsLabelConstraint.constant = self.talkingHeadButtonTwo.frame.origin.x;
+        }
+        [self.talkingHeadButtonTwo removeFromSuperview];
+        self.talkingHeadButtonTwo = nil;
+    } else {
+        [talkingHeadsArray addObject:self.talkingHeadButtonTwo];
+    }
+    
+    if(numberOfTalkingHeads < 3){
+        if(self.talkingHeadButtonThree.frame.origin.x < self.leftToTalkingHeadsLabelConstraint.constant){
+            self.leftToTalkingHeadsLabelConstraint.constant = self.talkingHeadButtonThree.frame.origin.x;
+        }
+        [self.talkingHeadButtonThree removeFromSuperview];
+        self.talkingHeadButtonThree = nil;
+    } else {
+        [talkingHeadsArray addObject:self.talkingHeadButtonThree];
+    }
+    
+    if(numberOfTalkingHeads > 3 || youLikeThis){
+        NSInteger additionalPeople = numberOfTalkingHeads - 3 > 0 ? numberOfTalkingHeads - 3 : 0;
+        [self.talkingHeadsLabel setupLabelWithNumberOfAdditionalPeople:additionalPeople andYou:youLikeThis];
+        
+    } else {
+        [self.talkingHeadsLabel removeFromSuperview];
+        self.talkingHeadsLabel = nil;
+    }
+    
+    FacebookProfileImageGetter *facebookProfileImageGetter = [[FacebookProfileImageGetter alloc] init];
+    
+    for(UIButton *talkingHeadButton in talkingHeadsArray){
+        
+        // if there is a user for this head button insert it if not remove it and reset constraints
+        
+        [facebookProfileImageGetter setProfilePicForUser:nil inButton:talkingHeadButton completion:^(BOOL success) {
+            if(success){
+                [talkingHeadButton setImage:[UIImage imageWithData:nil] forState:UIControlStateNormal];
+            }
+        }];
+    }
+    
+}
+
+-(void)setupRatingForWine:(Wine *)wine
+{
+    NSInteger numberOfRatings = arc4random_uniform(5);
+    
+    float rating = arc4random_uniform(50);
+    rating /= 10;
+    NSLog(@"rating = %f",rating);
+    
+    if(rating > 0){
+        [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColorString:wine.color];
+        [self.reviewsLabel setupForNumberOfReviews:numberOfRatings];
+        
+    } else {
+        [self.reviewsLabel removeFromSuperview];
+        self.reviewsLabel = nil;
+    }
+}
+
 -(void)setViewHeight
 {
     CGFloat height = 0;
     
     height += self.topToWineNameVHTVConstraint.constant;
     height += [self.wineNameVHTV height];
-    height += self.wineNameVTHVToTalkingHeadsViewConstraint.constant;
-    height += self.talkingHeadsContainerView.bounds.size.height;
-    height += self.talkingHeadsContainerToRatingsContainerConstraint.constant;
-    height += self.ratingsContainerView.bounds.size.height;
-    height += self.ratingsContainerViewToWineDetailsVHTVConstraint.constant;
+    
+    if(self.talkingHeadButtonOne){
+        height += self.wineNameVHTVToTalkingHeadsButtonArrayConstraint.constant;
+        height += self.talkingHeadButtonOne.bounds.size.height;
+        if(self.reviewsLabel){
+            height += self.talkingHeadsButtonArrayToReviewsLabelConstraint.constant;
+        }
+    } else if(self.talkingHeadsLabel){
+        height += self.wineNameVHTVToTalkingHeadsLabelConstraint.constant;
+        height += self.talkingHeadsLabel.bounds.size.height;
+        if(self.reviewsLabel){
+            height += self.talkingHeadsLabelToReviewsLabelConstraint.constant;
+        }
+    }
+    height += self.reviewsLabel.bounds.size.height;
+    height += self.reviewsLabelToWineDetailsVHTVConstraint.constant;
     height += [self.wineDetailsVHTV height];
     height += self.wineDetailsVHTVToTriedItButtonConstraint.constant;
     height += self.triedItButton.bounds.size.height;
@@ -168,7 +244,6 @@
     
     self.view.bounds = CGRectMake(0, 0, self.view.bounds.size.width, height);
 }
-
 
 
 -(void)displayCellarMessage
@@ -209,6 +284,10 @@
     [self purchaseWine];
 }
 
+-(IBAction)pushUserProfile:(UIButton *)sender
+{
+    NSLog(@"push user profile for button %ld",(long)sender.tag);
+}
 #pragma mark - UserActions
 
 -(void)cellarWine
