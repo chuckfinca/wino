@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) NSDate * updated_at;
 @property (nonatomic, retain) NSNumber * identifier;
+@property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) Restaurant2 *restaurant;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;

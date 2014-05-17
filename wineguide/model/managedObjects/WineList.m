@@ -21,6 +21,7 @@
 @dynamic created_at;
 @dynamic updated_at;
 @dynamic identifier;
+@dynamic status;
 @dynamic restaurant;
 @dynamic flights;
 @dynamic groups;
