@@ -220,6 +220,7 @@ typedef enum {
 
 -(WineCell *)testCellForIndexPath:(NSIndexPath *)indexPath
 {
+    return [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL_WITH_RATING_AND_TALKING_HEADS forIndexPath:indexPath];
     NSInteger typeOfCell = [self.testingArray[indexPath.row] integerValue];
     switch (typeOfCell) {
         case 1:
@@ -237,6 +238,7 @@ typedef enum {
 
 -(WineCell *)testSizingCellForIndexPath:(NSIndexPath *)indexPath
 {
+    return self.sizingCellWithRatingAndTalkingHeads;
     NSInteger typeOfCell = [self.testingArray[indexPath.row] integerValue];
     switch (typeOfCell) {
         case 1:

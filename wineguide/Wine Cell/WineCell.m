@@ -131,7 +131,7 @@
             self.talkingHeadsLabel.hidden = YES;
         }
         
-        if(self.talkingHeadButtonOne.hidden == YES && self.talkingHeadsLabel.hidden == YES){
+        if(numberOfTalkingHeads == 0 && self.talkingHeadsLabel.hidden == YES){
             self.wineNameLabelToReviewsLabelConstraint.constant = 8;
         } else {
             self.wineNameLabelToReviewsLabelConstraint.constant = self.defaultWineNameLabelToReviewsLabelHeightConstraint;
