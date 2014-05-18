@@ -43,6 +43,10 @@
 {
     self.defaultTalkingHeadLabelXPosition = self.talkingHeadsLabel.frame.origin.x;
     self.defaultReviewsLabelXPosition = self.reviewsLabel.frame.origin.x;
+    
+    self.talkingHeadButtonOne.tintColor = [ColorSchemer sharedInstance].baseColor;
+    self.talkingHeadButtonTwo.tintColor = [ColorSchemer sharedInstance].baseColor;
+    self.talkingHeadButtonThree.tintColor = [ColorSchemer sharedInstance].baseColor;
 }
 
 #pragma mark - Getters & setters
@@ -70,9 +74,6 @@
     [self setupBackgroundColorForWine:wine];
     
     [self setViewHeight];
-    
-    self.wineNameLabel.backgroundColor = [UIColor greenColor];
-    self.reviewsLabel.backgroundColor = [UIColor orangeColor];
 }
 
 -(void)setupTalkingHeadsForWine:(Wine *)wine
@@ -136,6 +137,11 @@
     if(self.glassRatingImageViewArray){
         
         NSInteger numberOfRatings = arc4random_uniform(5);
+        
+        if(self.talkingHeadButtonOne){
+            numberOfRatings++;
+        }
+        
         float rating = 0;
         
         if(numberOfRatings > 0){

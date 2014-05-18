@@ -108,8 +108,6 @@
     [self setViewHeight];
     
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    self.wineNameVHTV.backgroundColor = [UIColor greenColor];
-    self.wineDetailsVHTV.backgroundColor = [UIColor orangeColor];
 }
 
 -(void)setupUserActionButtons
@@ -140,8 +138,7 @@
 
 -(void)setupTalkingHeadsForWine:(Wine *)wine
 {
-    self.numberOfRatings = 1;//arc4random_uniform(8)+1;
-    NSLog(@"self.numberOfRatings = %ld",(long)self.numberOfRatings);
+    self.numberOfRatings = arc4random_uniform(8)+1;
     
     NSInteger numberOfTalkingHeads = self.numberOfRatings / 2;
     BOOL youLikeThis = [wine.user_favorite boolValue];
@@ -189,7 +186,7 @@
     
     for(UIButton *talkingHeadButton in talkingHeadsArray){
         
-        // if there is a user for this head button insert it if not remove it and reset constraints
+        talkingHeadButton.tintColor = [ColorSchemer sharedInstance].baseColor;
         
         [facebookProfileImageGetter setProfilePicForUser:nil inButton:talkingHeadButton completion:^(BOOL success) {
             if(success){
