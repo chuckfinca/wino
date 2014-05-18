@@ -40,6 +40,8 @@
 @property (nonatomic, weak) Restaurant *restaurant;
 @property (nonatomic, weak) User *me;
 
+@property (nonatomic) NSInteger numberOfRatings; // for testing
+
 
 // Vertical spacing constraints
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToWineNameVHTVConstraint;
@@ -49,8 +51,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineDetailsVHTVToTriedItButtonConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *triedItButtonToBottomConstraint;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToGlassRatingImageViewArrayConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToWineDetailsVHTVConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameVHTVToTalkingHeadsLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *talkingHeadsLabelToReviewsLabelConstraint;
 
@@ -140,7 +140,10 @@
 
 -(void)setupTalkingHeadsForWine:(Wine *)wine
 {
-    NSInteger numberOfTalkingHeads = arc4random_uniform(5)+1;
+    self.numberOfRatings = 1;//arc4random_uniform(8)+1;
+    NSLog(@"self.numberOfRatings = %ld",(long)self.numberOfRatings);
+    
+    NSInteger numberOfTalkingHeads = self.numberOfRatings / 2;
     BOOL youLikeThis = [wine.user_favorite boolValue];
     
     NSMutableArray *talkingHeadsArray = [[NSMutableArray alloc] init];
@@ -199,15 +202,14 @@
 
 -(void)setupRatingForWine:(Wine *)wine
 {
-    NSInteger numberOfRatings = arc4random_uniform(5);
-    
-    float rating = arc4random_uniform(50);
-    rating /= 10;
-    NSLog(@"rating = %f",rating);
-    
-    if(rating > 0){
+    if(self.numberOfRatings > 0){
+        
+        float rating = arc4random_uniform(50) + 1;
+        rating /= 10;
+        NSLog(@"rating = %f",rating);
+        
         [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColorString:wine.color];
-        [self.reviewsLabel setupForNumberOfReviews:numberOfRatings];
+        [self.reviewsLabel setupForNumberOfReviews:self.numberOfRatings];
         
     } else {
         [self.reviewsLabel removeFromSuperview];
