@@ -23,7 +23,6 @@
 #define JSON @"json"
 #define GROUP_ENTITY @"Group"
 #define WINE_ENTITY @"Wine"
-#define WINE_CELL @"WineCell"
 #define WINE_CELL_WITH_RATING @"WineCell_withRating"
 #define WINE_CELL_WITH_RATING_AND_TALKING_HEADS @"WineCell_withRatingAndTalkingHeads"
 
@@ -45,7 +44,6 @@ typedef enum {
 @property (nonatomic, strong) NSFetchedResultsController *restaurantGroupsFRC;
 @property (nonatomic, strong) NSString *selectedGroupIdentifier;
 
-@property (nonatomic, strong) WineCell *sizingCell;
 @property (nonatomic, strong) WineCell *sizingCellWithRating;
 @property (nonatomic, strong) WineCell *sizingCellWithRatingAndTalkingHeads;
 
@@ -69,7 +67,6 @@ typedef enum {
 {
     [super viewDidLoad];
     
-    [self.tableView registerNib:[UINib nibWithNibName:WINE_CELL bundle:nil] forCellReuseIdentifier:WINE_CELL];
     [self.tableView registerNib:[UINib nibWithNibName:WINE_CELL_WITH_RATING bundle:nil] forCellReuseIdentifier:WINE_CELL_WITH_RATING];
     [self.tableView registerNib:[UINib nibWithNibName:WINE_CELL_WITH_RATING_AND_TALKING_HEADS bundle:nil] forCellReuseIdentifier:WINE_CELL_WITH_RATING_AND_TALKING_HEADS];
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeaderViewIdentifier"];
@@ -84,14 +81,6 @@ typedef enum {
         _restaurantDetailsViewController.delegate = self;
     }
     return _restaurantDetailsViewController;
-}
-
--(WineCell *)sizingCell
-{
-    if(!_sizingCell){
-        _sizingCell = [[[NSBundle mainBundle] loadNibNamed:WINE_CELL owner:self options:nil] firstObject];
-    }
-    return _sizingCell;
 }
 
 -(WineCell *)sizingCellWithRating
@@ -196,7 +185,7 @@ typedef enum {
 {
     WineCell *cell = [self testCellForIndexPath:indexPath];
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.numberOfTalkingHeads = [self.testingArray[indexPath.row] integerValue] * 2;
+    cell.numberOfTalkingHeads = [self.testingArray[indexPath.row] integerValue] * 2+1;
     [cell setupCellForWine:wine];
     [self loadTalkingHeadImagesInCell:cell atIndexPath:indexPath];
     
@@ -220,38 +209,18 @@ typedef enum {
 
 -(WineCell *)testCellForIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL_WITH_RATING_AND_TALKING_HEADS forIndexPath:indexPath];
-    NSInteger typeOfCell = [self.testingArray[indexPath.row] integerValue];
-    switch (typeOfCell) {
-        case 1:
-            return [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL_WITH_RATING forIndexPath:indexPath];
-            break;
-        case 2:
-            return [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL_WITH_RATING_AND_TALKING_HEADS forIndexPath:indexPath];
-            break;
-            
-        default:
-            break;
+    if(indexPath.row % 2 == 0){
+        return [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL_WITH_RATING forIndexPath:indexPath];
     }
-    return [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
+    return [self.tableView dequeueReusableCellWithIdentifier:WINE_CELL_WITH_RATING_AND_TALKING_HEADS forIndexPath:indexPath];
 }
 
 -(WineCell *)testSizingCellForIndexPath:(NSIndexPath *)indexPath
 {
-    return self.sizingCellWithRatingAndTalkingHeads;
-    NSInteger typeOfCell = [self.testingArray[indexPath.row] integerValue];
-    switch (typeOfCell) {
-        case 1:
-            return self.sizingCellWithRating;
-            break;
-        case 2:
-            return self.sizingCellWithRatingAndTalkingHeads;
-            break;
-            
-        default:
-            break;
+    if(indexPath.row % 2 == 0){
+        return self.sizingCellWithRating;
     }
-    return self.sizingCell;
+    return self.sizingCellWithRatingAndTalkingHeads;
 }
 
 #pragma mark - UITableViewDelegate
@@ -265,7 +234,7 @@ typedef enum {
 -(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     WineCell *cell = [self testSizingCellForIndexPath:indexPath];
-    cell.numberOfTalkingHeads = [self.testingArray[indexPath.row] integerValue] * 2;
+    cell.numberOfTalkingHeads = [self.testingArray[indexPath.row] integerValue] * 2+1;
     Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell setupCellForWine:wine];
     

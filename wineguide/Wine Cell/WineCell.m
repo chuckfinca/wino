@@ -23,7 +23,6 @@
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *glassRatingImageViewArray;
 @property (weak, nonatomic) IBOutlet ReviewsLabel *reviewsLabel;
 
-@property (nonatomic) float defaultWineNameLabelToReviewsLabelHeightConstraint;
 @property (nonatomic) float defaultTalkingHeadLabelXPosition;
 @property (nonatomic) float defaultReviewsLabelXPosition;
 
@@ -42,7 +41,6 @@
 
 -(void)awakeFromNib
 {
-    self.defaultWineNameLabelToReviewsLabelHeightConstraint = self.wineNameLabelToReviewsLabelConstraint.constant;
     self.defaultTalkingHeadLabelXPosition = self.talkingHeadsLabel.frame.origin.x;
     self.defaultReviewsLabelXPosition = self.reviewsLabel.frame.origin.x;
 }
@@ -129,12 +127,6 @@
             
         } else {
             self.talkingHeadsLabel.hidden = YES;
-        }
-        
-        if(numberOfTalkingHeads == 0 && self.talkingHeadsLabel.hidden == YES){
-            self.wineNameLabelToReviewsLabelConstraint.constant = 8;
-        } else {
-            self.wineNameLabelToReviewsLabelConstraint.constant = self.defaultWineNameLabelToReviewsLabelHeightConstraint;
         }
     }
 }
