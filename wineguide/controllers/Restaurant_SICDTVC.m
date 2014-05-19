@@ -19,6 +19,7 @@
 #import "ColorSchemer.h"
 #import "WineCell.h"
 #import "FacebookProfileImageGetter.h"
+#import "ServerCommunicator.h"
 
 #define JSON @"json"
 #define GROUP_ENTITY @"Group"
@@ -39,7 +40,6 @@ typedef enum {
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
 @property (nonatomic, strong) Restaurant *restaurant;
-@property (nonatomic) BOOL restaurantWineListCached;
 @property (nonatomic, strong) NSString *listName;
 @property (nonatomic, strong) NSFetchedResultsController *restaurantGroupsFRC;
 @property (nonatomic, strong) NSString *selectedGroupIdentifier;
@@ -70,6 +70,8 @@ typedef enum {
     [self.tableView registerNib:[UINib nibWithNibName:WINE_CELL_WITH_RATING bundle:nil] forCellReuseIdentifier:WINE_CELL_WITH_RATING];
     [self.tableView registerNib:[UINib nibWithNibName:WINE_CELL_WITH_RATING_AND_TALKING_HEADS bundle:nil] forCellReuseIdentifier:WINE_CELL_WITH_RATING_AND_TALKING_HEADS];
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeaderViewIdentifier"];
+    
+    
 }
 
 #pragma mark - Getters & Setters
@@ -137,10 +139,8 @@ typedef enum {
 
 -(void)refreshWineList
 {
-    // if we have cached data about the restaurant's wine list then display that, if not get it from the server
-    if(self.restaurantWineListCached == NO){
-        [self getWineList];
-    }
+    ServerCommunicator *caller = [[ServerCommunicator alloc] init];
+    [caller getAllWinesFromRestaurantIdentifier:2];
 }
 
 -(void)getWineList

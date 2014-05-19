@@ -226,7 +226,6 @@
         double longitude = 1;
         ServerCommunicator *caller = [[ServerCommunicator alloc] init];
         [caller getRestaurantsNearLatitude:latitude longitude:longitude];
-        [caller getAllWinesFromRestaurantIdentifier:1];
     }];
 }
 
