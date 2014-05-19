@@ -127,6 +127,8 @@
         [self addRelationToManagedObject:mo];
     }
     [self processManagedObject:mo relativesFoundInDictionary:dictionary];
+    
+    [mo description];
 }
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary

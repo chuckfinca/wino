@@ -50,8 +50,6 @@
         self.longitude = [dictionary sanitizedValueForKey:RESTAURANT_LONGITUDE];
     }
     
-    [self logDetails];
-    
     return self;
 }
 
@@ -85,7 +83,7 @@
 -(NSString *)description
 {
     [self logDetails];
-    return [NSString stringWithFormat:@"%@ - %@",[self class],self.identifier];
+    return @"-----------------------------------------------------";
 }
 
 

@@ -39,8 +39,6 @@
         self.updated_at = serverUpdatedDate;
     }
     
-    [self logDetails];
-    
     return self;
 }
 
@@ -68,7 +66,7 @@
 -(NSString *)description
 {
     [self logDetails];
-    return [NSString stringWithFormat:@"%@ - %@",[self class],self.identifier];
+    return @"-----------------------------------------------------";
 }
 
 
