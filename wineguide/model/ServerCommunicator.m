@@ -11,7 +11,7 @@
 #import "RestaurantHelper.h"
 #import "DocumentHandler2.h"
 #import "WineHelper.h"
-#import "GroupHelper.h"
+#import "WineListHelper.h"
 
 @interface ServerCommunicator ()
 
@@ -36,14 +36,14 @@
     // call Corkie server and get restaurant json
     RestaurantHelper *restaurantHelper = [[RestaurantHelper alloc] init];
     [restaurantHelper getDataAtUrl:@"http://www.corkieapp.com/nearMe/1/1"];
-    NSLog(@"%@",[NSString stringWithFormat:@"http://wappbeta.herokuapp.com/nearMe/%f/%f",longitude,latitude]);
+    NSLog(@"%@",[NSString stringWithFormat:@"http://www.corkieapp.com/nearMe/%f/%f",longitude,latitude]);
 }
 
 -(void)getAllWinesFromRestaurantIdentifier:(NSInteger)restaurantIdentifier
 {
-    GroupHelper *gh = [[GroupHelper alloc] init];
-    [gh getDataAtUrl:[NSString stringWithFormat:@"http://wappbeta.herokuapp.com/getWineList/%ld",(long)restaurantIdentifier]];
-    NSLog(@"%@",[NSString stringWithFormat:@"http://wappbeta.herokuapp.com/getWineList/%ld",(long)restaurantIdentifier]);
+    WineListHelper *wlh = [[WineListHelper alloc] init];
+    [wlh getDataAtUrl:[NSString stringWithFormat:@"http://www.corkieapp.com/getWineList/%ld",(long)restaurantIdentifier]];
+    NSLog(@"%@",[NSString stringWithFormat:@"http://www.corkieapp.com/getWineList/%ld",(long)restaurantIdentifier]);
 }
 
 @end
