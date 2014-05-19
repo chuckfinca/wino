@@ -28,7 +28,7 @@
     NSDate *serverUpdatedDate = [dictionary dateAtKey:UPDATED_AT];
     if(!self.updated_at || [self.updated_at laterDate:serverUpdatedDate] == serverUpdatedDate){
         
-        if(!self.identifier){
+        if(!self.identifier || [self.identifier isEqual: @0]){
             self.identifier = [dictionary sanitizedValueForKey:SERVER_IDENTIFIER];
         }
         

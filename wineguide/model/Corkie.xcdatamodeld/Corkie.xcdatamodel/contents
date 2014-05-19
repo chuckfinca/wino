@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Brand2" representedClassName="Brand2" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
@@ -206,7 +206,7 @@
         <element name="User2" positionX="-693" positionY="-178" width="128" height="358"/>
         <element name="Varietal2" positionX="351" positionY="432" width="128" height="163"/>
         <element name="Wine2" positionX="187" positionY="-115" width="128" height="448"/>
-        <element name="WineUnit2" positionX="-0" positionY="-0" width="128" height="163"/>
         <element name="WineList" positionX="-351" positionY="-180" width="128" height="208"/>
+        <element name="WineUnit2" positionX="-0" positionY="-0" width="128" height="163"/>
     </elements>
 </model>
