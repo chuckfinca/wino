@@ -54,9 +54,10 @@
                 // self.follow_status // used by UserHelper for relationship creation
         self.created_at = [dictionary dateAtKey:CREATED_AT];
         self.updated_at = serverUpdatedDate;
-        
-        [self logDetails];
     }
+    
+    [self logDetails];
+    
     return self;
 }
 
