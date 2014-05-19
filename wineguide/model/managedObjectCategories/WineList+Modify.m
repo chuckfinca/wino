@@ -14,8 +14,8 @@
 #import "Wine2.h"
 #import "Restaurant2.h"
 
-#define WINELIST_NAME @"name"
-#define WINELIST_DESCRIPTION @"about"
+#define WINELIST_NAME @"wine_list_name"
+#define WINELIST_DESCRIPTION @"wine_list_desc"
 
 #define SERVER_IDENTIFIER @"id"
 #define CREATED_AT @"created_at"
@@ -50,14 +50,14 @@
     NSLog(@"=====================================================");
     NSLog(@"%@ - %@\n",[self class],self.identifier);
     NSLog(@"name = %@",self.name);
-    NSLog(@"about = %@",self.about);
+    NSLog(@"desc = %@",self.about);
     NSLog(@"status = %@",self.status);
     NSLog(@"created_at = %@",self.created_at);
     NSLog(@"updated_at = %@",self.updated_at);
     
     NSLog(@"Related objects:");
     
-    NSLog(@"restaurant = %@",self.restaurant.name);
+    NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.restaurant class], self.restaurant.identifier]);
     
     for(Flight2 *flight in self.flights){
         NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[flight class], flight.identifier]);

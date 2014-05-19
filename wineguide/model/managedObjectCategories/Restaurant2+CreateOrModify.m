@@ -59,22 +59,22 @@
 {
     NSLog(@"=====================================================");
     NSLog(@"%@ - %@\n",[self class],self.identifier);
-    NSLog(@"state = %@",self.state);
     NSLog(@"name = %@",self.name);
     NSLog(@"street_1 = %@",self.street_1);
     NSLog(@"street_2 = %@",self.street_2);
     NSLog(@"city = %@",self.city);
-    NSLog(@"status = %@",self.status);
+    NSLog(@"state = %@",self.state);
     NSLog(@"zip = %@",self.zip);
     NSLog(@"country = %@",self.country);
-    NSLog(@"created_at = %@",self.created_at);
-    NSLog(@"updated_at = %@",self.updated_at);
     NSLog(@"latitude = %@",self.latitude);
     NSLog(@"longitude = %@",self.longitude);
+    NSLog(@"status = %@",self.status);
+    NSLog(@"created_at = %@",self.created_at);
+    NSLog(@"updated_at = %@",self.updated_at);
     
     NSLog(@"Related objects:");
     
-    NSLog(@"wineList = %@",self.wineList.identifier);
+    NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.wineList class], self.wineList.identifier]);
     
     for(TastingRecord2 *tastingRecord in self.tastingRecords){
         NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[tastingRecord class], tastingRecord.identifier]);

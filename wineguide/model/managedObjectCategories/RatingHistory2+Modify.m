@@ -8,6 +8,7 @@
 
 #import "RatingHistory2+Modify.h"
 #import "NSDictionary+Helper.h"
+#import "Wine2.h"
 
 #define SERVER_IDENTIFIER @"id"
 #define STATUS_CODE @"status"
@@ -64,6 +65,10 @@
     NSLog(@"status = %@",self.status);
     NSLog(@"created_at = %@",self.created_at);
     NSLog(@"updated_at = %@",self.updated_at);
+    
+    
+    NSLog(@"Related Objects");
+    NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[self.wine class], self.wine.identifier]);
 }
 
 
