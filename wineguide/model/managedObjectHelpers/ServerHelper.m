@@ -77,6 +77,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSLog(@"Error: %@", [error localizedDescription]);
+        NSLog(@"At this point we need to try again and/or display some sort of error to the user. Telling them what happened and what to do about it");
     }];
 }
 

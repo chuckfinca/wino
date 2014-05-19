@@ -221,7 +221,6 @@
     RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
     [rdh updateCoreDataWithJSONFromURL:url];
     
-    /*
     [[DocumentHandler2 sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document) {
         double latitude = 1;
         double longitude = 1;
@@ -229,7 +228,6 @@
         [caller getRestaurantsNearLatitude:latitude longitude:longitude];
         [caller getAllWinesFromRestaurantIdentifier:1];
     }];
-     */
 }
 
 
