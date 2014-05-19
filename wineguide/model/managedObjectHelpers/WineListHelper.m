@@ -19,17 +19,20 @@
 #import "Wine2.h"
 #import "WineHelper.h"
 
-#define WINELIST_FLIGHTS @"flights"
-#define WINELIST_GROUPS @"groups"
-#define WINELIST_WINE_UNITS @"wine_units"
-#define WINELIST_RESTAURANT @"restaurant"
-#define WINELIST_WINES @"wines"
+
+#define WINE_LIST_ENTITY @"WineList"
+
+#define WINE_LIST_FLIGHTS @"flights"
+#define WINE_LIST_GROUPS @"groups"
+#define WINE_LIST_WINE_UNITS @"wine_units"
+#define WINE_LIST_RESTAURANT @"restaurant"
+#define WINE_LIST_WINES @"wines"
 
 @implementation WineListHelper
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    WineList *wineList = (WineList *)[self findOrCreateManagedObjectEntityType:RESTAURANT_ENTITY usingDictionary:dictionary];
+    WineList *wineList = (WineList *)[self findOrCreateManagedObjectEntityType:WINE_LIST_ENTITY usingDictionary:dictionary];
     [wineList modifyAttributesWithDictionary:dictionary];
     
     return wineList;
@@ -62,24 +65,24 @@
     
     // Flights
     FlightHelper *fh = [[FlightHelper alloc] init];
-    [fh processJSON:dictionary[WINELIST_FLIGHTS] withRelatedObject:wineList];
+    [fh processJSON:dictionary[WINE_LIST_FLIGHTS] withRelatedObject:wineList];
     
     // Groups
     GroupHelper *gh = [[GroupHelper alloc] init];
-    [gh processJSON:dictionary[WINELIST_GROUPS] withRelatedObject:wineList];
+    [gh processJSON:dictionary[WINE_LIST_GROUPS] withRelatedObject:wineList];
     
     
     // Tasting Records
     WineHelper *wh = [[WineHelper alloc] init];
-    [wh processJSON:dictionary[WINELIST_WINES] withRelatedObject:wineList];
+    [wh processJSON:dictionary[WINE_LIST_WINES] withRelatedObject:wineList];
     
     // Wine Units
     WineUnitHelper *wuh = [[WineUnitHelper alloc] init];
-    [wuh processJSON:dictionary[WINELIST_WINE_UNITS] withRelatedObject:wineList];
+    [wuh processJSON:dictionary[WINE_LIST_WINE_UNITS] withRelatedObject:wineList];
     
     // Restaurant
     RestaurantHelper *rh = [[RestaurantHelper alloc] init];
-    [rh processJSON:dictionary[WINELIST_RESTAURANT] withRelatedObject:wineList];
+    [rh processJSON:dictionary[WINE_LIST_RESTAURANT] withRelatedObject:wineList];
 }
 
 
