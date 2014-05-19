@@ -17,7 +17,7 @@
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary
 {
-    Varietal2 *varietal = (Varietal2 *)[self findOrCreateManagedObjectEntityType:BRAND_ENTITY usingDictionary:dictionary];
+    Varietal2 *varietal = (Varietal2 *)[self findOrCreateManagedObjectEntityType:VARIETAL_ENTITY usingDictionary:dictionary];
     [varietal modifyAttributesWithDictionary:dictionary];
     
     return varietal;
