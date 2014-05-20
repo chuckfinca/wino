@@ -15,7 +15,7 @@
 #define CREATED_AT @"created_at"
 #define UPDATED_AT @"updated_at"
 
-#define TASTING_NOTE_ABOUT @"tasting_note_desc"
+#define TASTING_NOTE_ABOUT @"about"
 #define TASTING_NOTE_NAME @"tasting_note_name"
 #define TASTING_NOTE_TASTING_STAGE @"tasting_stage"
 

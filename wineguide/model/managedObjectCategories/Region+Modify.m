@@ -15,8 +15,8 @@
 #define CREATED_AT @"created_at"
 #define UPDATED_AT @"updated_at"
 
-#define REGION_DESCRIPTION @"varietal_desc"
-#define REGION_NAME @"varietal_name"
+#define REGION_DESCRIPTION @"region_desc"
+#define REGION_NAME @"region_name"
 
 @implementation Region (Modify)
 
