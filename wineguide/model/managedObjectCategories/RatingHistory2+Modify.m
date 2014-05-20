@@ -44,6 +44,8 @@
         self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
         self.created_at = [dictionary dateAtKey:CREATED_AT];
         self.updated_at = serverUpdatedDate;
+        
+        [self logDetails];
     }
     
     return self;

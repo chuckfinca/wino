@@ -48,6 +48,8 @@
         self.updated_at = serverUpdatedDate;
         self.latitude = [dictionary sanitizedValueForKey:RESTAURANT_LATITUDE];
         self.longitude = [dictionary sanitizedValueForKey:RESTAURANT_LONGITUDE];
+        
+        [self logDetails];
     }
     
     return self;

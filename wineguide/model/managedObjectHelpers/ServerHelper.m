@@ -128,7 +128,7 @@
     }
     [self processManagedObject:mo relativesFoundInDictionary:dictionary];
     
-    [mo description];
+    // [mo description]; // to look at created object properties and relationships
 }
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary

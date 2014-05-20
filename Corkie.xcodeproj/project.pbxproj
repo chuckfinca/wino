@@ -160,6 +160,7 @@
 		C9744CEC19282EB200DB1F2B /* TastingRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C9744CEB19282EB200DB1F2B /* TastingRecord.m */; };
 		C9744CEF19282EB200DB1F2B /* Rating.m in Sources */ = {isa = PBXBuildFile; fileRef = C9744CEE19282EB200DB1F2B /* Rating.m */; };
 		C9744CF219282EB200DB1F2B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9744CF119282EB200DB1F2B /* User.m */; };
+		C979E651192C1AB000B65680 /* restaurants2.json in Resources */ = {isa = PBXBuildFile; fileRef = C979E650192C1AB000B65680 /* restaurants2.json */; };
 		C986B023184677CD006CF318 /* LocalObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C986B022184677CD006CF318 /* LocalObjectUpdater.m */; };
 		C988AEFE191321BA00A3E13A /* SetRatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AEF6191321BA00A3E13A /* SetRatingVC.m */; };
 		C988AEFF191321BA00A3E13A /* SetRatingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C988AEF7191321BA00A3E13A /* SetRatingVC.xib */; };
@@ -532,6 +533,7 @@
 		C9744CEE19282EB200DB1F2B /* Rating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Rating.m; path = "model/Managed Objects OLD/Rating.m"; sourceTree = "<group>"; };
 		C9744CF019282EB200DB1F2B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "model/Managed Objects OLD/User.h"; sourceTree = "<group>"; };
 		C9744CF119282EB200DB1F2B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "model/Managed Objects OLD/User.m"; sourceTree = "<group>"; };
+		C979E650192C1AB000B65680 /* restaurants2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = restaurants2.json; path = model/json/restaurants2.json; sourceTree = "<group>"; };
 		C986B021184677CD006CF318 /* LocalObjectUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalObjectUpdater.h; path = model/LocalObjectUpdater.h; sourceTree = "<group>"; };
 		C986B022184677CD006CF318 /* LocalObjectUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalObjectUpdater.m; path = model/LocalObjectUpdater.m; sourceTree = "<group>"; };
 		C988AEF5191321BA00A3E13A /* SetRatingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetRatingVC.h; path = Rating/SetRatingVC.h; sourceTree = "<group>"; };
@@ -1227,6 +1229,7 @@
 		C98DEFF8182329C30038216C /* json */ = {
 			isa = PBXGroup;
 			children = (
+				C979E650192C1AB000B65680 /* restaurants2.json */,
 				C98DEFFA182329D30038216C /* restaurants.json */,
 				C95CF7B0188A250200E14E03 /* group.restaurant.hinojosa.1parklane.all.json */,
 				C95CF7B1188A250200E14E03 /* restaurant.hinojosa.1parklane.json */,
@@ -1509,6 +1512,7 @@
 				C94E8E5A1924290A00BB0669 /* WineCell_withRating.xib in Resources */,
 				C991FB891861110200C10B52 /* glass_full.png in Resources */,
 				C9061E02181F07CE003D8A55 /* iPhone.storyboard in Resources */,
+				C979E651192C1AB000B65680 /* restaurants2.json in Resources */,
 				C988AEFF191321BA00A3E13A /* SetRatingVC.xib in Resources */,
 				C988AF081913224E00A3E13A /* RatingsVC.xib in Resources */,
 				C95CAAE818EB990100E210D0 /* button_triedIt.png in Resources */,
