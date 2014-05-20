@@ -9,7 +9,6 @@
 #import "Timeline_TRSICDTVC.h"
 #import <CoreData/CoreData.h>
 #import "ColorSchemer.h"
-#import "DocumentHandler.h"
 #import "TastingRecordCell.h"
 #import "TastingRecord.h"
 #import "Review.h"

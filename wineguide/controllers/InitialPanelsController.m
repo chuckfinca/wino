@@ -7,8 +7,7 @@
 //
 
 #import "InitialPanelsController.h"
-#import "DocumentHandler.h"
-#import "LocalObjectUpdater.h"
+#import "DocumentHandler2.h"
 #import "MainTabBarController.h"
 #import "ColorSchemer.h"
 #import "TutorialVC.h"
@@ -90,22 +89,14 @@
 -(void)setupDocument
 {
     if(!self.document){
-        [[DocumentHandler sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document){
+        [[DocumentHandler2 sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document){
             self.document = document;
             self.context = document.managedObjectContext;
             // Do any additional work now that the document is ready
-            [self updateLocalObjects];
             MainTabBarController *mtbc = (MainTabBarController *)self.mainPanelViewController;
             mtbc.context = document.managedObjectContext;
         }];
     }
-}
-
--(void)updateLocalObjects
-{
-    LocalObjectUpdater *lou = [[LocalObjectUpdater alloc] init];
-    lou.context = self.context;
-    [lou updateTastingNotesAndVarietals];
 }
 
 - (void)didReceiveMemoryWarning

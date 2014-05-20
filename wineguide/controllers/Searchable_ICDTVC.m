@@ -8,7 +8,7 @@
 
 #import "Searchable_ICDTVC.h"
 #import "MainTabBarController.h"
-#import "DocumentHandler.h"
+#import "DocumentHandler2.h"
 #import "ColorSchemer.h"
 
 @interface Searchable_ICDTVC ()
@@ -59,13 +59,13 @@
 -(NSManagedObjectContext *)context
 {
     if(!_context){
-        if([DocumentHandler sharedDocumentHandler]){
-            _context = [DocumentHandler sharedDocumentHandler].document.managedObjectContext;
+        if([DocumentHandler2 sharedDocumentHandler]){
+            _context = [DocumentHandler2 sharedDocumentHandler].document.managedObjectContext;
             [self setupAndSearchFetchedResultsControllerWithText:nil];
             
         } else {
             [self listenForDocumentReadyNotification];
-            NSLog(@"[DocumentHandler sharedDocumentHandler] does not exist (%@). Did start listening to DocumentReady notifications",[DocumentHandler sharedDocumentHandler]);
+            NSLog(@"[DocumentHandler sharedDocumentHandler] does not exist (%@). Did start listening to DocumentReady notifications",[DocumentHandler2 sharedDocumentHandler]);
         }
     }
     return _context;

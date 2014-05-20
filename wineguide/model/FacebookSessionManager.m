@@ -14,7 +14,7 @@
 #import <FBGraphObject.h>
 #import <FBGraphUser.h>
 #import "UserDataHelper.h"
-#import "DocumentHandler.h"
+#import "DocumentHandler2.h"
 #import "GetMe.h"
 
 @interface FacebookSessionManager ()
@@ -43,7 +43,7 @@ static FacebookSessionManager *sharedInstance;
 -(NSManagedObjectContext *)context
 {
     if(!_context){
-        _context = [DocumentHandler sharedDocumentHandler].document.managedObjectContext;
+        _context = [DocumentHandler2 sharedDocumentHandler].document.managedObjectContext;
     }
     return _context;
 }

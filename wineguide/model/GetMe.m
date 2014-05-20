@@ -7,7 +7,7 @@
 //
 
 #import "GetMe.h"
-#import "DocumentHandler.h"
+#import "DocumentHandler2.h"
 #import "ManagedObjectHandler.h"
 
 #define USER_ENTITY @"User"
@@ -15,9 +15,9 @@
 
 @implementation GetMe
 
-static DocumentHandler *instance;
+static GetMe *instance;
 
-+(DocumentHandler *)sharedInstance
++(GetMe *)sharedInstance
 {
     static dispatch_once_t executesOnlyOnce;
     dispatch_once (&executesOnlyOnce, ^{
@@ -33,8 +33,10 @@ static DocumentHandler *instance;
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
         request.predicate = [NSPredicate predicateWithFormat:@"isMe = YES"];
         
+        NSManagedObjectContext *context = [DocumentHandler2 sharedDocumentHandler].document.managedObjectContext;
+        
         NSError *error;
-        NSArray *matches = [[DocumentHandler sharedDocumentHandler].document.managedObjectContext executeFetchRequest:request error:&error];
+        NSArray *matches = [context executeFetchRequest:request error:&error];
         
         if([matches count] > 0){
             _me = [matches firstObject];
@@ -46,7 +48,7 @@ static DocumentHandler *instance;
             NSDictionary *dictionary = @{IDENTIFIER : identifier};
             
             NSLog(@"Me not found! Creating me with id = %@",identifier);
-            _me = (User *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:USER_ENTITY usingPredicate:predicate inContext:[DocumentHandler sharedDocumentHandler].document.managedObjectContext usingDictionary:dictionary];
+            _me = (User *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:USER_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
             _me.identifier = identifier;
             _me.isMe = @YES;
         }

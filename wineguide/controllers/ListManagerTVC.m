@@ -7,7 +7,7 @@
 //
 
 #import "ListManagerTVC.h"
-#import "DocumentHandler.h"
+#import "DocumentHandler2.h"
 
 @interface ListManagerTVC () <UITextFieldDelegate, UIActionSheetDelegate>
 
@@ -40,8 +40,8 @@
 
 -(void)getManagedObjectContext
 {
-    if([DocumentHandler sharedDocumentHandler].document){
-        self.context = [DocumentHandler sharedDocumentHandler].document.managedObjectContext;
+    if([DocumentHandler2 sharedDocumentHandler].document){
+        self.context = [DocumentHandler2 sharedDocumentHandler].document.managedObjectContext;
     } else {
         NSLog(@"RestaurantManagerSCDTVC - [DocumentHandler sharedDocumentHandler].document does not exist");
     }

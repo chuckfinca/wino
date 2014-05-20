@@ -8,11 +8,9 @@
 
 #import "NearbyRestaurants_SICDTVC.h"
 #import "Restaurant_SICDTVC.h"
-#import "RestaurantDataHelper.h"
-#import "Restaurant.h"
+#import "Restaurant2.h"
 #import "ColorSchemer.h"
 #import "ServerCommunicator.h"
-#import "RestaurantHelper.h"
 #import "DocumentHandler2.h"
 #import "InstructionsCell_RequestGPS.h"
 #import "LocationHelper.h"
@@ -20,7 +18,7 @@
 
 #define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
 #define RESTAURANT_CELL @"RestaurantCell"
-#define RESTAURANT_ENTITY @"Restaurant"
+#define RESTAURANT_ENTITY @"Restaurant2"
 
 @interface NearbyRestaurants_SICDTVC () <RequestUserLocation>
 
@@ -57,11 +55,6 @@
 {
     [super viewWillAppear:animated];
     [self requestUserLocationUserRequested:NO];
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
 }
 
 
@@ -121,6 +114,7 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
+    NSLog(@"matches count = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
 }
 
 
@@ -215,18 +209,10 @@
 
 -(void)getMoreResultsFromTheServer
 {
-    // this will be replaced with a server url when available
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"restaurants" withExtension:@"json"];
-    
-    RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
-    [rdh updateCoreDataWithJSONFromURL:url];
-    
-    [[DocumentHandler2 sharedDocumentHandler] performWithDocument:^(UIManagedDocument *document) {
-        double latitude = 1;
-        double longitude = 1;
-        ServerCommunicator *caller = [[ServerCommunicator alloc] init];
-        [caller getRestaurantsNearLatitude:latitude longitude:longitude];
-    }];
+    double latitude = 1;
+    double longitude = 1;
+    ServerCommunicator *caller = [[ServerCommunicator alloc] init];
+    [caller getRestaurantsNearLatitude:latitude longitude:longitude];
 }
 
 

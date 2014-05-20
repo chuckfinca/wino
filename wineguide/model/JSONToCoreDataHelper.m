@@ -10,7 +10,7 @@
 #import "NSDictionary+Helper.h"
 #import "NSManagedObject+Helper.h"
 #import "IterationCounter.h"
-#import "DocumentHandler.h"
+//#import "DocumentHandler.h"
 
 
 #define IDENTIFIER @"identifier"
@@ -65,7 +65,7 @@
 -(NSManagedObjectContext *)context
 {
     if(!_context){
-        _context = [DocumentHandler sharedDocumentHandler].document.managedObjectContext;
+        _context = nil;//[DocumentHandler sharedDocumentHandler].document.managedObjectContext;
     }
     return _context;
 }
