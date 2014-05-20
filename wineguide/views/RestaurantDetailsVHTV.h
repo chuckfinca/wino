@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Restaurant.h"
+#import "Restaurant2.h"
 #import "VariableHeightTV.h"
 
 @interface RestaurantDetailsVHTV : VariableHeightTV
 
--(void)setupTextViewWithRestaurant:(Restaurant *)restaurant;
+-(void)setupTextViewWithRestaurant:(Restaurant2 *)restaurant;
 
 @end

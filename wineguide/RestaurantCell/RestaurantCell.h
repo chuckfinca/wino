@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Restaurant.h"
+#import "Restaurant2.h"
 
 @interface RestaurantCell : UITableViewCell
 
--(void)setupCellForRestaurant:(Restaurant *)restaurant;
+-(void)setupCellForRestaurant:(Restaurant2 *)restaurant;
 
 @end

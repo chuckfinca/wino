@@ -37,13 +37,13 @@
     // Configure the view for the selected state
 }
 
--(void)setupCellForRestaurant:(Restaurant *)restaurant
+-(void)setupCellForRestaurant:(Restaurant2 *)restaurant
 {
     if(restaurant.name){
         self.restaurantNameLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.name capitalizedString] attributes:[FontThemer sharedInstance].primarySubHeadlineTextAttributes];
     }
-    if(restaurant.address){
-        self.restaurantAddressLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.address capitalizedString] attributes:[FontThemer sharedInstance].secondaryFootnoteTextAttributes];
+    if(restaurant.street_1){
+        self.restaurantAddressLabel.attributedText = [[NSAttributedString alloc] initWithString:[restaurant.street_1 capitalizedString] attributes:[FontThemer sharedInstance].secondaryFootnoteTextAttributes];
     }
     
     [self setViewHeight];

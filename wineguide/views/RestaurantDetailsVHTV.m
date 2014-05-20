@@ -21,7 +21,7 @@
     return self;
 }
 
--(void)setupTextViewWithRestaurant:(Restaurant *)restaurant
+-(void)setupTextViewWithRestaurant:(Restaurant2 *)restaurant
 {
     NSString *textViewString = @"";
     NSRange nameRange = NSMakeRange(0, 0);
@@ -31,8 +31,11 @@
         nameRange = NSMakeRange([textViewString length], [restaurant.name length]);
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[restaurant.name capitalizedString]]];
     }
-    if(restaurant.address){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[restaurant.address capitalizedString]]];
+    if(restaurant.street_1){
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[restaurant.street_1 capitalizedString]]];
+    }
+    if(restaurant.street_2){
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[restaurant.street_2 capitalizedString]]];
     }
     if(restaurant.city){
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@",[restaurant.city capitalizedString]]];
