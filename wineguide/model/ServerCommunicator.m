@@ -7,7 +7,6 @@
 //
 
 #import "ServerCommunicator.h"
-#import "RestaurantDataHelper.h"
 #import "RestaurantHelper.h"
 #import "DocumentHandler2.h"
 #import "WineHelper.h"
@@ -34,9 +33,16 @@
 -(void)getRestaurantsNearLatitude:(double)latitude longitude:(double)longitude
 {
     // call Corkie server and get restaurant json
-    RestaurantHelper *restaurantHelper = [[RestaurantHelper alloc] init];
-    [restaurantHelper getDataAtUrl:@"http://www.corkieapp.com/nearMe/1/1"];
+    
+    
+    NSURL *restaurantsJSONUrl = [[NSBundle mainBundle] URLForResource:@"restaurants2" withExtension:@"json"];
+    /*
+     NSString *restaurantsURLString = @"http://www.corkieapp.com/nearMe/1/1";
     NSLog(@"%@",[NSString stringWithFormat:@"http://www.corkieapp.com/nearMe/%f/%f",longitude,latitude]);
+     */
+    
+    RestaurantHelper *restaurantHelper = [[RestaurantHelper alloc] init];
+    [restaurantHelper getDataAtUrl:[restaurantsJSONUrl absoluteString]];
 }
 
 -(void)getAllWinesFromRestaurantIdentifier:(NSInteger)restaurantIdentifier
