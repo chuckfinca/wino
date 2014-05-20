@@ -15,9 +15,9 @@
 #define CREATED_AT @"created_at"
 #define UPDATED_AT @"updated_at"
 
-#define VARIETAL_ABOUT @"varietal_desc"
+#define VARIETAL_ABOUT @"about"
 #define VARIETAL_NAME @"varietal_name"
-#define VARIETAL_IS_BLEND @"is_mixed"
+#define VARIETAL_IS_BLEND @"is_mix"
 
 @implementation Varietal2 (Modify)
 
