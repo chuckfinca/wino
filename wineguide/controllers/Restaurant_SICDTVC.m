@@ -29,7 +29,7 @@ typedef enum {
     RareFinds,
 } WineListSort;
 
-@interface Restaurant_SICDTVC () <UITableViewDelegate, UITableViewDataSource, RestaurantDetailsVC_WineSelectionDelegate>
+@interface Restaurant_SICDTVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
 @property (nonatomic, strong) Restaurant2 *restaurant;
@@ -71,7 +71,6 @@ typedef enum {
 {
     if(!_restaurantDetailsViewController){
         _restaurantDetailsViewController = [[RestaurantDetailsVC alloc] initWithNibName:@"RestaurantDetails" bundle:nil];
-        _restaurantDetailsViewController.delegate = self;
     }
     return _restaurantDetailsViewController;
 }
@@ -233,18 +232,6 @@ typedef enum {
     [wineCDTVC setupWithWine:wine fromRestaurant:self.restaurant];
     
     [self.navigationController pushViewController:wineCDTVC animated:YES];
-}
-
-#pragma mark - RestaurantDetailsVC_WineSelectionDelegate
-
--(void)loadWineList:(NSUInteger)listNumber
-{
-    [self setupAndSearchFetchedResultsControllerWithText:nil];
-}
-
--(void)setSortOrderForGroups
-{
-    [self loadWineList:0];
 }
 
 
