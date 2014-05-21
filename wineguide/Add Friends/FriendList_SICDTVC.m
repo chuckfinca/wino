@@ -7,13 +7,12 @@
 //
 
 #import "FriendList_SICDTVC.h"
-#import "User.h"
 #import "ColorSchemer.h"
 #import "FontThemer.h"
 #import "FacebookProfileImageGetter.h"
 #import <FBLoginView.h>
 
-#define USER_ENTITY @"User"
+#define USER_ENTITY @"User2"
 
 @interface FriendList_SICDTVC ()
 
@@ -97,7 +96,7 @@
 -(void)logFetchResults
 {
     NSLog(@"fetchedResultCount = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
-    for(User *user in self.fetchedResultsController.fetchedObjects){
+    for(User2 *user in self.fetchedResultsController.fetchedObjects){
         NSLog(@"user = %@",user.identifier);
     }
 }
@@ -109,21 +108,21 @@
 {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"UserCell" forIndexPath:indexPath];
     
-    User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    User2 *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    if(user.nameFull){
-        NSString *name = [NSString stringWithFormat:@"%@ ",user.nameFirst];
+    if(user.name_display){
+        NSString *name = [NSString stringWithFormat:@"%@ ",user.name_first];
         NSInteger firstNameLength = [name length];
-        name = [name stringByAppendingString:user.nameLast];
+        name = [name stringByAppendingString:user.name_last];
         
         NSMutableAttributedString *attributedName = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body}];
-        [attributedName addAttribute:NSFontAttributeName value:[FontThemer sharedInstance].headline range: NSMakeRange(firstNameLength, [user.nameLast length])];
+        [attributedName addAttribute:NSFontAttributeName value:[FontThemer sharedInstance].headline range: NSMakeRange(firstNameLength, [user.name_last length])];
         
         cell.textLabel.attributedText = attributedName;
     }
     
-    if(user.profileImage){
-        [cell.imageView setImage:[UIImage imageWithData:user.profileImage]];
+    if(user.imageData){
+        [cell.imageView setImage:[UIImage imageWithData:user.imageData]];
         
     } else {
         __weak UITableView *weakTableView = self.tableView;
@@ -153,14 +152,14 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"didSelectRowAtIndexPath...");
-    User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    User2 *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.delegate addOrRemoveUser:user];
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"didDeselectRowAtIndexPath...");
-    User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    User2 *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.delegate addOrRemoveUser:user];
 }
 

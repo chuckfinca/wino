@@ -41,6 +41,7 @@
 -(void)setViewHeight
 {
     CGFloat height = 0;
+    
     height += self.topToInstructionsVhtvConstraint.constant;
     height += [self.instructionsVHTV height];
     height += self.instructionsVhtvToBottomConstraint.constant;

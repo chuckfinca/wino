@@ -107,15 +107,14 @@
 {
     NSString *text;
     
-    for(User *u in self.selectedFriends){
+    for(User2 *u in self.selectedFriends){
         
         if(!text) {
             text = @"";
         } else {
             text = [text stringByAppendingString:@", "];
         }
-        NSString *name = [NSString stringWithFormat:@"%@ %@",u.nameFirst, u.nameLast];
-        text = [text stringByAppendingString:name];
+        text = [text stringByAppendingString:u.name_display];
     }
     
     BOOL instructions = NO;
@@ -168,7 +167,7 @@
 
 #pragma mark - FriendSelectionDelegate
 
--(void)addOrRemoveUser:(User *)user
+-(void)addOrRemoveUser:(User2 *)user
 {
     if([self.selectedFriends containsObject:user]){
         [self.selectedFriends removeObject:user];

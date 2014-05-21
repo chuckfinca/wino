@@ -7,11 +7,11 @@
 //
 
 #import "Searchable_ICDTVC.h"
-#import "User.h"
+#import "User2.h"
 
 @protocol FriendSelectionDelegate
 
--(void)addOrRemoveUser:(User *)user;
+-(void)addOrRemoveUser:(User2 *)user;
 
 @end
 

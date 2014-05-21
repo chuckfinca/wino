@@ -12,9 +12,7 @@
 #import "CheckInVC.h"
 #import "GetMe.h"
 
-#define TASTING_RECORD_ENTITY @"TastingRecord"
-
-#define WINE_CELL @"WineCell"
+#define TASTING_RECORD_ENTITY @"TastingRecord2"
 #define REVIEW_CELL @"ReviewCell"
 
 @interface Wine_TRSICDTVC () <WineDetailsVcDelegate, UIViewControllerTransitioningDelegate, CheckInVcDelegate, UIAlertViewDelegate>

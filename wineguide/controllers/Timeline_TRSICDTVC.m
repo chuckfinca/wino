@@ -7,18 +7,9 @@
 //
 
 #import "Timeline_TRSICDTVC.h"
-#import <CoreData/CoreData.h>
-#import "ColorSchemer.h"
-#import "TastingRecordCell.h"
-#import "TastingRecord.h"
-#import "Review.h"
-#import "User.h"
-#import "DateStringFormatter.h"
-#import "ReviewsTVController.h"
-#import "UserProfileVC.h"
 #import "GetMe.h"
 
-#define TASTING_RECORD_ENTITY @"TastingRecord"
+#define TASTING_RECORD_ENTITY @"TastingRecord2"
 
 @interface Timeline_TRSICDTVC () <UIGestureRecognizerDelegate>
 

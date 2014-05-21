@@ -32,8 +32,6 @@
 
 #define TASTING_DATE @"tastingDate"
 
-#define REVIEW_ENTITY @"Review"
-
 #define NOTE_TEXT_INSET 20
 
 @interface CheckInVC () <UITextViewDelegate, UIViewControllerTransitioningDelegate, FriendListVcDelegate>

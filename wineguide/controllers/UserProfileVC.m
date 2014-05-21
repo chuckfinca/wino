@@ -18,7 +18,7 @@
 #import "FacebookProfileImageGetter.h"
 
 #define USER_PROFILE_PAGE_CELL  @"UserCell"
-#define USER_ENTITY  @"User"
+#define USER_ENTITY  @"User2"
 
 @interface UserProfileVC () <FBLoginViewDelegate>
 

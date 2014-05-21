@@ -17,6 +17,7 @@
 
 #define WINE_LIST_ENTITY @"WineList"
 #define WINE_ENTITY @"Wine2"
+#define COLOR_CODE @"color_code"
 #define WINE_CELL_WITH_RATING @"WineCell_withRating"
 #define WINE_CELL_WITH_RATING_AND_TALKING_HEADS @"WineCell_withRatingAndTalkingHeads"
 
@@ -128,7 +129,7 @@ typedef enum {
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"color_code"
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:COLOR_CODE
                                                               ascending:YES],
                                 [NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES]];
@@ -136,9 +137,8 @@ typedef enum {
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
-                                                                          sectionNameKeyPath:@"color_code"
+                                                                          sectionNameKeyPath:COLOR_CODE
                                                                                    cacheName:nil];
-    NSLog(@"matches count = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
 }
 
 #pragma mark - UITableViewDataSource

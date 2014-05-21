@@ -14,7 +14,7 @@
 #import "FontThemer.h"
 #import "GetMe.h"
 
-#define WINE_ENTITY @"Wine"
+#define WINE_ENTITY @"Wine2"
 #define WINE_CELL @"WineCell"
 
 #define HEADER_HEIGHT 120

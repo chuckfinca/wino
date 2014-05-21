@@ -10,9 +10,9 @@
 #import <CoreData/CoreData.h>
 #import "ColorSchemer.h"
 #import "TastingRecordCell.h"
-#import "TastingRecord.h"
-#import "Review.h"
-#import "User.h"
+#import "TastingRecord2.h"
+#import "Review2.h"
+#import "User2.h"
 #import "DateStringFormatter.h"
 #import "ReviewsTVController.h"
 #import "UserProfileVC.h"
@@ -81,7 +81,7 @@
     TastingRecordCell *trCell = (TastingRecordCell *)[self.tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
     trCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    TastingRecord2 *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [trCell setupWithTastingRecord:tastingRecord andDisplayWineName:self.displayWineNameOnEachCell];
     
     return trCell;
@@ -93,7 +93,7 @@
 
 -(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    TastingRecord *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    TastingRecord2 *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.tastingRecordSizingCell setupWithTastingRecord:tastingRecord andDisplayWineName:self.displayWineNameOnEachCell];
     
     return self.tastingRecordSizingCell.bounds.size.height;
@@ -133,14 +133,14 @@
         
         BOOL pushUserProfileVC = NO;
         
-        User *user;
+        User2 *user;
         
         for(UIButton *button in cell.userImageButtonArray){
             if(CGRectContainsPoint(button.frame, cellTouchLocation) && !button.hidden){
                 
-                TastingRecord *tastingRecord = self.fetchedResultsController.fetchedObjects[indexPath.row];
+                TastingRecord2 *tastingRecord = self.fetchedResultsController.fetchedObjects[indexPath.row];
                 NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:YES]]];
-                Review *review = reviewsArray[button.tag];
+                Review2 *review = reviewsArray[button.tag];
                 user = review.user;
                 pushUserProfileVC = YES;
                 break;
@@ -153,7 +153,7 @@
             controller = [[UserProfileVC alloc] initWithUser:user];
         } else {
             controller = [[ReviewsTVController alloc] init];
-            [(ReviewsTVController *)controller setupFromTastingRecord:(TastingRecord *)self.fetchedResultsController.fetchedObjects[indexPath.row]];
+            [(ReviewsTVController *)controller setupFromTastingRecord:(TastingRecord2 *)self.fetchedResultsController.fetchedObjects[indexPath.row]];
         }
         [self.navigationController pushViewController:controller animated:YES];
     }
