@@ -11,14 +11,12 @@
 #import "ColorSchemer.h"
 #import <MapKit/MapKit.h>
 
-#define GROUP_ENTITY @"Group"
 #define METERS_PER_MILE 1609.344
 
 @interface RestaurantDetailsVC () <NSFetchedResultsControllerDelegate, MKMapViewDelegate>
 
 @property (nonatomic, weak) IBOutlet RestaurantDetailsVHTV *restaurantDetailsVHTV;
 @property (nonatomic, strong) Restaurant2 *restaurant;
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToRestaurantInfoConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *restaurantInfoVHTVToBottomConstraint;
@@ -59,22 +57,6 @@
     height += self.restaurantInfoVHTVToBottomConstraint.constant;
     
     self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, height);
-}
-
--(void)setupFetchedResultsController
-{
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:GROUP_ENTITY];
-    request.predicate = [NSPredicate predicateWithFormat:@"restaurantIdentifier = %@",self.restaurant.identifier];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"sortOrder" ascending:YES]];
-    
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                        managedObjectContext:self.restaurant.managedObjectContext
-                                                                          sectionNameKeyPath:nil
-                                                                                   cacheName:nil];
-    self.fetchedResultsController.delegate = self;
-    
-    NSError *error;
-    [self.fetchedResultsController performFetch:&error];
 }
 
 #pragma mark - Setup
@@ -129,12 +111,6 @@
 {
     NSLog(@"setupWithRestaurant... %@",restaurant.name);
     self.restaurant = restaurant;
-    [self setupFetchedResultsController];
-}
-
-
-- (IBAction)refreshList:(UISegmentedControl *)sender {
-    [self.delegate loadWineList:sender.selectedSegmentIndex];
 }
 
 @end
