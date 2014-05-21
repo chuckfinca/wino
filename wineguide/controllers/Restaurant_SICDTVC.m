@@ -9,21 +9,14 @@
 #import "Restaurant_SICDTVC.h"
 #import "RestaurantDetailsVC.h"
 #import "Wine_TRSICDTVC.h"
-#import "RestaurantDataHelper.h"
-#import "GroupDataHelper.h"
-#import "Wine.h"
-#import "Brand.h"
-#import "Group.h"
-#import "Varietal.h"
-#import "TastingNote.h"
 #import "ColorSchemer.h"
 #import "WineCell.h"
 #import "FacebookProfileImageGetter.h"
 #import "ServerCommunicator.h"
+#import "WineList.h"
 
-#define JSON @"json"
-#define GROUP_ENTITY @"Group"
-#define WINE_ENTITY @"Wine"
+#define WINE_LIST_ENTITY @"WineList"
+#define WINE_ENTITY @"Wine2"
 #define WINE_CELL_WITH_RATING @"WineCell_withRating"
 #define WINE_CELL_WITH_RATING_AND_TALKING_HEADS @"WineCell_withRatingAndTalkingHeads"
 
@@ -34,15 +27,13 @@ typedef enum {
     All,
     ExcellentVintages,
     RareFinds,
-} WineList;
+} WineListSort;
 
 @interface Restaurant_SICDTVC () <UITableViewDelegate, UITableViewDataSource, RestaurantDetailsVC_WineSelectionDelegate>
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
-@property (nonatomic, strong) Restaurant *restaurant;
-@property (nonatomic, strong) NSString *listName;
+@property (nonatomic, strong) Restaurant2 *restaurant;
 @property (nonatomic, strong) NSFetchedResultsController *restaurantGroupsFRC;
-@property (nonatomic, strong) NSString *selectedGroupIdentifier;
 
 @property (nonatomic, strong) WineCell *sizingCellWithRating;
 @property (nonatomic, strong) WineCell *sizingCellWithRatingAndTalkingHeads;
@@ -117,17 +108,9 @@ typedef enum {
     return _testingArray;
 }
 
--(NSString *)selectedGroupIdentifier
-{
-    if(!_selectedGroupIdentifier){
-        _selectedGroupIdentifier = [NSString stringWithFormat:@"group.%@.all",self.restaurant.identifier];
-    }
-    return _selectedGroupIdentifier;
-}
-
 #pragma mark - Setup
 
--(void)setupWithRestaurant:(Restaurant *)restaurant
+-(void)setupWithRestaurant:(Restaurant2 *)restaurant
 {
     // get the winelist for that restaurant
     self.restaurant = restaurant;
@@ -143,40 +126,20 @@ typedef enum {
     [caller getAllWinesFromRestaurantIdentifier:2];
 }
 
--(void)getWineList
-{
-    if(self.restaurant.identifier){
-        // ask for a restaurant specific info inncluding groupings and flights
-        NSURL *restaurantUrl = [[NSBundle mainBundle] URLForResource:self.restaurant.identifier withExtension:JSON];
-        
-        RestaurantDataHelper *rdh = [[RestaurantDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
-        [rdh updateCoreDataWithJSONFromURL:restaurantUrl];
-        
-        // grouping.identifiers should be restaurant.identifies with the amended group name, that way I can assume I know the all group identifier to make the appropriate call.
-        // call the server and ask for the all group, including all wineUnits, wines and brands
-        
-        
-        NSString *urlString = [NSString stringWithFormat:@"group.%@.all",self.restaurant.identifier];
-        NSURL *allGroupUrl = [[NSBundle mainBundle] URLForResource:urlString withExtension:JSON];
-        GroupDataHelper *gdh = [[GroupDataHelper alloc] initWithContext:self.context andRelatedObject:nil andNeededManagedObjectIdentifiersString:nil];
-        [gdh updateCoreDataWithJSONFromURL:allGroupUrl];
-    }
-}
-
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"color"
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"color_code"
                                                               ascending:YES],
                                 [NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"ANY groups.identifier = %@",self.selectedGroupIdentifier];
+    request.predicate = [NSPredicate predicateWithFormat:@"ANY wineLists.identifier = %@",self.restaurant.wineList.identifier];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
-                                                                          sectionNameKeyPath:@"color"
+                                                                          sectionNameKeyPath:@"color_code"
                                                                                    cacheName:nil];
-    NSLog(@"self.selectedGroupIdentifier = %@",self.selectedGroupIdentifier);
+    NSLog(@"matches count = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
 }
 
 #pragma mark - UITableViewDataSource
@@ -184,7 +147,7 @@ typedef enum {
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
     WineCell *cell = [self testCellForIndexPath:indexPath];
-    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Wine2 *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.numberOfTalkingHeads = [self.testingArray[indexPath.row] integerValue] * 2+1;
     [cell setupCellForWine:wine];
     [self loadTalkingHeadImagesInCell:cell atIndexPath:indexPath];
@@ -235,7 +198,7 @@ typedef enum {
 {
     WineCell *cell = [self testSizingCellForIndexPath:indexPath];
     cell.numberOfTalkingHeads = [self.testingArray[indexPath.row] integerValue] * 2+1;
-    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Wine2 *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell setupCellForWine:wine];
     
     return cell.bounds.size.height;
@@ -244,11 +207,11 @@ typedef enum {
 
 -(UIView *)viewForHeaderInSection:(NSInteger)section
 {
-    Wine *wine = (Wine *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
+    Wine2 *wine = (Wine2 *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
     
     UITableViewHeaderFooterView *sectionHeaderView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeaderViewIdentifier"];
     
-    if(wine.color){
+    if(wine.color_code){
         [sectionHeaderView.textLabel setTextColor:[ColorSchemer sharedInstance].textPrimary];
     }
     sectionHeaderView.contentView.backgroundColor = [ColorSchemer sharedInstance].gray;
@@ -266,7 +229,7 @@ typedef enum {
     Wine_TRSICDTVC *wineCDTVC = [[Wine_TRSICDTVC alloc] initWithStyle:UITableViewStylePlain];
     
     // Pass the selected object to the new view controller.
-    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Wine2 *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [wineCDTVC setupWithWine:wine fromRestaurant:self.restaurant];
     
     [self.navigationController pushViewController:wineCDTVC animated:YES];
@@ -276,44 +239,11 @@ typedef enum {
 
 -(void)loadWineList:(NSUInteger)listNumber
 {
-    if(self.restaurant.identifier){
-        NSNumber *sortOrder = [NSNumber numberWithInteger:listNumber];
-        
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:GROUP_ENTITY];
-        request.predicate = [NSPredicate predicateWithFormat:@"restaurantIdentifier = %@ AND sortOrder = %@",self.restaurant.identifier,sortOrder];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-        
-        NSError *error;
-        NSArray *match = [self.context executeFetchRequest:request error:&error];
-        
-        if([match count] == 1){
-            Group *group = (Group *)[match firstObject];
-            self.selectedGroupIdentifier = group.identifier;
-        } else if([match count] > 1){
-            [self setSortOrderForGroups];
-        } else {
-            NSLog(@"Restaurant's wine list Group not found");
-            self.selectedGroupIdentifier = nil;
-        }
-    }
-    
     [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
 -(void)setSortOrderForGroups
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:GROUP_ENTITY];
-    request.predicate = [NSPredicate predicateWithFormat:@"restaurantIdentifier = %@",self.restaurant.identifier];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-    
-    NSError *error;
-    NSArray *matches = [self.context executeFetchRequest:request error:&error];
-    
-    int index = 0;
-    for(Group *group in matches){
-        group.sortOrder = [NSNumber numberWithInt:index];
-        index++;
-    }
     [self loadWineList:0];
 }
 

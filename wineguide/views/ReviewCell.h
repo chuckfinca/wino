@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Review2.h"
 
 @protocol ReviewCellDelegate <NSObject>
 
@@ -19,11 +20,6 @@
 
 @property (nonatomic, weak) id <ReviewCellDelegate> delegate;
 
--(void)setupClaimed:(BOOL)claimed
- reviewWithUserName:(NSString *)userName
-          userImage:(UIImage *)userImage
-         reviewText:(NSString *)reviewText
-          wineColor:(NSString *)wineColor
-          andRating:(NSNumber *)rating;
+-(void)setupWithReview:(Review2 *)review forWineColorCode:(NSNumber *)wineColorCode;
 
 @end

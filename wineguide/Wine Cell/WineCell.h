@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Wine.h"
+#import "Wine2.h"
 
 @interface WineCell : UITableViewCell
 
 @property (nonatomic, strong) NSMutableArray *talkingHeadsArray;
 @property (nonatomic) NSInteger numberOfTalkingHeads;
 
--(void)setupCellForWine:(Wine *)wine;
+-(void)setupCellForWine:(Wine2 *)wine;
 
 @end

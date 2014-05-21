@@ -10,7 +10,7 @@
 #import "DocumentHandler2.h"
 #import "ManagedObjectHandler.h"
 
-#define USER_ENTITY @"User"
+#define USER_ENTITY @"User2"
 #define IDENTIFIER @"identifier"
 
 @implementation GetMe
@@ -26,12 +26,12 @@ static GetMe *instance;
     return instance;
 }
 
--(User *)me
+-(User2 *)me
 {
     if(!_me){
         NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:USER_ENTITY];
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-        request.predicate = [NSPredicate predicateWithFormat:@"isMe = YES"];
+        request.predicate = [NSPredicate predicateWithFormat:@"is_me = YES"];
         
         NSManagedObjectContext *context = [DocumentHandler2 sharedDocumentHandler].document.managedObjectContext;
         
@@ -43,14 +43,14 @@ static GetMe *instance;
         } else {
             
             // create non-facebook connected user
-            NSString *identifier = @"temporary.id";
+            NSNumber *identifier = @0;
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",identifier];
             NSDictionary *dictionary = @{IDENTIFIER : identifier};
             
             NSLog(@"Me not found! Creating me with id = %@",identifier);
-            _me = (User *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:USER_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
+            _me = (User2 *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:USER_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
             _me.identifier = identifier;
-            _me.isMe = @YES;
+            _me.is_me = @YES;
         }
     }
     return _me;

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TastingRecord.h"
+#import "TastingRecord2.h"
 
 @interface ReviewsTVController : UITableViewController
 
--(void)setupFromTastingRecord:(TastingRecord *)tastingRecord;
+-(void)setupFromTastingRecord:(TastingRecord2 *)tastingRecord;
 
 @end

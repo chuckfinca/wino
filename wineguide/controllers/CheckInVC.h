@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Wine.h"
-#import "Restaurant.h"
+#import "Wine2.h"
+#import "Restaurant2.h"
 
 @protocol CheckInVcDelegate
 
@@ -20,6 +20,6 @@
 
 @property (nonatomic, weak) id <CheckInVcDelegate> delegate;
 
--(void)setupWithWine:(Wine *)wine andRestaurant:(Restaurant *)restaurant;
+-(void)setupWithWine:(Wine2 *)wine andRestaurant:(Restaurant2 *)restaurant;
 
 @end

@@ -7,10 +7,10 @@
 //
 
 #import "ReviewsTVController.h"
-#import "Review.h"
+#import "Review2.h"
 #import "ReviewCell.h"
-#import "User.h"
-#import "Wine.h"
+#import "User2.h"
+#import "Wine2.h"
 #import "WineNameVHTV.h"
 #import "DateStringFormatter.h"
 #import "ColorSchemer.h"
@@ -60,16 +60,16 @@
     [self setHeaderHeight];
 }
 
--(void)setupFromTastingRecord:(TastingRecord *)tastingRecord
+-(void)setupFromTastingRecord:(TastingRecord2 *)tastingRecord
 {
     self.reviews = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:NO]]];
     
     self.tableView.tableHeaderView = [[[NSBundle mainBundle] loadNibNamed:@"ReviewsTVControllerHeaderView" owner:self options:nil] firstObject];
     self.tableView.tableHeaderView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
-    Review *review = (Review *)self.reviews[0];
-    self.dateLabel.attributedText = [DateStringFormatter attributedStringFromDate:tastingRecord.tastingDate];
-    [self.wineNameVHTV setupTextViewWithWine:review.wine fromRestaurant:tastingRecord.restaurant];
+    Review2 *review = (Review2 *)self.reviews[0];
+    self.dateLabel.attributedText = [DateStringFormatter attributedStringFromDate:tastingRecord.tasting_date];
+    [self.wineNameVHTV setupTextViewWithWine:review.tastingRecord.wine fromRestaurant:tastingRecord.restaurant];
 }
 
 
@@ -118,22 +118,17 @@
     ReviewCell *cell = (ReviewCell *)[tableView dequeueReusableCellWithIdentifier:REVIEW_CELL forIndexPath:indexPath];
     
     cell.tag = indexPath.row;
-    Review *review = self.reviews[indexPath.row];
-    User *user = review.user;
+    Review2 *review = self.reviews[indexPath.row];
+    User2 *user = review.user;
     
     NSString *userName;
-    if(user.isMe){
+    if(user.is_me){
         userName = @"Me";
     } else {
-        [NSString stringWithFormat:@"%@ %@.",user.nameFirst, user.nameLastInitial];
+        [NSString stringWithFormat:@"%@ %@.",user.name_first, [user.name_last substringToIndex:1]];
     }
     
-    [cell setupClaimed:[review.claimedByUser boolValue]
-    reviewWithUserName:userName
-             userImage:[UIImage imageWithData:user.profileImage]
-            reviewText:review.reviewText
-             wineColor:review.wine.color
-             andRating:review.rating];
+    [cell setupWithReview:review forWineColorCode:review.tastingRecord.wine.color_code];
     
     // the content view covers the ReviewCell view so it neeeds to be hidden inorder for the ReviewCell view to record touches
     cell.contentView.hidden = YES;
@@ -147,9 +142,9 @@
 
 -(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Review *review = self.reviews[indexPath.row];
+    Review2 *review = self.reviews[indexPath.row];
     
-    [self.sizingCell setupClaimed:[review.claimedByUser boolValue] reviewWithUserName:nil userImage:nil reviewText:review.reviewText wineColor:nil andRating:nil];
+    [self.sizingCell setupWithReview:review forWineColorCode:nil];
     return self.sizingCell.bounds.size.height;
 }
 
@@ -159,17 +154,17 @@
 
 -(void)pushUserProfileVcForReviewerNumber:(NSInteger)reviewCellTag
 {
-    Review *review = self.reviews[reviewCellTag];
-    User *user = review.user;
+    Review2 *review = self.reviews[reviewCellTag];
+    User2 *user = review.user;
     UserProfileVC *userProfileTVC = [[UserProfileVC alloc] initWithUser:user];
     [self.navigationController pushViewController:userProfileTVC animated:YES];
 }
 
 -(void)pushUserReviewVcForReviewerNumber:(NSInteger)reviewCellTag
 {
-    Review *review = self.reviews[reviewCellTag];
-    User *user = review.user;
-    NSLog(@"push reviewVC for = %@",user.nameFull);
+    Review2 *review = self.reviews[reviewCellTag];
+    User2 *user = review.user;
+    NSLog(@"push reviewVC for = %@",user.name_display);
 }
 
 
@@ -183,8 +178,8 @@
     
     // Pass the selected object to the new view controller.
     
-    Review *review = (Review *)self.reviews[0];
-    [wineCDTVC setupWithWine:review.wine fromRestaurant:review.tastingRecord.restaurant];
+    Review2 *review = (Review2 *)self.reviews[0];
+    [wineCDTVC setupWithWine:review.tastingRecord.wine fromRestaurant:review.tastingRecord.restaurant];
     
     [self.navigationController pushViewController:wineCDTVC animated:YES];
 }

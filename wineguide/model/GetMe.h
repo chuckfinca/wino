@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "User.h"
+#import "User2.h"
 
 @interface GetMe : NSObject
 
 +(GetMe *)sharedInstance;
 
-@property (nonatomic, strong) User *me;
+@property (nonatomic, strong) User2 *me;
 
 @end

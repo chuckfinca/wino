@@ -195,6 +195,26 @@ static ColorSchemer *sharedInstance;
     return _lightGray;
 }
 
+-(UIColor *)getWineColorFromCode:(NSNumber *)color_code
+{
+    UIColor *color;
+    
+    switch ([color_code integerValue]) {
+        case 1:
+            color = [ColorSchemer sharedInstance].redWine;
+            break;
+        case 2:
+            color = [ColorSchemer sharedInstance].roseWine;
+            break;
+        case 3:
+            color = [ColorSchemer sharedInstance].whiteWine;
+            break;
+            
+        default:
+            break;
+    }
+    return color;
+}
 
 -(void)mixItUp
 {

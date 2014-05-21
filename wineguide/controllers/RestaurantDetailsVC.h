@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Restaurant.h"
+#import "Restaurant2.h"
 
 @protocol RestaurantDetailsVC_WineSelectionDelegate
 
@@ -19,6 +19,6 @@
 
 @property (nonatomic, weak) id <RestaurantDetailsVC_WineSelectionDelegate> delegate;
 
--(void)setupWithRestaurant:(Restaurant *)restaurant;
+-(void)setupWithRestaurant:(Restaurant2 *)restaurant;
 
 @end

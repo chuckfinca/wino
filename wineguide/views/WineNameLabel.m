@@ -14,7 +14,7 @@
 
 @implementation WineNameLabel
 
--(void)setupForWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
+-(void)setupForWine:(Wine2 *)wine fromRestaurant:(Restaurant2 *)restaurant
 {
     NSString *textViewString = @"";
     NSRange nameRange = NSMakeRange(0, 0);
@@ -25,8 +25,7 @@
         textViewString = [textViewString stringByAppendingString:[wine.name capitalizedString]];
     }
     if(wine.vintage){
-        NSString *vintageString = [wine.vintage stringValue];
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",[vintageString capitalizedString]]];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",[wine.vintage capitalizedString]]];
     }
     if(wine.varietals){
         NSString *varietalsString = @" - ";

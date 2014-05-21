@@ -120,7 +120,7 @@
         }];
 }
 
--(void)processDictionary:(NSDictionary *)dictionary
+-(NSManagedObject *)processDictionary:(NSDictionary *)dictionary
 {
     NSManagedObject *mo = [self createOrModifyObjectWithDictionary:dictionary];
     if(self.relatedObject){
@@ -129,6 +129,7 @@
     [self processManagedObject:mo relativesFoundInDictionary:dictionary];
     
     // [mo description]; // to look at created object properties and relationships
+    return mo;
 }
 
 -(NSManagedObject *)createOrModifyObjectWithDictionary:(NSDictionary *)dictionary

@@ -20,8 +20,8 @@
 @interface Wine_TRSICDTVC () <WineDetailsVcDelegate, UIViewControllerTransitioningDelegate, CheckInVcDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) WineDetailsVC *wineDetailsViewController;
-@property (nonatomic, strong) Wine *wine;
-@property (nonatomic, strong) Restaurant *restaurant;
+@property (nonatomic, strong) Wine2 *wine;
+@property (nonatomic, strong) Restaurant2 *restaurant;
 
 @property (nonatomic) float tableViewHeaderheight;
 
@@ -72,9 +72,9 @@
 
 #pragma mark - Setup
 
--(void)setupWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
+-(void)setupWithWine:(Wine2 *)wine fromRestaurant:(Restaurant2 *)restaurant
 {
-    [self.wineDetailsViewController setupWithWine:wine fromRestaurant:(Restaurant *)restaurant];
+    [self.wineDetailsViewController setupWithWine:wine fromRestaurant:restaurant];
     self.tableView.tableHeaderView = self.wineDetailsViewController.view;
     self.tableViewHeaderheight = self.wineDetailsViewController.view.bounds.size.height;
     

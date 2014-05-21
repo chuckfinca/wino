@@ -7,11 +7,11 @@
 //
 
 #import "TastingRecord_SICDTVC.h"
-#import "Wine.h"
-#import "Restaurant.h"
+#import "Wine2.h"
+#import "Restaurant2.h"
 
 @interface Wine_TRSICDTVC : TastingRecord_SICDTVC
 
--(void)setupWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant;
+-(void)setupWithWine:(Wine2 *)wine fromRestaurant:(Restaurant2 *)restaurant;
 
 @end

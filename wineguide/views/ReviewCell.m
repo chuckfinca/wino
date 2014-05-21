@@ -12,6 +12,8 @@
 #import "FontThemer.h"
 #import "WineNameVHTV.h"
 #import "RatingPreparer.h"
+#import "User2.h"
+#import "FacebookProfileImageGetter.h"
 
 @interface ReviewCell ()
 
@@ -54,16 +56,16 @@
 
 #pragma mark - Setup
 
--(void)setupClaimed:(BOOL)claimed reviewWithUserName:(NSString *)userName userImage:(UIImage *)userImage reviewText:(NSString *)reviewText wineColor:(NSString *)wineColor andRating:(NSNumber *)rating
+-(void)setupWithReview:(Review2 *)review forWineColorCode:(NSNumber *)wineColorCode
 {
-    if(claimed){
-        if(reviewText){
-            self.reviewTV.attributedText = [[NSAttributedString alloc] initWithString:reviewText attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body, NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
+    if(review.claimed){
+        if(review.review_text){
+            self.reviewTV.attributedText = [[NSAttributedString alloc] initWithString:review.review_text attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
         } else {
             self.reviewTV.attributedText = nil;
         }
         
-        [RatingPreparer setupRating:[rating floatValue] inImageViewArray:self.ratingGlassArray withWineColorString:wineColor  ];
+        [RatingPreparer setupRating:[review.rating floatValue] inImageViewArray:self.ratingGlassArray withWineColor:wineColorCode];
         
         self.reviewButton.hidden = YES;
     } else {
@@ -71,24 +73,21 @@
             iv.hidden = YES;
         }
         self.reviewButton.hidden = NO;
-        [self.reviewButton setTitle:@"REVIEW" forState:UIControlStateNormal];
+        NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:@"REVIEW" attributes:[FontThemer sharedInstance].linkBodyTextAttributes];
+        [self.reviewButton setAttributedTitle:attributedText forState:UIControlStateNormal];
         self.reviewTV.attributedText = nil;
     }
-    
-    
-    
     // the view should just take the review object from the view controller and display it accordingly
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
     
-    if(userImage){
-        userImage = [userImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    } else {
-        userImage = self.placeHolderImage;
-    }
-    [self.userImageButton setImage:userImage forState:UIControlStateNormal];
+    FacebookProfileImageGetter *fpig = [[FacebookProfileImageGetter alloc] init];
+    [fpig setProfilePicForUser:review.user inButton:self.userImageButton completion:^(BOOL success) {
+        NSLog(@"successfully set user %@ profile image",review.user.identifier);
+    }];
     
-    [self.userNameButton setTitle:userName forState:UIControlStateNormal];
+    [self.userNameButton setTitle:review.user.name_display forState:UIControlStateNormal];
+    
     self.userNameButton.tintColor = [ColorSchemer sharedInstance].textSecondary;
     
     [self setViewHeight];

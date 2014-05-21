@@ -28,5 +28,6 @@
 @property (nonatomic, readonly) NSDictionary *secondaryCaption1TextAttributes;
 
 @property (nonatomic, readonly) NSDictionary *linkCaption1TextAttributes;
+@property (nonatomic, readonly) NSDictionary *linkBodyTextAttributes;
 
 @end

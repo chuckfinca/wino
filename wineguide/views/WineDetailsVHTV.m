@@ -7,11 +7,12 @@
 //
 
 #import "WineDetailsVHTV.h"
-#import "Varietal.h"
-#import "Brand.h"
-#import "TastingNote.h"
-#import "WineUnit.h"
+#import "Varietal2.h"
+#import "Brand2.h"
+#import "TastingNote2.h"
+#import "WineUnit2.h"
 #import "ColorSchemer.h"
+#import "Region.h"
 
 @implementation WineDetailsVHTV
 
@@ -24,14 +25,17 @@
     return self;
 }
 
--(void)setupTextViewWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
+-(void)setupTextViewWithWine:(Wine2 *)wine fromRestaurant:(Restaurant2 *)restaurant
 {
     NSString *textViewString = @"";
     
-    if(wine.region){
-        textViewString = [textViewString stringByAppendingString:[wine.region capitalizedString]];
-        if(wine.country){
-            textViewString = [textViewString stringByAppendingString:@", "];
+    if(wine.regions){
+        for(Region *region in wine.regions){
+            textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@, ",[region.name capitalizedString]]];
+        }
+        
+        if(!wine.country){
+            textViewString = [textViewString substringToIndex:[textViewString length]-3];
         } else {
             textViewString = [textViewString stringByAppendingString:@"\n"];
         }
@@ -42,8 +46,8 @@
     if(wine.vineyard){
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[wine.vineyard capitalizedString]]];
     }
-    if(wine.alcoholPercentage){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@%% alcohol\n",[wine.alcoholPercentage stringValue]]];
+    if(wine.alcohol){
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@%% alcohol\n",[wine.alcohol stringValue]]];
     }
     
     NSRange tastingNoteTitleText;
@@ -52,7 +56,7 @@
         NSString *tastingNotesString = @"Tasting notes: ";
         tastingNoteTitleText = NSMakeRange([textViewString length], [tastingNotesString length]);
         NSArray *tastingNotes = [wine.tastingNotes sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-        for(TastingNote *tastingNote in tastingNotes){
+        for(TastingNote2 *tastingNote in tastingNotes){
             tastingNotesString = [tastingNotesString stringByAppendingString:[NSString stringWithFormat:@"%@, ",tastingNote.name]];
         }
         tastingNotesString = [tastingNotesString substringToIndex:[tastingNotesString length]-2];

@@ -41,4 +41,6 @@
 
 -(void)processManagedObject:(NSManagedObject *)managedObject relativesFoundInDictionary:(NSDictionary *)dictionary;
 
+-(NSManagedObject *)processDictionary:(NSDictionary *)dictionary; // for client object creation
+
 @end

@@ -8,15 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, COWineColor) {
-    COWineColorRed     = 0,
-    COWineColorWhite   = 1,
-    COWineColorRose    = 2
-};
-
 @interface SetRatingVC : UIViewController
 
 @property (nonatomic) NSInteger rating;
--(void)setWineColor:(COWineColor)wineColor;
+
+-(void)setWineColor:(UIColor *)wineColor;
 
 @end

@@ -10,12 +10,12 @@
 #import "ManagedObjectHandler.h"
 #import "FontThemer.h"
 #import "ColorSchemer.h"
-#import "Review.h"
-#import "TastingRecord.h"
+#import "Review2.h"
+#import "TastingRecord2.h"
 #import "FriendListVC.h"
 #import "GetMe.h"
-#import "ReviewDataHelper.h"
-#import "TastingRecordDataHelper.h"
+#import "ReviewHelper.h"
+#import "TastingRecordHelper.h"
 #import "SetRatingVC.h"
 #import "UIView+BorderDrawer.h"
 #import "OutBox.h"
@@ -47,8 +47,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *restaurantButton;
 @property (weak, nonatomic) IBOutlet UIView *ratingContainerView;
 
-@property (nonatomic, strong) Wine *wine;
-@property (nonatomic, strong) Restaurant *restaurant;
+@property (nonatomic, strong) Wine2 *wine;
+@property (nonatomic, strong) Restaurant2 *restaurant;
 @property (nonatomic, strong) NSArray *selectedFriends;
 @property (nonatomic) BOOL datePickerVisible;
 @property (nonatomic, strong) NSDate *selectedDate;
@@ -127,11 +127,7 @@
     self.ratingVC = [[SetRatingVC alloc] initWithNibName:@"SetRatingVC" bundle:nil];
     [self.ratingContainerView addSubview:self.ratingVC.view];
     
-    COWineColor wineColor;
-    if([self.wine.color isEqualToString:@"red"]) wineColor = COWineColorRed;
-    if([self.wine.color isEqualToString:@"white"]) wineColor = COWineColorWhite;
-    if([self.wine.color isEqualToString:@"rose"]) wineColor = COWineColorRose;
-    self.ratingVC.wineColor = wineColor;
+    self.ratingVC.wineColor = [[ColorSchemer sharedInstance] getWineColorFromCode:self.wine.color_code];
     
     self.ratingVC.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     [self.ratingVC.view drawBorderColor:[ColorSchemer sharedInstance].lightGray onTop:YES bottom:YES left:NO andRight:NO];
@@ -404,21 +400,21 @@
     [dictionary setObject:self.selectedDate forKey:TASTING_DATE];
     [dictionary setObject:now forKey:UPDATED_DATE];
     
-    TastingRecordDataHelper *trdh = [[TastingRecordDataHelper alloc] init];
-    TastingRecord *tastingRecord = (TastingRecord *)[trdh updateManagedObjectWithDictionary:dictionary];
+    TastingRecordHelper *trdh = [[TastingRecordHelper alloc] init];
+    TastingRecord2 *tastingRecord = (TastingRecord2 *)[trdh processDictionary:dictionary];
     
     tastingRecord.restaurant = self.restaurant;
     
     NSMutableSet *reviews = [[NSMutableSet alloc] init];
-    User *me = [GetMe sharedInstance].me;
-    Review *userReview = [self createClaimed:YES reviewForUser:me];
+    User2 *me = [GetMe sharedInstance].me;
+    Review2 *userReview = [self createClaimed:YES reviewForUser:me];
     [reviews addObject:userReview];
     
     [self determineIfFavorite];
     
     if(self.selectedFriends){
-        for(User *friend in self.selectedFriends){
-            Review *friendReview = [self createClaimed:NO reviewForUser:friend];
+        for(User2 *friend in self.selectedFriends){
+            Review2 *friendReview = [self createClaimed:NO reviewForUser:friend];
             [reviews addObject:friendReview];
         }
         tastingRecord.reviews = reviews;
@@ -428,17 +424,13 @@
     [outBox userCreatedTastingRecord:tastingRecord];
 }
 
--(Review *)createClaimed:(BOOL)claimed reviewForUser:(User *)user
+-(Review2 *)createClaimed:(BOOL)claimed reviewForUser:(User2 *)user
 {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    
-    NSString *dateString = [self.selectedDate.description stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString *identifier = [NSString stringWithFormat:@"%@%@",dateString,user.identifier];
     
     [dictionary setObject:self.selectedDate forKey:ADDED_DATE];
     [dictionary setObject:@(claimed) forKey:CLAIMED_BY_USER];
     [dictionary setObject:@NO forKey:DELETED_ENTITY];
-    [dictionary setObject:identifier forKey:IDENTIFIER];
     
     if(claimed){
         
@@ -454,17 +446,15 @@
     
     [dictionary setObject:self.selectedDate forKey:UPDATED_DATE];
     
-    ReviewDataHelper *rdh = [[ReviewDataHelper alloc] init];
-    Review *review = (Review *)[rdh updateManagedObjectWithDictionary:dictionary];
-    review.wine = self.wine;
+    ReviewHelper *rdh = [[ReviewHelper alloc] init];
+    Review2 *review = (Review2 *)[rdh processDictionary:dictionary];
     review.user = user;
-    
     return review;
 }
 
 -(void)determineIfFavorite
 {
-    User *me = [GetMe sharedInstance].me;
+    User2 *me = [GetMe sharedInstance].me;
     
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:REVIEW_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
@@ -477,7 +467,7 @@
     
     NSInteger ratingsSummated = 0;
     
-    for(Review *r in matches){
+    for(Review2 *r in matches){
         NSLog(@"rating = %@",r.rating);
         ratingsSummated += [r.rating integerValue];
     }

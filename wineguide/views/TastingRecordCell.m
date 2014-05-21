@@ -11,8 +11,8 @@
 #import "FontThemer.h"
 #import "ColorSchemer.h"
 #import "DateStringFormatter.h"
-#import "Review.h"
-#import "User.h"
+#import "Review2.h"
+#import "User2.h"
 #import "RatingPreparer.h"
 
 @interface TastingRecordCell ()
@@ -54,12 +54,12 @@
     return _placeHolderImage;
 }
 
--(void)setupWithTastingRecord:(TastingRecord *)tastingRecord andDisplayWineName:(BOOL)displayWineName
+-(void)setupWithTastingRecord:(TastingRecord2 *)tastingRecord andDisplayWineName:(BOOL)displayWineName
 {
-    self.dateLabel.attributedText = [DateStringFormatter attributedStringFromDate:tastingRecord.tastingDate];
+    self.dateLabel.attributedText = [DateStringFormatter attributedStringFromDate:tastingRecord.tasting_date];
     
     
-    Wine *wine;
+    Wine2 *wine;
     NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:YES]]];
     
     float rating = 0;
@@ -69,13 +69,13 @@
         UIImage *image;
         
         UIButton *button;
-        Review *review;
+        Review2 *review;
         
         if(indexNum < [reviewsArray count]){
             review = reviewsArray[indexNum];
             
-            if(review.user.profileImage){
-                image = [UIImage imageWithData:review.user.profileImage];
+            if(review.user.imageData){
+                image = [UIImage imageWithData:review.user.imageData];
             } else {
                 image = self.placeHolderImage;
             }
@@ -94,8 +94,8 @@
             button.hidden = YES;
         }
         
-        if(!wine && review.wine){
-            wine = review.wine;
+        if(!wine && review.tastingRecord.wine){
+            wine = review.tastingRecord.wine;
         }
     }
     
@@ -105,7 +105,7 @@
         self.wineNameVHTV.text = nil;
     }
     
-    [RatingPreparer setupRating:(rating/numberOfRatings) inImageViewArray:self.ratingImageViewArray withWineColorString:wine.color];
+    [RatingPreparer setupRating:(rating/numberOfRatings) inImageViewArray:self.ratingImageViewArray withWineColor:nil];
     
     [self setHeight];
     

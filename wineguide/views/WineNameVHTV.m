@@ -25,7 +25,7 @@
     return self;
 }
 
--(void)setupTextViewWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
+-(void)setupTextViewWithWine:(Wine2 *)wine fromRestaurant:(Restaurant2 *)restaurant
 {
     
     self.scrollEnabled = NO;
@@ -39,8 +39,7 @@
         textViewString = [textViewString stringByAppendingString:[wine.name capitalizedString]];
     }
     if(wine.vintage){
-        NSString *vintageString = [wine.vintage stringValue];
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",[vintageString capitalizedString]]];
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",[wine.vintage capitalizedString]]];
     }
     if(wine.varietals){
         NSString *varietalsString = @" - ";

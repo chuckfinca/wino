@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "User.h"
+#import "User2.h"
 
 @interface FacebookProfileImageGetter : NSObject
 
--(void)setProfilePicForUser:(User *)user inImageView:(UIImageView *)imageView completion:(void (^)(BOOL success))completion;
--(void)setProfilePicForUser:(User *)user inButton:(UIButton *)button completion:(void (^)(BOOL success))completion;
+-(void)setProfilePicForUser:(User2 *)user inImageView:(UIImageView *)imageView completion:(void (^)(BOOL success))completion;
+-(void)setProfilePicForUser:(User2 *)user inButton:(UIButton *)button completion:(void (^)(BOOL success))completion;
 
 @end

@@ -62,7 +62,7 @@
 
 #pragma mark - Setup
 
--(void)setupCellForWine:(Wine *)wine
+-(void)setupCellForWine:(Wine2 *)wine
 {
     // Wine object will come with a rating history, which will be used to determine the ratings, and a talking heads object, which will be used to determine the talking heads.
     
@@ -76,7 +76,7 @@
     [self setViewHeight];
 }
 
--(void)setupTalkingHeadsForWine:(Wine *)wine
+-(void)setupTalkingHeadsForWine:(Wine2 *)wine
 {
     if(self.talkingHeadButtonOne){
         
@@ -132,7 +132,7 @@
     }
 }
 
--(void)setupRatingForWine:(Wine *)wine
+-(void)setupRatingForWine:(Wine2 *)wine
 {
     if(self.glassRatingImageViewArray){
         
@@ -149,7 +149,7 @@
             rating /= 10;
         }
         
-        [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColorString:wine.color];
+        [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColor:wine.color_code];
         
         if(!rating || rating == 0){
             numberOfRatings = 0;
@@ -168,7 +168,7 @@
     }
 }
 
--(void)setupBackgroundColorForWine:(Wine *)wine
+-(void)setupBackgroundColorForWine:(Wine2 *)wine
 {
     UIColor *backgroundColor;
     if([wine.user_favorite boolValue] == YES){

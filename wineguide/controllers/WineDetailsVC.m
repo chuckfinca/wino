@@ -36,9 +36,9 @@
 @property (weak, nonatomic) IBOutlet TalkingHeadsLabel *talkingHeadsLabel;
 @property (weak, nonatomic) IBOutlet ReviewsLabel *reviewsLabel;
 
-@property (nonatomic, weak) Wine *wine;
-@property (nonatomic, weak) Restaurant *restaurant;
-@property (nonatomic, weak) User *me;
+@property (nonatomic, weak) Wine2 *wine;
+@property (nonatomic, weak) Restaurant2 *restaurant;
+@property (nonatomic, weak) User2 *me;
 
 @property (nonatomic) NSInteger numberOfRatings; // for testing
 
@@ -80,7 +80,7 @@
 
 #pragma mark - Getters & Setters
 
--(User *)me
+-(User2 *)me
 {
     if(!_me){
         _me = [GetMe sharedInstance].me;
@@ -91,7 +91,7 @@
 
 #pragma mark - Setup
 
--(void)setupWithWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant
+-(void)setupWithWine:(Wine2 *)wine fromRestaurant:(Restaurant2 *)restaurant
 {
     self.wine = wine;
     self.restaurant = restaurant;
@@ -123,7 +123,7 @@
 
 -(void)setupCellarButton
 {
-    BOOL favorited = [self.me.winesInCellar containsObject:self.wine];
+    BOOL favorited = [self.me.wines containsObject:self.wine];
     UIImage *image;
     if(favorited){
         image = [UIImage imageNamed:@"button_cellar.png"];
@@ -136,7 +136,7 @@
     
 }
 
--(void)setupTalkingHeadsForWine:(Wine *)wine
+-(void)setupTalkingHeadsForWine:(Wine2 *)wine
 {
     self.numberOfRatings = arc4random_uniform(8)+1;
     
@@ -197,7 +197,7 @@
     
 }
 
--(void)setupRatingForWine:(Wine *)wine
+-(void)setupRatingForWine:(Wine2 *)wine
 {
     if(self.numberOfRatings > 0){
         
@@ -205,7 +205,7 @@
         rating /= 10;
         NSLog(@"rating = %f",rating);
         
-        [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColorString:wine.color];
+        [RatingPreparer setupRating:rating inImageViewArray:self.glassRatingImageViewArray withWineColor:wine.color_code];
         [self.reviewsLabel setupForNumberOfReviews:self.numberOfRatings];
         
     } else {
@@ -249,7 +249,7 @@
 {
     NSString *message;
     
-    if([self.me.winesInCellar containsObject:self.wine]){
+    if([self.me.wines containsObject:self.wine]){
         message = @"Wine added to cellar";
     } else {
         message = @"Wine removed from cellar";
@@ -291,14 +291,14 @@
 
 -(void)cellarWine
 {
-    NSMutableSet *winesInCellar = [self.me.winesInCellar mutableCopy];
+    NSMutableSet *winesInCellar = [self.me.wines mutableCopy];
     
     if([winesInCellar containsObject:self.wine]){
         [winesInCellar removeObject:self.wine];
     } else {
         [winesInCellar addObject:self.wine];
     }
-    self.me.winesInCellar = winesInCellar;
+    self.me.wines = winesInCellar;
     
     [self setupCellarButton];
     

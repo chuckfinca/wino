@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "User.h"
+#import "User2.h"
 
 @interface UserProfileVC : UIViewController
 
--(id)initWithUser:(User *)user;
+-(id)initWithUser:(User2 *)user;
 
 @end

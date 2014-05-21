@@ -11,20 +11,9 @@
 
 @implementation RatingPreparer
 
-+(void)setupRating:(float)rating inImageViewArray:(NSArray *)imageViewArray withWineColorString:(NSString *)wineColorString
++(void)setupRating:(float)rating inImageViewArray:(NSArray *)imageViewArray withWineColor:(NSNumber *)wineColor
 {
     if(rating && rating > 0){
-        UIColor *wineColor;
-        if([wineColorString isEqualToString:@"red"]){
-            wineColor = [ColorSchemer sharedInstance].redWine;
-        } else if([wineColorString isEqualToString:@"rose"]){
-            wineColor = [ColorSchemer sharedInstance].roseWine;
-        } else if([wineColorString isEqualToString:@"white"]){
-            wineColor = [ColorSchemer sharedInstance].whiteWine;
-        } else {
-            NSLog(@"wine.color != red/rose/white");
-        }
-        
         for(UIImageView *iv in imageViewArray){
             iv.hidden = NO;
             NSInteger glassIndex = iv.tag + 1;
@@ -38,7 +27,7 @@
             } else {
                 image = [[UIImage imageNamed:@"glass_full.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             }
-            iv.tintColor = wineColor;
+            iv.tintColor = [[ColorSchemer sharedInstance] getWineColorFromCode:wineColor];
             [iv setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
         }
     } else {

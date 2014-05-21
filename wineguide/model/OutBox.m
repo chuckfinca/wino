@@ -8,20 +8,20 @@
 
 #import "OutBox.h"
 #import "GetMe.h"
-#import "Review.h"
+#import "Review2.h"
 
 @implementation OutBox
 
 
--(void)userDidCellarWine:(Wine *)wine
+-(void)userDidCellarWine:(Wine2 *)wine
 {
-    NSLog(@"%@ put %@ in their cellar",[GetMe sharedInstance].me.nameFull,wine.brand);
+    NSLog(@"%@ put %@ in their cellar",[GetMe sharedInstance].me.name_display,wine.brand);
 }
 
--(void)userCreatedTastingRecord:(TastingRecord *)tastingRecord
+-(void)userCreatedTastingRecord:(TastingRecord2 *)tastingRecord
 {
-    Review *review = [[tastingRecord.reviews filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"user.identifier = %@",[GetMe sharedInstance].me.identifier]] anyObject];
-    NSLog(@"%@ tried %@ and wrote %@",[GetMe sharedInstance].me.nameFull,review.wine.brand,review.reviewText);
+    Review2 *review = [[tastingRecord.reviews filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"user.identifier = %@",[GetMe sharedInstance].me.identifier]] anyObject];
+    NSLog(@"%@ tried %@ and wrote %@",[GetMe sharedInstance].me.name_display,review.tastingRecord.wine.brand,review.review_text);
 }
 
 @end

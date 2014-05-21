@@ -15,6 +15,7 @@
 #import "Cellar_SICDTVC.h"
 #import "ColorSchemer.h"
 #import "FontThemer.h"
+#import "FacebookProfileImageGetter.h"
 
 #define USER_PROFILE_PAGE_CELL  @"UserCell"
 #define USER_ENTITY  @"User"
@@ -27,8 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *followButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) User *user;
-@property (nonatomic, strong) User *me;
+@property (nonatomic, strong) User2 *user;
+@property (nonatomic, strong) User2 *me;
 @property (nonatomic) BOOL following;
 
 
@@ -50,7 +51,7 @@
     return self;
 }
 
--(id)initWithUser:(User *)user
+-(id)initWithUser:(User2 *)user
 {
     self = [super init];
     _user = user;
@@ -65,7 +66,7 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:USER_PROFILE_PAGE_CELL];
     
-    if(!self.user || (self.user.isMe && !self.user.registered)){
+    if(!self.user || (self.user.is_me && !self.user.registered)){
         self.user = self.me;
         self.followButton.hidden = YES;
         self.tableView.hidden = YES;
@@ -73,7 +74,7 @@
         self.loginView.hidden = YES;
     }
     
-    if(self.user.isMe){
+    if(self.user.is_me){
         self.title = @"Me";
         self.followButton.hidden = YES;
     } else {
@@ -94,7 +95,7 @@
 
 #pragma mark - Setup
 
--(User *)me
+-(User2 *)me
 {
     if(!_me){
         _me = [GetMe sharedInstance].me;
@@ -105,10 +106,10 @@
 -(void)setupNameLabel
 {
     NSString *text;
-    if(self.user.nameFirst){
-        text = [NSString stringWithFormat:@"%@ %@.",self.user.nameFirst, self.user.nameLastInitial];
+    if(self.user.name_first){
+        text = [NSString stringWithFormat:@"%@ %@.",self.user.name_first, [self.user.name_last substringToIndex:1]];
     } else {
-        if(self.user.isMe){
+        if(self.user.is_me){
             text = @"Create a profile and:\n・add friends to your tasting records\n・see which wines your friends like and are drinking\n・sync your devices\n・etc.";
         } else {
             text = @"";
@@ -119,15 +120,16 @@
 
 -(void)setupUserProfileImage
 {
-    UIImage *image;
-    if(self.user.profileImage){
-        image = [UIImage imageWithData:self.user.profileImage];
-    } else {
-        image = [UIImage imageNamed:@"user_default.png"];
-    }
+    FacebookProfileImageGetter *fpig = [[FacebookProfileImageGetter alloc] init];
+    [fpig setProfilePicForUser:self.user inImageView:self.userProfileImageView completion:^(BOOL success) {
+        if(success){
+            NSLog(@"successfully set user profile pic");
+        } else {
+            NSLog(@"failed to set user profile pic");
+        }
+    }];
     
     UIColor *color = [ColorSchemer sharedInstance].gray;
-    [self.userProfileImageView setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     self.userProfileImageView.tintColor = color;
     self.userProfileImageView.layer.borderWidth = 2;
     self.userProfileImageView.layer.borderColor = color.CGColor;

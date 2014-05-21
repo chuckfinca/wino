@@ -114,7 +114,6 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
-    NSLog(@"matches count = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
 }
 
 
@@ -125,7 +124,7 @@
     RestaurantCell *cell = [self.tableView dequeueReusableCellWithIdentifier:RESTAURANT_CELL forIndexPath:indexPath];
     
     // Configure the cell...
-    Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Restaurant2 *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [cell setupCellForRestaurant:restaurant];
     
@@ -144,7 +143,7 @@
 -(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     // Configure the cell...
-    Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Restaurant2 *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [self.sizingCell setupCellForRestaurant:restaurant];
     return CGRectGetHeight(self.sizingCell.bounds);
@@ -167,7 +166,7 @@
                 Restaurant_SICDTVC *restaurantCDTVC = (Restaurant_SICDTVC *)segue.destinationViewController;
                 
                 // Pass the selected object to the new view controller.
-                Restaurant *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
+                Restaurant2 *restaurant = [self.fetchedResultsController objectAtIndexPath:indexPath];
                 [restaurantCDTVC setupWithRestaurant:restaurant];
             }
         }

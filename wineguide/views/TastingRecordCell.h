@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TastingRecord.h"
+#import "TastingRecord2.h"
 
 @interface TastingRecordCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *userImageButtonArray;
 
--(void)setupWithTastingRecord:(TastingRecord *)tastingRecord andDisplayWineName:(BOOL)displayWineName;
+-(void)setupWithTastingRecord:(TastingRecord2 *)tastingRecord andDisplayWineName:(BOOL)displayWineName;
 
 @end

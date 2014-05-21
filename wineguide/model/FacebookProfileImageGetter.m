@@ -27,12 +27,12 @@
     return _placeHolderImage;
 }
 
--(void)setProfilePicForUser:(User *)user inImageView:(UIImageView *)imageView completion:(void (^)(BOOL success))completion
+-(void)setProfilePicForUser:(User2 *)user inImageView:(UIImageView *)imageView completion:(void (^)(BOOL success))completion
 {
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", user.identifier]];
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:URL];
     [imageView setImageWithURLRequest:urlRequest placeholderImage:self.placeHolderImage success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-        user.profileImage = UIImagePNGRepresentation(image);
+        user.imageData = UIImagePNGRepresentation(image);
         completion(YES);
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
@@ -40,13 +40,13 @@
     }];
 }
 
--(void)setProfilePicForUser:(User *)user inButton:(UIButton *)button completion:(void (^)(BOOL success))completion
+-(void)setProfilePicForUser:(User2 *)user inButton:(UIButton *)button completion:(void (^)(BOOL success))completion
 {
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", user.identifier]];
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:URL];
     
     [button setImageForState:UIControlStateNormal withURLRequest:urlRequest placeholderImage:self.placeHolderImage success:^(NSHTTPURLResponse *response, UIImage *image) {
-        user.profileImage = UIImagePNGRepresentation(image);
+        user.imageData = UIImagePNGRepresentation(image);
         completion(YES);
     } failure:^(NSError *error) {
         

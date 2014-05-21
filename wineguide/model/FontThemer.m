@@ -91,6 +91,10 @@ static FontThemer *sharedInstance;
     return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : self.footnote};
 }
 
+-(NSDictionary *)linkBodyTextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].clickable, NSFontAttributeName : self.body};
+}
 
 -(NSDictionary *)linkCaption1TextAttributes
 {

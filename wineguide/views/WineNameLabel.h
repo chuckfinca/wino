@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Wine.h"
-#import "Restaurant.h"
+#import "Wine2.h"
+#import "Restaurant2.h"
 
 @interface WineNameLabel : UILabel
 
--(void)setupForWine:(Wine *)wine fromRestaurant:(Restaurant *)restaurant;
+-(void)setupForWine:(Wine2 *)wine fromRestaurant:(Restaurant2 *)restaurant;
 
 @end

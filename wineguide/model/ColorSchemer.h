@@ -35,6 +35,8 @@
 @property (nonatomic, readonly) UIColor *gray;
 @property (nonatomic, readonly) UIColor *lightGray;
 
+-(UIColor *)getWineColorFromCode:(NSNumber *)color_code;
+
 -(void)mixItUp; // changes colors to identify what's what.
 
 @end

@@ -38,23 +38,9 @@
     }
 }
 
--(void)setWineColor:(COWineColor)wineColor
+-(void)setWineColor:(UIColor *)wineColor
 {
-    NSLog(@"wineColor = %d",wineColor);
-    switch (wineColor) {
-        case 0:
-            self.color = [ColorSchemer sharedInstance].redWine;
-            break;
-        case 1:
-            self.color = [ColorSchemer sharedInstance].whiteWine;
-            break;
-        case 2:
-            self.color = [ColorSchemer sharedInstance].roseWine;
-            break;
-            
-        default:
-            break;
-    }
+    self.color = wineColor;
 }
 
 

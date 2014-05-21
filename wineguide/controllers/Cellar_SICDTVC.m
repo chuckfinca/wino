@@ -7,10 +7,8 @@
 //
 
 #import "Cellar_SICDTVC.h"
-#import "Wine.h"
+#import "Wine2.h"
 #import "ColorSchemer.h"
-#import "Varietal.h"
-#import "TastingNote.h"
 #import "Wine_TRSICDTVC.h"
 #import "WineCell.h"
 #import "FontThemer.h"
@@ -26,7 +24,7 @@
 @interface Cellar_SICDTVC ()
 
 @property (nonatomic) BOOL firstTime;
-@property (nonatomic, strong) User *user;
+@property (nonatomic, strong) User2 *user;
 @property (nonatomic, strong) WineCell *sizingCell;
 
 @end
@@ -67,7 +65,7 @@
 
 #pragma mark - Getters & setters
 
--(User *)user
+-(User2 *)user
 {
     if(!_user){
         _user = [GetMe sharedInstance].me;
@@ -92,7 +90,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_Cellar" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
 }
 
--(void)setupForUser:(User *)user
+-(void)setupForUser:(User2 *)user
 {
     self.user = user;
 }
@@ -130,7 +128,7 @@
 {
     WineCell *wineCell = (WineCell *)[self.tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
     
-    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Wine2 *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [wineCell setupCellForWine:wine];
     
     wineCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -143,7 +141,7 @@
     Wine_TRSICDTVC *wineCDTVC = [[Wine_TRSICDTVC alloc] initWithStyle:UITableViewStylePlain];
     
     // Pass the selected object to the new view controller.
-    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Wine2 *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [wineCDTVC setupWithWine:wine fromRestaurant:nil];
     
     [self.navigationController pushViewController:wineCDTVC animated:YES];
@@ -154,7 +152,7 @@
 
 -(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Wine2 *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.sizingCell setupCellForWine:wine];
     
     return self.sizingCell.bounds.size.height;

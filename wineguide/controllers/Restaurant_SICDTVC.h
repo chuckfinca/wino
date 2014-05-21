@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Searchable_ICDTVC.h"
-#import "Restaurant.h"
+#import "Restaurant2.h"
 
 @interface Restaurant_SICDTVC : Searchable_ICDTVC
 
--(void)setupWithRestaurant:(Restaurant *)restaurant;
+-(void)setupWithRestaurant:(Restaurant2 *)restaurant;
 
 @end

@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Wine.h"
-#import "TastingRecord.h"
+#import "Wine2.h"
+#import "TastingRecord2.h"
 
 @interface OutBox : NSObject
 
--(void)userDidCellarWine:(Wine *)wine;
--(void)userCreatedTastingRecord:(TastingRecord *)tastingRecord;
+-(void)userDidCellarWine:(Wine2 *)wine;
+-(void)userCreatedTastingRecord:(TastingRecord2 *)tastingRecord;
 
 @end
