@@ -14,6 +14,7 @@
 #import "FacebookProfileImageGetter.h"
 #import "ServerCommunicator.h"
 #import "WineList.h"
+#import "WineColorStringFromCode.h"
 
 #define WINE_LIST_ENTITY @"WineList"
 #define WINE_ENTITY @"Wine2"
@@ -21,14 +22,12 @@
 #define WINE_CELL_WITH_RATING @"WineCell_withRating"
 #define WINE_CELL_WITH_RATING_AND_TALKING_HEADS @"WineCell_withRatingAndTalkingHeads"
 
-typedef enum {
-    MostPopular,
-    HighestRated,
-    BestValue,
-    All,
-    ExcellentVintages,
-    RareFinds,
-} WineListSort;
+typedef NS_ENUM(NSInteger, WineColor) {
+    WineColorRed     = 1,
+    WineColorWhite   = 2,
+    WineColorRose    = 3,
+};
+
 
 @interface Restaurant_SICDTVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -190,7 +189,7 @@ typedef enum {
 -(NSString *)titleForHeaderInSection:(NSInteger)section
 {
     id <NSFetchedResultsSectionInfo> theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [[theSection name] capitalizedString];
+    return [WineColorStringFromCode wineColorStringFromColorCode:[[theSection name] integerValue]];
 }
 
 -(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
@@ -202,7 +201,6 @@ typedef enum {
     
     return cell.bounds.size.height;
 }
-
 
 -(UIView *)viewForHeaderInSection:(NSInteger)section
 {
