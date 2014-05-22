@@ -62,10 +62,11 @@
 
 -(void)setupFromTastingRecord:(TastingRecord2 *)tastingRecord
 {
-    self.reviews = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:NO]]];
+    self.reviews = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"review_date" ascending:NO]]];
     
     self.tableView.tableHeaderView = [[[NSBundle mainBundle] loadNibNamed:@"ReviewsTVControllerHeaderView" owner:self options:nil] firstObject];
     self.tableView.tableHeaderView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.tableView.tableHeaderView.tintColor = [ColorSchemer sharedInstance].baseColor;
     
     Review2 *review = (Review2 *)self.reviews[0];
     self.dateLabel.attributedText = [DateStringFormatter attributedStringFromDate:tastingRecord.tasting_date];
