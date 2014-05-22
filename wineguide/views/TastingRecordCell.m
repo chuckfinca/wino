@@ -21,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
 
-@property (nonatomic, strong) UIImage *placeHolderImage;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToRatingImageViewArrayConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ratingImageViewArrayToWineNameConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wineNameToUserImageButtonsConstraint;
@@ -50,53 +48,19 @@
 {
     self.dateLabel.attributedText = [DateStringFormatter attributedStringFromDate:tastingRecord.tasting_date];
     
-    Wine2 *wine;
-    NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"review_date" ascending:YES]]];
-    
-    float rating = 0;
-    NSInteger numberOfRatings = 0;
-    
-    for(NSInteger indexNum = 0; indexNum < 5; indexNum++){
-        UIImage *image;
-        
-        UIButton *button;
-        Review2 *review;
-        
-        if(indexNum < [reviewsArray count]){
-            review = reviewsArray[indexNum];
-            
-            if(review.user.imageData){
-                image = [UIImage imageWithData:review.user.imageData];
-            } else {
-                image = self.placeHolderImage;
-            }
-            
-            if(review.rating){
-                rating += [review.rating floatValue];
-                numberOfRatings++;
-            }
-            
-            button = self.userImageButtonArray[indexNum];
-            button.hidden = NO;
-            [button setImage:image forState:UIControlStateNormal];
-            
-        } else {
-            button = self.userImageButtonArray[indexNum];
-            button.hidden = YES;
-        }
-        
-        if(!wine && review.tastingRecord.wine){
-            wine = review.tastingRecord.wine;
-        }
-    }
+    __block float averageRatingForTastingRecord = 0;
+    [tastingRecord.reviews enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+        Review2 *review = (Review2 *)obj;
+        averageRatingForTastingRecord += [review.rating floatValue];
+    }];
     
     if(displayWineName){
-        [self.wineNameVHTV setupTextViewWithWine:wine fromRestaurant:tastingRecord.restaurant];
+        [self.wineNameVHTV setupTextViewWithWine:tastingRecord.wine fromRestaurant:tastingRecord.restaurant];
     } else {
         self.wineNameVHTV.text = nil;
     }
     
-    [RatingPreparer setupRating:(rating/numberOfRatings) inImageViewArray:self.ratingImageViewArray withWineColor:nil];
+    [RatingPreparer setupRating:(averageRatingForTastingRecord/[tastingRecord.reviews count]) inImageViewArray:self.ratingImageViewArray withWineColor:nil];
     
     [self setHeight];
     

@@ -16,6 +16,7 @@
 #import "DateStringFormatter.h"
 #import "ReviewsTVController.h"
 #import "UserProfileVC.h"
+#import "FacebookProfileImageGetter.h"
 
 #define TASTING_RECORD_CELL @"TastingRecordCell"
 
@@ -23,6 +24,7 @@
 
 @property (nonatomic, strong) TastingRecordCell *tastingRecordSizingCell;
 @property (nonatomic) CGPoint touchLocation;
+@property (nonatomic, strong) FacebookProfileImageGetter *facebookProfileImageGetter;
 
 @end
 
@@ -50,6 +52,27 @@
     
     [self addTapGestureRecognizer];
 }
+
+#pragma mark - Getters & Setters
+
+-(TastingRecordCell *)tastingRecordSizingCell
+{
+    if(!_tastingRecordSizingCell){
+        _tastingRecordSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"TastingRecordCell" owner:self options:nil] firstObject];
+    }
+    return _tastingRecordSizingCell;
+}
+
+-(FacebookProfileImageGetter *)facebookProfileImageGetter
+{
+    if(!_facebookProfileImageGetter){
+        _facebookProfileImageGetter = [[FacebookProfileImageGetter alloc] init];
+    }
+    return _facebookProfileImageGetter;
+}
+
+#pragma mark - Setup
+
 -(void)setup
 {
     [self.tableView registerNib:[UINib nibWithNibName:@"TastingRecordCell" bundle:nil] forCellReuseIdentifier:TASTING_RECORD_CELL];
@@ -64,30 +87,44 @@
     [self.tableView addGestureRecognizer:gr];
 }
 
-#pragma mark - Getters & Setters
-
--(TastingRecordCell *)tastingRecordSizingCell
-{
-    if(!_tastingRecordSizingCell){
-        _tastingRecordSizingCell = [[[NSBundle mainBundle] loadNibNamed:@"TastingRecordCell" owner:self options:nil] firstObject];
-    }
-    return _tastingRecordSizingCell;
-}
-
 #pragma mark - UITableViewDataSource
 
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    TastingRecordCell *trCell = (TastingRecordCell *)[self.tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
-    trCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    TastingRecordCell *cell = (TastingRecordCell *)[self.tableView dequeueReusableCellWithIdentifier:TASTING_RECORD_CELL forIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     TastingRecord2 *tastingRecord = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [trCell setupWithTastingRecord:tastingRecord andDisplayWineName:self.displayWineNameOnEachCell];
+    [cell setupWithTastingRecord:tastingRecord andDisplayWineName:self.displayWineNameOnEachCell];
+    [self loadUserImagesForTastingRecord:tastingRecord inCell:cell atIndexPath:indexPath];
     
-    return trCell;
+    return cell;
 }
 
-
+-(void)loadUserImagesForTastingRecord:(TastingRecord2 *)tastingRecord inCell:(TastingRecordCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"review_date" ascending:YES]]];
+    
+    NSInteger counter = 0;
+    
+    for(UIButton *userImageButton in cell.userImageButtonArray){
+        if(counter < [reviewsArray count]){
+            userImageButton.hidden = NO;
+            
+            Review2 *review = (Review2 *)reviewsArray[counter];
+            
+            __weak UITableView *weakTableView = self.tableView;
+            [self.facebookProfileImageGetter setProfilePicForUser:review.user inButton:userImageButton completion:^(BOOL success) {
+                if([weakTableView cellForRowAtIndexPath:indexPath]){
+                    [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+            }];
+        } else {
+            userImageButton.hidden = YES;
+        }
+        counter++;
+    }
+}
 
 #pragma mark - UITableViewDelegate
 
