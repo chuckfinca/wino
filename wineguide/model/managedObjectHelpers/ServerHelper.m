@@ -88,39 +88,29 @@
     }
     
     if([json isKindOfClass:[NSArray class]]){
-        [self createOrUpdateObjectsWithJsonInArray:(NSArray *)json];
-        
-    } else if([json isKindOfClass:[NSDictionary class]]){
-        NSDictionary *dictionary = (NSDictionary *)json;
+        [json enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [self ensureIsDictionaryAndProcessObject:obj];
+        }];
+    } else {
+        [self ensureIsDictionaryAndProcessObject:json];
+    }
+}
+
+-(void)ensureIsDictionaryAndProcessObject:(id)obj
+{
+    if([obj isKindOfClass:[NSDictionary class]]){
+        NSDictionary *dictionary = (NSDictionary *)obj;
         if(dictionary[ID_KEY]){
-            [self processDictionary:dictionary];
+            [self createObjectFromDictionary:dictionary];
         } else {
             NSLog(@"dictionary does not have key = %@",ID_KEY);
         }
     } else {
-        NSLog(@"JSON is not an array or a dictionary. It is a %@",[json class]);
+        NSLog(@"obj in responseObject array is not a dictionary, it is a %@",[obj class]);
     }
 }
 
-
-
--(void)createOrUpdateObjectsWithJsonInArray:(NSArray *)jsonArray
-{
-        [jsonArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if([obj isKindOfClass:[NSDictionary class]]){
-                NSDictionary *dictionary = (NSDictionary *)obj;
-                if(dictionary[ID_KEY]){
-                    [self processDictionary:dictionary];
-                } else {
-                    NSLog(@"dictionary does not have key = %@",ID_KEY);
-                }
-            } else {
-                NSLog(@"obj in responseObject array is not a dictionary, it is a %@",[obj class]);
-            }
-        }];
-}
-
--(NSManagedObject *)processDictionary:(NSDictionary *)dictionary
+-(NSManagedObject *)createObjectFromDictionary:(NSDictionary *)dictionary
 {
     NSManagedObject *mo = [self createOrModifyObjectWithDictionary:dictionary];
     if(self.relatedObject){

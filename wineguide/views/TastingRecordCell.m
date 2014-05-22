@@ -46,21 +46,12 @@
     // Initialization code
 }
 
--(UIImage *)placeHolderImage
-{
-    if(!_placeHolderImage){
-        _placeHolderImage = [[UIImage imageNamed:@"user_default.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    }
-    return _placeHolderImage;
-}
-
 -(void)setupWithTastingRecord:(TastingRecord2 *)tastingRecord andDisplayWineName:(BOOL)displayWineName
 {
     self.dateLabel.attributedText = [DateStringFormatter attributedStringFromDate:tastingRecord.tasting_date];
     
-    
     Wine2 *wine;
-    NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:YES]]];
+    NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"review_date" ascending:YES]]];
     
     float rating = 0;
     NSInteger numberOfRatings = 0;

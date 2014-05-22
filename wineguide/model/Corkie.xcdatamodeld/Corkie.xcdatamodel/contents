@@ -120,7 +120,9 @@
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name_display" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name_first" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name_full" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name_last" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name_last_initial" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="registered" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
@@ -128,7 +130,7 @@
         <relationship name="following" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User2" inverseName="followedBy" inverseEntity="User2" syncable="YES"/>
         <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review2" inverseName="user" inverseEntity="Review2" syncable="YES"/>
         <relationship name="talkingHeads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TalkingHeads" inverseName="users" inverseEntity="TalkingHeads" syncable="YES"/>
-        <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine2" inverseName="cellars" inverseEntity="Wine2" syncable="YES"/>
+        <relationship name="wines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wine2" inverseName="cellaredBy" inverseEntity="Wine2" syncable="YES"/>
     </entity>
     <entity name="Varietal2" representedClassName="Varietal2" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
@@ -157,7 +159,7 @@
         <attribute name="vintage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wine_description" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="brand" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Brand2" inverseName="wines" inverseEntity="Brand2" syncable="YES"/>
-        <relationship name="cellars" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User2" inverseName="wines" inverseEntity="User2" syncable="YES"/>
+        <relationship name="cellaredBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User2" inverseName="wines" inverseEntity="User2" syncable="YES"/>
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight2" inverseName="wines" inverseEntity="Flight2" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group2" inverseName="wines" inverseEntity="Group2" syncable="YES"/>
         <relationship name="ratingHistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RatingHistory2" inverseName="wine" inverseEntity="RatingHistory2" syncable="YES"/>
@@ -203,7 +205,7 @@
         <element name="TalkingHeads" positionX="-81" positionY="360" width="128" height="118"/>
         <element name="TastingNote2" positionX="378" positionY="252" width="128" height="163"/>
         <element name="TastingRecord2" positionX="-479" positionY="243" width="128" height="163"/>
-        <element name="User2" positionX="-693" positionY="-178" width="128" height="358"/>
+        <element name="User2" positionX="-693" positionY="-178" width="128" height="388"/>
         <element name="Varietal2" positionX="351" positionY="432" width="128" height="163"/>
         <element name="Wine2" positionX="187" positionY="-115" width="128" height="448"/>
         <element name="WineList" positionX="-351" positionY="-180" width="128" height="208"/>

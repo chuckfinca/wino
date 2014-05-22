@@ -139,7 +139,7 @@
             if(CGRectContainsPoint(button.frame, cellTouchLocation) && !button.hidden){
                 
                 TastingRecord2 *tastingRecord = self.fetchedResultsController.fetchedObjects[indexPath.row];
-                NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"reviewDate" ascending:YES]]];
+                NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"review_date" ascending:YES]]];
                 Review2 *review = reviewsArray[button.tag];
                 user = review.user;
                 pushUserProfileVC = YES;

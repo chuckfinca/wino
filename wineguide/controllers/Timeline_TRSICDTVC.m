@@ -8,6 +8,8 @@
 
 #import "Timeline_TRSICDTVC.h"
 #import "GetMe.h"
+#import "TastingRecord2.h"
+#import "Review2.h"
 
 #define TASTING_RECORD_ENTITY @"TastingRecord2"
 
@@ -24,7 +26,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationItem.title = @"Tasting Timeline";
-    self.displayWineNameOnEachCell = YES;
 }
 
 #pragma mark - Setup
@@ -36,26 +37,40 @@
 
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
-    //NSLog(@"Timeline setupFetchedResultsController...");
+    NSNumber *meIdentifier = [GetMe sharedInstance].me.identifier;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TASTING_RECORD_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tastingDate"
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tasting_date"
                                                               ascending:NO],
                                 [NSSortDescriptor sortDescriptorWithKey:@"identifier"
                                                               ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"ANY reviews.user.identifier = %@",[GetMe sharedInstance].me.identifier];
+    request.predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(reviews,$r, $r.user.identifier == %@).@count != 0",meIdentifier];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
     if([self.fetchedResultsController.fetchedObjects count] == 0){
-        self.displayInstructionsCell = YES;
+        [self setupInstructionsCell];
     } else {
-        self.displayInstructionsCell = NO;
+        if(self.displayInstructionsCell == YES){
+            [self removeInstructionsCell];
+        }
     }
 }
 
+-(void)setupInstructionsCell
+{
+    self.suspendAutomaticTrackingOfChangesInManagedObjectContext = YES;
+    self.displayInstructionsCell = YES;
+}
 
+-(void)removeInstructionsCell
+{
+    self.displayInstructionsCell = NO;
+    self.instructionsCell = nil;
+    self.suspendAutomaticTrackingOfChangesInManagedObjectContext = NO;
+    [self setupAndSearchFetchedResultsControllerWithText:nil];
+}
 
 - (void)didReceiveMemoryWarning
 {

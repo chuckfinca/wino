@@ -88,9 +88,9 @@
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TASTING_RECORD_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tastingDate"
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tasting_date"
                                                               ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"ANY reviews.wine.identifier = %@",self.wine.identifier];
+    request.predicate = [NSPredicate predicateWithFormat:@"wine.identifier = %@",self.wine.identifier];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context

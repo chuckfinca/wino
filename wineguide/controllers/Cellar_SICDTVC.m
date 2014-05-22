@@ -105,14 +105,12 @@
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES]];
     
+    request.predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(cellaredBy,$user, $user.identifier == %@).@count != 0",self.user.identifier];
+    
     if(text){
         NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
-        NSPredicate *wineInCellarPredicate = [NSPredicate predicateWithFormat:@"ANY favoritedBy.identifier == %@",self.user.identifier];
-        
-        NSCompoundPredicate *compoundPredicate = [[NSCompoundPredicate alloc] initWithType:NSAndPredicateType subpredicates:@[searchPredicate, wineInCellarPredicate]];
+        NSCompoundPredicate *compoundPredicate = [[NSCompoundPredicate alloc] initWithType:NSAndPredicateType subpredicates:@[searchPredicate, request.predicate]];
         request.predicate = compoundPredicate;
-    } else {
-        request.predicate = [NSPredicate predicateWithFormat:@"ANY favoritedBy.identifier == %@",self.user.identifier];
     }
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request

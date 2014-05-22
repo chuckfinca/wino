@@ -32,15 +32,22 @@
 @property (nonatomic, readonly) NSManagedObjectContext *context;
 @property (nonatomic, readonly) NSManagedObject *relatedObject;
 
+// For server communication
+
 -(void)getDataAtUrl:(NSString *)url;
+
+
+// For client object creation
+
+-(NSManagedObject *)createObjectFromDictionary:(NSDictionary *)dictionary;
+
+
+// For ServerHelper subclasses
+
 -(void)processJSON:(id)json withRelatedObject:(NSManagedObject *)relatedObject;
-
 -(NSManagedObject *)findOrCreateManagedObjectEntityType:(NSString *)entityName usingDictionary:(NSDictionary *)dictionary;
-
 -(NSSet *)addRelationToSet:(NSSet *)set;
 
--(void)processManagedObject:(NSManagedObject *)managedObject relativesFoundInDictionary:(NSDictionary *)dictionary;
 
--(NSManagedObject *)processDictionary:(NSDictionary *)dictionary; // for client object creation
 
 @end

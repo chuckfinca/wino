@@ -107,7 +107,7 @@
     for(Region *region in self.regions){
         NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[region class], region.identifier]);
     }
-    for(User2 *user in self.cellars){
+    for(User2 *user in self.cellaredBy){
         NSLog(@"%@",[NSString stringWithFormat:@"%@ %@",[user class], user.identifier]);
     }
     for(Varietal2 *varietal in self.varietals){

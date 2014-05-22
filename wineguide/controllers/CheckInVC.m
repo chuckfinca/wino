@@ -20,17 +20,15 @@
 #import "UIView+BorderDrawer.h"
 #import "OutBox.h"
 
-#define ADDED_DATE @"addedDate"
-#define CLAIMED_BY_USER @"claimedByUser"
-#define DELETED_ENTITY @"deletedEntity"
+#define CREATED_AT @"created_at"
+#define CLAIMED_BY_USER @"claimed"
 #define IDENTIFIER @"identifier"
 #define RATING @"rating"
-#define REVIEW_TEXT @"reviewText"
-#define REVIEW_DATE @"reviewDate"
-#define UPDATED_DATE @"updatedDate"
+#define REVIEW_TEXT @"review_text"
+#define UPDATED_AT @"updated_at"
 #define RESTAURANT @"restaurant"
 
-#define TASTING_DATE @"tastingDate"
+#define TASTING_DATE @"tasting_date"
 
 #define NOTE_TEXT_INSET 20
 
@@ -389,19 +387,19 @@
         self.selectedDate = now;
     }
     
-    NSString *dateString = [now.description stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString *identifier = [NSString stringWithFormat:@"%@%@",self.restaurant.identifier,dateString];
+    // Need better identifier
+    NSNumber *identifier = [NSNumber numberWithInteger:arc4random_uniform(1000000000)+1];
     
-    [dictionary setObject:now forKey:ADDED_DATE];
-    [dictionary setObject:@NO forKey:DELETED_ENTITY];
-    [dictionary setObject:identifier forKey:IDENTIFIER];
+    [dictionary setObject:now forKey:CREATED_AT];
+    [dictionary setObject:identifier forKey:ID_KEY];
     [dictionary setObject:self.selectedDate forKey:TASTING_DATE];
-    [dictionary setObject:now forKey:UPDATED_DATE];
+    [dictionary setObject:now forKey:UPDATED_AT];
     
     TastingRecordHelper *trdh = [[TastingRecordHelper alloc] init];
-    TastingRecord2 *tastingRecord = (TastingRecord2 *)[trdh processDictionary:dictionary];
+    TastingRecord2 *tastingRecord = (TastingRecord2 *)[trdh createObjectFromDictionary:dictionary];
     
     tastingRecord.restaurant = self.restaurant;
+    tastingRecord.wine = self.wine;
     
     NSMutableSet *reviews = [[NSMutableSet alloc] init];
     User2 *me = [GetMe sharedInstance].me;
@@ -426,9 +424,14 @@
 {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     
-    [dictionary setObject:self.selectedDate forKey:ADDED_DATE];
+    NSDate *now = [NSDate date];
+    
+    // Need better identifier
+    NSNumber *identifier = [NSNumber numberWithInteger:arc4random_uniform(1000000000)+1];
+    
+    [dictionary setObject:now forKey:CREATED_AT];
+    [dictionary setObject:identifier forKey:ID_KEY];
     [dictionary setObject:@(claimed) forKey:CLAIMED_BY_USER];
-    [dictionary setObject:@NO forKey:DELETED_ENTITY];
     
     if(claimed){
         
@@ -439,13 +442,13 @@
             [dictionary setObject:reviewText forKey:REVIEW_TEXT];
         }
         
-        [dictionary setObject:self.selectedDate forKey:REVIEW_DATE];
+        [dictionary setObject:self.selectedDate forKey:CREATED_AT];
     }
     
-    [dictionary setObject:self.selectedDate forKey:UPDATED_DATE];
+    [dictionary setObject:self.selectedDate forKey:UPDATED_AT];
     
     ReviewHelper *rdh = [[ReviewHelper alloc] init];
-    Review2 *review = (Review2 *)[rdh processDictionary:dictionary];
+    Review2 *review = (Review2 *)[rdh createObjectFromDictionary:dictionary];
     review.user = user;
     return review;
 }
@@ -456,7 +459,7 @@
     
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:REVIEW_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"user.identifier == %@ AND wine.identifier == %@",me.identifier,self.wine.identifier];
+    request.predicate = [NSPredicate predicateWithFormat:@"user.identifier == %@ AND tastingRecord.wine.identifier == %@",me.identifier,self.wine.identifier];
     
     NSError *error;
     NSArray *matches = [me.managedObjectContext executeFetchRequest:request error:&error];

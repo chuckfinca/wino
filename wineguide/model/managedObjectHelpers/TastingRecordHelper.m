@@ -15,9 +15,9 @@
 #import "WineHelper.h"
 #import "Wine2.h"
 
-#define TASTING_RECORD_RESTAURANT @"restaurant"  ///////////////////
-#define TASTING_RECORD_REVIEWS @"reviews"        ///////////////////
-#define TASTING_RECORD_WINE @"wine"              ///////////////////
+#define TASTING_RECORD_RESTAURANT @"restaurant"  
+#define TASTING_RECORD_REVIEWS @"reviews"
+#define TASTING_RECORD_WINE @"wine"
 
 @implementation TastingRecordHelper
 

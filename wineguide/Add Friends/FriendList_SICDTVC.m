@@ -65,21 +65,21 @@
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:USER_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"nameLastInitial"
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name_last_initial"
                                                               ascending:YES],
-                                [NSSortDescriptor sortDescriptorWithKey:@"nameLast"
+                                [NSSortDescriptor sortDescriptorWithKey:@"name_last"
                                                               ascending:YES],
-                                [NSSortDescriptor sortDescriptorWithKey:@"nameFirst"
+                                [NSSortDescriptor sortDescriptorWithKey:@"name_first"
                                                               ascending:YES]];
     if([text length] > 0){
-        request.predicate = [NSPredicate predicateWithFormat:@"nameFull CONTAINS[cd] %@ && isMe == nil",[text lowercaseString]];
+        request.predicate = [NSPredicate predicateWithFormat:@"name_full CONTAINS[cd] %@ && is_me == nil",[text lowercaseString]];
     } else {
-        request.predicate = [NSPredicate predicateWithFormat:@"isMe == nil"];
+        request.predicate = [NSPredicate predicateWithFormat:@"is_me == nil"];
     }
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
-                                                                          sectionNameKeyPath:@"nameLastInitial"
+                                                                          sectionNameKeyPath:@"name_last_initial"
                                                                                    cacheName:nil];
     //[self logFetchResults];
     
@@ -151,14 +151,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectRowAtIndexPath...");
     User2 *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.delegate addOrRemoveUser:user];
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didDeselectRowAtIndexPath...");
     User2 *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.delegate addOrRemoveUser:user];
 }

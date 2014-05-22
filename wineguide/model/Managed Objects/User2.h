@@ -2,7 +2,7 @@
 //  User2.h
 //  Corkie
 //
-//  Created by Charles Feinn on 5/17/14.
+//  Created by Charles Feinn on 5/21/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -29,6 +29,8 @@
 @property (nonatomic, retain) NSNumber * registered;
 @property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) NSDate * updated_at;
+@property (nonatomic, retain) NSString * name_last_initial;
+@property (nonatomic, retain) NSString * name_full;
 @property (nonatomic, retain) NSSet *followedBy;
 @property (nonatomic, retain) NSSet *following;
 @property (nonatomic, retain) NSSet *reviews;

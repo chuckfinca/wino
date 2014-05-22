@@ -82,7 +82,7 @@
         wine.regions = [self addRelationToSet:wine.regions];
         
     } else if ([self.relatedObject class] == [User2 class]){
-        wine.cellars = [self addRelationToSet:wine.cellars];
+        wine.cellaredBy = [self addRelationToSet:wine.cellaredBy];
         
     } else if ([self.relatedObject class] == [TastingRecord2 class]){
         wine.tastingRecords = [self addRelationToSet:wine.tastingRecords];

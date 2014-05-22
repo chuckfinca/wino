@@ -2,7 +2,7 @@
 //  Wine2.h
 //  Corkie
 //
-//  Created by Charles Feinn on 5/17/14.
+//  Created by Charles Feinn on 5/21/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -29,7 +29,7 @@
 @property (nonatomic, retain) NSString * vintage;
 @property (nonatomic, retain) NSString * wine_description;
 @property (nonatomic, retain) Brand2 *brand;
-@property (nonatomic, retain) NSSet *cellars;
+@property (nonatomic, retain) NSSet *cellaredBy;
 @property (nonatomic, retain) NSSet *flights;
 @property (nonatomic, retain) NSSet *groups;
 @property (nonatomic, retain) RatingHistory2 *ratingHistory;
@@ -44,10 +44,10 @@
 
 @interface Wine2 (CoreDataGeneratedAccessors)
 
-- (void)addCellarsObject:(User2 *)value;
-- (void)removeCellarsObject:(User2 *)value;
-- (void)addCellars:(NSSet *)values;
-- (void)removeCellars:(NSSet *)values;
+- (void)addCellaredByObject:(User2 *)value;
+- (void)removeCellaredByObject:(User2 *)value;
+- (void)addCellaredBy:(NSSet *)values;
+- (void)removeCellaredBy:(NSSet *)values;
 
 - (void)addFlightsObject:(Flight2 *)value;
 - (void)removeFlightsObject:(Flight2 *)value;
