@@ -80,18 +80,15 @@
 {
     BOOL userAlreadyEnabledLocation = [[NSUserDefaults standardUserDefaults] boolForKey:LOCATION_SERVICES_ENABLED];
     if(userAlreadyEnabledLocation == NO){
-        self.displayInstructionsCell = YES;
         InstructionsCell_RequestGPS *cell = (InstructionsCell_RequestGPS *)self.instructionsCell;
         cell.delegate = self;
-        self.suspendAutomaticTrackingOfChangesInManagedObjectContext = YES;
+        self.displayInstructionsCell = YES;
     }
 }
 
 -(void)removeInstructionsCell
 {
     self.displayInstructionsCell = NO;
-    self.instructionsCell = nil;
-    self.suspendAutomaticTrackingOfChangesInManagedObjectContext = NO;
     [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 

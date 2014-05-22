@@ -61,15 +61,12 @@
 
 -(void)setupInstructionsCell
 {
-    self.suspendAutomaticTrackingOfChangesInManagedObjectContext = YES;
     self.displayInstructionsCell = YES;
 }
 
 -(void)removeInstructionsCell
 {
     self.displayInstructionsCell = NO;
-    self.instructionsCell = nil;
-    self.suspendAutomaticTrackingOfChangesInManagedObjectContext = NO;
     [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 

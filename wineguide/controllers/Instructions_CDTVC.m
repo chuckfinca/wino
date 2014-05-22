@@ -33,6 +33,18 @@
     return _instructionsCell;
 }
 
+-(void)setDisplayInstructionsCell:(BOOL)displayInstructionsCell
+{
+    _displayInstructionsCell = displayInstructionsCell;
+    
+    if(displayInstructionsCell == YES){
+        self.suspendAutomaticTrackingOfChangesInManagedObjectContext = YES;
+    } else {
+        self.instructionsCell = nil;
+        self.suspendAutomaticTrackingOfChangesInManagedObjectContext = NO;
+    }
+}
+
 #pragma mark - Setup
 
 -(void)registerInstructionCellNib
