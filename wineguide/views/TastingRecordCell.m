@@ -60,7 +60,7 @@
         self.wineNameVHTV.text = nil;
     }
     
-    [RatingPreparer setupRating:(averageRatingForTastingRecord/[tastingRecord.reviews count]) inImageViewArray:self.ratingImageViewArray withWineColor:nil];
+    [RatingPreparer setupRating:(averageRatingForTastingRecord/[tastingRecord.reviews count]) inImageViewArray:self.ratingImageViewArray withWineColor:tastingRecord.wine.color_code];
     
     [self setHeight];
     

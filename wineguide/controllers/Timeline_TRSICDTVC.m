@@ -26,6 +26,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationItem.title = @"Tasting Timeline";
+    self.displayWineNameOnEachCell = YES;
 }
 
 #pragma mark - Setup
