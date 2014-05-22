@@ -17,8 +17,8 @@
 #define CREATED_AT @"created_at"
 #define UPDATED_AT @"updated_at"
 
-#define REVIEW_RATING @"review_rating"
-#define REVIEW_CLAIMED @"review_claimed"
+#define REVIEW_RATING @"rating"
+#define REVIEW_CLAIMED @"claimed"
 #define REVIEW_TEXT @"review_text"
 
 @implementation Review2 (Modify)
