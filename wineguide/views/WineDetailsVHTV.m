@@ -35,9 +35,7 @@
         }
         
         if(!wine.country){
-            textViewString = [textViewString substringToIndex:[textViewString length]-3];
-        } else {
-            textViewString = [textViewString stringByAppendingString:@"\n"];
+            textViewString = [NSString stringWithFormat:@"%@\n",[textViewString substringToIndex:[textViewString length]-3]];
         }
     }
     if(wine.country){
@@ -46,8 +44,13 @@
     if(wine.vineyard){
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[wine.vineyard capitalizedString]]];
     }
+    
+    NSRange alcoholRange;
     if(wine.alcohol){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@%% alcohol\n",[wine.alcohol stringValue]]];
+        NSString *alcoholString = @"% alcohol";
+        NSInteger alcoholRangeLength = [[wine.alcohol stringValue] length] + [alcoholString length];
+        alcoholRange = NSMakeRange([textViewString length], alcoholRangeLength);
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@%@\n",[wine.alcohol stringValue],alcoholString]];
     }
     
     NSRange tastingNoteTitleText;
@@ -71,10 +74,10 @@
                              value:[ColorSchemer sharedInstance].textPrimary
                              range:NSMakeRange(0, [self.textStorage length])];
     
-    if(tastingNoteTitleText.length > 15){
+    if(wine.alcohol){
         [self.textStorage addAttribute:NSForegroundColorAttributeName
                                  value:[ColorSchemer sharedInstance].textSecondary
-                                 range:tastingNoteTitleText];
+                                 range:alcoholRange];
     }
     
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
