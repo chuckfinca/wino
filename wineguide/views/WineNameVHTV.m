@@ -42,7 +42,13 @@
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"\n%@",[wine.vintage capitalizedString]]];
     }
     if(wine.varietals){
-        NSString *varietalsString = @" - ";
+        NSString *varietalsString;
+        if(wine.vintage){
+            varietalsString = @" - ";
+        } else {
+            varietalsString = @"\n";
+        }
+        
         NSArray *varietals = [wine.varietals sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
         for(Varietal *varietal in varietals){
             varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
