@@ -434,7 +434,6 @@
     [dictionary setObject:@(claimed) forKey:CLAIMED_BY_USER];
     
     if(claimed){
-        
         [dictionary setObject:@(self.ratingVC.rating) forKey:RATING];
         NSString *reviewText;
         if([[self.noteTV.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] > 0){

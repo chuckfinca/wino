@@ -45,7 +45,11 @@
     NSDate *date = nil;
     
     id object = [self objectForKey:key];
-    if([object isKindOfClass:[NSString class]]){
+    
+    if([object isKindOfClass:[NSDate class]]){
+        return (NSDate *)object;
+        
+    } else if([object isKindOfClass:[NSString class]]){
         NSString *stringDate = (NSString *)object;
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
