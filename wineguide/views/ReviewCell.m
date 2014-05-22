@@ -44,6 +44,11 @@
     return self;
 }
 
+-(void)awakeFromNib
+{
+    self.tintColor = [ColorSchemer sharedInstance].baseColor;
+}
+
 #pragma mark - Getters & setters
 
 -(UIImage *)placeHolderImage

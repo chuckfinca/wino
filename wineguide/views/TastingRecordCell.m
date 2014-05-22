@@ -42,6 +42,7 @@
 - (void)awakeFromNib
 {
     // Initialization code
+    self.tintColor = [ColorSchemer sharedInstance].baseColor;
 }
 
 -(void)setupWithTastingRecord:(TastingRecord2 *)tastingRecord andDisplayWineName:(BOOL)displayWineName
