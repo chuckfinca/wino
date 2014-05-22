@@ -29,6 +29,9 @@
 {
     NSString *textViewString = @"";
     
+    if(wine.vineyard){
+        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[wine.vineyard capitalizedString]]];
+    }
     if(wine.regions){
         for(Region *region in wine.regions){
             textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@, ",[region.name capitalizedString]]];
@@ -41,9 +44,6 @@
     if(wine.country){
         textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[wine.country capitalizedString]]];
     }
-    if(wine.vineyard){
-        textViewString = [textViewString stringByAppendingString:[NSString stringWithFormat:@"%@\n",[wine.vineyard capitalizedString]]];
-    }
     
     NSRange alcoholRange;
     if(wine.alcohol){
@@ -54,9 +54,8 @@
     }
     
     NSRange tastingNoteTitleText;
-    if(wine.tastingNotes){
-        NSLog(@"%@",wine.tastingNotes);
-        NSString *tastingNotesString = @"Tasting notes: ";
+    if([wine.tastingNotes count] > 0){
+        NSString *tastingNotesString = @"\nTasting notes: ";
         tastingNoteTitleText = NSMakeRange([textViewString length], [tastingNotesString length]);
         NSArray *tastingNotes = [wine.tastingNotes sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
         for(TastingNote2 *tastingNote in tastingNotes){
