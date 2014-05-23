@@ -16,7 +16,6 @@
 #import "LocationHelper.h"
 #import "RestaurantCell.h"
 
-#define SHOW_OR_HIDE_LEFT_PANEL @"ShowHideLeftPanel"
 #define RESTAURANT_CELL @"RestaurantCell"
 #define RESTAURANT_ENTITY @"Restaurant2"
 
