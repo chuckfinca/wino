@@ -7,19 +7,20 @@
 //
 
 #import "RestaurantGroupManagerTVC.h"
-#import "Restaurant.h"
-#import "Group+CreateAndModify.h"
+#import "Restaurant2.h"
+#import "GroupHelper.h"
+#import "Group2.h"
 #import "RestaurantWineListManagerTVC.h"
 #import "AddGroupCell.h"
 #import "RestaurantGroupCell.h"
 #import "ColorSchemer.h"
 
-#define RESTAURANT_ENTITY @"Restaurant"
-#define GROUP_ENTITY @"Group"
+#define RESTAURANT_ENTITY @"Restaurant2"
+#define GROUP_ENTITY @"Group2"
 
 @interface RestaurantGroupManagerTVC () <UIActionSheetDelegate>
 
-@property (nonatomic, strong) Restaurant *restaurant;
+@property (nonatomic, strong) Restaurant2 *restaurant;
 @end
 
 @implementation RestaurantGroupManagerTVC
@@ -55,7 +56,7 @@
 -(void)refreshTableView
 {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:GROUP_ENTITY];
-    request.predicate = [NSPredicate predicateWithFormat:@"restaurantIdentifier = %@",self.restaurant.identifier];
+    request.predicate = [NSPredicate predicateWithFormat:@"restaurant.identifier = %@",self.restaurant.identifier];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"sortOrder" ascending:YES]];
     
     NSError *error;
@@ -104,7 +105,7 @@
         RestaurantGroupCell *restaurantGroupCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
         // Configure the cell...
-        Group *group = self.managedObjects[indexPath.row];
+        Group2 *group = self.managedObjects[indexPath.row];
         [restaurantGroupCell setupCellAtIndexPath:indexPath forGroup:group];
     
         cell = restaurantGroupCell;
@@ -122,7 +123,7 @@
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Group *group = (Group *)self.managedObjects[indexPath.row];
+    Group2 *group = (Group2 *)self.managedObjects[indexPath.row];
     if([[group.name lowercaseString] isEqualToString:@"all"]){
         return UITableViewCellEditingStyleNone;
     } else {
@@ -140,8 +141,8 @@
 
 -(void)setGroupSortOrder
 {
-    for(Group *group in self.managedObjects){
-        group.sortOrder = @([self.managedObjects indexOfObject:group]);
+    for(Group2 *group in self.managedObjects){
+        group.sort_order = @([self.managedObjects indexOfObject:group]);
     }
     //[self.tableView reloadSections:[[NSIndexSet alloc] initWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -164,7 +165,7 @@
                 RestaurantWineListManagerTVC *rwltvc = (RestaurantWineListManagerTVC *)segue.destinationViewController;
                 
                 // Pass the selected object to the new view controller.
-                rwltvc.group = (Group *)self.managedObjects[indexPath.row];
+                rwltvc.group = (Group2 *)self.managedObjects[indexPath.row];
             }
         }
     }
@@ -204,41 +205,23 @@
 
 -(void)createNewManagedObjectNamed:(NSString *)newManagedObjectName
 {
-    NSString *groupName = [newManagedObjectName lowercaseString];
-    groupName = [groupName stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString *groupIdentifier = [NSString stringWithFormat:@"group.%@.%@",self.restaurant.identifier,groupName];
+    NSDictionary *groupInfo = @{@"identifier" : @(arc4random_uniform(1000000)), @"name" : newManagedObjectName, @"restaurantIdentifier" : self.restaurant.identifier, @"lastUpdated" : [NSDate date]};
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",groupIdentifier];
-    NSDictionary *groupInfo = @{@"identifier" : groupIdentifier, @"name" : newManagedObjectName, @"restaurantIdentifier" : self.restaurant.identifier, @"lastUpdated" : [NSDate date]};
-    Group *group = [Group groupFoundUsingPredicate:predicate inContext:self.context withEntityInfo:groupInfo];
-    group.restaurant = self.restaurant;
-    group.sortOrder = [NSNumber numberWithInteger:[self.managedObjects count]];
+    GroupHelper *gh = [[GroupHelper alloc] init];
+    Group2 *group = (Group2 *)[gh createObjectFromDictionary:groupInfo];
+    group.sort_order = [NSNumber numberWithInteger:[self.managedObjects count]];
     
     [self refreshTableView];
 }
 
 -(void)deleteFromListManagedObject:(id)managedObject
 {
-    if([managedObject isKindOfClass:[Group class]]){
+    if([managedObject isKindOfClass:[Group2 class]]){
         
         // Delete group relationships and mark as deleted
-        Group *group = (Group *)managedObject;
-        group.deletedEntity = @YES;
-        group.restaurantIdentifier = nil;
-        group.restaurant = nil;
-        group.lastLocalUpdate = [NSDate date];
+        Group2 *group = (Group2 *)managedObject;
         
-        // Delete restaurant relationship and mark as deleted
-        NSMutableSet *groups = [self.restaurant.groups mutableCopy];
-        [groups removeObject:group];
-        self.restaurant.groups = groups;
-        
-        NSString *groupIdentifiers = self.restaurant.groupIdentifiers;
-        groupIdentifiers = [groupIdentifiers stringByReplacingOccurrencesOfString:group.identifier withString:@""];
-        groupIdentifiers = [groupIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
-        self.restaurant.groupIdentifiers = groupIdentifiers;
-        
-        self.restaurant.lastServerUpdate = [NSDate date];
+        [self.context deleteObject:group];
     }
     [self refreshTableView];
 }

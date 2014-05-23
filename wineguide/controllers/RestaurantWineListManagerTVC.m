@@ -7,8 +7,8 @@
 //
 
 #import "RestaurantWineListManagerTVC.h"
-#import "WineUnit.h"
-#import "Wine.h"
+#import "WineUnit2.h"
+#import "Wine2.h"
 #import "RestaurantWineManagerSCDTVC.h"
 #import "WineCell.h"
 
@@ -104,7 +104,7 @@
         WineCell *wineCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
         // Configure the cell...
-        Wine *wine = self.managedObjects[indexPath.row];
+        Wine2 *wine = self.managedObjects[indexPath.row];
         
         [wineCell setupCellForWine:wine];
         
@@ -190,19 +190,13 @@
 
 -(void)deleteFromListManagedObject:(id)managedObject
 {
-    if([managedObject isKindOfClass:[Wine class]]){
+    if([managedObject isKindOfClass:[Wine2 class]]){
         
         // remove the Group from the WineUnit
-        Wine *w = (Wine *)managedObject;
+        Wine2 *w = (Wine2 *)managedObject;
         NSMutableSet *groups = [w.groups mutableCopy];
         [groups removeObject:self.group];
         w.groups = groups;
-        
-        NSString *groupIdentifiers = [w.groupIdentifiers stringByReplacingOccurrencesOfString:self.group.identifier withString:@""];
-        groupIdentifiers = [groupIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
-        w.groupIdentifiers = groupIdentifiers;
-        
-        w.lastLocalUpdate = [NSDate date];
         
         
         // remove the WineUnit from the Group
@@ -210,11 +204,6 @@
         [wines removeObject:w];
         self.group.wines = wines;
         
-        NSString *wineIdentifiers = [self.group.wineIdentifiers stringByReplacingOccurrencesOfString:w.identifier withString:@""];
-        wineIdentifiers = [wineIdentifiers stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
-        self.group.wineIdentifiers = wineIdentifiers;
-        
-        self.group.lastLocalUpdate = [NSDate date];
     }
     
     [self refreshTableView];

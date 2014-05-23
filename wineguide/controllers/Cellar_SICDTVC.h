@@ -7,10 +7,10 @@
 //
 
 #import "Searchable_ICDTVC.h"
-#import "User.h"
+#import "User2.h"
 
 @interface Cellar_SICDTVC : Searchable_ICDTVC
 
--(void)setupForUser:(User *)user;
+-(void)setupForUser:(User2 *)user;
 
 @end

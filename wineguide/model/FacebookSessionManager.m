@@ -13,7 +13,7 @@
 #import <FBRequestConnection.h>
 #import <FBGraphObject.h>
 #import <FBGraphUser.h>
-#import "UserDataHelper.h"
+#import "UserHelper.h"
 #import "DocumentHandler2.h"
 #import "GetMe.h"
 
@@ -267,14 +267,12 @@ static FacebookSessionManager *sharedInstance;
                 
                 [graphObject setObject:@YES forKey:@"registered"];
                 
-                UserDataHelper *udh = [[UserDataHelper alloc] init];
-                udh.context = self.context;
+                UserHelper *uh = [[UserHelper alloc] init];
                 
-                User *me = [GetMe sharedInstance].me;
-                
-                User *user = (User *)[udh updateManagedObjectWithDictionary:graphObject];
+                User2 *me = [GetMe sharedInstance].me;
+                User2 *user = (User2 *)[uh createObjectFromDictionary:graphObject];
 
-                user.isMe = @YES;
+                user.is_me = @YES;
             }
         } else {
             // An error occurred, we need to handle the error
@@ -309,9 +307,8 @@ static FacebookSessionManager *sharedInstance;
             NSLog(@"Found: %i friends", self.friends.count);
             
             for (NSDictionary<FBGraphUser>* friend in _friends) {
-                UserDataHelper *udh = [[UserDataHelper alloc] init];
-                udh.context = self.context;
-                [udh updateManagedObjectWithDictionary:friend];
+                UserHelper *uh = [[UserHelper alloc] init];
+                [uh createObjectFromDictionary:friend];
             }
         }];
     }

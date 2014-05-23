@@ -7,10 +7,10 @@
 //
 
 #import "Searchable_ICDTVC.h"
-#import "Group.h"
+#import "Group2.h"
 
 @interface RestaurantWineManagerSCDTVC : Searchable_ICDTVC
 
-@property Group *group;
+@property Group2 *group;
 
 @end

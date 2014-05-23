@@ -7,10 +7,10 @@
 //
 
 #import "WineNameVHTV.h"
-#import "Varietal.h"
-#import "Brand.h"
-#import "TastingNote.h"
-#import "WineUnit.h"
+#import "Varietal2.h"
+#import "Brand2.h"
+#import "TastingNote2.h"
+#import "WineUnit2.h"
 #import "ColorSchemer.h"
 #import "FontThemer.h"
 
@@ -50,7 +50,7 @@
         }
         
         NSArray *varietals = [wine.varietals sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-        for(Varietal *varietal in varietals){
+        for(Varietal2 *varietal in varietals){
             varietalsString = [varietalsString stringByAppendingString:[NSString stringWithFormat:@"%@, ",varietal.name]];
         }
         varietalsString = [varietalsString substringToIndex:[varietalsString length]-2];
@@ -63,7 +63,7 @@
         if([wineUnits count] > 0){
             
             NSString *wineUnitsString = @"\n";
-            for(WineUnit *wineUnit in wineUnits){
+            for(WineUnit2 *wineUnit in wineUnits){
                 if(wineUnit.price && wineUnit.quantity){
                     wineUnitsString = [wineUnitsString stringByAppendingString:[NSString stringWithFormat:@"$%@ %@, ",[wineUnit.price stringValue],wineUnit.quantity]];
                 }

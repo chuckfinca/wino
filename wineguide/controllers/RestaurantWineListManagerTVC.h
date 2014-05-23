@@ -7,10 +7,10 @@
 //
 
 #import "ListManagerTVC.h"
-#import "Group.h"
+#import "Group2.h"
 
 @interface RestaurantWineListManagerTVC : ListManagerTVC
 
-@property (nonatomic, strong) Group *group;
+@property (nonatomic, strong) Group2 *group;
 
 @end

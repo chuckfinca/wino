@@ -7,21 +7,19 @@
 //
 
 #import "RestaurantWineManagerSCDTVC.h"
-#import "Wine.h"
-#import "Varietal.h"
-#import "TastingNote.h"
+#import "Wine2.h"
+#import "Varietal2.h"
+#import "TastingNote2.h"
 #import "ColorSchemer.h"
-#import "WineUnitDataHelper.h"
-#import "Restaurant.h"
+#import "WineUnitHelper.h"
+#import "Restaurant2.h"
 #import "WineCell.h"
 
-#define WINE_ENTITY @"Wine"
-#define GROUP_ENTITY @"Group"
 #define WINE_CELL @"WineCell"
 
 @interface RestaurantWineManagerSCDTVC () <UIAlertViewDelegate>
 
-@property (nonatomic, strong) Wine *selectedWine;
+@property (nonatomic, strong) Wine2 *selectedWine;
 
 @end
 
@@ -110,7 +108,7 @@
 {
     WineCell *cell = [tableView dequeueReusableCellWithIdentifier:WINE_CELL forIndexPath:indexPath];
     
-    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Wine2 *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell setupCellForWine:wine];
     
     return cell;
@@ -126,7 +124,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Wine *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Wine2 *wine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     self.selectedWine = wine;
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
@@ -154,28 +152,28 @@
 
 #pragma mark - Core Data
 
--(void)addWine:(Wine *)wine
+-(void)addWine:(Wine2 *)wine
 {
     if(![self.group.wines containsObject:wine]){
         NSMutableSet *wines = [self.group.wines mutableCopy];
         [wines addObject:wine];
         self.group.wines = wines;
-        self.group.lastLocalUpdate = [NSDate date];
+        self.group.updated_at = [NSDate date];
     }
     
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:GROUP_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"identifier = %@",[NSString stringWithFormat:@"group.%@.all",self.group.restaurant.identifier]];
+    //request.predicate = [NSPredicate predicateWithFormat:@"identifier = %@",[NSString stringWithFormat:@"group.%@.all",self.group.restaurant.identifier]];
     
     NSError *error;
     NSArray *allGroupArray = [self.context executeFetchRequest:request error:&error];
-    Group *allGroup = (Group *)[allGroupArray firstObject];
+    Group2 *allGroup = (Group2 *)[allGroupArray firstObject];
     
     if(![allGroup.wines containsObject:wine]){
         NSMutableSet *aGWines = [allGroup.wines mutableCopy];
         [aGWines addObject:wine];
         allGroup.wines = aGWines;
-        allGroup.lastLocalUpdate = [NSDate date];
+        allGroup.updated_at = [NSDate date];
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"need to create wine unit!" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
     [alert show];

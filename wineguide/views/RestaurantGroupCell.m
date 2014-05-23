@@ -34,7 +34,7 @@
     // Configure the view for the selected state
 }
 
--(void)setupCellAtIndexPath:(NSIndexPath *)indexPath forGroup:(Group *)group
+-(void)setupCellAtIndexPath:(NSIndexPath *)indexPath forGroup:(Group2 *)group
 {
     self.groupNameLabel.attributedText = [[NSAttributedString alloc] initWithString:[group.name capitalizedString] attributes:@{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline], NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary}];
     
