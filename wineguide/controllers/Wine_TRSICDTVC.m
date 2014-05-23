@@ -40,6 +40,8 @@
 {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"WineReview" bundle:nil] forCellReuseIdentifier:REVIEW_CELL];
+    
+    self.displayInstructionsCell = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -49,12 +51,6 @@
                                                            self.wineDetailsViewController.view.frame.origin.y,
                                                            self.wineDetailsViewController.view.frame.size.width,
                                                            self.tableViewHeaderheight);
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Getters & Setters
@@ -69,6 +65,11 @@
 }
 
 #pragma mark - Setup
+
+-(void)registerInstructionCellNib
+{
+    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_RequestGPS" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+}
 
 -(void)setupWithWine:(Wine2 *)wine fromRestaurant:(Restaurant2 *)restaurant
 {
@@ -96,6 +97,10 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
+    
+    if([self.fetchedResultsController.fetchedObjects count] > 0){
+        self.displayInstructionsCell = NO;
+    }
 }
 
 -(void)getTastingRecords
@@ -138,6 +143,16 @@
 {
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
+
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
 
 
 
