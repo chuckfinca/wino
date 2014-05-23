@@ -48,22 +48,18 @@
     self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
 }
 
--(void)setViewHeight
-{
-    CGFloat height = 0;
-    
-    height += self.topToRestaurantInfoConstraint.constant;
-    height += [self.restaurantDetailsVHTV height];
-    height += self.restaurantInfoVHTVToBottomConstraint.constant;
-    
-    self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, height);
-}
-
 #pragma mark - Setup
+
+-(void)setupWithRestaurant:(Restaurant2 *)restaurant
+{
+    NSLog(@"setupWithRestaurant... %@",restaurant.name);
+    self.restaurant = restaurant;
+}
 
 -(void)setupMap
 {
     MKMapView *mapView = [[MKMapView alloc] initWithFrame:self.view.frame];
+    mapView.userInteractionEnabled = NO;
     
     CAGradientLayer *layer = [CAGradientLayer layer];
     layer.frame = mapView.bounds;
@@ -79,7 +75,7 @@
     
     CLLocationCoordinate2D restaurantLocation = CLLocationCoordinate2DMake(latitued, longitude);
     
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(latitued, longitude-0.002), 0.*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(latitued+0.0003, longitude-0.002), 0, 0.5*METERS_PER_MILE);
     
     [mapView setRegion:viewRegion animated:YES];
     
@@ -94,12 +90,16 @@
 }
 
 
-#pragma mark NSFetchedResultsControllerDelegate
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+-(void)setViewHeight
 {
+    CGFloat height = 0;
+    
+    height += self.topToRestaurantInfoConstraint.constant;
+    height += [self.restaurantDetailsVHTV height];
+    height += self.restaurantInfoVHTVToBottomConstraint.constant;
+    
+    self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, height);
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -107,10 +107,11 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setupWithRestaurant:(Restaurant2 *)restaurant
-{
-    NSLog(@"setupWithRestaurant... %@",restaurant.name);
-    self.restaurant = restaurant;
-}
+
+
+
+
+
+
 
 @end
