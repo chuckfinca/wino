@@ -199,7 +199,6 @@
 		C9DAB85D18EA025000BB0E2A /* ReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85C18EA025000BB0E2A /* ReviewCell.m */; };
 		C9DDD08918201F0C000A6FD7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DDD08818201F0C000A6FD7 /* CoreData.framework */; };
 		C9DDD08C1820307D000A6FD7 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08B1820307D000A6FD7 /* MainTabBarController.m */; };
-		C9DDD08F182036D5000A6FD7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9DDD08D182036D5000A6FD7 /* Model.xcdatamodeld */; };
 		C9DEBC2418F9E85400134ECD /* ServerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DEBC2318F9E85400134ECD /* ServerCommunicator.m */; };
 		C9DEBC2718F9EDF400134ECD /* Corkie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9DEBC2518F9EDF400134ECD /* Corkie.xcdatamodeld */; };
 		C9DEBC3618F9FA4900134ECD /* Restaurant2+CreateOrModify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DEBC3518F9FA4900134ECD /* Restaurant2+CreateOrModify.m */; };
@@ -273,8 +272,6 @@
 		C9061E44181F2BF2003D8A55 /* RestaurantDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantDetailsVC.h; path = controllers/RestaurantDetailsVC.h; sourceTree = "<group>"; };
 		C9061E45181F2BF2003D8A55 /* RestaurantDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantDetailsVC.m; path = controllers/RestaurantDetailsVC.m; sourceTree = "<group>"; };
 		C9061E4D181F36BE003D8A55 /* WineDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineDetails.xib; path = xibs/WineDetails.xib; sourceTree = "<group>"; };
-		C90B6F85182415AD0012FE5F /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
-		C90B6FCF18241F080012FE5F /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
 		C91F59B8184562E600CF7F18 /* InitialPanelsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialPanelsController.h; path = controllers/InitialPanelsController.h; sourceTree = "<group>"; };
 		C91F59B9184562E600CF7F18 /* InitialPanelsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitialPanelsController.m; path = controllers/InitialPanelsController.m; sourceTree = "<group>"; };
 		C91F59BB18456A2100CF7F18 /* UserMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserMenu.xib; path = xibs/UserMenu.xib; sourceTree = "<group>"; };
@@ -290,7 +287,6 @@
 		C92CAE3318330CC700F29C9B /* group.restaurant.tico.222berkeleystreet.all.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = group.restaurant.tico.222berkeleystreet.all.json; path = model/json/group.restaurant.tico.222berkeleystreet.all.json; sourceTree = "<group>"; };
 		C92DF0451825B227009DCB2C /* Wine_TRSICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wine_TRSICDTVC.h; path = controllers/Wine_TRSICDTVC.h; sourceTree = "<group>"; };
 		C92DF0461825B227009DCB2C /* Wine_TRSICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wine_TRSICDTVC.m; path = controllers/Wine_TRSICDTVC.m; sourceTree = "<group>"; };
-		C92DF04B18270553009DCB2C /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
 		C9328CC318496B7500AF6DEA /* ListManagerTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListManagerTVC.h; path = controllers/ListManagerTVC.h; sourceTree = "<group>"; };
 		C9328CC418496B7500AF6DEA /* ListManagerTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListManagerTVC.m; path = controllers/ListManagerTVC.m; sourceTree = "<group>"; };
 		C9328CC61849784400AF6DEA /* RestaurantWineListManagerTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantWineListManagerTVC.h; path = controllers/RestaurantWineListManagerTVC.h; sourceTree = "<group>"; };
@@ -299,7 +295,6 @@
 		C9328CCA184ADCBC00AF6DEA /* RestaurantWineManagerSCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantWineManagerSCDTVC.m; path = controllers/RestaurantWineManagerSCDTVC.m; sourceTree = "<group>"; };
 		C932F1101868EE6E0079680C /* userAction_cellared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = userAction_cellared.png; path = images/userAction_cellared.png; sourceTree = "<group>"; };
 		C932F1111868EE6E0079680C /* userAction_cellared@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_cellared@2x.png"; path = "images/userAction_cellared@2x.png"; sourceTree = "<group>"; };
-		C932F11418695C5C0079680C /* Model 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 7.xcdatamodel"; sourceTree = "<group>"; };
 		C93A739D18EF5A59000E0B56 /* UserDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserDetails.xib; path = xibs/UserDetails.xib; sourceTree = "<group>"; };
 		C93A739F18EF984D000E0B56 /* GetMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetMe.h; path = model/GetMe.h; sourceTree = "<group>"; };
 		C93A73A018EF984D000E0B56 /* GetMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetMe.m; path = model/GetMe.m; sourceTree = "<group>"; };
@@ -389,7 +384,6 @@
 		C96934271875EF290071EF41 /* IterationCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IterationCounter.m; path = supportingClasses/IterationCounter.m; sourceTree = "<group>"; };
 		C96934281875EF290071EF41 /* NSDictionary+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Helper.h"; path = "supportingClasses/NSDictionary+Helper.h"; sourceTree = "<group>"; };
 		C96934291875EF290071EF41 /* NSDictionary+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Helper.m"; path = "supportingClasses/NSDictionary+Helper.m"; sourceTree = "<group>"; };
-		C969343C18778BA40071EF41 /* Model 8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 8.xcdatamodel"; sourceTree = "<group>"; };
 		C9693532187D18BF0071EF41 /* FontThemer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontThemer.h; path = model/FontThemer.h; sourceTree = "<group>"; };
 		C9693533187D18BF0071EF41 /* FontThemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontThemer.m; path = model/FontThemer.m; sourceTree = "<group>"; };
 		C9693537187E39FE0071EF41 /* CheckInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckInVC.h; path = controllers/CheckInVC.h; sourceTree = "<group>"; };
@@ -504,15 +498,12 @@
 		C9A73DA419031233007C2366 /* BrandHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrandHelper.m; path = model/managedObjectHelpers/BrandHelper.m; sourceTree = "<group>"; };
 		C9ACC7D5184E72AB00E5945D /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = images/settings.png; sourceTree = "<group>"; };
 		C9ACC7D6184E72AB00E5945D /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "images/settings@2x.png"; sourceTree = "<group>"; };
-		C9ACC7E0184FF38400E5945D /* Model 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 5.xcdatamodel"; sourceTree = "<group>"; };
-		C9AD6A1D18AE887000F48E48 /* Model 9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 9.xcdatamodel"; sourceTree = "<group>"; };
 		C9B6B25E18D7ACA3007406DC /* UserProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfileVC.h; path = controllers/UserProfileVC.h; sourceTree = "<group>"; };
 		C9B6B25F18D7ACA3007406DC /* UserProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfileVC.m; path = controllers/UserProfileVC.m; sourceTree = "<group>"; };
 		C9B6B26718D8ED8E007406DC /* FacebookSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookSessionManager.h; path = model/FacebookSessionManager.h; sourceTree = "<group>"; };
 		C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookSessionManager.m; path = model/FacebookSessionManager.m; sourceTree = "<group>"; };
 		C9BAE96818E228E5009B8C76 /* FriendListSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListSearchBar.h; path = views/FriendListSearchBar.h; sourceTree = "<group>"; };
 		C9BAE96918E228E5009B8C76 /* FriendListSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListSearchBar.m; path = views/FriendListSearchBar.m; sourceTree = "<group>"; };
-		C9C6A1C61852AAF700CFBBD5 /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
 		C9C6A20F18568ABE00CFBBD5 /* brands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = brands.json; path = model/json/brands.json; sourceTree = "<group>"; };
 		C9C6A21118569A9E00CFBBD5 /* AddGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupCell.h; path = views/AddGroupCell.h; sourceTree = "<group>"; };
 		C9C6A21218569A9E00CFBBD5 /* AddGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddGroupCell.m; path = views/AddGroupCell.m; sourceTree = "<group>"; };
@@ -551,7 +542,6 @@
 		C9DDD08818201F0C000A6FD7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C9DDD08A1820307D000A6FD7 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTabBarController.h; path = controllers/MainTabBarController.h; sourceTree = "<group>"; };
 		C9DDD08B1820307D000A6FD7 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTabBarController.m; path = controllers/MainTabBarController.m; sourceTree = "<group>"; };
-		C9DDD08E182036D5000A6FD7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C9DEBC2218F9E85400134ECD /* ServerCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerCommunicator.h; path = model/ServerCommunicator.h; sourceTree = "<group>"; };
 		C9DEBC2318F9E85400134ECD /* ServerCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerCommunicator.m; path = model/ServerCommunicator.m; sourceTree = "<group>"; };
 		C9DEBC2618F9EDF400134ECD /* Corkie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Corkie.xcdatamodel; sourceTree = "<group>"; };
@@ -1117,7 +1107,6 @@
 			isa = PBXGroup;
 			children = (
 				C9DEBC2518F9EDF400134ECD /* Corkie.xcdatamodeld */,
-				C9DDD08D182036D5000A6FD7 /* Model.xcdatamodeld */,
 				C90B6F9818241A5B0012FE5F /* managedObjects */,
 				C92DF1C9182977B0009DCB2C /* managedObjectCategories */,
 				C92DF044182483E0009DCB2C /* managedObjectHelpers */,
@@ -1441,7 +1430,6 @@
 				C94E8E6E1925687200BB0669 /* ReviewsLabel.m in Sources */,
 				C9487D9A182EF119007F7E19 /* NSManagedObject+Helper.m in Sources */,
 				C988AF00191321BA00A3E13A /* RatingCVCell.m in Sources */,
-				C9DDD08F182036D5000A6FD7 /* Model.xcdatamodeld in Sources */,
 				C979E678192D831500B65680 /* TalkingHeads.m in Sources */,
 				C979E65D192D831400B65680 /* RatingHistory2.m in Sources */,
 				C9DEBC3918FA11C400134ECD /* DocumentHandler2.m in Sources */,
@@ -1788,25 +1776,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C9DDD08D182036D5000A6FD7 /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C9AD6A1D18AE887000F48E48 /* Model 9.xcdatamodel */,
-				C969343C18778BA40071EF41 /* Model 8.xcdatamodel */,
-				C9C6A1C61852AAF700CFBBD5 /* Model 6.xcdatamodel */,
-				C932F11418695C5C0079680C /* Model 7.xcdatamodel */,
-				C9ACC7E0184FF38400E5945D /* Model 5.xcdatamodel */,
-				C92DF04B18270553009DCB2C /* Model 4.xcdatamodel */,
-				C90B6FCF18241F080012FE5F /* Model 3.xcdatamodel */,
-				C90B6F85182415AD0012FE5F /* Model 2.xcdatamodel */,
-				C9DDD08E182036D5000A6FD7 /* Model.xcdatamodel */,
-			);
-			currentVersion = C9AD6A1D18AE887000F48E48 /* Model 9.xcdatamodel */;
-			name = Model.xcdatamodeld;
-			path = model/Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		C9DEBC2518F9EDF400134ECD /* Corkie.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
