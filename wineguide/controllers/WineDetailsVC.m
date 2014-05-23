@@ -17,6 +17,7 @@
 #import "ReviewsLabel.h"
 #import "FacebookProfileImageGetter.h"
 #import "RatingPreparer.h"
+#import "UIView+BorderDrawer.h"
 
 @interface WineDetailsVC ()
 
@@ -106,6 +107,7 @@
     [self setViewHeight];
     
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    [self.view drawBorderColor:[ColorSchemer sharedInstance].gray onTop:NO bottom:YES left:NO andRight:NO];
 }
 
 -(void)setupUserActionButtons
