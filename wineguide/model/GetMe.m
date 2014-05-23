@@ -52,6 +52,10 @@ static GetMe *instance;
             _me.identifier = identifier;
             _me.is_me = @YES;
         }
+        if(!_me.name_display){
+            _me.name_display = @"Me";
+        }
+        
     }
     return _me;
 }
