@@ -55,6 +55,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,6 +117,11 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
+    if([self.fetchedResultsController.fetchedObjects count] == 0){
+        self.displayInstructionsCell = YES;
+    } else {
+        self.displayInstructionsCell = NO;
+    }
 }
 
 
