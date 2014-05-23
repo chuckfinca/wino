@@ -100,7 +100,6 @@
 
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
-    // NSLog(@"Favorites setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES]];

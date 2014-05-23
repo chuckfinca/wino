@@ -51,7 +51,7 @@
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
     if([self.fetchedResultsController.fetchedObjects count] == 0){
-        [self setupInstructionsCell];
+        self.displayInstructionsCell = YES;
     } else {
         if(self.displayInstructionsCell == YES){
             [self removeInstructionsCell];
@@ -61,7 +61,6 @@
 
 -(void)setupInstructionsCell
 {
-    self.displayInstructionsCell = YES;
 }
 
 -(void)removeInstructionsCell

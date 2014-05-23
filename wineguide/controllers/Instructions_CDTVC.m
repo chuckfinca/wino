@@ -40,7 +40,6 @@
     if(displayInstructionsCell == YES){
         self.suspendAutomaticTrackingOfChangesInManagedObjectContext = YES;
     } else {
-        self.instructionsCell = nil;
         self.suspendAutomaticTrackingOfChangesInManagedObjectContext = NO;
     }
 }

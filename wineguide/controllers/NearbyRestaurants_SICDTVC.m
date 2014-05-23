@@ -48,7 +48,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"RestaurantCell" bundle:nil] forCellReuseIdentifier:RESTAURANT_CELL];
     
-    [self setupInstructionsCell];
+    [self checkUserLocationAndDisplayInstructionsCellIfNecessary];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -76,7 +76,7 @@
 }
 
 
--(void)setupInstructionsCell
+-(void)checkUserLocationAndDisplayInstructionsCellIfNecessary
 {
     BOOL userAlreadyEnabledLocation = [[NSUserDefaults standardUserDefaults] boolForKey:LOCATION_SERVICES_ENABLED];
     if(userAlreadyEnabledLocation == NO){
