@@ -37,10 +37,10 @@
 	<string>Corkie</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIMainStoryboardFile</key>
-	<string>Initial_iPhone</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>iPad</string>
+	<key>UIMainStoryboardFile~iphone</key>
+	<string>iPhone</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
