@@ -175,7 +175,7 @@
 
 - (IBAction)revealLeftPanel:(UIBarButtonItem *)sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_OR_HIDE_LEFT_PANEL object:nil];
+    NSLog(@"revealLeftPanel");
 }
 
 
