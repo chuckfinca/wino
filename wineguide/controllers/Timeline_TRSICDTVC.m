@@ -50,31 +50,10 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
-        self.displayInstructionsCell = YES;
-    } else {
-        if(self.displayInstructionsCell == YES){
-            [self removeInstructionsCell];
-        }
+    if([self.fetchedResultsController.fetchedObjects count] > 0){
+        self.displayInstructionsCell = NO;
     }
 }
-
--(void)setupInstructionsCell
-{
-}
-
--(void)removeInstructionsCell
-{
-    self.displayInstructionsCell = NO;
-    [self setupAndSearchFetchedResultsControllerWithText:nil];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 
 

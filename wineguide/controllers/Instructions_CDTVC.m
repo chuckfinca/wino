@@ -17,6 +17,7 @@
     [super viewDidLoad];
     [self registerInstructionCellNib];
     self.instructionsCell = [self.tableView dequeueReusableCellWithIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+    self.displayInstructionsCell = YES;
     
     // allows the tableview to load faster
     self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
@@ -35,6 +36,11 @@
 
 -(void)setDisplayInstructionsCell:(BOOL)displayInstructionsCell
 {
+    BOOL reloadTableView = NO;
+    if(_displayInstructionsCell != displayInstructionsCell){
+        reloadTableView = YES;
+    }
+    
     _displayInstructionsCell = displayInstructionsCell;
     
     if(displayInstructionsCell == YES){
@@ -42,11 +48,20 @@
     } else {
         self.suspendAutomaticTrackingOfChangesInManagedObjectContext = NO;
     }
+    
+    if(reloadTableView){
+        [self setupAndSearchFetchedResultsControllerWithText:nil];
+    }
 }
 
 #pragma mark - Setup
 
 -(void)registerInstructionCellNib
+{
+    // Abstract
+}
+
+-(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     // Abstract
 }

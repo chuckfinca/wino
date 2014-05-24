@@ -10,6 +10,7 @@
 #import "ColorSchemer.h"
 #import "FontThemer.h"
 #import "FacebookProfileImageGetter.h"
+#import "FacebookSessionManager.h"
 #import <FBLoginView.h>
 
 #define USER_ENTITY @"User2"
@@ -39,7 +40,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.loginWithFacebookLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Connect to Facebook to add friends to this Tasting Record." attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : [FontThemer sharedInstance].body}];
+    //[FacebookSessionManager sharedInstance].
+    
+    [self setupInstructionsView];
 }
 
 #pragma mark - Getters & setters
@@ -81,24 +84,13 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"name_last_initial"
                                                                                    cacheName:nil];
-    //[self logFetchResults];
-    
-    if([self.fetchedResultsController.fetchedObjects count] == 0){
-        
-    }
 }
 
 -(void)setupInstructionsView
 {
+    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    
     self.loginWithFacebookLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Connect to Facebook to add friends to this Tasting Record." attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : [FontThemer sharedInstance].body}];
-}
-
--(void)logFetchResults
-{
-    NSLog(@"fetchedResultCount = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
-    for(User2 *user in self.fetchedResultsController.fetchedObjects){
-        NSLog(@"user = %@",user.identifier);
-    }
 }
 
 

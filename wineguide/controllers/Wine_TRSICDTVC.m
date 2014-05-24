@@ -68,7 +68,7 @@
 
 -(void)registerInstructionCellNib
 {
-    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_RequestGPS" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_TriedIt" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
 }
 
 -(void)setupWithWine:(Wine2 *)wine fromRestaurant:(Restaurant2 *)restaurant
@@ -145,12 +145,6 @@
 }
 
 
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 

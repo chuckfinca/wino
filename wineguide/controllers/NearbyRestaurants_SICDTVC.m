@@ -47,7 +47,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"RestaurantCell" bundle:nil] forCellReuseIdentifier:RESTAURANT_CELL];
     
-    [self checkUserLocationAndDisplayInstructionsCellIfNecessary];
+    [self checkUserLocation];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -75,20 +75,13 @@
 }
 
 
--(void)checkUserLocationAndDisplayInstructionsCellIfNecessary
+-(void)checkUserLocation
 {
     BOOL userAlreadyEnabledLocation = [[NSUserDefaults standardUserDefaults] boolForKey:LOCATION_SERVICES_ENABLED];
     if(userAlreadyEnabledLocation == NO){
         InstructionsCell_RequestGPS *cell = (InstructionsCell_RequestGPS *)self.instructionsCell;
         cell.delegate = self;
-        self.displayInstructionsCell = YES;
     }
-}
-
--(void)removeInstructionsCell
-{
-    self.displayInstructionsCell = NO;
-    [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
 
@@ -189,7 +182,7 @@
             NSLog(@"Get nearby restaurants from server");
             
             if(self.displayInstructionsCell == YES){
-                [self removeInstructionsCell];
+                self.displayInstructionsCell = NO;
             }
             [self getMoreResultsFromTheServer];
             
@@ -208,14 +201,6 @@
     double longitude = 1;
     ServerCommunicator *caller = [[ServerCommunicator alloc] init];
     [caller getRestaurantsNearLatitude:latitude longitude:longitude];
-}
-
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

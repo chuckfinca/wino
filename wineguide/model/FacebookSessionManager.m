@@ -265,6 +265,8 @@ static FacebookSessionManager *sharedInstance;
             if([result isKindOfClass:[FBGraphObject class]]){
                 FBGraphObject *graphObject = (FBGraphObject *)result;
                 
+                NSLog(@"graphObject = %@",graphObject);
+                
                 [graphObject setObject:@YES forKey:@"registered"];
                 
                 UserHelper *uh = [[UserHelper alloc] init];
@@ -298,7 +300,6 @@ static FacebookSessionManager *sharedInstance;
 -(void)getFacebookFriends
 {
     if(!self.friends){
-        
         FBRequest *friendsRequest = [FBRequest requestForMyFriends];
         [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
                                                       NSDictionary* result,

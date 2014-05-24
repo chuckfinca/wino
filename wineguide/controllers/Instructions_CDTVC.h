@@ -15,7 +15,7 @@
 @property (nonatomic, strong) UITableViewCell *instructionsCell; // Abstract - register below:
 -(void)registerInstructionCellNib; // Abstract - REQUIRED to display the instructions cell
 
-@property (nonatomic) BOOL displayInstructionsCell;
+@property (nonatomic) BOOL displayInstructionsCell; // use to show/hide instructions cell when appropriate, default is YES
 
 // Replacement UITableView Delegate and Datasource methods
 
@@ -26,5 +26,7 @@
 -(NSString *)titleForHeaderInSection:(NSInteger)section; // Abstract
 -(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath; // Abstract
 
+
+-(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text; // For use by the Searchable_ICDTVC
 
 @end

@@ -14,9 +14,6 @@
 +(FacebookSessionManager *)sharedInstance;
 
 -(void)checkToken; // Silent, on app load
-
--(void)logInWithCompletion:(void (^)(BOOL loggedIn))completion;
-
 -(void)sessionStateChanged:(FBSession *)session state:(FBSessionState)state error:(NSError *)error;
 
 @end
