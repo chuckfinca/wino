@@ -111,6 +111,8 @@
 		C96D5FBC185005B60068093C /* varietals.json in Resources */ = {isa = PBXBuildFile; fileRef = C96D5FBA185005B60068093C /* varietals.json */; };
 		C96EBB2A1930229500E27798 /* InstructionsCell_TriedIt.m in Sources */ = {isa = PBXBuildFile; fileRef = C96EBB281930229500E27798 /* InstructionsCell_TriedIt.m */; };
 		C96EBB2B1930229500E27798 /* InstructionsCell_TriedIt.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96EBB291930229500E27798 /* InstructionsCell_TriedIt.xib */; };
+		C96EBB2E1935448E00E27798 /* instructions_arrow_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C96EBB2C1935448E00E27798 /* instructions_arrow_up@2x.png */; };
+		C96EBB2F1935448E00E27798 /* instructions_arrow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = C96EBB2D1935448E00E27798 /* instructions_arrow_up.png */; };
 		C9744C6E192821B800DB1F2B /* WineList+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9744C6D192821B800DB1F2B /* WineList+Modify.m */; };
 		C9744C741928246900DB1F2B /* WineListHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9744C731928246900DB1F2B /* WineListHelper.m */; };
 		C979E651192C1AB000B65680 /* restaurants2.json in Resources */ = {isa = PBXBuildFile; fileRef = C979E650192C1AB000B65680 /* restaurants2.json */; };
@@ -384,6 +386,8 @@
 		C96EBB271930229500E27798 /* InstructionsCell_TriedIt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsCell_TriedIt.h; path = Restaurant/InstructionsCell_TriedIt.h; sourceTree = "<group>"; };
 		C96EBB281930229500E27798 /* InstructionsCell_TriedIt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsCell_TriedIt.m; path = Restaurant/InstructionsCell_TriedIt.m; sourceTree = "<group>"; };
 		C96EBB291930229500E27798 /* InstructionsCell_TriedIt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstructionsCell_TriedIt.xib; path = Restaurant/InstructionsCell_TriedIt.xib; sourceTree = "<group>"; };
+		C96EBB2C1935448E00E27798 /* instructions_arrow_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions_arrow_up@2x.png"; path = "images/instructions_arrow_up@2x.png"; sourceTree = "<group>"; };
+		C96EBB2D1935448E00E27798 /* instructions_arrow_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions_arrow_up.png; path = images/instructions_arrow_up.png; sourceTree = "<group>"; };
 		C9744C6C192821B800DB1F2B /* WineList+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WineList+Modify.h"; path = "model/managedObjectCategories/WineList+Modify.h"; sourceTree = "<group>"; };
 		C9744C6D192821B800DB1F2B /* WineList+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "WineList+Modify.m"; path = "model/managedObjectCategories/WineList+Modify.m"; sourceTree = "<group>"; };
 		C9744C721928246900DB1F2B /* WineListHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineListHelper.h; path = model/managedObjectHelpers/WineListHelper.h; sourceTree = "<group>"; };
@@ -787,6 +791,8 @@
 				C9F43EA0191C3D99003DB6B4 /* instructions_gps@2x.png */,
 				C9F43EA9191C4D8D003DB6B4 /* instructions_timeline.png */,
 				C9F43EAA191C4D8D003DB6B4 /* instructions_timeline@2x.png */,
+				C96EBB2C1935448E00E27798 /* instructions_arrow_up@2x.png */,
+				C96EBB2D1935448E00E27798 /* instructions_arrow_up.png */,
 				C95CAAE918EB9C1400E210D0 /* button_cellarUnstored@2x.png */,
 				C95CAAEA18EB9C1400E210D0 /* button_cellarUnstored.png */,
 				C95CAADD18EB97D400E210D0 /* button_cellar@2x.png */,
@@ -1229,6 +1235,7 @@
 				C9F43EA1191C3D99003DB6B4 /* instructions_gps.png in Resources */,
 				C9F43EC0191C5755003DB6B4 /* InstructionsCell_Cellar.xib in Resources */,
 				C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */,
+				C96EBB2F1935448E00E27798 /* instructions_arrow_up.png in Resources */,
 				C9F43EC4191C5AC5003DB6B4 /* cellar@2x.png in Resources */,
 				C9C7D62B18403E0E00A2E955 /* tutorial_nearby.png in Resources */,
 				C95CF7B3188A250200E14E03 /* restaurant.hinojosa.1parklane.json in Resources */,
@@ -1268,6 +1275,7 @@
 				C94E8E5C192430A500BB0669 /* WineCell_withRatingAndTalkingHeads.xib in Resources */,
 				C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */,
 				C96BA8F618E8CE5200E0F990 /* TastingRecordCell.xib in Resources */,
+				C96EBB2E1935448E00E27798 /* instructions_arrow_up@2x.png in Resources */,
 				C95E2DC0186510050050DFAC /* userAction_cellar@2x.png in Resources */,
 				C95CF7B2188A250200E14E03 /* group.restaurant.hinojosa.1parklane.all.json in Resources */,
 				C9C7D6391842AACD00A2E955 /* tutorial_logo.png in Resources */,
