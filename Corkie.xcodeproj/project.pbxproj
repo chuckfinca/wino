@@ -134,12 +134,6 @@
 		C985911E192EC41E00A61E2D /* WineColorStringFromCode.m in Sources */ = {isa = PBXBuildFile; fileRef = C985911D192EC41E00A61E2D /* WineColorStringFromCode.m */; };
 		C988AEFE191321BA00A3E13A /* SetRatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AEF6191321BA00A3E13A /* SetRatingVC.m */; };
 		C988AEFF191321BA00A3E13A /* SetRatingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C988AEF7191321BA00A3E13A /* SetRatingVC.xib */; };
-		C988AF00191321BA00A3E13A /* RatingCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AEF9191321BA00A3E13A /* RatingCVCell.m */; };
-		C988AF01191321BA00A3E13A /* RatingCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C988AEFA191321BA00A3E13A /* RatingCVCell.xib */; };
-		C988AF02191321BA00A3E13A /* RatingTextCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AEFC191321BA00A3E13A /* RatingTextCVCell.m */; };
-		C988AF03191321BA00A3E13A /* RatingTextCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C988AEFD191321BA00A3E13A /* RatingTextCVCell.xib */; };
-		C988AF061913223700A3E13A /* RatingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AF051913223700A3E13A /* RatingsVC.m */; };
-		C988AF081913224E00A3E13A /* RatingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C988AF071913224E00A3E13A /* RatingsVC.xib */; };
 		C988AF19191456BF00A3E13A /* TalkingHeadsCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AF18191456BF00A3E13A /* TalkingHeadsCVCell.m */; };
 		C988AF1B191456DB00A3E13A /* TalkingHeadsCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C988AF1A191456DB00A3E13A /* TalkingHeadsCVCell.xib */; };
 		C988AF2219145FF700A3E13A /* TalkingHeadsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AF2019145FF700A3E13A /* TalkingHeadsVC.m */; };
@@ -428,15 +422,6 @@
 		C988AEF5191321BA00A3E13A /* SetRatingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetRatingVC.h; path = Rating/SetRatingVC.h; sourceTree = "<group>"; };
 		C988AEF6191321BA00A3E13A /* SetRatingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetRatingVC.m; path = Rating/SetRatingVC.m; sourceTree = "<group>"; };
 		C988AEF7191321BA00A3E13A /* SetRatingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SetRatingVC.xib; path = Rating/SetRatingVC.xib; sourceTree = "<group>"; };
-		C988AEF8191321BA00A3E13A /* RatingCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingCVCell.h; path = Rating/RatingCVCell.h; sourceTree = "<group>"; };
-		C988AEF9191321BA00A3E13A /* RatingCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingCVCell.m; path = Rating/RatingCVCell.m; sourceTree = "<group>"; };
-		C988AEFA191321BA00A3E13A /* RatingCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingCVCell.xib; path = Rating/RatingCVCell.xib; sourceTree = "<group>"; };
-		C988AEFB191321BA00A3E13A /* RatingTextCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingTextCVCell.h; path = Rating/RatingTextCVCell.h; sourceTree = "<group>"; };
-		C988AEFC191321BA00A3E13A /* RatingTextCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingTextCVCell.m; path = Rating/RatingTextCVCell.m; sourceTree = "<group>"; };
-		C988AEFD191321BA00A3E13A /* RatingTextCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingTextCVCell.xib; path = Rating/RatingTextCVCell.xib; sourceTree = "<group>"; };
-		C988AF041913223700A3E13A /* RatingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingsVC.h; path = Rating/RatingsVC.h; sourceTree = "<group>"; };
-		C988AF051913223700A3E13A /* RatingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingsVC.m; path = Rating/RatingsVC.m; sourceTree = "<group>"; };
-		C988AF071913224E00A3E13A /* RatingsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingsVC.xib; path = Rating/RatingsVC.xib; sourceTree = "<group>"; };
 		C988AF17191456BF00A3E13A /* TalkingHeadsCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkingHeadsCVCell.h; path = "Talking Heads/TalkingHeadsCVCell.h"; sourceTree = "<group>"; };
 		C988AF18191456BF00A3E13A /* TalkingHeadsCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkingHeadsCVCell.m; path = "Talking Heads/TalkingHeadsCVCell.m"; sourceTree = "<group>"; };
 		C988AF1A191456DB00A3E13A /* TalkingHeadsCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TalkingHeadsCVCell.xib; path = "Talking Heads/TalkingHeadsCVCell.xib"; sourceTree = "<group>"; };
@@ -1058,15 +1043,6 @@
 		C9C164F71912F68D0032D340 /* Rating */ = {
 			isa = PBXGroup;
 			children = (
-				C988AF041913223700A3E13A /* RatingsVC.h */,
-				C988AF051913223700A3E13A /* RatingsVC.m */,
-				C988AF071913224E00A3E13A /* RatingsVC.xib */,
-				C988AEF8191321BA00A3E13A /* RatingCVCell.h */,
-				C988AEF9191321BA00A3E13A /* RatingCVCell.m */,
-				C988AEFA191321BA00A3E13A /* RatingCVCell.xib */,
-				C988AEFB191321BA00A3E13A /* RatingTextCVCell.h */,
-				C988AEFC191321BA00A3E13A /* RatingTextCVCell.m */,
-				C988AEFD191321BA00A3E13A /* RatingTextCVCell.xib */,
 				C988AEF5191321BA00A3E13A /* SetRatingVC.h */,
 				C988AEF6191321BA00A3E13A /* SetRatingVC.m */,
 				C988AEF7191321BA00A3E13A /* SetRatingVC.xib */,
@@ -1258,9 +1234,7 @@
 				C947F06E1888A18700123B69 /* userAction_purchase@2x.png in Resources */,
 				C947F06D1888A18700123B69 /* userAction_purchase.png in Resources */,
 				C991FB8D1861110200C10B52 /* glass_empty.png in Resources */,
-				C988AF01191321BA00A3E13A /* RatingCVCell.xib in Resources */,
 				C95E2DBE186510050050DFAC /* userAction_triedIt.png in Resources */,
-				C988AF03191321BA00A3E13A /* RatingTextCVCell.xib in Resources */,
 				C9C7D61918401F7100A2E955 /* tab_nearMe@2x.png in Resources */,
 				C9F43EAB191C4D8D003DB6B4 /* instructions_timeline.png in Resources */,
 				C95CAAD918EB750900E210D0 /* user_default.png in Resources */,
@@ -1296,7 +1270,6 @@
 				C9061E02181F07CE003D8A55 /* iPhone.storyboard in Resources */,
 				C979E651192C1AB000B65680 /* restaurants2.json in Resources */,
 				C988AEFF191321BA00A3E13A /* SetRatingVC.xib in Resources */,
-				C988AF081913224E00A3E13A /* RatingsVC.xib in Resources */,
 				C95CAAE818EB990100E210D0 /* button_triedIt.png in Resources */,
 				C988AF2319145FF700A3E13A /* TalkingHeadsVC.xib in Resources */,
 				C91F59BC18456A2100CF7F18 /* UserMenu.xib in Resources */,
@@ -1393,14 +1366,12 @@
 				C9061E30181F1C9C003D8A55 /* NearbyRestaurants_SICDTVC.m in Sources */,
 				C9548F7E19037317001A8997 /* ReviewHelper.m in Sources */,
 				C979E67E192D831500B65680 /* User2.m in Sources */,
-				C988AF02191321BA00A3E13A /* RatingTextCVCell.m in Sources */,
 				C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */,
 				C95CAADC18EB843E00E210D0 /* RatingPreparer.m in Sources */,
 				C9A73D8219030836007C2366 /* FlightHelper.m in Sources */,
 				C979E681192D831500B65680 /* WineList.m in Sources */,
 				C94E8E6E1925687200BB0669 /* ReviewsLabel.m in Sources */,
 				C9487D9A182EF119007F7E19 /* NSManagedObject+Helper.m in Sources */,
-				C988AF00191321BA00A3E13A /* RatingCVCell.m in Sources */,
 				C979E678192D831500B65680 /* TalkingHeads.m in Sources */,
 				C979E65D192D831400B65680 /* RatingHistory2.m in Sources */,
 				C9DEBC3918FA11C400134ECD /* DocumentHandler2.m in Sources */,
@@ -1446,7 +1417,6 @@
 				C9DEBC5418FA371900134ECD /* Group2+CreateOrModify.m in Sources */,
 				C9C7D62F184047EB00A2E955 /* Cellar_SICDTVC.m in Sources */,
 				C9DEBC4B18FA2AA400134ECD /* WineUnit2+CreateOrModify.m in Sources */,
-				C988AF061913223700A3E13A /* RatingsVC.m in Sources */,
 				C9548EEB19035976001A8997 /* Varietal2+Modify.m in Sources */,
 				C969342A1875EF290071EF41 /* IterationCounter.m in Sources */,
 				C988AF2219145FF700A3E13A /* TalkingHeadsVC.m in Sources */,
