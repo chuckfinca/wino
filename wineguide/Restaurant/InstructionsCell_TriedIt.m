@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *arrowImageView;
 @property (weak, nonatomic) IBOutlet UILabel *instructionsLabel;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToInstructionsLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionsLabelToBottomConstraint;
 @end
 
 @implementation InstructionsCell_TriedIt
@@ -25,16 +27,25 @@
     [self.arrowImageView setImage:[[UIImage imageNamed:@"instructions_arrow_up.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     self.arrowImageView.tintColor = [ColorSchemer sharedInstance].baseColor;
     
-    self.instructionsLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Click 'Tried It' above to check this wine into your Timeline. Be sure to tag your friends to see what they thought!" attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
+    self.instructionsLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Check this wine into your Timeline to remember who you drank this with and what you thought." attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
+    
+    [self setViewHeight];
     
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+-(void)setViewHeight
 {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    CGFloat height = 0;
+    
+    height += self.topToInstructionsLabelConstraint.constant;
+    
+    NSLog(@"self.instructionsLabel.bounds.size.width = %f",self.instructionsLabel.bounds.size.width);
+    
+    CGSize instructionsLabelSize = [self.instructionsLabel sizeThatFits:CGSizeMake(self.instructionsLabel.bounds.size.width, FLT_MAX)];
+    height += instructionsLabelSize.height + 1;
+    height += self.instructionsLabelToBottomConstraint.constant;
+    
+    self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }
-
 @end
