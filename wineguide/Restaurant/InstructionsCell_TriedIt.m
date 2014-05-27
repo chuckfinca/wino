@@ -40,12 +40,18 @@
     
     height += self.topToInstructionsLabelConstraint.constant;
     
-    NSLog(@"self.instructionsLabel.bounds.size.width = %f",self.instructionsLabel.bounds.size.width);
-    
     CGSize instructionsLabelSize = [self.instructionsLabel sizeThatFits:CGSizeMake(self.instructionsLabel.bounds.size.width, FLT_MAX)];
     height += instructionsLabelSize.height + 1;
     height += self.instructionsLabelToBottomConstraint.constant;
     
     self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }
+
+
+
+
+
+
+
+
 @end
