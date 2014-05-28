@@ -70,6 +70,7 @@ static FacebookSessionManager *sharedInstance;
 
 -(void)logInWithCompletion:(void (^)(BOOL loggedIn))completion
 {
+    NSLog(@"logInWithCompletion...");
     if([FBSession activeSession].state != FBSessionStateOpen || [FBSession activeSession].state != FBSessionStateOpenTokenExtended){
         // Open a session showing the user the login UI
         [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
@@ -92,6 +93,7 @@ static FacebookSessionManager *sharedInstance;
 
 -(void)updateBasicInformation
 {
+    NSLog(@"updateBasicInformation...");
     [self checkPermissions];
     [self getUserInfo];
     [self getFacebookFriends];
@@ -145,6 +147,7 @@ static FacebookSessionManager *sharedInstance;
             break;
             
         default:
+            NSLog(@"handleStateChange default");
             break;
     }
 }
@@ -234,12 +237,15 @@ static FacebookSessionManager *sharedInstance;
 
 -(void)closeAndClearSession
 {
+    NSLog(@"closeAndClearSession...");
     [[FBSession activeSession] closeAndClearTokenInformation];
 }
 
 
 -(void)checkPermissions
 {
+    NSLog(@"checkPermissions...");
+    
     // Check for publish permissions
     [FBRequestConnection startWithGraphPath:@"/me/permissions"
                           completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
@@ -259,6 +265,7 @@ static FacebookSessionManager *sharedInstance;
 
 -(void)getUserInfo
 {
+    NSLog(@"getUserInfo...");
     [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (!error) {
             // Success! Include your code to handle the results here
@@ -273,7 +280,7 @@ static FacebookSessionManager *sharedInstance;
                 
                 User2 *me = [GetMe sharedInstance].me;
                 User2 *user = (User2 *)[uh createObjectFromDictionary:graphObject];
-
+                
                 user.is_me = @YES;
             }
         } else {
@@ -285,6 +292,7 @@ static FacebookSessionManager *sharedInstance;
 
 -(void)getFacebookInfoAtGraphPath:(NSString *)path
 {
+    NSLog(@"getFacebookInfoAtGraphPath...");
     [FBRequestConnection startWithGraphPath:path
                           completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                               if (!error) {
@@ -299,21 +307,50 @@ static FacebookSessionManager *sharedInstance;
 
 -(void)getFacebookFriends
 {
-    if(!self.friends){
-        FBRequest *friendsRequest = [FBRequest requestForMyFriends];
-        [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
-                                                      NSDictionary* result,
-                                                      NSError *error) {
-            self.friends = [result objectForKey:@"data"];
-            NSLog(@"Found: %i friends", self.friends.count);
-            
-            for (NSDictionary<FBGraphUser>* friend in _friends) {
-                UserHelper *uh = [[UserHelper alloc] init];
-                [uh createObjectFromDictionary:friend];
-            }
-        }];
-    }
+    NSLog(@"getFacebookFriends...");
+    FBRequest *friendsRequest = [FBRequest requestForMyFriends];
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                  NSDictionary* result,
+                                                  NSError *error) {
+        self.friends = [result objectForKey:@"data"];
+        NSLog(@"Found: %i friends", self.friends.count);
+        
+        UserHelper *uh = [[UserHelper alloc] init];
+        for (NSDictionary<FBGraphUser>* friend in self.friends) {
+            [uh createOrModifyObjectWithFacebookDictionary:friend];
+        }
+    }];
 }
+
+
+#pragma mark - FBLoginViewDelegate
+
+-(void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                           user:(id<FBGraphUser>)user
+{
+    NSLog(@"loginView is now in logged in mode");
+    NSLog(@"user.id = %@",user.id);
+    NSLog(@"user.name = %@",user.name);
+}
+
+-(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
+    NSLog(@"loginViewShowingLoggedInUser...");
+}
+
+-(void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+{
+    NSLog(@"loginViewShowingLoggedOutUser...");
+}
+
+-(void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
+{
+    NSLog(@"FBLoginViewDelegate - There was a communication or authorization error - %@.",error.localizedDescription);
+    [[FacebookSessionManager sharedInstance] sessionStateChanged:nil state:0 error:error];
+}
+
+
+
 
 
 

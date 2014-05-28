@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <FBSession.h>
+#import <FBLoginView.h>
 
-@interface FacebookSessionManager : NSObject
+@interface FacebookSessionManager : NSObject <FBLoginViewDelegate>
 
 +(FacebookSessionManager *)sharedInstance;
 

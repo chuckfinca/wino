@@ -20,7 +20,7 @@
 #define USER_PROFILE_PAGE_CELL  @"UserCell"
 #define USER_ENTITY  @"User2"
 
-@interface UserProfileVC () <FBLoginViewDelegate>
+@interface UserProfileVC ()
 
 @property (weak, nonatomic) IBOutlet FBLoginView *loginView;
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileImageView;
@@ -70,6 +70,7 @@
         self.user = self.me;
         self.followButton.hidden = YES;
         self.tableView.hidden = YES;
+        self.loginView.delegate = [FacebookSessionManager sharedInstance];
     } else {
         self.loginView.hidden = YES;
     }
@@ -219,34 +220,6 @@
         break;
 }
     [self.navigationController pushViewController:controller animated:YES];
-}
-
-
-
-#pragma mark - FBLoginViewDelegate
-
--(void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user
-{
-    NSLog(@"loginView is now in logged in mode");
-    NSLog(@"user.id = %@",user.id);
-    NSLog(@"user.name = %@",user.name);
-}
-
--(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
-{
-    NSLog(@"loginViewShowingLoggedInUser...");
-}
-
--(void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
-{
-    NSLog(@"loginViewShowingLoggedOutUser...");
-}
-
--(void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
-{
-    NSLog(@"FBLoginViewDelegate - There was a communication or authorization error - %@.",error.localizedDescription);
-    [[FacebookSessionManager sharedInstance] sessionStateChanged:nil state:0 error:error];
 }
 
 

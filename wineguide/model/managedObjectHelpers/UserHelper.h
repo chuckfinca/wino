@@ -10,4 +10,6 @@
 
 @interface UserHelper : ServerHelper
 
+-(NSManagedObject *)createOrModifyObjectWithFacebookDictionary:(NSDictionary *)facebookDictionary;
+
 @end

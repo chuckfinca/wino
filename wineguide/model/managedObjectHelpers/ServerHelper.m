@@ -180,7 +180,6 @@
         }
     }
     
-    
     return managedObject;
 }
 

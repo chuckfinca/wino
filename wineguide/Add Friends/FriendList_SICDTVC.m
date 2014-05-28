@@ -88,6 +88,7 @@
 
 -(void)setupInstructionsView
 {
+    self.loginView.delegate = [FacebookSessionManager sharedInstance];
     self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     
     self.loginWithFacebookLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Connect to Facebook to add friends to this Tasting Record." attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : [FontThemer sharedInstance].body}];
