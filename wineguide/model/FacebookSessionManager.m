@@ -13,7 +13,7 @@
 #import <FBRequestConnection.h>
 #import <FBGraphObject.h>
 #import <FBGraphUser.h>
-#import "UserHelper.h"
+#import "FacebookUserConverter.h"
 #import "DocumentHandler2.h"
 #import "GetMe.h"
 
@@ -276,12 +276,8 @@ static FacebookSessionManager *sharedInstance;
                 
                 [graphObject setObject:@YES forKey:@"registered"];
                 
-                UserHelper *uh = [[UserHelper alloc] init];
-                
-                User2 *me = [GetMe sharedInstance].me;
-                User2 *user = (User2 *)[uh createObjectFromDictionary:graphObject];
-                
-                user.is_me = @YES;
+                FacebookUserConverter *facebookUserConverter = [[FacebookUserConverter alloc] init];
+                [facebookUserConverter modifyMeWithFacebookDictionary:graphObject];
             }
         } else {
             // An error occurred, we need to handle the error
@@ -315,9 +311,10 @@ static FacebookSessionManager *sharedInstance;
         self.friends = [result objectForKey:@"data"];
         NSLog(@"Found: %i friends", self.friends.count);
         
-        UserHelper *uh = [[UserHelper alloc] init];
+        FacebookUserConverter *facebookUserConverter = [[FacebookUserConverter alloc] init];
+        
         for (NSDictionary<FBGraphUser>* friend in self.friends) {
-            [uh createOrModifyObjectWithFacebookDictionary:friend];
+            [facebookUserConverter createOrModifyObjectWithFacebookDictionary:friend];
         }
     }];
 }
@@ -331,6 +328,7 @@ static FacebookSessionManager *sharedInstance;
     NSLog(@"loginView is now in logged in mode");
     NSLog(@"user.id = %@",user.id);
     NSLog(@"user.name = %@",user.name);
+    [self updateBasicInformation];
 }
 
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView

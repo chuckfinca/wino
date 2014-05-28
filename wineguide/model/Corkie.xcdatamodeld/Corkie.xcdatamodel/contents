@@ -110,7 +110,8 @@
     <entity name="User2" representedClassName="User2" syncable="YES">
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="facebook_id" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="facebook_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebook_updated_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="follow_status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="Integer 16" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 64" syncable="YES"/>
@@ -205,7 +206,7 @@
         <element name="TalkingHeads" positionX="-81" positionY="360" width="128" height="118"/>
         <element name="TastingNote2" positionX="378" positionY="252" width="128" height="163"/>
         <element name="TastingRecord2" positionX="-479" positionY="243" width="128" height="163"/>
-        <element name="User2" positionX="-693" positionY="-178" width="128" height="388"/>
+        <element name="User2" positionX="-693" positionY="-178" width="128" height="403"/>
         <element name="Varietal2" positionX="351" positionY="432" width="128" height="163"/>
         <element name="Wine2" positionX="187" positionY="-115" width="128" height="448"/>
         <element name="WineList" positionX="-351" positionY="-180" width="128" height="208"/>

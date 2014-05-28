@@ -2,7 +2,7 @@
 //  User2.h
 //  Corkie
 //
-//  Created by Charles Feinn on 5/21/14.
+//  Created by Charles Feinn on 5/28/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSNumber * facebook_id;
+@property (nonatomic, retain) NSString * facebook_id;
 @property (nonatomic, retain) NSNumber * follow_status;
 @property (nonatomic, retain) NSNumber * gender;
 @property (nonatomic, retain) NSNumber * identifier;
@@ -25,12 +25,13 @@
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSString * name_display;
 @property (nonatomic, retain) NSString * name_first;
+@property (nonatomic, retain) NSString * name_full;
 @property (nonatomic, retain) NSString * name_last;
+@property (nonatomic, retain) NSString * name_last_initial;
 @property (nonatomic, retain) NSNumber * registered;
 @property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) NSDate * updated_at;
-@property (nonatomic, retain) NSString * name_last_initial;
-@property (nonatomic, retain) NSString * name_full;
+@property (nonatomic, retain) NSDate * facebook_updated_at;
 @property (nonatomic, retain) NSSet *followedBy;
 @property (nonatomic, retain) NSSet *following;
 @property (nonatomic, retain) NSSet *reviews;

@@ -16,14 +16,6 @@
 #define CREATED_AT @"created_at"
 #define UPDATED_AT @"updated_at"
 
-#define USER_EMAIL @"email"
-#define USER_GENDER @"gender"
-#define USER_LATITUDE @"user_latitude"
-#define USER_LONGITUDE @"user_longitude"
-#define USER_NAME_FIRST @"user_first"
-#define USER_NAME_LAST @"user_last"
-#define USER_IMAGE @"image"
-#define USER_FACEBOOK_ID @"facebook_id"
 
 @implementation User2 (Modify)
 
@@ -37,11 +29,12 @@
         }
         
         if(!self.facebook_id){
-            self.facebook_id = [dictionary sanitizedValueForKey:USER_FACEBOOK_ID];
+            self.facebook_id = [dictionary sanitizedStringForKey:USER_FACEBOOK_ID];
         }
+        self.facebook_updated_at = [dictionary dateAtKey:USER_FACEBOOK_UPDATED_AT];
         
         self.email = [dictionary sanitizedStringForKey:USER_EMAIL];
-        self.gender = [dictionary sanitizedStringForKey:USER_GENDER];
+        self.gender = [dictionary sanitizedValueForKey:USER_GENDER];
         self.latitude = [dictionary sanitizedValueForKey:USER_LATITUDE];
         self.longitude = [dictionary sanitizedValueForKey:USER_LONGITUDE];
                 // self.is_me
@@ -68,6 +61,7 @@
     NSLog(@"=====================================================");
     NSLog(@"%@ - %@\n",[self class],self.identifier);
     NSLog(@"facebook_id = %@",self.facebook_id);
+    NSLog(@"facebook_updated_at = %@",self.facebook_updated_at);
     NSLog(@"name_display = %@",self.name_display);
     NSLog(@"is_me = %@",self.is_me);
     NSLog(@"name_first = %@",self.name_first);

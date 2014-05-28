@@ -47,7 +47,6 @@ static GetMe *instance;
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",identifier];
             NSDictionary *dictionary = @{IDENTIFIER : identifier};
             
-            NSLog(@"Me not found! Creating me with id = %@",identifier);
             _me = (User2 *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:USER_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
             _me.identifier = identifier;
             _me.is_me = @YES;
