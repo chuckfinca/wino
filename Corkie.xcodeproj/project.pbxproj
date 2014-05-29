@@ -114,6 +114,8 @@
 		C96EBB2F1935448E00E27798 /* instructions_arrow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = C96EBB2D1935448E00E27798 /* instructions_arrow_up.png */; };
 		C96EBB3519368B1300E27798 /* FacebookUserConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96EBB3419368B1300E27798 /* FacebookUserConverter.m */; };
 		C96EBB3B19369E2300E27798 /* User2.m in Sources */ = {isa = PBXBuildFile; fileRef = C96EBB3A19369E2300E27798 /* User2.m */; };
+		C96EBB411936B4D500E27798 /* FacebookFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C96EBB3F1936B4D500E27798 /* FacebookFriendCell.m */; };
+		C96EBB421936B4D500E27798 /* FacebookFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96EBB401936B4D500E27798 /* FacebookFriendCell.xib */; };
 		C9744C6E192821B800DB1F2B /* WineList+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9744C6D192821B800DB1F2B /* WineList+Modify.m */; };
 		C9744C741928246900DB1F2B /* WineListHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9744C731928246900DB1F2B /* WineListHelper.m */; };
 		C979E651192C1AB000B65680 /* restaurants2.json in Resources */ = {isa = PBXBuildFile; fileRef = C979E650192C1AB000B65680 /* restaurants2.json */; };
@@ -385,6 +387,9 @@
 		C96EBB3419368B1300E27798 /* FacebookUserConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookUserConverter.m; path = model/FacebookUserConverter.m; sourceTree = "<group>"; };
 		C96EBB3919369E2300E27798 /* User2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User2.h; path = "model/Managed Objects/User2.h"; sourceTree = "<group>"; };
 		C96EBB3A19369E2300E27798 /* User2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User2.m; path = "model/Managed Objects/User2.m"; sourceTree = "<group>"; };
+		C96EBB3E1936B4D500E27798 /* FacebookFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookFriendCell.h; path = "Add Friends/FacebookFriendCell.h"; sourceTree = "<group>"; };
+		C96EBB3F1936B4D500E27798 /* FacebookFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookFriendCell.m; path = "Add Friends/FacebookFriendCell.m"; sourceTree = "<group>"; };
+		C96EBB401936B4D500E27798 /* FacebookFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FacebookFriendCell.xib; path = "Add Friends/FacebookFriendCell.xib"; sourceTree = "<group>"; };
 		C9744C6C192821B800DB1F2B /* WineList+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WineList+Modify.h"; path = "model/managedObjectCategories/WineList+Modify.h"; sourceTree = "<group>"; };
 		C9744C6D192821B800DB1F2B /* WineList+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "WineList+Modify.m"; path = "model/managedObjectCategories/WineList+Modify.m"; sourceTree = "<group>"; };
 		C9744C721928246900DB1F2B /* WineListHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineListHelper.h; path = model/managedObjectHelpers/WineListHelper.h; sourceTree = "<group>"; };
@@ -988,6 +993,9 @@
 				C96D31911919C15C00B340F4 /* InstructionsCell_FacebookConnect.h */,
 				C96D31921919C15C00B340F4 /* InstructionsCell_FacebookConnect.m */,
 				C96D31931919C15C00B340F4 /* InstructionsCell_FacebookConnect.xib */,
+				C96EBB3E1936B4D500E27798 /* FacebookFriendCell.h */,
+				C96EBB3F1936B4D500E27798 /* FacebookFriendCell.m */,
+				C96EBB401936B4D500E27798 /* FacebookFriendCell.xib */,
 			);
 			name = "Add Friends";
 			sourceTree = "<group>";
@@ -1199,6 +1207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C95A2CC3185B80070043ECB0 /* visible@2x.png in Resources */,
+				C96EBB421936B4D500E27798 /* FacebookFriendCell.xib in Resources */,
 				C96D5FBC185005B60068093C /* varietals.json in Resources */,
 				C932F1121868EE6E0079680C /* userAction_cellared.png in Resources */,
 				C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */,
@@ -1430,6 +1439,7 @@
 				C9548EF419035BC9001A8997 /* Region+Modify.m in Sources */,
 				C9DEBC4818FA2A4500134ECD /* ServerHelper.m in Sources */,
 				C979E666192D831500B65680 /* Varietal2.m in Sources */,
+				C96EBB411936B4D500E27798 /* FacebookFriendCell.m in Sources */,
 				C979E660192D831400B65680 /* Review2.m in Sources */,
 				C9DF121318C80628003AE68C /* VariableHeightTV.m in Sources */,
 				C9DEBC5118FA361200134ECD /* GroupHelper.m in Sources */,

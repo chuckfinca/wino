@@ -114,7 +114,7 @@
         } else {
             text = [text stringByAppendingString:@", "];
         }
-        text = [text stringByAppendingString:u.name_display];
+        text = [text stringByAppendingString:[NSString stringWithFormat:@"%@ %@",u.name_first, u.name_last]];
     }
     
     BOOL instructions = NO;

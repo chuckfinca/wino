@@ -12,8 +12,10 @@
 #import "FacebookProfileImageGetter.h"
 #import "FacebookSessionManager.h"
 #import <FBLoginView.h>
+#import "FacebookFriendCell.h"
 
 #define USER_ENTITY @"User2"
+#define FACEBOOK_FRIEND_CELL @"Facebook Friend Cell"
 
 @interface FriendList_SICDTVC ()
 
@@ -40,7 +42,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //[FacebookSessionManager sharedInstance].
+    [self.tableView registerNib:[UINib nibWithNibName:@"FacebookFriendCell" bundle:nil] forCellReuseIdentifier:FACEBOOK_FRIEND_CELL];
     
     [self setupInstructionsView];
 }
@@ -84,6 +86,10 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"name_last_initial"
                                                                                    cacheName:nil];
+    NSLog(@"count = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
+    if([self.fetchedResultsController.fetchedObjects count] > 0){
+        self.displayInstructionsCell = NO;
+    }
 }
 
 -(void)setupInstructionsView
@@ -99,40 +105,35 @@
 
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"UserCell" forIndexPath:indexPath];
-    
+    FacebookFriendCell *cell = (FacebookFriendCell *)[self.tableView dequeueReusableCellWithIdentifier:FACEBOOK_FRIEND_CELL forIndexPath:indexPath];
+    NSLog(@"cell class = %@",[cell class]);
     User2 *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    if(user.name_display){
-        NSString *name = [NSString stringWithFormat:@"%@ ",user.name_first];
-        NSInteger firstNameLength = [name length];
-        name = [name stringByAppendingString:user.name_last];
-        
-        NSMutableAttributedString *attributedName = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body}];
-        [attributedName addAttribute:NSFontAttributeName value:[FontThemer sharedInstance].headline range: NSMakeRange(firstNameLength, [user.name_last length])];
-        
-        cell.textLabel.attributedText = attributedName;
-    }
+    [cell setupForUser:user];
     
     if(user.imageData){
-        [cell.imageView setImage:[UIImage imageWithData:user.imageData]];
+        [cell.userProfileImageView setImage:[UIImage imageWithData:user.imageData]];
         
     } else {
         __weak UITableView *weakTableView = self.tableView;
         
-        [self.facebookProfileImageGetter setProfilePicForUser:user inImageView:cell.imageView completion:^(BOOL success) {
+        [self.facebookProfileImageGetter setProfilePicForUser:user inImageView:cell.userProfileImageView completion:^(BOOL success) {
             if(success){
                 [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             }
         }];
     }
     
-    cell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
+
+-(float)heightForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     return [self.fetchedResultsController sectionIndexTitles];
