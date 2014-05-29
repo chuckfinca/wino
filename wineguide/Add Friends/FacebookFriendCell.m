@@ -21,30 +21,22 @@
 - (void)awakeFromNib
 {
     // Initialization code
-    self.userProfileImageView.backgroundColor = [UIColor redColor];
+    self.userProfileImageView.tintColor = [ColorSchemer sharedInstance].gray;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 -(void)setupForUser:(User2 *)user
 {
-    if(user.name_display){
-        NSString *name = [NSString stringWithFormat:@"%@ ",user.name_first];
-        NSInteger firstNameLength = [name length];
-        name = [name stringByAppendingString:user.name_last];
-        
-        NSMutableAttributedString *attributedName = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body}];
-        [attributedName addAttribute:NSFontAttributeName value:[FontThemer sharedInstance].headline range: NSMakeRange(firstNameLength, [user.name_last length])];
-        
-        self.userNameLabel.attributedText = attributedName;
-        
-        self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    }
+    NSString *name = [NSString stringWithFormat:@"%@ ",user.name_first];
+    NSInteger firstNameLength = [name length];
+    name = [name stringByAppendingString:user.name_last];
+    
+    NSMutableAttributedString *attributedName = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body}];
+    [attributedName addAttribute:NSFontAttributeName value:[FontThemer sharedInstance].headline range: NSMakeRange(firstNameLength, [user.name_last length])];
+    
+    self.userNameLabel.attributedText = attributedName;
+    
+    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
 
 @end

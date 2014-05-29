@@ -106,7 +106,7 @@
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
     FacebookFriendCell *cell = (FacebookFriendCell *)[self.tableView dequeueReusableCellWithIdentifier:FACEBOOK_FRIEND_CELL forIndexPath:indexPath];
-    NSLog(@"cell class = %@",[cell class]);
+    
     User2 *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [cell setupForUser:user];
