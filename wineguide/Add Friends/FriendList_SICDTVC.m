@@ -129,7 +129,7 @@
 
 #pragma mark - UITableViewDelegate
 
--(double)heightForCellAtIndexPath:(NSIndexPath *)indexPath
+-(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60;
 }
