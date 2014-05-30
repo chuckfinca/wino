@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <FBSession.h>
-#import <FBLoginView.h>
+#import "FacebookLoginViewDelegate.h"
 
-@interface FacebookSessionManager : NSObject <FBLoginViewDelegate>
+#define FACEBOOK_LOGIN_SUCCESSFUL @"Facebook login successful"
+
+@interface FacebookSessionManager : NSObject <FacebookLoginViewDelegateDelegate>
 
 +(FacebookSessionManager *)sharedInstance;
 
 -(void)checkToken; // Silent, on app load
 -(void)sessionStateChanged:(FBSession *)session state:(FBSessionState)state error:(NSError *)error;
+
+-(void)updateBasicInformation; // Called only by FacebookLoginViewDelegate
 
 @end

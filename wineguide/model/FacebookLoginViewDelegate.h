@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FBLoginView.h>
 
-@interface FacebookLoginViewDelegate : NSObject
+@protocol FacebookLoginViewDelegateDelegate <NSObject>
+
+-(void)updateBasicInformation;
+
+@end
+
+@interface FacebookLoginViewDelegate : NSObject <FBLoginViewDelegate>
+
+@property (nonatomic, weak) id <FacebookLoginViewDelegateDelegate> delegate;
 
 @end

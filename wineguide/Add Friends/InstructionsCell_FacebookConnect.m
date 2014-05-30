@@ -8,14 +8,12 @@
 
 #import "InstructionsCell_FacebookConnect.h"
 #import "VariableHeightTV.h"
-#import <FBLoginView.h>
 #import "FontThemer.h"
 #import "ColorSchemer.h"
 
 @interface InstructionsCell_FacebookConnect ()
 
 @property (weak, nonatomic) IBOutlet VariableHeightTV *instructionsVHTV;
-@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToInstructionsVhtvConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionsVhtvToLoginViewConstraint;

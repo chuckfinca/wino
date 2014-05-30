@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FBLoginView.h>
 
 @interface InstructionsCell_FacebookConnect : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
 
 @end

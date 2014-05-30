@@ -16,6 +16,7 @@
 #import "ColorSchemer.h"
 #import "FontThemer.h"
 #import "FacebookProfileImageGetter.h"
+#import "FacebookLoginViewDelegate.h"
 
 #define USER_PROFILE_PAGE_CELL  @"UserCell"
 #define USER_ENTITY  @"User2"
@@ -31,6 +32,7 @@
 @property (nonatomic, strong) User2 *user;
 @property (nonatomic, strong) User2 *me;
 @property (nonatomic) BOOL following;
+@property (nonatomic, strong) FacebookLoginViewDelegate *facebookLoginViewDelegate;
 
 
 // Vertical constraints
@@ -70,7 +72,9 @@
         self.user = self.me;
         self.followButton.hidden = YES;
         self.tableView.hidden = YES;
-        self.loginView.delegate = [FacebookSessionManager sharedInstance];
+        
+        self.loginView.delegate = self.facebookLoginViewDelegate;
+        
     } else {
         self.loginView.hidden = YES;
     }
@@ -94,7 +98,7 @@
 }
 
 
-#pragma mark - Setup
+#pragma mark - Getters & setters
 
 -(User2 *)me
 {
@@ -103,6 +107,17 @@
     }
     return _me;
 }
+
+-(FacebookLoginViewDelegate *)facebookLoginViewDelegate
+{
+    if(!_facebookLoginViewDelegate){
+        _facebookLoginViewDelegate = [[FacebookLoginViewDelegate alloc] init];
+        _facebookLoginViewDelegate.delegate = [FacebookSessionManager sharedInstance];
+    }
+    return _facebookLoginViewDelegate;
+}
+
+#pragma mark - Setup
 
 -(void)setupNameLabel
 {

@@ -13,6 +13,8 @@
 #import "FacebookSessionManager.h"
 #import <FBLoginView.h>
 #import "FacebookFriendCell.h"
+#import "FacebookLoginViewDelegate.h"
+#import "InstructionsCell_FacebookConnect.h"
 
 #define USER_ENTITY @"User2"
 #define FACEBOOK_FRIEND_CELL @"Facebook Friend Cell"
@@ -20,9 +22,7 @@
 @interface FriendList_SICDTVC ()
 
 @property (nonatomic, strong) FacebookProfileImageGetter *facebookProfileImageGetter;
-
-@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
-@property (weak, nonatomic) IBOutlet UILabel *loginWithFacebookLabel;
+@property (nonatomic, strong) FacebookLoginViewDelegate *facebookLoginViewDelegate;
 
 @end
 
@@ -44,7 +44,21 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"FacebookFriendCell" bundle:nil] forCellReuseIdentifier:FACEBOOK_FRIEND_CELL];
     
-    [self setupInstructionsView];
+    InstructionsCell_FacebookConnect *instructionsCell = (InstructionsCell_FacebookConnect *)self.instructionsCell;
+    instructionsCell.loginView.delegate = self.facebookLoginViewDelegate;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeInstructionsCell) name:FACEBOOK_LOGIN_SUCCESSFUL object:nil];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Getters & setters
@@ -57,11 +71,26 @@
     return _facebookProfileImageGetter;
 }
 
+-(FacebookLoginViewDelegate *)facebookLoginViewDelegate
+{
+    if(!_facebookLoginViewDelegate){
+        _facebookLoginViewDelegate = [[FacebookLoginViewDelegate alloc] init];
+        _facebookLoginViewDelegate.delegate = [FacebookSessionManager sharedInstance];
+    }
+    return _facebookLoginViewDelegate;
+}
+
+
 #pragma mark - Setup
 
 -(void)registerInstructionCellNib
 {
     [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_FacebookConnect" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+}
+
+-(void)removeInstructionsCell
+{
+    self.displayInstructionsCell = NO;
 }
 
 #pragma mark - SearchableCDTVC Required Methods
@@ -93,14 +122,6 @@
     }
 }
 
--(void)setupInstructionsView
-{
-    self.loginView.delegate = [FacebookSessionManager sharedInstance];
-    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
-    
-    self.loginWithFacebookLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Connect to Facebook to add friends to this Tasting Record." attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : [FontThemer sharedInstance].body}];
-}
-
 
 #pragma mark - UITableViewDataSource
 
@@ -120,7 +141,9 @@
         
         [self.facebookProfileImageGetter setProfilePicForUser:user inImageView:cell.userProfileImageView completion:^(BOOL success) {
             if(success){
-                [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                if([weakTableView cellForRowAtIndexPath:indexPath]){
+                    [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
             }
         }];
     }

@@ -106,6 +106,8 @@ static FacebookSessionManager *sharedInstance;
     if(!self.haveUpdatedFriendInfoThisSession){
         [self getFacebookFriends];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:FACEBOOK_LOGIN_SUCCESSFUL object:nil userInfo:nil];
 }
 
 -(void)sessionStateChanged:(FBSession *)session state:(FBSessionState)state error:(NSError *)error
@@ -338,32 +340,6 @@ static FacebookSessionManager *sharedInstance;
 }
 
 
-#pragma mark - FBLoginViewDelegate
-
--(void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                           user:(id<FBGraphUser>)user
-{
-    NSLog(@"loginView is now in logged in mode");
-    NSLog(@"user.id = %@",user.id);
-    NSLog(@"user.name = %@",user.name);
-    [self updateBasicInformation];
-}
-
--(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
-{
-    NSLog(@"loginViewShowingLoggedInUser...");
-}
-
--(void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
-{
-    NSLog(@"loginViewShowingLoggedOutUser...");
-}
-
--(void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
-{
-    NSLog(@"FBLoginViewDelegate - There was a communication or authorization error - %@.",error.localizedDescription);
-    [[FacebookSessionManager sharedInstance] sessionStateChanged:nil state:0 error:error];
-}
 
 
 
