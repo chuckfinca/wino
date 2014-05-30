@@ -113,12 +113,19 @@
             
             Review2 *review = (Review2 *)reviewsArray[counter];
             
-            __weak UITableView *weakTableView = self.tableView;
-            [self.facebookProfileImageGetter setProfilePicForUser:review.user inButton:userImageButton completion:^(BOOL success) {
-                if([weakTableView cellForRowAtIndexPath:indexPath]){
-                    [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                }
-            }];
+            if(review.user.imageData){
+                [userImageButton setImage:[UIImage imageWithData:review.user.imageData] forState:UIControlStateNormal];
+                
+            } else {
+                __weak UITableView *weakTableView = self.tableView;
+                [self.facebookProfileImageGetter setProfilePicForUser:review.user inButton:userImageButton completion:^(BOOL success) {
+                    if(success){
+                        if([weakTableView cellForRowAtIndexPath:indexPath]){
+                            [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                        }
+                    }
+                }];
+            }
         } else {
             userImageButton.hidden = YES;
         }

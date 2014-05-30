@@ -101,6 +101,7 @@
     if([self.fetchedResultsController.fetchedObjects count] > 0){
         self.displayInstructionsCell = NO;
     }
+    NSLog(@"fetchedObjects = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
 }
 
 -(void)getTastingRecords
