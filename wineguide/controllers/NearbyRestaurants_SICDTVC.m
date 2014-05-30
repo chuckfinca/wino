@@ -92,8 +92,7 @@
     //NSLog(@"Favorites setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:RESTAURANT_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier"
-                                                              ascending:YES
-                                                               selector:@selector(localizedCaseInsensitiveCompare:)]];
+                                                              ascending:YES]];
     
     if(text){
         request.predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
