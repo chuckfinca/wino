@@ -74,6 +74,7 @@
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="review_date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="review_text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
@@ -202,7 +203,7 @@
         <element name="RatingHistory2" positionX="369" positionY="-16" width="128" height="223"/>
         <element name="Region" positionX="520" positionY="99" width="128" height="148"/>
         <element name="Restaurant2" positionX="-515" positionY="-150" width="128" height="268"/>
-        <element name="Review2" positionX="-738" positionY="236" width="128" height="178"/>
+        <element name="Review2" positionX="-738" positionY="263" width="128" height="193"/>
         <element name="TalkingHeads" positionX="-81" positionY="360" width="128" height="118"/>
         <element name="TastingNote2" positionX="378" positionY="252" width="128" height="163"/>
         <element name="TastingRecord2" positionX="-479" positionY="243" width="128" height="163"/>

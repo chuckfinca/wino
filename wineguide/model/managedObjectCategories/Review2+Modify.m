@@ -19,6 +19,7 @@
 
 #define REVIEW_RATING @"rating"
 #define REVIEW_CLAIMED @"claimed"
+#define REVIEW_DATE @"review_date"
 #define REVIEW_TEXT @"review_text"
 
 @implementation Review2 (Modify)
@@ -34,6 +35,7 @@
         
         self.claimed = [dictionary sanitizedValueForKey:REVIEW_CLAIMED];
         self.rating = [dictionary sanitizedValueForKey:REVIEW_RATING];
+        self.review_date = [dictionary sanitizedStringForKey:REVIEW_DATE];
         self.review_text = [dictionary sanitizedStringForKey:REVIEW_TEXT];
         self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
         self.created_at = [dictionary dateAtKey:CREATED_AT];
@@ -51,6 +53,7 @@
     NSLog(@"=====================================================");
     NSLog(@"%@ - %@\n",[self class],self.identifier);
     NSLog(@"rating = %@",self.rating);
+    NSLog(@"review_date = %@",self.review_date);
     NSLog(@"review_text = %@",self.review_text);
     NSLog(@"status = %@",self.status);
     NSLog(@"created_at = %@",self.created_at);

@@ -2,7 +2,7 @@
 //  Review2.h
 //  Corkie
 //
-//  Created by Charles Feinn on 5/21/14.
+//  Created by Charles Feinn on 5/30/14.
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString * review_text;
 @property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) NSDate * updated_at;
+@property (nonatomic, retain) NSDate * review_date;
 @property (nonatomic, retain) TastingRecord2 *tastingRecord;
 @property (nonatomic, retain) User2 *user;
 
