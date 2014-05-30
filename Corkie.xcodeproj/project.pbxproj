@@ -125,12 +125,6 @@
 		C985911E192EC41E00A61E2D /* WineColorStringFromCode.m in Sources */ = {isa = PBXBuildFile; fileRef = C985911D192EC41E00A61E2D /* WineColorStringFromCode.m */; };
 		C988AEFE191321BA00A3E13A /* SetRatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AEF6191321BA00A3E13A /* SetRatingVC.m */; };
 		C988AEFF191321BA00A3E13A /* SetRatingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C988AEF7191321BA00A3E13A /* SetRatingVC.xib */; };
-		C988AF19191456BF00A3E13A /* TalkingHeadsCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AF18191456BF00A3E13A /* TalkingHeadsCVCell.m */; };
-		C988AF1B191456DB00A3E13A /* TalkingHeadsCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C988AF1A191456DB00A3E13A /* TalkingHeadsCVCell.xib */; };
-		C988AF2219145FF700A3E13A /* TalkingHeadsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AF2019145FF700A3E13A /* TalkingHeadsVC.m */; };
-		C988AF2319145FF700A3E13A /* TalkingHeadsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C988AF2119145FF700A3E13A /* TalkingHeadsVC.xib */; };
-		C988AF261914674C00A3E13A /* TalkingHeadsTextCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AF251914674C00A3E13A /* TalkingHeadsTextCVCell.m */; };
-		C988AF2A1914800700A3E13A /* TalkingHeadsTextCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C988AF291914800700A3E13A /* TalkingHeadsTextCVCell.xib */; };
 		C988AF5C191586AC00A3E13A /* TalkingHeads+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AF5B191586AC00A3E13A /* TalkingHeads+Modify.m */; };
 		C988AF8919158B3B00A3E13A /* TalkingHeadsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AF8819158B3B00A3E13A /* TalkingHeadsHelper.m */; };
 		C988AF8C1915976600A3E13A /* FacebookProfileImageGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = C988AF8B1915976600A3E13A /* FacebookProfileImageGetter.m */; };
@@ -404,15 +398,6 @@
 		C988AEF5191321BA00A3E13A /* SetRatingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetRatingVC.h; path = Rating/SetRatingVC.h; sourceTree = "<group>"; };
 		C988AEF6191321BA00A3E13A /* SetRatingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetRatingVC.m; path = Rating/SetRatingVC.m; sourceTree = "<group>"; };
 		C988AEF7191321BA00A3E13A /* SetRatingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SetRatingVC.xib; path = Rating/SetRatingVC.xib; sourceTree = "<group>"; };
-		C988AF17191456BF00A3E13A /* TalkingHeadsCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkingHeadsCVCell.h; path = "Talking Heads/TalkingHeadsCVCell.h"; sourceTree = "<group>"; };
-		C988AF18191456BF00A3E13A /* TalkingHeadsCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkingHeadsCVCell.m; path = "Talking Heads/TalkingHeadsCVCell.m"; sourceTree = "<group>"; };
-		C988AF1A191456DB00A3E13A /* TalkingHeadsCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TalkingHeadsCVCell.xib; path = "Talking Heads/TalkingHeadsCVCell.xib"; sourceTree = "<group>"; };
-		C988AF1F19145FF700A3E13A /* TalkingHeadsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkingHeadsVC.h; path = "Talking Heads/TalkingHeadsVC.h"; sourceTree = "<group>"; };
-		C988AF2019145FF700A3E13A /* TalkingHeadsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkingHeadsVC.m; path = "Talking Heads/TalkingHeadsVC.m"; sourceTree = "<group>"; };
-		C988AF2119145FF700A3E13A /* TalkingHeadsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TalkingHeadsVC.xib; path = "Talking Heads/TalkingHeadsVC.xib"; sourceTree = "<group>"; };
-		C988AF241914674C00A3E13A /* TalkingHeadsTextCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkingHeadsTextCVCell.h; path = "Talking Heads/TalkingHeadsTextCVCell.h"; sourceTree = "<group>"; };
-		C988AF251914674C00A3E13A /* TalkingHeadsTextCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkingHeadsTextCVCell.m; path = "Talking Heads/TalkingHeadsTextCVCell.m"; sourceTree = "<group>"; };
-		C988AF291914800700A3E13A /* TalkingHeadsTextCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TalkingHeadsTextCVCell.xib; path = "Talking Heads/TalkingHeadsTextCVCell.xib"; sourceTree = "<group>"; };
 		C988AF5A191586AC00A3E13A /* TalkingHeads+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TalkingHeads+Modify.h"; path = "model/managedObjectCategories/TalkingHeads+Modify.h"; sourceTree = "<group>"; };
 		C988AF5B191586AC00A3E13A /* TalkingHeads+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TalkingHeads+Modify.m"; path = "model/managedObjectCategories/TalkingHeads+Modify.m"; sourceTree = "<group>"; };
 		C988AF8719158B3B00A3E13A /* TalkingHeadsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkingHeadsHelper.h; path = model/managedObjectHelpers/TalkingHeadsHelper.h; sourceTree = "<group>"; };
@@ -613,7 +598,6 @@
 				C9F43E8F191AE252003DB6B4 /* InstructionsCell_RequestGPS */,
 				C96D31881919BF6D00B340F4 /* Add Friends */,
 				C96D317F191715CA00B340F4 /* Reviews TVC */,
-				C988AF0919144EBE00A3E13A /* Talking Heads */,
 				C9C164F71912F68D0032D340 /* Rating */,
 				C9061E00181F07CE003D8A55 /* iPhone.storyboard */,
 				C93A73A218F09C46000E0B56 /* iPhone_CheckIn.storyboard */,
@@ -986,22 +970,6 @@
 			name = InstructionsCell_TriedIt;
 			sourceTree = "<group>";
 		};
-		C988AF0919144EBE00A3E13A /* Talking Heads */ = {
-			isa = PBXGroup;
-			children = (
-				C988AF1F19145FF700A3E13A /* TalkingHeadsVC.h */,
-				C988AF2019145FF700A3E13A /* TalkingHeadsVC.m */,
-				C988AF2119145FF700A3E13A /* TalkingHeadsVC.xib */,
-				C988AF17191456BF00A3E13A /* TalkingHeadsCVCell.h */,
-				C988AF18191456BF00A3E13A /* TalkingHeadsCVCell.m */,
-				C988AF1A191456DB00A3E13A /* TalkingHeadsCVCell.xib */,
-				C988AF241914674C00A3E13A /* TalkingHeadsTextCVCell.h */,
-				C988AF251914674C00A3E13A /* TalkingHeadsTextCVCell.m */,
-				C988AF291914800700A3E13A /* TalkingHeadsTextCVCell.xib */,
-			);
-			name = "Talking Heads";
-			sourceTree = "<group>";
-		};
 		C9C164F71912F68D0032D340 /* Rating */ = {
 			isa = PBXGroup;
 			children = (
@@ -1217,7 +1185,6 @@
 				C9061E0A181F07CE003D8A55 /* Images.xcassets in Resources */,
 				C95A2CCE185BE4D30043ECB0 /* tab_timeline@2x.png in Resources */,
 				C95CAAE118EB97D400E210D0 /* button_cellar@2x.png in Resources */,
-				C988AF2A1914800700A3E13A /* TalkingHeadsTextCVCell.xib in Resources */,
 				C9F43EAC191C4D8D003DB6B4 /* instructions_timeline@2x.png in Resources */,
 				C991FB8A1861110200C10B52 /* glass_full@2x.png in Resources */,
 				C932F1131868EE6E0079680C /* userAction_cellared@2x.png in Resources */,
@@ -1228,14 +1195,12 @@
 				C9061E02181F07CE003D8A55 /* iPhone.storyboard in Resources */,
 				C988AEFF191321BA00A3E13A /* SetRatingVC.xib in Resources */,
 				C95CAAE818EB990100E210D0 /* button_triedIt.png in Resources */,
-				C988AF2319145FF700A3E13A /* TalkingHeadsVC.xib in Resources */,
 				C95A2CCD185BE4D30043ECB0 /* tab_timeline.png in Resources */,
 				C9061DF9181F07CE003D8A55 /* InfoPlist.strings in Resources */,
 				C9061E3C181F2767003D8A55 /* RestaurantDetails.xib in Resources */,
 				C95CAAEC18EB9C1400E210D0 /* button_cellarUnstored.png in Resources */,
 				C95CAAE718EB990100E210D0 /* button_triedIt@2x.png in Resources */,
 				C95E2DC1186510050050DFAC /* tab_cellar.png in Resources */,
-				C988AF1B191456DB00A3E13A /* TalkingHeadsCVCell.xib in Resources */,
 				C991FB8B1861110200C10B52 /* glass_half.png in Resources */,
 				C94E8E581924260E00BB0669 /* WineCell.xib in Resources */,
 				C9E4018D191EC4AC00ADD072 /* RestaurantCell.xib in Resources */,
@@ -1353,7 +1318,6 @@
 				C9C7D6151840168700A2E955 /* Searchable_ICDTVC.m in Sources */,
 				C96D318E1919BFD000B340F4 /* FriendListVC.m in Sources */,
 				C96EBB3519368B1300E27798 /* FacebookUserConverter.m in Sources */,
-				C988AF261914674C00A3E13A /* TalkingHeadsTextCVCell.m in Sources */,
 				C990FAC81910955D00BF692E /* RoundedRectButton.m in Sources */,
 				C985911E192EC41E00A61E2D /* WineColorStringFromCode.m in Sources */,
 				C9A337EB18861E810089D020 /* DateStringFormatter.m in Sources */,
@@ -1373,7 +1337,6 @@
 				C9DEBC4B18FA2AA400134ECD /* WineUnit2+CreateOrModify.m in Sources */,
 				C9548EEB19035976001A8997 /* Varietal2+Modify.m in Sources */,
 				C969342A1875EF290071EF41 /* IterationCounter.m in Sources */,
-				C988AF2219145FF700A3E13A /* TalkingHeadsVC.m in Sources */,
 				C979E67B192D831500B65680 /* Region.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
 				C92660EC190F16540024EFDC /* UIView+BorderDrawer.m in Sources */,
@@ -1395,7 +1358,6 @@
 				C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */,
 				C9F43EA7191C439B003DB6B4 /* InstructionsCell_Timeline.m in Sources */,
 				C9DEBC2718F9EDF400134ECD /* Corkie.xcdatamodeld in Sources */,
-				C988AF19191456BF00A3E13A /* TalkingHeadsCVCell.m in Sources */,
 				C9061DFB181F07CE003D8A55 /* main.m in Sources */,
 				C9548F5119036E63001A8997 /* TastingRecordHelper.m in Sources */,
 				C94E8E7119257C2B00BB0669 /* WineNameLabel.m in Sources */,
