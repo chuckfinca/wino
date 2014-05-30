@@ -33,13 +33,7 @@
 -(void)getRestaurantsNearLatitude:(double)latitude longitude:(double)longitude
 {
     // call Corkie server and get restaurant json
-    
-    
-    NSURL *restaurantsJSONUrl = [[NSBundle mainBundle] URLForResource:@"restaurants2" withExtension:@"json"];
-    /*
-     NSString *restaurantsURLString = @"http://www.corkieapp.com/nearMe/1/1";
-    NSLog(@"%@",[NSString stringWithFormat:@"http://www.corkieapp.com/nearMe/%f/%f",longitude,latitude]);
-     */
+    NSURL *restaurantsJSONUrl = [NSURL URLWithString:@"http://www.corkieapp.com/nearMe/1/1"];
     
     RestaurantHelper *restaurantHelper = [[RestaurantHelper alloc] init];
     [restaurantHelper getDataAtUrl:[restaurantsJSONUrl absoluteString]];
