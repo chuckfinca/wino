@@ -184,6 +184,7 @@
 		C9C7D6391842AACD00A2E955 /* tutorial_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6371842AACD00A2E955 /* tutorial_logo.png */; };
 		C9C7D63A1842AACD00A2E955 /* tutorial_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C7D6381842AACD00A2E955 /* tutorial_logo@2x.png */; };
 		C9CF6596193813EA00D8E401 /* FacebookLoginViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF6595193813EA00D8E401 /* FacebookLoginViewDelegate.m */; };
+		C9CF65991939280200D8E401 /* ManagedObjectFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF65981939280200D8E401 /* ManagedObjectFetcher.m */; };
 		C9DAB85418E90FE800BB0E2A /* Timeline_TRSICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85318E90FE800BB0E2A /* Timeline_TRSICDTVC.m */; };
 		C9DAB85718E91D3900BB0E2A /* ReviewsTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85618E91D3900BB0E2A /* ReviewsTVController.m */; };
 		C9DAB85D18EA025000BB0E2A /* ReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DAB85C18EA025000BB0E2A /* ReviewCell.m */; };
@@ -505,6 +506,8 @@
 		C9C7D6381842AACD00A2E955 /* tutorial_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutorial_logo@2x.png"; path = "images/tutorial_logo@2x.png"; sourceTree = "<group>"; };
 		C9CF6594193813EA00D8E401 /* FacebookLoginViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookLoginViewDelegate.h; path = model/FacebookLoginViewDelegate.h; sourceTree = "<group>"; };
 		C9CF6595193813EA00D8E401 /* FacebookLoginViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookLoginViewDelegate.m; path = model/FacebookLoginViewDelegate.m; sourceTree = "<group>"; };
+		C9CF65971939280200D8E401 /* ManagedObjectFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagedObjectFetcher.h; path = model/ManagedObjectFetcher.h; sourceTree = "<group>"; };
+		C9CF65981939280200D8E401 /* ManagedObjectFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagedObjectFetcher.m; path = model/ManagedObjectFetcher.m; sourceTree = "<group>"; };
 		C9DAB85218E90FE800BB0E2A /* Timeline_TRSICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timeline_TRSICDTVC.h; path = controllers/Timeline_TRSICDTVC.h; sourceTree = "<group>"; };
 		C9DAB85318E90FE800BB0E2A /* Timeline_TRSICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Timeline_TRSICDTVC.m; path = controllers/Timeline_TRSICDTVC.m; sourceTree = "<group>"; };
 		C9DAB85518E91D3900BB0E2A /* ReviewsTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewsTVController.h; path = controllers/ReviewsTVController.h; sourceTree = "<group>"; };
@@ -1093,6 +1096,8 @@
 				C96D317D1917081800B340F4 /* OutBox.m */,
 				C985911C192EC41E00A61E2D /* WineColorStringFromCode.h */,
 				C985911D192EC41E00A61E2D /* WineColorStringFromCode.m */,
+				C9CF65971939280200D8E401 /* ManagedObjectFetcher.h */,
+				C9CF65981939280200D8E401 /* ManagedObjectFetcher.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1424,6 +1429,7 @@
 				C9A73DA519031233007C2366 /* BrandHelper.m in Sources */,
 				C9BAE96A18E228E5009B8C76 /* FriendListSearchBar.m in Sources */,
 				C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */,
+				C9CF65991939280200D8E401 /* ManagedObjectFetcher.m in Sources */,
 				C9744C741928246900DB1F2B /* WineListHelper.m in Sources */,
 				C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */,
 				C979E66F192D831500B65680 /* Restaurant2.m in Sources */,

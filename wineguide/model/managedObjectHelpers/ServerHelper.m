@@ -10,31 +10,27 @@
 #import <AFNetworking.h>
 #import "DocumentHandler2.h"
 #import "ManagedObjectHandler.h"
-
-#define IDENTIFIER @"identifier"
+#import "ManagedObjectFetcher.h"
 
 @interface ServerHelper ()
 
-@property (nonatomic, readwrite) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSString *predicateString;
 @property (nonatomic, strong) NSPredicate *predicate;
 @property (nonatomic, readwrite) NSManagedObject *relatedObject;
+@property (nonatomic, strong) ManagedObjectFetcher *managedObjectFetcher;
 
 @end
 
 @implementation ServerHelper
 
-#pragma mark - Getters & Setters
+#pragma mark - Getters & setters
 
--(NSManagedObjectContext *)context
+-(ManagedObjectFetcher *)managedObjectFetcher
 {
-    if(!_context) {
-        _context = [DocumentHandler2 sharedDocumentHandler].document.managedObjectContext;
-        if(!_context){
-            NSLog(@"ServerHelper - Context does not exist!");
-        }
+    if(!_managedObjectFetcher){
+        _managedObjectFetcher = [[ManagedObjectFetcher alloc] init];
     }
-    return _context;
+    return _managedObjectFetcher;
 }
 
 #pragma mark - Predicates
@@ -148,40 +144,18 @@
 }
 
 
-
 -(NSManagedObject *)findOrCreateManagedObjectEntityType:(NSString *)entityName usingDictionary:(NSDictionary *)dictionary
 {
-    NSManagedObject *managedObject;
-    
+    NSManagedObject *mo;
     NSNumber *identifier = (NSNumber *)dictionary[ID_KEY];
     
-    if(identifier > 0){
-        
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:IDENTIFIER ascending:YES]];
-        
-        request.predicate = [self predicateForEntityIdentifier:identifier];
-        
-        NSError *error = nil;
-        NSArray *matches = [self.context executeFetchRequest:request error:&error];
-        
-        if(!matches || [matches count] > 1){
-            NSLog(@"Error %@ - matches exists? %@; [matches count] = %lu",error,matches ? @"yes" : @"no",(unsigned long)[matches count]);
-            
-        } else if ([matches count] == 0) {
-            managedObject = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self.context];
-            
-        } else if ([matches count] == 1){
-            managedObject = [matches lastObject];
-            
-        } else {
-            // Error
-            NSLog(@"Error - ManagedObject will be nil");
-        }
+    if(identifier){
+        mo = [self.managedObjectFetcher findOrCreateManagedObjectEntityType:entityName usingDictionary:dictionary andPredicate:[self predicateForEntityIdentifier:identifier]];
     }
-    
-    return managedObject;
+    return mo;
 }
+
+
 
 
 

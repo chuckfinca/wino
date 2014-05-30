@@ -11,10 +11,11 @@
 #import "User2+Modify.h"
 #import "GetMe.h"
 #import "NSDictionary+Helper.h"
+#import "ManagedObjectFetcher.h"
 
 @interface FacebookUserConverter ()
 
-@property (nonatomic, strong) NSManagedObjectContext *context;
+@property (nonatomic, strong) ManagedObjectFetcher *managedObjectFetcher;
 
 @end
 
@@ -41,15 +42,16 @@
 
 @implementation FacebookUserConverter
 
-#pragma mark - Getters & Setters
+#pragma mark - Getters & setters
 
--(NSManagedObjectContext *)context
+-(ManagedObjectFetcher *)managedObjectFetcher
 {
-    if(!_context){
-        _context = [DocumentHandler2 sharedDocumentHandler].document.managedObjectContext;
+    if(!_managedObjectFetcher){
+        _managedObjectFetcher = [[ManagedObjectFetcher alloc] init];
     }
-    return _context;
+    return _managedObjectFetcher;
 }
+
 
 -(void)modifyMeWithFacebookDictionary:(NSDictionary *)facebookDictionary
 {
@@ -88,49 +90,26 @@
 
 -(NSManagedObject *)createOrModifyObjectWithFacebookDictionary:(NSDictionary *)facebookDictionary
 {
-    NSLog(@"createOrModifyObjectWithFacebookDictionary... %@", facebookDictionary[FACEBOOK_ID]);
-    User2 *user = (User2 *)[self findOrCreateManagedObjectForFacebookUserID:facebookDictionary[FACEBOOK_ID]];
+    NSString *facebookID = (NSString *)facebookDictionary[FACEBOOK_ID];
     
-    if(!user.facebook_id){
-        NSLog(@"modifying");
-        [user modifyAttributesWithDictionary:[self dictionaryWithBasicDetailsFromFacebookDictionary:facebookDictionary]];
+    User2 *user;
+    
+    if(facebookID){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"facebook_id == %@",facebookID];
+        
+        user = (User2 *)[self.managedObjectFetcher findOrCreateManagedObjectEntityType:USER_ENTITY usingDictionary:@{@"facebook_id" : facebookID}andPredicate:predicate];
+        
+        if(!user.facebook_id){
+            NSLog(@"modifying");
+            [user modifyAttributesWithDictionary:[self dictionaryWithBasicDetailsFromFacebookDictionary:facebookDictionary]];
+        }
     }
     
     return user;
 }
 
 
--(NSManagedObject *)findOrCreateManagedObjectForFacebookUserID:(NSString *)facebookID
-{
-    NSManagedObject *managedObject;
-    
-    if(facebookID){
-        
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:USER_ENTITY];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-        request.predicate = [NSPredicate predicateWithFormat:@"facebook_id == %@",facebookID];
-        
-        NSError *error;
-        NSArray *matches = [self.context executeFetchRequest:request error:&error];
-        
-        if(!matches || [matches count] > 1){
-            NSLog(@"Error %@ - matches exists? %@; [matches count] = %lu",error,matches ? @"yes" : @"no",(unsigned long)[matches count]);
-            
-        } else if ([matches count] == 0) {
-            managedObject = [NSEntityDescription insertNewObjectForEntityForName:USER_ENTITY inManagedObjectContext:self.context];
-            
-        } else if ([matches count] == 1){
-            managedObject = [matches lastObject];
-            
-        } else {
-            // Error
-            NSLog(@"Error - ManagedObject will be nil");
-        }
 
-    }
-    
-    return managedObject;
-}
 
 
 
