@@ -192,6 +192,7 @@
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    NSLog(@"searchText = %@",searchText);
     [self.friendListSCDTVC setupAndSearchFetchedResultsControllerWithText:searchText];
     self.searchBar.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }

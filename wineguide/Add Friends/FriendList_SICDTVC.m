@@ -69,6 +69,7 @@
 
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
+    NSLog(@"text = %@",text);
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:USER_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name_last_initial"
                                                               ascending:YES],

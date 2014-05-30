@@ -42,6 +42,7 @@
         self.name_last = [dictionary sanitizedStringForKey:USER_NAME_LAST];
         self.name_display = [NSString stringWithFormat:@"%@ %@.",self.name_first, [self.name_last substringToIndex:1]];
         self.name_last_initial = [self.name_last substringToIndex:1];
+        self.name_full = [NSString stringWithFormat:@"%@ %@",self.name_first, self.name_last];
                 // self.imageData
         self.status = [dictionary sanitizedValueForKey:STATUS_CODE];
                 // self.registered

@@ -93,7 +93,7 @@
     
     if(!user.facebook_id){
         NSLog(@"modifying");
-        [user modifyAttributesWithDictionary:facebookDictionary];
+        [user modifyAttributesWithDictionary:[self dictionaryWithBasicDetailsFromFacebookDictionary:facebookDictionary]];
     }
     
     return user;
@@ -104,25 +104,29 @@
 {
     NSManagedObject *managedObject;
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:USER_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"facebook_id == %@",facebookID];
-    
-    NSError *error;
-    NSArray *matches = [self.context executeFetchRequest:request error:&error];
-    
-    if(!matches || [matches count] > 1){
-        NSLog(@"Error %@ - matches exists? %@; [matches count] = %lu",error,matches ? @"yes" : @"no",(unsigned long)[matches count]);
+    if(facebookID){
         
-    } else if ([matches count] == 0) {
-        managedObject = [NSEntityDescription insertNewObjectForEntityForName:USER_ENTITY inManagedObjectContext:self.context];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:USER_ENTITY];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
+        request.predicate = [NSPredicate predicateWithFormat:@"facebook_id == %@",facebookID];
         
-    } else if ([matches count] == 1){
-        managedObject = [matches lastObject];
+        NSError *error;
+        NSArray *matches = [self.context executeFetchRequest:request error:&error];
         
-    } else {
-        // Error
-        NSLog(@"Error - ManagedObject will be nil");
+        if(!matches || [matches count] > 1){
+            NSLog(@"Error %@ - matches exists? %@; [matches count] = %lu",error,matches ? @"yes" : @"no",(unsigned long)[matches count]);
+            
+        } else if ([matches count] == 0) {
+            managedObject = [NSEntityDescription insertNewObjectForEntityForName:USER_ENTITY inManagedObjectContext:self.context];
+            
+        } else if ([matches count] == 1){
+            managedObject = [matches lastObject];
+            
+        } else {
+            // Error
+            NSLog(@"Error - ManagedObject will be nil");
+        }
+
     }
     
     return managedObject;

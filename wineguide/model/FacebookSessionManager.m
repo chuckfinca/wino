@@ -21,6 +21,8 @@
 
 @property (nonatomic, strong) NSArray *friends; // of NSDictionaries
 @property (nonatomic, strong) NSManagedObjectContext *context;
+@property (nonatomic) BOOL haveUpdatedUserInfoThisSession;
+@property (nonatomic) BOOL haveUpdatedFriendInfoThisSession;
 
 @end
 
@@ -64,6 +66,7 @@ static FacebookSessionManager *sharedInstance;
         }
     } else {
         NSLog(@"cached token does not exist");
+        NSLog(@"[FBSession activeSession].state = %u",[FBSession activeSession].state);
         [self closeAndClearSession];
     }
 }
@@ -95,8 +98,14 @@ static FacebookSessionManager *sharedInstance;
 {
     NSLog(@"updateBasicInformation...");
     [self checkPermissions];
-    [self getUserInfo];
-    [self getFacebookFriends];
+    
+    if(!self.haveUpdatedUserInfoThisSession){
+        [self getUserInfo];
+    }
+    
+    if(!self.haveUpdatedFriendInfoThisSession){
+        [self getFacebookFriends];
+    }
 }
 
 -(void)sessionStateChanged:(FBSession *)session state:(FBSessionState)state error:(NSError *)error
@@ -278,10 +287,13 @@ static FacebookSessionManager *sharedInstance;
                 
                 FacebookUserConverter *facebookUserConverter = [[FacebookUserConverter alloc] init];
                 [facebookUserConverter modifyMeWithFacebookDictionary:graphObject];
+                
+                self.haveUpdatedUserInfoThisSession = YES;
             }
         } else {
             // An error occurred, we need to handle the error
             // See: https://developers.facebook.com/docs/ios/errors
+            [self handleError:error];
         }
     }];
 }
@@ -297,6 +309,7 @@ static FacebookSessionManager *sharedInstance;
                               } else {
                                   // An error occurred, we need to handle the error
                                   // See: https://developers.facebook.com/docs/ios/errors
+                                  [self handleError:error];
                               }
                           }];
 }
@@ -305,16 +318,21 @@ static FacebookSessionManager *sharedInstance;
 {
     NSLog(@"getFacebookFriends...");
     FBRequest *friendsRequest = [FBRequest requestForMyFriends];
-    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
-                                                  NSDictionary* result,
-                                                  NSError *error) {
-        self.friends = [result objectForKey:@"data"];
-        NSLog(@"Found: %i friends", self.friends.count);
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
         
-        FacebookUserConverter *facebookUserConverter = [[FacebookUserConverter alloc] init];
-        
-        for (NSDictionary<FBGraphUser>* friend in self.friends) {
-            [facebookUserConverter createOrModifyObjectWithFacebookDictionary:friend];
+        if(!error){
+            self.friends = [result objectForKey:@"data"];
+            NSLog(@"Found: %i friends", self.friends.count);
+            
+            FacebookUserConverter *facebookUserConverter = [[FacebookUserConverter alloc] init];
+            
+            for (NSDictionary<FBGraphUser>* friend in self.friends) {
+                [facebookUserConverter createOrModifyObjectWithFacebookDictionary:friend];
+            }
+            
+            self.haveUpdatedFriendInfoThisSession = YES;
+        } else {
+            [self handleError:error];
         }
     }];
 }
