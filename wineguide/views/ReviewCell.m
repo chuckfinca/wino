@@ -42,7 +42,8 @@
 
 -(void)awakeFromNib
 {
-    //self.tintColor = [ColorSchemer sharedInstance].baseColor;
+    self.userImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+
 }
 
 #pragma mark - Getters & setters

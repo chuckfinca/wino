@@ -43,6 +43,10 @@
 {
     // Initialization code
     self.tintColor = [ColorSchemer sharedInstance].baseColor;
+    
+    for(UIButton *userImageButton in self.userImageButtonArray){
+        userImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
 }
 
 -(void)setupWithTastingRecord:(TastingRecord2 *)tastingRecord andDisplayWineName:(BOOL)displayWineName
