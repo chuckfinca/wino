@@ -66,11 +66,6 @@
 {
     self.reviews = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"review_date" ascending:NO]]];
     
-    for(Review2 *review in self.reviews){
-        NSLog(@"%@ review_date = %@",review.user.name_full,review.review_date);
-        NSLog(@"review claimed = %@",review.claimed);
-    }
-    
     self.tableView.tableHeaderView = [[[NSBundle mainBundle] loadNibNamed:@"ReviewsTVControllerHeaderView" owner:self options:nil] firstObject];
     self.tableView.tableHeaderView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     self.tableView.tableHeaderView.tintColor = [ColorSchemer sharedInstance].baseColor;
@@ -131,6 +126,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ReviewCell *cell = (ReviewCell *)[tableView dequeueReusableCellWithIdentifier:REVIEW_CELL forIndexPath:indexPath];
+    cell.tag = indexPath.row;
     
     Review2 *review = self.reviews[indexPath.row];
     
