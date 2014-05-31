@@ -136,20 +136,20 @@
 
 -(void)setupUserProfileImage
 {
-    FacebookProfileImageGetter *fpig = [[FacebookProfileImageGetter alloc] init];
-    [fpig setProfilePicForUser:self.user inImageView:self.userProfileImageView completion:^(BOOL success) {
-        if(success){
-            NSLog(@"successfully set user profile pic");
-        } else {
-            NSLog(@"failed to set user profile pic");
-        }
-    }];
-    
-    UIColor *color = [ColorSchemer sharedInstance].gray;
-    self.userProfileImageView.tintColor = color;
-    self.userProfileImageView.layer.borderWidth = 2;
-    self.userProfileImageView.layer.borderColor = color.CGColor;
-    self.userProfileImageView.layer.cornerRadius = 4;
+    if(self.user.imageData){
+        [self.userProfileImageView setImage:[UIImage imageWithData:self.user.imageData]];
+    } else {
+        FacebookProfileImageGetter *fpig = [[FacebookProfileImageGetter alloc] init];
+        [fpig setProfilePicForUser:self.user inImageView:self.userProfileImageView completion:^(BOOL success) {
+            if(success){
+                NSLog(@"successfully set user profile pic");
+                
+                [self.userProfileImageView setImage:[UIImage imageWithData:self.user.imageData]];
+            } else {
+                NSLog(@"failed to set user profile pic");
+            }
+        }];
+    }
 }
 
 -(void)setHeaderViewHeight
