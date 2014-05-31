@@ -370,6 +370,8 @@
     NSMutableSet *reviews = [[NSMutableSet alloc] init];
     User2 *me = [GetMe sharedInstance].me;
     Review2 *userReview = [self createClaimed:YES reviewForUser:me];
+    userReview.created_at = tastingRecord.created_at;
+    userReview.review_date = tastingRecord.created_at;
     [reviews addObject:userReview];
     
     [self determineIfFavorite];
@@ -377,6 +379,7 @@
     if(self.selectedFriends){
         for(User2 *friend in self.selectedFriends){
             Review2 *friendReview = [self createClaimed:NO reviewForUser:friend];
+            friendReview.created_at = tastingRecord.created_at;
             [reviews addObject:friendReview];
         }
         tastingRecord.reviews = reviews;
@@ -395,20 +398,17 @@
     // Need better identifier
     NSNumber *identifier = [NSNumber numberWithInteger:-arc4random_uniform(1000000000)+1];
     
-    [dictionary setObject:now forKey:CREATED_AT];
     [dictionary setObject:identifier forKey:ID_KEY];
     [dictionary setObject:@(claimed) forKey:CLAIMED_BY_USER];
     
     if(claimed){
-        [dictionary setObject:@(self.ratingVC.rating) forKey:RATING];
         NSString *reviewText;
         if([[self.noteTV.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] > 0){
             reviewText = self.noteTV.text;
             [dictionary setObject:reviewText forKey:REVIEW_TEXT];
-            [dictionary setObject:now forKey:REVIEW_DATE];
         }
         
-        [dictionary setObject:self.selectedDate forKey:CREATED_AT];
+        [dictionary setObject:@(self.ratingVC.rating) forKey:RATING];
     }
     
     [dictionary setObject:self.selectedDate forKey:UPDATED_AT];
