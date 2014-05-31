@@ -53,23 +53,32 @@
 {
     self.dateLabel.attributedText = [DateStringFormatter attributedStringFromDate:tastingRecord.tasting_date];
     
-    __block float averageRatingForTastingRecord = 0;
-    [tastingRecord.reviews enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-        Review2 *review = (Review2 *)obj;
-        averageRatingForTastingRecord += [review.rating floatValue];
-    }];
-    
     if(displayWineName){
         [self.wineNameVHTV setupTextViewWithWine:tastingRecord.wine fromRestaurant:tastingRecord.restaurant];
     } else {
         self.wineNameVHTV.text = nil;
     }
     
-    [RatingPreparer setupRating:(averageRatingForTastingRecord/[tastingRecord.reviews count]) inImageViewArray:self.ratingImageViewArray withWineColor:tastingRecord.wine.color_code];
+    [self setupRatingForTastingRecord:tastingRecord];
     
     [self setHeight];
     
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+}
+
+-(void)setupRatingForTastingRecord:(TastingRecord2 *)tastingRecord
+{
+    __block float averageRatingForTastingRecord = 0;
+    __block NSInteger numberOfReviews = 0;
+    [tastingRecord.reviews enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+        Review2 *review = (Review2 *)obj;
+        if(review.rating){
+            averageRatingForTastingRecord += [review.rating floatValue];
+            numberOfReviews++;
+        }
+    }];
+    
+    [RatingPreparer setupRating:(averageRatingForTastingRecord/numberOfReviews) inImageViewArray:self.ratingImageViewArray withWineColor:tastingRecord.wine.color_code];
 }
 
 -(void)setHeight
