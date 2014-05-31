@@ -19,6 +19,7 @@
 @interface ReviewCell : UITableViewCell
 
 @property (nonatomic, weak) id <ReviewCellDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIButton *userImageButton;
 
 -(void)setupWithReview:(Review2 *)review forWineColorCode:(NSNumber *)wineColorCode;
 

@@ -16,6 +16,7 @@
 #import "ColorSchemer.h"
 #import "UserProfileVC.h"
 #import "Wine_TRSICDTVC.h"
+#import "FacebookProfileImageGetter.h"
 
 #define REVIEW_CELL @"ReviewCell"
 
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) ReviewCell *sizingCell;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet WineNameVHTV *wineNameVHTV;
+@property (nonatomic, strong) FacebookProfileImageGetter *facebookProfileImageGetter;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToDateLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *dateLabelToWineNameVHTVConstraint;
@@ -84,6 +86,13 @@
     return _sizingCell;
 }
 
+-(FacebookProfileImageGetter *)facebookProfileImageGetter
+{
+    if(!_facebookProfileImageGetter){
+        _facebookProfileImageGetter = [[FacebookProfileImageGetter alloc] init];
+    }
+    return _facebookProfileImageGetter;
+}
 
 #pragma mark - Setup
 
@@ -118,24 +127,30 @@
 {
     ReviewCell *cell = (ReviewCell *)[tableView dequeueReusableCellWithIdentifier:REVIEW_CELL forIndexPath:indexPath];
     
-    cell.tag = indexPath.row;
     Review2 *review = self.reviews[indexPath.row];
-    User2 *user = review.user;
-    
-    NSString *userName;
-    if(user.is_me){
-        userName = @"Me";
-    } else {
-        [NSString stringWithFormat:@"%@ %@.",user.name_first, [user.name_last substringToIndex:1]];
-    }
     
     [cell setupWithReview:review forWineColorCode:review.tastingRecord.wine.color_code];
+    [self loadUser:review.user imageInCell:cell atIndexPath:indexPath];
     
-    // the content view covers the ReviewCell view so it neeeds to be hidden inorder for the ReviewCell view to record touches
-    cell.contentView.hidden = YES;
     cell.delegate = self;
     
     return cell;
+}
+
+-(void)loadUser:(User2 *)user imageInCell:(ReviewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    if(user.imageData){
+        [cell.userImageButton setImage:[UIImage imageWithData:user.imageData] forState:UIControlStateNormal];
+    } else {
+        __weak UITableView *weakTableView = self.tableView;
+        [self.facebookProfileImageGetter setProfilePicForUser:user inButton:cell.userImageButton completion:^(BOOL success) {
+            if(success){
+                if([weakTableView cellForRowAtIndexPath:indexPath]){
+                    [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+            }
+        }];
+    }
 }
 
 #pragma mark - UITableViewDelegate

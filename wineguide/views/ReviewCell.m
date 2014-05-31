@@ -13,17 +13,13 @@
 #import "WineNameVHTV.h"
 #import "RatingPreparer.h"
 #import "User2.h"
-#import "FacebookProfileImageGetter.h"
 
 @interface ReviewCell ()
 
-@property (weak, nonatomic) IBOutlet UIButton *userImageButton;
 @property (weak, nonatomic) IBOutlet UIButton *userNameButton;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *ratingGlassArray;
 @property (weak, nonatomic) IBOutlet VariableHeightTV *reviewTV;
 @property (weak, nonatomic) IBOutlet UIButton *reviewButton;
-
-@property (nonatomic, strong) UIImage *placeHolderImage;
 
 // Vertical constraints
 
@@ -46,18 +42,10 @@
 
 -(void)awakeFromNib
 {
-    self.tintColor = [ColorSchemer sharedInstance].baseColor;
+    //self.tintColor = [ColorSchemer sharedInstance].baseColor;
 }
 
 #pragma mark - Getters & setters
-
--(UIImage *)placeHolderImage
-{
-    if(!_placeHolderImage){
-        _placeHolderImage = [[UIImage imageNamed:@"user_default.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    }
-    return _placeHolderImage;
-}
 
 #pragma mark - Setup
 
@@ -73,27 +61,27 @@
         [RatingPreparer setupRating:[review.rating floatValue] inImageViewArray:self.ratingGlassArray withWineColor:wineColorCode];
         
         self.reviewButton.hidden = YES;
+        
     } else {
         for(UIView *iv in self.ratingGlassArray){
             iv.hidden = YES;
         }
         self.reviewButton.hidden = NO;
+        
         NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:@"REVIEW" attributes:[FontThemer sharedInstance].linkBodyTextAttributes];
+        
         [self.reviewButton setAttributedTitle:attributedText forState:UIControlStateNormal];
         self.reviewTV.attributedText = nil;
     }
     // the view should just take the review object from the view controller and display it accordingly
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     
-    
-    FacebookProfileImageGetter *fpig = [[FacebookProfileImageGetter alloc] init];
-    [fpig setProfilePicForUser:review.user inButton:self.userImageButton completion:^(BOOL success) {
-        NSLog(@"successfully set user %@ profile image",review.user.identifier);
-    }];
-    
     [self.userNameButton setTitle:review.user.name_display forState:UIControlStateNormal];
     
     self.userNameButton.tintColor = [ColorSchemer sharedInstance].textSecondary;
+    
+    // the content view covers the ReviewCell view so it neeeds to be hidden inorder for the ReviewCell view to record touches
+    self.contentView.hidden = YES;
     
     [self setViewHeight];
 }
