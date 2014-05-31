@@ -43,6 +43,7 @@
 -(void)awakeFromNib
 {
     self.userImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.userImageButton.tintColor = [ColorSchemer sharedInstance].baseColor;
 
 }
 
