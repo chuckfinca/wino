@@ -101,6 +101,9 @@ static FontThemer *sharedInstance;
     return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].clickable, NSFontAttributeName : self.caption1};
 }
 
-
+-(NSDictionary *)whiteSubHeadlineTextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].customWhite, NSFontAttributeName : self.subHeadline};
+}
 
 @end

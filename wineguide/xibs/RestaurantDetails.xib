@@ -6,19 +6,23 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantDetailsVC">
             <connections>
+                <outlet property="buttonArrayToBottomConstraint" destination="jW1-65-FSD" id="vQk-8j-GNH"/>
                 <outlet property="restaurantDetailsVHTV" destination="AMh-ir-cDL" id="RQM-4d-fFJ"/>
-                <outlet property="restaurantInfoVHTVToBottomConstraint" destination="Pmt-XL-gDQ" id="OcK-Nr-zUN"/>
+                <outlet property="restaurantInfoVHTVToButtonArrayConstraint" destination="QwU-R4-JCI" id="yjl-oa-D40"/>
                 <outlet property="topToRestaurantInfoConstraint" destination="GfJ-is-pub" id="WUG-A4-ODD"/>
                 <outlet property="view" destination="1" id="DBb-2J-Vxe"/>
+                <outletCollection property="buttonArray" destination="owu-Hs-ESm" id="F8V-bu-NCA"/>
+                <outletCollection property="buttonArray" destination="fqe-G7-YMO" id="Ee9-Fr-8aT"/>
+                <outletCollection property="buttonArray" destination="IsD-iu-y3X" id="qeD-px-G4m"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="153"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMh-ir-cDL" customClass="RestaurantDetailsVHTV">
-                    <rect key="frame" x="12" y="20" width="296" height="75"/>
+                    <rect key="frame" x="12" y="20" width="296" height="73"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <attributedString key="attributedText">
@@ -31,12 +35,63 @@
                     </attributedString>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owu-Hs-ESm" customClass="RoundedRectButton">
+                    <rect key="frame" x="20" y="93" width="80" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="awl-pO-fOZ"/>
+                        <constraint firstAttribute="height" constant="40" id="i4z-ih-9kO"/>
+                    </constraints>
+                    <state key="normal" title="Popular">
+                        <color key="titleColor" red="0.14901961389999999" green="0.50588238240000005" blue="0.74509805439999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="filterList:" destination="-1" eventType="touchUpInside" id="OlX-5T-8pn"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqe-G7-YMO" customClass="RoundedRectButton">
+                    <rect key="frame" x="120" y="93" width="80" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="B3c-Dh-YDe"/>
+                        <constraint firstAttribute="height" constant="40" id="j1p-Rg-62m"/>
+                    </constraints>
+                    <state key="normal" title="Friends">
+                        <color key="titleColor" red="0.14901961389999999" green="0.50588238240000005" blue="0.74509805439999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="filterList:" destination="-1" eventType="touchUpInside" id="C7P-pg-uYw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsD-iu-y3X" customClass="RoundedRectButton">
+                    <rect key="frame" x="220" y="93" width="80" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="WpJ-dW-dYD"/>
+                        <constraint firstAttribute="width" constant="80" id="hYb-FB-Kjd"/>
+                    </constraints>
+                    <state key="normal" title="Experts">
+                        <color key="titleColor" red="0.14901961389999999" green="0.50588238240000005" blue="0.74509805439999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="filterList:" destination="-1" eventType="touchUpInside" id="D4b-xz-rME"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstItem="owu-Hs-ESm" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="9em-3B-968"/>
+                <constraint firstItem="IsD-iu-y3X" firstAttribute="centerY" secondItem="fqe-G7-YMO" secondAttribute="centerY" id="C6t-o6-Kab"/>
+                <constraint firstItem="IsD-iu-y3X" firstAttribute="centerY" secondItem="owu-Hs-ESm" secondAttribute="centerY" id="DmE-3Y-JZu"/>
                 <constraint firstItem="AMh-ir-cDL" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="GfJ-is-pub"/>
+                <constraint firstItem="fqe-G7-YMO" firstAttribute="leading" secondItem="owu-Hs-ESm" secondAttribute="trailing" constant="20" id="HJj-cX-gRT"/>
                 <constraint firstAttribute="trailing" secondItem="AMh-ir-cDL" secondAttribute="trailing" constant="12" id="JAb-Lm-nFw"/>
                 <constraint firstItem="AMh-ir-cDL" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="12" id="OgW-4S-567"/>
-                <constraint firstAttribute="bottom" secondItem="AMh-ir-cDL" secondAttribute="bottom" id="Pmt-XL-gDQ"/>
+                <constraint firstItem="owu-Hs-ESm" firstAttribute="top" secondItem="AMh-ir-cDL" secondAttribute="bottom" id="QwU-R4-JCI"/>
+                <constraint firstItem="IsD-iu-y3X" firstAttribute="leading" secondItem="fqe-G7-YMO" secondAttribute="trailing" constant="20" id="a4d-yt-oqg"/>
+                <constraint firstAttribute="bottom" secondItem="owu-Hs-ESm" secondAttribute="bottom" constant="20" id="jW1-65-FSD"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

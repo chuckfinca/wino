@@ -10,4 +10,6 @@
 
 @interface RoundedRectButton : UIButton
 
+-(void)setFillColor:(UIColor *)fill strokeColor:(UIColor *)stroke;
+
 @end

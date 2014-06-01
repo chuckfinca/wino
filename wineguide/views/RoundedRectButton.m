@@ -9,7 +9,15 @@
 #import "RoundedRectButton.h"
 #import "ColorSchemer.h"
 
-#define CORNER_RADIUS_SCALE_FACTOR .02
+#define CORNER_RADIUS 6
+#define BORDER_WIDTH 2
+
+@interface RoundedRectButton ()
+
+@property (nonatomic, strong) UIColor *fill;
+@property (nonatomic, strong) UIColor *stroke;
+
+@end
 
 @implementation RoundedRectButton
 
@@ -22,15 +30,36 @@
     return self;
 }
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+
+
+-(void)setFillColor:(UIColor *)fill strokeColor:(UIColor *)stroke
 {
-    // Drawing code
-    UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:self.bounds.size.width*CORNER_RADIUS_SCALE_FACTOR];
-    [roundedRect addClip];
-    [[ColorSchemer sharedInstance].baseColor setFill];
-    [roundedRect fill];
+    if(fill){
+        self.fill = fill;
+    }
+    if(stroke){
+        self.stroke = stroke;
+    }
 }
+
+-(void)drawRect:(CGRect)rect
+{
+    if(self.stroke){
+        self.layer.borderColor = self.stroke.CGColor;
+        self.layer.borderWidth = BORDER_WIDTH;
+    }
+    
+    if(self.fill){
+        self.layer.backgroundColor = self.fill.CGColor;
+    }
+    
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = CORNER_RADIUS;
+}
+
+
+
+
+
 
 @end

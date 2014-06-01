@@ -35,6 +35,7 @@
     NSString *accessButtonText = @"Allow access to your location";
     NSAttributedString *accessButtonAttributedText = [[NSAttributedString alloc] initWithString:accessButtonText attributes:@{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].customWhite, NSFontAttributeName : [FontThemer sharedInstance].body}];
     [self.accessButton setAttributedTitle:accessButtonAttributedText forState:UIControlStateNormal];
+    [self.accessButton setFillColor:[ColorSchemer sharedInstance].baseColor strokeColor:nil];
     
     NSString *instructions = @"In order to find the restaurant you're at automatically Corkie needs access to your location data.";
     self.instructions_VHTV.attributedText = [[NSAttributedString alloc] initWithString:instructions attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];

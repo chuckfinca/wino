@@ -9,12 +9,13 @@
 #import "TutorialDetailsVC.h"
 #import "ColorSchemer.h"
 #import "FontThemer.h"
+#import "RoundedRectButton.h"
 
 @interface TutorialDetailsVC ()
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpaceLayoutConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *tutorialImageView;
-@property (weak, nonatomic) IBOutlet UIButton *mainButton;
+@property (weak, nonatomic) IBOutlet RoundedRectButton *mainButton;
 
 @end
 
@@ -34,6 +35,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self.mainButton setTitleColor:[ColorSchemer sharedInstance].customWhite forState:UIControlStateNormal];
+    [self.mainButton setFillColor:[ColorSchemer sharedInstance].baseColor strokeColor:nil];
     
     NSString *text;
     NSRange title = NSMakeRange(0, 0);

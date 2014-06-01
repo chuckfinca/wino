@@ -22,12 +22,6 @@
 #define WINE_CELL_WITH_RATING @"WineCell_withRating"
 #define WINE_CELL_WITH_RATING_AND_TALKING_HEADS @"WineCell_withRatingAndTalkingHeads"
 
-typedef NS_ENUM(NSInteger, WineColor) {
-    WineColorRed     = 1,
-    WineColorWhite   = 2,
-    WineColorRose    = 3,
-};
-
 
 @interface Restaurant_SICDTVC () <UITableViewDelegate, UITableViewDataSource>
 

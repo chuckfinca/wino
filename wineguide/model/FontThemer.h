@@ -30,4 +30,6 @@
 @property (nonatomic, readonly) NSDictionary *linkCaption1TextAttributes;
 @property (nonatomic, readonly) NSDictionary *linkBodyTextAttributes;
 
+@property (nonatomic, readonly) NSDictionary *whiteSubHeadlineTextAttributes;
+
 @end
