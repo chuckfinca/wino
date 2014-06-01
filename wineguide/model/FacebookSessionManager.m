@@ -17,12 +17,14 @@
 #import "DocumentHandler2.h"
 #import "GetMe.h"
 
-@interface FacebookSessionManager ()
+@interface FacebookSessionManager () <UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSArray *friends; // of NSDictionaries
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic) BOOL haveUpdatedUserInfoThisSession;
 @property (nonatomic) BOOL haveUpdatedFriendInfoThisSession;
+
+@property (nonatomic) BOOL alertInProgress;
 
 @end
 
@@ -54,20 +56,25 @@ static FacebookSessionManager *sharedInstance;
 
 -(void)checkToken
 {
-    if([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded){
-        BOOL cachedTokenExists = [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
-                                                                    allowLoginUI:NO
-                                                               completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-                                                                   [self sessionStateChanged:session state:status error:error];
-                                                               }];
-        if(cachedTokenExists){
-            NSLog(@"Success! Facebook session is open, a cached token exists");
-            [self updateBasicInformation];
-        }
-    } else {
+    if([FBSession activeSession].state == FBSessionStateClosedLoginFailed || [FBSession activeSession].state == FBSessionStateClosed){
         NSLog(@"cached token does not exist");
         NSLog(@"[FBSession activeSession].state = %u",[FBSession activeSession].state);
         [self closeAndClearSession];
+        
+    } else {
+        if([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded){
+            BOOL cachedTokenExists = [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
+                                                                        allowLoginUI:NO
+                                                                   completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                                                                       [self sessionStateChanged:session state:status error:error];
+                                                                   }];
+            if(cachedTokenExists){
+                NSLog(@"Success! Facebook session is open, a cached token exists");
+                [self updateBasicInformation];
+            } else {
+                [self checkToken];
+            }
+        }
     }
 }
 
@@ -237,12 +244,16 @@ static FacebookSessionManager *sharedInstance;
         }
     }
     
-    if (alertMessage) {
-        [[[UIAlertView alloc] initWithTitle:alertTitle
+    if (alertMessage && self.alertInProgress) {
+        self.alertInProgress = YES;
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle
                                     message:alertMessage
                                    delegate:nil
                           cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil] show];
+                          otherButtonTitles:nil];
+        alert.delegate = self;
+        [alert show];
     }
 }
 
@@ -324,7 +335,7 @@ static FacebookSessionManager *sharedInstance;
         
         if(!error){
             self.friends = [result objectForKey:@"data"];
-            NSLog(@"Found: %i friends", self.friends.count);
+            NSLog(@"Found: %lu friends", (unsigned long)self.friends.count);
             
             FacebookUserConverter *facebookUserConverter = [[FacebookUserConverter alloc] init];
             
@@ -341,7 +352,12 @@ static FacebookSessionManager *sharedInstance;
 
 
 
+#pragma mark - UIAlertViewDelegate
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    self.alertInProgress = NO;
+}
 
 
 
