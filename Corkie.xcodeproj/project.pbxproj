@@ -85,6 +85,7 @@
 		C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBC186510050050DFAC /* tab_cellar@2x.png */; };
 		C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */; };
 		C9672E36193A9E3400C98FEC /* fghj.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E35193A9E3400C98FEC /* fghj.m */; };
+		C9672E3A193AABD600C98FEC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9672E39193AABD600C98FEC /* Crashlytics.framework */; };
 		C96928D818E0E069006ADCC4 /* Restaurant_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D718E0E069006ADCC4 /* Restaurant_SICDTVC.m */; };
 		C969342A1875EF290071EF41 /* IterationCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934271875EF290071EF41 /* IterationCounter.m */; };
 		C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934291875EF290071EF41 /* NSDictionary+Helper.m */; };
@@ -148,7 +149,6 @@
 		C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D6184E72AB00E5945D /* settings@2x.png */; };
 		C9B6B26018D7ACA3007406DC /* UserProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B25F18D7ACA3007406DC /* UserProfileVC.m */; };
 		C9B6B26918D8ED8E007406DC /* FacebookSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */; };
-		C9BAE96A18E228E5009B8C76 /* FriendListSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BAE96918E228E5009B8C76 /* FriendListSearchBar.m */; };
 		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
 		C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EE183FE6E400A2E955 /* RestaurantDetailsVHTV.m */; };
 		C9C7D5F2183FEA7E00A2E955 /* WineDetailsVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5F1183FEA7E00A2E955 /* WineDetailsVHTV.m */; };
@@ -327,6 +327,7 @@
 		C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_triedIt@2x.png"; path = "images/userAction_triedIt@2x.png"; sourceTree = "<group>"; };
 		C9672E34193A9E3400C98FEC /* fghj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fghj.h; sourceTree = "<group>"; };
 		C9672E35193A9E3400C98FEC /* fghj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fghj.m; sourceTree = "<group>"; };
+		C9672E39193AABD600C98FEC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		C96928D618E0E069006ADCC4 /* Restaurant_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Restaurant_SICDTVC.h; path = controllers/Restaurant_SICDTVC.h; sourceTree = "<group>"; };
 		C96928D718E0E069006ADCC4 /* Restaurant_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Restaurant_SICDTVC.m; path = controllers/Restaurant_SICDTVC.m; sourceTree = "<group>"; };
 		C96934261875EF290071EF41 /* IterationCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IterationCounter.h; path = supportingClasses/IterationCounter.h; sourceTree = "<group>"; };
@@ -437,8 +438,6 @@
 		C9B6B25F18D7ACA3007406DC /* UserProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfileVC.m; path = controllers/UserProfileVC.m; sourceTree = "<group>"; };
 		C9B6B26718D8ED8E007406DC /* FacebookSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookSessionManager.h; path = model/FacebookSessionManager.h; sourceTree = "<group>"; };
 		C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookSessionManager.m; path = model/FacebookSessionManager.m; sourceTree = "<group>"; };
-		C9BAE96818E228E5009B8C76 /* FriendListSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListSearchBar.h; path = views/FriendListSearchBar.h; sourceTree = "<group>"; };
-		C9BAE96918E228E5009B8C76 /* FriendListSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListSearchBar.m; path = views/FriendListSearchBar.m; sourceTree = "<group>"; };
 		C9C7D5EA183FDE5600A2E955 /* ColorSchemer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSchemer.h; path = model/ColorSchemer.h; sourceTree = "<group>"; };
 		C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSchemer.m; path = model/ColorSchemer.m; sourceTree = "<group>"; };
 		C9C7D5ED183FE6E400A2E955 /* RestaurantDetailsVHTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantDetailsVHTV.h; path = views/RestaurantDetailsVHTV.h; sourceTree = "<group>"; };
@@ -535,6 +534,7 @@
 			files = (
 				C9E40187191DAF5800ADD072 /* QuartzCore.framework in Frameworks */,
 				C9E40185191D90BF00ADD072 /* MapKit.framework in Frameworks */,
+				C9672E3A193AABD600C98FEC /* Crashlytics.framework in Frameworks */,
 				C9DDD08918201F0C000A6FD7 /* CoreData.framework in Frameworks */,
 				C9061DF1181F07CE003D8A55 /* CoreGraphics.framework in Frameworks */,
 				C9061DF3181F07CE003D8A55 /* UIKit.framework in Frameworks */,
@@ -579,6 +579,7 @@
 		C9061DED181F07CE003D8A55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9672E39193AABD600C98FEC /* Crashlytics.framework */,
 				C9E40186191DAF5800ADD072 /* QuartzCore.framework */,
 				C9E40184191D90BF00ADD072 /* MapKit.framework */,
 				C9DDD08818201F0C000A6FD7 /* CoreData.framework */,
@@ -706,8 +707,6 @@
 				C95A2CD8185BF8360043ECB0 /* WineNameVHTV.m */,
 				C9C7D5F0183FEA7E00A2E955 /* WineDetailsVHTV.h */,
 				C9C7D5F1183FEA7E00A2E955 /* WineDetailsVHTV.m */,
-				C9BAE96818E228E5009B8C76 /* FriendListSearchBar.h */,
-				C9BAE96918E228E5009B8C76 /* FriendListSearchBar.m */,
 				C96BA8F718E8D1AE00E0F990 /* TastingRecordCell.h */,
 				C96BA8F818E8D1AE00E0F990 /* TastingRecordCell.m */,
 				C9DAB85B18EA025000BB0E2A /* ReviewCell.h */,
@@ -1067,6 +1066,7 @@
 				C9061DE8181F07CE003D8A55 /* Frameworks */,
 				C9061DE9181F07CE003D8A55 /* Resources */,
 				C489A7A5428345B4B09D38E3 /* Copy Pods Resources */,
+				C9672E37193AAB7200C98FEC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1255,6 +1255,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C9672E37193AAB7200C98FEC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 8517fac29e50dbb70b924066e248d14a6044d7d6 9c491b9c053ae7674f6c3c0e26bd509a2ca1e0c4efef748ec98aee5bb4b58a9e";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1330,7 +1343,6 @@
 				C9A337EB18861E810089D020 /* DateStringFormatter.m in Sources */,
 				C9061E46181F2BF2003D8A55 /* RestaurantDetailsVC.m in Sources */,
 				C9A73DA519031233007C2366 /* BrandHelper.m in Sources */,
-				C9BAE96A18E228E5009B8C76 /* FriendListSearchBar.m in Sources */,
 				C9C7D63218417DED00A2E955 /* CustomNC.m in Sources */,
 				C9CF65991939280200D8E401 /* ManagedObjectFetcher.m in Sources */,
 				C9744C741928246900DB1F2B /* WineListHelper.m in Sources */,
@@ -1517,6 +1529,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wineguide/Corkie-Prefix.pch";
 				INFOPLIST_FILE = "wineguide/Corkie-Info.plist";
@@ -1535,6 +1551,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wineguide/Corkie-Prefix.pch";
 				INFOPLIST_FILE = "wineguide/Corkie-Info.plist";

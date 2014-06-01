@@ -10,6 +10,7 @@
 #import <FBLoginView.h>
 #import <FBAppCall.h>
 #import "FacebookSessionManager.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation AppDelegate
 
@@ -17,6 +18,7 @@
 {
     // Override point for customization after application launch.
     [FBLoginView class];
+    [Crashlytics startWithAPIKey:@"8517fac29e50dbb70b924066e248d14a6044d7d6"];
     return YES;
 }
 							

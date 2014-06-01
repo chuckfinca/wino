@@ -10,7 +10,6 @@
 #import "ColorSchemer.h"
 #import "FriendList_SICDTVC.h"
 #import "FontThemer.h"
-#import "FriendListSearchBar.h"
 #import "GetMe.h"
 
 @interface FriendListVC () <FriendSelectionDelegate, UISearchBarDelegate>
@@ -18,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *selectedFriendsTextView;
 @property (nonatomic, strong) UIImage *placeHolderImage;
 @property (nonatomic, strong) FriendList_SICDTVC *friendListSCDTVC;
-@property (weak, nonatomic) IBOutlet FriendListSearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 
 @end
@@ -78,8 +77,6 @@
     
     [self.searchBar.layer setBorderColor:[ColorSchemer sharedInstance].lightGray.CGColor];
     [self.searchBar.layer setBorderWidth:1];
-    
-    [[UIBarButtonItem appearanceWhenContainedIn:[FriendListSearchBar class], nil] setTitle:@"Done"];
 }
 
 #pragma mark - Getters & Setters
