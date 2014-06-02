@@ -17,6 +17,7 @@
 #import "FontThemer.h"
 #import "FacebookProfileImageGetter.h"
 #import "FacebookLoginViewDelegate.h"
+#import "User2+Modify.h"
 
 #define USER_PROFILE_PAGE_CELL  @"UserCell"
 #define USER_ENTITY  @"User2"
@@ -87,7 +88,6 @@
     }
     
     [self setupNameLabel];
-    [self setupUserProfileImage];
     [self setupFollowButton];
 }
 
@@ -95,6 +95,11 @@
 {
     [super viewWillAppear:animated];
     [self setHeaderViewHeight];
+    
+    [self setupUserProfileImage];
+    
+    [self.user description];
+    [[GetMe sharedInstance].me description];
 }
 
 
