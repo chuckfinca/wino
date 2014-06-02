@@ -27,14 +27,19 @@
 
 -(void)setupForUser:(User2 *)user
 {
-    NSString *name = [NSString stringWithFormat:@"%@ ",user.name_first];
-    NSInteger firstNameLength = [name length];
-    name = [name stringByAppendingString:user.name_last];
-    
-    NSMutableAttributedString *attributedName = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body}];
-    [attributedName addAttribute:NSFontAttributeName value:[FontThemer sharedInstance].headline range: NSMakeRange(firstNameLength, [user.name_last length])];
-    
-    self.userNameLabel.attributedText = attributedName;
+    if(user.name_first){
+        NSString *name = [NSString stringWithFormat:@"%@ ",user.name_first];
+        NSInteger firstNameLength = [name length];
+        
+        if(user.name_last){
+            name = [name stringByAppendingString:user.name_last];
+        }
+        
+        NSMutableAttributedString *attributedName = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName : [FontThemer sharedInstance].body}];
+        [attributedName addAttribute:NSFontAttributeName value:[FontThemer sharedInstance].headline range: NSMakeRange(firstNameLength, [user.name_last length])];
+        
+        self.userNameLabel.attributedText = attributedName;
+    }
     
     self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
 }
