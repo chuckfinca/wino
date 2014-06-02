@@ -106,7 +106,7 @@
     height += [self.wineNameVHTV height];
     height += self.wineNameVHTVToBottomConstraint.constant;
     
-    self.tableView.tableHeaderView.bounds = CGRectMake(0,0,self.wineNameVHTV.bounds.size.width, height);
+    self.tableView.tableHeaderView.bounds = CGRectMake(0,0,self.tableView.bounds.size.width, height);
 }
 
 

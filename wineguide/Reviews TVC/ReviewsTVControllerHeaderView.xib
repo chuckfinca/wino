@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -46,17 +46,19 @@
             </subviews>
             <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="d51-eQ-Ihp" firstAttribute="top" secondItem="Etc-Rn-v0k" secondAttribute="bottom" constant="5" id="4Lc-hs-5Zd"/>
                 <constraint firstAttribute="trailing" secondItem="Etc-Rn-v0k" secondAttribute="trailing" constant="20" id="4Rr-Dg-9Av"/>
+                <constraint firstItem="d51-eQ-Ihp" firstAttribute="trailing" secondItem="Etc-Rn-v0k" secondAttribute="trailing" id="4ji-BQ-GD2"/>
                 <constraint firstItem="bY8-S1-AD0" firstAttribute="top" secondItem="Etc-Rn-v0k" secondAttribute="bottom" constant="5" id="75h-ls-er6"/>
                 <constraint firstItem="d51-eQ-Ihp" firstAttribute="centerX" secondItem="bY8-S1-AD0" secondAttribute="centerX" id="7WC-gd-SEb"/>
                 <constraint firstAttribute="bottom" secondItem="bY8-S1-AD0" secondAttribute="bottom" constant="20" symbolic="YES" id="AdQ-zw-zjy"/>
                 <constraint firstItem="Etc-Rn-v0k" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="F42-B7-PzE"/>
+                <constraint firstAttribute="bottom" secondItem="d51-eQ-Ihp" secondAttribute="bottom" constant="20" id="FXg-v0-NeZ"/>
                 <constraint firstItem="bY8-S1-AD0" firstAttribute="trailing" secondItem="Etc-Rn-v0k" secondAttribute="trailing" id="RJD-6z-lT9"/>
                 <constraint firstItem="d51-eQ-Ihp" firstAttribute="centerY" secondItem="bY8-S1-AD0" secondAttribute="centerY" id="YJh-oj-04u"/>
                 <constraint firstItem="Etc-Rn-v0k" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="gEj-bh-k1O"/>
                 <constraint firstItem="bY8-S1-AD0" firstAttribute="leading" secondItem="Etc-Rn-v0k" secondAttribute="leading" id="oKz-Rz-4aP"/>
-                <constraint firstItem="d51-eQ-Ihp" firstAttribute="height" secondItem="bY8-S1-AD0" secondAttribute="height" id="upd-jP-WPq"/>
-                <constraint firstItem="d51-eQ-Ihp" firstAttribute="width" secondItem="bY8-S1-AD0" secondAttribute="width" id="wpJ-hQ-tSH"/>
+                <constraint firstItem="d51-eQ-Ihp" firstAttribute="leading" secondItem="Etc-Rn-v0k" secondAttribute="leading" id="ut7-nw-bt4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

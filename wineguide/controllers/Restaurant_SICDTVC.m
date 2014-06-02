@@ -200,7 +200,7 @@
 {
     Wine2 *wine = (Wine2 *)[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
     
-    UITableViewHeaderFooterView *sectionHeaderView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeaderViewIdentifier"];
+    UITableViewHeaderFooterView *sectionHeaderView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeaderView"];
     
     if(wine.color_code){
         [sectionHeaderView.textLabel setTextColor:[ColorSchemer sharedInstance].textPrimary];
