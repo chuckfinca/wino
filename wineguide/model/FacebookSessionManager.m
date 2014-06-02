@@ -117,6 +117,95 @@ static FacebookSessionManager *sharedInstance;
     [[NSNotificationCenter defaultCenter] postNotificationName:FACEBOOK_LOGIN_SUCCESSFUL object:nil userInfo:nil];
 }
 
+-(void)checkPermissions
+{
+    NSLog(@"checkPermissions...");
+    
+    // Check for publish permissions
+    [FBRequestConnection startWithGraphPath:@"/me/permissions"
+                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                              if (!error){
+                                  if([result isKindOfClass:[NSArray class]]){
+                                      for(NSString *permission in (NSArray *)[result data]){
+                                          NSLog(@"permission = %@",permission);
+                                      }
+                                  }
+                              } else {
+                                  // Publish permissions found, publish the OG story
+                                  
+                                  NSLog(@"error retrieving permissions = %@",error.localizedDescription);
+                              }
+                          }];
+}
+
+-(void)getUserInfo
+{
+    NSLog(@"getUserInfo...");
+    [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            // Success! Include your code to handle the results here
+            if([result isKindOfClass:[FBGraphObject class]]){
+                FBGraphObject *graphObject = (FBGraphObject *)result;
+                
+                NSLog(@"graphObject = %@",graphObject);
+                
+                [graphObject setObject:@YES forKey:@"registered"];
+                
+                FacebookUserConverter *facebookUserConverter = [[FacebookUserConverter alloc] init];
+                [facebookUserConverter modifyMeWithFacebookDictionary:graphObject];
+                
+                self.haveUpdatedUserInfoThisSession = YES;
+            }
+        } else {
+            // An error occurred, we need to handle the error
+            // See: https://developers.facebook.com/docs/ios/errors
+            [self handleError:error];
+        }
+    }];
+}
+
+-(void)getFacebookInfoAtGraphPath:(NSString *)path
+{
+    NSLog(@"getFacebookInfoAtGraphPath...");
+    [FBRequestConnection startWithGraphPath:path
+                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                              if (!error) {
+                                  // Sucess! Include your code to handle the results here
+                                  NSLog(@"user events: %@", result);
+                              } else {
+                                  // An error occurred, we need to handle the error
+                                  // See: https://developers.facebook.com/docs/ios/errors
+                                  [self handleError:error];
+                              }
+                          }];
+}
+
+-(void)getFacebookFriends
+{
+    NSLog(@"getFacebookFriends...");
+    FBRequest *friendsRequest = [FBRequest requestForMyFriends];
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
+        
+        if(!error){
+            self.friends = [result objectForKey:@"data"];
+            NSLog(@"Found: %lu friends", (unsigned long)self.friends.count);
+            
+            FacebookUserConverter *facebookUserConverter = [[FacebookUserConverter alloc] init];
+            
+            for (NSDictionary<FBGraphUser>* friend in self.friends) {
+                [facebookUserConverter createOrModifyObjectWithFacebookDictionary:friend];
+            }
+            
+            self.haveUpdatedFriendInfoThisSession = YES;
+        } else {
+            [self handleError:error];
+        }
+    }];
+}
+
+
+#pragma mark - Session state changes
+
 -(void)sessionStateChanged:(FBSession *)session state:(FBSessionState)state error:(NSError *)error
 {
     // Called EVERY time the session state changes
@@ -248,10 +337,10 @@ static FacebookSessionManager *sharedInstance;
         self.alertInProgress = YES;
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle
-                                    message:alertMessage
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil];
+                                                        message:alertMessage
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
         alert.delegate = self;
         [alert show];
     }
@@ -261,93 +350,6 @@ static FacebookSessionManager *sharedInstance;
 {
     NSLog(@"closeAndClearSession...");
     [[FBSession activeSession] closeAndClearTokenInformation];
-}
-
-
--(void)checkPermissions
-{
-    NSLog(@"checkPermissions...");
-    
-    // Check for publish permissions
-    [FBRequestConnection startWithGraphPath:@"/me/permissions"
-                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                              if (!error){
-                                  if([result isKindOfClass:[NSArray class]]){
-                                      for(NSString *permission in (NSArray *)[result data]){
-                                          NSLog(@"permission = %@",permission);
-                                      }
-                                  }
-                              } else {
-                                  // Publish permissions found, publish the OG story
-                                  
-                                  NSLog(@"error retrieving permissions = %@",error.localizedDescription);
-                              }
-                          }];
-}
-
--(void)getUserInfo
-{
-    NSLog(@"getUserInfo...");
-    [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        if (!error) {
-            // Success! Include your code to handle the results here
-            if([result isKindOfClass:[FBGraphObject class]]){
-                FBGraphObject *graphObject = (FBGraphObject *)result;
-                
-                NSLog(@"graphObject = %@",graphObject);
-                
-                [graphObject setObject:@YES forKey:@"registered"];
-                
-                FacebookUserConverter *facebookUserConverter = [[FacebookUserConverter alloc] init];
-                [facebookUserConverter modifyMeWithFacebookDictionary:graphObject];
-                
-                self.haveUpdatedUserInfoThisSession = YES;
-            }
-        } else {
-            // An error occurred, we need to handle the error
-            // See: https://developers.facebook.com/docs/ios/errors
-            [self handleError:error];
-        }
-    }];
-}
-
--(void)getFacebookInfoAtGraphPath:(NSString *)path
-{
-    NSLog(@"getFacebookInfoAtGraphPath...");
-    [FBRequestConnection startWithGraphPath:path
-                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                              if (!error) {
-                                  // Sucess! Include your code to handle the results here
-                                  NSLog(@"user events: %@", result);
-                              } else {
-                                  // An error occurred, we need to handle the error
-                                  // See: https://developers.facebook.com/docs/ios/errors
-                                  [self handleError:error];
-                              }
-                          }];
-}
-
--(void)getFacebookFriends
-{
-    NSLog(@"getFacebookFriends...");
-    FBRequest *friendsRequest = [FBRequest requestForMyFriends];
-    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
-        
-        if(!error){
-            self.friends = [result objectForKey:@"data"];
-            NSLog(@"Found: %lu friends", (unsigned long)self.friends.count);
-            
-            FacebookUserConverter *facebookUserConverter = [[FacebookUserConverter alloc] init];
-            
-            for (NSDictionary<FBGraphUser>* friend in self.friends) {
-                [facebookUserConverter createOrModifyObjectWithFacebookDictionary:friend];
-            }
-            
-            self.haveUpdatedFriendInfoThisSession = YES;
-        } else {
-            [self handleError:error];
-        }
-    }];
 }
 
 

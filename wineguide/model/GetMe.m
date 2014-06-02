@@ -43,7 +43,7 @@ static GetMe *instance;
         } else {
             
             // create non-facebook connected user
-            NSNumber *identifier = @0;
+            NSNumber *identifier = @-1;
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",identifier];
             NSDictionary *dictionary = @{IDENTIFIER : identifier};
             
