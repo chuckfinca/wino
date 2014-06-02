@@ -111,7 +111,7 @@
 
 - (IBAction)pushUserProfileVC:(UIButton *)sender
 {
-    NSLog(@"tag = %i",sender.tag);
+    NSLog(@"tag = %li",(long)sender.tag);
 }
 
 

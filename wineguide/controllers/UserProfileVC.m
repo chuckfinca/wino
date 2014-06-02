@@ -202,13 +202,13 @@
             title = @"Cellar (#)";
             break;
         case 1:
-            title = [NSString stringWithFormat:@"Tasting Records (%i)",[self.user.reviews count]];
+            title = [NSString stringWithFormat:@"Tasting Records (%lu)",(unsigned long)[self.user.reviews count]];
             break;
         case 2:
-            title = [NSString stringWithFormat:@"Following (%i)",[self.user.following count]];
+            title = [NSString stringWithFormat:@"Following (%lu)",(unsigned long)[self.user.following count]];
             break;
         case 3:
-            title = [NSString stringWithFormat:@"Followed by (%i)",[self.user.followedBy count]];
+            title = [NSString stringWithFormat:@"Followed by (%lu)",(unsigned long)[self.user.followedBy count]];
             break;
         default:
             break;

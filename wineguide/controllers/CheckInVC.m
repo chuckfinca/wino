@@ -393,8 +393,6 @@
 {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     
-    NSDate *now = [NSDate date];
-    
     // Need better identifier
     NSNumber *identifier = [NSNumber numberWithInteger:-arc4random_uniform(1000000000)+1];
     

@@ -157,7 +157,7 @@
 #pragma mark - UITableViewDelegate
 
 
--(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Review2 *review = self.reviews[indexPath.row];
     
