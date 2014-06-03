@@ -12,6 +12,8 @@
 #import "FontThemer.h"
 #import "GetMe.h"
 
+#define NAVIGATION_BAR_OFFSET 20
+
 @interface FriendListVC () <FriendSelectionDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *selectedFriendsTextView;
@@ -197,22 +199,53 @@
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
+    [self animateNavigationBarBarTo:NAVIGATION_BAR_OFFSET];
 }
+
+
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     // NSLog(@"searchBarCancelButtonClicked...");
+    
+    [self animateNavigationBarBarTo:NAVIGATION_BAR_OFFSET];
     [searchBar resignFirstResponder];
     searchBar.text = nil;
     [self.friendListSCDTVC setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
-/*
+
 -(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
-    if([GetMe sharedInstance].me)
+    [self animateNavigationBarBarTo:-NAVIGATION_BAR_OFFSET];
+    
+    return true;
 }
-*/
+
+
+
+- (void)updateBarButtonItems:(CGFloat)alpha
+{
+    [self.navigationItem.leftBarButtonItems enumerateObjectsUsingBlock:^(UIBarButtonItem* item, NSUInteger i, BOOL *stop) {
+        item.customView.alpha = alpha;
+    }];
+    [self.navigationItem.rightBarButtonItems enumerateObjectsUsingBlock:^(UIBarButtonItem* item, NSUInteger i, BOOL *stop) {
+        item.customView.alpha = alpha;
+    }];
+    self.navigationItem.titleView.alpha = alpha;
+    self.navigationController.navigationBar.tintColor = [self.navigationController.navigationBar.tintColor colorWithAlphaComponent:alpha];
+}
+
+- (void)animateNavigationBarBarTo:(CGFloat)y
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        CGRect frame = self.navigationController.navigationBar.frame;
+        CGFloat alpha = (frame.origin.y >= y ? 0 : 1);
+        frame.origin.y = y;
+        [self.navigationController.navigationBar setFrame:frame];
+        [self updateBarButtonItems:alpha];
+    }];
+}
 
 
 #pragma mark - Listen for Notifications
