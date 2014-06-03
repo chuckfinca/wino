@@ -9,6 +9,7 @@
 #import "GetMe.h"
 #import "DocumentHandler2.h"
 #import "ManagedObjectHandler.h"
+#import "User2+Modify.h"
 
 #define USER_ENTITY @"User2"
 #define IDENTIFIER @"identifier"
@@ -28,15 +29,16 @@ static GetMe *instance;
 
 -(User2 *)me
 {
-    if(!_me){
+    UIManagedDocument *document = [DocumentHandler2 sharedDocumentHandler].document;
+    
+    if(!_me && document.documentState == UIDocumentStateNormal){
+        
         NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:USER_ENTITY];
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-        request.predicate = [NSPredicate predicateWithFormat:@"is_me = YES"];
-        
-        NSManagedObjectContext *context = [DocumentHandler2 sharedDocumentHandler].document.managedObjectContext;
+        request.predicate = [NSPredicate predicateWithFormat:@"is_me == YES"];
         
         NSError *error;
-        NSArray *matches = [context executeFetchRequest:request error:&error];
+        NSArray *matches = [document.managedObjectContext executeFetchRequest:request error:&error];
         
         if([matches count] > 0){
             _me = [matches firstObject];
@@ -47,7 +49,7 @@ static GetMe *instance;
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@",identifier];
             NSDictionary *dictionary = @{IDENTIFIER : identifier};
             
-            _me = (User2 *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:USER_ENTITY usingPredicate:predicate inContext:context usingDictionary:dictionary];
+            _me = (User2 *)[ManagedObjectHandler createOrReturnManagedObjectWithEntityName:USER_ENTITY usingPredicate:predicate inContext:document.managedObjectContext usingDictionary:dictionary];
             _me.identifier = identifier;
             _me.is_me = @YES;
         }
