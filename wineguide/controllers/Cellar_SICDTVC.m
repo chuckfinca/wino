@@ -107,8 +107,10 @@
                                                                                    cacheName:nil];
     if([self.fetchedResultsController.fetchedObjects count] == 0){
         self.displayInstructionsCell = YES;
+        self.tableView.tableHeaderView = nil;
     } else {
         self.displayInstructionsCell = NO;
+        self.tableView.tableHeaderView = self.searchBar;
     }
 }
 

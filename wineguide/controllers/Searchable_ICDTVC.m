@@ -13,8 +13,6 @@
 
 @interface Searchable_ICDTVC ()
 
-@property (nonatomic, strong) UISearchDisplayController * customSearchDisplayController;
-
 @end
 
 @implementation Searchable_ICDTVC
@@ -43,9 +41,6 @@
     [super viewWillAppear:animated];
     [self listenForKeyboardNotifcations];
     
-    if(self.displaySearchBar){
-        self.tableView.tableHeaderView = _searchBar;
-    }
     [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
@@ -69,6 +64,15 @@
         }
     }
     return _context;
+}
+
+-(void)setDisplaySearchBar:(BOOL)displaySearchBar
+{
+    if(displaySearchBar == YES){
+        self.tableView.tableHeaderView = self.searchBar;
+    } else {
+        self.tableView.tableHeaderView = nil;
+    }
 }
 
 #pragma mark - Setup
