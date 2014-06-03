@@ -79,7 +79,8 @@ static ColorSchemer *sharedInstance;
 
 -(UIColor *)textPlaceholder
 {
-    if(!_textPlaceholder) _textPlaceholder = [UIColor colorWithRed:0.800000F green:0.800000F blue:0.800000F alpha:1.0F];
+    if(!_textPlaceholder) _textPlaceholder = [UIColor colorWithRed:0.7F green:0.7F blue:0.7F alpha:1.0F];
+        //[UIColor colorWithRed:0.800000F green:0.800000F blue:0.800000F alpha:1.0F];
     return _textPlaceholder;
 }
 
