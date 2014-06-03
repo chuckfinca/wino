@@ -32,8 +32,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.tableView.backgroundColor = [ColorSchemer sharedInstance].customDarkBackgroundColor;
+    self.tableView.backgroundColor = [ColorSchemer sharedInstance].lightGray;
     self.tableView.separatorColor = [ColorSchemer sharedInstance].gray;
+    self.tableView.sectionIndexBackgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.tableView.sectionIndexColor = [ColorSchemer sharedInstance].baseColor;
 }
 
 -(void)viewWillAppear:(BOOL)animated
