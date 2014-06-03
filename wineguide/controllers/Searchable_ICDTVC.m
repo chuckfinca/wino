@@ -46,7 +46,6 @@
     if(self.displaySearchBar){
         self.tableView.tableHeaderView = _searchBar;
     }
-    
     [self setupAndSearchFetchedResultsControllerWithText:nil];
 }
 
@@ -63,7 +62,6 @@
     if(!_context){
         if([DocumentHandler2 sharedDocumentHandler]){
             _context = [DocumentHandler2 sharedDocumentHandler].document.managedObjectContext;
-            [self setupAndSearchFetchedResultsControllerWithText:nil];
             
         } else {
             [self listenForDocumentReadyNotification];

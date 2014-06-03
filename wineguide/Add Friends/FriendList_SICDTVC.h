@@ -19,6 +19,4 @@
 
 @property (nonatomic, weak) id <FriendSelectionDelegate> delegate;
 
--(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text;
-
 @end
