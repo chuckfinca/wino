@@ -38,8 +38,7 @@
     [super viewWillAppear:animated];
     [self listenForKeyboardNotifcations];
     
-    NSString *text = [self.searchBar.text length] > 0 ? self.searchBar.text : nil;
-    [self setupAndSearchFetchedResultsControllerWithText:text];
+    [self refreshFetchedResultsController];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -73,6 +72,11 @@
     }
 }
 
+-(NSString *)currentSearchString
+{
+    return [self.searchBar.text length] > 0 ? self.searchBar.text : nil;
+}
+
 #pragma mark - Setup
 
 
@@ -99,8 +103,7 @@
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    //NSLog(@"searchText = %@",searchText);
-    [self setupAndSearchFetchedResultsControllerWithText:searchText];
+    [self refreshFetchedResultsController];
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -120,13 +123,12 @@
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    // NSLog(@"searchBarCancelButtonClicked...");
     [searchBar resignFirstResponder];
     searchBar.text = @"";
-    [self setupAndSearchFetchedResultsControllerWithText:nil];
+    [self refreshFetchedResultsController];
 }
 
--(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
+-(void)refreshFetchedResultsController
 {
     // Abstract
 }
@@ -136,7 +138,7 @@
 -(void)listenForDocumentReadyNotification
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(setupAndSearchFetchedResultsControllerWithText:)
+                                             selector:@selector(refreshFetchedResultsController)
                                                  name:@"Document Ready"
                                                object:nil];
 }

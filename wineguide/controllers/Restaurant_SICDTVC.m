@@ -119,7 +119,7 @@
     [caller getAllWinesFromRestaurantIdentifier:2];
 }
 
--(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
+-(void)refreshFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:COLOR_CODE

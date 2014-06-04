@@ -27,6 +27,6 @@
 -(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath; // Abstract
 
 
--(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text; // For use by the Searchable_ICDTVC
+-(void)refreshFetchedResultsController; // For use by the Searchable_ICDTVC
 
 @end

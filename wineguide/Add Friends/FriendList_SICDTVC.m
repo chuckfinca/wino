@@ -98,7 +98,7 @@
 #pragma mark - SearchableCDTVC Required Methods
 
 
--(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
+-(void)refreshFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:USER_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name_last_initial"
@@ -107,8 +107,8 @@
                                                               ascending:YES],
                                 [NSSortDescriptor sortDescriptorWithKey:@"name_first"
                                                               ascending:YES]];
-    if([text length] > 0){
-        request.predicate = [NSPredicate predicateWithFormat:@"name_full CONTAINS[cd] %@ && is_me == nil",[text lowercaseString]];
+    if([self.currentSearchString length] > 0){
+        request.predicate = [NSPredicate predicateWithFormat:@"name_full CONTAINS[cd] %@ && is_me == nil",[self.currentSearchString lowercaseString]];
     } else {
         request.predicate = [NSPredicate predicateWithFormat:@"is_me == nil"];
     }

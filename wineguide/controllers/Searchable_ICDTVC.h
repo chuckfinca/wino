@@ -15,7 +15,9 @@
 @property (nonatomic) BOOL displaySearchBar;
 @property (nonatomic, strong) UISearchBar *searchBar;
 
--(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text; // Abstract
+@property (nonatomic, strong) NSString *currentSearchString;
+-(void)refreshFetchedResultsController; // Abstract
+
 -(void)getMoreResultsFromTheServer; // Abstract
 
 

@@ -86,7 +86,7 @@
     [self getTastingRecords];
 }
 
--(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
+-(void)refreshFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TASTING_RECORD_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tasting_date"

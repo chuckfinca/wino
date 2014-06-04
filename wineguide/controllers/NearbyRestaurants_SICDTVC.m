@@ -87,15 +87,15 @@
 
 #pragma mark - SearchableCDTVC Required Methods
 
--(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
+-(void)refreshFetchedResultsController
 {
     //NSLog(@"Favorites setupFetchedResultsController...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:RESTAURANT_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier"
                                                               ascending:YES]];
     
-    if(text){
-        request.predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
+    if(self.currentSearchString){
+        request.predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[self.currentSearchString lowercaseString]];
     }
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request

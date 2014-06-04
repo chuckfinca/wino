@@ -87,7 +87,7 @@
 #pragma mark - SearchableCDTVC Required Methods
 
 
--(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
+-(void)refreshFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WINE_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
@@ -95,8 +95,8 @@
     
     request.predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(cellaredBy,$user, $user.identifier == %@).@count != 0",self.user.identifier];
     
-    if(text){
-        NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[text lowercaseString]];
+    if(self.currentSearchString){
+        NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[self.currentSearchString lowercaseString]];
         NSCompoundPredicate *compoundPredicate = [[NSCompoundPredicate alloc] initWithType:NSAndPredicateType subpredicates:@[searchPredicate, request.predicate]];
         request.predicate = compoundPredicate;
     }

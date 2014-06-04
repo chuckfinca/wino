@@ -50,7 +50,7 @@
     }
     
     if(reloadTableView){
-        [self setupAndSearchFetchedResultsControllerWithText:nil];
+        [self refreshFetchedResultsController];
     }
 }
 
@@ -61,7 +61,7 @@
     // Abstract
 }
 
--(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
+-(void)refreshFetchedResultsController
 {
     // Abstract
 }
