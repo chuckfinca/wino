@@ -38,7 +38,8 @@
     [super viewWillAppear:animated];
     [self listenForKeyboardNotifcations];
     
-    [self setupAndSearchFetchedResultsControllerWithText:nil];
+    NSString *text = [self.searchBar.text length] > 0 ? self.searchBar.text : nil;
+    [self setupAndSearchFetchedResultsControllerWithText:text];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
