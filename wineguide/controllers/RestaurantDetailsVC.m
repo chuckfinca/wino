@@ -78,10 +78,10 @@
             default:
                 break;
         }
-        NSAttributedString *attributedButtonText = [[NSAttributedString alloc] initWithString:buttonText attributes:[FontThemer sharedInstance].primarySubHeadlineTextAttributes];
+        NSAttributedString *attributedButtonText = [[NSAttributedString alloc] initWithString:buttonText attributes:[FontThemer sharedInstance].secondaryHeadlineTextAttributes];
         [button setAttributedTitle:attributedButtonText forState:UIControlStateNormal];
         
-        NSAttributedString *attributedSelectedButtonText = [[NSAttributedString alloc] initWithString:buttonText attributes:[FontThemer sharedInstance].whiteSubHeadlineTextAttributes];
+        NSAttributedString *attributedSelectedButtonText = [[NSAttributedString alloc] initWithString:buttonText attributes:[FontThemer sharedInstance].whiteHeadlineTextAttributes];
         [button setAttributedTitle:attributedSelectedButtonText forState:UIControlStateSelected];
         
         [button setFillColor:[ColorSchemer sharedInstance].customBackgroundColor strokeColor:[ColorSchemer sharedInstance].baseColor];

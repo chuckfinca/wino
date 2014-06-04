@@ -76,6 +76,10 @@ static FontThemer *sharedInstance;
 
 
 
+-(NSDictionary *)secondaryHeadlineTextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : self.headline};
+}
 -(NSDictionary *)secondaryBodyTextAttributes
 {
     return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textSecondary, NSFontAttributeName : self.body};
@@ -96,14 +100,26 @@ static FontThemer *sharedInstance;
     return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].clickable, NSFontAttributeName : self.body};
 }
 
+
+-(NSDictionary *)baseHeadlineTextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].baseColor, NSFontAttributeName : self.headline};
+}
+
 -(NSDictionary *)linkCaption1TextAttributes
 {
     return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].clickable, NSFontAttributeName : self.caption1};
 }
 
+
 -(NSDictionary *)whiteSubHeadlineTextAttributes
 {
     return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].customWhite, NSFontAttributeName : self.subHeadline};
+}
+
+-(NSDictionary *)whiteHeadlineTextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].customWhite, NSFontAttributeName : self.headline};
 }
 
 @end

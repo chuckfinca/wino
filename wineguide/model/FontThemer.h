@@ -23,13 +23,17 @@
 @property (nonatomic, readonly) NSDictionary *primaryFootnoteTextAttributes;
 @property (nonatomic, readonly) NSDictionary *primarySubHeadlineTextAttributes;
 
+@property (nonatomic, readonly) NSDictionary *secondaryHeadlineTextAttributes;
 @property (nonatomic, readonly) NSDictionary *secondaryBodyTextAttributes;
 @property (nonatomic, readonly) NSDictionary *secondaryFootnoteTextAttributes;
 @property (nonatomic, readonly) NSDictionary *secondaryCaption1TextAttributes;
+
+@property (nonatomic, readonly) NSDictionary *baseHeadlineTextAttributes;
 
 @property (nonatomic, readonly) NSDictionary *linkCaption1TextAttributes;
 @property (nonatomic, readonly) NSDictionary *linkBodyTextAttributes;
 
 @property (nonatomic, readonly) NSDictionary *whiteSubHeadlineTextAttributes;
+@property (nonatomic, readonly) NSDictionary *whiteHeadlineTextAttributes;
 
 @end
