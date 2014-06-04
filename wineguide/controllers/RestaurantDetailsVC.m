@@ -57,10 +57,7 @@
 
 -(void)setupWithRestaurant:(Restaurant2 *)restaurant
 {
-    NSLog(@"setupWithRestaurant... %@",restaurant.name);
     self.restaurant = restaurant;
-    
-    
 }
 
 -(void)setupButtonArray
@@ -155,9 +152,11 @@
             if(button.selected == YES){
                 [button setFillColor:[ColorSchemer sharedInstance].baseColor strokeColor:nil];
                 textAttributes = [FontThemer sharedInstance].whiteSubHeadlineTextAttributes;
+                [self.delegate filterByGroup:nil];
             } else {
                 [button setFillColor:[ColorSchemer sharedInstance].customBackgroundColor strokeColor:[ColorSchemer sharedInstance].baseColor];
                 textAttributes = [FontThemer sharedInstance].primarySubHeadlineTextAttributes;
+                [self.delegate removeFilterForGroup:nil];
             }
         }
     }

@@ -23,7 +23,7 @@
 #define WINE_CELL_WITH_RATING_AND_TALKING_HEADS @"WineCell_withRatingAndTalkingHeads"
 
 
-@interface Restaurant_SICDTVC () <UITableViewDelegate, UITableViewDataSource>
+@interface Restaurant_SICDTVC () <UITableViewDelegate, UITableViewDataSource, WineListFilterDelegate>
 
 @property (nonatomic, strong) RestaurantDetailsVC *restaurantDetailsViewController;
 @property (nonatomic, strong) Restaurant2 *restaurant;
@@ -109,6 +109,7 @@
     self.restaurant = restaurant;
     [self.restaurantDetailsViewController setupWithRestaurant:restaurant];
     self.tableView.tableHeaderView = self.restaurantDetailsViewController.view;
+    self.restaurantDetailsViewController.delegate = self;
     
     [self refreshWineList];
 }
@@ -227,8 +228,17 @@
 }
 
 
+#pragma mark - WineListFilterDelegate
 
+-(void)filterByGroup:(Group2 *)group
+{
+    NSLog(@"filterByGroup");
+}
 
+-(void)removeFilterForGroup:(Group2 *)group
+{
+    NSLog(@"removeFilterForGroup");
+}
 
 
 @end
