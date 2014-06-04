@@ -18,6 +18,7 @@
 
 #define USER_ENTITY @"User2"
 #define FACEBOOK_FRIEND_CELL @"Facebook Friend Cell"
+#define NAVIGATION_BAR_OFFSET 20
 
 @interface FriendList_SICDTVC ()
 
@@ -44,6 +45,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"FacebookFriendCell" bundle:nil] forCellReuseIdentifier:FACEBOOK_FRIEND_CELL];
     
+    self.searchBar.placeholder = @" Search friends...";
+    
     InstructionsCell_FacebookConnect *instructionsCell = (InstructionsCell_FacebookConnect *)self.instructionsCell;
     instructionsCell.loginView.delegate = self.facebookLoginViewDelegate;
 }
@@ -51,7 +54,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeInstructionsCell) name:FACEBOOK_LOGIN_SUCCESSFUL object:nil];
 }
 
@@ -98,7 +100,6 @@
 
 -(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
-    NSLog(@"text = %@",text);
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:USER_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name_last_initial"
                                                               ascending:YES],
@@ -116,9 +117,9 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"name_last_initial"
                                                                                    cacheName:nil];
-    NSLog(@"count = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
     if([self.fetchedResultsController.fetchedObjects count] > 0){
         self.displayInstructionsCell = NO;
+        self.displaySearchBar = YES;
     }
 }
 
@@ -180,6 +181,28 @@
 }
 
 
+
+
+
+#pragma mark - UISearchBarDelegate
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [super searchBarSearchButtonClicked:searchBar];
+    [self.delegate animateNavigationBarBarTo:NAVIGATION_BAR_OFFSET];
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [super searchBarCancelButtonClicked:searchBar];
+    [self.delegate animateNavigationBarBarTo:NAVIGATION_BAR_OFFSET];
+}
+
+-(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    [self.delegate animateNavigationBarBarTo:-NAVIGATION_BAR_OFFSET];
+    return true;
+}
 
 
 

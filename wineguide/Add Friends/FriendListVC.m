@@ -10,17 +10,15 @@
 #import "ColorSchemer.h"
 #import "FriendList_SICDTVC.h"
 #import "FontThemer.h"
-#import "GetMe.h"
+#import "UIView+BorderDrawer.h"
 
-#define NAVIGATION_BAR_OFFSET 20
-
-@interface FriendListVC () <FriendSelectionDelegate, UISearchBarDelegate>
+@interface FriendListVC () <FriendSelectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *selectedFriendsTextView;
 @property (nonatomic, strong) UIImage *placeHolderImage;
 @property (nonatomic, strong) FriendList_SICDTVC *friendListSCDTVC;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
+@property (weak, nonatomic) IBOutlet UIView *friendListContainerView;
 
 @end
 
@@ -39,47 +37,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
+    
+    [self.friendListContainerView drawBorderColor:[ColorSchemer sharedInstance].gray onTop:YES bottom:NO left:NO andRight:NO];
     
     [self setupTextView];
     
     [self.checkInButton setAttributedTitle:[[NSAttributedString alloc] initWithString:self.checkInButton.titleLabel.text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].headline}] forState:UIControlStateNormal];
     [self.checkInButton sizeToFit];
-    
-    [self customizeSearchBar];
-    
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [self listenForKeyboardNotifcations];
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark - Setup
-
--(void)customizeSearchBar
-{
-    self.searchBar.delegate = self;
-    self.searchBar.placeholder = @" Search friends...";
-    self.searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
-    
-    self.searchBar.barTintColor = [ColorSchemer sharedInstance].customWhite;
-    
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
-    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    [self.searchBar setSearchFieldBackgroundImage:blank forState:UIControlStateNormal];
-    
-    [self.searchBar.layer setBorderColor:[ColorSchemer sharedInstance].lightGray.CGColor];
-    [self.searchBar.layer setBorderWidth:1];
-}
 
 #pragma mark - Getters & Setters
 
@@ -164,6 +131,9 @@
     [self.delegate checkInWithFriends:self.selectedFriends];
 }
 
+
+
+
 #pragma mark - FriendSelectionDelegate
 
 -(void)addOrRemoveUser:(User2 *)user
@@ -176,55 +146,19 @@
     [self setupTextView];
 }
 
-
-
-
-
-
-
-
-
-
-
-
-#pragma mark - UISearchBarDelegate
-
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+-(void)animateNavigationBarBarTo:(CGFloat)y
 {
-    NSLog(@"searchText = %@",searchText);
-    [self.friendListSCDTVC setupAndSearchFetchedResultsControllerWithText:searchText];
-    self.searchBar.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    [UIView animateWithDuration:0.2 animations:^{
+        CGRect frame = self.navigationController.navigationBar.frame;
+        CGFloat alpha = (frame.origin.y >= y ? 0 : 1);
+        frame.origin.y = y;
+        self.navigationController.navigationBar.frame = frame;
+        self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+y*2.5, self.view.frame.size.width, self.view.frame.size.height);
+        [self updateBarButtonItems:alpha];
+    }];
 }
 
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [searchBar resignFirstResponder];
-    [self animateNavigationBarBarTo:NAVIGATION_BAR_OFFSET];
-}
-
-
-
--(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    // NSLog(@"searchBarCancelButtonClicked...");
-    
-    [self animateNavigationBarBarTo:NAVIGATION_BAR_OFFSET];
-    [searchBar resignFirstResponder];
-    searchBar.text = nil;
-    [self.friendListSCDTVC setupAndSearchFetchedResultsControllerWithText:nil];
-}
-
-
--(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
-{
-    [self animateNavigationBarBarTo:-NAVIGATION_BAR_OFFSET];
-    
-    return true;
-}
-
-
-
-- (void)updateBarButtonItems:(CGFloat)alpha
+-(void)updateBarButtonItems:(CGFloat)alpha
 {
     [self.navigationItem.leftBarButtonItems enumerateObjectsUsingBlock:^(UIBarButtonItem* item, NSUInteger i, BOOL *stop) {
         item.customView.alpha = alpha;
@@ -236,54 +170,8 @@
     self.navigationController.navigationBar.tintColor = [self.navigationController.navigationBar.tintColor colorWithAlphaComponent:alpha];
 }
 
-- (void)animateNavigationBarBarTo:(CGFloat)y
-{
-    [UIView animateWithDuration:0.2 animations:^{
-        CGRect frame = self.navigationController.navigationBar.frame;
-        CGFloat alpha = (frame.origin.y >= y ? 0 : 1);
-        frame.origin.y = y;
-        [self.navigationController.navigationBar setFrame:frame];
-        [self updateBarButtonItems:alpha];
-    }];
-}
 
 
-#pragma mark - Listen for Notifications
-
--(void)listenForKeyboardNotifcations
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(showHideCancelButton:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(showHideCancelButton:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-}
-
--(void)showHideCancelButton:(NSNotification *)notification
-{
-    float animationTime = 0.3;
-    NSInteger yOffset = 40;
-    NSInteger viewHeightAdjustment = 165;
-    
-    if(notification.name == UIKeyboardWillShowNotification){
-        [self.searchBar setShowsCancelButton:YES animated:YES];
-        [UIView animateWithDuration:animationTime animations:^{
-            self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-yOffset, self.view.frame.size.width, self.view.frame.size.height-viewHeightAdjustment);
-            self.checkInButton.hidden = YES;
-            
-        }];
-    } else {
-        [self.searchBar setShowsCancelButton:NO animated:NO];
-        [UIView animateWithDuration:animationTime animations:^{
-            self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+yOffset, self.view.frame.size.width, self.view.frame.size.height+viewHeightAdjustment);
-            self.checkInButton.hidden = NO;
-        }];
-    }
-}
 
 
 

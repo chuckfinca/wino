@@ -12,6 +12,7 @@
 @protocol FriendSelectionDelegate
 
 -(void)addOrRemoveUser:(User2 *)user;
+-(void)animateNavigationBarBarTo:(CGFloat)y;
 
 @end
 

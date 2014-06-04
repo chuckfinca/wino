@@ -187,13 +187,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="yIB-Vq-2Qg">
-                                <rect key="frame" x="0.0" y="220" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9z-7B-nk6">
-                                <rect key="frame" x="0.0" y="264" width="320" height="304"/>
+                                <rect key="frame" x="0.0" y="228" width="320" height="340"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
@@ -204,16 +199,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="VnB-3V-wa9" secondAttribute="trailing" constant="20" id="24g-f6-Pa9"/>
-                            <constraint firstItem="yIB-Vq-2Qg" firstAttribute="width" secondItem="J6O-P4-eT8" secondAttribute="width" id="4gz-bM-fOv"/>
-                            <constraint firstItem="J9z-7B-nk6" firstAttribute="top" secondItem="yIB-Vq-2Qg" secondAttribute="bottom" id="6Bd-pf-yB4"/>
                             <constraint firstItem="VnB-3V-wa9" firstAttribute="leading" secondItem="J6O-P4-eT8" secondAttribute="leading" constant="20" id="6k8-m2-im6"/>
-                            <constraint firstAttribute="trailing" secondItem="yIB-Vq-2Qg" secondAttribute="trailing" id="GYV-kC-qYx"/>
                             <constraint firstAttribute="trailing" secondItem="J9z-7B-nk6" secondAttribute="trailing" id="SfW-Aa-dkn"/>
+                            <constraint firstItem="J9z-7B-nk6" firstAttribute="top" secondItem="VnB-3V-wa9" secondAttribute="bottom" constant="8" symbolic="YES" id="WFR-O4-b2u"/>
                             <constraint firstItem="J9z-7B-nk6" firstAttribute="leading" secondItem="J6O-P4-eT8" secondAttribute="leading" id="YPU-FJ-EPX"/>
                             <constraint firstItem="Qwg-H6-oG8" firstAttribute="top" secondItem="J9z-7B-nk6" secondAttribute="bottom" id="aKJ-Lf-iPj"/>
                             <constraint firstItem="B8C-O6-ddK" firstAttribute="top" secondItem="VnB-3V-wa9" secondAttribute="top" constant="-76" id="dVa-Cw-p6V"/>
-                            <constraint firstItem="yIB-Vq-2Qg" firstAttribute="leading" secondItem="J6O-P4-eT8" secondAttribute="leading" id="nyc-nE-gBI"/>
-                            <constraint firstItem="yIB-Vq-2Qg" firstAttribute="top" secondItem="VnB-3V-wa9" secondAttribute="bottom" id="opP-Wu-EDO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wbJ-aS-Qa7">
@@ -233,7 +224,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="checkInButton" destination="tl7-gK-zIg" id="8HT-wW-Wmo"/>
-                        <outlet property="searchBar" destination="yIB-Vq-2Qg" id="58R-UZ-PKU"/>
+                        <outlet property="friendListContainerView" destination="J9z-7B-nk6" id="vvc-rE-HVH"/>
                         <outlet property="selectedFriendsTextView" destination="VnB-3V-wa9" id="qbw-fz-sqC"/>
                     </connections>
                 </viewController>
@@ -246,7 +237,7 @@
             <objects>
                 <tableViewController id="bjA-xM-TvC" customClass="FriendList_SICDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MCA-wW-zVb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="304"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>

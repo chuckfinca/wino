@@ -11,10 +11,6 @@
 #import "DocumentHandler2.h"
 #import "ColorSchemer.h"
 
-@interface Searchable_ICDTVC ()
-
-@end
-
 @implementation Searchable_ICDTVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
