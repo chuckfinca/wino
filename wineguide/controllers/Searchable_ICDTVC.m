@@ -94,7 +94,7 @@
         
         [_searchBar setSearchFieldBackgroundImage:blank forState:UIControlStateNormal];
         
-        [_searchBar drawBorderColor:[ColorSchemer sharedInstance].gray onTop:YES bottom:YES left:NO andRight:NO];
+        [_searchBar drawBorderWidth:1 withColor:[ColorSchemer sharedInstance].gray onTop:YES bottom:YES left:NO andRight:NO];
     }
     return _searchBar;
 }

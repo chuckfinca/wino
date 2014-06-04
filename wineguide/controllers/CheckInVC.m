@@ -127,7 +127,7 @@
     self.ratingVC.wineColor = [[ColorSchemer sharedInstance] getWineColorFromCode:self.wine.color_code];
     
     self.ratingVC.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    [self.ratingVC.view drawBorderColor:[ColorSchemer sharedInstance].lightGray onTop:YES bottom:YES left:NO andRight:NO];
+    [self.ratingVC.view drawBorderWidth:1 withColor:[ColorSchemer sharedInstance].gray onTop:YES bottom:YES left:NO andRight:NO];
 }
 
 -(void)setup
@@ -148,7 +148,7 @@
 -(void)setupRestaurantButton
 {
     self.restaurantButton.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    [self.restaurantButton drawBorderColor:[ColorSchemer sharedInstance].lightGray onTop:NO bottom:YES left:NO andRight:NO];
+    [self.restaurantButton drawBorderWidth:1 withColor:[ColorSchemer sharedInstance].gray onTop:NO bottom:YES left:NO andRight:NO];
 }
 
 -(void)setupRestaurantText
@@ -195,7 +195,7 @@
     [self.dateButton setAttributedTitle:attributed forState:UIControlStateNormal];
     
     self.dateButton.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    [self.dateButton drawBorderColor:[ColorSchemer sharedInstance].lightGray onTop:NO bottom:YES left:NO andRight:YES];
+    [self.dateButton drawBorderWidth:1 withColor:[ColorSchemer sharedInstance].gray onTop:NO bottom:YES left:NO andRight:YES];
 }
 
 -(void)setupCancelButton

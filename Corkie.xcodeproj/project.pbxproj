@@ -84,7 +84,6 @@
 		C95E2DC1186510050050DFAC /* tab_cellar.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBB186510050050DFAC /* tab_cellar.png */; };
 		C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBC186510050050DFAC /* tab_cellar@2x.png */; };
 		C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */; };
-		C9672E36193A9E3400C98FEC /* fghj.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E35193A9E3400C98FEC /* fghj.m */; };
 		C9672E3A193AABD600C98FEC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9672E39193AABD600C98FEC /* Crashlytics.framework */; };
 		C96928D818E0E069006ADCC4 /* Restaurant_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D718E0E069006ADCC4 /* Restaurant_SICDTVC.m */; };
 		C969342A1875EF290071EF41 /* IterationCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934271875EF290071EF41 /* IterationCounter.m */; };
@@ -325,8 +324,6 @@
 		C95E2DBB186510050050DFAC /* tab_cellar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_cellar.png; path = images/tab_cellar.png; sourceTree = "<group>"; };
 		C95E2DBC186510050050DFAC /* tab_cellar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_cellar@2x.png"; path = "images/tab_cellar@2x.png"; sourceTree = "<group>"; };
 		C95E2DBD186510050050DFAC /* userAction_triedIt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_triedIt@2x.png"; path = "images/userAction_triedIt@2x.png"; sourceTree = "<group>"; };
-		C9672E34193A9E3400C98FEC /* fghj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fghj.h; sourceTree = "<group>"; };
-		C9672E35193A9E3400C98FEC /* fghj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fghj.m; sourceTree = "<group>"; };
 		C9672E39193AABD600C98FEC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		C96928D618E0E069006ADCC4 /* Restaurant_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Restaurant_SICDTVC.h; path = controllers/Restaurant_SICDTVC.h; sourceTree = "<group>"; };
 		C96928D718E0E069006ADCC4 /* Restaurant_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Restaurant_SICDTVC.m; path = controllers/Restaurant_SICDTVC.m; sourceTree = "<group>"; };
@@ -715,8 +712,6 @@
 				C92660EB190F16540024EFDC /* UIView+BorderDrawer.m */,
 				C94E8E6F19257C2B00BB0669 /* WineNameLabel.h */,
 				C94E8E7019257C2B00BB0669 /* WineNameLabel.m */,
-				C9672E34193A9E3400C98FEC /* fghj.h */,
-				C9672E35193A9E3400C98FEC /* fghj.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1335,7 +1330,6 @@
 				C94E8E571924260E00BB0669 /* WineCell.m in Sources */,
 				C96D317E1917081800B340F4 /* OutBox.m in Sources */,
 				C9C7D6151840168700A2E955 /* Searchable_ICDTVC.m in Sources */,
-				C9672E36193A9E3400C98FEC /* fghj.m in Sources */,
 				C96D318E1919BFD000B340F4 /* FriendListVC.m in Sources */,
 				C96EBB3519368B1300E27798 /* FacebookUserConverter.m in Sources */,
 				C990FAC81910955D00BF692E /* RoundedRectButton.m in Sources */,

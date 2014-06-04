@@ -39,7 +39,7 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
-    [self.friendListContainerView drawBorderColor:[ColorSchemer sharedInstance].gray onTop:YES bottom:NO left:NO andRight:NO];
+    [self.friendListContainerView drawBorderWidth:1 withColor:[ColorSchemer sharedInstance].gray onTop:YES bottom:NO left:NO andRight:NO];
     
     [self setupTextView];
     

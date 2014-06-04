@@ -10,6 +10,6 @@
 
 @interface UIView (BorderDrawer)
 
--(void)drawBorderColor:(UIColor *)color onTop:(BOOL)top bottom:(BOOL)bottom left:(BOOL)left andRight:(BOOL)right;
+-(void)drawBorderWidth:(float)width withColor:(UIColor *)color onTop:(BOOL)top bottom:(BOOL)bottom left:(BOOL)left andRight:(BOOL)right;
 
 @end

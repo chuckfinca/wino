@@ -12,6 +12,7 @@
 #import <MapKit/MapKit.h>
 #import "FontThemer.h"
 #import "RoundedRectButton.h"
+#import "UIView+BorderDrawer.h"
 
 #define METERS_PER_MILE 1609.344
 #define MAP_FRAME_OFFSET 200
@@ -49,6 +50,8 @@
     [self setupButtonArray];
     [self setViewHeight];
     [self setupMap];
+    
+    [self.view drawBorderWidth:2 withColor:[ColorSchemer sharedInstance].gray onTop:NO bottom:YES left:NO andRight:NO];
     
     self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
 }
