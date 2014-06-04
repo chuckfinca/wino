@@ -166,7 +166,7 @@
 
 -(void)handleTap:(UIGestureRecognizer *)tap
 {
-    if (UIGestureRecognizerStateEnded == tap.state) {
+    if (UIGestureRecognizerStateEnded == tap.state && !self.displayInstructionsCell) {
         UITableView *tableView = (UITableView *)tap.view;
         
         NSIndexPath* indexPath = [tableView indexPathForRowAtPoint:self.touchLocation];

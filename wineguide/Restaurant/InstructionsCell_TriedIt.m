@@ -25,7 +25,7 @@
 {
     // Initialization code
     [self.arrowImageView setImage:[[UIImage imageNamed:@"instructions_arrow_up.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-    self.arrowImageView.tintColor = [ColorSchemer sharedInstance].baseColor;
+    self.arrowImageView.tintColor = [ColorSchemer sharedInstance].textSecondary;
     
     self.instructionsLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Check this wine into your Timeline to remember who you drank this with and what you thought." attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
     
