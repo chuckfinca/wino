@@ -10,6 +10,7 @@
 #import "MainTabBarController.h"
 #import "DocumentHandler2.h"
 #import "ColorSchemer.h"
+#import "UIView+BorderDrawer.h"
 
 @implementation Searchable_ICDTVC
 
@@ -88,8 +89,7 @@
         
         [_searchBar setSearchFieldBackgroundImage:blank forState:UIControlStateNormal];
         
-        [_searchBar.layer setBorderColor:[ColorSchemer sharedInstance].gray.CGColor];
-        [_searchBar.layer setBorderWidth:1];
+        [_searchBar drawBorderColor:[ColorSchemer sharedInstance].gray onTop:YES bottom:YES left:NO andRight:NO];
     }
     return _searchBar;
 }
