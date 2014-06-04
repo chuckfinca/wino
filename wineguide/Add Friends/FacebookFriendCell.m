@@ -22,6 +22,7 @@
 {
     // Initialization code
     self.userProfileImageView.tintColor = [ColorSchemer sharedInstance].gray;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 
