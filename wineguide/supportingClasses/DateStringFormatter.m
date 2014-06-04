@@ -45,7 +45,7 @@
     NSString *localDateString = [dateFormatter stringFromDate:date];
     
     if(tastingDateYear == currentYear){
-        localDateString = [localDateString substringToIndex:4];
+        localDateString = [localDateString substringToIndex:5];
     }
     localDateString = [localDateString stringByReplacingOccurrencesOfString:@"0" withString:@""];
     
