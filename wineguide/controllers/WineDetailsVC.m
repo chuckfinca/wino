@@ -107,7 +107,7 @@
     [self setViewHeight];
     
     self.view.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
-    [self.view drawBorderWidth:2 withColor:[ColorSchemer sharedInstance].gray onTop:NO bottom:YES left:NO andRight:NO];
+    [self.view drawBorderWidth:1 withColor:[ColorSchemer sharedInstance].gray onTop:YES bottom:YES left:NO andRight:NO];
 }
 
 -(void)setupUserActionButtons

@@ -51,7 +51,7 @@
     [self setViewHeight];
     [self setupMap];
     
-    [self.view drawBorderWidth:2 withColor:[ColorSchemer sharedInstance].gray onTop:NO bottom:YES left:NO andRight:NO];
+    [self.view drawBorderWidth:1 withColor:[ColorSchemer sharedInstance].gray onTop:NO bottom:YES left:NO andRight:NO];
     
     self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
 }
