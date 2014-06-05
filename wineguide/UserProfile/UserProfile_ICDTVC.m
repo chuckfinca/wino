@@ -143,10 +143,15 @@
     if(indexPath.row == 0){
         UserInformationCell *userInformationCell = (UserInformationCell *)self.userInformationCell;
         
-        __weak UITableView *weakTableView = self.tableView;
-        [self.facebookProfileImageGetter setProfilePicForUser:self.user inImageView:userInformationCell.userProfileImageView completion:^(BOOL success) {
-            [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        }];
+        if(self.user.imageData){
+            [userInformationCell.userProfileImageView setImage:[UIImage imageWithData:self.user.imageData]];
+            
+        } else {
+            __weak UITableView *weakTableView = self.tableView;
+            [self.facebookProfileImageGetter setProfilePicForUser:self.user inImageView:userInformationCell.userProfileImageView completion:^(BOOL success) {
+                [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }];
+        }
         
         cell = userInformationCell;
         
