@@ -189,8 +189,6 @@
 		C9E4018D191EC4AC00ADD072 /* RestaurantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9E4018B191EC4AC00ADD072 /* RestaurantCell.xib */; };
 		C9F43E97191AEAE0003DB6B4 /* instructions_location.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F43E95191AEAE0003DB6B4 /* instructions_location.png */; };
 		C9F43E98191AEAE0003DB6B4 /* instructions_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F43E96191AEAE0003DB6B4 /* instructions_location@2x.png */; };
-		C9F43EA1191C3D99003DB6B4 /* instructions_gps.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F43E9F191C3D99003DB6B4 /* instructions_gps.png */; };
-		C9F43EA2191C3D99003DB6B4 /* instructions_gps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F43EA0191C3D99003DB6B4 /* instructions_gps@2x.png */; };
 		C9F43EAB191C4D8D003DB6B4 /* instructions_timeline.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F43EA9191C4D8D003DB6B4 /* instructions_timeline.png */; };
 		C9F43EAC191C4D8D003DB6B4 /* instructions_timeline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F43EAA191C4D8D003DB6B4 /* instructions_timeline@2x.png */; };
 		C9F43EC3191C5AC5003DB6B4 /* cellar.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F43EC1191C5AC5003DB6B4 /* cellar.png */; };
@@ -497,8 +495,6 @@
 		C9E4018B191EC4AC00ADD072 /* RestaurantCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RestaurantCell.xib; path = RestaurantCell/RestaurantCell.xib; sourceTree = "<group>"; };
 		C9F43E95191AEAE0003DB6B4 /* instructions_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions_location.png; path = images/instructions_location.png; sourceTree = "<group>"; };
 		C9F43E96191AEAE0003DB6B4 /* instructions_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions_location@2x.png"; path = "images/instructions_location@2x.png"; sourceTree = "<group>"; };
-		C9F43E9F191C3D99003DB6B4 /* instructions_gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions_gps.png; path = images/instructions_gps.png; sourceTree = "<group>"; };
-		C9F43EA0191C3D99003DB6B4 /* instructions_gps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions_gps@2x.png"; path = "images/instructions_gps@2x.png"; sourceTree = "<group>"; };
 		C9F43EA9191C4D8D003DB6B4 /* instructions_timeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions_timeline.png; path = images/instructions_timeline.png; sourceTree = "<group>"; };
 		C9F43EAA191C4D8D003DB6B4 /* instructions_timeline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions_timeline@2x.png"; path = "images/instructions_timeline@2x.png"; sourceTree = "<group>"; };
 		C9F43EC1191C5AC5003DB6B4 /* cellar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cellar.png; path = images/cellar.png; sourceTree = "<group>"; };
@@ -718,8 +714,6 @@
 				C9F43EC2191C5AC5003DB6B4 /* cellar@2x.png */,
 				C9F43E95191AEAE0003DB6B4 /* instructions_location.png */,
 				C9F43E96191AEAE0003DB6B4 /* instructions_location@2x.png */,
-				C9F43E9F191C3D99003DB6B4 /* instructions_gps.png */,
-				C9F43EA0191C3D99003DB6B4 /* instructions_gps@2x.png */,
 				C9F43EA9191C4D8D003DB6B4 /* instructions_timeline.png */,
 				C9F43EAA191C4D8D003DB6B4 /* instructions_timeline@2x.png */,
 				C96EBB2C1935448E00E27798 /* instructions_arrow_up@2x.png */,
@@ -1107,7 +1101,6 @@
 				C95E2DC2186510050050DFAC /* tab_cellar@2x.png in Resources */,
 				C95CAAEB18EB9C1400E210D0 /* button_cellarUnstored@2x.png in Resources */,
 				C9C7D63A1842AACD00A2E955 /* tutorial_logo@2x.png in Resources */,
-				C9F43EA1191C3D99003DB6B4 /* instructions_gps.png in Resources */,
 				C95E2DC3186510050050DFAC /* userAction_triedIt@2x.png in Resources */,
 				C96EBB2F1935448E00E27798 /* instructions_arrow_up.png in Resources */,
 				C9F43EC4191C5AC5003DB6B4 /* cellar@2x.png in Resources */,
@@ -1124,7 +1117,6 @@
 				C93E4F8D18E7672300D8C2DD /* ReviewCell.xib in Resources */,
 				C95CAAD518EB701D00E210D0 /* tab_Profile.png in Resources */,
 				C9ACC7D7184E72AB00E5945D /* settings.png in Resources */,
-				C9F43EA2191C3D99003DB6B4 /* instructions_gps@2x.png in Resources */,
 				C947F06E1888A18700123B69 /* userAction_purchase@2x.png in Resources */,
 				C947F06D1888A18700123B69 /* userAction_purchase.png in Resources */,
 				C991FB8D1861110200C10B52 /* glass_empty.png in Resources */,

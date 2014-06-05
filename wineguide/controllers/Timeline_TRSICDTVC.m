@@ -28,7 +28,7 @@
     self.navigationItem.title = @"Tasting Timeline";
     self.displayWineNameOnEachCell = YES;
     
-    [self setupInstructionCellWithImage:[UIImage imageNamed:@"instructions_timeline.png"]
+    [self setupInstructionCellWithImage:[[UIImage imageNamed:@"instructions_timeline.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                                    text:@"Your timeline is where you keep track of all the wines you drink.\n\nTo add a Tasting Record to your timeline go to that wine's details page and click the 'Tried It' button."
                            andExtraView:nil];
 }

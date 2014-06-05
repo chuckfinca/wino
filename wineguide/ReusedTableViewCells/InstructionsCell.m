@@ -39,7 +39,7 @@
     
     if(image){
         self.displayInstructionsImageView = YES;
-        [self.instructionsImageView setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+        [self.instructionsImageView setImage:image];
         self.instructionsImageView.tintColor = [ColorSchemer sharedInstance].baseColor;
     }
     

@@ -51,7 +51,7 @@
     self.displaySearchBar = YES;
     self.searchBar.placeholder = @"Search your cellar...";
     
-    [self setupInstructionCellWithImage:[UIImage imageNamed:@"cellar.png"]
+    [self setupInstructionCellWithImage:[[UIImage imageNamed:@"cellar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                                    text:@"Your cellar is where you keep track of all the wines you love.\n\nTo add a wine to your cellar go to that wine's details page and click the 'Cellar' button."
                            andExtraView:nil];
 }

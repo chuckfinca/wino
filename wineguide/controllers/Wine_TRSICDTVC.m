@@ -41,7 +41,7 @@
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"WineReview" bundle:nil] forCellReuseIdentifier:REVIEW_CELL];
     
-    [self setupInstructionCellWithImage:[UIImage imageNamed:@"instructions_arrow_up.png"]
+    [self setupInstructionCellWithImage:[[UIImage imageNamed:@"instructions_arrow_up.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                                    text:@"Check this wine into your Timeline to remember who you drank this with and what you thought."
                            andExtraView:nil];
 }

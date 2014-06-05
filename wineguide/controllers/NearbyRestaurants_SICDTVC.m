@@ -84,7 +84,7 @@
     [enableLocationButton addTarget:self action:@selector(enableLocation) forControlEvents:UIControlEventTouchUpInside];
     [enableLocationButton setFillColor:[ColorSchemer sharedInstance].baseColor strokeColor:nil];
     
-    [self setupInstructionCellWithImage:[UIImage imageNamed:@"instructions_gps.png"]
+    [self setupInstructionCellWithImage:[UIImage imageNamed:@"instructions_location.png"]
                                    text:@"In order to find the restaurant you're at automatically Corkie needs access to your location data."
                            andExtraView:enableLocationButton];
     
