@@ -36,32 +36,32 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Wine name" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygn-v6-iWS" customClass="WineNameVHTV">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" scrollEnabled="NO" editable="NO" text="Wine name" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygn-v6-iWS" customClass="WineNameVHTV">
                     <rect key="frame" x="20" y="20" width="280" height="33"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.61788807739999996" green="0.49170385989999998" blue="0.31070181089999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Wine details" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOt-3Q-iLX" customClass="WineDetailsVHTV">
-                    <rect key="frame" x="20" y="129" width="280" height="33"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="Wine details" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOt-3Q-iLX" customClass="WineDetailsVHTV">
+                    <rect key="frame" x="20" y="129" width="280" height="72"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.14901961389999999" green="0.50588238240000005" blue="0.74509805439999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wsg-dY-LDW">
-                    <rect key="frame" x="20" y="170" width="44" height="60"/>
+                    <rect key="frame" x="134" y="209" width="52" height="71"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="CNj-hF-iCU"/>
-                        <constraint firstAttribute="width" constant="44" id="Zt1-jM-2yH"/>
+                        <constraint firstAttribute="height" constant="71" id="CNj-hF-iCU"/>
+                        <constraint firstAttribute="width" constant="52" id="Zt1-jM-2yH"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-40"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-50"/>
                     <state key="normal" title="tried it" backgroundImage="button_triedIt.png">
                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -71,7 +71,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVz-F2-9au">
-                    <rect key="frame" x="256" y="170" width="44" height="60"/>
+                    <rect key="frame" x="206" y="215" width="44" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="irE-45-KmL"/>
@@ -87,7 +87,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="142-KU-f6S">
-                    <rect key="frame" x="200" y="170" width="44" height="60"/>
+                    <rect key="frame" x="70" y="215" width="44" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="IKr-RK-Jkf"/>
@@ -213,36 +213,36 @@
                 <constraint firstItem="LKd-C5-qV9" firstAttribute="leading" secondItem="HUu-LU-WYj" secondAttribute="trailing" constant="2" id="DVc-SB-ivD"/>
                 <constraint firstItem="Wsg-dY-LDW" firstAttribute="top" secondItem="qOt-3Q-iLX" secondAttribute="bottom" constant="8" id="GxT-Tq-DmP"/>
                 <constraint firstItem="uQj-E7-5cy" firstAttribute="top" secondItem="G7I-S1-CLE" secondAttribute="bottom" constant="8" id="Jd2-Nr-Lw8"/>
+                <constraint firstItem="GVz-F2-9au" firstAttribute="centerY" secondItem="Wsg-dY-LDW" secondAttribute="centerY" id="KKz-7F-k0H"/>
                 <constraint firstItem="jed-bp-HYp" firstAttribute="leading" secondItem="9dy-4z-s2k" secondAttribute="trailing" constant="2" id="LFu-l0-lK8"/>
                 <constraint firstItem="xYx-TF-gto" firstAttribute="top" secondItem="9dy-4z-s2k" secondAttribute="top" id="M5t-3C-QNo"/>
                 <constraint firstAttribute="trailing" secondItem="ygn-v6-iWS" secondAttribute="trailing" constant="20" id="OMB-b2-ku8"/>
                 <constraint firstItem="ygn-v6-iWS" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="OSH-yW-S1I"/>
                 <constraint firstItem="LKd-C5-qV9" firstAttribute="centerY" secondItem="HUu-LU-WYj" secondAttribute="centerY" id="Ous-vD-nQd"/>
-                <constraint firstItem="142-KU-f6S" firstAttribute="top" secondItem="Wsg-dY-LDW" secondAttribute="top" id="P6E-j8-q8L"/>
                 <constraint firstItem="xYx-TF-gto" firstAttribute="leading" secondItem="5Qr-XN-2ou" secondAttribute="trailing" constant="2" id="PQZ-N1-9IS"/>
                 <constraint firstItem="LKd-C5-qV9" firstAttribute="centerY" secondItem="LGK-jG-077" secondAttribute="centerY" id="Sbo-kE-Vkp"/>
                 <constraint firstItem="GVz-F2-9au" firstAttribute="top" secondItem="142-KU-f6S" secondAttribute="top" id="YId-aP-xqD"/>
                 <constraint firstItem="uQj-E7-5cy" firstAttribute="top" secondItem="HUu-LU-WYj" secondAttribute="bottom" constant="8" id="ZmE-nT-XPk"/>
                 <constraint firstItem="xYx-TF-gto" firstAttribute="top" secondItem="5MT-jI-mQH" secondAttribute="top" id="ard-PQ-j7Y"/>
                 <constraint firstAttribute="trailing" secondItem="uQj-E7-5cy" secondAttribute="trailing" constant="20" id="ay1-cT-d69"/>
+                <constraint firstAttribute="centerX" secondItem="Wsg-dY-LDW" secondAttribute="centerX" id="fS2-pm-35f"/>
                 <constraint firstItem="jed-bp-HYp" firstAttribute="height" secondItem="uQj-E7-5cy" secondAttribute="height" id="fps-89-Esw"/>
-                <constraint firstItem="GVz-F2-9au" firstAttribute="trailing" secondItem="qOt-3Q-iLX" secondAttribute="trailing" id="gGm-zs-x9l"/>
                 <constraint firstItem="xYx-TF-gto" firstAttribute="top" secondItem="jed-bp-HYp" secondAttribute="top" id="ggB-o5-flS"/>
                 <constraint firstAttribute="bottom" secondItem="Wsg-dY-LDW" secondAttribute="bottom" constant="20" id="imQ-2y-QXV"/>
                 <constraint firstItem="ygn-v6-iWS" firstAttribute="leading" secondItem="HUu-LU-WYj" secondAttribute="leading" id="jW5-Mp-1WJ"/>
                 <constraint firstItem="qOt-3Q-iLX" firstAttribute="leading" secondItem="ygn-v6-iWS" secondAttribute="leading" id="jtr-1f-UYC"/>
                 <constraint firstItem="LKd-C5-qV9" firstAttribute="centerY" secondItem="G7I-S1-CLE" secondAttribute="centerY" id="kPa-M6-7ii"/>
+                <constraint firstItem="GVz-F2-9au" firstAttribute="centerY" secondItem="142-KU-f6S" secondAttribute="centerY" id="lOY-ck-uei"/>
+                <constraint firstItem="Wsg-dY-LDW" firstAttribute="leading" secondItem="142-KU-f6S" secondAttribute="trailing" constant="20" id="lQ4-6r-Agc"/>
                 <constraint firstItem="G7I-S1-CLE" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="152" id="lwZ-SR-c27"/>
                 <constraint firstItem="qOt-3Q-iLX" firstAttribute="top" secondItem="uQj-E7-5cy" secondAttribute="bottom" constant="8" id="n2r-as-S9t"/>
                 <constraint firstItem="ygn-v6-iWS" firstAttribute="trailing" secondItem="qOt-3Q-iLX" secondAttribute="trailing" id="qw1-Fs-Dhd"/>
                 <constraint firstItem="G7I-S1-CLE" firstAttribute="trailing" secondItem="ygn-v6-iWS" secondAttribute="trailing" id="rBC-po-wck"/>
-                <constraint firstItem="142-KU-f6S" firstAttribute="top" secondItem="GVz-F2-9au" secondAttribute="top" id="sDm-2C-EEi"/>
+                <constraint firstItem="GVz-F2-9au" firstAttribute="leading" secondItem="Wsg-dY-LDW" secondAttribute="trailing" constant="20" id="woW-ly-S3D"/>
                 <constraint firstItem="ygn-v6-iWS" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="xFK-aI-2Ia"/>
-                <constraint firstItem="GVz-F2-9au" firstAttribute="leading" secondItem="142-KU-f6S" secondAttribute="trailing" constant="12" id="xcE-cU-tei"/>
                 <constraint firstItem="LGK-jG-077" firstAttribute="leading" secondItem="LKd-C5-qV9" secondAttribute="trailing" constant="2" id="y7X-h5-I0Q"/>
                 <constraint firstItem="ygn-v6-iWS" firstAttribute="leading" secondItem="5Qr-XN-2ou" secondAttribute="leading" id="z2S-zM-eCD"/>
                 <constraint firstItem="uQj-E7-5cy" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="110" id="zeQ-WR-uno"/>
-                <constraint firstItem="Wsg-dY-LDW" firstAttribute="leading" secondItem="qOt-3Q-iLX" secondAttribute="leading" id="zm6-oo-fXF"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
