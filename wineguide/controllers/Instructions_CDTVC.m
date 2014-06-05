@@ -8,6 +8,7 @@
 
 #import "Instructions_CDTVC.h"
 #import "InstructionsCell.h"
+#import "ColorSchemer.h"
 
 #define DEFAULT_SECTION_HEADER_HEIGHT 0
 
@@ -29,6 +30,11 @@
     
     // allows the tableview to load faster
     self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
+    
+    self.tableView.backgroundColor = [ColorSchemer sharedInstance].lightGray;
+    self.tableView.separatorColor = [ColorSchemer sharedInstance].gray;
+    self.tableView.sectionIndexBackgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.tableView.sectionIndexColor = [ColorSchemer sharedInstance].baseColor;
 }
 
 #pragma mark - Getters & setters
