@@ -11,7 +11,12 @@
 #import "FacebookLoginViewDelegate.h"
 #import "FacebookSessionManager.h"
 #import "GetMe.h"
+#import "ColorSchemer.h"
+#import "FontThemer.h"
+#import "UserInformationCell.h"
 
+#define USER_INFORMATION_CELL @"User information cell"
+#define USER_PROFILE_LIST_ITEM_CELL @"User profile list item cell"
 
 @interface UserProfile_ICDTVC ()
 
@@ -19,6 +24,8 @@
 @property (nonatomic, strong) FacebookLoginViewDelegate *facebookLoginViewDelegate;
 
 @property (nonatomic, strong) User2 *user;
+@property (nonatomic, strong) NSArray *userProfileListItemStrings;
+@property (nonatomic, strong) UserInformationCell *userInformationCell;
 
 @end
 
@@ -45,7 +52,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = self.user.name_display;
+    self.navigationItem.title = self.user.name_display;
     
     [self setupInstructionsCell];
 }
@@ -59,6 +66,23 @@
         _user = [GetMe sharedInstance].me;
     }
     return _user;
+}
+
+-(NSArray *)userProfileListItemStrings
+{
+    if(!_userProfileListItemStrings){
+        _userProfileListItemStrings = @[@"Cellar", @"Tasting Records", @"Following", @"Followed By"];
+    }
+    return _userProfileListItemStrings;
+}
+
+-(UserInformationCell *)userInformationCell
+{
+    if(!_userInformationCell){
+        _userInformationCell = [[[NSBundle mainBundle] loadNibNamed:@"UserInformationCell" owner:self options:nil] firstObject];
+        [_userInformationCell setupForUser:self.user];
+    }
+    return _userInformationCell;
 }
 
 -(FacebookProfileImageGetter *)facebookProfileImageGetter
@@ -115,10 +139,40 @@
 
 -(UITableViewCell *)customTableViewCellForIndexPath:(NSIndexPath *)indexPath
 {
-    return [UITableViewCell new];
+    UITableViewCell *cell;
+    if(indexPath.row == 0){
+        UserInformationCell *userInformationCell = (UserInformationCell *)self.userInformationCell;
+        
+        __weak UITableView *weakTableView = self.tableView;
+        [self.facebookProfileImageGetter setProfilePicForUser:self.user inImageView:userInformationCell.userProfileImageView completion:^(BOOL success) {
+            [weakTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }];
+        
+        cell = userInformationCell;
+        
+    } else {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:USER_PROFILE_LIST_ITEM_CELL];
+        
+        NSString *text = self.userProfileListItemStrings[indexPath.row-1];
+        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    }
+    
+    return cell;
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - UITableViewDelegate
+
+-(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row == 0){
+        return self.userInformationCell.bounds.size.height;
+    } else {
+        return 44;
+    }
+}
+
 /*
 -(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath; // Abstract
 -(UIView *)viewForHeaderInSection:(NSInteger)section; // Abstract

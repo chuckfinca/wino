@@ -88,6 +88,8 @@
 		C9672E3D193FD33100C98FEC /* UserProfile_ICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E3C193FD33100C98FEC /* UserProfile_ICDTVC.m */; };
 		C9672E47193FD5BA00C98FEC /* InstructionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E45193FD5BA00C98FEC /* InstructionsCell.m */; };
 		C9672E48193FD5BA00C98FEC /* InstructionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9672E46193FD5BA00C98FEC /* InstructionsCell.xib */; };
+		C9672E501941253D00C98FEC /* UserInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E4E1941253D00C98FEC /* UserInformationCell.m */; };
+		C9672E511941253D00C98FEC /* UserInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9672E4F1941253D00C98FEC /* UserInformationCell.xib */; };
 		C96928D818E0E069006ADCC4 /* Restaurant_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D718E0E069006ADCC4 /* Restaurant_SICDTVC.m */; };
 		C969342A1875EF290071EF41 /* IterationCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934271875EF290071EF41 /* IterationCounter.m */; };
 		C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934291875EF290071EF41 /* NSDictionary+Helper.m */; };
@@ -321,6 +323,9 @@
 		C9672E44193FD5BA00C98FEC /* InstructionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsCell.h; path = ReusedTableViewCells/InstructionsCell.h; sourceTree = "<group>"; };
 		C9672E45193FD5BA00C98FEC /* InstructionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsCell.m; path = ReusedTableViewCells/InstructionsCell.m; sourceTree = "<group>"; };
 		C9672E46193FD5BA00C98FEC /* InstructionsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstructionsCell.xib; path = ReusedTableViewCells/InstructionsCell.xib; sourceTree = "<group>"; };
+		C9672E4D1941253D00C98FEC /* UserInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInformationCell.h; path = UserProfile/UserInformationCell.h; sourceTree = "<group>"; };
+		C9672E4E1941253D00C98FEC /* UserInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInformationCell.m; path = UserProfile/UserInformationCell.m; sourceTree = "<group>"; };
+		C9672E4F1941253D00C98FEC /* UserInformationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserInformationCell.xib; path = UserProfile/UserInformationCell.xib; sourceTree = "<group>"; };
 		C96928D618E0E069006ADCC4 /* Restaurant_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Restaurant_SICDTVC.h; path = controllers/Restaurant_SICDTVC.h; sourceTree = "<group>"; };
 		C96928D718E0E069006ADCC4 /* Restaurant_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Restaurant_SICDTVC.m; path = controllers/Restaurant_SICDTVC.m; sourceTree = "<group>"; };
 		C96934261875EF290071EF41 /* IterationCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IterationCounter.h; path = supportingClasses/IterationCounter.h; sourceTree = "<group>"; };
@@ -900,6 +905,9 @@
 			children = (
 				C9672E3B193FD33100C98FEC /* UserProfile_ICDTVC.h */,
 				C9672E3C193FD33100C98FEC /* UserProfile_ICDTVC.m */,
+				C9672E4D1941253D00C98FEC /* UserInformationCell.h */,
+				C9672E4E1941253D00C98FEC /* UserInformationCell.m */,
+				C9672E4F1941253D00C98FEC /* UserInformationCell.xib */,
 			);
 			name = UserProfile;
 			sourceTree = "<group>";
@@ -1137,6 +1145,7 @@
 				C9C7D6391842AACD00A2E955 /* tutorial_logo.png in Resources */,
 				C9061E0A181F07CE003D8A55 /* Images.xcassets in Resources */,
 				C95A2CCE185BE4D30043ECB0 /* tab_timeline@2x.png in Resources */,
+				C9672E511941253D00C98FEC /* UserInformationCell.xib in Resources */,
 				C95CAAE118EB97D400E210D0 /* button_cellar@2x.png in Resources */,
 				C9F43EAC191C4D8D003DB6B4 /* instructions_timeline@2x.png in Resources */,
 				C991FB8A1861110200C10B52 /* glass_full@2x.png in Resources */,
@@ -1302,6 +1311,7 @@
 				C9548EEB19035976001A8997 /* Varietal2+Modify.m in Sources */,
 				C969342A1875EF290071EF41 /* IterationCounter.m in Sources */,
 				C979E67B192D831500B65680 /* Region.m in Sources */,
+				C9672E501941253D00C98FEC /* UserInformationCell.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
 				C92660EC190F16540024EFDC /* UIView+BorderDrawer.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,
