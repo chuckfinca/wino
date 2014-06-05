@@ -40,7 +40,7 @@
     if(image){
         self.displayInstructionsImageView = YES;
         [self.instructionsImageView setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-        self.instructionsImageView.tintColor = [ColorSchemer sharedInstance].textSecondary;
+        self.instructionsImageView.tintColor = [ColorSchemer sharedInstance].baseColor;
     }
     
     if(text){
