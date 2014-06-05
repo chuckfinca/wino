@@ -12,10 +12,9 @@
 
 @interface Instructions_CDTVC : CoreDataTableViewController
 
--(void)setupInstructionCellWithImage:(UIImage *)image text:(NSString *)text andExtraView:(UIView *)extraView;
--(void)registerInstructionCellNib; // Abstract - REQUIRED to display the instructions cell
-
 @property (nonatomic) BOOL displayInstructionsCell; // use to show/hide instructions cell when appropriate, default is YES
+-(void)setupInstructionCellWithImage:(UIImage *)image text:(NSString *)text andExtraView:(UIView *)extraView;
+
 
 // Replacement UITableView Delegate and Datasource methods
 

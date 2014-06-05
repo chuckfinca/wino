@@ -55,11 +55,6 @@
 
 #pragma mark - Setup
 
--(void)registerInstructionCellNib
-{
-    // Abstract
-}
-
 -(void)setupInstructionCellWithImage:(UIImage *)image text:(NSString *)text andExtraView:(UIView *)extraView
 {
     self.instructionsImage = image;

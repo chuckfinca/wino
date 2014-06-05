@@ -100,8 +100,6 @@
 		C96D318D1919BFD000B340F4 /* FriendList_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D318A1919BFD000B340F4 /* FriendList_SICDTVC.m */; };
 		C96D318E1919BFD000B340F4 /* FriendListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D318C1919BFD000B340F4 /* FriendListVC.m */; };
 		C96D31C2191AB24100B340F4 /* Instructions_CDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D31C1191AB24100B340F4 /* Instructions_CDTVC.m */; };
-		C96EBB2A1930229500E27798 /* InstructionsCell_TriedIt.m in Sources */ = {isa = PBXBuildFile; fileRef = C96EBB281930229500E27798 /* InstructionsCell_TriedIt.m */; };
-		C96EBB2B1930229500E27798 /* InstructionsCell_TriedIt.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96EBB291930229500E27798 /* InstructionsCell_TriedIt.xib */; };
 		C96EBB2E1935448E00E27798 /* instructions_arrow_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C96EBB2C1935448E00E27798 /* instructions_arrow_up@2x.png */; };
 		C96EBB2F1935448E00E27798 /* instructions_arrow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = C96EBB2D1935448E00E27798 /* instructions_arrow_up.png */; };
 		C96EBB3519368B1300E27798 /* FacebookUserConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96EBB3419368B1300E27798 /* FacebookUserConverter.m */; };
@@ -347,9 +345,6 @@
 		C96D318C1919BFD000B340F4 /* FriendListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListVC.m; path = "Add Friends/FriendListVC.m"; sourceTree = "<group>"; };
 		C96D31C0191AB24100B340F4 /* Instructions_CDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Instructions_CDTVC.h; path = controllers/Instructions_CDTVC.h; sourceTree = "<group>"; };
 		C96D31C1191AB24100B340F4 /* Instructions_CDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Instructions_CDTVC.m; path = controllers/Instructions_CDTVC.m; sourceTree = "<group>"; };
-		C96EBB271930229500E27798 /* InstructionsCell_TriedIt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsCell_TriedIt.h; path = Restaurant/InstructionsCell_TriedIt.h; sourceTree = "<group>"; };
-		C96EBB281930229500E27798 /* InstructionsCell_TriedIt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsCell_TriedIt.m; path = Restaurant/InstructionsCell_TriedIt.m; sourceTree = "<group>"; };
-		C96EBB291930229500E27798 /* InstructionsCell_TriedIt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstructionsCell_TriedIt.xib; path = Restaurant/InstructionsCell_TriedIt.xib; sourceTree = "<group>"; };
 		C96EBB2C1935448E00E27798 /* instructions_arrow_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions_arrow_up@2x.png"; path = "images/instructions_arrow_up@2x.png"; sourceTree = "<group>"; };
 		C96EBB2D1935448E00E27798 /* instructions_arrow_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions_arrow_up.png; path = images/instructions_arrow_up.png; sourceTree = "<group>"; };
 		C96EBB3319368B1300E27798 /* FacebookUserConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookUserConverter.h; path = model/FacebookUserConverter.h; sourceTree = "<group>"; };
@@ -582,7 +577,6 @@
 			children = (
 				C9672E49193FD60000C98FEC /* ReusedTableViewCells */,
 				C9672E3E193FD47F00C98FEC /* UserProfile */,
-				C96EBB241930118000E27798 /* InstructionsCell_TriedIt */,
 				C94E8E53192425B000BB0669 /* Wine Cell */,
 				C9E40188191EC48300ADD072 /* Restaurant Cell */,
 				C96D31881919BF6D00B340F4 /* Add Friends */,
@@ -963,16 +957,6 @@
 			name = "Add Friends";
 			sourceTree = "<group>";
 		};
-		C96EBB241930118000E27798 /* InstructionsCell_TriedIt */ = {
-			isa = PBXGroup;
-			children = (
-				C96EBB271930229500E27798 /* InstructionsCell_TriedIt.h */,
-				C96EBB281930229500E27798 /* InstructionsCell_TriedIt.m */,
-				C96EBB291930229500E27798 /* InstructionsCell_TriedIt.xib */,
-			);
-			name = InstructionsCell_TriedIt;
-			sourceTree = "<group>";
-		};
 		C9C164F71912F68D0032D340 /* Rating */ = {
 			isa = PBXGroup;
 			children = (
@@ -1128,7 +1112,6 @@
 				C96EBB2F1935448E00E27798 /* instructions_arrow_up.png in Resources */,
 				C9F43EC4191C5AC5003DB6B4 /* cellar@2x.png in Resources */,
 				C9C7D62B18403E0E00A2E955 /* tutorial_nearby.png in Resources */,
-				C96EBB2B1930229500E27798 /* InstructionsCell_TriedIt.xib in Resources */,
 				C95CAAE218EB97D400E210D0 /* button_cellar.png in Resources */,
 				C9061E05181F07CE003D8A55 /* iPad.storyboard in Resources */,
 				C95CAAD818EB750900E210D0 /* user_default@2x.png in Resources */,
@@ -1330,7 +1313,6 @@
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
 				C92660EC190F16540024EFDC /* UIView+BorderDrawer.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,
-				C96EBB2A1930229500E27798 /* InstructionsCell_TriedIt.m in Sources */,
 				C9548EF419035BC9001A8997 /* Region+Modify.m in Sources */,
 				C9DEBC4818FA2A4500134ECD /* ServerHelper.m in Sources */,
 				C979E666192D831500B65680 /* Varietal2.m in Sources */,

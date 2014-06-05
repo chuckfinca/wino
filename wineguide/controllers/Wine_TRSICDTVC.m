@@ -41,7 +41,9 @@
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"WineReview" bundle:nil] forCellReuseIdentifier:REVIEW_CELL];
     
-    self.displayInstructionsCell = YES;
+    [self setupInstructionCellWithImage:[UIImage imageNamed:@"instructions_arrow_up.png"]
+                                   text:@"Check this wine into your Timeline to remember who you drank this with and what you thought."
+                           andExtraView:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -65,11 +67,6 @@
 }
 
 #pragma mark - Setup
-
--(void)registerInstructionCellNib
-{
-    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_TriedIt" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
-}
 
 -(void)setupWithWine:(Wine2 *)wine fromRestaurant:(Restaurant2 *)restaurant
 {
