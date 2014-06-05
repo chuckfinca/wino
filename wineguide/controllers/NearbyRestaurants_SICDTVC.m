@@ -12,14 +12,14 @@
 #import "ColorSchemer.h"
 #import "ServerCommunicator.h"
 #import "DocumentHandler2.h"
-#import "InstructionsCell_RequestGPS.h"
 #import "LocationHelper.h"
 #import "RestaurantCell.h"
+#import "RoundedRectButton.h"
 
 #define RESTAURANT_CELL @"RestaurantCell"
 #define RESTAURANT_ENTITY @"Restaurant2"
 
-@interface NearbyRestaurants_SICDTVC () <RequestUserLocation>
+@interface NearbyRestaurants_SICDTVC ()
 
 @property (nonatomic, strong) RestaurantCell *sizingCell;
 
@@ -69,21 +69,30 @@
 
 #pragma mark - Setup
 
--(void)registerInstructionCellNib
-{
-    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_RequestGPS" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
-}
-
-
 -(void)checkUserLocation
 {
     BOOL userAlreadyEnabledLocation = [[NSUserDefaults standardUserDefaults] boolForKey:LOCATION_SERVICES_ENABLED];
     if(userAlreadyEnabledLocation == NO){
-        InstructionsCell_RequestGPS *cell = (InstructionsCell_RequestGPS *)self.instructionsCell;
-        cell.delegate = self;
+        [self setupInstructionCell];
     }
 }
 
+-(void)setupInstructionCell
+{
+    RoundedRectButton *enableLocationButton = [[RoundedRectButton alloc] init];
+    [enableLocationButton setTitle:@"Allow access to your location" forState:UIControlStateNormal];
+    [enableLocationButton addTarget:self action:@selector(enableLocation) forControlEvents:UIControlEventTouchUpInside];
+    [enableLocationButton setFillColor:[ColorSchemer sharedInstance].baseColor strokeColor:nil];
+    
+    [self setupInstructionCellWithImage:[UIImage imageNamed:@"instructions_gps.png"]
+                                   text:@"In order to find the restaurant you're at automatically Corkie needs access to your location data."
+                           andExtraView:enableLocationButton];
+    
+}
+-(void)enableLocation
+{
+    [self requestUserLocationUserRequested:YES];
+}
 
 #pragma mark - SearchableCDTVC Required Methods
 

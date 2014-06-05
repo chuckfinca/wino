@@ -14,7 +14,6 @@
 #import <FBLoginView.h>
 #import "FacebookFriendCell.h"
 #import "FacebookLoginViewDelegate.h"
-#import "InstructionsCell_FacebookConnect.h"
 
 #define USER_ENTITY @"User2"
 #define FACEBOOK_FRIEND_CELL @"Facebook Friend Cell"
@@ -47,8 +46,7 @@
     
     self.searchBar.placeholder = @" Search friends...";
     
-    InstructionsCell_FacebookConnect *instructionsCell = (InstructionsCell_FacebookConnect *)self.instructionsCell;
-    instructionsCell.loginView.delegate = self.facebookLoginViewDelegate;
+    [self setupInstructionsCell];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -85,9 +83,14 @@
 
 #pragma mark - Setup
 
--(void)registerInstructionCellNib
+-(void)setupInstructionsCell
 {
-    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_FacebookConnect" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+    FBLoginView *loginView = [[FBLoginView alloc] init];
+    loginView.delegate = self.facebookLoginViewDelegate;
+    
+    [self setupInstructionCellWithImage:nil
+                                   text:@"Connect with Facebook to add friends to this tasting record."
+                           andExtraView:loginView];
 }
 
 -(void)removeInstructionsCell

@@ -12,7 +12,7 @@
 
 @interface Instructions_CDTVC : CoreDataTableViewController
 
-@property (nonatomic, strong) UITableViewCell *instructionsCell; // Abstract - register below:
+-(void)setupInstructionCellWithImage:(UIImage *)image text:(NSString *)text andExtraView:(UIView *)extraView;
 -(void)registerInstructionCellNib; // Abstract - REQUIRED to display the instructions cell
 
 @property (nonatomic) BOOL displayInstructionsCell; // use to show/hide instructions cell when appropriate, default is YES

@@ -50,6 +50,10 @@
     
     self.displaySearchBar = YES;
     self.searchBar.placeholder = @"Search your cellar...";
+    
+    [self setupInstructionCellWithImage:[UIImage imageNamed:@"cellar.png"]
+                                   text:@"Your cellar is where you keep track of all the wines you love.\n\nTo add a wine to your cellar go to that wine's details page and click the 'Cellar' button."
+                           andExtraView:nil];
 }
 
 #pragma mark - Getters & setters
@@ -73,11 +77,6 @@
 
 
 #pragma mark - Setup
-
--(void)registerInstructionCellNib
-{
-    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_Cellar" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
-}
 
 -(void)setupForUser:(User2 *)user
 {

@@ -7,16 +7,24 @@
 //
 
 #import "Instructions_CDTVC.h"
+#import "InstructionsCell.h"
 
 #define DEFAULT_SECTION_HEADER_HEIGHT 0
+
+@interface Instructions_CDTVC ()
+
+@property (nonatomic, strong) UIImage *instructionsImage;
+@property (nonatomic, strong) NSString *instructionsText;
+@property (nonatomic, strong) UIView *instructionsExtraView;
+
+@end
 
 @implementation Instructions_CDTVC
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self registerInstructionCellNib];
-    self.instructionsCell = [self.tableView dequeueReusableCellWithIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
     self.displayInstructionsCell = YES;
     
     // allows the tableview to load faster
@@ -24,15 +32,6 @@
 }
 
 #pragma mark - Getters & setters
-
--(UITableViewCell *)instructionsCell
-{
-    if(!_instructionsCell){
-        _instructionsCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
-        _instructionsCell.backgroundColor = [UIColor redColor];
-    }
-    return _instructionsCell;
-}
 
 -(void)setDisplayInstructionsCell:(BOOL)displayInstructionsCell
 {
@@ -59,6 +58,13 @@
 -(void)registerInstructionCellNib
 {
     // Abstract
+}
+
+-(void)setupInstructionCellWithImage:(UIImage *)image text:(NSString *)text andExtraView:(UIView *)extraView
+{
+    self.instructionsImage = image;
+    self.instructionsText = text;
+    self.instructionsExtraView = extraView;
 }
 
 -(void)refreshFetchedResultsController
@@ -90,7 +96,11 @@
 {
     UITableViewCell *cell;
     if(self.displayInstructionsCell){
-        return self.instructionsCell;
+        
+        InstructionsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+        [cell setupInstructionsCellWithImage:self.instructionsImage text:self.instructionsText andExtraView:self.instructionsExtraView];
+        return cell;
+        
     } else {
         cell = [self customTableViewCellForIndexPath:indexPath];
     }
@@ -122,7 +132,9 @@
 
 -(CGFloat)heightForInstructionsCell
 {
-    return self.instructionsCell.bounds.size.height;
+    InstructionsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
+    [cell setupInstructionsCellWithImage:self.instructionsImage text:self.instructionsText andExtraView:self.instructionsExtraView];
+    return cell.bounds.size.height;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

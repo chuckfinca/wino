@@ -27,16 +27,15 @@
 	// Do any additional setup after loading the view.
     self.navigationItem.title = @"Tasting Timeline";
     self.displayWineNameOnEachCell = YES;
+    
+    [self setupInstructionCellWithImage:[UIImage imageNamed:@"instructions_timeline.png"]
+                                   text:@"Your timeline is where you keep track of all the wines you drink.\n\nTo add a Tasting Record to your timeline go to that wine's details page and click the 'Tried It' button."
+                           andExtraView:nil];
 }
 
 #pragma mark - Setup
 
--(void)registerInstructionCellNib
-{
-    [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell_Timeline" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
-}
-
--(void)refreshFetchedResultsController
+-(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
 {
     NSNumber *meIdentifier = [GetMe sharedInstance].me.identifier;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TASTING_RECORD_ENTITY];
