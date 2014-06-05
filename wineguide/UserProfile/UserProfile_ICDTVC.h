@@ -7,6 +7,7 @@
 //
 
 #import "Instructions_CDTVC.h"
+#import "User2.h"
 
 @interface UserProfile_ICDTVC : Instructions_CDTVC
 
