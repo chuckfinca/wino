@@ -35,7 +35,7 @@
 
 #pragma mark - Setup
 
--(void)setupAndSearchFetchedResultsControllerWithText:(NSString *)text
+-(void)refreshFetchedResultsController
 {
     NSNumber *meIdentifier = [GetMe sharedInstance].me.identifier;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TASTING_RECORD_ENTITY];
@@ -49,6 +49,7 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
+    NSLog(@"count = %lu",(unsigned long)[self.fetchedResultsController.fetchedObjects count]);
     if([self.fetchedResultsController.fetchedObjects count] > 0){
         self.displayInstructionsCell = NO;
     }
