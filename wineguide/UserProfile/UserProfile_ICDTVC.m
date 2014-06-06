@@ -18,7 +18,7 @@
 #define USER_INFORMATION_CELL @"User information cell"
 #define USER_PROFILE_LIST_ITEM_CELL @"User profile list item cell"
 
-@interface UserProfile_ICDTVC ()
+@interface UserProfile_ICDTVC () <ToggleFollowingButtonDelegate>
 
 @property (nonatomic, strong) FacebookProfileImageGetter *facebookProfileImageGetter;
 @property (nonatomic, strong) FacebookLoginViewDelegate *facebookLoginViewDelegate;
@@ -81,6 +81,7 @@
     if(!_userInformationCell){
         _userInformationCell = [[[NSBundle mainBundle] loadNibNamed:@"UserInformationCell" owner:self options:nil] firstObject];
         [_userInformationCell setupForUser:self.user];
+        _userInformationCell.delegate = self;
     }
     return _userInformationCell;
 }
@@ -119,7 +120,6 @@
                                andExtraView:loginView];
     }
 }
-
 
 #pragma mark - UITableViewDataSource
 
@@ -186,7 +186,25 @@
 -(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath; // Abstract
 */
 
+#pragma mark - Target action
 
+-(void)toggleFollowing
+{
+    User2 *me = [GetMe sharedInstance].me;
+    NSMutableSet *followedBy = [self.user.followedBy mutableCopy];
+    
+    if([followedBy containsObject:me]){
+        [followedBy removeObject:me];
+        self.userInformationCell.isFollowing = NO;
+        
+    } else {
+        [followedBy addObject:me];
+        self.userInformationCell.isFollowing = YES;
+    }
+    self.user.followedBy = followedBy;
+    
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning
 {

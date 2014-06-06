@@ -11,4 +11,6 @@
 
 @interface UserProfile_ICDTVC : Instructions_CDTVC
 
+-(id)initWithUser:(User2 *)user;
+
 @end

@@ -77,7 +77,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="pushUserProfileVC:" destination="iN0-l3-epB" eventType="touchUpInside" id="5RD-uE-91Q"/>
+                        <action selector="pushUserProfile:" destination="iN0-l3-epB" eventType="touchUpInside" id="sMI-aW-yCR"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ax-3E-wHg">
@@ -92,7 +92,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="pushUserProfileVC:" destination="iN0-l3-epB" eventType="touchUpInside" id="P6k-dH-uys"/>
+                        <action selector="pushUserProfile:" destination="iN0-l3-epB" eventType="touchUpInside" id="AIa-oA-jDF"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZ4-ci-uZA">
@@ -107,7 +107,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="pushUserProfileVC:" destination="iN0-l3-epB" eventType="touchUpInside" id="8Fq-OT-ip8"/>
+                        <action selector="pushUserProfile:" destination="iN0-l3-epB" eventType="touchUpInside" id="vTv-ka-tX3"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2S-4D-YQT">
@@ -122,7 +122,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="pushUserProfileVC:" destination="iN0-l3-epB" eventType="touchUpInside" id="RaK-64-rFT"/>
+                        <action selector="pushUserProfile:" destination="iN0-l3-epB" eventType="touchUpInside" id="Gem-rx-t4C"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBB-61-dUo">
@@ -137,7 +137,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="pushUserProfileVC:" destination="iN0-l3-epB" eventType="touchUpInside" id="qSf-Bs-SZL"/>
+                        <action selector="pushUserProfile:" destination="iN0-l3-epB" eventType="touchUpInside" id="fNb-I4-CVS"/>
                     </connections>
                 </button>
             </subviews>

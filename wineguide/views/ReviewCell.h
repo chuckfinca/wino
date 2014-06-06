@@ -11,7 +11,7 @@
 
 @protocol ReviewCellDelegate <NSObject>
 
--(void)pushUserProfileVcForReviewerNumber:(NSInteger)reviewCellTag;
+-(void)pushUserProfileForReviewerNumber:(NSInteger)reviewCellTag;
 -(void)pushUserReviewVcForReviewerNumber:(NSInteger)reviewCellTag;
 
 @end

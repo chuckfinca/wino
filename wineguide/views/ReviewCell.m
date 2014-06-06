@@ -106,7 +106,7 @@
 
 - (IBAction)sendToUserProfile:(id)sender
 {
-    [self.delegate pushUserProfileVcForReviewerNumber:self.tag];
+    [self.delegate pushUserProfileForReviewerNumber:self.tag];
 }
 
 - (IBAction)sendToUserReviewVC:(id)sender

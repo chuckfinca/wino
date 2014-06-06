@@ -17,8 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *followButton;
 
-@property (nonatomic) BOOL isFollowing;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToUserProfileImageViewConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *userProfileImageViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *userProfileImageViewToUserNameLabelConstraint;
@@ -44,6 +42,12 @@
     self.backgroundColor = [ColorSchemer sharedInstance].customWhite;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self drawBorderWidth:1 withColor:[ColorSchemer sharedInstance].gray onTop:YES bottom:YES left:NO andRight:NO];
+}
+
+-(void)setIsFollowing:(BOOL)isFollowing
+{
+    _isFollowing = isFollowing;
+    [self setupFollowButton];
 }
 
 -(void)setupFollowButton
@@ -77,5 +81,14 @@
     
     self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }
+
+#pragma mark - Target action
+
+
+-(IBAction)toggleFollowingButton:(id)sender
+{
+    [self.delegate toggleFollowing];
+}
+
 
 @end

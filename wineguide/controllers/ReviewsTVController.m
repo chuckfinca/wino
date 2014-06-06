@@ -14,7 +14,7 @@
 #import "WineNameVHTV.h"
 #import "DateStringFormatter.h"
 #import "ColorSchemer.h"
-#import "UserProfileVC.h"
+#import "UserProfile_ICDTVC.h"
 #import "Wine_TRSICDTVC.h"
 #import "FacebookProfileImageGetter.h"
 
@@ -169,12 +169,12 @@
 
 #pragma mark - ReviewCellDelegate
 
--(void)pushUserProfileVcForReviewerNumber:(NSInteger)reviewCellTag
+-(void)pushUserProfileForReviewerNumber:(NSInteger)reviewCellTag
 {
     Review2 *review = self.reviews[reviewCellTag];
     User2 *user = review.user;
-    UserProfileVC *userProfileTVC = [[UserProfileVC alloc] initWithUser:user];
-    [self.navigationController pushViewController:userProfileTVC animated:YES];
+    UserProfile_ICDTVC *userProfile_ICDTVC = [[UserProfile_ICDTVC alloc] initWithUser:user];
+    [self.navigationController pushViewController:userProfile_ICDTVC animated:YES];
 }
 
 -(void)pushUserReviewVcForReviewerNumber:(NSInteger)reviewCellTag

@@ -109,7 +109,7 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)pushUserProfileVC:(UIButton *)sender
+- (IBAction)pushUserProfile:(UIButton *)sender
 {
     NSLog(@"tag = %li",(long)sender.tag);
 }

@@ -15,7 +15,7 @@
 #import "User2.h"
 #import "DateStringFormatter.h"
 #import "ReviewsTVController.h"
-#import "UserProfileVC.h"
+#import "UserProfile_ICDTVC.h"
 #import "FacebookProfileImageGetter.h"
 
 #define TASTING_RECORD_CELL @"TastingRecordCell"
@@ -175,7 +175,7 @@
         
         CGPoint cellTouchLocation = [tap locationInView:cell];
         
-        BOOL pushUserProfileVC = NO;
+        BOOL pushUserProfile = NO;
         
         User2 *user;
         
@@ -186,15 +186,15 @@
                 NSArray *reviewsArray = [tastingRecord.reviews sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"review_date" ascending:YES]]];
                 Review2 *review = reviewsArray[button.tag];
                 user = review.user;
-                pushUserProfileVC = YES;
+                pushUserProfile = YES;
                 break;
             }
         }
         
         UIViewController *controller;
         
-        if(pushUserProfileVC){
-            controller = [[UserProfileVC alloc] initWithUser:user];
+        if(pushUserProfile){
+            controller = [[UserProfile_ICDTVC alloc] initWithUser:user];
         } else {
             controller = [[ReviewsTVController alloc] init];
             [(ReviewsTVController *)controller setupFromTastingRecord:(TastingRecord2 *)self.fetchedResultsController.fetchedObjects[indexPath.row]];
