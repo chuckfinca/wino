@@ -81,6 +81,12 @@
 -(void)setupForUser:(User2 *)user
 {
     self.user = user;
+    
+    if(user == [GetMe sharedInstance].me){
+        self.navigationItem.title = @"My Cellar";
+    } else {
+        self.navigationItem.title = [NSString stringWithFormat:@"%@'s Cellar",user.name_first];
+    }
 }
 
 #pragma mark - SearchableCDTVC Required Methods
