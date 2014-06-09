@@ -28,7 +28,7 @@
     
     if(self){
         _user = user;
-        self.navigationItem.title = [NSString stringWithFormat:@"%@'s Cellar",user.name_first];
+        self.navigationItem.title = [NSString stringWithFormat:@"%@'s Tasting Timeline",user.name_first];
     }
     
     return self;
