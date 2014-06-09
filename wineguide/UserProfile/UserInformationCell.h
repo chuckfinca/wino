@@ -20,7 +20,7 @@
 @property (nonatomic, weak) id <ToggleFollowingButtonDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileImageView;
-@property (nonatomic) BOOL isFollowing;
+@property (nonatomic) BOOL isFollowing; // Change this will set state and cause the button to redraw
 
 -(void)setupForUser:(User2 *)user;
 -(void)setupFollowButton;

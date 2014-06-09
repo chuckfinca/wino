@@ -32,10 +32,17 @@
         self.userNameLabel.attributedText = [[NSAttributedString alloc] initWithString:user.name_display attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
     }
     
-    if([user.followedBy containsObject:[GetMe sharedInstance].me]){
+    User2 *me = [GetMe sharedInstance].me;
+    
+    if(user == me){
+        self.followButton.hidden = YES;
+        
+    } else if([user.followedBy containsObject:me]){
         self.isFollowing = YES;
+        
+    } else {
+        [self setupFollowButton];
     }
-    [self setupFollowButton];
     
     [self setViewHeight];
     
