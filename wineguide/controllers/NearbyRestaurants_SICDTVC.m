@@ -40,7 +40,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Restaurants Nearby";
+    self.navigationItem.title = @"Nearby Restaurants";
     
     self.displaySearchBar = YES;
     self.searchBar.placeholder = @"Search by zipcode...";

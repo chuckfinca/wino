@@ -48,7 +48,7 @@
     
     if(self){
         _user = user;
-        self.navigationItem.title = [NSString stringWithFormat:@"%@'s Cellar",user.name_first];
+        self.navigationItem.title = [NSString stringWithFormat:@"%@'s Profile",user.name_first];
     }
     
     return self;
@@ -58,8 +58,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.navigationItem.title = self.user.name_display;
     
     [self setupInstructionsCell];
 }
