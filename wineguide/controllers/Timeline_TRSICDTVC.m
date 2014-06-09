@@ -61,13 +61,13 @@
 
 -(void)refreshFetchedResultsController
 {
-    NSNumber *userIdentifier = self.user.identifier;
+    NSString *userFacebookID = self.user.facebook_id;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TASTING_RECORD_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tasting_date"
                                                               ascending:NO],
                                 [NSSortDescriptor sortDescriptorWithKey:@"identifier"
                                                               ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(reviews,$r, $r.user.identifier == %@).@count != 0",userIdentifier];
+    request.predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(reviews,$r, $r.user.facebook_id == %@).@count != 0",userFacebookID];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
