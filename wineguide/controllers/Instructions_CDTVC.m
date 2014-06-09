@@ -35,6 +35,8 @@
     self.tableView.separatorColor = [ColorSchemer sharedInstance].gray;
     self.tableView.sectionIndexBackgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     self.tableView.sectionIndexColor = [ColorSchemer sharedInstance].baseColor;
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 #pragma mark - Getters & setters
