@@ -44,7 +44,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.title = @"Cellar";
     [self.tableView registerNib:[UINib nibWithNibName:WINE_CELL bundle:nil] forCellReuseIdentifier:WINE_CELL];
     self.firstTime = YES;
     
@@ -62,6 +61,7 @@
 {
     if(!_user){
         _user = [GetMe sharedInstance].me;
+        self.navigationItem.title = @"My Cellar";
     }
     return _user;
 }
@@ -81,12 +81,7 @@
 -(void)setupForUser:(User2 *)user
 {
     self.user = user;
-    
-    if(user == [GetMe sharedInstance].me){
-        self.navigationItem.title = @"My Cellar";
-    } else {
-        self.navigationItem.title = [NSString stringWithFormat:@"%@'s Cellar",user.name_first];
-    }
+    self.navigationItem.title = [NSString stringWithFormat:@"%@'s Cellar",user.name_first];
 }
 
 #pragma mark - SearchableCDTVC Required Methods

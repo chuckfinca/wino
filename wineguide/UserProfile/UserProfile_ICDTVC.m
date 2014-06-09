@@ -64,6 +64,7 @@
 {
     if(!_user){
         _user = [GetMe sharedInstance].me;
+        self.navigationItem.title = @"My Profile";
     }
     return _user;
 }
@@ -178,14 +179,6 @@
     }
 }
 
-/*
--(CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath; // Abstract
--(UIView *)viewForHeaderInSection:(NSInteger)section; // Abstract
--(CGFloat)heightForHeaderInSection:(NSInteger)section; // Abstract
--(NSString *)titleForHeaderInSection:(NSInteger)section; // Abstract
--(void)userDidSelectRowAtIndexPath:(NSIndexPath *)indexPath; // Abstract
-*/
-
 #pragma mark - Target action
 
 -(void)toggleFollowing
@@ -205,6 +198,10 @@
     
     [self.tableView reloadData];
 }
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
