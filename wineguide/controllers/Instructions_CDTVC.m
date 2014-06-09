@@ -44,7 +44,7 @@
 -(void)setDisplayInstructionsCell:(BOOL)displayInstructionsCell
 {
     BOOL reloadTableView = NO;
-    if(_displayInstructionsCell != displayInstructionsCell){
+    if(_displayInstructionsCell && _displayInstructionsCell != displayInstructionsCell){
         reloadTableView = YES;
     }
     
