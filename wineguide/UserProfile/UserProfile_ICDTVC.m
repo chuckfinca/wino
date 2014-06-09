@@ -14,6 +14,8 @@
 #import "ColorSchemer.h"
 #import "FontThemer.h"
 #import "UserInformationCell.h"
+#import "Cellar_SICDTVC.h"
+#import "Timeline_TRSICDTVC.h"
 
 #define USER_INFORMATION_CELL @"User information cell"
 #define USER_PROFILE_LIST_ITEM_CELL @"User profile list item cell"
@@ -43,7 +45,12 @@
 -(id)initWithUser:(User2 *)user
 {
     self = [super init];
-    _user = user;
+    
+    if(self){
+        _user = user;
+        self.navigationItem.title = [NSString stringWithFormat:@"%@'s Cellar",user.name_first];
+    }
+    
     return self;
 }
 
@@ -178,6 +185,27 @@
         return 44;
     }
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIViewController *controller;
+    switch (indexPath.row) {
+        case 0:
+            break;
+        case 1:
+            controller = [[Cellar_SICDTVC alloc] initWithUser:self.user];
+            break;
+        case 2:
+            controller = [[Timeline_TRSICDTVC alloc] initWithNibName:nil bundle:nil];
+            break;
+        case 3:
+            break;
+        default:
+            break;
+    }
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 
 #pragma mark - Target action
 

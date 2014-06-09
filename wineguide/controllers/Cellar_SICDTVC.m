@@ -40,6 +40,18 @@
     return self;
 }
 
+-(id)initWithUser:(User2 *)user
+{
+    self = [super init];
+    
+    if(self){
+        _user = user;
+        self.navigationItem.title = [NSString stringWithFormat:@"%@'s Cellar",user.name_first];
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

@@ -11,6 +11,6 @@
 
 @interface Cellar_SICDTVC : Searchable_ICDTVC
 
--(void)setupForUser:(User2 *)user;
+-(id)initWithUser:(User2 *)user;
 
 @end
