@@ -7,7 +7,10 @@
 //
 
 #import "TastingRecord_SICDTVC.h"
+#import "User2.h"
 
 @interface Timeline_TRSICDTVC : TastingRecord_SICDTVC
+
+-(id)initWithUser:(User2 *)user;
 
 @end

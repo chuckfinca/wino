@@ -196,7 +196,7 @@
             controller = [[Cellar_SICDTVC alloc] initWithUser:self.user];
             break;
         case 2:
-            controller = [[Timeline_TRSICDTVC alloc] initWithNibName:nil bundle:nil];
+            controller = [[Timeline_TRSICDTVC alloc] initWithUser:self.user];
             break;
         case 3:
             break;

@@ -16,10 +16,23 @@
 @interface Timeline_TRSICDTVC () <UIGestureRecognizerDelegate>
 
 @property (nonatomic) CGPoint touchLocation;
+@property (nonatomic, strong) User2 *user;
 
 @end
 
 @implementation Timeline_TRSICDTVC
+
+-(id)initWithUser:(User2 *)user
+{
+    self = [super init];
+    
+    if(self){
+        _user = user;
+        self.navigationItem.title = [NSString stringWithFormat:@"%@'s Cellar",user.name_first];
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -33,17 +46,28 @@
                            andExtraView:nil];
 }
 
+#pragma mark - Getters & setters
+
+-(User2 *)user
+{
+    if(!_user){
+        _user = [GetMe sharedInstance].me;
+        self.navigationItem.title = @"My Tasting Timeline";
+    }
+    return _user;
+}
+
 #pragma mark - Setup
 
 -(void)refreshFetchedResultsController
 {
-    NSNumber *meIdentifier = [GetMe sharedInstance].me.identifier;
+    NSNumber *userIdentifier = self.user.identifier;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:TASTING_RECORD_ENTITY];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tasting_date"
                                                               ascending:NO],
                                 [NSSortDescriptor sortDescriptorWithKey:@"identifier"
                                                               ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(reviews,$r, $r.user.identifier == %@).@count != 0",meIdentifier];
+    request.predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(reviews,$r, $r.user.identifier == %@).@count != 0",userIdentifier];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.context
