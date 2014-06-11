@@ -30,7 +30,6 @@
 		C92DF0471825B227009DCB2C /* Wine_TRSICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF0461825B227009DCB2C /* Wine_TRSICDTVC.m */; };
 		C932F1121868EE6E0079680C /* userAction_cellared.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F1101868EE6E0079680C /* userAction_cellared.png */; };
 		C932F1131868EE6E0079680C /* userAction_cellared@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C932F1111868EE6E0079680C /* userAction_cellared@2x.png */; };
-		C93A739E18EF5A59000E0B56 /* UserDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93A739D18EF5A59000E0B56 /* UserDetails.xib */; };
 		C93A73A118EF984D000E0B56 /* GetMe.m in Sources */ = {isa = PBXBuildFile; fileRef = C93A73A018EF984D000E0B56 /* GetMe.m */; };
 		C93A73A418F09C46000E0B56 /* iPhone_CheckIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93A73A218F09C46000E0B56 /* iPhone_CheckIn.storyboard */; };
 		C93E4F8D18E7672300D8C2DD /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */; };
@@ -149,7 +148,6 @@
 		C9A73DA519031233007C2366 /* BrandHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A73DA419031233007C2366 /* BrandHelper.m */; };
 		C9ACC7D7184E72AB00E5945D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D5184E72AB00E5945D /* settings.png */; };
 		C9ACC7D8184E72AB00E5945D /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACC7D6184E72AB00E5945D /* settings@2x.png */; };
-		C9B6B26018D7ACA3007406DC /* UserProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B25F18D7ACA3007406DC /* UserProfileVC.m */; };
 		C9B6B26918D8ED8E007406DC /* FacebookSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */; };
 		C9C7D5EC183FDE5600A2E955 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */; };
 		C9C7D5EF183FE6E400A2E955 /* RestaurantDetailsVHTV.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D5EE183FE6E400A2E955 /* RestaurantDetailsVHTV.m */; };
@@ -243,7 +241,6 @@
 		C92DF0461825B227009DCB2C /* Wine_TRSICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wine_TRSICDTVC.m; path = controllers/Wine_TRSICDTVC.m; sourceTree = "<group>"; };
 		C932F1101868EE6E0079680C /* userAction_cellared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = userAction_cellared.png; path = images/userAction_cellared.png; sourceTree = "<group>"; };
 		C932F1111868EE6E0079680C /* userAction_cellared@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "userAction_cellared@2x.png"; path = "images/userAction_cellared@2x.png"; sourceTree = "<group>"; };
-		C93A739D18EF5A59000E0B56 /* UserDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserDetails.xib; path = xibs/UserDetails.xib; sourceTree = "<group>"; };
 		C93A739F18EF984D000E0B56 /* GetMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetMe.h; path = model/GetMe.h; sourceTree = "<group>"; };
 		C93A73A018EF984D000E0B56 /* GetMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetMe.m; path = model/GetMe.m; sourceTree = "<group>"; };
 		C93A73A318F09C46000E0B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone_CheckIn.storyboard; sourceTree = "<group>"; };
@@ -432,8 +429,6 @@
 		C9A73DA419031233007C2366 /* BrandHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrandHelper.m; path = model/managedObjectHelpers/BrandHelper.m; sourceTree = "<group>"; };
 		C9ACC7D5184E72AB00E5945D /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = images/settings.png; sourceTree = "<group>"; };
 		C9ACC7D6184E72AB00E5945D /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "images/settings@2x.png"; sourceTree = "<group>"; };
-		C9B6B25E18D7ACA3007406DC /* UserProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfileVC.h; path = controllers/UserProfileVC.h; sourceTree = "<group>"; };
-		C9B6B25F18D7ACA3007406DC /* UserProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfileVC.m; path = controllers/UserProfileVC.m; sourceTree = "<group>"; };
 		C9B6B26718D8ED8E007406DC /* FacebookSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookSessionManager.h; path = model/FacebookSessionManager.h; sourceTree = "<group>"; };
 		C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookSessionManager.m; path = model/FacebookSessionManager.m; sourceTree = "<group>"; };
 		C9C7D5EA183FDE5600A2E955 /* ColorSchemer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSchemer.h; path = model/ColorSchemer.h; sourceTree = "<group>"; };
@@ -666,8 +661,6 @@
 				C9F47975181F4D940026A383 /* WineDetailsVC.m */,
 				C9C7D62D184047EB00A2E955 /* Cellar_SICDTVC.h */,
 				C9C7D62E184047EB00A2E955 /* Cellar_SICDTVC.m */,
-				C9B6B25E18D7ACA3007406DC /* UserProfileVC.h */,
-				C9B6B25F18D7ACA3007406DC /* UserProfileVC.m */,
 				C9693537187E39FE0071EF41 /* CheckInVC.h */,
 				C9693538187E39FE0071EF41 /* CheckInVC.m */,
 				C9DAB85218E90FE800BB0E2A /* Timeline_TRSICDTVC.h */,
@@ -713,7 +706,6 @@
 				C9C7D62418402BBE00A2E955 /* Tutorial.xib */,
 				C96BA8F518E8CE5200E0F990 /* TastingRecordCell.xib */,
 				C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */,
-				C93A739D18EF5A59000E0B56 /* UserDetails.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -1160,7 +1152,6 @@
 				C9F43EAC191C4D8D003DB6B4 /* instructions_timeline@2x.png in Resources */,
 				C991FB8A1861110200C10B52 /* glass_full@2x.png in Resources */,
 				C932F1131868EE6E0079680C /* userAction_cellared@2x.png in Resources */,
-				C93A739E18EF5A59000E0B56 /* UserDetails.xib in Resources */,
 				C95A2CCA185BDC0F0043ECB0 /* tutorial_triedIt@2x.png in Resources */,
 				C94E8E5A1924290A00BB0669 /* WineCell_withRating.xib in Resources */,
 				C991FB891861110200C10B52 /* glass_full.png in Resources */,
@@ -1291,7 +1282,6 @@
 				C9DEBC4218FA29E500134ECD /* WineUnitHelper.m in Sources */,
 				C9DAB85718E91D3900BB0E2A /* ReviewsTVController.m in Sources */,
 				C9DEBC3618F9FA4900134ECD /* Restaurant2+CreateOrModify.m in Sources */,
-				C9B6B26018D7ACA3007406DC /* UserProfileVC.m in Sources */,
 				C93A73A118EF984D000E0B56 /* GetMe.m in Sources */,
 				C92DF0471825B227009DCB2C /* Wine_TRSICDTVC.m in Sources */,
 				C9548EE519034760001A8997 /* TastingNote2+Modify.m in Sources */,
