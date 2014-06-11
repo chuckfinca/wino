@@ -96,14 +96,17 @@
     MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, -MAP_FRAME_OFFSET, self.view.frame.size.width, self.view.frame.size.height+MAP_FRAME_OFFSET)];
     mapView.userInteractionEnabled = NO;
     
+    UIView *mapOverlay = [[UIView alloc] initWithFrame:mapView.frame];
+    mapOverlay.backgroundColor = [ColorSchemer sharedInstance].customWhite;
     CAGradientLayer *layer = [CAGradientLayer layer];
-    layer.frame = mapView.bounds;
+    layer.frame = mapOverlay.bounds;
     layer.colors = @[(id)[ColorSchemer sharedInstance].customWhite.CGColor, (id)[UIColor clearColor].CGColor];
-    layer.startPoint = CGPointMake(0.7f, 0.0f);
-    layer.endPoint = CGPointMake(0.0f, 0.0f);
-    mapView.layer.mask = layer;
+    layer.startPoint = CGPointMake(0.0f, 0.0f);
+    layer.endPoint = CGPointMake(0.7f, 0.0f);
+    mapOverlay.layer.mask = layer;
     
     [self.view insertSubview:mapView atIndex:0];
+    [self.view insertSubview:mapOverlay aboveSubview:mapView];
     
     double latitued = [self.restaurant.latitude doubleValue];
     double longitude = [self.restaurant.longitude doubleValue];
