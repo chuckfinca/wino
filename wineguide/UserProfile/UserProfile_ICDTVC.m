@@ -17,6 +17,7 @@
 #import "Cellar_SICDTVC.h"
 #import "Timeline_TRSICDTVC.h"
 #import "FollowingFollowedBy_FLSICDTVC.h"
+#import "UserListCell.h"
 
 #define USER_INFORMATION_CELL @"User information cell"
 #define USER_PROFILE_LIST_ITEM_CELL @"User profile list item cell"
@@ -27,7 +28,6 @@
 @property (nonatomic, strong) FacebookLoginViewDelegate *facebookLoginViewDelegate;
 
 @property (nonatomic, strong) User2 *user;
-@property (nonatomic, strong) NSArray *userProfileListItemStrings;
 @property (nonatomic, strong) UserInformationCell *userInformationCell;
 
 @end
@@ -61,6 +61,7 @@
     // Do any additional setup after loading the view.
     
     [self setupInstructionsCell];
+    [self.tableView registerClass:[UserListCell class] forCellReuseIdentifier:USER_PROFILE_LIST_ITEM_CELL];
 }
 
 
@@ -73,14 +74,6 @@
         self.navigationItem.title = @"My Profile";
     }
     return _user;
-}
-
--(NSArray *)userProfileListItemStrings
-{
-    if(!_userProfileListItemStrings){
-        _userProfileListItemStrings = @[@"Cellar", @"Tasting Records", @"Following", @"Followed By"];
-    }
-    return _userProfileListItemStrings;
 }
 
 -(UserInformationCell *)userInformationCell
@@ -163,15 +156,43 @@
         cell = userInformationCell;
         
     } else {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:USER_PROFILE_LIST_ITEM_CELL];
+        UserListCell *userListCell = [[UserListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:USER_PROFILE_LIST_ITEM_CELL];
+        [self setupUserListCell:userListCell atIndexPath:indexPath];
         
-        NSString *text = self.userProfileListItemStrings[indexPath.row-1];
-        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+        cell = userListCell;
     }
     
     return cell;
+}
+
+-(void)setupUserListCell:(UserListCell *)userListCell atIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *title;
+    BOOL userInteractionEnabled = YES;
+    
+    switch (indexPath.row) {
+        case 1:
+            title = @"Cellar";
+            userInteractionEnabled = [self.user.wines count] > 0;
+            break;
+        case 2:
+            title = @"Tasting Records";
+            userInteractionEnabled = [self.user.reviews count] > 0;
+            break;
+        case 3:
+            title = @"Following";
+            userInteractionEnabled = [self.user.following count] > 0;
+            break;
+        case 4:
+            title = @"Followed By";
+            userInteractionEnabled = [self.user.followedBy count] > 0;
+            break;
+            
+        default:
+            break;
+    }
+    
+    [userListCell setupUserInteractionEnabled:userInteractionEnabled cellWithTitle:title];
 }
 
 #pragma mark - UITableViewDelegate

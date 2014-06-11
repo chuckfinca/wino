@@ -28,7 +28,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"InstructionsCell" bundle:nil] forCellReuseIdentifier:INSTRUCTIONS_CELL_REUSE_IDENTIFIER];
     self.displayInstructionsCell = YES;
     
-    // to hide all unused row separators
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     // allows the tableview to load faster

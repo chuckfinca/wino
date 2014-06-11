@@ -92,6 +92,7 @@
 		C9672E541946752400C98FEC /* User2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E531946752400C98FEC /* User2.m */; };
 		C9672E571947BD6500C98FEC /* CheckInFriends_FLSICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E561947BD6500C98FEC /* CheckInFriends_FLSICDTVC.m */; };
 		C9672E5A1947C2BD00C98FEC /* FollowingFollowedBy_FLSICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E591947C2BD00C98FEC /* FollowingFollowedBy_FLSICDTVC.m */; };
+		C9672E5D1949164800C98FEC /* UserListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E5C1949164800C98FEC /* UserListCell.m */; };
 		C96928D818E0E069006ADCC4 /* Restaurant_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D718E0E069006ADCC4 /* Restaurant_SICDTVC.m */; };
 		C969342A1875EF290071EF41 /* IterationCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934271875EF290071EF41 /* IterationCounter.m */; };
 		C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934291875EF290071EF41 /* NSDictionary+Helper.m */; };
@@ -331,6 +332,8 @@
 		C9672E561947BD6500C98FEC /* CheckInFriends_FLSICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckInFriends_FLSICDTVC.m; path = "Add Friends/CheckInFriends_FLSICDTVC.m"; sourceTree = "<group>"; };
 		C9672E581947C2BD00C98FEC /* FollowingFollowedBy_FLSICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FollowingFollowedBy_FLSICDTVC.h; path = "Add Friends/FollowingFollowedBy_FLSICDTVC.h"; sourceTree = "<group>"; };
 		C9672E591947C2BD00C98FEC /* FollowingFollowedBy_FLSICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FollowingFollowedBy_FLSICDTVC.m; path = "Add Friends/FollowingFollowedBy_FLSICDTVC.m"; sourceTree = "<group>"; };
+		C9672E5B1949164800C98FEC /* UserListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserListCell.h; path = UserProfile/UserListCell.h; sourceTree = "<group>"; };
+		C9672E5C1949164800C98FEC /* UserListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserListCell.m; path = UserProfile/UserListCell.m; sourceTree = "<group>"; };
 		C96928D618E0E069006ADCC4 /* Restaurant_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Restaurant_SICDTVC.h; path = controllers/Restaurant_SICDTVC.h; sourceTree = "<group>"; };
 		C96928D718E0E069006ADCC4 /* Restaurant_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Restaurant_SICDTVC.m; path = controllers/Restaurant_SICDTVC.m; sourceTree = "<group>"; };
 		C96934261875EF290071EF41 /* IterationCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IterationCounter.h; path = supportingClasses/IterationCounter.h; sourceTree = "<group>"; };
@@ -906,6 +909,8 @@
 				C9672E4D1941253D00C98FEC /* UserInformationCell.h */,
 				C9672E4E1941253D00C98FEC /* UserInformationCell.m */,
 				C9672E4F1941253D00C98FEC /* UserInformationCell.xib */,
+				C9672E5B1949164800C98FEC /* UserListCell.h */,
+				C9672E5C1949164800C98FEC /* UserListCell.m */,
 			);
 			name = UserProfile;
 			sourceTree = "<group>";
@@ -1329,6 +1334,7 @@
 				C9DEBC4718FA2A4500134ECD /* RestaurantHelper.m in Sources */,
 				C9672E47193FD5BA00C98FEC /* InstructionsCell.m in Sources */,
 				C979E672192D831500B65680 /* Group2.m in Sources */,
+				C9672E5D1949164800C98FEC /* UserListCell.m in Sources */,
 				C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */,
 				C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */,
 				C9DEBC2718F9EDF400134ECD /* Corkie.xcdatamodeld in Sources */,
