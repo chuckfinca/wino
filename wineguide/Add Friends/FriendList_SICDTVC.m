@@ -137,7 +137,10 @@
 
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return [self.fetchedResultsController sectionIndexTitles];
+    if([self.fetchedResultsController.fetchedObjects count] > 20){
+        return [self.fetchedResultsController sectionIndexTitles];
+    }
+    return nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
