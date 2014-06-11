@@ -190,11 +190,21 @@ static FacebookSessionManager *sharedInstance;
             self.friends = [result objectForKey:@"data"];
             NSLog(@"Found: %lu friends", (unsigned long)self.friends.count);
             
+            User2 *me = [GetMe sharedInstance].me;
+            
+            NSMutableSet *friendsSet = [me.following mutableCopy];
+            
             FacebookUserConverter *facebookUserConverter = [[FacebookUserConverter alloc] init];
             
-            for (NSDictionary<FBGraphUser>* friend in self.friends) {
-                [facebookUserConverter createOrModifyObjectWithFacebookDictionary:friend];
+            for (NSDictionary<FBGraphUser>* friendDictionary in self.friends) {
+                User2 *friend = [facebookUserConverter createOrModifyObjectWithFacebookFriendDictionary:friendDictionary];
+                
+                if(![friendsSet containsObject:friend]){
+                    [friendsSet addObject:friend];
+                }
             }
+            
+            me.following = friendsSet;
             
             self.haveUpdatedFriendInfoThisSession = YES;
         } else {

@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "User2+Modify.h"
 
 @interface FacebookUserConverter : NSObject
 
 -(void)modifyMeWithFacebookDictionary:(NSDictionary *)facebookDictionary;
--(NSManagedObject *)createOrModifyObjectWithFacebookDictionary:(NSDictionary *)facebookDictionary;
+-(User2 *)createOrModifyObjectWithFacebookFriendDictionary:(NSDictionary *)facebookDictionary;
 
 @end

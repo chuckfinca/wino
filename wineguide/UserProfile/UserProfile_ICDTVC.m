@@ -16,6 +16,7 @@
 #import "UserInformationCell.h"
 #import "Cellar_SICDTVC.h"
 #import "Timeline_TRSICDTVC.h"
+#import "FollowingFollowedBy_FLSICDTVC.h"
 
 #define USER_INFORMATION_CELL @"User information cell"
 #define USER_PROFILE_LIST_ITEM_CELL @"User profile list item cell"
@@ -197,7 +198,12 @@
             controller = [[Timeline_TRSICDTVC alloc] initWithUser:self.user];
             break;
         case 3:
+            NSLog(@"all users followed by %@",self.user.name_full);
+            controller = [[FollowingFollowedBy_FLSICDTVC alloc] initWithUser:self.user predicate:[NSPredicate predicateWithFormat:@"ANY followedBy.identifier = %@",self.user.identifier] andPageTitle:@"Following"];
             break;
+        case 4:
+            NSLog(@"all users following %@",self.user.name_full);
+            controller = [[FollowingFollowedBy_FLSICDTVC alloc] initWithUser:self.user predicate:[NSPredicate predicateWithFormat:@"%@ != nil && ANY following.identifier = %@",self.user.identifier,self.user.identifier] andPageTitle:@"Followed By"];
         default:
             break;
     }

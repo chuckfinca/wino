@@ -232,10 +232,10 @@
             </objects>
             <point key="canvasLocation" x="2828" y="201"/>
         </scene>
-        <!--Friend ListSICDTVC-->
+        <!--Check In FriendsFLSICDTVC-->
         <scene sceneID="ivr-I3-adD">
             <objects>
-                <tableViewController id="bjA-xM-TvC" customClass="FriendList_SICDTVC" sceneMemberID="viewController">
+                <tableViewController id="bjA-xM-TvC" customClass="CheckInFriends_FLSICDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MCA-wW-zVb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -10,14 +10,12 @@
 #import "ColorSchemer.h"
 #import "FontThemer.h"
 #import "FacebookProfileImageGetter.h"
-#import "FacebookSessionManager.h"
-#import <FBLoginView.h>
 #import "FacebookFriendCell.h"
 #import "FacebookLoginViewDelegate.h"
+#import "GetMe.h"
 
 #define USER_ENTITY @"User2"
 #define FACEBOOK_FRIEND_CELL @"Facebook Friend Cell"
-#define NAVIGATION_BAR_OFFSET 20
 
 @interface FriendList_SICDTVC ()
 
@@ -41,25 +39,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"FacebookFriendCell" bundle:nil] forCellReuseIdentifier:FACEBOOK_FRIEND_CELL];
-    
-    self.searchBar.placeholder = @" Search friends...";
-    
-    [self setupInstructionsCell];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeInstructionsCell) name:FACEBOOK_LOGIN_SUCCESSFUL object:nil];
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
 #pragma mark - Getters & setters
 
@@ -71,32 +53,23 @@
     return _facebookProfileImageGetter;
 }
 
--(FacebookLoginViewDelegate *)facebookLoginViewDelegate
+-(User2 *)user
 {
-    if(!_facebookLoginViewDelegate){
-        _facebookLoginViewDelegate = [[FacebookLoginViewDelegate alloc] init];
-        _facebookLoginViewDelegate.delegate = [FacebookSessionManager sharedInstance];
+    if(!_user){
+        _user = [GetMe sharedInstance].me;
     }
-    return _facebookLoginViewDelegate;
+    return _user;
 }
 
-
-#pragma mark - Setup
-
--(void)setupInstructionsCell
+-(NSPredicate *)predicate
 {
-    FBLoginView *loginView = [[FBLoginView alloc] init];
-    loginView.delegate = self.facebookLoginViewDelegate;
-    
-    [self setupInstructionCellWithImage:nil
-                                   text:@"Connect with Facebook to add friends to this tasting record."
-                           andExtraView:loginView];
+    if(!_predicate){
+        _predicate = [NSPredicate predicateWithFormat:@"ANY followedBy.identifier = %@",self.user.identifier];
+    }
+    return _predicate;
 }
 
--(void)removeInstructionsCell
-{
-    self.displayInstructionsCell = NO;
-}
+
 
 #pragma mark - SearchableCDTVC Required Methods
 
@@ -111,9 +84,10 @@
                                 [NSSortDescriptor sortDescriptorWithKey:@"name_first"
                                                               ascending:YES]];
     if([self.currentSearchString length] > 0){
-        request.predicate = [NSPredicate predicateWithFormat:@"name_full CONTAINS[cd] %@ && is_me == nil",[self.currentSearchString lowercaseString]];
+        request.predicate = [[NSCompoundPredicate alloc] initWithType:NSAndPredicateType
+                                                        subpredicates:@[self.predicate, [NSPredicate predicateWithFormat:@"name_full CONTAINS[cd] %@",[self.currentSearchString lowercaseString]]]];
     } else {
-        request.predicate = [NSPredicate predicateWithFormat:@"is_me == nil"];
+        request.predicate = self.predicate;
     }
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
@@ -122,7 +96,6 @@
                                                                                    cacheName:nil];
     if([self.fetchedResultsController.fetchedObjects count] > 0){
         self.displayInstructionsCell = NO;
-        self.displaySearchBar = YES;
     }
 }
 
@@ -170,43 +143,6 @@
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
     return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
 }
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    User2 *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self.delegate addOrRemoveUser:user];
-}
-
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    User2 *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self.delegate addOrRemoveUser:user];
-}
-
-
-
-
-
-#pragma mark - UISearchBarDelegate
-
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [super searchBarSearchButtonClicked:searchBar];
-    [self.delegate animateNavigationBarBarTo:NAVIGATION_BAR_OFFSET];
-}
-
--(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    [super searchBarCancelButtonClicked:searchBar];
-    [self.delegate animateNavigationBarBarTo:NAVIGATION_BAR_OFFSET];
-}
-
--(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
-{
-    [self.delegate animateNavigationBarBarTo:-NAVIGATION_BAR_OFFSET];
-    return true;
-}
-
 
 
 

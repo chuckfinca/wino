@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CheckInFriends_FLSICDTVC.h"
 
 @protocol FriendListVcDelegate
 
@@ -15,7 +16,7 @@
 
 @end
 
-@interface FriendListVC : UIViewController
+@interface FriendListVC : UIViewController <FriendSelectionDelegate>
 
 @property (nonatomic, weak) id <FriendListVcDelegate> delegate;
 

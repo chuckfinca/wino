@@ -9,15 +9,9 @@
 #import "Searchable_ICDTVC.h"
 #import "User2.h"
 
-@protocol FriendSelectionDelegate
-
--(void)addOrRemoveUser:(User2 *)user;
--(void)animateNavigationBarBarTo:(CGFloat)y;
-
-@end
-
 @interface FriendList_SICDTVC : Searchable_ICDTVC
 
-@property (nonatomic, weak) id <FriendSelectionDelegate> delegate;
+@property (nonatomic, strong) User2 *user;
+@property (nonatomic, strong) NSPredicate *predicate;
 
 @end

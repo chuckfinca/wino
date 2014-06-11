@@ -8,7 +8,6 @@
 
 #import "FacebookUserConverter.h"
 #import "DocumentHandler2.h"
-#import "User2+Modify.h"
 #import "GetMe.h"
 #import "NSDictionary+Helper.h"
 #import "ManagedObjectFetcher.h"
@@ -88,7 +87,7 @@
     return dictionary;
 }
 
--(NSManagedObject *)createOrModifyObjectWithFacebookDictionary:(NSDictionary *)facebookDictionary
+-(User2 *)createOrModifyObjectWithFacebookFriendDictionary:(NSDictionary *)facebookDictionary
 {
     NSString *facebookID = (NSString *)facebookDictionary[FACEBOOK_ID];
     

@@ -90,6 +90,9 @@
 		C9672E48193FD5BA00C98FEC /* InstructionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9672E46193FD5BA00C98FEC /* InstructionsCell.xib */; };
 		C9672E501941253D00C98FEC /* UserInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E4E1941253D00C98FEC /* UserInformationCell.m */; };
 		C9672E511941253D00C98FEC /* UserInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9672E4F1941253D00C98FEC /* UserInformationCell.xib */; };
+		C9672E541946752400C98FEC /* User2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E531946752400C98FEC /* User2.m */; };
+		C9672E571947BD6500C98FEC /* CheckInFriends_FLSICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E561947BD6500C98FEC /* CheckInFriends_FLSICDTVC.m */; };
+		C9672E5A1947C2BD00C98FEC /* FollowingFollowedBy_FLSICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9672E591947C2BD00C98FEC /* FollowingFollowedBy_FLSICDTVC.m */; };
 		C96928D818E0E069006ADCC4 /* Restaurant_SICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C96928D718E0E069006ADCC4 /* Restaurant_SICDTVC.m */; };
 		C969342A1875EF290071EF41 /* IterationCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934271875EF290071EF41 /* IterationCounter.m */; };
 		C969342B1875EF290071EF41 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C96934291875EF290071EF41 /* NSDictionary+Helper.m */; };
@@ -105,7 +108,6 @@
 		C96EBB2E1935448E00E27798 /* instructions_arrow_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C96EBB2C1935448E00E27798 /* instructions_arrow_up@2x.png */; };
 		C96EBB2F1935448E00E27798 /* instructions_arrow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = C96EBB2D1935448E00E27798 /* instructions_arrow_up.png */; };
 		C96EBB3519368B1300E27798 /* FacebookUserConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = C96EBB3419368B1300E27798 /* FacebookUserConverter.m */; };
-		C96EBB3B19369E2300E27798 /* User2.m in Sources */ = {isa = PBXBuildFile; fileRef = C96EBB3A19369E2300E27798 /* User2.m */; };
 		C96EBB411936B4D500E27798 /* FacebookFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C96EBB3F1936B4D500E27798 /* FacebookFriendCell.m */; };
 		C96EBB421936B4D500E27798 /* FacebookFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96EBB401936B4D500E27798 /* FacebookFriendCell.xib */; };
 		C9744C6E192821B800DB1F2B /* WineList+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = C9744C6D192821B800DB1F2B /* WineList+Modify.m */; };
@@ -326,6 +328,12 @@
 		C9672E4D1941253D00C98FEC /* UserInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInformationCell.h; path = UserProfile/UserInformationCell.h; sourceTree = "<group>"; };
 		C9672E4E1941253D00C98FEC /* UserInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInformationCell.m; path = UserProfile/UserInformationCell.m; sourceTree = "<group>"; };
 		C9672E4F1941253D00C98FEC /* UserInformationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserInformationCell.xib; path = UserProfile/UserInformationCell.xib; sourceTree = "<group>"; };
+		C9672E521946752400C98FEC /* User2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User2.h; path = "model/Managed Objects/User2.h"; sourceTree = "<group>"; };
+		C9672E531946752400C98FEC /* User2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User2.m; path = "model/Managed Objects/User2.m"; sourceTree = "<group>"; };
+		C9672E551947BD6500C98FEC /* CheckInFriends_FLSICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckInFriends_FLSICDTVC.h; path = "Add Friends/CheckInFriends_FLSICDTVC.h"; sourceTree = "<group>"; };
+		C9672E561947BD6500C98FEC /* CheckInFriends_FLSICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckInFriends_FLSICDTVC.m; path = "Add Friends/CheckInFriends_FLSICDTVC.m"; sourceTree = "<group>"; };
+		C9672E581947C2BD00C98FEC /* FollowingFollowedBy_FLSICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FollowingFollowedBy_FLSICDTVC.h; path = "Add Friends/FollowingFollowedBy_FLSICDTVC.h"; sourceTree = "<group>"; };
+		C9672E591947C2BD00C98FEC /* FollowingFollowedBy_FLSICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FollowingFollowedBy_FLSICDTVC.m; path = "Add Friends/FollowingFollowedBy_FLSICDTVC.m"; sourceTree = "<group>"; };
 		C96928D618E0E069006ADCC4 /* Restaurant_SICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Restaurant_SICDTVC.h; path = controllers/Restaurant_SICDTVC.h; sourceTree = "<group>"; };
 		C96928D718E0E069006ADCC4 /* Restaurant_SICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Restaurant_SICDTVC.m; path = controllers/Restaurant_SICDTVC.m; sourceTree = "<group>"; };
 		C96934261875EF290071EF41 /* IterationCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IterationCounter.h; path = supportingClasses/IterationCounter.h; sourceTree = "<group>"; };
@@ -352,8 +360,6 @@
 		C96EBB2D1935448E00E27798 /* instructions_arrow_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions_arrow_up.png; path = images/instructions_arrow_up.png; sourceTree = "<group>"; };
 		C96EBB3319368B1300E27798 /* FacebookUserConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookUserConverter.h; path = model/FacebookUserConverter.h; sourceTree = "<group>"; };
 		C96EBB3419368B1300E27798 /* FacebookUserConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookUserConverter.m; path = model/FacebookUserConverter.m; sourceTree = "<group>"; };
-		C96EBB3919369E2300E27798 /* User2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User2.h; path = "model/Managed Objects/User2.h"; sourceTree = "<group>"; };
-		C96EBB3A19369E2300E27798 /* User2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User2.m; path = "model/Managed Objects/User2.m"; sourceTree = "<group>"; };
 		C96EBB3E1936B4D500E27798 /* FacebookFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookFriendCell.h; path = "Add Friends/FacebookFriendCell.h"; sourceTree = "<group>"; };
 		C96EBB3F1936B4D500E27798 /* FacebookFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookFriendCell.m; path = "Add Friends/FacebookFriendCell.m"; sourceTree = "<group>"; };
 		C96EBB401936B4D500E27798 /* FacebookFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FacebookFriendCell.xib; path = "Add Friends/FacebookFriendCell.xib"; sourceTree = "<group>"; };
@@ -580,7 +586,7 @@
 				C9672E3E193FD47F00C98FEC /* UserProfile */,
 				C94E8E53192425B000BB0669 /* Wine Cell */,
 				C9E40188191EC48300ADD072 /* Restaurant Cell */,
-				C96D31881919BF6D00B340F4 /* Add Friends */,
+				C96D31881919BF6D00B340F4 /* Friends Lists */,
 				C96D317F191715CA00B340F4 /* Reviews TVC */,
 				C9C164F71912F68D0032D340 /* Rating */,
 				C9061E00181F07CE003D8A55 /* iPhone.storyboard */,
@@ -772,10 +778,10 @@
 		C90B6F9818241A5B0012FE5F /* managedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				C9672E521946752400C98FEC /* User2.h */,
+				C9672E531946752400C98FEC /* User2.m */,
 				C9CF659A193944E500D8E401 /* Review2.h */,
 				C9CF659B193944E500D8E401 /* Review2.m */,
-				C96EBB3919369E2300E27798 /* User2.h */,
-				C96EBB3A19369E2300E27798 /* User2.m */,
 				C979E685192D831600B65680 /* Brand2.h */,
 				C979E686192D831600B65680 /* Brand2.m */,
 				C979E682192D831600B65680 /* Wine2.h */,
@@ -945,18 +951,22 @@
 			name = "Reviews TVC";
 			sourceTree = "<group>";
 		};
-		C96D31881919BF6D00B340F4 /* Add Friends */ = {
+		C96D31881919BF6D00B340F4 /* Friends Lists */ = {
 			isa = PBXGroup;
 			children = (
 				C96D31891919BFD000B340F4 /* FriendList_SICDTVC.h */,
 				C96D318A1919BFD000B340F4 /* FriendList_SICDTVC.m */,
+				C9672E551947BD6500C98FEC /* CheckInFriends_FLSICDTVC.h */,
+				C9672E561947BD6500C98FEC /* CheckInFriends_FLSICDTVC.m */,
 				C96D318B1919BFD000B340F4 /* FriendListVC.h */,
 				C96D318C1919BFD000B340F4 /* FriendListVC.m */,
 				C96EBB3E1936B4D500E27798 /* FacebookFriendCell.h */,
 				C96EBB3F1936B4D500E27798 /* FacebookFriendCell.m */,
 				C96EBB401936B4D500E27798 /* FacebookFriendCell.xib */,
+				C9672E581947C2BD00C98FEC /* FollowingFollowedBy_FLSICDTVC.h */,
+				C9672E591947C2BD00C98FEC /* FollowingFollowedBy_FLSICDTVC.m */,
 			);
-			name = "Add Friends";
+			name = "Friends Lists";
 			sourceTree = "<group>";
 		};
 		C9C164F71912F68D0032D340 /* Rating */ = {
@@ -1246,6 +1256,7 @@
 				C9693534187D18BF0071EF41 /* FontThemer.m in Sources */,
 				C9DAB85418E90FE800BB0E2A /* Timeline_TRSICDTVC.m in Sources */,
 				C9548EC219032753001A8997 /* RatingHistoryHelper.m in Sources */,
+				C9672E571947BD6500C98FEC /* CheckInFriends_FLSICDTVC.m in Sources */,
 				C96D31C2191AB24100B340F4 /* Instructions_CDTVC.m in Sources */,
 				C9DEBC6C18FB694A00134ECD /* Wine2+Modify.m in Sources */,
 				C96928D818E0E069006ADCC4 /* Restaurant_SICDTVC.m in Sources */,
@@ -1285,8 +1296,8 @@
 				C92DF0471825B227009DCB2C /* Wine_TRSICDTVC.m in Sources */,
 				C9548EE519034760001A8997 /* TastingNote2+Modify.m in Sources */,
 				C9548EF719035D03001A8997 /* RegionHelper.m in Sources */,
-				C96EBB3B19369E2300E27798 /* User2.m in Sources */,
 				C9548F4E19036DC9001A8997 /* TastingRecord2+Modify.m in Sources */,
+				C9672E5A1947C2BD00C98FEC /* FollowingFollowedBy_FLSICDTVC.m in Sources */,
 				C94E8E571924260E00BB0669 /* WineCell.m in Sources */,
 				C96D317E1917081800B340F4 /* OutBox.m in Sources */,
 				C9C7D6151840168700A2E955 /* Searchable_ICDTVC.m in Sources */,
@@ -1314,6 +1325,7 @@
 				C9672E501941253D00C98FEC /* UserInformationCell.m in Sources */,
 				C9C7D61F184029B600A2E955 /* TutorialVC.m in Sources */,
 				C92660EC190F16540024EFDC /* UIView+BorderDrawer.m in Sources */,
+				C9672E541946752400C98FEC /* User2.m in Sources */,
 				C9F47976181F4D940026A383 /* WineDetailsVC.m in Sources */,
 				C9548EF419035BC9001A8997 /* Region+Modify.m in Sources */,
 				C9DEBC4818FA2A4500134ECD /* ServerHelper.m in Sources */,
