@@ -198,12 +198,12 @@
             controller = [[Timeline_TRSICDTVC alloc] initWithUser:self.user];
             break;
         case 3:
-            NSLog(@"all users followed by %@",self.user.name_full);
-            controller = [[FollowingFollowedBy_FLSICDTVC alloc] initWithUser:self.user predicate:[NSPredicate predicateWithFormat:@"ANY followedBy.identifier = %@",self.user.identifier] andPageTitle:@"Following"];
+            NSLog(@"any user whose followedBy set contains the user %@ - %@",self.user.name_full, self.user.identifier);
+            controller = [[FollowingFollowedBy_FLSICDTVC alloc] initWithUser:self.user predicate:[NSPredicate predicateWithFormat:@"ANY followedBy.facebook_id = %@",self.user.facebook_id] andPageTitle:@"Following"];
             break;
         case 4:
-            NSLog(@"all users following %@",self.user.name_full);
-            controller = [[FollowingFollowedBy_FLSICDTVC alloc] initWithUser:self.user predicate:[NSPredicate predicateWithFormat:@"%@ != nil && ANY following.identifier = %@",self.user.identifier,self.user.identifier] andPageTitle:@"Followed By"];
+            NSLog(@"any user whose following set contains the user %@ - %@",self.user.name_full, self.user.identifier);
+            controller = [[FollowingFollowedBy_FLSICDTVC alloc] initWithUser:self.user predicate:[NSPredicate predicateWithFormat:@"ANY following.facebook_id = %@",self.user.facebook_id] andPageTitle:@"Followed By"];
         default:
             break;
     }
