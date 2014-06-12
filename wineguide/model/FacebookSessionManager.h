@@ -11,6 +11,7 @@
 #import "FacebookLoginViewDelegate.h"
 
 #define FACEBOOK_LOGIN_SUCCESSFUL @"Facebook login successful"
+#define FACEBOOK_PUBLISH_PERMISSION @"publish_actions"
 
 @interface FacebookSessionManager : NSObject <FacebookLoginViewDelegateDelegate>
 
@@ -20,5 +21,8 @@
 -(void)sessionStateChanged:(FBSession *)session state:(FBSessionState)state error:(NSError *)error;
 
 -(void)updateBasicInformation; // Called only by FacebookLoginViewDelegate
+
+-(BOOL)userHasPermission:(NSString *)permission;
+-(void)requestPermission:(NSString *)permission withCompletion:(void (^)(BOOL success))completion;
 
 @end
