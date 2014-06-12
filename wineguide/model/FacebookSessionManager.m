@@ -125,11 +125,8 @@ static FacebookSessionManager *sharedInstance;
     [FBRequestConnection startWithGraphPath:@"/me/permissions"
                           completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                               if (!error){
-                                  if([result isKindOfClass:[NSArray class]]){
-                                      for(NSString *permission in (NSArray *)[result data]){
-                                          NSLog(@"permission = %@",permission);
-                                      }
-                                  }
+                                  NSLog(@"permissions check result = %@",result);
+                                  
                               } else {
                                   // Publish permissions found, publish the OG story
                                   
@@ -146,8 +143,6 @@ static FacebookSessionManager *sharedInstance;
             // Success! Include your code to handle the results here
             if([result isKindOfClass:[FBGraphObject class]]){
                 FBGraphObject *graphObject = (FBGraphObject *)result;
-                
-                NSLog(@"graphObject = %@",graphObject);
                 
                 [graphObject setObject:@YES forKey:@"registered"];
                 
