@@ -14,10 +14,13 @@
 @interface FriendListVC ()
 
 @property (weak, nonatomic) IBOutlet UITextView *selectedFriendsTextView;
-@property (nonatomic, strong) UIImage *placeHolderImage;
-@property (nonatomic, strong) CheckInFriends_FLSICDTVC *checkInFriends_FLSICDTVC;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 @property (weak, nonatomic) IBOutlet UIView *friendListContainerView;
+
+@property (nonatomic, strong) UIImage *placeHolderImage;
+@property (nonatomic, strong) CheckInFriends_FLSICDTVC *checkInFriends_FLSICDTVC;
+@property (nonatomic) BOOL checkInComplete;
+
 
 @end
 
@@ -46,6 +49,14 @@
     [self.checkInButton sizeToFit];
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    if(!self.checkInComplete){
+        [self.delegate backFromVC:self withFriends:self.selectedFriends];
+    }
+}
 
 #pragma mark - Getters & Setters
 
@@ -121,12 +132,9 @@
 
 #pragma mark - Target Action
 
--(IBAction)backToDetails:(id)sender
-{
-    [self.delegate backFromVC:self withFriends:self.selectedFriends];
-}
 -(IBAction)checkIn:(id)sender
 {
+    self.checkInComplete = YES;
     [self.delegate checkInWithFriends:self.selectedFriends];
 }
 

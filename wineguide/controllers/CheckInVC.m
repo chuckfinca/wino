@@ -326,9 +326,7 @@
 
 -(void)backFromVC:(UIViewController *)dismissed withFriends:(NSArray *)selectedFriendsArray
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        [self.noteTV becomeFirstResponder];
-    }];
+    [self.noteTV becomeFirstResponder];
     self.selectedFriends = selectedFriendsArray;
 }
 
