@@ -73,6 +73,7 @@
 
 -(void)removeInstructionsCell
 {
+    self.searchBar.placeholder = @"Search friends...";
     self.displaySearchBar = YES;
     self.displayInstructionsCell = NO;
 }
