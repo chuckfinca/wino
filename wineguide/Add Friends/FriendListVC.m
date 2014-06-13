@@ -55,7 +55,7 @@
     self.shareContainerView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
     [self.shareContainerView drawBorderWidth:1 withColor:[ColorSchemer sharedInstance].gray onTop:YES bottom:YES left:NO andRight:NO];
     
-    [self.shareToFacebookButton setImage:[[UIImage imageNamed:@"share_facebook.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self.shareToFacebookButton setImage:[[UIImage imageNamed:@"share_facebook"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     self.shareToFacebookButton.tintColor = [ColorSchemer sharedInstance].gray;
 }
 
