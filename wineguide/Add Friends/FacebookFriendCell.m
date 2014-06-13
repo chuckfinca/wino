@@ -42,7 +42,7 @@
         self.userNameLabel.attributedText = attributedName;
     }
     
-    self.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    self.backgroundColor = [ColorSchemer sharedInstance].customWhite;
 }
 
 @end

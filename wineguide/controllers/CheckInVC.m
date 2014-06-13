@@ -19,6 +19,7 @@
 #import "SetRatingVC.h"
 #import "UIView+BorderDrawer.h"
 #import "OutBox.h"
+#import "FacebookSessionManager.h"
 
 #define CREATED_AT @"created_at"
 #define CLAIMED_BY_USER @"claimed"
@@ -233,11 +234,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"bbb");
     if([segue.identifier isEqual: @"AddFriends"]){
-        NSLog(@"Add friends segue");
-        
-        NSLog(@"VC class = %@",[segue.destinationViewController class]);
         
         FriendListVC *friendListVC = segue.destinationViewController;
         
@@ -333,12 +330,28 @@
 -(void)checkInWithFriends:(NSArray *)selectedFriendsArray
 {
     self.selectedFriends = selectedFriendsArray;
-    [self createTastingRecord];
     
-    [self dismissViewControllerAnimated:YES completion:^{
-        [self.noteTV resignFirstResponder];
-        [self.delegate dismissAfterTastingRecordCreation];
-    }];
+    BOOL canPublishToFacebook = [[FacebookSessionManager sharedInstance] userHasPermission:FACEBOOK_PUBLISH_PERMISSION];
+    NSLog(@"canPublishToFacebook = %i",canPublishToFacebook);
+    
+    if(canPublishToFacebook){
+        [self createTastingRecord];
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self.noteTV resignFirstResponder];
+            [self.delegate dismissAfterTastingRecordCreation];
+        }];
+    } else {
+        [[FacebookSessionManager sharedInstance] requestPermission:FACEBOOK_PUBLISH_PERMISSION withCompletion:^(BOOL success) {
+            if(success){
+                NSLog(@"success! proceed");
+            } else {
+                NSLog(@"request publish permission failed");
+            }
+        }];
+    }
+    
+    
 }
 
 -(void)createTastingRecord

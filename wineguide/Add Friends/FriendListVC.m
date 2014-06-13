@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *selectedFriendsTextView;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 @property (weak, nonatomic) IBOutlet UIView *friendListContainerView;
+@property (weak, nonatomic) IBOutlet UIButton *shareToFacebookButton;
+@property (weak, nonatomic) IBOutlet UIView *shareContainerView;
+@property (weak, nonatomic) IBOutlet UILabel *shareLabel;
 
 @property (nonatomic, strong) UIImage *placeHolderImage;
 @property (nonatomic, strong) CheckInFriends_FLSICDTVC *checkInFriends_FLSICDTVC;
@@ -41,12 +44,19 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
-    [self.friendListContainerView drawBorderWidth:1 withColor:[ColorSchemer sharedInstance].gray onTop:YES bottom:NO left:NO andRight:NO];
     
     [self setupTextView];
     
     [self.checkInButton setAttributedTitle:[[NSAttributedString alloc] initWithString:self.checkInButton.titleLabel.text attributes:@{NSFontAttributeName : [FontThemer sharedInstance].headline}] forState:UIControlStateNormal];
     [self.checkInButton sizeToFit];
+    
+    self.shareLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Share:" attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
+    
+    self.shareContainerView.backgroundColor = [ColorSchemer sharedInstance].customBackgroundColor;
+    [self.shareContainerView drawBorderWidth:1 withColor:[ColorSchemer sharedInstance].gray onTop:YES bottom:YES left:NO andRight:NO];
+    
+    [self.shareToFacebookButton setImage:[[UIImage imageNamed:@"share_facebook.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    self.shareToFacebookButton.tintColor = [ColorSchemer sharedInstance].gray;
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -138,6 +148,16 @@
     [self.delegate checkInWithFriends:self.selectedFriends];
 }
 
+-(IBAction)shareToFacebook:(UIButton *)sender
+{
+    sender.selected = !sender.selected;
+    
+    if(sender.selected == YES){
+        sender.tintColor = self.view.tintColor;
+    } else {
+        sender.tintColor = [ColorSchemer sharedInstance].gray;
+    }
+}
 
 
 
