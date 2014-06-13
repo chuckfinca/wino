@@ -33,6 +33,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setupInstructionsCell];
 }
 
 -(void)viewWillAppear:(BOOL)animated
