@@ -28,6 +28,9 @@
 		C9061E4E181F36BE003D8A55 /* WineDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9061E4D181F36BE003D8A55 /* WineDetails.xib */; };
 		C92660EC190F16540024EFDC /* UIView+BorderDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = C92660EB190F16540024EFDC /* UIView+BorderDrawer.m */; };
 		C92DF0471825B227009DCB2C /* Wine_TRSICDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C92DF0461825B227009DCB2C /* Wine_TRSICDTVC.m */; };
+		C92FAD44194BB0240047C5CF /* LocalTastingRecordCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FAD43194BB0240047C5CF /* LocalTastingRecordCreator.m */; };
+		C92FAD47194BB5F30047C5CF /* WineIsAFavoriteChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FAD46194BB5F30047C5CF /* WineIsAFavoriteChecker.m */; };
+		C92FAD4A194BBBAC0047C5CF /* LocalReviewCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FAD49194BBBAC0047C5CF /* LocalReviewCreator.m */; };
 		C93A73A118EF984D000E0B56 /* GetMe.m in Sources */ = {isa = PBXBuildFile; fileRef = C93A73A018EF984D000E0B56 /* GetMe.m */; };
 		C93A73A418F09C46000E0B56 /* iPhone_CheckIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93A73A218F09C46000E0B56 /* iPhone_CheckIn.storyboard */; };
 		C93E4F8D18E7672300D8C2DD /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */; };
@@ -190,6 +193,12 @@
 		C92660EB190F16540024EFDC /* UIView+BorderDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BorderDrawer.m"; path = "views/UIView+BorderDrawer.m"; sourceTree = "<group>"; };
 		C92DF0451825B227009DCB2C /* Wine_TRSICDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wine_TRSICDTVC.h; path = controllers/Wine_TRSICDTVC.h; sourceTree = "<group>"; };
 		C92DF0461825B227009DCB2C /* Wine_TRSICDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wine_TRSICDTVC.m; path = controllers/Wine_TRSICDTVC.m; sourceTree = "<group>"; };
+		C92FAD42194BB0240047C5CF /* LocalTastingRecordCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalTastingRecordCreator.h; path = model/LocalTastingRecordCreator.h; sourceTree = "<group>"; };
+		C92FAD43194BB0240047C5CF /* LocalTastingRecordCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalTastingRecordCreator.m; path = model/LocalTastingRecordCreator.m; sourceTree = "<group>"; };
+		C92FAD45194BB5F30047C5CF /* WineIsAFavoriteChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineIsAFavoriteChecker.h; path = model/WineIsAFavoriteChecker.h; sourceTree = "<group>"; };
+		C92FAD46194BB5F30047C5CF /* WineIsAFavoriteChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineIsAFavoriteChecker.m; path = model/WineIsAFavoriteChecker.m; sourceTree = "<group>"; };
+		C92FAD48194BBBAC0047C5CF /* LocalReviewCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalReviewCreator.h; path = model/LocalReviewCreator.h; sourceTree = "<group>"; };
+		C92FAD49194BBBAC0047C5CF /* LocalReviewCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalReviewCreator.m; path = model/LocalReviewCreator.m; sourceTree = "<group>"; };
 		C93A739F18EF984D000E0B56 /* GetMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetMe.h; path = model/GetMe.h; sourceTree = "<group>"; };
 		C93A73A018EF984D000E0B56 /* GetMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetMe.m; path = model/GetMe.m; sourceTree = "<group>"; };
 		C93A73A318F09C46000E0B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone_CheckIn.storyboard; sourceTree = "<group>"; };
@@ -859,6 +868,12 @@
 				C985911D192EC41E00A61E2D /* WineColorStringFromCode.m */,
 				C9CF65971939280200D8E401 /* ManagedObjectFetcher.h */,
 				C9CF65981939280200D8E401 /* ManagedObjectFetcher.m */,
+				C92FAD42194BB0240047C5CF /* LocalTastingRecordCreator.h */,
+				C92FAD43194BB0240047C5CF /* LocalTastingRecordCreator.m */,
+				C92FAD48194BBBAC0047C5CF /* LocalReviewCreator.h */,
+				C92FAD49194BBBAC0047C5CF /* LocalReviewCreator.m */,
+				C92FAD45194BB5F30047C5CF /* WineIsAFavoriteChecker.h */,
+				C92FAD46194BB5F30047C5CF /* WineIsAFavoriteChecker.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1052,6 +1067,7 @@
 				C9693534187D18BF0071EF41 /* FontThemer.m in Sources */,
 				C9DAB85418E90FE800BB0E2A /* Timeline_TRSICDTVC.m in Sources */,
 				C9548EC219032753001A8997 /* RatingHistoryHelper.m in Sources */,
+				C92FAD4A194BBBAC0047C5CF /* LocalReviewCreator.m in Sources */,
 				C9672E571947BD6500C98FEC /* CheckInFriends_FLSICDTVC.m in Sources */,
 				C96D31C2191AB24100B340F4 /* Instructions_CDTVC.m in Sources */,
 				C9DEBC6C18FB694A00134ECD /* Wine2+Modify.m in Sources */,
@@ -1074,6 +1090,7 @@
 				C9487D9A182EF119007F7E19 /* NSManagedObject+Helper.m in Sources */,
 				C979E678192D831500B65680 /* TalkingHeads.m in Sources */,
 				C979E65D192D831400B65680 /* RatingHistory2.m in Sources */,
+				C92FAD47194BB5F30047C5CF /* WineIsAFavoriteChecker.m in Sources */,
 				C9DEBC3918FA11C400134ECD /* DocumentHandler2.m in Sources */,
 				C9693539187E39FE0071EF41 /* CheckInVC.m in Sources */,
 				C979E663192D831500B65680 /* TastingNote2.m in Sources */,
@@ -1138,6 +1155,7 @@
 				C98DEFB31821C7E30038216C /* LocationHelper.m in Sources */,
 				C95A2CD9185BF8360043ECB0 /* WineNameVHTV.m in Sources */,
 				C9DEBC2718F9EDF400134ECD /* Corkie.xcdatamodeld in Sources */,
+				C92FAD44194BB0240047C5CF /* LocalTastingRecordCreator.m in Sources */,
 				C9061DFB181F07CE003D8A55 /* main.m in Sources */,
 				C9548F5119036E63001A8997 /* TastingRecordHelper.m in Sources */,
 				C94E8E7119257C2B00BB0669 /* WineNameLabel.m in Sources */,

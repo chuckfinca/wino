@@ -11,7 +11,7 @@
 
 @protocol FriendListVcDelegate
 
--(void)checkInWithFriends:(NSArray *)selectedFriendsArray;
+-(void)checkInWithFriends:(NSArray *)selectedFriendsArray shareToFacebook:(BOOL)shareToFacebook;
 -(void)backFromVC:(UIViewController *)dismissed withFriends:(NSArray *)selectedFriendsArray;
 
 @end

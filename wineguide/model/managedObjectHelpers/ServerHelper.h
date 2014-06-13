@@ -27,6 +27,11 @@
 #define WINE_ID @"wine_id"
 #define RESTAURANT_ID @"restaurant_id"
 
+#define CREATED_AT @"created_at"
+#define CLAIMED_BY_USER @"claimed"
+#define IDENTIFIER @"identifier"
+#define UPDATED_AT @"updated_at"
+
 @interface ServerHelper : NSObject
 
 @property (nonatomic, readonly) NSManagedObjectContext *context;

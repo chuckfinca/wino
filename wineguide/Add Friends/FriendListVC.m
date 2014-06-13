@@ -145,7 +145,7 @@
 -(IBAction)checkIn:(id)sender
 {
     self.checkInComplete = YES;
-    [self.delegate checkInWithFriends:self.selectedFriends];
+    [self.delegate checkInWithFriends:self.selectedFriends shareToFacebook:self.shareToFacebookButton.selected];
 }
 
 -(IBAction)shareToFacebook:(UIButton *)sender

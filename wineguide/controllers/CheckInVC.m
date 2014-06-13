@@ -14,23 +14,11 @@
 #import "TastingRecord2.h"
 #import "FriendListVC.h"
 #import "GetMe.h"
-#import "ReviewHelper.h"
-#import "TastingRecordHelper.h"
 #import "SetRatingVC.h"
 #import "UIView+BorderDrawer.h"
-#import "OutBox.h"
 #import "FacebookSessionManager.h"
-
-#define CREATED_AT @"created_at"
-#define CLAIMED_BY_USER @"claimed"
-#define IDENTIFIER @"identifier"
-#define RATING @"rating"
-#define REVIEW_TEXT @"review_text"
-#define REVIEW_DATE @"review_date"
-#define UPDATED_AT @"updated_at"
-#define RESTAURANT @"restaurant"
-
-#define TASTING_DATE @"tasting_date"
+#import "LocalTastingRecordCreator.h"
+#import "OutBox.h"
 
 #define NOTE_TEXT_INSET 20
 
@@ -136,7 +124,6 @@
     self.view.backgroundColor = [ColorSchemer sharedInstance].customWhite;
     [self setupRestaurantButton];
     [self setupDateButton];
-    [self setupCancelButton];
     [self setupContinueButton];
 }
 
@@ -199,10 +186,6 @@
     [self.dateButton drawBorderWidth:1 withColor:[ColorSchemer sharedInstance].gray onTop:NO bottom:YES left:NO andRight:YES];
 }
 
--(void)setupCancelButton
-{
-    NSLog(@"setup cancel button");
-}
 
 -(void)setupContinueButton
 {
@@ -327,137 +310,56 @@
     self.selectedFriends = selectedFriendsArray;
 }
 
--(void)checkInWithFriends:(NSArray *)selectedFriendsArray
+-(void)checkInWithFriends:(NSArray *)selectedFriendsArray shareToFacebook:(BOOL)shareToFacebook
 {
     self.selectedFriends = selectedFriendsArray;
     
+    NSString *reviewText;
+    if([[self.noteTV.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] > 0){
+        reviewText = self.noteTV.text;
+    }
+    
+    LocalTastingRecordCreator *tastingRecordCreator = [[LocalTastingRecordCreator alloc] init];
+    TastingRecord2 *tastingRecord = [tastingRecordCreator createTastingRecordAndReviewWithText:reviewText rating:self.ratingVC.rating wine:self.wine restaurant:self.restaurant tastingDate:[NSDate date] andFriends:self.selectedFriends];
+    
+    if(shareToFacebook){
+        [self shareTastingRecordToFacebook:tastingRecord];
+    }
+    
+    OutBox *outBox = [[OutBox alloc] init];
+    [outBox userCreatedTastingRecord:tastingRecord];
+    
+    [self dismissViewController];
+}
+
+-(void)shareTastingRecordToFacebook:(TastingRecord2 *)tastingRecord
+{
     BOOL canPublishToFacebook = [[FacebookSessionManager sharedInstance] userHasPermission:FACEBOOK_PUBLISH_PERMISSION];
-    NSLog(@"canPublishToFacebook = %i",canPublishToFacebook);
     
     if(canPublishToFacebook){
-        [self createTastingRecord];
+        NSLog(@"canPublishToFacebook, proceed");
         
-        [self dismissViewControllerAnimated:YES completion:^{
-            [self.noteTV resignFirstResponder];
-            [self.delegate dismissAfterTastingRecordCreation];
-        }];
     } else {
         [[FacebookSessionManager sharedInstance] requestPermission:FACEBOOK_PUBLISH_PERMISSION withCompletion:^(BOOL success) {
             if(success){
                 NSLog(@"success! proceed");
+                
             } else {
                 NSLog(@"request publish permission failed");
             }
         }];
     }
-    
-    
 }
 
--(void)createTastingRecord
+-(void)dismissViewController
 {
-    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    
-    NSDate *now = [NSDate date];
-    
-    if(!self.selectedDate){
-        self.selectedDate = now;
-    }
-    
-    // Need better identifier
-    NSNumber *identifier = [NSNumber numberWithInteger:-arc4random_uniform(1000000000)+1];
-    
-    [dictionary setObject:now forKey:CREATED_AT];
-    [dictionary setObject:identifier forKey:ID_KEY];
-    [dictionary setObject:self.selectedDate forKey:TASTING_DATE];
-    [dictionary setObject:now forKey:UPDATED_AT];
-    
-    TastingRecordHelper *trdh = [[TastingRecordHelper alloc] init];
-    TastingRecord2 *tastingRecord = (TastingRecord2 *)[trdh createObjectFromDictionary:dictionary];
-    
-    tastingRecord.restaurant = self.restaurant;
-    tastingRecord.wine = self.wine;
-    
-    NSMutableSet *reviews = [[NSMutableSet alloc] init];
-    User2 *me = [GetMe sharedInstance].me;
-    Review2 *userReview = [self createClaimed:YES reviewForUser:me];
-    userReview.created_at = tastingRecord.created_at;
-    userReview.review_date = tastingRecord.created_at;
-    [reviews addObject:userReview];
-    
-    [self determineIfFavorite];
-    
-    if(self.selectedFriends){
-        for(User2 *friend in self.selectedFriends){
-            Review2 *friendReview = [self createClaimed:NO reviewForUser:friend];
-            friendReview.created_at = tastingRecord.created_at;
-            [reviews addObject:friendReview];
-        }
-        tastingRecord.reviews = reviews;
-    }
-    
-    OutBox *outBox = [[OutBox alloc] init];
-    [outBox userCreatedTastingRecord:tastingRecord];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.noteTV resignFirstResponder];
+        [self.delegate dismissAfterTastingRecordCreation];
+    }];
 }
 
--(Review2 *)createClaimed:(BOOL)claimed reviewForUser:(User2 *)user
-{
-    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    
-    // Need better identifier
-    NSNumber *identifier = [NSNumber numberWithInteger:-arc4random_uniform(1000000000)+1];
-    
-    [dictionary setObject:identifier forKey:ID_KEY];
-    [dictionary setObject:@(claimed) forKey:CLAIMED_BY_USER];
-    
-    if(claimed){
-        NSString *reviewText;
-        if([[self.noteTV.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] > 0){
-            reviewText = self.noteTV.text;
-            [dictionary setObject:reviewText forKey:REVIEW_TEXT];
-        }
-        
-        [dictionary setObject:@(self.ratingVC.rating) forKey:RATING];
-    }
-    
-    [dictionary setObject:self.selectedDate forKey:UPDATED_AT];
-    
-    ReviewHelper *rdh = [[ReviewHelper alloc] init];
-    Review2 *review = (Review2 *)[rdh createObjectFromDictionary:dictionary];
-    review.user = user;
-    return review;
-}
 
--(void)determineIfFavorite
-{
-    User2 *me = [GetMe sharedInstance].me;
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:REVIEW_ENTITY];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"user.identifier == %@ AND tastingRecord.wine.identifier == %@",me.identifier,self.wine.identifier];
-    
-    NSError *error;
-    NSArray *matches = [me.managedObjectContext executeFetchRequest:request error:&error];
-    
-    NSLog(@"matches count = %lu",(unsigned long)[matches count]);
-    
-    NSInteger ratingsSummated = 0;
-    
-    for(Review2 *r in matches){
-        NSLog(@"rating = %@",r.rating);
-        ratingsSummated += [r.rating integerValue];
-    }
-    
-    float averageRating = ratingsSummated / [matches count];
-    
-    NSLog(@"average rating = %f",averageRating);
-    
-    if(averageRating >= 4){
-        self.wine.user_favorite = @YES;
-    } else {
-        self.wine.user_favorite = @NO;
-    }
-}
 
 
 
