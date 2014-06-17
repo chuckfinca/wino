@@ -17,6 +17,7 @@
 #import "SetRatingVC.h"
 #import "UIView+BorderDrawer.h"
 #import "FacebookSessionManager.h"
+#import "FacebookOpenGraphObjectCreator.h"
 #import "LocalTastingRecordCreator.h"
 #import "OutBox.h"
 
@@ -336,13 +337,17 @@
 {
     BOOL canPublishToFacebook = [[FacebookSessionManager sharedInstance] userHasPermission:FACEBOOK_PUBLISH_PERMISSION];
     
+    FacebookOpenGraphObjectCreator *objectCreator = [[FacebookOpenGraphObjectCreator alloc] init];
+    
     if(canPublishToFacebook){
         NSLog(@"canPublishToFacebook, proceed");
+        [objectCreator createObjectForTastingRecord:tastingRecord];
         
     } else {
         [[FacebookSessionManager sharedInstance] requestPermission:FACEBOOK_PUBLISH_PERMISSION withCompletion:^(BOOL success) {
             if(success){
                 NSLog(@"success! proceed");
+                [objectCreator createObjectForTastingRecord:tastingRecord];
                 
             } else {
                 NSLog(@"request publish permission failed");

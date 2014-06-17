@@ -25,4 +25,5 @@
 -(BOOL)userHasPermission:(NSString *)permission;
 -(void)requestPermission:(NSString *)permission withCompletion:(void (^)(BOOL success))completion;
 
+
 @end

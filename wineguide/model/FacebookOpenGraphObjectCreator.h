@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TastingRecord2.h"
 
 @interface FacebookOpenGraphObjectCreator : NSObject
+
+-(void)createObjectForTastingRecord:(TastingRecord2 *)tastingRecord;
 
 @end

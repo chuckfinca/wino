@@ -124,36 +124,84 @@ static FacebookSessionManager *sharedInstance;
 
 -(void)requestPermission:(NSString *)permission withCompletion:(void (^)(BOOL success))completion
 {
-    [FBSession.activeSession requestNewPublishPermissions:[NSArray arrayWithObject:@"publish_actions"]
-                                          defaultAudience:FBSessionDefaultAudienceFriends
-                                        completionHandler:^(FBSession *session, NSError *error) {
-                                            __block NSString *alertText;
-                                            __block NSString *alertTitle;
-                                            if (!error) {
-                                                if ([FBSession.activeSession.permissions
-                                                     indexOfObject:@"publish_actions"] == NSNotFound){
-                                                    // Permission not granted, tell the user we will not publish
-                                                    alertTitle = @"Permission not granted";
-                                                    alertText = @"Your action will not be published to Facebook.";
-                                                    [[[UIAlertView alloc] initWithTitle:alertTitle
-                                                                                message:alertText
-                                                                               delegate:self
-                                                                      cancelButtonTitle:@"Ok"
-                                                                      otherButtonTitles:nil] show];
-                                                    completion(NO);
-                                                } else {
-                                                    // Permission granted, publish the OG story
-                                                    completion(YES);
-                                                }
-                                                
-                                            } else {
-                                                // There was an error, handle it
-                                                // See https://developers.facebook.com/docs/ios/errors/
-                                                [self handleError:error];
-                                                
-                                                completion(NO);
-                                            }
-                                        }];
+    if(![self userHasPermission:FACEBOOK_PUBLISH_PERMISSION]){
+        
+        if([FBSession activeSession].isOpen){
+            
+            [FBSession.activeSession requestNewPublishPermissions:[NSArray arrayWithObject:@"publish_actions"]
+                                                  defaultAudience:FBSessionDefaultAudienceFriends
+                                                completionHandler:^(FBSession *session, NSError *error) {
+                                                    __block NSString *alertText;
+                                                    __block NSString *alertTitle;
+                                                    if (!error) {
+                                                        if ([FBSession.activeSession.permissions
+                                                             indexOfObject:@"publish_actions"] == NSNotFound){
+                                                            // Permission not granted, tell the user we will not publish
+                                                            alertTitle = @"Permission not granted";
+                                                            alertText = @"Your action will not be published to Facebook.";
+                                                            [[[UIAlertView alloc] initWithTitle:alertTitle
+                                                                                        message:alertText
+                                                                                       delegate:self
+                                                                              cancelButtonTitle:@"Ok"
+                                                                              otherButtonTitles:nil] show];
+                                                            completion(NO);
+                                                        } else {
+                                                            // Permission granted, publish the OG story
+                                                            completion(YES);
+                                                        }
+                                                        
+                                                    } else {
+                                                        // There was an error, handle it
+                                                        // See https://developers.facebook.com/docs/ios/errors/
+                                                        [self handleError:error];
+                                                        
+                                                        completion(NO);
+                                                    }
+                                                }];
+        } else {
+            NSLog(@"FBSession activeSession not open");
+            [self logInWithCompletion:^(BOOL loggedIn) {
+                NSLog(@"loggedIn = %hhd",loggedIn);
+                if(loggedIn){
+                    
+                    [FBSession.activeSession requestNewPublishPermissions:[NSArray arrayWithObject:@"publish_actions"]
+                                                          defaultAudience:FBSessionDefaultAudienceFriends
+                                                        completionHandler:^(FBSession *session, NSError *error) {
+                                                            __block NSString *alertText;
+                                                            __block NSString *alertTitle;
+                                                            if (!error) {
+                                                                if ([FBSession.activeSession.permissions
+                                                                     indexOfObject:@"publish_actions"] == NSNotFound){
+                                                                    // Permission not granted, tell the user we will not publish
+                                                                    alertTitle = @"Permission not granted";
+                                                                    alertText = @"Your action will not be published to Facebook.";
+                                                                    [[[UIAlertView alloc] initWithTitle:alertTitle
+                                                                                                message:alertText
+                                                                                               delegate:self
+                                                                                      cancelButtonTitle:@"Ok"
+                                                                                      otherButtonTitles:nil] show];
+                                                                    completion(NO);
+                                                                } else {
+                                                                    // Permission granted, publish the OG story
+                                                                    completion(YES);
+                                                                }
+                                                                
+                                                            } else {
+                                                                // There was an error, handle it
+                                                                // See https://developers.facebook.com/docs/ios/errors/
+                                                                [self handleError:error];
+                                                                
+                                                                completion(NO);
+                                                            }
+                                                        }];
+                } else {
+                    NSLog(@"FBSession activeSession STILL not open");
+                }
+            }];
+        }
+    } else {
+        completion(YES);
+    }
 }
 
 -(void)getUserInfo

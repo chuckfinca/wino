@@ -31,6 +31,7 @@
 		C92FAD44194BB0240047C5CF /* LocalTastingRecordCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FAD43194BB0240047C5CF /* LocalTastingRecordCreator.m */; };
 		C92FAD47194BB5F30047C5CF /* WineIsAFavoriteChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FAD46194BB5F30047C5CF /* WineIsAFavoriteChecker.m */; };
 		C92FAD4A194BBBAC0047C5CF /* LocalReviewCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FAD49194BBBAC0047C5CF /* LocalReviewCreator.m */; };
+		C92FAD4D194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FAD4C194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.m */; };
 		C93A73A118EF984D000E0B56 /* GetMe.m in Sources */ = {isa = PBXBuildFile; fileRef = C93A73A018EF984D000E0B56 /* GetMe.m */; };
 		C93A73A418F09C46000E0B56 /* iPhone_CheckIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93A73A218F09C46000E0B56 /* iPhone_CheckIn.storyboard */; };
 		C93E4F8D18E7672300D8C2DD /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */; };
@@ -199,6 +200,8 @@
 		C92FAD46194BB5F30047C5CF /* WineIsAFavoriteChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineIsAFavoriteChecker.m; path = model/WineIsAFavoriteChecker.m; sourceTree = "<group>"; };
 		C92FAD48194BBBAC0047C5CF /* LocalReviewCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalReviewCreator.h; path = model/LocalReviewCreator.h; sourceTree = "<group>"; };
 		C92FAD49194BBBAC0047C5CF /* LocalReviewCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalReviewCreator.m; path = model/LocalReviewCreator.m; sourceTree = "<group>"; };
+		C92FAD4B194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookOpenGraphObjectCreator.h; path = model/FacebookOpenGraphObjectCreator.h; sourceTree = "<group>"; };
+		C92FAD4C194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookOpenGraphObjectCreator.m; path = model/FacebookOpenGraphObjectCreator.m; sourceTree = "<group>"; };
 		C93A739F18EF984D000E0B56 /* GetMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetMe.h; path = model/GetMe.h; sourceTree = "<group>"; };
 		C93A73A018EF984D000E0B56 /* GetMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetMe.m; path = model/GetMe.m; sourceTree = "<group>"; };
 		C93A73A318F09C46000E0B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone_CheckIn.storyboard; sourceTree = "<group>"; };
@@ -856,6 +859,8 @@
 				C9CF6595193813EA00D8E401 /* FacebookLoginViewDelegate.m */,
 				C988AF8A1915976600A3E13A /* FacebookProfileImageGetter.h */,
 				C988AF8B1915976600A3E13A /* FacebookProfileImageGetter.m */,
+				C92FAD4B194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.h */,
+				C92FAD4C194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.m */,
 				C93A739F18EF984D000E0B56 /* GetMe.h */,
 				C93A73A018EF984D000E0B56 /* GetMe.m */,
 				C9DEBC2218F9E85400134ECD /* ServerCommunicator.h */,
@@ -1085,6 +1090,7 @@
 				C9672E3D193FD33100C98FEC /* UserProfile_ICDTVC.m in Sources */,
 				C95CAADC18EB843E00E210D0 /* RatingPreparer.m in Sources */,
 				C9A73D8219030836007C2366 /* FlightHelper.m in Sources */,
+				C92FAD4D194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.m in Sources */,
 				C979E681192D831500B65680 /* WineList.m in Sources */,
 				C94E8E6E1925687200BB0669 /* ReviewsLabel.m in Sources */,
 				C9487D9A182EF119007F7E19 /* NSManagedObject+Helper.m in Sources */,
