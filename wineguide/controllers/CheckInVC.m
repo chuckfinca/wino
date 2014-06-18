@@ -17,7 +17,9 @@
 #import "SetRatingVC.h"
 #import "UIView+BorderDrawer.h"
 #import "FacebookSessionManager.h"
+#import "FacebookPermissionsHandler.h"
 #import "FacebookOpenGraphObjectCreator.h"
+#import "FacebookErrorHandler.h"
 #import "LocalTastingRecordCreator.h"
 #import "OutBox.h"
 
@@ -335,22 +337,36 @@
 
 -(void)shareTastingRecordToFacebook:(TastingRecord2 *)tastingRecord
 {
-    BOOL canPublishToFacebook = [[FacebookSessionManager sharedInstance] userHasPermission:FACEBOOK_PUBLISH_PERMISSION];
+    BOOL isLoggedIntoFacebook = [[FacebookSessionManager sharedInstance] userIsLoggedIn];
     
-    FacebookOpenGraphObjectCreator *objectCreator = [[FacebookOpenGraphObjectCreator alloc] init];
-    
-    if(canPublishToFacebook){
-        NSLog(@"canPublishToFacebook, proceed");
-        [objectCreator createObjectForTastingRecord:tastingRecord];
+    if(isLoggedIntoFacebook){
         
+        FacebookPermissionsHandler *permissionsHandler = [[FacebookPermissionsHandler alloc] init];
+        
+        BOOL canPublishToFacebook = [permissionsHandler userHasPermission:FACEBOOK_PUBLISH_PERMISSION];
+        
+        FacebookOpenGraphObjectCreator *objectCreator = [[FacebookOpenGraphObjectCreator alloc] init];
+        
+        if(canPublishToFacebook){
+            NSLog(@"canPublishToFacebook, proceed");
+            [objectCreator createObjectForTastingRecord:tastingRecord];
+            
+        } else {
+            [permissionsHandler requestPermission:FACEBOOK_PUBLISH_PERMISSION withCompletion:^(BOOL success) {
+                if(success){
+                    NSLog(@"success! proceed");
+                    [objectCreator createObjectForTastingRecord:tastingRecord];
+                    
+                } else {
+                    NSLog(@"request publish permission failed");
+                }
+            }];
+        }
     } else {
-        [[FacebookSessionManager sharedInstance] requestPermission:FACEBOOK_PUBLISH_PERMISSION withCompletion:^(BOOL success) {
-            if(success){
-                NSLog(@"success! proceed");
-                [objectCreator createObjectForTastingRecord:tastingRecord];
-                
-            } else {
-                NSLog(@"request publish permission failed");
+        
+        [[FacebookSessionManager sharedInstance] logInWithCompletion:^(BOOL loggedIn) {
+            if(loggedIn){
+                [self shareTastingRecordToFacebook:tastingRecord];
             }
         }];
     }

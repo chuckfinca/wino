@@ -755,7 +755,7 @@
 			name = managedObjectCategories;
 			sourceTree = "<group>";
 		};
-		C92FAD54195119D80047C5CF /* FacebookHelpers */ = {
+		C92FAD54195119D80047C5CF /* FacebookSDKHelpers */ = {
 			isa = PBXGroup;
 			children = (
 				C9B6B26718D8ED8E007406DC /* FacebookSessionManager.h */,
@@ -773,7 +773,7 @@
 				C92FAD5519511A090047C5CF /* FacebookErrorHandler.h */,
 				C92FAD5619511A090047C5CF /* FacebookErrorHandler.m */,
 			);
-			name = FacebookHelpers;
+			name = FacebookSDKHelpers;
 			sourceTree = "<group>";
 		};
 		C94E8E53192425B000BB0669 /* Wine Cell */ = {
@@ -878,7 +878,7 @@
 				C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */,
 				C9693532187D18BF0071EF41 /* FontThemer.h */,
 				C9693533187D18BF0071EF41 /* FontThemer.m */,
-				C92FAD54195119D80047C5CF /* FacebookHelpers */,
+				C92FAD54195119D80047C5CF /* FacebookSDKHelpers */,
 				C93A739F18EF984D000E0B56 /* GetMe.h */,
 				C93A73A018EF984D000E0B56 /* GetMe.m */,
 				C9DEBC2218F9E85400134ECD /* ServerCommunicator.h */,
