@@ -21,7 +21,6 @@
 @interface FacebookSessionManager ()
 
 @property (nonatomic, strong) NSArray *friends; // of NSDictionaries
-@property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic) BOOL haveUpdatedUserInfoThisSession;
 @property (nonatomic) BOOL haveUpdatedFriendInfoThisSession;
 
@@ -42,15 +41,6 @@ static FacebookSessionManager *sharedInstance;
 }
 
 #pragma mark - Getters & Setters
-
--(NSManagedObjectContext *)context
-{
-    if(!_context){
-        _context = [DocumentHandler2 sharedDocumentHandler].document.managedObjectContext;
-    }
-    return _context;
-}
-
 
 
 -(void)checkToken
