@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#define FACEBOOK_PUBLISH_PERMISSION @"publish_actions"
+#define FACEBOOK_TAGGABLE_FRIENDS_PERMISSION @"taggable_friends"
+#define FACEBOOK_USER_FRIENDS_PERMISSION @"user_friends"
+
 @interface FacebookPermissionsHandler : NSObject
+
+-(BOOL)userHasPermission:(NSString *)permission;
+-(void)requestPermission:(NSString *)permission withCompletion:(void (^)(BOOL success))completion;
 
 @end

@@ -15,6 +15,7 @@
 #import "Review2.h"
 #import "GetMe.h"
 #import <FBErrorUtility.h>
+#import "FacebookSessionManager.h"
 
 #define FACEBOOK_NAME_SPACE @"corkieapp"
 #define FACEBOOK_OBJECT_TYPE @"wine"
@@ -149,7 +150,16 @@
     if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryPermissions) {
         NSLog(@"Re-requesting permissions");
         // Ask for required permissions.
+        
+        
+        
+        
         //[self requestPermission];
+        
+        
+        
+        
+        
         return;
     }
     

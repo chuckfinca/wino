@@ -10,4 +10,8 @@
 
 @interface FacebookErrorHandler : NSObject
 
++(FacebookErrorHandler *)sharedInstance;
+
+-(void)handleError:(NSError *)error;
+
 @end

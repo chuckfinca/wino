@@ -32,6 +32,8 @@
 		C92FAD47194BB5F30047C5CF /* WineIsAFavoriteChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FAD46194BB5F30047C5CF /* WineIsAFavoriteChecker.m */; };
 		C92FAD4A194BBBAC0047C5CF /* LocalReviewCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FAD49194BBBAC0047C5CF /* LocalReviewCreator.m */; };
 		C92FAD4D194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FAD4C194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.m */; };
+		C92FAD53195117FC0047C5CF /* FacebookPermissionsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FAD52195117FC0047C5CF /* FacebookPermissionsHandler.m */; };
+		C92FAD5719511A090047C5CF /* FacebookErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C92FAD5619511A090047C5CF /* FacebookErrorHandler.m */; };
 		C93A73A118EF984D000E0B56 /* GetMe.m in Sources */ = {isa = PBXBuildFile; fileRef = C93A73A018EF984D000E0B56 /* GetMe.m */; };
 		C93A73A418F09C46000E0B56 /* iPhone_CheckIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93A73A218F09C46000E0B56 /* iPhone_CheckIn.storyboard */; };
 		C93E4F8D18E7672300D8C2DD /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93E4F8C18E7672300D8C2DD /* ReviewCell.xib */; };
@@ -202,6 +204,10 @@
 		C92FAD49194BBBAC0047C5CF /* LocalReviewCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalReviewCreator.m; path = model/LocalReviewCreator.m; sourceTree = "<group>"; };
 		C92FAD4B194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookOpenGraphObjectCreator.h; path = model/FacebookOpenGraphObjectCreator.h; sourceTree = "<group>"; };
 		C92FAD4C194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookOpenGraphObjectCreator.m; path = model/FacebookOpenGraphObjectCreator.m; sourceTree = "<group>"; };
+		C92FAD51195117FC0047C5CF /* FacebookPermissionsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookPermissionsHandler.h; path = model/FacebookSDKHelpers/FacebookPermissionsHandler.h; sourceTree = "<group>"; };
+		C92FAD52195117FC0047C5CF /* FacebookPermissionsHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookPermissionsHandler.m; path = model/FacebookSDKHelpers/FacebookPermissionsHandler.m; sourceTree = "<group>"; };
+		C92FAD5519511A090047C5CF /* FacebookErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookErrorHandler.h; path = model/FacebookSDKHelpers/FacebookErrorHandler.h; sourceTree = "<group>"; };
+		C92FAD5619511A090047C5CF /* FacebookErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookErrorHandler.m; path = model/FacebookSDKHelpers/FacebookErrorHandler.m; sourceTree = "<group>"; };
 		C93A739F18EF984D000E0B56 /* GetMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetMe.h; path = model/GetMe.h; sourceTree = "<group>"; };
 		C93A73A018EF984D000E0B56 /* GetMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetMe.m; path = model/GetMe.m; sourceTree = "<group>"; };
 		C93A73A318F09C46000E0B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone_CheckIn.storyboard; sourceTree = "<group>"; };
@@ -749,6 +755,27 @@
 			name = managedObjectCategories;
 			sourceTree = "<group>";
 		};
+		C92FAD54195119D80047C5CF /* FacebookHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				C9B6B26718D8ED8E007406DC /* FacebookSessionManager.h */,
+				C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */,
+				C96EBB3319368B1300E27798 /* FacebookUserConverter.h */,
+				C96EBB3419368B1300E27798 /* FacebookUserConverter.m */,
+				C9CF6594193813EA00D8E401 /* FacebookLoginViewDelegate.h */,
+				C9CF6595193813EA00D8E401 /* FacebookLoginViewDelegate.m */,
+				C988AF8A1915976600A3E13A /* FacebookProfileImageGetter.h */,
+				C988AF8B1915976600A3E13A /* FacebookProfileImageGetter.m */,
+				C92FAD4B194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.h */,
+				C92FAD4C194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.m */,
+				C92FAD51195117FC0047C5CF /* FacebookPermissionsHandler.h */,
+				C92FAD52195117FC0047C5CF /* FacebookPermissionsHandler.m */,
+				C92FAD5519511A090047C5CF /* FacebookErrorHandler.h */,
+				C92FAD5619511A090047C5CF /* FacebookErrorHandler.m */,
+			);
+			name = FacebookHelpers;
+			sourceTree = "<group>";
+		};
 		C94E8E53192425B000BB0669 /* Wine Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -851,16 +878,7 @@
 				C9C7D5EB183FDE5600A2E955 /* ColorSchemer.m */,
 				C9693532187D18BF0071EF41 /* FontThemer.h */,
 				C9693533187D18BF0071EF41 /* FontThemer.m */,
-				C9B6B26718D8ED8E007406DC /* FacebookSessionManager.h */,
-				C9B6B26818D8ED8E007406DC /* FacebookSessionManager.m */,
-				C96EBB3319368B1300E27798 /* FacebookUserConverter.h */,
-				C96EBB3419368B1300E27798 /* FacebookUserConverter.m */,
-				C9CF6594193813EA00D8E401 /* FacebookLoginViewDelegate.h */,
-				C9CF6595193813EA00D8E401 /* FacebookLoginViewDelegate.m */,
-				C988AF8A1915976600A3E13A /* FacebookProfileImageGetter.h */,
-				C988AF8B1915976600A3E13A /* FacebookProfileImageGetter.m */,
-				C92FAD4B194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.h */,
-				C92FAD4C194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.m */,
+				C92FAD54195119D80047C5CF /* FacebookHelpers */,
 				C93A739F18EF984D000E0B56 /* GetMe.h */,
 				C93A73A018EF984D000E0B56 /* GetMe.m */,
 				C9DEBC2218F9E85400134ECD /* ServerCommunicator.h */,
@@ -1075,6 +1093,7 @@
 				C92FAD4A194BBBAC0047C5CF /* LocalReviewCreator.m in Sources */,
 				C9672E571947BD6500C98FEC /* CheckInFriends_FLSICDTVC.m in Sources */,
 				C96D31C2191AB24100B340F4 /* Instructions_CDTVC.m in Sources */,
+				C92FAD5719511A090047C5CF /* FacebookErrorHandler.m in Sources */,
 				C9DEBC6C18FB694A00134ECD /* Wine2+Modify.m in Sources */,
 				C96928D818E0E069006ADCC4 /* Restaurant_SICDTVC.m in Sources */,
 				C9DDD08C1820307D000A6FD7 /* MainTabBarController.m in Sources */,
@@ -1091,6 +1110,7 @@
 				C95CAADC18EB843E00E210D0 /* RatingPreparer.m in Sources */,
 				C9A73D8219030836007C2366 /* FlightHelper.m in Sources */,
 				C92FAD4D194BC52B0047C5CF /* FacebookOpenGraphObjectCreator.m in Sources */,
+				C92FAD53195117FC0047C5CF /* FacebookPermissionsHandler.m in Sources */,
 				C979E681192D831500B65680 /* WineList.m in Sources */,
 				C94E8E6E1925687200BB0669 /* ReviewsLabel.m in Sources */,
 				C9487D9A182EF119007F7E19 /* NSManagedObject+Helper.m in Sources */,

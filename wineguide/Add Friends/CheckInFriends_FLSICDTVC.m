@@ -9,6 +9,7 @@
 #import "CheckInFriends_FLSICDTVC.h"
 #import "FacebookSessionManager.h"
 #import "FacebookLoginViewDelegate.h"
+#import "FacebookPermissionsHandler.h"
 
 #define NAVIGATION_BAR_OFFSET 20
 
@@ -40,6 +41,13 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeInstructionsCell) name:FACEBOOK_LOGIN_SUCCESSFUL object:nil];
+    
+    NSLog(@"\nuser is logged into Facebook = %i\n",[[FacebookSessionManager sharedInstance] userIsLoggedIn]);
+    
+    FacebookPermissionsHandler *permissionsHandler = [[FacebookPermissionsHandler alloc] init];
+    
+    NSLog(@"\n\nFACEBOOK_PUBLISH_PERMISSION - %i\nFACEBOOK_TAGGABLE_FRIENDS_PERMISSION - %i\nFACEBOOK_USER_FRIENDS_PERMISSION - %i",[permissionsHandler userHasPermission:FACEBOOK_PUBLISH_PERMISSION],[permissionsHandler userHasPermission:FACEBOOK_TAGGABLE_FRIENDS_PERMISSION],[permissionsHandler userHasPermission:FACEBOOK_USER_FRIENDS_PERMISSION]);
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
