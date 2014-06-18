@@ -64,6 +64,7 @@
 -(void)setupInstructionsCell
 {
     FBLoginView *loginView = [[FBLoginView alloc] init];
+    loginView.publishPermissions = FACEBOOK_DEFAULT_PERMISSIONS;
     loginView.delegate = self.facebookLoginViewDelegate;
     
     [self setupInstructionCellWithImage:nil

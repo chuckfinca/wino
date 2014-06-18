@@ -113,6 +113,7 @@
         
     } else {
         FBLoginView *loginView = [[FBLoginView alloc] init];
+        loginView.publishPermissions = FACEBOOK_DEFAULT_PERMISSIONS;
         loginView.delegate = self.facebookLoginViewDelegate;
         
         [self setupInstructionCellWithImage:[[UIImage imageNamed:@"user_default.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]

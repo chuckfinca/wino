@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <FBLoginView.h>
 
+#define FACEBOOK_DEFAULT_PERMISSIONS @[@"public_profile", @"email", @"user_friends"]
+
 @protocol FacebookLoginViewDelegateDelegate <NSObject>
 
 -(void)updateBasicInformation;
